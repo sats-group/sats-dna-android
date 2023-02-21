@@ -1,5 +1,7 @@
 package com.sats.dna.colors
 
+import android.content.res.Configuration.UI_MODE_NIGHT_NO
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement.spacedBy
@@ -14,41 +16,36 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.ListItem
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sats.dna.theme.SatsTheme
 
-@Preview
+@Preview("Light Mode", uiMode = UI_MODE_NIGHT_NO)
+@Preview("Dark Mode", uiMode = UI_MODE_NIGHT_YES)
 @Composable
-private fun LightColorsPreview() {
-    ColorsPreview(SatsLightColors)
-}
+private fun Preview() {
+    SatsTheme {
+        Surface(
+            Modifier.fillMaxWidth(),
+            color = SatsTheme.colors.background.primary,
+            contentColor = SatsTheme.colors.onBackground.primary,
+        ) {
+            Column {
+                val colors = SatsTheme.colors
 
-@Preview
-@Composable
-private fun DarkColorsPreview() {
-    ColorsPreview(SatsDarkColors)
-}
-
-@Composable
-private fun ColorsPreview(colors: SatsColors) {
-    Surface(Modifier.fillMaxWidth(), color = colors.background.primary, contentColor = colors.onBackground.primary) {
-        Column {
-            LazyColumn {
-                items(colors.toListItems()) { listItem ->
-                    when (listItem) {
-                        is ListItem.Header -> Header(listItem.title)
-                        is ListItem.ColorItem -> ColorListItem(listItem)
+                LazyColumn {
+                    items(colors.toListItems()) { listItem ->
+                        when (listItem) {
+                            is ListItem.Header -> Header(listItem.title)
+                            is ListItem.ColorItem -> ColorListItem(listItem)
+                        }
                     }
                 }
             }
@@ -58,10 +55,10 @@ private fun ColorsPreview(colors: SatsColors) {
 
 @Composable
 private fun Header(text: String) {
-    Row(Modifier.padding(16.dp), horizontalArrangement = spacedBy(16.dp)) {
+    Row(Modifier.padding(16.dp), spacedBy(16.dp)) {
         val baseLineModifier = Modifier
             .height(1.dp)
-            .align(Alignment.CenterVertically)
+            .align(CenterVertically)
             .background(SatsLightColors.onBackground.primary)
 
         Box(baseLineModifier.width(32.dp))
@@ -72,42 +69,33 @@ private fun Header(text: String) {
     }
 }
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
-private fun ColorListItem(color: ListItem.ColorItem) {
-    ListItem(
-        icon = {
-            Box(
-                modifier = Modifier
-                    .clip(CircleShape)
-                    .background(color.color)
-                    .border(2.dp, SatsLightColors.onBackground.primary, CircleShape)
-                    .size(40.dp),
+private fun ColorListItem(colorItem: ListItem.ColorItem) {
+    Row(Modifier.padding(16.dp), spacedBy(24.dp), CenterVertically) {
+        Box(
+            modifier = Modifier
+                .clip(CircleShape)
+                .background(colorItem.color)
+                .border(2.dp, SatsLightColors.onBackground.primary, CircleShape)
+                .size(40.dp),
+        )
+
+        Column(verticalArrangement = spacedBy(4.dp)) {
+            Text(colorItem.name, style = SatsTheme.typography.medium.basic)
+
+            Text(
+                colorItem.hexCode,
+                style = SatsTheme.typography.default.small,
+                color = SatsTheme.colors.onBackground.secondary,
             )
-        },
-        text = { Text(color.name) },
-        secondaryText = { Text(color.hexCode) },
-    )
+        }
+    }
 }
 
 private sealed class ListItem {
     data class Header(val title: String) : ListItem()
 
-    data class ColorItem(
-        val name: String,
-        val color: Brush,
-        val hexCode: String,
-    ) : ListItem() {
-        constructor(
-            name: String,
-            color: Color,
-            hexCode: String,
-        ) : this(
-            name = name,
-            color = SolidColor(color),
-            hexCode = hexCode,
-        )
-    }
+    data class ColorItem(val name: String, val color: Color, val hexCode: String) : ListItem()
 }
 
 private fun Color.toRgbaHex(): String {
@@ -121,8 +109,7 @@ private fun Color.toRgbaHex(): String {
 
 private fun SatsColors.toListItems(): List<ListItem> {
     return listOf(
-        // Primary
-        ListItem.Header(title = "Primary"),
+        ListItem.Header("Primary"),
         ListItem.ColorItem(
             name = "primary.default",
             color = primary.default,
@@ -134,8 +121,7 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = primary.disabled.toRgbaHex(),
         ),
 
-        // On Primary
-        ListItem.Header(title = "On Primary"),
+        ListItem.Header("On Primary"),
         ListItem.ColorItem(
             name = "onPrimary.default",
             color = onPrimary.default,
@@ -147,8 +133,7 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = onPrimary.disabled.toRgbaHex(),
         ),
 
-        // Secondary
-        ListItem.Header(title = "Secondary"),
+        ListItem.Header("Secondary"),
         ListItem.ColorItem(
             name = "secondary.default",
             color = secondary.default,
@@ -160,8 +145,7 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = secondary.disabled.toRgbaHex(),
         ),
 
-        // On Secondary
-        ListItem.Header(title = "On Secondary"),
+        ListItem.Header("On Secondary"),
         ListItem.ColorItem(
             name = "onSecondary.default",
             color = onSecondary.default,
@@ -173,7 +157,6 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = onSecondary.disabled.toRgbaHex(),
         ),
 
-        // Clean
         ListItem.Header("Clean"),
         ListItem.ColorItem(
             name = "clean.default",
@@ -186,7 +169,6 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = clean.disabled.toRgbaHex(),
         ),
 
-        // On Clean
         ListItem.Header("On Clean"),
         ListItem.ColorItem(
             name = "onClean.default",
@@ -199,7 +181,6 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = onClean.disabled.toRgbaHex(),
         ),
 
-        // Clean Secondary
         ListItem.Header("Clean Secondary"),
         ListItem.ColorItem(
             name = "cleanSecondary.default",
@@ -212,7 +193,6 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = cleanSecondary.disabled.toRgbaHex(),
         ),
 
-        // On Clean Secondary
         ListItem.Header("On Clean Secondary"),
         ListItem.ColorItem(
             name = "onCleanSecondary.default",
@@ -225,8 +205,7 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = onCleanSecondary.disabled.toRgbaHex(),
         ),
 
-        // CTA
-        ListItem.Header(title = "CTA"),
+        ListItem.Header("CTA"),
         ListItem.ColorItem(
             name = "cta.default",
             color = cta.default,
@@ -243,8 +222,7 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = cta.nonText.toRgbaHex(),
         ),
 
-        // On CTA
-        ListItem.Header(title = "On CTA"),
+        ListItem.Header("On CTA"),
         ListItem.ColorItem(
             name = "onCta.default",
             color = onCta.default,
@@ -261,8 +239,7 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = onCta.nonText.toRgbaHex(),
         ),
 
-        // Action
-        ListItem.Header(title = "Action"),
+        ListItem.Header("Action"),
         ListItem.ColorItem(
             name = "action.default",
             color = action.default,
@@ -274,40 +251,35 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = action.disabled.toRgbaHex(),
         ),
 
-        // Selection
-        ListItem.Header(title = "Selection"),
+        ListItem.Header("Selection"),
         ListItem.ColorItem(
             name = "selection",
             color = selection,
             hexCode = selection.toRgbaHex(),
         ),
 
-        // Navigation
-        ListItem.Header(title = "Navigation"),
+        ListItem.Header("Navigation"),
         ListItem.ColorItem(
             name = "navigation.primary",
             color = navigation,
             hexCode = navigation.toRgbaHex(),
         ),
 
-        // Waitlist
-        ListItem.Header(title = "Waitlist"),
+        ListItem.Header("Waitlist"),
         ListItem.ColorItem(
             name = "waitlist",
             color = waitlist,
             hexCode = waitlist.toRgbaHex(),
         ),
 
-        // On Waitlist
-        ListItem.Header(title = "On Waitlist"),
+        ListItem.Header("On Waitlist"),
         ListItem.ColorItem(
             name = "onWaitlist",
             color = onWaitlist,
             hexCode = onWaitlist.toRgbaHex(),
         ),
 
-        // Signal
-        ListItem.Header(title = "Signal"),
+        ListItem.Header("Signal"),
         ListItem.ColorItem(
             name = "signal.success",
             color = signal.success,
@@ -329,15 +301,14 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = signal.delete.toRgbaHex(),
         ),
 
-        // On Signal
-        ListItem.Header(title = "On Signal"),
+        ListItem.Header("On Signal"),
         ListItem.ColorItem(
             name = "onSignal",
             color = onSignal,
             hexCode = onSignal.toRgbaHex(),
         ),
 
-        ListItem.Header(title = "Signal Text"),
+        ListItem.Header("Signal Text"),
         ListItem.ColorItem(
             name = "signalText.success",
             color = signalText.success,
@@ -359,8 +330,7 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = signalText.delete.toRgbaHex(),
         ),
 
-        // UI
-        ListItem.Header(title = "UI"),
+        ListItem.Header("UI"),
         ListItem.ColorItem(
             name = "ui.tabs",
             color = ui.tabs,
@@ -412,8 +382,7 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = ui.graphicalElements7.toRgbaHex(),
         ),
 
-        // Challenges
-        ListItem.Header(title = "Challenges"),
+        ListItem.Header("Challenges"),
         ListItem.ColorItem(
             name = "challenges.inProgress",
             color = challenges.inProgress,
@@ -435,8 +404,7 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = challenges.notDone.toRgbaHex(),
         ),
 
-        // Background
-        ListItem.Header(title = "Background"),
+        ListItem.Header("Background"),
         ListItem.ColorItem(
             name = "background.primary",
             color = background.primary,
@@ -448,8 +416,7 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = background.secondary.toRgbaHex(),
         ),
 
-        // On Background
-        ListItem.Header(title = "On Background"),
+        ListItem.Header("On Background"),
         ListItem.ColorItem(
             name = "onBackground.controls.enabledOn",
             color = onBackground.controls.enabledOn,
@@ -486,8 +453,7 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = onBackground.disabled.toRgbaHex(),
         ),
 
-        // Surface
-        ListItem.Header(title = "Surface"),
+        ListItem.Header("Surface"),
         ListItem.ColorItem(
             name = "surface.primary",
             color = surface.primary,
@@ -499,8 +465,7 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = surface.secondary.toRgbaHex(),
         ),
 
-        // On Surface
-        ListItem.Header(title = "On Surface"),
+        ListItem.Header("On Surface"),
         ListItem.ColorItem(
             name = "onSurface.controls.enabledOn",
             color = onSurface.controls.enabledOn,
@@ -537,8 +502,7 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = onSurface.disabled.toRgbaHex(),
         ),
 
-        // Rewards
-        ListItem.Header(title = "Rewards"),
+        ListItem.Header("Rewards"),
         ListItem.ColorItem(
             name = "rewards.selection.blue",
             color = rewards.selection.blue,

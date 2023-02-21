@@ -1,34 +1,32 @@
 package com.sats.dna.typography
 
-import androidx.compose.foundation.layout.Arrangement
+import android.content.res.Configuration.UI_MODE_NIGHT_NO
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import androidx.compose.foundation.layout.Arrangement.SpaceEvenly
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sats.dna.theme.SatsTheme
 
-@Preview(widthDp = 800, heightDp = 350)
+@Preview("Light Mode", widthDp = 800, heightDp = 350, uiMode = UI_MODE_NIGHT_NO)
+@Preview("Dark Mode", widthDp = 800, heightDp = 350, uiMode = UI_MODE_NIGHT_YES)
 @Composable
 private fun Preview() {
     SatsTheme {
-        Surface(Modifier.fillMaxWidth()) {
-            Row(
-                Modifier.padding(32.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceEvenly,
-            ) {
-                SamplesColumn("Default", SatsTypographyImpl.default)
-                SamplesColumn("Medium", SatsTypographyImpl.medium)
-                SamplesColumn("Emphasis", SatsTypographyImpl.emphasis)
-                SamplesColumn("Sats Feeling", SatsTypographyImpl.satsFeeling)
+        Surface {
+            Row(Modifier.padding(32.dp), SpaceEvenly, CenterVertically) {
+                SamplesColumn("Default", SatsTheme.typography.default)
+                SamplesColumn("Medium", SatsTheme.typography.medium)
+                SamplesColumn("Emphasis", SatsTheme.typography.emphasis)
+                SamplesColumn("Sats Feeling", SatsTheme.typography.satsFeeling)
             }
         }
     }

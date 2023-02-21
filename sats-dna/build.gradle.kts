@@ -55,6 +55,7 @@ tasks.withType<KotlinCompile>().configureEach {
 dependencies {
     implementation(platform(libs.androidx.compose.bom))
 
+    implementation(libs.accompanist.systemUiController)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.material)
