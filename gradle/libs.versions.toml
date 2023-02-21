@@ -1,0 +1,16 @@
+[versions]
+agp = "8.1.0-alpha06"
+kotlin = "1.8.10"
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+[libraries]
+androidx-appcompat = "androidx.appcompat:appcompat:1.6.1"
+androidx-core = "androidx.core:core-ktx:1.9.0"
+androidx-test-espresso = "androidx.test.espresso:espresso-core:3.5.1"
+androidx-test-junit = "androidx.test.ext:junit:1.1.5"
+google-material = "com.google.android.material:material:1.8.0"
+junit4 = "junit:junit:4.13.2"
