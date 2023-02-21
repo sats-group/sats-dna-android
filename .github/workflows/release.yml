@@ -1,0 +1,45 @@
+name: Create Release and Publish
+
+on:
+  push:
+    tags:
+      - v*.*.*
+
+jobs:
+  create-release-and-publish:
+    name: Create Release and Publish
+    runs-on: buildjet-4vcpu-ubuntu-2204
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 19
+        uses: actions/setup-java@v3
+        with:
+          distribution: zulu
+          java-version: 19
+
+      - name: Generate Version Name
+        run: echo "VERSION_NAME=$(echo ${{ github.ref }} | sed 's/refs\/tags\/v//')" >> $GITHUB_ENV
+
+      - name: Run unit tests
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: build test
+
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          generateReleaseNotes: true
+          makeLatest: true
+
+      - name: Publish Artifacts
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: publish
+        env:
+          GH_PACKAGES_USERNAME: ${{ secrets.GH_PACKAGES_USERNAME }}
+          GH_PACKAGES_PASSWORD: ${{ secrets.GH_PACKAGES_PASSWORD }}
