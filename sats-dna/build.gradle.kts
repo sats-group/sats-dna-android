@@ -10,6 +10,10 @@ android {
     namespace = "com.sats.dna"
     compileSdk = 33
 
+    buildFeatures {
+        compose = true
+    }
+
     defaultConfig {
         minSdk = 23
 
@@ -27,6 +31,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    }
 }
 
 tasks.withType<KotlinCompile>().configureEach {
@@ -36,9 +44,20 @@ tasks.withType<KotlinCompile>().configureEach {
 }
 
 dependencies {
+    implementation(platform(libs.androidx.compose.bom))
+
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.core)
     implementation(libs.androidx.core)
     implementation(libs.google.material)
+
+    debugImplementation(libs.androidx.compose.ui.tooling)
 
     testImplementation(libs.junit4)
 
