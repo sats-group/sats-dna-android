@@ -1,0 +1,22 @@
+#! /usr/bin/bash
+
+log() {
+    echo
+    echo ==================================================
+    echo === "$1"
+    echo ==================================================
+    echo
+}
+
+set -e # make sure we abort if building fails
+
+version=$1
+
+if [ -z "$version" ]; then
+    version=$(git describe --tags --abbrev=0 --match='v*' | sed 's/v//')
+fi
+
+log "Building & publishing version $version"
+
+cd "$(dirname "$0")/.." # make sure we're executing from the project directory
+VERSION_NAME=$version ./gradlew build publishToMavenLocal
