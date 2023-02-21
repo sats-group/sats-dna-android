@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlinter)
+
+    id("maven-publish")
 }
 
 android {
@@ -36,6 +38,12 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
 }
 
 tasks.withType<KotlinCompile>().configureEach {
@@ -64,4 +72,33 @@ dependencies {
 
     androidTestImplementation(libs.androidx.test.junit)
     androidTestImplementation(libs.androidx.test.espresso)
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/sats-group/sats-dna-android")
+
+            credentials {
+                username = providers.gradleProperty("github.packages.username").orNull
+                    ?: System.getenv("GH_PACKAGES_USERNAME")
+
+                password = providers.gradleProperty("github.packages.password").orNull
+                    ?: System.getenv("GH_PACKAGES_PASSWORD")
+            }
+        }
+    }
+
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.sats.dna"
+            artifactId = "sats-dna"
+            version = System.getenv("VERSION_NAME")
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
 }
