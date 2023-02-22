@@ -1,7 +1,5 @@
 package com.sats.dna.colors
 
-import android.content.res.Configuration.UI_MODE_NIGHT_NO
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement.spacedBy
@@ -23,12 +21,11 @@ import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sats.dna.theme.SatsTheme
+import com.sats.dna.tooling.LightDarkPreview
 
-@Preview("Light Mode", uiMode = UI_MODE_NIGHT_NO)
-@Preview("Dark Mode", uiMode = UI_MODE_NIGHT_YES)
+@LightDarkPreview
 @Composable
 private fun Preview() {
     SatsTheme {

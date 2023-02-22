@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 pluginManagement {
     repositories {
         google()
@@ -17,4 +19,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Sats DNA Android"
 
+include(":core-tooling")
 include(":sats-dna")
