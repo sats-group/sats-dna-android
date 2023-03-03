@@ -124,5 +124,12 @@ internal val SatsLightColors = SatsColors(
         ),
     ),
 
+    workout = SatsColors.Workout(
+        pt = Color(0xFF428BBF),
+        gx = Color(0xFFDB70DD),
+        gymFloor = Color(0xFFD6BC38),
+        other = Color(0xFF42AE8A),
+    ),
+
     isLightMode = true,
 )

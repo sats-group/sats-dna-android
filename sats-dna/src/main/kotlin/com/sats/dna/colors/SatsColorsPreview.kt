@@ -520,5 +520,27 @@ private fun SatsColors.toListItems(): List<ListItem> {
             color = rewards.selection.platinum,
             hexCode = rewards.selection.platinum.toRgbaHex(),
         ),
+
+        ListItem.Header("Workout"),
+        ListItem.ColorItem(
+            name = "workout.gx",
+            color = workout.gx,
+            hexCode = workout.gx.toRgbaHex(),
+        ),
+        ListItem.ColorItem(
+            name = "workout.pt",
+            color = workout.pt,
+            hexCode = workout.pt.toRgbaHex(),
+        ),
+        ListItem.ColorItem(
+            name = "workout.gymFloor",
+            color = workout.gymFloor,
+            hexCode = workout.gymFloor.toRgbaHex(),
+        ),
+        ListItem.ColorItem(
+            name = "workout.other",
+            color = workout.other,
+            hexCode = workout.other.toRgbaHex(),
+        ),
     )
 }
