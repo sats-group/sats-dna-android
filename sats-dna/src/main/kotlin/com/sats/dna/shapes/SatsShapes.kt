@@ -22,6 +22,8 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.theme.SatsTheme
 
 object SatsShapes {
+    val roundedCorners = RoundedCorners
+
     object RoundedCorners {
         val extraSmall = RoundedCornerShape(4.dp)
         val small = RoundedCornerShape(8.dp)
@@ -35,11 +37,11 @@ object SatsShapes {
 @Composable
 private fun Preview() {
     val allShapes = mapOf(
-        "SatsShapes.RoundedCorners.extraSmall" to SatsShapes.RoundedCorners.extraSmall,
-        "SatsShapes.RoundedCorners.small" to SatsShapes.RoundedCorners.small,
-        "SatsShapes.RoundedCorners.medium" to SatsShapes.RoundedCorners.medium,
-        "SatsShapes.RoundedCorners.large" to SatsShapes.RoundedCorners.large,
-        "SatsShapes.RoundedCorners.circle" to SatsShapes.RoundedCorners.circle,
+        "SatsShapes.roundedCorners.extraSmall" to SatsShapes.roundedCorners.extraSmall,
+        "SatsShapes.roundedCorners.small" to SatsShapes.roundedCorners.small,
+        "SatsShapes.roundedCorners.medium" to SatsShapes.roundedCorners.medium,
+        "SatsShapes.roundedCorners.large" to SatsShapes.roundedCorners.large,
+        "SatsShapes.roundedCorners.circle" to SatsShapes.roundedCorners.circle,
     )
     SatsTheme {
         Surface {
