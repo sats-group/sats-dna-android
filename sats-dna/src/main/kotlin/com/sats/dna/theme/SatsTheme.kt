@@ -13,6 +13,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.sats.dna.colors.SatsColors
 import com.sats.dna.colors.SatsDarkColors
 import com.sats.dna.colors.SatsLightColors
+import com.sats.dna.shapes.SatsShapes
 import com.sats.dna.spacing.SatsSpacing
 import com.sats.dna.typography.FontInter
 import com.sats.dna.typography.SatsTypography
@@ -52,11 +53,15 @@ object SatsTheme {
 
     val spacing: SatsSpacing
         @Composable get() = LocalSatsSpacing.current
+
+    val shapes: SatsShapes
+        @Composable get() = LocalSatsShapes.current
 }
 
 internal val LocalSatsColors = staticCompositionLocalOf { SatsLightColors }
 internal val LocalSatsTypography = staticCompositionLocalOf { SatsTypographyImpl }
 internal val LocalSatsSpacing = staticCompositionLocalOf { SatsSpacing }
+internal val LocalSatsShapes = staticCompositionLocalOf { SatsShapes }
 
 private fun SatsColors.toMaterial() = Colors(
     background = background.primary,
