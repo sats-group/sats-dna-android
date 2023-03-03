@@ -12,7 +12,7 @@ plugins {
 }
 
 android {
-    namespace = "com.sats.dna"
+    namespace = "com.sats.dna.core.tooling"
     compileSdk = 33
 
     buildFeatures {
