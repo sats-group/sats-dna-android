@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -61,4 +63,33 @@ dependencies {
 
     androidTestImplementation(libs.androidx.test.junit)
     androidTestImplementation(libs.androidx.test.espresso)
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/sats-group/sats-dna-android")
+
+            credentials {
+                username = providers.gradleProperty("github.packages.username").orNull
+                    ?: System.getenv("GH_PACKAGES_USERNAME")
+
+                password = providers.gradleProperty("github.packages.password").orNull
+                    ?: System.getenv("GH_PACKAGES_PASSWORD")
+            }
+        }
+    }
+
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.sats.dna"
+            artifactId = "sats-dna"
+            version = System.getenv("VERSION_NAME")
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
 }
