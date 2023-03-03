@@ -21,8 +21,10 @@ object SatsIcons {
     val chevronRight @Composable get() = painterResource(R.drawable.ic_chevron_right)
     val comment @Composable get() = painterResource(R.drawable.ic_comment)
     val fistBump @Composable get() = painterResource(R.drawable.ic_fist_bump)
+    val users @Composable get() = painterResource(R.drawable.ic_users)
     val workoutGx @Composable get() = painterResource(R.drawable.ic_workout_gx)
     val workoutGymFloor @Composable get() = painterResource(R.drawable.ic_workout_gym_floor)
+    val workoutOther @Composable get() = painterResource(R.drawable.ic_workout_other)
     val workoutPt @Composable get() = painterResource(R.drawable.ic_workout_pt)
 }
 
@@ -48,7 +50,9 @@ private val allIcons: List<Painter>
         SatsIcons.chevronRight,
         SatsIcons.comment,
         SatsIcons.fistBump,
+        SatsIcons.users,
         SatsIcons.workoutGx,
         SatsIcons.workoutGymFloor,
+        SatsIcons.workoutOther,
         SatsIcons.workoutPt,
     )
