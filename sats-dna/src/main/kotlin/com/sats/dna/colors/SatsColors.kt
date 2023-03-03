@@ -28,6 +28,7 @@ data class SatsColors(
     val onWaitlist: Color,
     val onSignal: Color,
     val rewards: Rewards,
+    val workout: Workout,
 
     val isLightMode: Boolean,
 ) {
@@ -170,4 +171,11 @@ data class SatsColors(
             val platinum: Color,
         )
     }
+
+    data class Workout(
+        val pt: Color,
+        val gx: Color,
+        val gymFloor: Color,
+        val other: Color,
+    )
 }
