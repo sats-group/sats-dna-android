@@ -84,7 +84,7 @@ publishing {
     publications {
         register<MavenPublication>("release") {
             groupId = "com.sats.dna"
-            artifactId = "sats-dna"
+            artifactId = "core-tooling"
             version = System.getenv("VERSION_NAME")
 
             afterEvaluate {
