@@ -21,6 +21,20 @@ object SatsIcons {
     val chevronRight @Composable get() = painterResource(R.drawable.ic_chevron_right)
     val comment @Composable get() = painterResource(R.drawable.ic_comment)
     val fistBump @Composable get() = painterResource(R.drawable.ic_fist_bump)
+    val navActivityFilled @Composable get() = painterResource(R.drawable.ic_nav_activity_filled)
+    val navActivityOutlined @Composable get() = painterResource(R.drawable.ic_nav_activity_outlined)
+    val navBookFilled @Composable get() = painterResource(R.drawable.ic_nav_book_filled)
+    val navBookOutlined @Composable get() = painterResource(R.drawable.ic_nav_book_outlined)
+    val navClubsFilled @Composable get() = painterResource(R.drawable.ic_nav_clubs_filled)
+    val navClubsOutlined @Composable get() = painterResource(R.drawable.ic_nav_clubs_outlined)
+    val navHomeElixiaFilled @Composable get() = painterResource(R.drawable.ic_nav_home_elixia_filled)
+    val navHomeElixiaOutlined @Composable get() = painterResource(R.drawable.ic_nav_home_elixia_outlined)
+    val navHomeSatsFilled @Composable get() = painterResource(R.drawable.ic_nav_home_sats_filled)
+    val navHomeSatsOutlined @Composable get() = painterResource(R.drawable.ic_nav_home_sats_outlined)
+    val navProfileFilled @Composable get() = painterResource(R.drawable.ic_nav_profile_filled)
+    val navProfileOutlined @Composable get() = painterResource(R.drawable.ic_nav_profile_outlined)
+    val navQrFilled @Composable get() = painterResource(R.drawable.ic_nav_qr_filled)
+    val navQrOutlined @Composable get() = painterResource(R.drawable.ic_nav_qr_outlined)
     val users @Composable get() = painterResource(R.drawable.ic_users)
     val workoutGx @Composable get() = painterResource(R.drawable.ic_workout_gx)
     val workoutGymFloor @Composable get() = painterResource(R.drawable.ic_workout_gym_floor)
@@ -50,6 +64,20 @@ private val allIcons: List<Painter>
         SatsIcons.chevronRight,
         SatsIcons.comment,
         SatsIcons.fistBump,
+        SatsIcons.navActivityFilled,
+        SatsIcons.navActivityOutlined,
+        SatsIcons.navBookFilled,
+        SatsIcons.navBookOutlined,
+        SatsIcons.navClubsFilled,
+        SatsIcons.navClubsOutlined,
+        SatsIcons.navHomeElixiaFilled,
+        SatsIcons.navHomeElixiaOutlined,
+        SatsIcons.navHomeSatsFilled,
+        SatsIcons.navHomeSatsOutlined,
+        SatsIcons.navProfileFilled,
+        SatsIcons.navProfileOutlined,
+        SatsIcons.navQrFilled,
+        SatsIcons.navQrOutlined,
         SatsIcons.users,
         SatsIcons.workoutGx,
         SatsIcons.workoutGymFloor,
