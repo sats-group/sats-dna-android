@@ -21,6 +21,7 @@ object SatsIcons {
     val chevronRight @Composable get() = painterResource(R.drawable.ic_chevron_right)
     val comment @Composable get() = painterResource(R.drawable.ic_comment)
     val fistBump @Composable get() = painterResource(R.drawable.ic_fist_bump)
+    val linkExternal @Composable get() = painterResource(R.drawable.ic_link_external)
     val navActivityFilled @Composable get() = painterResource(R.drawable.ic_nav_activity_filled)
     val navActivityOutlined @Composable get() = painterResource(R.drawable.ic_nav_activity_outlined)
     val navBookFilled @Composable get() = painterResource(R.drawable.ic_nav_book_filled)
@@ -64,6 +65,7 @@ private val allIcons: List<Painter>
         SatsIcons.chevronRight,
         SatsIcons.comment,
         SatsIcons.fistBump,
+        SatsIcons.linkExternal,
         SatsIcons.navActivityFilled,
         SatsIcons.navActivityOutlined,
         SatsIcons.navBookFilled,
