@@ -20,6 +20,7 @@ import com.sats.dna.theme.SatsTheme
 object SatsIcons {
     val chevronRight @Composable get() = painterResource(R.drawable.ic_chevron_right)
     val comment @Composable get() = painterResource(R.drawable.ic_comment)
+    val linkExternal @Composable get() = painterResource(R.drawable.ic_link_external)
     val fistBump @Composable get() = painterResource(R.drawable.ic_fist_bump)
     val navActivityFilled @Composable get() = painterResource(R.drawable.ic_nav_activity_filled)
     val navActivityOutlined @Composable get() = painterResource(R.drawable.ic_nav_activity_outlined)
@@ -63,6 +64,7 @@ private val allIcons: List<Painter>
     @Composable get() = listOf(
         SatsIcons.chevronRight,
         SatsIcons.comment,
+        SatsIcons.linkExternal,
         SatsIcons.fistBump,
         SatsIcons.navActivityFilled,
         SatsIcons.navActivityOutlined,
