@@ -26,6 +26,8 @@ data class SatsColors(
     val selection: Color,
     val waitlist: Color,
     val onWaitlist: Color,
+    val waitingList: WaitingList,
+    val onWaitingList: OnWaitingList,
     val onSignal: Color,
     val rewards: Rewards,
     val workout: Workout,
@@ -160,6 +162,16 @@ data class SatsColors(
             val disabledOff: Color,
         )
     }
+
+    data class WaitingList(
+        val primary: Color,
+        val disabled: Color,
+    )
+
+    data class OnWaitingList(
+        val primary: Color,
+        val disabled: Color,
+    )
 
     data class Rewards(
         val selection: RewardsColors,
