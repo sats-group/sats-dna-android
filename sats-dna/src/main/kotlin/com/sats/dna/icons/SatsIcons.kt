@@ -18,6 +18,7 @@ import com.sats.dna.R
 import com.sats.dna.theme.SatsTheme
 
 object SatsIcons {
+    val back @Composable get() = painterResource(R.drawable.ic_back)
     val chevronRight @Composable get() = painterResource(R.drawable.ic_chevron_right)
     val comment @Composable get() = painterResource(R.drawable.ic_comment)
     val fistBump @Composable get() = painterResource(R.drawable.ic_fist_bump)
@@ -62,6 +63,7 @@ private fun Preview() {
 
 private val allIcons: List<Painter>
     @Composable get() = listOf(
+        SatsIcons.back,
         SatsIcons.chevronRight,
         SatsIcons.comment,
         SatsIcons.fistBump,

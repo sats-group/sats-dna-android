@@ -20,4 +20,5 @@ dependencyResolutionManagement {
 rootProject.name = "Sats DNA Android"
 
 include(":core-tooling")
+include(":sample-app")
 include(":sats-dna")
