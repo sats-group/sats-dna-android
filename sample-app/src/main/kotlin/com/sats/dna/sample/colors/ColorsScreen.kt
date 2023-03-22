@@ -235,6 +235,14 @@ private fun SatsColors.toListItems(): List<ListItem> {
         ColorItem("onSurface.secondary", onSurface.secondary),
         ColorItem("onSurface.disabled", onSurface.disabled),
 
+        HeaderItem("Waiting List"),
+        ColorItem("waitingList.primary", waitingList.primary),
+        ColorItem("waitingList.disabled", waitingList.disabled),
+
+        HeaderItem("On Waiting List"),
+        ColorItem("onWaitingList.primary", onWaitingList.primary),
+        ColorItem("onWaitingList.disabled", onWaitingList.disabled),
+
         HeaderItem("Rewards"),
         ColorItem("rewards.selection.blue", rewards.selection.blue),
         ColorItem("rewards.selection.silver", rewards.selection.silver),

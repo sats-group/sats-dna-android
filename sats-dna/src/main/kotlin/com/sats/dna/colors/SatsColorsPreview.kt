@@ -499,6 +499,30 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = onSurface.disabled.toRgbaHex(),
         ),
 
+        ListItem.Header("Waiting List"),
+        ListItem.ColorItem(
+            name = "waitingList.primary",
+            color = waitingList.primary,
+            hexCode = waitingList.primary.toRgbaHex(),
+        ),
+        ListItem.ColorItem(
+            name = "waitingList.disabled",
+            color = waitingList.disabled,
+            hexCode = waitingList.disabled.toRgbaHex(),
+        ),
+
+        ListItem.Header("On Waiting List"),
+        ListItem.ColorItem(
+            name = "onWaitingList.primary",
+            color = onWaitingList.primary,
+            hexCode = onWaitingList.primary.toRgbaHex(),
+        ),
+        ListItem.ColorItem(
+            name = "onWaitingList.disabled",
+            color = onWaitingList.disabled,
+            hexCode = onWaitingList.disabled.toRgbaHex(),
+        ),
+
         ListItem.Header("Rewards"),
         ListItem.ColorItem(
             name = "rewards.selection.blue",
