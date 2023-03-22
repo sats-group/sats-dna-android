@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Divider
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ListItem
 import androidx.compose.material.Text
@@ -20,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.google.accompanist.insets.ui.Scaffold
 import com.google.accompanist.insets.ui.TopAppBar
+import com.sats.dna.sample.navigateToButtons
 import com.sats.dna.sample.navigateToColors
 import com.sats.dna.sample.navigateToIcons
 import com.sats.dna.sample.navigateToTypography
@@ -55,6 +57,13 @@ internal fun HomeScreen(navController: NavController) {
             ListItem(
                 modifier = Modifier.clickable { navController.navigateToIcons() },
                 text = { Text("Icons") },
+            )
+
+            Divider(Modifier.padding(vertical = SatsTheme.spacing.s))
+
+            ListItem(
+                modifier = Modifier.clickable { navController.navigateToButtons() },
+                text = { Text("Buttons") },
             )
         }
     }
