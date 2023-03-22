@@ -49,7 +49,7 @@ fun SatsButton(
     }
 }
 
-enum class SatsButtonColor { Primary, Cta, Secondary }
+enum class SatsButtonColor { Primary, Cta, Secondary, Clean }
 
 @Composable
 private fun SatsButtonColor.toButtonColors() = when (this) {
@@ -72,6 +72,13 @@ private fun SatsButtonColor.toButtonColors() = when (this) {
         contentColor = SatsTheme.colors.onSecondary.default,
         disabledBackgroundColor = SatsTheme.colors.secondary.disabled,
         disabledContentColor = SatsTheme.colors.onSecondary.disabled,
+    )
+
+    SatsButtonColor.Clean -> ButtonDefaults.buttonColors(
+        backgroundColor = SatsTheme.colors.clean.default,
+        contentColor = SatsTheme.colors.onClean.default,
+        disabledBackgroundColor = SatsTheme.colors.clean.disabled,
+        disabledContentColor = SatsTheme.colors.onClean.disabled,
     )
 }
 
