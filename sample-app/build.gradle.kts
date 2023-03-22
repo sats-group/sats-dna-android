@@ -20,6 +20,9 @@ android {
     defaultConfig {
         minSdk = 23
         targetSdk = 33
+
+        versionCode = System.getenv("VERSION_CODE")?.toIntOrNull()
+        versionName = System.getenv("VERSION_NAME")
     }
 
     signingConfigs {
