@@ -106,7 +106,7 @@ jobs:
         run: rm $GITHUB_WORKSPACE/play-upload.keystore
 
       - name: Upload Bundle to Play Store
-        uses: r0adkll/upload-google-play@v1.1.1
+        uses: sindrenm/upload-google-play@v1.2.0
         with:
           releaseFiles: ./sample-app/build/outputs/bundle/release/sample-app-release.aab
           packageName: com.sats.dna.sample
