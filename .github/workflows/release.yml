@@ -34,6 +34,11 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: build
+        env:
+          SATS_KEYSTORE_FILE: ${{ github.workspace }}/play-upload.keystore
+          SATS_KEYSTORE_PASSWORD: ${{ secrets.PLAY_UPLOAD_KEYSTORE_PASSWORD }}
+          SATS_KEYSTORE_KEY_ALIAS: ${{ secrets.PLAY_UPLOAD_KEY_ALIAS }}
+          SATS_KEYSTORE_KEY_PASSWORD: ${{ secrets.PLAY_UPLOAD_KEY_PASSWORD }}
 
       - name: Remove Decoded Keystore File
         run: rm $GITHUB_WORKSPACE/play-upload.keystore
