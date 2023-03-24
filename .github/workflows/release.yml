@@ -25,10 +25,18 @@ jobs:
       - name: Generate Version Name
         run: echo "VERSION_NAME=$(echo ${{ github.ref }} | sed 's/refs\/tags\/v//')" >> $GITHUB_ENV
 
+      - name: Decode Keystore File
+        run: echo $KEYSTORE_FILE_BASE64 | base64 --decode - > $GITHUB_WORKSPACE/play-upload.keystore
+        env:
+          KEYSTORE_FILE_BASE64: ${{ secrets.PLAY_UPLOAD_KEYSTORE_FILE_BASE64 }}
+
       - name: Build library
         uses: gradle/gradle-build-action@v2
         with:
           arguments: build
+
+      - name: Remove Decoded Keystore File
+        run: rm $GITHUB_WORKSPACE/play-upload.keystore
 
       - name: Run tests
         uses: gradle/gradle-build-action@v2
@@ -69,7 +77,7 @@ jobs:
       - name: Generate Version Name
         run: echo "VERSION_NAME=$(echo ${{ github.ref }} | sed 's/refs\/tags\/v//')" >> $GITHUB_ENV
 
-      - name: Run unit tests
+      - name: Run Sample App unit tests
         uses: gradle/gradle-build-action@v2
         with:
           arguments: :sample-app:test
