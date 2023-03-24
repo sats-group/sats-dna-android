@@ -8,6 +8,7 @@ import androidx.navigation.NavGraphBuilder
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.navigation
 import com.sats.dna.sample.colors.ColorsScreen
+import com.sats.dna.sample.components.buttons.ButtonsScreen
 import com.sats.dna.sample.home.HomeScreen
 import com.sats.dna.sample.icons.IconsScreen
 import com.sats.dna.sample.typography.TypographyScreen
@@ -20,6 +21,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         colorsScreen(navigateUp = navController::navigateUp)
         iconsScreen(navigateUp = navController::navigateUp)
         typographyScreen(navigateUp = navController::navigateUp)
+        buttonsScreen(navigateUp = navController::navigateUp)
     }
 }
 
@@ -47,6 +49,12 @@ private fun NavGraphBuilder.iconsScreen(navigateUp: () -> Unit) {
     }
 }
 
+private fun NavGraphBuilder.buttonsScreen(navigateUp: () -> Unit) {
+    composable("/components/buttons") {
+        ButtonsScreen(navigateUp = navigateUp)
+    }
+}
+
 internal fun NavController.navigateToColors() {
     navigate("/colors")
 }
@@ -57,4 +65,8 @@ internal fun NavController.navigateToTypography() {
 
 internal fun NavController.navigateToIcons() {
     navigate("/icons")
+}
+
+internal fun NavController.navigateToButtons() {
+    navigate("/components/buttons")
 }
