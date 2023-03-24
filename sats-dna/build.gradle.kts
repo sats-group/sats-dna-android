@@ -25,9 +25,29 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
+    signingConfigs {
+        val satsMemberAppKeystoreFile: String? by project
+        val keystore = File(satsMemberAppKeystoreFile ?: System.getenv("SATS_KEYSTORE_FILE") ?: "")
+
+        register("play-app-signing") {
+            if (keystore.exists()) {
+                val satsMemberAppKeystorePassword: String? by project
+                val satsMemberAppKeyAlias: String? by project
+                val satsMemberAppKeyPassword: String? by project
+
+                storeFile = keystore
+                storePassword = satsMemberAppKeystorePassword ?: System.getenv("SATS_KEYSTORE_PASSWORD")
+                keyAlias = satsMemberAppKeyAlias ?: System.getenv("SATS_KEYSTORE_KEY_ALIAS")
+                keyPassword = satsMemberAppKeyPassword ?: System.getenv("SATS_KEYSTORE_KEY_PASSWORD")
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("play-app-signing")
+
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
