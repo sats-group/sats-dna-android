@@ -37,6 +37,8 @@ object SatsIcons {
     val navProfileOutlined @Composable get() = painterResource(R.drawable.ic_nav_profile_outlined)
     val navQrFilled @Composable get() = painterResource(R.drawable.ic_nav_qr_filled)
     val navQrOutlined @Composable get() = painterResource(R.drawable.ic_nav_qr_outlined)
+    val starFilled @Composable get() = painterResource(R.drawable.ic_star_filled)
+    val starOutlined @Composable get() = painterResource(R.drawable.ic_star_outlined)
     val users @Composable get() = painterResource(R.drawable.ic_users)
     val workoutGx @Composable get() = painterResource(R.drawable.ic_workout_gx)
     val workoutGymFloor @Composable get() = painterResource(R.drawable.ic_workout_gym_floor)
@@ -82,6 +84,8 @@ private val allIcons: List<Painter>
         SatsIcons.navProfileOutlined,
         SatsIcons.navQrFilled,
         SatsIcons.navQrOutlined,
+        SatsIcons.starFilled,
+        SatsIcons.starOutlined,
         SatsIcons.users,
         SatsIcons.workoutGx,
         SatsIcons.workoutGymFloor,
