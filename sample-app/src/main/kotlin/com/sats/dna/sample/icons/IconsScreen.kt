@@ -77,6 +77,8 @@ private fun SatsIcons.toIconDataList() = listOf(
     IconData("navProfileOutlined", navProfileOutlined),
     IconData("navQrFilled", navQrFilled),
     IconData("navQrOutlined", navQrOutlined),
+    IconData("starFilled", starFilled),
+    IconData("starOutlined", starOutlined),
     IconData("users", users),
     IconData("workoutGx", workoutGx),
     IconData("workoutGymFloor", workoutGymFloor),
