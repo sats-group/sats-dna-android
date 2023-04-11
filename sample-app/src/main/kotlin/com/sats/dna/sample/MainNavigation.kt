@@ -9,6 +9,7 @@ import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.navigation
 import com.sats.dna.sample.colors.ColorsScreen
 import com.sats.dna.sample.components.buttons.ButtonsScreen
+import com.sats.dna.sample.components.chip.ChipsScreen
 import com.sats.dna.sample.home.HomeScreen
 import com.sats.dna.sample.icons.IconsScreen
 import com.sats.dna.sample.typography.TypographyScreen
@@ -22,6 +23,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         iconsScreen(navigateUp = navController::navigateUp)
         typographyScreen(navigateUp = navController::navigateUp)
         buttonsScreen(navigateUp = navController::navigateUp)
+        chipsScreen(navigateUp = navController::navigateUp)
     }
 }
 
@@ -55,6 +57,12 @@ private fun NavGraphBuilder.buttonsScreen(navigateUp: () -> Unit) {
     }
 }
 
+private fun NavGraphBuilder.chipsScreen(navigateUp: () -> Unit) {
+    composable("/components/chips") {
+        ChipsScreen(navigateUp = navigateUp)
+    }
+}
+
 internal fun NavController.navigateToColors() {
     navigate("/colors")
 }
@@ -69,4 +77,8 @@ internal fun NavController.navigateToIcons() {
 
 internal fun NavController.navigateToButtons() {
     navigate("/components/buttons")
+}
+
+internal fun NavController.navigateToChips() {
+    navigate("/components/chips")
 }
