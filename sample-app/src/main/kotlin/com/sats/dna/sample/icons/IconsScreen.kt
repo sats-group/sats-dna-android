@@ -62,6 +62,7 @@ private fun SatsIcons.toIconDataList() = listOf(
     IconData("chevronRight", chevronRight),
     IconData("comment", comment),
     IconData("fistBump", fistBump),
+    IconData("gxClass", gxClass),
     IconData("linkExternal", linkExternal),
     IconData("navActivityFilled", navActivityFilled),
     IconData("navActivityOutlined", navActivityOutlined),
