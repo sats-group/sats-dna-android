@@ -10,6 +10,7 @@ import com.google.accompanist.navigation.animation.navigation
 import com.sats.dna.sample.colors.ColorsScreen
 import com.sats.dna.sample.components.buttons.ButtonsScreen
 import com.sats.dna.sample.components.chip.ChipsScreen
+import com.sats.dna.sample.components.progressbar.ProgressBarsScreen
 import com.sats.dna.sample.home.HomeScreen
 import com.sats.dna.sample.icons.IconsScreen
 import com.sats.dna.sample.typography.TypographyScreen
@@ -22,8 +23,10 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         colorsScreen(navigateUp = navController::navigateUp)
         iconsScreen(navigateUp = navController::navigateUp)
         typographyScreen(navigateUp = navController::navigateUp)
+
         buttonsScreen(navigateUp = navController::navigateUp)
         chipsScreen(navigateUp = navController::navigateUp)
+        progressBarsScreen(navigateUp = navController::navigateUp)
     }
 }
 
@@ -63,6 +66,12 @@ private fun NavGraphBuilder.chipsScreen(navigateUp: () -> Unit) {
     }
 }
 
+private fun NavGraphBuilder.progressBarsScreen(navigateUp: () -> Unit) {
+    composable("/components/progress-bars") {
+        ProgressBarsScreen(navigateUp = navigateUp)
+    }
+}
+
 internal fun NavController.navigateToColors() {
     navigate("/colors")
 }
@@ -81,4 +90,8 @@ internal fun NavController.navigateToButtons() {
 
 internal fun NavController.navigateToChips() {
     navigate("/components/chips")
+}
+
+internal fun NavController.navigateToProgressBars() {
+    navigate("/components/progress-bars")
 }
