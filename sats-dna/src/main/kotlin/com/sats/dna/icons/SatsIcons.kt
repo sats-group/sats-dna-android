@@ -22,6 +22,7 @@ object SatsIcons {
     val chevronRight @Composable get() = painterResource(R.drawable.ic_chevron_right)
     val comment @Composable get() = painterResource(R.drawable.ic_comment)
     val fistBump @Composable get() = painterResource(R.drawable.ic_fist_bump)
+    val graph @Composable get() = painterResource(R.drawable.ic_graph)
     val gxClass @Composable get() = painterResource(R.drawable.ic_class)
     val linkExternal @Composable get() = painterResource(R.drawable.ic_link_external)
     val navActivityFilled @Composable get() = painterResource(R.drawable.ic_nav_activity_filled)
@@ -40,6 +41,7 @@ object SatsIcons {
     val navQrOutlined @Composable get() = painterResource(R.drawable.ic_nav_qr_outlined)
     val starFilled @Composable get() = painterResource(R.drawable.ic_star_filled)
     val starOutlined @Composable get() = painterResource(R.drawable.ic_star_outlined)
+    val trophy @Composable get() = painterResource(R.drawable.ic_trophy)
     val users @Composable get() = painterResource(R.drawable.ic_users)
     val workoutGx @Composable get() = painterResource(R.drawable.ic_workout_gx)
     val workoutGymFloor @Composable get() = painterResource(R.drawable.ic_workout_gym_floor)
@@ -70,6 +72,7 @@ private val allIcons: List<Painter>
         SatsIcons.chevronRight,
         SatsIcons.comment,
         SatsIcons.fistBump,
+        SatsIcons.graph,
         SatsIcons.linkExternal,
         SatsIcons.navActivityFilled,
         SatsIcons.navActivityOutlined,
@@ -87,6 +90,7 @@ private val allIcons: List<Painter>
         SatsIcons.navQrOutlined,
         SatsIcons.starFilled,
         SatsIcons.starOutlined,
+        SatsIcons.trophy,
         SatsIcons.users,
         SatsIcons.workoutGx,
         SatsIcons.workoutGymFloor,
