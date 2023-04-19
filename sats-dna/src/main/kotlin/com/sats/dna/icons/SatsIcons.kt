@@ -43,6 +43,7 @@ object SatsIcons {
     val hidden @Composable get() = painterResource(R.drawable.ic_hidden)
     val imagePlaceholder @Composable get() = painterResource(R.drawable.ic_image_placeholder)
     val images @Composable get() = painterResource(R.drawable.ic_images)
+    val info @Composable get() = painterResource(R.drawable.ic_info)
     val join @Composable get() = painterResource(R.drawable.ic_join)
     val linkExternal @Composable get() = painterResource(R.drawable.ic_link_external)
     val location @Composable get() = painterResource(R.drawable.ic_location)
