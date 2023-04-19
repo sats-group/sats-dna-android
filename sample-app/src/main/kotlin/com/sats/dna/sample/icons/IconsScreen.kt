@@ -144,6 +144,7 @@ private fun SatsIcons.toIconDataList() = listOf(
     IconData("hidden", hidden),
     IconData("imagePlaceholder", imagePlaceholder),
     IconData("images", images),
+    IconData("info", info),
     IconData("join", join),
     IconData("linkExternal", linkExternal),
     IconData("location", location),
