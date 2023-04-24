@@ -9,6 +9,7 @@ jobs:
   build-and-release-lib:
     name: Build and Release Library
     runs-on: buildjet-4vcpu-ubuntu-2204
+    timeout-minutes: 45
     permissions:
       contents: write
 
@@ -65,6 +66,7 @@ jobs:
   build-and-release-sample-app:
     name: Build and Release Sample App
     runs-on: buildjet-4vcpu-ubuntu-2204
+    timeout-minutes: 45
 
     steps:
       - name: Checkout Code
