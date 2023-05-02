@@ -1,6 +1,6 @@
 [versions]
 accompanist = "0.30.1"
-agp = "8.0.0"
+agp = "8.0.1"
 compose-compiler = "1.4.6"
 kotlin = "1.8.20"
 
