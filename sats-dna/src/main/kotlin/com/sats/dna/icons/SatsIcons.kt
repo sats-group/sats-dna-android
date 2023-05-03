@@ -49,6 +49,7 @@ object SatsIcons {
     val location @Composable get() = painterResource(R.drawable.ic_location)
     val lock @Composable get() = painterResource(R.drawable.ic_lock)
     val logOut @Composable get() = painterResource(R.drawable.ic_log_out)
+    val moreHorizontal @Composable get() = painterResource(R.drawable.ic_more_horizontal)
     val moreVertical @Composable get() = painterResource(R.drawable.ic_more_vertical)
     val myPage @Composable get() = painterResource(R.drawable.ic_my_page)
     val navActivityFilled @Composable get() = painterResource(R.drawable.ic_nav_activity_filled)
