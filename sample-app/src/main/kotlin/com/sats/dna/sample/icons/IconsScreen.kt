@@ -150,6 +150,7 @@ private fun SatsIcons.toIconDataList() = listOf(
     IconData("location", location),
     IconData("lock", lock),
     IconData("logOut", logOut),
+    IconData("moreHorizontal", moreHorizontal),
     IconData("moreVertical", moreVertical),
     IconData("myPage", myPage),
     IconData("navActivityFilled", navActivityFilled),
