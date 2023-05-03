@@ -1,8 +1,8 @@
 [versions]
 accompanist = "0.30.1"
 agp = "8.0.1"
-compose-compiler = "1.4.6"
-kotlin = "1.8.20"
+compose-compiler = "1.4.7"
+kotlin = "1.8.21"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
