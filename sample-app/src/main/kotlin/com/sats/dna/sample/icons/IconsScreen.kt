@@ -126,6 +126,7 @@ private fun SatsIcons.toIconDataList() = listOf(
     IconData("calendar", calendar),
     IconData("check", check),
     IconData("checkRound", checkRound),
+    IconData("checkSeal", checkSeal),
     IconData("chevronDown", chevronDown),
     IconData("chevronRight", chevronRight),
     IconData("chevronUp", chevronUp),
