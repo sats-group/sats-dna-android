@@ -25,6 +25,7 @@ object SatsIcons {
     val calendar @Composable get() = painterResource(R.drawable.ic_calendar)
     val check @Composable get() = painterResource(R.drawable.ic_check)
     val checkRound @Composable get() = painterResource(R.drawable.ic_check_round)
+    val checkSeal @Composable get() = painterResource(R.drawable.ic_check_seal)
     val chevronDown @Composable get() = painterResource(R.drawable.ic_chevron_down)
     val chevronRight @Composable get() = painterResource(R.drawable.ic_chevron_right)
     val chevronUp @Composable get() = painterResource(R.drawable.ic_chevron_up)
