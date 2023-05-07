@@ -14,6 +14,7 @@ import com.sats.dna.sample.components.card.SatsCardScreen
 import com.sats.dna.sample.components.chip.ChipsScreen
 import com.sats.dna.sample.components.navigation.BottomNavigationScreen
 import com.sats.dna.sample.components.progressbar.ProgressBarsScreen
+import com.sats.dna.sample.components.schedule.ScheduleScreen
 import com.sats.dna.sample.home.HomeScreen
 import com.sats.dna.sample.icons.IconsScreen
 import com.sats.dna.sample.typography.TypographyScreen
@@ -33,6 +34,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         topAppBarScreen(navController::navigateUp)
         cardScreen(navController::navigateUp)
         bottomNavigationScreen(navController::navigateUp)
+        scheduleScreen(navController::navigateUp)
     }
 }
 
@@ -96,6 +98,12 @@ private fun NavGraphBuilder.bottomNavigationScreen(navigateUp: () -> Unit) {
     }
 }
 
+private fun NavGraphBuilder.scheduleScreen(navigateUp: () -> Unit) {
+    composable("/components/schedule") {
+        ScheduleScreen(navigateUp = navigateUp)
+    }
+}
+
 internal fun NavController.navigateToColors() {
     navigate("/colors")
 }
@@ -130,4 +138,8 @@ internal fun NavController.navigateToCardScreen() {
 
 internal fun NavController.navigateToBottomNavigationScreen() {
     navigate("/components/bottom-navigation")
+}
+
+internal fun NavController.navigateToSchedule() {
+    navigate("/components/schedule")
 }
