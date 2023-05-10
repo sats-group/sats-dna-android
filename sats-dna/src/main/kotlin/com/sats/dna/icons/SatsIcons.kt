@@ -37,6 +37,7 @@ object SatsIcons {
     val filter @Composable get() = painterResource(R.drawable.ic_filter)
     val findFriends @Composable get() = painterResource(R.drawable.ic_find_friends)
     val fistBump @Composable get() = painterResource(R.drawable.ic_fist_bump)
+    val flame @Composable get() = painterResource(R.drawable.ic_flame)
     val followersAndFollowees @Composable get() = painterResource(R.drawable.ic_followers_and_followees)
     val graph @Composable get() = painterResource(R.drawable.ic_graph)
     val gxClass @Composable get() = painterResource(R.drawable.ic_class)
