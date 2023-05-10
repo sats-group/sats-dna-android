@@ -169,6 +169,7 @@ data class SatsColors(
 
     data class WaitingList(
         val primary: Color,
+        val text: Color,
         val disabled: Color,
     )
 

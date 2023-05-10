@@ -237,6 +237,7 @@ private fun SatsColors.toListItems(): List<ListItem> {
 
         HeaderItem("Waiting List"),
         ColorItem("waitingList.primary", waitingList.primary),
+        ColorItem("waitingList.text", waitingList.text),
         ColorItem("waitingList.disabled", waitingList.disabled),
 
         HeaderItem("On Waiting List"),
