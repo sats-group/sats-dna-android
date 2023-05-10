@@ -19,4 +19,4 @@ fi
 log "Building & publishing version $version"
 
 cd "$(dirname "$0")/.." # make sure we're executing from the project directory
-VERSION_NAME=$version ./gradlew :sats-dna:build :sats-dna:publishToMavenLocal
+VERSION_NAME=$version ./gradlew :sats-dna:build publishToMavenLocal
