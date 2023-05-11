@@ -8,6 +8,7 @@ import androidx.navigation.NavGraphBuilder
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.navigation
 import com.sats.dna.sample.colors.ColorsScreen
+import com.sats.dna.sample.components.appbar.SatsTopAppBarScreen
 import com.sats.dna.sample.components.buttons.ButtonsScreen
 import com.sats.dna.sample.components.chip.ChipsScreen
 import com.sats.dna.sample.components.progressbar.ProgressBarsScreen
@@ -20,13 +21,14 @@ internal const val MainRoute = "sats-dna"
 internal fun NavGraphBuilder.mainGraph(navController: NavController) {
     navigation(startDestination = "/", MainRoute) {
         homeScreen(navController)
-        colorsScreen(navigateUp = navController::navigateUp)
-        iconsScreen(navigateUp = navController::navigateUp)
-        typographyScreen(navigateUp = navController::navigateUp)
+        colorsScreen(navController::navigateUp)
+        iconsScreen(navController::navigateUp)
+        typographyScreen(navController::navigateUp)
 
-        buttonsScreen(navigateUp = navController::navigateUp)
-        chipsScreen(navigateUp = navController::navigateUp)
-        progressBarsScreen(navigateUp = navController::navigateUp)
+        buttonsScreen(navController::navigateUp)
+        chipsScreen(navController::navigateUp)
+        progressBarsScreen(navController::navigateUp)
+        topAppBarScreen(navController::navigateUp)
     }
 }
 
@@ -72,6 +74,12 @@ private fun NavGraphBuilder.progressBarsScreen(navigateUp: () -> Unit) {
     }
 }
 
+private fun NavGraphBuilder.topAppBarScreen(navigateUp: () -> Unit) {
+    composable("/components/top-app-bar") {
+        SatsTopAppBarScreen(navigateUp = navigateUp)
+    }
+}
+
 internal fun NavController.navigateToColors() {
     navigate("/colors")
 }
@@ -94,4 +102,8 @@ internal fun NavController.navigateToChips() {
 
 internal fun NavController.navigateToProgressBars() {
     navigate("/components/progress-bars")
+}
+
+internal fun NavController.navigateToTopAppBarScreen() {
+    navigate("/components/top-app-bar")
 }
