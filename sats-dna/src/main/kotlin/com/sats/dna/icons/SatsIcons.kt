@@ -26,6 +26,7 @@ object SatsIcons {
     val check @Composable get() = painterResource(R.drawable.ic_check)
     val checkRound @Composable get() = painterResource(R.drawable.ic_check_round)
     val checkSeal @Composable get() = painterResource(R.drawable.ic_check_seal)
+    val checkThin @Composable get() = painterResource(R.drawable.ic_check_thin)
     val chevronDown @Composable get() = painterResource(R.drawable.ic_chevron_down)
     val chevronRight @Composable get() = painterResource(R.drawable.ic_chevron_right)
     val chevronUp @Composable get() = painterResource(R.drawable.ic_chevron_up)
@@ -117,6 +118,7 @@ private fun Preview() {
 private val allIcons: List<Painter>
     @Composable get() = listOf(
         SatsIcons.back,
+        SatsIcons.checkThin,
         SatsIcons.chevronRight,
         SatsIcons.comment,
         SatsIcons.fistBump,
