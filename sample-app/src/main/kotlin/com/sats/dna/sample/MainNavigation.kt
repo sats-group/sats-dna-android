@@ -12,6 +12,7 @@ import com.sats.dna.sample.components.appbar.SatsTopAppBarScreen
 import com.sats.dna.sample.components.buttons.ButtonsScreen
 import com.sats.dna.sample.components.card.SatsCardScreen
 import com.sats.dna.sample.components.chip.ChipsScreen
+import com.sats.dna.sample.components.navigation.BottomNavigationScreen
 import com.sats.dna.sample.components.progressbar.ProgressBarsScreen
 import com.sats.dna.sample.home.HomeScreen
 import com.sats.dna.sample.icons.IconsScreen
@@ -31,6 +32,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         progressBarsScreen(navController::navigateUp)
         topAppBarScreen(navController::navigateUp)
         cardScreen(navController::navigateUp)
+        bottomNavigationScreen(navController::navigateUp)
     }
 }
 
@@ -88,6 +90,12 @@ private fun NavGraphBuilder.cardScreen(navigateUp: () -> Unit) {
     }
 }
 
+private fun NavGraphBuilder.bottomNavigationScreen(navigateUp: () -> Unit) {
+    composable("/components/bottom-navigation") {
+        BottomNavigationScreen(navigateUp = navigateUp)
+    }
+}
+
 internal fun NavController.navigateToColors() {
     navigate("/colors")
 }
@@ -118,4 +126,8 @@ internal fun NavController.navigateToTopAppBarScreen() {
 
 internal fun NavController.navigateToCardScreen() {
     navigate("/components/card")
+}
+
+internal fun NavController.navigateToBottomNavigationScreen() {
+    navigate("/components/bottom-navigation")
 }
