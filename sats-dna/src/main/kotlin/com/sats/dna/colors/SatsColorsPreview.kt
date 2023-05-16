@@ -262,20 +262,6 @@ private fun SatsColors.toListItems(): List<ListItem> {
             hexCode = navigation.toRgbaHex(),
         ),
 
-        ListItem.Header("Waitlist"),
-        ListItem.ColorItem(
-            name = "waitlist",
-            color = waitlist,
-            hexCode = waitlist.toRgbaHex(),
-        ),
-
-        ListItem.Header("On Waitlist"),
-        ListItem.ColorItem(
-            name = "onWaitlist",
-            color = onWaitlist,
-            hexCode = onWaitlist.toRgbaHex(),
-        ),
-
         ListItem.Header("Signal"),
         ListItem.ColorItem(
             name = "signal.success",

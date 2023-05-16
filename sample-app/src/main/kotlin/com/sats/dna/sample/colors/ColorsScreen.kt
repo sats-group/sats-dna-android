@@ -170,12 +170,6 @@ private fun SatsColors.toListItems(): List<ListItem> {
         HeaderItem("Navigation"),
         ColorItem("navigation.primary", navigation),
 
-        HeaderItem("Waitlist"),
-        ColorItem("waitlist", waitlist),
-
-        HeaderItem("On Waitlist"),
-        ColorItem("onWaitlist", onWaitlist),
-
         HeaderItem("Signal"),
         ColorItem("signal.success", signal.success),
         ColorItem("signal.warning", signal.warning),

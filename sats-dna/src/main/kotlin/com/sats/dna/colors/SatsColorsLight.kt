@@ -123,8 +123,6 @@ internal val SatsLightColors = SatsColors(
     ),
 
     selection = Color(0xFFFA5333),
-    waitlist = Color(0xFF484BA2),
-    onWaitlist = Color(0xFFFFFFFF),
     onSignal = Color(0xFFFFFFFF),
 
     rewards = SatsColors.Rewards(
