@@ -113,5 +113,5 @@ jobs:
           releaseFiles: ./sample-app/build/outputs/bundle/release/sample-app-release.aab
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
           packageName: com.sats.dna.sample
-          track: internal
+          track: beta
           inAppUpdatePriority: 5
