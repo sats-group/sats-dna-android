@@ -1,9 +1,12 @@
 package com.sats.dna.components.navigation
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Surface
@@ -36,8 +39,10 @@ fun SatsBottomNavigation(
         contentColor = SatsTheme.colors.onSurface.primary,
     ) {
         state.items.forEach { item ->
+            val icon = if (item == state.selectedItem) item.selectedIcon else item.unselectedIcon
+
             BottomNavigationItem(
-                icon = { BottomNavIcon(if (item == state.selectedItem) item.selectedIcon else item.unselectedIcon) },
+                icon = { BottomNavIcon(icon, item.hasBadge) },
                 label = { BottomNavLabel(item) },
                 selected = item == state.selectedItem,
                 selectedContentColor = SatsTheme.colors.navigation,
@@ -60,8 +65,19 @@ fun rememberSatsBottomNavigationState(items: List<SatsBottomNavigationItem>): Sa
 }
 
 @Composable
-private fun BottomNavIcon(icon: Painter) {
-    Icon(icon, contentDescription = null, Modifier.size(24.dp))
+private fun BottomNavIcon(icon: Painter, hasBadge: Boolean) {
+    Box {
+        Icon(icon, contentDescription = null, Modifier.size(24.dp))
+
+        if (hasBadge) {
+            BottomNavIconBadge(Modifier.align(Alignment.TopEnd))
+        }
+    }
+}
+
+@Composable
+private fun BottomNavIconBadge(modifier: Modifier = Modifier) {
+    Box(modifier.size(8.dp).background(SatsTheme.colors.cta.default, CircleShape))
 }
 
 @Composable
@@ -73,6 +89,7 @@ data class SatsBottomNavigationItem(
     val selectedIcon: Painter,
     val unselectedIcon: Painter,
     val label: String,
+    val hasBadge: Boolean = false,
 )
 
 @LightDarkPreview
@@ -124,6 +141,7 @@ private fun rememberSampleBottomNavigationState() = rememberSatsBottomNavigation
             selectedIcon = SatsTheme.icons.navActivityFilled,
             unselectedIcon = SatsTheme.icons.navActivityOutlined,
             label = "Activity",
+            hasBadge = true,
         ),
     ),
 )
