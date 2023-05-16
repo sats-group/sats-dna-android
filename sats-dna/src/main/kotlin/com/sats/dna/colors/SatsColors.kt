@@ -24,12 +24,6 @@ data class SatsColors(
     val surface: Surface,
     val onSurface: OnSurface,
     val selection: Color,
-
-    @Deprecated("Replace with one of the waitingList colors, e.g. waitingList.primary")
-    val waitlist: Color,
-
-    @Deprecated("Replace with one of the onWaitingList colors, e.g. onWaitingList.primary")
-    val onWaitlist: Color,
     val waitingList: WaitingList,
     val onWaitingList: OnWaitingList,
     val onSignal: Color,
