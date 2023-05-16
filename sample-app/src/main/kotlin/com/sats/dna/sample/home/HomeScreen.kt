@@ -22,6 +22,7 @@ import androidx.navigation.NavController
 import com.google.accompanist.insets.ui.Scaffold
 import com.google.accompanist.insets.ui.TopAppBar
 import com.sats.dna.sample.navigateToButtons
+import com.sats.dna.sample.navigateToCardScreen
 import com.sats.dna.sample.navigateToChips
 import com.sats.dna.sample.navigateToColors
 import com.sats.dna.sample.navigateToIcons
@@ -82,6 +83,11 @@ internal fun HomeScreen(navController: NavController) {
             ListItem(
                 modifier = Modifier.clickable { navController.navigateToTopAppBarScreen() },
                 text = { Text("Top App Bar") },
+            )
+
+            ListItem(
+                modifier = Modifier.clickable { navController.navigateToCardScreen() },
+                text = { Text("Card") },
             )
         }
     }

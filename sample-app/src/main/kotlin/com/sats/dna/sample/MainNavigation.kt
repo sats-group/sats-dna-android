@@ -10,6 +10,7 @@ import com.google.accompanist.navigation.animation.navigation
 import com.sats.dna.sample.colors.ColorsScreen
 import com.sats.dna.sample.components.appbar.SatsTopAppBarScreen
 import com.sats.dna.sample.components.buttons.ButtonsScreen
+import com.sats.dna.sample.components.card.SatsCardScreen
 import com.sats.dna.sample.components.chip.ChipsScreen
 import com.sats.dna.sample.components.progressbar.ProgressBarsScreen
 import com.sats.dna.sample.home.HomeScreen
@@ -29,6 +30,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         chipsScreen(navController::navigateUp)
         progressBarsScreen(navController::navigateUp)
         topAppBarScreen(navController::navigateUp)
+        cardScreen(navController::navigateUp)
     }
 }
 
@@ -80,6 +82,12 @@ private fun NavGraphBuilder.topAppBarScreen(navigateUp: () -> Unit) {
     }
 }
 
+private fun NavGraphBuilder.cardScreen(navigateUp: () -> Unit) {
+    composable("/components/card") {
+        SatsCardScreen(navigateUp = navigateUp)
+    }
+}
+
 internal fun NavController.navigateToColors() {
     navigate("/colors")
 }
@@ -106,4 +114,8 @@ internal fun NavController.navigateToProgressBars() {
 
 internal fun NavController.navigateToTopAppBarScreen() {
     navigate("/components/top-app-bar")
+}
+
+internal fun NavController.navigateToCardScreen() {
+    navigate("/components/card")
 }
