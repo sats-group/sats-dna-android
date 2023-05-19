@@ -1,7 +1,6 @@
 package com.sats.dna.components.button
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -10,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -31,7 +29,7 @@ fun SatsButton(
     isLarge: Boolean = false,
 ) {
     val isActuallyEnabled = isEnabled && !isLoading
-    val buttonColors = colors.toButtonColors()
+    val buttonColors = colors.asMaterialButtonColors()
 
     Button(
         onClick = onClick,
@@ -41,7 +39,7 @@ fun SatsButton(
         colors = buttonColors,
         contentPadding = buttonPadding(isLarge),
     ) {
-        Row(Modifier.height(24.dp), horizontalArrangement = spacedBy(0.dp), verticalAlignment = CenterVertically) {
+        Row(Modifier.height(24.dp), verticalAlignment = CenterVertically) {
             AnimatedVisibility(isLoading) {
                 val color by buttonColors.contentColor(isActuallyEnabled)
 
@@ -63,46 +61,6 @@ fun SatsButton(
             )
         }
     }
-}
-
-enum class SatsButtonColor { Primary, Cta, Secondary, Clean, WaitingList }
-
-@Composable
-private fun SatsButtonColor.toButtonColors() = when (this) {
-    SatsButtonColor.Primary -> ButtonDefaults.buttonColors(
-        backgroundColor = SatsTheme.colors.primary.default,
-        contentColor = SatsTheme.colors.onPrimary.default,
-        disabledBackgroundColor = SatsTheme.colors.primary.disabled,
-        disabledContentColor = SatsTheme.colors.onPrimary.disabled,
-    )
-
-    SatsButtonColor.Cta -> ButtonDefaults.buttonColors(
-        backgroundColor = SatsTheme.colors.cta.default,
-        contentColor = SatsTheme.colors.onCta.default,
-        disabledBackgroundColor = SatsTheme.colors.cta.disabled,
-        disabledContentColor = SatsTheme.colors.onCta.disabled,
-    )
-
-    SatsButtonColor.Secondary -> ButtonDefaults.buttonColors(
-        backgroundColor = SatsTheme.colors.secondary.default,
-        contentColor = SatsTheme.colors.onSecondary.default,
-        disabledBackgroundColor = SatsTheme.colors.secondary.disabled,
-        disabledContentColor = SatsTheme.colors.onSecondary.disabled,
-    )
-
-    SatsButtonColor.Clean -> ButtonDefaults.buttonColors(
-        backgroundColor = SatsTheme.colors.clean.default,
-        contentColor = SatsTheme.colors.onClean.default,
-        disabledBackgroundColor = SatsTheme.colors.clean.disabled,
-        disabledContentColor = SatsTheme.colors.onClean.disabled,
-    )
-
-    SatsButtonColor.WaitingList -> ButtonDefaults.buttonColors(
-        backgroundColor = SatsTheme.colors.waitingList.primary,
-        contentColor = SatsTheme.colors.onWaitingList.primary,
-        disabledBackgroundColor = SatsTheme.colors.waitingList.disabled,
-        disabledContentColor = SatsTheme.colors.onWaitingList.disabled,
-    )
 }
 
 @Composable
