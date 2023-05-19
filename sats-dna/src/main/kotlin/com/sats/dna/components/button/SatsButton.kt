@@ -30,19 +30,20 @@ fun SatsButton(
     isLoading: Boolean = false,
     isLarge: Boolean = false,
 ) {
+    val isActuallyEnabled = isEnabled && !isLoading
     val buttonColors = colors.toButtonColors()
 
     Button(
         onClick = onClick,
         modifier = modifier,
-        enabled = isEnabled,
+        enabled = isActuallyEnabled,
         shape = SatsTheme.shapes.roundedCorners.small,
         colors = buttonColors,
         contentPadding = buttonPadding(isLarge),
     ) {
         Row(Modifier.height(24.dp), horizontalArrangement = spacedBy(0.dp), verticalAlignment = CenterVertically) {
             AnimatedVisibility(isLoading) {
-                val color by buttonColors.contentColor(isEnabled)
+                val color by buttonColors.contentColor(isActuallyEnabled)
 
                 CircularProgressIndicator(
                     Modifier
