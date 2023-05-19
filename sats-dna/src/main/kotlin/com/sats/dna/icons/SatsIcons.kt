@@ -20,6 +20,7 @@ import com.sats.dna.theme.SatsTheme
 object SatsIcons {
     val add @Composable get() = painterResource(R.drawable.ic_add)
     val addPerson @Composable get() = painterResource(R.drawable.ic_add_person)
+    val addToCalendar @Composable get() = painterResource(R.drawable.ic_add_to_calendar)
     val back @Composable get() = painterResource(R.drawable.ic_back)
     val barbell @Composable get() = painterResource(R.drawable.ic_barbell)
     val calendar @Composable get() = painterResource(R.drawable.ic_calendar)
@@ -117,6 +118,7 @@ private fun Preview() {
 
 private val allIcons: List<Painter>
     @Composable get() = listOf(
+        SatsIcons.addToCalendar,
         SatsIcons.back,
         SatsIcons.checkThin,
         SatsIcons.chevronRight,
