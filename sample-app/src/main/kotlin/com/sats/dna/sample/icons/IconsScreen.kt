@@ -120,6 +120,7 @@ private fun ControlPanel(state: ControlPanelState) {
 @Composable
 private fun SatsIcons.toIconDataList() = listOf(
     IconData("add", add),
+    IconData("addOutlined", addOutlined),
     IconData("addPerson", addPerson),
     IconData("addToCalendar", addToCalendar),
     IconData("back", back),
