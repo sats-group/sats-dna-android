@@ -29,7 +29,7 @@ fun SatsButton(
     isLarge: Boolean = false,
 ) {
     val isActuallyEnabled = isEnabled && !isLoading
-    val buttonColors = colors.asMaterialButtonColors()
+    val buttonColors = colors.asMaterialButtonColors(isActuallyEnabled)
 
     Button(
         onClick = onClick,
