@@ -1,6 +1,7 @@
 package com.sats.dna.components.button
 
-import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -10,14 +11,17 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 import com.sats.dna.theme.SatsTheme
 
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun SatsButton(
     onClick: () -> Unit,
@@ -27,9 +31,16 @@ fun SatsButton(
     isEnabled: Boolean = true,
     isLoading: Boolean = false,
     isLarge: Boolean = false,
+    icon: Painter? = null,
 ) {
     val isActuallyEnabled = isEnabled && !isLoading
     val buttonColors = colors.asMaterialButtonColors(isActuallyEnabled)
+
+    val iconContent = when {
+        isLoading -> IconContent.Loading
+        icon != null -> IconContent.Icon(icon)
+        else -> IconContent.Empty
+    }
 
     Button(
         onClick = onClick,
@@ -40,16 +51,32 @@ fun SatsButton(
         contentPadding = buttonPadding(isLarge),
     ) {
         Row(Modifier.height(24.dp), verticalAlignment = CenterVertically) {
-            AnimatedVisibility(isLoading) {
-                val color by buttonColors.contentColor(isActuallyEnabled)
+            AnimatedContent(iconContent, label = "Animated icon content") { iconContent ->
+                when (iconContent) {
+                    is IconContent.Empty -> Unit
 
-                CircularProgressIndicator(
-                    Modifier
-                        .padding(end = SatsTheme.spacing.s)
-                        .size(16.dp),
-                    color = color,
-                    strokeWidth = 1.5.dp,
-                )
+                    is IconContent.Icon -> {
+                        Icon(
+                            painter = iconContent.painter,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .padding(end = SatsTheme.spacing.s)
+                                .size(16.dp),
+                        )
+                    }
+
+                    is IconContent.Loading -> {
+                        val color by buttonColors.contentColor(isActuallyEnabled)
+
+                        CircularProgressIndicator(
+                            Modifier
+                                .padding(end = SatsTheme.spacing.s)
+                                .size(16.dp),
+                            color = color,
+                            strokeWidth = 1.5.dp,
+                        )
+                    }
+                }
             }
 
             Text(
@@ -61,6 +88,12 @@ fun SatsButton(
             )
         }
     }
+}
+
+private sealed interface IconContent {
+    data class Icon(val painter: Painter) : IconContent
+    object Loading : IconContent
+    object Empty : IconContent
 }
 
 @Composable
