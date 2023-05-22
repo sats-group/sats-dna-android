@@ -139,7 +139,8 @@ private fun ControlPanel(
             horizontalArrangement = SpaceAround,
         ) {
             FilterChip(
-                selected = state.isEnabledToggled,
+                enabled = !state.isLoadingToggled,
+                selected = state.isEnabledToggled && !state.isLoadingToggled,
                 onClick = { state.isEnabledToggled = !state.isEnabledToggled },
             ) {
                 Text("Enabled")
