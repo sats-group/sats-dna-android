@@ -47,6 +47,8 @@ fun SatsButton(
         modifier = modifier,
         enabled = isActuallyEnabled,
         shape = SatsTheme.shapes.roundedCorners.small,
+        border = null,
+        elevation = null,
         colors = buttonColors,
         contentPadding = buttonPadding(isLarge),
     ) {

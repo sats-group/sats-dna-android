@@ -121,6 +121,16 @@ internal fun ButtonsScreen(navigateUp: () -> Unit) {
                 isLarge = controlPanelState.isLargeToggled,
                 icon = if (controlPanelState.isIconEnabled) SatsTheme.icons.barbell else null,
             )
+
+            SatsButton(
+                onClick = {},
+                label = "Transparent",
+                colors = SatsButtonColor.Transparent,
+                isEnabled = controlPanelState.isEnabledToggled,
+                isLoading = controlPanelState.isLoadingToggled,
+                isLarge = controlPanelState.isLargeToggled,
+                icon = if (controlPanelState.isIconEnabled) SatsTheme.icons.barbell else null,
+            )
         }
     }
 }
