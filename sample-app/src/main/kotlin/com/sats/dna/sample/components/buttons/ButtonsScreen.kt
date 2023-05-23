@@ -4,10 +4,10 @@ package com.sats.dna.sample.components.buttons
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement.Absolute.spacedBy
-import androidx.compose.foundation.layout.Arrangement.SpaceAround
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -71,6 +71,7 @@ internal fun ButtonsScreen(navigateUp: () -> Unit) {
                 isEnabled = controlPanelState.isEnabledToggled,
                 isLoading = controlPanelState.isLoadingToggled,
                 isLarge = controlPanelState.isLargeToggled,
+                icon = if (controlPanelState.isIconEnabled) SatsTheme.icons.barbell else null,
             )
 
             SatsButton(
@@ -80,6 +81,7 @@ internal fun ButtonsScreen(navigateUp: () -> Unit) {
                 isEnabled = controlPanelState.isEnabledToggled,
                 isLoading = controlPanelState.isLoadingToggled,
                 isLarge = controlPanelState.isLargeToggled,
+                icon = if (controlPanelState.isIconEnabled) SatsTheme.icons.barbell else null,
             )
 
             SatsButton(
@@ -89,6 +91,7 @@ internal fun ButtonsScreen(navigateUp: () -> Unit) {
                 isEnabled = controlPanelState.isEnabledToggled,
                 isLoading = controlPanelState.isLoadingToggled,
                 isLarge = controlPanelState.isLargeToggled,
+                icon = if (controlPanelState.isIconEnabled) SatsTheme.icons.barbell else null,
             )
 
             Box(
@@ -105,6 +108,7 @@ internal fun ButtonsScreen(navigateUp: () -> Unit) {
                     isEnabled = controlPanelState.isEnabledToggled,
                     isLoading = controlPanelState.isLoadingToggled,
                     isLarge = controlPanelState.isLargeToggled,
+                    icon = if (controlPanelState.isIconEnabled) SatsTheme.icons.barbell else null,
                 )
             }
 
@@ -115,6 +119,7 @@ internal fun ButtonsScreen(navigateUp: () -> Unit) {
                 isEnabled = controlPanelState.isEnabledToggled,
                 isLoading = controlPanelState.isLoadingToggled,
                 isLarge = controlPanelState.isLargeToggled,
+                icon = if (controlPanelState.isIconEnabled) SatsTheme.icons.barbell else null,
             )
         }
     }
@@ -125,18 +130,18 @@ private class ControlPanelState {
     var isEnabledToggled by mutableStateOf(true)
     var isLoadingToggled by mutableStateOf(false)
     var isLargeToggled by mutableStateOf(false)
+    var isIconEnabled by mutableStateOf(false)
 }
 
 @Composable
-private fun ControlPanel(
-    state: ControlPanelState,
-) {
+@OptIn(ExperimentalLayoutApi::class)
+private fun ControlPanel(state: ControlPanelState) {
     Surface(Modifier.fillMaxWidth(), elevation = 2.dp) {
-        Row(
+        FlowRow(
             Modifier
                 .navigationBarsPadding()
                 .padding(SatsTheme.spacing.m),
-            horizontalArrangement = SpaceAround,
+            horizontalArrangement = spacedBy(SatsTheme.spacing.s),
         ) {
             FilterChip(
                 enabled = !state.isLoadingToggled,
@@ -158,6 +163,14 @@ private fun ControlPanel(
                 onClick = { state.isLargeToggled = !state.isLargeToggled },
             ) {
                 Text("Large")
+            }
+
+            FilterChip(
+                selected = state.isIconEnabled,
+                enabled = !state.isLoadingToggled,
+                onClick = { state.isIconEnabled = !state.isIconEnabled },
+            ) {
+                Text("Icon")
             }
         }
     }
