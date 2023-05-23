@@ -12,14 +12,18 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 import com.sats.dna.theme.SatsTheme
+import com.sats.dna.tooling.LightDarkPreview
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -47,6 +51,8 @@ fun SatsButton(
         modifier = modifier,
         enabled = isActuallyEnabled,
         shape = SatsTheme.shapes.roundedCorners.small,
+        border = null,
+        elevation = null,
         colors = buttonColors,
         contentPadding = buttonPadding(isLarge),
     ) {
@@ -101,3 +107,17 @@ private fun buttonPadding(isLarge: Boolean) = PaddingValues(
     horizontal = SatsTheme.spacing.m,
     vertical = if (isLarge) SatsTheme.spacing.m else SatsTheme.spacing.xs,
 )
+
+@LightDarkPreview
+@Composable
+private fun Preview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
+    SatsTheme {
+        Surface(color = SatsTheme.colors.background.primary) {
+            SatsButton(onClick = {}, color.name, Modifier.padding(SatsTheme.spacing.s), color)
+        }
+    }
+}
+
+private class SatsButtonColorProvider : PreviewParameterProvider<SatsButtonColor> {
+    override val values = SatsButtonColor.values().asSequence()
+}
