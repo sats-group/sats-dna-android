@@ -2,6 +2,7 @@ package com.sats.dna.components.button
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -103,10 +104,19 @@ private sealed interface IconContent {
 }
 
 @Composable
-private fun buttonPadding(isLarge: Boolean) = PaddingValues(
-    horizontal = SatsTheme.spacing.m,
-    vertical = if (isLarge) SatsTheme.spacing.m else SatsTheme.spacing.xs,
-)
+private fun buttonPadding(isLarge: Boolean): PaddingValues {
+    val horizontal = animateDpAsState(
+        SatsTheme.spacing.m,
+        label = "Horizontal padding",
+    )
+
+    val vertical = animateDpAsState(
+        if (isLarge) SatsTheme.spacing.m else SatsTheme.spacing.xs,
+        label = "Vertical padding",
+    )
+
+    return PaddingValues(horizontal.value, vertical.value)
+}
 
 @LightDarkPreview
 @Composable
