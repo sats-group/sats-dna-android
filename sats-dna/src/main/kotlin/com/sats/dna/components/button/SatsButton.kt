@@ -105,17 +105,12 @@ private sealed interface IconContent {
 
 @Composable
 private fun buttonPadding(isLarge: Boolean): PaddingValues {
-    val horizontal = animateDpAsState(
-        SatsTheme.spacing.m,
-        label = "Horizontal padding",
-    )
-
     val vertical = animateDpAsState(
         if (isLarge) SatsTheme.spacing.m else SatsTheme.spacing.xs,
         label = "Vertical padding",
     )
 
-    return PaddingValues(horizontal.value, vertical.value)
+    return PaddingValues(horizontal = SatsTheme.spacing.m, vertical.value)
 }
 
 @LightDarkPreview
