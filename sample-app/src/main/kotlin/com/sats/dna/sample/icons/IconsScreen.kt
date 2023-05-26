@@ -177,7 +177,6 @@ private fun SatsIcons.toIconDataList() = listOf(
     IconData("ptPackages", ptPackages),
     IconData("pushNotifications", pushNotifications),
     IconData("qrCode", qrCode),
-    IconData("recruitFriends", recruitFriends),
     IconData("rewardsElixia", rewardsElixia),
     IconData("rewardsSats", rewardsSats),
     IconData("search", search),
