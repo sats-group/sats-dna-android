@@ -68,8 +68,6 @@ object SatsIcons {
     val navHomeElixiaOutlined @Composable get() = painterResource(R.drawable.ic_nav_home_elixia_outlined)
     val navHomeSatsFilled @Composable get() = painterResource(R.drawable.ic_nav_home_sats_filled)
     val navHomeSatsOutlined @Composable get() = painterResource(R.drawable.ic_nav_home_sats_outlined)
-    val navProfileFilled @Composable get() = painterResource(R.drawable.ic_nav_profile_filled)
-    val navProfileOutlined @Composable get() = painterResource(R.drawable.ic_nav_profile_outlined)
     val navQrFilled @Composable get() = painterResource(R.drawable.ic_nav_qr_filled)
     val navQrOutlined @Composable get() = painterResource(R.drawable.ic_nav_qr_outlined)
     val phone @Composable get() = painterResource(R.drawable.ic_phone)
@@ -137,8 +135,6 @@ private val allIcons: List<Painter>
         SatsIcons.navHomeElixiaOutlined,
         SatsIcons.navHomeSatsFilled,
         SatsIcons.navHomeSatsOutlined,
-        SatsIcons.navProfileFilled,
-        SatsIcons.navProfileOutlined,
         SatsIcons.navQrFilled,
         SatsIcons.navQrOutlined,
         SatsIcons.starFilled,
