@@ -169,8 +169,6 @@ private fun SatsIcons.toIconDataList() = listOf(
     IconData("navHomeElixiaOutlined", navHomeElixiaOutlined),
     IconData("navHomeSatsFilled", navHomeSatsFilled),
     IconData("navHomeSatsOutlined", navHomeSatsOutlined),
-    IconData("navProfileFilled", navProfileFilled),
-    IconData("navProfileOutlined", navProfileOutlined),
     IconData("navQrFilled", navQrFilled),
     IconData("navQrOutlined", navQrOutlined),
     IconData("phone", phone),
