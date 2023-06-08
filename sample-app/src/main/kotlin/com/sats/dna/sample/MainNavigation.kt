@@ -9,6 +9,7 @@ import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.navigation
 import com.sats.dna.sample.colors.ColorsScreen
 import com.sats.dna.sample.components.ButtonsScreen
+import com.sats.dna.sample.components.CheckboxScreen
 import com.sats.dna.sample.components.RadioButtonsScreen
 import com.sats.dna.sample.components.SwitchScreen
 import com.sats.dna.sample.components.appbar.SatsTopAppBarScreen
@@ -39,6 +40,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         scheduleScreen(navController::navigateUp)
         radioButtonsScreen(navController::navigateUp)
         switchScreen(navController::navigateUp)
+        checkboxScreen(navController::navigateUp)
     }
 }
 
@@ -113,9 +115,16 @@ private fun NavGraphBuilder.radioButtonsScreen(navigateUp: () -> Unit) {
         RadioButtonsScreen(navigateUp)
     }
 }
+
 private fun NavGraphBuilder.switchScreen(navigateUp: () -> Unit) {
     composable("/components/switch") {
         SwitchScreen(navigateUp)
+    }
+}
+
+private fun NavGraphBuilder.checkboxScreen(navigateUp: () -> Unit) {
+    composable("/components/checkbox") {
+        CheckboxScreen(navigateUp)
     }
 }
 
@@ -165,4 +174,8 @@ internal fun NavController.navigateToRadioButtons() {
 
 internal fun NavController.navigateToSwitch() {
     navigate("/components/switch")
+}
+
+internal fun NavController.navigateToCheckbox() {
+    navigate("/components/checkbox")
 }
