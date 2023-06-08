@@ -1,24 +1,18 @@
 @file:OptIn(ExperimentalMaterialApi::class)
 
-package com.sats.dna.sample.components.buttons
+package com.sats.dna.sample.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement.Absolute.spacedBy
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBars
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.FilterChip
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -27,35 +21,19 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.insets.ui.Scaffold
-import com.google.accompanist.insets.ui.TopAppBar
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
+import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 internal fun ButtonsScreen(navigateUp: () -> Unit) {
     val controlPanelState = remember { ControlPanelState() }
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                backgroundColor = SatsTheme.colors.surface.primary,
-                contentPadding = WindowInsets.statusBars.asPaddingValues(),
-                navigationIcon = {
-                    IconButton(onClick = navigateUp) {
-                        Icon(SatsTheme.icons.back, contentDescription = null)
-                    }
-                },
-                title = { Text("Buttons") },
-            )
-        },
-        bottomBar = { ControlPanel(controlPanelState) },
-    ) { innerPadding ->
+    ComponentScreen("Buttons", navigateUp, bottomBar = { ControlPanel(controlPanelState) }) { innerPadding ->
         Column(
             Modifier
                 .fillMaxSize()
@@ -64,47 +42,18 @@ internal fun ButtonsScreen(navigateUp: () -> Unit) {
             verticalArrangement = spacedBy(SatsTheme.spacing.m),
             horizontalAlignment = CenterHorizontally,
         ) {
-            SatsButton(
-                onClick = {},
-                label = "Primary",
-                colors = SatsButtonColor.Primary,
-                isEnabled = controlPanelState.isEnabledToggled,
-                isLoading = controlPanelState.isLoadingToggled,
-                isLarge = controlPanelState.isLargeToggled,
-                icon = if (controlPanelState.isIconEnabled) SatsTheme.icons.barbell else null,
-            )
-
-            SatsButton(
-                onClick = {},
-                label = "Cta",
-                colors = SatsButtonColor.Cta,
-                isEnabled = controlPanelState.isEnabledToggled,
-                isLoading = controlPanelState.isLoadingToggled,
-                isLarge = controlPanelState.isLargeToggled,
-                icon = if (controlPanelState.isIconEnabled) SatsTheme.icons.barbell else null,
-            )
-
-            SatsButton(
-                onClick = {},
-                label = "Secondary",
-                colors = SatsButtonColor.Secondary,
-                isEnabled = controlPanelState.isEnabledToggled,
-                isLoading = controlPanelState.isLoadingToggled,
-                isLarge = controlPanelState.isLargeToggled,
-                icon = if (controlPanelState.isIconEnabled) SatsTheme.icons.barbell else null,
-            )
-
-            Box(
-                Modifier
-                    .fillMaxWidth()
-                    .background(SatsTheme.colors.primary.default)
-                    .padding(SatsTheme.spacing.l),
-                contentAlignment = Center,
-            ) {
+            listOf(
+                SatsButtonColor.Primary,
+                SatsButtonColor.Cta,
+                SatsButtonColor.Secondary,
+                SatsButtonColor.Clean,
+                SatsButtonColor.WaitingList,
+                SatsButtonColor.Transparent,
+            ).forEach { color ->
                 SatsButton(
                     onClick = {},
-                    label = "Clean",
-                    colors = SatsButtonColor.Clean,
+                    label = color.name,
+                    colors = color,
                     isEnabled = controlPanelState.isEnabledToggled,
                     isLoading = controlPanelState.isLoadingToggled,
                     isLarge = controlPanelState.isLargeToggled,
@@ -112,25 +61,43 @@ internal fun ButtonsScreen(navigateUp: () -> Unit) {
                 )
             }
 
-            SatsButton(
-                onClick = {},
-                label = "WaitingList",
-                colors = SatsButtonColor.WaitingList,
-                isEnabled = controlPanelState.isEnabledToggled,
-                isLoading = controlPanelState.isLoadingToggled,
-                isLarge = controlPanelState.isLargeToggled,
-                icon = if (controlPanelState.isIconEnabled) SatsTheme.icons.barbell else null,
-            )
+            Column(verticalArrangement = spacedBy(SatsTheme.spacing.s)) {
+                Row(horizontalArrangement = spacedBy(SatsTheme.spacing.s)) {
+                    listOf(
+                        SatsButtonColor.Primary,
+                        SatsButtonColor.Cta,
+                        SatsButtonColor.Secondary,
+                    ).forEach { color ->
+                        SatsIconButton(
+                            onClick = {},
+                            icon = SatsTheme.icons.barbell,
+                            onClickLabel = null,
+                            colors = color,
+                            isEnabled = controlPanelState.isEnabledToggled,
+                            isLoading = controlPanelState.isLoadingToggled,
+                            isLarge = controlPanelState.isLargeToggled,
+                        )
+                    }
+                }
 
-            SatsButton(
-                onClick = {},
-                label = "Transparent",
-                colors = SatsButtonColor.Transparent,
-                isEnabled = controlPanelState.isEnabledToggled,
-                isLoading = controlPanelState.isLoadingToggled,
-                isLarge = controlPanelState.isLargeToggled,
-                icon = if (controlPanelState.isIconEnabled) SatsTheme.icons.barbell else null,
-            )
+                Row(horizontalArrangement = spacedBy(SatsTheme.spacing.s)) {
+                    listOf(
+                        SatsButtonColor.Clean,
+                        SatsButtonColor.WaitingList,
+                        SatsButtonColor.Transparent,
+                    ).forEach { color ->
+                        SatsIconButton(
+                            onClick = {},
+                            icon = SatsTheme.icons.barbell,
+                            onClickLabel = null,
+                            colors = color,
+                            isEnabled = controlPanelState.isEnabledToggled,
+                            isLoading = controlPanelState.isLoadingToggled,
+                            isLarge = controlPanelState.isLargeToggled,
+                        )
+                    }
+                }
+            }
         }
     }
 }

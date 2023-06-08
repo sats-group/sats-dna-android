@@ -8,10 +8,10 @@ import androidx.navigation.NavGraphBuilder
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.navigation
 import com.sats.dna.sample.colors.ColorsScreen
+import com.sats.dna.sample.components.ButtonsScreen
 import com.sats.dna.sample.components.RadioButtonsScreen
 import com.sats.dna.sample.components.SwitchScreen
 import com.sats.dna.sample.components.appbar.SatsTopAppBarScreen
-import com.sats.dna.sample.components.buttons.ButtonsScreen
 import com.sats.dna.sample.components.card.SatsCardScreen
 import com.sats.dna.sample.components.chip.ChipsScreen
 import com.sats.dna.sample.components.navigation.BottomNavigationScreen
