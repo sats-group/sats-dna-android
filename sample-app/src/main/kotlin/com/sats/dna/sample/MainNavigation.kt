@@ -8,6 +8,7 @@ import androidx.navigation.NavGraphBuilder
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.navigation
 import com.sats.dna.sample.colors.ColorsScreen
+import com.sats.dna.sample.components.RadioButtonsScreen
 import com.sats.dna.sample.components.appbar.SatsTopAppBarScreen
 import com.sats.dna.sample.components.buttons.ButtonsScreen
 import com.sats.dna.sample.components.card.SatsCardScreen
@@ -35,6 +36,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         cardScreen(navController::navigateUp)
         bottomNavigationScreen(navController::navigateUp)
         scheduleScreen(navController::navigateUp)
+        radioButtonsScreen(navController::navigateUp)
     }
 }
 
@@ -104,6 +106,12 @@ private fun NavGraphBuilder.scheduleScreen(navigateUp: () -> Unit) {
     }
 }
 
+private fun NavGraphBuilder.radioButtonsScreen(navigateUp: () -> Unit) {
+    composable("/components/radio-buttons") {
+        RadioButtonsScreen(navigateUp = navigateUp)
+    }
+}
+
 internal fun NavController.navigateToColors() {
     navigate("/colors")
 }
@@ -142,4 +150,8 @@ internal fun NavController.navigateToBottomNavigationScreen() {
 
 internal fun NavController.navigateToSchedule() {
     navigate("/components/schedule")
+}
+
+internal fun NavController.navigateToRadioButtons() {
+    navigate("/components/radio-buttons")
 }

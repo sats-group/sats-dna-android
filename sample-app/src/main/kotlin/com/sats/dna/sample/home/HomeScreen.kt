@@ -28,6 +28,7 @@ import com.sats.dna.sample.navigateToChips
 import com.sats.dna.sample.navigateToColors
 import com.sats.dna.sample.navigateToIcons
 import com.sats.dna.sample.navigateToProgressBars
+import com.sats.dna.sample.navigateToRadioButtons
 import com.sats.dna.sample.navigateToSchedule
 import com.sats.dna.sample.navigateToTopAppBarScreen
 import com.sats.dna.sample.navigateToTypography
@@ -100,6 +101,11 @@ internal fun HomeScreen(navController: NavController) {
             ListItem(
                 modifier = Modifier.clickable { navController.navigateToSchedule() },
                 text = { Text("Schedule") },
+            )
+
+            ListItem(
+                modifier = Modifier.clickable { navController.navigateToRadioButtons() },
+                text = { Text("Radio Buttons") },
             )
         }
     }
