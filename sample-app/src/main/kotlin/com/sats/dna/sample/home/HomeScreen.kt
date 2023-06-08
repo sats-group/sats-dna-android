@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.google.accompanist.insets.ui.Scaffold
 import com.google.accompanist.insets.ui.TopAppBar
+import com.sats.dna.sample.navigateSurface
 import com.sats.dna.sample.navigateToBottomNavigationScreen
 import com.sats.dna.sample.navigateToButtons
 import com.sats.dna.sample.navigateToCardScreen
@@ -124,6 +125,11 @@ internal fun HomeScreen(navController: NavController) {
             ListItem(
                 modifier = Modifier.clickable { navController.navigateToCircularProgressIndicator() },
                 text = { Text("Circular Progress Indicator") },
+            )
+
+            ListItem(
+                modifier = Modifier.clickable { navController.navigateSurface() },
+                text = { Text("Surface") },
             )
         }
     }
