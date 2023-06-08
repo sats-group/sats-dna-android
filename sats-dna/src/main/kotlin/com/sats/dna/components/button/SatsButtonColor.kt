@@ -22,7 +22,7 @@ internal fun SatsButtonColor.asMaterialButtonColors(isEnabled: Boolean): ButtonC
     )
 }
 
-private val SatsButtonColor.backgroundColor: Color
+internal val SatsButtonColor.backgroundColor: Color
     @Composable get() = when (this) {
         SatsButtonColor.Primary -> SatsTheme.colors.primary.default
         SatsButtonColor.Cta -> SatsTheme.colors.cta.default
@@ -32,7 +32,7 @@ private val SatsButtonColor.backgroundColor: Color
         SatsButtonColor.Transparent -> Color.Transparent
     }
 
-private val SatsButtonColor.contentColor: Color
+internal val SatsButtonColor.contentColor: Color
     @Composable get() = when (this) {
         SatsButtonColor.Primary -> SatsTheme.colors.onPrimary.default
         SatsButtonColor.Cta -> SatsTheme.colors.onCta.default
@@ -42,7 +42,7 @@ private val SatsButtonColor.contentColor: Color
         SatsButtonColor.Transparent -> SatsTheme.colors.action.default
     }
 
-private val SatsButtonColor.disabledBackgroundColor: Color
+internal val SatsButtonColor.disabledBackgroundColor: Color
     @Composable get() = when (this) {
         SatsButtonColor.Primary -> SatsTheme.colors.primary.disabled
         SatsButtonColor.Cta -> SatsTheme.colors.cta.disabled
@@ -52,7 +52,7 @@ private val SatsButtonColor.disabledBackgroundColor: Color
         SatsButtonColor.Transparent -> Color.Transparent
     }
 
-private val SatsButtonColor.disabledContentColor: Color
+internal val SatsButtonColor.disabledContentColor: Color
     @Composable get() = when (this) {
         SatsButtonColor.Primary -> SatsTheme.colors.onPrimary.disabled
         SatsButtonColor.Cta -> SatsTheme.colors.onCta.disabled

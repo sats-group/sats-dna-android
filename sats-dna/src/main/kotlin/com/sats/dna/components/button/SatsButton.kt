@@ -123,6 +123,6 @@ private fun Preview(@PreviewParameter(SatsButtonColorProvider::class) color: Sat
     }
 }
 
-private class SatsButtonColorProvider : PreviewParameterProvider<SatsButtonColor> {
+internal class SatsButtonColorProvider : PreviewParameterProvider<SatsButtonColor> {
     override val values = SatsButtonColor.values().asSequence()
 }
