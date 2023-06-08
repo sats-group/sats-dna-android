@@ -9,6 +9,7 @@ import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.navigation
 import com.sats.dna.sample.colors.ColorsScreen
 import com.sats.dna.sample.components.RadioButtonsScreen
+import com.sats.dna.sample.components.SwitchScreen
 import com.sats.dna.sample.components.appbar.SatsTopAppBarScreen
 import com.sats.dna.sample.components.buttons.ButtonsScreen
 import com.sats.dna.sample.components.card.SatsCardScreen
@@ -37,6 +38,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         bottomNavigationScreen(navController::navigateUp)
         scheduleScreen(navController::navigateUp)
         radioButtonsScreen(navController::navigateUp)
+        switchScreen(navController::navigateUp)
     }
 }
 
@@ -48,67 +50,72 @@ private fun NavGraphBuilder.homeScreen(navController: NavController) {
 
 private fun NavGraphBuilder.colorsScreen(navigateUp: () -> Unit) {
     composable("/colors") {
-        ColorsScreen(navigateUp = navigateUp)
+        ColorsScreen(navigateUp)
     }
 }
 
 private fun NavGraphBuilder.typographyScreen(navigateUp: () -> Unit) {
     composable("/typography") {
-        TypographyScreen(navigateUp = navigateUp)
+        TypographyScreen(navigateUp)
     }
 }
 
 private fun NavGraphBuilder.iconsScreen(navigateUp: () -> Unit) {
     composable("/icons") {
-        IconsScreen(navigateUp = navigateUp)
+        IconsScreen(navigateUp)
     }
 }
 
 private fun NavGraphBuilder.buttonsScreen(navigateUp: () -> Unit) {
     composable("/components/buttons") {
-        ButtonsScreen(navigateUp = navigateUp)
+        ButtonsScreen(navigateUp)
     }
 }
 
 private fun NavGraphBuilder.chipsScreen(navigateUp: () -> Unit) {
     composable("/components/chips") {
-        ChipsScreen(navigateUp = navigateUp)
+        ChipsScreen(navigateUp)
     }
 }
 
 private fun NavGraphBuilder.progressBarsScreen(navigateUp: () -> Unit) {
     composable("/components/progress-bars") {
-        ProgressBarsScreen(navigateUp = navigateUp)
+        ProgressBarsScreen(navigateUp)
     }
 }
 
 private fun NavGraphBuilder.topAppBarScreen(navigateUp: () -> Unit) {
     composable("/components/top-app-bar") {
-        SatsTopAppBarScreen(navigateUp = navigateUp)
+        SatsTopAppBarScreen(navigateUp)
     }
 }
 
 private fun NavGraphBuilder.cardScreen(navigateUp: () -> Unit) {
     composable("/components/card") {
-        SatsCardScreen(navigateUp = navigateUp)
+        SatsCardScreen(navigateUp)
     }
 }
 
 private fun NavGraphBuilder.bottomNavigationScreen(navigateUp: () -> Unit) {
     composable("/components/bottom-navigation") {
-        BottomNavigationScreen(navigateUp = navigateUp)
+        BottomNavigationScreen(navigateUp)
     }
 }
 
 private fun NavGraphBuilder.scheduleScreen(navigateUp: () -> Unit) {
     composable("/components/schedule") {
-        ScheduleScreen(navigateUp = navigateUp)
+        ScheduleScreen(navigateUp)
     }
 }
 
 private fun NavGraphBuilder.radioButtonsScreen(navigateUp: () -> Unit) {
     composable("/components/radio-buttons") {
-        RadioButtonsScreen(navigateUp = navigateUp)
+        RadioButtonsScreen(navigateUp)
+    }
+}
+private fun NavGraphBuilder.switchScreen(navigateUp: () -> Unit) {
+    composable("/components/switch") {
+        SwitchScreen(navigateUp)
     }
 }
 
@@ -154,4 +161,8 @@ internal fun NavController.navigateToSchedule() {
 
 internal fun NavController.navigateToRadioButtons() {
     navigate("/components/radio-buttons")
+}
+
+internal fun NavController.navigateToSwitch() {
+    navigate("/components/switch")
 }
