@@ -10,6 +10,7 @@ import com.google.accompanist.navigation.animation.navigation
 import com.sats.dna.sample.colors.ColorsScreen
 import com.sats.dna.sample.components.ButtonsScreen
 import com.sats.dna.sample.components.CheckboxScreen
+import com.sats.dna.sample.components.CircularProgressIndicatorScreen
 import com.sats.dna.sample.components.RadioButtonsScreen
 import com.sats.dna.sample.components.SwitchScreen
 import com.sats.dna.sample.components.appbar.SatsTopAppBarScreen
@@ -41,6 +42,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         radioButtonsScreen(navController::navigateUp)
         switchScreen(navController::navigateUp)
         checkboxScreen(navController::navigateUp)
+        circularProgressIndicatorScreen(navController::navigateUp)
     }
 }
 
@@ -128,6 +130,12 @@ private fun NavGraphBuilder.checkboxScreen(navigateUp: () -> Unit) {
     }
 }
 
+private fun NavGraphBuilder.circularProgressIndicatorScreen(navigateUp: () -> Unit) {
+    composable("/components/circular-progress-indicator") {
+        CircularProgressIndicatorScreen(navigateUp)
+    }
+}
+
 internal fun NavController.navigateToColors() {
     navigate("/colors")
 }
@@ -178,4 +186,8 @@ internal fun NavController.navigateToSwitch() {
 
 internal fun NavController.navigateToCheckbox() {
     navigate("/components/checkbox")
+}
+
+internal fun NavController.navigateToCircularProgressIndicator() {
+    navigate("/components/circular-progress-indicator")
 }

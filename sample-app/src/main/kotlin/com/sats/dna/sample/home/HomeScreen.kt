@@ -26,6 +26,7 @@ import com.sats.dna.sample.navigateToButtons
 import com.sats.dna.sample.navigateToCardScreen
 import com.sats.dna.sample.navigateToCheckbox
 import com.sats.dna.sample.navigateToChips
+import com.sats.dna.sample.navigateToCircularProgressIndicator
 import com.sats.dna.sample.navigateToColors
 import com.sats.dna.sample.navigateToIcons
 import com.sats.dna.sample.navigateToProgressBars
@@ -118,6 +119,11 @@ internal fun HomeScreen(navController: NavController) {
             ListItem(
                 modifier = Modifier.clickable { navController.navigateToCheckbox() },
                 text = { Text("Checkbox") },
+            )
+
+            ListItem(
+                modifier = Modifier.clickable { navController.navigateToCircularProgressIndicator() },
+                text = { Text("Circular Progress Indicator") },
             )
         }
     }
