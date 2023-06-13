@@ -34,6 +34,7 @@ import com.sats.dna.sample.navigateToProgressBars
 import com.sats.dna.sample.navigateToRadioButtons
 import com.sats.dna.sample.navigateToSchedule
 import com.sats.dna.sample.navigateToSwitch
+import com.sats.dna.sample.navigateToTextField
 import com.sats.dna.sample.navigateToTopAppBarScreen
 import com.sats.dna.sample.navigateToTypography
 import com.sats.dna.theme.SatsTheme
@@ -130,6 +131,11 @@ internal fun HomeScreen(navController: NavController) {
             ListItem(
                 modifier = Modifier.clickable { navController.navigateSurface() },
                 text = { Text("Surface") },
+            )
+
+            ListItem(
+                modifier = Modifier.clickable { navController.navigateToTextField() },
+                text = { Text("Text Field") },
             )
         }
     }
