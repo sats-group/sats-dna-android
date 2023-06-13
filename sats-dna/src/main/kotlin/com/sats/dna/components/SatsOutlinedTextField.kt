@@ -51,7 +51,7 @@ fun SatsOutlinedTextField(
 private fun EnabledOutlinedTextFieldPreview() {
     SatsTheme {
         Surface(color = SatsTheme.colors.background.primary) {
-            SatsOutlinedTextField(value = "Text", onValueChange = { }, modifier = Modifier)
+            SatsOutlinedTextField(value = "Text", onValueChange = { })
         }
     }
 }
@@ -61,7 +61,7 @@ private fun EnabledOutlinedTextFieldPreview() {
 private fun DisabledOutlinedTextFieldPreview() {
     SatsTheme {
         Surface(color = SatsTheme.colors.background.primary) {
-            SatsOutlinedTextField(value = "Text", onValueChange = { }, modifier = Modifier, enabled = false)
+            SatsOutlinedTextField(value = "Text", onValueChange = { }, enabled = false)
         }
     }
 }

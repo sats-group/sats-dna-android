@@ -16,8 +16,8 @@ import com.sats.dna.theme.SatsTheme
 
 @Composable
 internal fun SatsTextFieldScreen(navigateUp: () -> Unit) {
-    val (inputValue, setValue) = remember("Text") { mutableStateOf("") }
-    val (outlinedInputValue, outlinedSetValue) = remember("Text") { mutableStateOf("") }
+    val (inputValue, setValue) = remember { mutableStateOf("") }
+    val (outlinedInputValue, outlinedSetValue) = remember { mutableStateOf("") }
 
     ComponentScreen(title = "Text Field", navigateUp = navigateUp) { innerPadding ->
         Column(
@@ -64,7 +64,7 @@ private fun LabeledTextField(
     value: String,
     onValueChange: (newValue: String) -> Unit,
     enabled: Boolean = true,
-    placeholder: @Composable (() -> Unit)? = null,
+    placeholder: @Composable () -> Unit,
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs)) {
         Text(label)
@@ -78,7 +78,7 @@ private fun LabeledOutlinedTextField(
     value: String,
     onValueChange: (newValue: String) -> Unit,
     enabled: Boolean = true,
-    placeholder: @Composable (() -> Unit)? = null,
+    placeholder: @Composable () -> Unit,
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs)) {
         Text(label)

@@ -53,7 +53,7 @@ fun SatsTextField(
 private fun EnabledTextFieldPreview() {
     SatsTheme {
         Surface(color = SatsTheme.colors.background.primary) {
-            SatsTextField(value = "Text", onValueChange = { }, modifier = Modifier)
+            SatsTextField(value = "Text", onValueChange = { })
         }
     }
 }
@@ -63,7 +63,7 @@ private fun EnabledTextFieldPreview() {
 private fun DisabledTextFieldPreview() {
     SatsTheme {
         Surface(color = SatsTheme.colors.background.primary) {
-            SatsTextField(value = "Text", onValueChange = { }, modifier = Modifier, enabled = false)
+            SatsTextField(value = "Text", onValueChange = { }, enabled = false)
         }
     }
 }
