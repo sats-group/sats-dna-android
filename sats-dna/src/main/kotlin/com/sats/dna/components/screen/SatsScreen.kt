@@ -9,6 +9,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.ui.Scaffold
+import com.sats.dna.components.SatsSnackbar
+import com.sats.dna.components.SatsSnackbarAction
 
 @Composable
 fun SatsScreen(
@@ -16,7 +18,7 @@ fun SatsScreen(
     scaffoldState: ScaffoldState = rememberScaffoldState(),
     topBar: @Composable () -> Unit = {},
     bottomBar: @Composable () -> Unit = {},
-    snackbarHost: @Composable (SnackbarHostState) -> Unit = { SnackbarHost(it) },
+    snackbarHost: @Composable (SnackbarHostState) -> Unit = { SatsSnackbarHost(it) },
     floatingActionButton: @Composable () -> Unit = {},
     contentPadding: PaddingValues = PaddingValues(0.dp),
     content: @Composable (contentPadding: PaddingValues) -> Unit,
@@ -31,4 +33,15 @@ fun SatsScreen(
         contentPadding = contentPadding,
         content = content,
     )
+}
+
+@Composable
+private fun SatsSnackbarHost(snackbarHostState: SnackbarHostState) {
+    SnackbarHost(snackbarHostState) { snackbarData ->
+        val action = snackbarData.actionLabel?.let { label ->
+            SatsSnackbarAction(snackbarData::performAction, label)
+        }
+
+        SatsSnackbar(snackbarData.message, action)
+    }
 }
