@@ -1,7 +1,6 @@
 package com.sats.dna.components.button
 
 import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.background
@@ -24,7 +23,6 @@ import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
-@OptIn(ExperimentalAnimationApi::class)
 fun SatsIconButton(
     onClick: () -> Unit,
     icon: Painter,

@@ -1,7 +1,6 @@
 package com.sats.dna.components.button
 
 import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -26,7 +25,6 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun SatsButton(
     onClick: () -> Unit,

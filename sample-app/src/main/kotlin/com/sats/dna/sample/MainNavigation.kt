@@ -1,12 +1,9 @@
-@file:OptIn(ExperimentalAnimationApi::class)
-
 package com.sats.dna.sample
 
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
-import com.google.accompanist.navigation.animation.composable
-import com.google.accompanist.navigation.animation.navigation
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigation
 import com.sats.dna.sample.colors.ColorsScreen
 import com.sats.dna.sample.components.ButtonsScreen
 import com.sats.dna.sample.components.CheckboxScreen

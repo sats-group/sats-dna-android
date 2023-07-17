@@ -1,15 +1,12 @@
-@file:OptIn(ExperimentalAnimationApi::class)
-
 package com.sats.dna.sample
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.AnimatedContentScope.SlideDirection
-import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.core.view.WindowCompat
-import com.google.accompanist.navigation.animation.AnimatedNavHost
-import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
 import com.sats.dna.theme.SatsTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,15 +17,15 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             SatsTheme {
-                val navController = rememberAnimatedNavController()
+                val navController = rememberNavController()
 
-                AnimatedNavHost(
+                NavHost(
                     navController = navController,
                     startDestination = MainRoute,
-                    enterTransition = { slideIntoContainer(SlideDirection.Left) },
-                    exitTransition = { slideOutOfContainer(SlideDirection.Left) },
-                    popEnterTransition = { slideIntoContainer(SlideDirection.Right) },
-                    popExitTransition = { slideOutOfContainer(SlideDirection.Right) },
+                    enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Left) },
+                    exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Left) },
+                    popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Right) },
+                    popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Right) },
                 ) {
                     mainGraph(navController)
                 }
