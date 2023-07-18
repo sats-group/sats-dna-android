@@ -11,7 +11,7 @@ plugins {
 
 android {
     namespace = "com.sats.dna.sample"
-    compileSdk = 33
+    compileSdk = 34
 
     buildFeatures {
         compose = true
@@ -19,7 +19,7 @@ android {
 
     defaultConfig {
         minSdk = 23
-        targetSdk = 33
+        targetSdk = 34
 
         versionCode = System.getenv("VERSION_CODE")?.toIntOrNull()
         versionName = System.getenv("VERSION_NAME")
@@ -75,7 +75,6 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
 
     implementation(libs.accompanist.insetsUi)
-    implementation(libs.accompanist.navigation.animation)
     implementation(libs.accompanist.systemUiController)
     implementation(libs.accompanist.systemUiController)
     implementation(libs.androidx.activity.compose)
