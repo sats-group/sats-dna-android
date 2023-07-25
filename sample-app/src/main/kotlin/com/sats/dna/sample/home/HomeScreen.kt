@@ -30,6 +30,7 @@ import com.sats.dna.sample.navigateToChips
 import com.sats.dna.sample.navigateToCircularProgressIndicator
 import com.sats.dna.sample.navigateToColors
 import com.sats.dna.sample.navigateToIcons
+import com.sats.dna.sample.navigateToPlaceholders
 import com.sats.dna.sample.navigateToProgressBars
 import com.sats.dna.sample.navigateToRadioButtons
 import com.sats.dna.sample.navigateToSchedule
@@ -142,6 +143,11 @@ internal fun HomeScreen(navController: NavController) {
             ListItem(
                 modifier = Modifier.clickable { navController.navigateToSnackbar() },
                 text = { Text("Snackbar") },
+            )
+
+            ListItem(
+                modifier = Modifier.clickable { navController.navigateToPlaceholders() },
+                text = { Text("Placeholders") },
             )
         }
     }
