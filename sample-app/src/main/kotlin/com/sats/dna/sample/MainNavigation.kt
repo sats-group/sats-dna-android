@@ -8,6 +8,7 @@ import com.sats.dna.sample.colors.ColorsScreen
 import com.sats.dna.sample.components.ButtonsScreen
 import com.sats.dna.sample.components.CheckboxScreen
 import com.sats.dna.sample.components.CircularProgressIndicatorScreen
+import com.sats.dna.sample.components.PlaceholderScreen
 import com.sats.dna.sample.components.RadioButtonsScreen
 import com.sats.dna.sample.components.SatsTextFieldScreen
 import com.sats.dna.sample.components.SnackbarScreen
@@ -46,6 +47,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         surfaceScreen(navController::navigateUp)
         textFieldScreen(navController::navigateUp)
         snackbarScreen(navController::navigateUp)
+        placeholdersScreen(navController::navigateUp)
     }
 }
 
@@ -157,6 +159,12 @@ private fun NavGraphBuilder.snackbarScreen(navigateUp: () -> Unit) {
     }
 }
 
+private fun NavGraphBuilder.placeholdersScreen(navigateUp: () -> Unit) {
+    composable("/components/placeholders") {
+        PlaceholderScreen(navigateUp)
+    }
+}
+
 internal fun NavController.navigateToColors() {
     navigate("/colors")
 }
@@ -223,4 +231,8 @@ internal fun NavController.navigateToTextField() {
 
 internal fun NavController.navigateToSnackbar() {
     navigate("/components/snackbar")
+}
+
+internal fun NavController.navigateToPlaceholders() {
+    navigate("/components/placeholders")
 }
