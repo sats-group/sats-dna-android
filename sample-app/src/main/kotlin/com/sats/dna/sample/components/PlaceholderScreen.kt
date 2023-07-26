@@ -29,7 +29,10 @@ internal fun PlaceholderScreen(navigateUp: () -> Unit) {
                 RectangleShape,
             )
 
-            Column(Modifier.padding(SatsTheme.spacing.m), spacedBy(SatsTheme.spacing.m)) {
+            Column(
+                Modifier.padding(SatsTheme.spacing.m),
+                verticalArrangement = spacedBy(SatsTheme.spacing.m),
+            ) {
                 Row(horizontalArrangement = spacedBy(SatsTheme.spacing.m), verticalAlignment = CenterVertically) {
                     PlaceholderBox(Modifier.size(50.dp), SatsTheme.shapes.circle)
 
