@@ -39,10 +39,6 @@ object SatsShapes {
 
         /** Rounded corners with 24 dp radius. */
         val large = RoundedCornerShape(24.dp)
-
-        /** Circular shape */
-        @Deprecated("Use SatsShapes.circle instead")
-        val circle = CircleShape
     }
 }
 

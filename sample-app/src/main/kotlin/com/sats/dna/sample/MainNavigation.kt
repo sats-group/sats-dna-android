@@ -8,6 +8,7 @@ import com.sats.dna.sample.colors.ColorsScreen
 import com.sats.dna.sample.components.ButtonsScreen
 import com.sats.dna.sample.components.CheckboxScreen
 import com.sats.dna.sample.components.CircularProgressIndicatorScreen
+import com.sats.dna.sample.components.CompletedWorkoutListItemScreen
 import com.sats.dna.sample.components.PlaceholderScreen
 import com.sats.dna.sample.components.RadioButtonsScreen
 import com.sats.dna.sample.components.SatsTextFieldScreen
@@ -48,6 +49,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         textFieldScreen(navController::navigateUp)
         snackbarScreen(navController::navigateUp)
         placeholdersScreen(navController::navigateUp)
+        completedWorkoutListItemScreen(navController::navigateUp)
     }
 }
 
@@ -165,6 +167,12 @@ private fun NavGraphBuilder.placeholdersScreen(navigateUp: () -> Unit) {
     }
 }
 
+private fun NavGraphBuilder.completedWorkoutListItemScreen(navigateUp: () -> Unit) {
+    composable("/components/completed-workout-list-item") {
+        CompletedWorkoutListItemScreen(navigateUp)
+    }
+}
+
 internal fun NavController.navigateToColors() {
     navigate("/colors")
 }
@@ -235,4 +243,8 @@ internal fun NavController.navigateToSnackbar() {
 
 internal fun NavController.navigateToPlaceholders() {
     navigate("/components/placeholders")
+}
+
+internal fun NavController.navigateToCompletedWorkoutListItem() {
+    navigate("/components/completed-workout-list-item")
 }

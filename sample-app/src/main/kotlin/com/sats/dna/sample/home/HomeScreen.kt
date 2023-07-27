@@ -29,6 +29,7 @@ import com.sats.dna.sample.navigateToCheckbox
 import com.sats.dna.sample.navigateToChips
 import com.sats.dna.sample.navigateToCircularProgressIndicator
 import com.sats.dna.sample.navigateToColors
+import com.sats.dna.sample.navigateToCompletedWorkoutListItem
 import com.sats.dna.sample.navigateToIcons
 import com.sats.dna.sample.navigateToPlaceholders
 import com.sats.dna.sample.navigateToProgressBars
@@ -148,6 +149,11 @@ internal fun HomeScreen(navController: NavController) {
             ListItem(
                 modifier = Modifier.clickable { navController.navigateToPlaceholders() },
                 text = { Text("Placeholders") },
+            )
+
+            ListItem(
+                modifier = Modifier.clickable { navController.navigateToCompletedWorkoutListItem() },
+                text = { Text("Completed Workout List Item") },
             )
         }
     }
