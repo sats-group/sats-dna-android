@@ -1,5 +1,7 @@
 package com.sats.dna.components
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -8,24 +10,31 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Icon
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
+import com.sats.dna.components.icons.DefaultInstructorIcon
+import com.sats.dna.components.icons.InstructorType
+import com.sats.dna.components.icons.WorkoutType
+import com.sats.dna.components.icons.WorkoutTypeIcon
 import com.sats.dna.theme.SatsTheme
+import com.sats.dna.tooling.FontSizePreview
 import com.sats.dna.tooling.LightDarkPreview
 
 /**
  * A section for a day of upcoming workouts
 
  * @param day A formatted day that will be displayed as the title of the section.
- * @param content The list of the containing workouts for this day. Consider using [UpcomingWorkoutListItem]
+ * @param content The list of the containing workouts for this day. Consider using [UpcomingWorkoutListItem].
  *
  **/
 @Composable
@@ -58,7 +67,7 @@ fun UpcomingWorkoutDaySection(
  * @param icon An icon to be displayed on the left gutter of the item.
  * @param instructorInfo Information about the instructor for the workout.
  * @param modifier The modifier to apply to the list item.
- * @param unbookButton Optional slot for displaying an unbook button
+ * @param unbookButton Optional slot for displaying an unbook button.
  * @param friendsAttending Optional slot for displaying friends that are also attending the workout.
  * **/
 @Composable
@@ -110,8 +119,8 @@ fun UpcomingWorkoutListItem(
 /**
  * A label that displays info about the instructor for the upcoming workout
  *
- * @param instructorImage An icon to represent the instructor type
- * @param instructorName The name of the instructor for the workout
+ * @param instructorImage An icon to represent the instructor type.
+ * @param instructorName The name of the instructor for the workout.
  *
  * **/
 @Composable
@@ -135,7 +144,7 @@ fun UpcomingWorkoutInstructorLabel(
  *
  * @param memberImages The friends profile images.
  * When more than one image passed at the root level of this composable, they will slightly overlap each other.
- * @param friendsAttendingLabel The name of the instructor for the workout
+ * @param friendsAttendingLabel The name of the instructor for the workout.
  *
  * **/
 
@@ -171,6 +180,7 @@ private fun WorkoutInfo(
 }
 
 @LightDarkPreview
+@FontSizePreview
 @Composable
 private fun UpcomingWorkoutsListPreview() {
     SatsTheme {
@@ -186,15 +196,13 @@ private fun UpcomingWorkoutsListPreview() {
                             WorkoutTypeIcon(
                                 type = WorkoutType.GroupExercise,
                                 contentDescription = null,
+                                modifier = Modifier.size(34.dp),
                             )
                         },
                         instructorInfo = {
                             UpcomingWorkoutInstructorLabel(
                                 instructorImage = {
-                                    Icon(
-                                        SatsTheme.icons.workoutPt,
-                                        contentDescription = null,
-                                    )
+                                    DefaultInstructorIcon(InstructorType.Gx)
                                 },
                                 instructorName = "Kristin Hagen",
                             )
@@ -206,9 +214,26 @@ private fun UpcomingWorkoutsListPreview() {
                                 colors = SatsButtonColor.Transparent,
                             )
                         },
-                    ) {
-
-                    }
+                        friendsAttending = {
+                            UpcomingWorkoutAttendingFriendsLabel(
+                                memberImages = {
+                                    PlaceholderBox(
+                                        Modifier
+                                            .size(24.dp)
+                                            .border(BorderStroke(1.dp, Color.White), CircleShape),
+                                        shape = SatsTheme.shapes.circle,
+                                    )
+                                    PlaceholderBox(
+                                        Modifier
+                                            .size(24.dp)
+                                            .border(BorderStroke(1.dp, Color.White), CircleShape),
+                                        shape = SatsTheme.shapes.circle,
+                                    )
+                                },
+                                friendsAttendingLabel = "2 friends are joining this workout!",
+                            )
+                        },
+                    ) { }
                 }
             }
         }

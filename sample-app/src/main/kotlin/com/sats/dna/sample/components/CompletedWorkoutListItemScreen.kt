@@ -13,8 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.CompletedWorkoutListItem
-import com.sats.dna.components.WorkoutType
-import com.sats.dna.components.WorkoutTypeIcon
+import com.sats.dna.components.icons.WorkoutType
+import com.sats.dna.components.icons.WorkoutTypeIcon
 
 @Composable
 internal fun CompletedWorkoutListItemScreen(navigateUp: () -> Unit) {

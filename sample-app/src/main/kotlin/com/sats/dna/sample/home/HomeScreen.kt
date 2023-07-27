@@ -40,6 +40,7 @@ import com.sats.dna.sample.navigateToSwitch
 import com.sats.dna.sample.navigateToTextField
 import com.sats.dna.sample.navigateToTopAppBarScreen
 import com.sats.dna.sample.navigateToTypography
+import com.sats.dna.sample.navigateToUpcomingWorkoutListItem
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -154,6 +155,11 @@ internal fun HomeScreen(navController: NavController) {
             ListItem(
                 modifier = Modifier.clickable { navController.navigateToCompletedWorkoutListItem() },
                 text = { Text("Completed Workout List Item") },
+            )
+
+            ListItem(
+                modifier = Modifier.clickable { navController.navigateToUpcomingWorkoutListItem() },
+                text = { Text("Upcoming Workout List Item") },
             )
         }
     }

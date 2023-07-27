@@ -16,6 +16,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
+import com.sats.dna.components.icons.WorkoutType
+import com.sats.dna.components.icons.WorkoutTypeIcon
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.FontSizePreview
 import com.sats.dna.tooling.LightDarkPreview

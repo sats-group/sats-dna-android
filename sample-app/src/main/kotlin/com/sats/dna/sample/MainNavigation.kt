@@ -15,6 +15,7 @@ import com.sats.dna.sample.components.SatsTextFieldScreen
 import com.sats.dna.sample.components.SnackbarScreen
 import com.sats.dna.sample.components.SurfaceScreen
 import com.sats.dna.sample.components.SwitchScreen
+import com.sats.dna.sample.components.UpcomingWorkoutListItemScreen
 import com.sats.dna.sample.components.appbar.SatsTopAppBarScreen
 import com.sats.dna.sample.components.card.SatsCardScreen
 import com.sats.dna.sample.components.chip.ChipsScreen
@@ -50,6 +51,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         snackbarScreen(navController::navigateUp)
         placeholdersScreen(navController::navigateUp)
         completedWorkoutListItemScreen(navController::navigateUp)
+        upcomingWorkoutListItemScreen(navController::navigateUp)
     }
 }
 
@@ -173,6 +175,12 @@ private fun NavGraphBuilder.completedWorkoutListItemScreen(navigateUp: () -> Uni
     }
 }
 
+private fun NavGraphBuilder.upcomingWorkoutListItemScreen(navigateUp: () -> Unit) {
+    composable("/components/upcoming-workout-list-item") {
+        UpcomingWorkoutListItemScreen(navigateUp)
+    }
+}
+
 internal fun NavController.navigateToColors() {
     navigate("/colors")
 }
@@ -247,4 +255,8 @@ internal fun NavController.navigateToPlaceholders() {
 
 internal fun NavController.navigateToCompletedWorkoutListItem() {
     navigate("/components/completed-workout-list-item")
+}
+
+internal fun NavController.navigateToUpcomingWorkoutListItem() {
+    navigate("/components/upcoming-workout-list-item")
 }
