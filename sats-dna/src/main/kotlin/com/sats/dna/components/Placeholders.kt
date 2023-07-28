@@ -1,5 +1,11 @@
 package com.sats.dna.components
 
+import androidx.compose.animation.core.InfiniteRepeatableSpec
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
@@ -10,11 +16,23 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
+import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.compositeOver
+import androidx.compose.ui.graphics.drawOutline
+import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.text.AnnotatedString
@@ -23,16 +41,15 @@ import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
-import com.google.accompanist.placeholder.PlaceholderHighlight
-import com.google.accompanist.placeholder.material.placeholder
-import com.google.accompanist.placeholder.material.shimmer
+import androidx.compose.ui.util.lerp
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
+import kotlin.math.max
 
 @Composable
 fun PlaceholderBox(
     modifier: Modifier = Modifier,
-    shape: Shape? = null,
+    shape: Shape = SatsTheme.shapes.roundedCorners.small,
     content: @Composable BoxScope.() -> Unit = {},
 ) {
     Box(
@@ -62,6 +79,7 @@ fun PlaceholderParagraph(
     lines: Int = 5,
     style: TextStyle = SatsTheme.typography.default.basic,
 ) {
+    @Suppress("SpellCheckingInspection")
     val texts = listOf(
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "Pellentesque bibendum a ligula vitae efficitur.",
@@ -125,6 +143,90 @@ private fun PlaceholderTextPreview() {
     }
 }
 
-private fun Modifier.placeholder(shape: Shape?): Modifier = composed {
-    placeholder(visible = true, highlight = PlaceholderHighlight.shimmer(), shape = shape)
+private fun Modifier.placeholder(shape: Shape): Modifier = composed {
+    val shimmer = Shimmer(SatsTheme.colors.surface.primary.copy(alpha = 0.75f))
+    val color = SatsTheme.colors.onSurface.primary.copy(0.1f)
+        .compositeOver(SatsTheme.colors.surface.primary)
+
+    val infiniteTransition = rememberInfiniteTransition(label = "placeholder-transition")
+    var highlightProgress by remember { mutableFloatStateOf(0f) }
+
+    highlightProgress = infiniteTransition.animateFloat(
+        initialValue = 0f,
+        targetValue = 1f,
+        animationSpec = shimmer.animationSpec,
+        label = "placeholder-highlight-progress",
+    ).value
+
+    remember(color, shape, shimmer) {
+        drawWithContent {
+            drawPlaceholder(
+                shape = shape,
+                color = color,
+                shimmer = shimmer,
+                progress = highlightProgress,
+            )
+        }
+    }
+}
+
+private fun DrawScope.drawPlaceholder(
+    shape: Shape,
+    color: Color,
+    shimmer: Shimmer,
+    progress: Float,
+): Outline? {
+    // Shortcut to avoid Outline calculation and allocation
+    if (shape === RectangleShape) {
+        drawRect(color) // draw the background color
+
+        drawRect(shimmer.brush(progress, size), alpha = shimmer.alpha(progress))
+
+        return null // we didn't (need to) draw an outline
+    }
+
+    val outline = shape.createOutline(size, layoutDirection, this)
+
+    drawOutline(outline, color)
+    drawOutline(outline, shimmer.brush(progress, size), shimmer.alpha(progress))
+
+    // Return the outline we used
+    return outline
+}
+
+private data class Shimmer(private val highlightColor: Color) {
+    val animationSpec: InfiniteRepeatableSpec<Float> = infiniteRepeatable(
+        animation = tween(durationMillis = 1700, delayMillis = 200),
+        repeatMode = RepeatMode.Restart,
+    )
+
+    fun brush(progress: Float, size: Size): Brush = Brush.radialGradient(
+        colors = listOf(
+            highlightColor.copy(alpha = 0f),
+            highlightColor,
+            highlightColor.copy(alpha = 0f),
+        ),
+        center = Offset.Zero,
+        radius = (max(size.width, size.height) * progress * 2).coerceAtLeast(0.01f),
+    )
+
+    fun alpha(progress: Float): Float {
+        val progressForMaxAlpha = 0.6f
+
+        return when {
+            // From 0f...progressForMaxAlpha we animate from 0..1
+            progress <= progressForMaxAlpha -> lerp(
+                start = 0f,
+                stop = 1f,
+                fraction = progress / progressForMaxAlpha,
+            )
+
+            // From progressForMaxAlpha..1f we animate from 1..0
+            else -> lerp(
+                start = 1f,
+                stop = 0f,
+                fraction = (progress - progressForMaxAlpha) / (1f - progressForMaxAlpha),
+            )
+        }
+    }
 }
