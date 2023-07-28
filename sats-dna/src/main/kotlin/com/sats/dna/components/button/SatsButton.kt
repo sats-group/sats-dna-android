@@ -97,8 +97,8 @@ fun SatsButton(
 
 private sealed interface IconContent {
     data class Icon(val painter: Painter) : IconContent
-    object Loading : IconContent
-    object Empty : IconContent
+    data object Loading : IconContent
+    data object Empty : IconContent
 }
 
 @Composable
