@@ -6,13 +6,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.unit.dp
+import com.sats.dna.components.card.SatsCard
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
@@ -22,7 +20,7 @@ fun Schedule(
     onWorkoutClicked: (workout: ScheduledWorkout) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Card(modifier.fillMaxWidth()) {
+    SatsCard(modifier.fillMaxWidth()) {
         val days = workouts.groupBy { it.day }
 
         ScheduledDays(days, onWorkoutClicked)
@@ -72,10 +70,11 @@ private fun ScheduledWorkouts(
                         vertical = clickableVerticalPadding,
                         horizontal = clickableHorizontalPadding,
                     ),
+                horizontalArrangement = spacedBy(SatsTheme.spacing.s),
             ) {
-                TimeAndDuration(workout, Modifier.width(60.dp))
+                TimeAndDuration(workout, modifier = Modifier.weight(1f))
 
-                WorkoutInfo(workout)
+                WorkoutInfo(workout, modifier = Modifier.weight(3f))
             }
         }
     }
@@ -84,31 +83,43 @@ private fun ScheduledWorkouts(
 @Composable
 private fun TimeAndDuration(workout: ScheduledWorkout, modifier: Modifier = Modifier) {
     Column(modifier, spacedBy(SatsTheme.spacing.xxs)) {
-        Text(workout.time)
+        Text(
+            workout.time,
+            style = SatsTheme.typography.medium.large,
+        )
 
         Text(
             workout.duration,
-            color = SatsTheme.colors.onSurface.secondary,
-            style = SatsTheme.typography.default.small,
+            style = SatsTheme.typography.medium.large,
+            color = SatsTheme.colors.onBackground.secondary,
         )
     }
 }
 
 @Composable
-private fun WorkoutInfo(workout: ScheduledWorkout) {
-    Column(verticalArrangement = spacedBy(SatsTheme.spacing.xxs)) {
-        Text(workout.name)
+private fun WorkoutInfo(
+    workout: ScheduledWorkout,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        modifier,
+        verticalArrangement = spacedBy(SatsTheme.spacing.xxs),
+    ) {
+        Text(
+            workout.name,
+            style = SatsTheme.typography.medium.large,
+        )
 
         Text(
             workout.location,
             color = SatsTheme.colors.onSurface.secondary,
-            style = SatsTheme.typography.default.small,
+            style = SatsTheme.typography.medium.basic,
         )
 
         Text(
             workout.instructor,
-            color = SatsTheme.colors.onSurface.secondary,
-            style = SatsTheme.typography.default.small,
+            style = SatsTheme.typography.medium.basic,
+            color = SatsTheme.colors.onBackground.secondary,
         )
 
         workout.waitingListStatus?.let { status ->
@@ -134,7 +145,7 @@ private fun Preview() {
         ScheduledWorkout(
             id = "foo",
             day = "Today",
-            time = "09:00",
+            time = "9:00 PM",
             duration = "45 min",
             name = "Yoga Flow",
             location = "SATS Nydalen",
@@ -144,7 +155,7 @@ private fun Preview() {
         ScheduledWorkout(
             id = "bar",
             day = "Today",
-            time = "17:30",
+            time = "5:30 PM",
             duration = "30 min",
             name = "Body Pump",
             location = "SATS Colosseum",
@@ -154,9 +165,19 @@ private fun Preview() {
         ScheduledWorkout(
             id = "baz",
             day = "Tomorrow",
-            time = "09:00",
+            time = "9:00 AM",
             duration = "120 min",
             name = "Cycling Marathon",
+            location = "SATS Storo",
+            instructor = "w/ John Doe",
+            waitingListStatus = null,
+        ),
+        ScheduledWorkout(
+            id = "baz",
+            day = "Tomorrow",
+            time = "9:00 PM",
+            duration = "120 min",
+            name = "Super long long long long long workout name",
             location = "SATS Storo",
             instructor = "w/ John Doe",
             waitingListStatus = null,
