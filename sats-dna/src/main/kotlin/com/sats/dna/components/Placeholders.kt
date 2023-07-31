@@ -1,5 +1,11 @@
 package com.sats.dna.components
 
+import androidx.compose.animation.core.InfiniteRepeatableSpec
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
@@ -10,11 +16,22 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
+import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.compositeOver
+import androidx.compose.ui.graphics.drawOutline
+import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.text.AnnotatedString
@@ -23,16 +40,13 @@ import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
-import com.google.accompanist.placeholder.PlaceholderHighlight
-import com.google.accompanist.placeholder.material.placeholder
-import com.google.accompanist.placeholder.material.shimmer
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun PlaceholderBox(
     modifier: Modifier = Modifier,
-    shape: Shape? = null,
+    shape: Shape = SatsTheme.shapes.roundedCorners.small,
     content: @Composable BoxScope.() -> Unit = {},
 ) {
     Box(
@@ -62,6 +76,7 @@ fun PlaceholderParagraph(
     lines: Int = 5,
     style: TextStyle = SatsTheme.typography.default.basic,
 ) {
+    @Suppress("SpellCheckingInspection")
     val texts = listOf(
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "Pellentesque bibendum a ligula vitae efficitur.",
@@ -125,6 +140,62 @@ private fun PlaceholderTextPreview() {
     }
 }
 
-private fun Modifier.placeholder(shape: Shape?): Modifier = composed {
-    placeholder(visible = true, highlight = PlaceholderHighlight.shimmer(), shape = shape)
+private fun Modifier.placeholder(shape: Shape): Modifier = composed {
+    val fade = Fade(SatsTheme.colors.surface.primary.copy(alpha = 0.75f))
+    val color = SatsTheme.colors.onSurface.primary.copy(0.1f)
+        .compositeOver(SatsTheme.colors.surface.primary)
+
+    val infiniteTransition = rememberInfiniteTransition(label = "placeholder-transition")
+    var highlightProgress by remember { mutableFloatStateOf(0f) }
+
+    highlightProgress = infiniteTransition.animateFloat(
+        initialValue = 0f,
+        targetValue = 1f,
+        animationSpec = fade.animationSpec,
+        label = "placeholder-highlight-progress",
+    ).value
+
+    remember(color, shape, fade) {
+        drawWithContent {
+            drawPlaceholder(
+                shape = shape,
+                color = color,
+                fade = fade,
+                progress = highlightProgress,
+            )
+        }
+    }
+}
+
+private fun DrawScope.drawPlaceholder(
+    shape: Shape,
+    color: Color,
+    fade: Fade,
+    progress: Float,
+): Outline? {
+    // Shortcut to avoid Outline calculation and allocation
+    if (shape === RectangleShape) {
+        drawRect(color) // draw the background color
+
+        drawRect(fade.brush(), alpha = fade.alpha(progress))
+
+        return null // we didn't (need to) draw an outline
+    }
+
+    return shape.createOutline(size, layoutDirection, this).also { outline ->
+        drawOutline(outline, color)
+        drawOutline(outline, fade.brush(), fade.alpha(progress))
+    }
+}
+
+private class Fade(highlightColor: Color) {
+    val animationSpec: InfiniteRepeatableSpec<Float> = infiniteRepeatable(
+        animation = tween(delayMillis = 200, durationMillis = 600),
+        repeatMode = RepeatMode.Reverse,
+    )
+
+    private val brush = SolidColor(highlightColor)
+
+    fun brush(): Brush = brush
+    fun alpha(progress: Float): Float = progress
 }
