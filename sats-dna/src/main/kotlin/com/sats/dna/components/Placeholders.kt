@@ -23,13 +23,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.drawWithContent
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.graphics.drawOutline
 import androidx.compose.ui.graphics.drawscope.DrawScope
@@ -41,10 +40,8 @@ import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
-import androidx.compose.ui.util.lerp
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
-import kotlin.math.max
 
 @Composable
 fun PlaceholderBox(
@@ -144,7 +141,7 @@ private fun PlaceholderTextPreview() {
 }
 
 private fun Modifier.placeholder(shape: Shape): Modifier = composed {
-    val shimmer = Shimmer(SatsTheme.colors.surface.primary.copy(alpha = 0.75f))
+    val fade = Fade(SatsTheme.colors.surface.primary.copy(alpha = 0.75f))
     val color = SatsTheme.colors.onSurface.primary.copy(0.1f)
         .compositeOver(SatsTheme.colors.surface.primary)
 
@@ -154,16 +151,16 @@ private fun Modifier.placeholder(shape: Shape): Modifier = composed {
     highlightProgress = infiniteTransition.animateFloat(
         initialValue = 0f,
         targetValue = 1f,
-        animationSpec = shimmer.animationSpec,
+        animationSpec = fade.animationSpec,
         label = "placeholder-highlight-progress",
     ).value
 
-    remember(color, shape, shimmer) {
+    remember(color, shape, fade) {
         drawWithContent {
             drawPlaceholder(
                 shape = shape,
                 color = color,
-                shimmer = shimmer,
+                fade = fade,
                 progress = highlightProgress,
             )
         }
@@ -173,60 +170,32 @@ private fun Modifier.placeholder(shape: Shape): Modifier = composed {
 private fun DrawScope.drawPlaceholder(
     shape: Shape,
     color: Color,
-    shimmer: Shimmer,
+    fade: Fade,
     progress: Float,
 ): Outline? {
     // Shortcut to avoid Outline calculation and allocation
     if (shape === RectangleShape) {
         drawRect(color) // draw the background color
 
-        drawRect(shimmer.brush(progress, size), alpha = shimmer.alpha(progress))
+        drawRect(fade.brush(), alpha = fade.alpha(progress))
 
         return null // we didn't (need to) draw an outline
     }
 
-    val outline = shape.createOutline(size, layoutDirection, this)
-
-    drawOutline(outline, color)
-    drawOutline(outline, shimmer.brush(progress, size), shimmer.alpha(progress))
-
-    // Return the outline we used
-    return outline
+    return shape.createOutline(size, layoutDirection, this).also { outline ->
+        drawOutline(outline, color)
+        drawOutline(outline, fade.brush(), fade.alpha(progress))
+    }
 }
 
-private data class Shimmer(private val highlightColor: Color) {
+private class Fade(highlightColor: Color) {
     val animationSpec: InfiniteRepeatableSpec<Float> = infiniteRepeatable(
-        animation = tween(durationMillis = 1700, delayMillis = 200),
-        repeatMode = RepeatMode.Restart,
+        animation = tween(delayMillis = 200, durationMillis = 600),
+        repeatMode = RepeatMode.Reverse,
     )
 
-    fun brush(progress: Float, size: Size): Brush = Brush.radialGradient(
-        colors = listOf(
-            highlightColor.copy(alpha = 0f),
-            highlightColor,
-            highlightColor.copy(alpha = 0f),
-        ),
-        center = Offset.Zero,
-        radius = (max(size.width, size.height) * progress * 2).coerceAtLeast(0.01f),
-    )
+    private val brush = SolidColor(highlightColor)
 
-    fun alpha(progress: Float): Float {
-        val progressForMaxAlpha = 0.6f
-
-        return when {
-            // From 0f...progressForMaxAlpha we animate from 0..1
-            progress <= progressForMaxAlpha -> lerp(
-                start = 0f,
-                stop = 1f,
-                fraction = progress / progressForMaxAlpha,
-            )
-
-            // From progressForMaxAlpha..1f we animate from 1..0
-            else -> lerp(
-                start = 1f,
-                stop = 0f,
-                fraction = (progress - progressForMaxAlpha) / (1f - progressForMaxAlpha),
-            )
-        }
-    }
+    fun brush(): Brush = brush
+    fun alpha(progress: Float): Float = progress
 }
