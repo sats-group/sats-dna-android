@@ -35,14 +35,17 @@ import com.sats.dna.tooling.LightDarkPreview
 
  * @param day A formatted day that will be displayed as the title of the section.
  * @param content The list of the containing workouts for this day. Consider using [UpcomingWorkoutListItem].
- *
+ * @param modifier The modifier to apply to the section.
  **/
 @Composable
 fun UpcomingWorkoutDaySection(
     day: String,
+    modifier: Modifier = Modifier,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    Column {
+    Column(
+        modifier = modifier,
+    ) {
         SatsSurface(Modifier.fillMaxWidth(), elevation = 1.dp) {
             Text(
                 day,
@@ -64,11 +67,11 @@ fun UpcomingWorkoutDaySection(
  * @param location Where the workout took place, e.g. at which gym.
  * @param duration The duration of the workout.
  * @param onClick Callback to be invoked when this item is clicked.
- * @param icon An icon to be displayed on the left gutter of the item.
- * @param instructorInfo Information about the instructor for the workout.
+ * @param icon An icon to be displayed on the left gutter of the item. Consider using [WorkoutTypeIcon]
+ * @param instructorInfo Information about the instructor for the workout. Consider using [UpcomingWorkoutInstructorLabel]
  * @param modifier The modifier to apply to the list item.
  * @param unbookButton Optional slot for displaying an unbook button.
- * @param friendsAttending Optional slot for displaying friends that are also attending the workout.
+ * @param friendsAttending Optional slot for displaying friends that are also attending the workout. Typically a [UpcomingWorkoutAttendingFriendsLabel]
  * **/
 @Composable
 fun UpcomingWorkoutListItem(
@@ -94,7 +97,7 @@ fun UpcomingWorkoutListItem(
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
-                verticalAlignment = Alignment.CenterVertically,
+                verticalAlignment = Alignment.Top,
             ) {
                 icon()
                 Column(
@@ -121,15 +124,16 @@ fun UpcomingWorkoutListItem(
  *
  * @param instructorImage An icon to represent the instructor type.
  * @param instructorName The name of the instructor for the workout.
- *
+ * @param modifier The modifier to apply to the label.
  * **/
 @Composable
 fun UpcomingWorkoutInstructorLabel(
     instructorImage: @Composable RowScope.() -> Unit,
     instructorName: String,
+    modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .semantics(mergeDescendants = true) {},
         horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
         verticalAlignment = Alignment.CenterVertically,
@@ -145,15 +149,17 @@ fun UpcomingWorkoutInstructorLabel(
  * @param memberImages The friends profile images.
  * When more than one image passed at the root level of this composable, they will slightly overlap each other.
  * @param friendsAttendingLabel The name of the instructor for the workout.
- *
+ * @param modifier The modifier to apply to the label.
  * **/
 
 @Composable
 fun UpcomingWorkoutAttendingFriendsLabel(
     memberImages: @Composable RowScope.() -> Unit,
     friendsAttendingLabel: String,
+    modifier: Modifier = Modifier,
 ) {
     Row(
+        modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
         verticalAlignment = Alignment.CenterVertically,
     ) {

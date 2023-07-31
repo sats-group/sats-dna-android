@@ -145,7 +145,7 @@ private fun Preview() {
         ScheduledWorkout(
             id = "foo",
             day = "Today",
-            time = "09:00 PM",
+            time = "9:00 PM",
             duration = "45 min",
             name = "Yoga Flow",
             location = "SATS Nydalen",
@@ -155,7 +155,7 @@ private fun Preview() {
         ScheduledWorkout(
             id = "bar",
             day = "Today",
-            time = "17:30 PM",
+            time = "5:30 PM",
             duration = "30 min",
             name = "Body Pump",
             location = "SATS Colosseum",
@@ -165,7 +165,7 @@ private fun Preview() {
         ScheduledWorkout(
             id = "baz",
             day = "Tomorrow",
-            time = "09:00 PM",
+            time = "9:00 AM",
             duration = "120 min",
             name = "Cycling Marathon",
             location = "SATS Storo",
@@ -175,7 +175,7 @@ private fun Preview() {
         ScheduledWorkout(
             id = "baz",
             day = "Tomorrow",
-            time = "09:00 PM",
+            time = "9:00 PM",
             duration = "120 min",
             name = "Super long long long long long workout name",
             location = "SATS Storo",

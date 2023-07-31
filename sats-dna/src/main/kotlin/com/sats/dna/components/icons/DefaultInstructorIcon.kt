@@ -16,16 +16,20 @@ import com.sats.dna.theme.SatsTheme
  * Meant to be used when the instructor doesn't have a specific profile image.
  *
  * @param instructorType The type of the instructor.
+ * @param modifier The modifier to apply to the instructor icon.
  */
 @Composable
-fun DefaultInstructorIcon(instructorType: InstructorType) {
+fun DefaultInstructorIcon(
+    instructorType: InstructorType,
+    modifier: Modifier = Modifier,
+) {
     val placeholderText = when (instructorType) {
         InstructorType.Gx -> "IN"
         InstructorType.Pt -> "PT"
     }
 
     Box(
-        modifier = Modifier
+        modifier = modifier
             .size(SatsTheme.spacing.l)
             .clip(CircleShape)
             .background(SatsTheme.colors.primary.default),
