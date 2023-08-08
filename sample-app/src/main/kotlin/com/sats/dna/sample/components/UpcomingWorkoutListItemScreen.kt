@@ -4,22 +4,16 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import com.sats.dna.components.UpcomingWorkoutDaySection
-import com.sats.dna.components.UpcomingWorkoutInstructorLabel
-import com.sats.dna.components.UpcomingWorkoutListItem
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
-import com.sats.dna.components.icons.DefaultInstructorIcon
-import com.sats.dna.components.icons.InstructorType
-import com.sats.dna.components.icons.WorkoutType
-import com.sats.dna.components.icons.WorkoutTypeIcon
+import com.sats.dna.components.upcomingworkouts.UpcomingWorkoutDaySection
+import com.sats.dna.components.upcomingworkouts.UpcomingWorkoutListItem
+import com.sats.dna.components.upcomingworkouts.WaitingListStatus
 
 @Composable
 internal fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit) {
@@ -33,30 +27,36 @@ internal fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit) {
                 .verticalScroll(rememberScrollState())
                 .padding(innerPadding),
         ) {
-            repeat(10) {
-                if (it > 0) Divider()
-
-                UpcomingWorkoutDaySection(day = "Thu, Jul 27, 2023") {
+            UpcomingWorkoutDaySection(day = "Thu, Jul 27, 2023") {
+                repeat(3) {
+                    if (it > 0) Divider()
                     UpcomingWorkoutListItem(
-                        title = "Pure Strength",
-                        timeStamp = "11:00 AM",
+                        name = "Pure Strength",
+                        time = "11:00 AM",
                         location = "SATS Storo",
                         duration = "45 min",
-                        icon = {
-                            WorkoutTypeIcon(
-                                type = WorkoutType.GroupExercise,
-                                contentDescription = null,
-                                modifier = Modifier.size(34.dp),
+                        instructor = "Kristin Hagen",
+                        unbookButton = {
+                            SatsButton(
+                                onClick = { },
+                                label = "Unbook",
+                                colors = SatsButtonColor.Transparent,
                             )
                         },
-                        instructorInfo = {
-                            UpcomingWorkoutInstructorLabel(
-                                instructorImage = {
-                                    DefaultInstructorIcon(instructorType = InstructorType.Gx)
-                                },
-                                instructorName = "Kristin Hagen",
-                            )
-                        },
+                    ) { }
+                }
+            }
+
+            UpcomingWorkoutDaySection(day = "Fri, Jul 28, 2023") {
+                repeat(3) {
+                    if (it > 0) Divider()
+                    UpcomingWorkoutListItem(
+                        name = "Pure Strength",
+                        time = "10:30 AM",
+                        location = "SATS Storo",
+                        duration = "45 min",
+                        instructor = "Kristin Hagen",
+                        waitingListStatus = WaitingListStatus.OnWaitingList("You are number 10 on the waiting list"),
                         unbookButton = {
                             SatsButton(
                                 onClick = { },
