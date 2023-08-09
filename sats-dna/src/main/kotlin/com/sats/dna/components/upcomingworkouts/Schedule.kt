@@ -75,7 +75,7 @@ private fun ScheduledWorkouts(
                 TimeAndDuration(
                     time = workout.time,
                     duration = workout.duration,
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
                 )
 
                 WorkoutInfo(
@@ -83,13 +83,12 @@ private fun ScheduledWorkouts(
                     location = workout.location,
                     instructor = workout.instructor,
                     waitingListStatus = workout.waitingListStatus,
-                    modifier = Modifier.weight(3f))
+                    modifier = Modifier.weight(3f),
+                )
             }
         }
     }
 }
-
-
 
 @LightDarkPreview
 @Composable

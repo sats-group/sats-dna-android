@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import com.sats.dna.theme.SatsTheme
 
-enum class SatsButtonColor { Primary, Cta, Secondary, Clean, WaitingList, Transparent }
+enum class SatsButtonColor { Primary, Cta, Secondary, Clean, WaitingList, WaitingListSecondary, Transparent }
 
 @Composable
 internal fun SatsButtonColor.asMaterialButtonColors(isEnabled: Boolean): ButtonColors {
@@ -22,6 +22,18 @@ internal fun SatsButtonColor.asMaterialButtonColors(isEnabled: Boolean): ButtonC
     )
 }
 
+internal val SatsButtonColor.borderColor: Color?
+    @Composable get() = when (this) {
+        SatsButtonColor.WaitingListSecondary -> SatsTheme.colors.waitingList.primary
+        else -> null
+    }
+
+internal val SatsButtonColor.disabledBorderColor: Color?
+    @Composable get() = when (this) {
+        SatsButtonColor.WaitingListSecondary -> SatsTheme.colors.waitingList.primary
+        else -> null
+    }
+
 internal val SatsButtonColor.backgroundColor: Color
     @Composable get() = when (this) {
         SatsButtonColor.Primary -> SatsTheme.colors.primary.default
@@ -29,6 +41,7 @@ internal val SatsButtonColor.backgroundColor: Color
         SatsButtonColor.Secondary -> SatsTheme.colors.secondary.default
         SatsButtonColor.Clean -> SatsTheme.colors.clean.default
         SatsButtonColor.WaitingList -> SatsTheme.colors.waitingList.primary
+        SatsButtonColor.WaitingListSecondary -> Color.Transparent
         SatsButtonColor.Transparent -> Color.Transparent
     }
 
@@ -39,6 +52,7 @@ internal val SatsButtonColor.contentColor: Color
         SatsButtonColor.Secondary -> SatsTheme.colors.onSecondary.default
         SatsButtonColor.Clean -> SatsTheme.colors.onClean.default
         SatsButtonColor.WaitingList -> SatsTheme.colors.onWaitingList.primary
+        SatsButtonColor.WaitingListSecondary -> SatsTheme.colors.waitingList.text
         SatsButtonColor.Transparent -> SatsTheme.colors.action.default
     }
 
@@ -49,6 +63,7 @@ internal val SatsButtonColor.disabledBackgroundColor: Color
         SatsButtonColor.Secondary -> SatsTheme.colors.secondary.disabled
         SatsButtonColor.Clean -> SatsTheme.colors.clean.disabled
         SatsButtonColor.WaitingList -> SatsTheme.colors.waitingList.disabled
+        SatsButtonColor.WaitingListSecondary -> Color.Transparent
         SatsButtonColor.Transparent -> Color.Transparent
     }
 
@@ -59,5 +74,6 @@ internal val SatsButtonColor.disabledContentColor: Color
         SatsButtonColor.Secondary -> SatsTheme.colors.onSecondary.disabled
         SatsButtonColor.Clean -> SatsTheme.colors.onClean.disabled
         SatsButtonColor.WaitingList -> SatsTheme.colors.onWaitingList.disabled
+        SatsButtonColor.WaitingListSecondary -> SatsTheme.colors.waitingList.disabled
         SatsButtonColor.Transparent -> SatsTheme.colors.action.disabled
     }

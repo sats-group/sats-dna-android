@@ -86,7 +86,7 @@ fun UpcomingWorkoutListItem(
         modifier
             .clickable(role = Role.Button) { onClick() }
             .padding(SatsTheme.spacing.m),
-        horizontalArrangement = spacedBy(SatsTheme.spacing.xs)
+        horizontalArrangement = spacedBy(SatsTheme.spacing.xs),
     ) {
         TimeAndDuration(
             time = time,
@@ -95,13 +95,11 @@ fun UpcomingWorkoutListItem(
         Column(
             verticalArrangement = spacedBy(SatsTheme.spacing.s),
         ) {
-
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = spacedBy(SatsTheme.spacing.m),
                 verticalAlignment = Alignment.Top,
             ) {
-
                 WorkoutInfo(
                     name = name,
                     location = location,
@@ -192,4 +190,3 @@ private fun UpcomingWorkoutsListPreview() {
         }
     }
 }
-

@@ -59,7 +59,6 @@ internal fun WorkoutInfo(
         waitingListStatus?.let { status ->
             WaitingListText(status)
         }
-
     }
 }
 
@@ -72,4 +71,3 @@ internal fun WaitingListText(status: WaitingListStatus) {
 
     Text(status.text, color = color, style = SatsTheme.typography.default.small)
 }
-
