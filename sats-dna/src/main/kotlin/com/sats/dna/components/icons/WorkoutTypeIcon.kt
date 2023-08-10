@@ -62,5 +62,5 @@ private fun Preview(@PreviewParameter(WorkoutTypePreviewProvider::class) workout
 }
 
 private class WorkoutTypePreviewProvider : PreviewParameterProvider<WorkoutType> {
-    override val values = WorkoutType.values().asSequence()
+    override val values = WorkoutType.entries.asSequence()
 }

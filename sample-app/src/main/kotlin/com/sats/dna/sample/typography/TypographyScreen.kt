@@ -114,7 +114,7 @@ private fun ConfigurationBar(
                 .padding(SatsTheme.spacing.m),
             horizontalArrangement = spacedBy(SatsTheme.spacing.s),
         ) {
-            SatsTextStyle.values().forEach { textStyle ->
+            SatsTextStyle.entries.forEach { textStyle ->
                 FilterChip(selected = currentStyle == textStyle, onClick = { onStyleChanged(textStyle) }) {
                     Text(textStyle.styleName)
                 }
