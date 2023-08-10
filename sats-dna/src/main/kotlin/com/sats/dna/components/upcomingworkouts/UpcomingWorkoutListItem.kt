@@ -86,7 +86,7 @@ fun UpcomingWorkoutListItem(
         modifier
             .clickable(role = Role.Button) { onClick() }
             .padding(SatsTheme.spacing.m),
-        horizontalArrangement = spacedBy(SatsTheme.spacing.xs),
+        horizontalArrangement = spacedBy(SatsTheme.spacing.s),
     ) {
         TimeAndDuration(
             time = time,

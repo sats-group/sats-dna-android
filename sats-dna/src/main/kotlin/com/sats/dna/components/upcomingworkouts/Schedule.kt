@@ -83,7 +83,7 @@ private fun ScheduledWorkouts(
                     location = workout.location,
                     instructor = workout.instructor,
                     waitingListStatus = workout.waitingListStatus,
-                    modifier = Modifier.weight(3f),
+                    modifier = Modifier.weight(4f),
                 )
             }
         }

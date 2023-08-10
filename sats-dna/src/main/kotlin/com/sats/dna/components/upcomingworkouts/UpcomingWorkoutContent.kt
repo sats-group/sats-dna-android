@@ -16,12 +16,12 @@ internal fun TimeAndDuration(
     Column(modifier, Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
         Text(
             time,
-            style = SatsTheme.typography.medium.large,
+            style = SatsTheme.typography.medium.basic,
         )
 
         Text(
             duration,
-            style = SatsTheme.typography.medium.large,
+            style = SatsTheme.typography.default.small,
             color = SatsTheme.colors.onBackground.secondary,
         )
     }
@@ -41,18 +41,18 @@ internal fun WorkoutInfo(
     ) {
         Text(
             name,
-            style = SatsTheme.typography.medium.large,
+            style = SatsTheme.typography.medium.basic,
         )
 
         Text(
             location,
             color = SatsTheme.colors.onSurface.secondary,
-            style = SatsTheme.typography.medium.basic,
+            style = SatsTheme.typography.default.small,
         )
 
         Text(
             instructor,
-            style = SatsTheme.typography.medium.basic,
+            style = SatsTheme.typography.default.small,
             color = SatsTheme.colors.onBackground.secondary,
         )
 
