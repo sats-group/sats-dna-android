@@ -1,4 +1,4 @@
-package com.sats.dna.components.schedule
+package com.sats.dna.components.upcomingworkouts
 
 data class ScheduledWorkout(
     val id: String,

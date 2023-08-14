@@ -1,4 +1,4 @@
-package com.sats.dna.components.schedule
+package com.sats.dna.components.upcomingworkouts
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement.spacedBy
@@ -72,75 +72,27 @@ private fun ScheduledWorkouts(
                     ),
                 horizontalArrangement = spacedBy(SatsTheme.spacing.s),
             ) {
-                TimeAndDuration(workout, modifier = Modifier.weight(1f))
+                TimeAndDuration(
+                    time = workout.time,
+                    duration = workout.duration,
+                    modifier = Modifier.weight(1f),
+                )
 
-                WorkoutInfo(workout, modifier = Modifier.weight(3f))
+                WorkoutInfo(
+                    name = workout.name,
+                    location = workout.location,
+                    instructor = workout.instructor,
+                    waitingListStatus = workout.waitingListStatus,
+                    modifier = Modifier.weight(4f),
+                )
             }
         }
     }
 }
 
-@Composable
-private fun TimeAndDuration(workout: ScheduledWorkout, modifier: Modifier = Modifier) {
-    Column(modifier, spacedBy(SatsTheme.spacing.xxs)) {
-        Text(
-            workout.time,
-            style = SatsTheme.typography.medium.large,
-        )
-
-        Text(
-            workout.duration,
-            style = SatsTheme.typography.medium.large,
-            color = SatsTheme.colors.onBackground.secondary,
-        )
-    }
-}
-
-@Composable
-private fun WorkoutInfo(
-    workout: ScheduledWorkout,
-    modifier: Modifier = Modifier,
-) {
-    Column(
-        modifier,
-        verticalArrangement = spacedBy(SatsTheme.spacing.xxs),
-    ) {
-        Text(
-            workout.name,
-            style = SatsTheme.typography.medium.large,
-        )
-
-        Text(
-            workout.location,
-            color = SatsTheme.colors.onSurface.secondary,
-            style = SatsTheme.typography.medium.basic,
-        )
-
-        Text(
-            workout.instructor,
-            style = SatsTheme.typography.medium.basic,
-            color = SatsTheme.colors.onBackground.secondary,
-        )
-
-        workout.waitingListStatus?.let { status ->
-            WaitingListText(status)
-        }
-    }
-}
-
-@Composable
-private fun WaitingListText(status: WaitingListStatus) {
-    val color = when (status) {
-        is WaitingListStatus.OnWaitingList -> SatsTheme.colors.waitingList.text
-        is WaitingListStatus.SpotSecured -> SatsTheme.colors.signalText.success
-    }
-
-    Text(status.text, color = color, style = SatsTheme.typography.default.small)
-}
-
 @LightDarkPreview
 @Composable
-private fun Preview() {
+private fun SchedulePreview() {
     val schedule = listOf(
         ScheduledWorkout(
             id = "foo",

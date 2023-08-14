@@ -11,9 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.google.accompanist.insets.ui.Scaffold
 import com.google.accompanist.insets.ui.TopAppBar
-import com.sats.dna.components.schedule.Schedule
-import com.sats.dna.components.schedule.ScheduledWorkout
-import com.sats.dna.components.schedule.WaitingListStatus
+import com.sats.dna.components.upcomingworkouts.Schedule
+import com.sats.dna.components.upcomingworkouts.ScheduledWorkout
+import com.sats.dna.components.upcomingworkouts.WaitingListStatus
 import com.sats.dna.theme.SatsTheme
 
 @Composable

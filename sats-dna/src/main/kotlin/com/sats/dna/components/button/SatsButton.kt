@@ -2,6 +2,8 @@ package com.sats.dna.components.button
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -16,6 +18,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
@@ -45,12 +48,22 @@ fun SatsButton(
         else -> IconContent.Empty
     }
 
+    val border = if (isActuallyEnabled) {
+        colors.borderColor?.let {
+            BorderStroke(1.dp, it)
+        }
+    } else {
+        colors.disabledBorderColor?.let {
+            BorderStroke(1.dp, it)
+        }
+    }
+
     Button(
         onClick = onClick,
         modifier = modifier,
         enabled = isActuallyEnabled,
         shape = SatsTheme.shapes.roundedCorners.small,
-        border = null,
+        border = border,
         elevation = null,
         colors = buttonColors,
         contentPadding = buttonPadding(isLarge),
@@ -116,7 +129,18 @@ private fun buttonPadding(isLarge: Boolean): PaddingValues {
 private fun Preview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
     SatsTheme {
         Surface(color = SatsTheme.colors.background.primary) {
-            SatsButton(onClick = {}, color.name, Modifier.padding(SatsTheme.spacing.s), color)
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                SatsButton(onClick = {}, color.name, Modifier.padding(SatsTheme.spacing.s), color)
+                SatsButton(
+                    onClick = {},
+                    "${color.name} disabled",
+                    Modifier.padding(SatsTheme.spacing.s),
+                    color,
+                    isEnabled = false,
+                )
+            }
         }
     }
 }

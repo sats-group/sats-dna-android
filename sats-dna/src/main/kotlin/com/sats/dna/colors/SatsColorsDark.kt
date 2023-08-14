@@ -114,7 +114,7 @@ internal val SatsDarkColors = SatsColors(
     waitingList = SatsColors.WaitingList(
         primary = Color(0xFF686DB9),
         text = Color(0xFFA0A5F1),
-        disabled = Color(0xFFA0A5F1),
+        disabled = Color(0xFF686DB9),
     ),
 
     onWaitingList = SatsColors.OnWaitingList(
