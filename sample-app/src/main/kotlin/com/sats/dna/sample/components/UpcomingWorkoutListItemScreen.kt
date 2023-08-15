@@ -36,7 +36,7 @@ internal fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit) {
                         location = "SATS Storo",
                         duration = "45 min",
                         instructor = "Kristin Hagen",
-                        unbookButton = {
+                        button = {
                             SatsButton(
                                 onClick = { },
                                 label = "Unbook",
@@ -57,7 +57,7 @@ internal fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit) {
                         duration = "45 min",
                         instructor = "Kristin Hagen",
                         waitingListStatus = WaitingListStatus.OnWaitingList("You are number 10 on the waiting list"),
-                        unbookButton = {
+                        button = {
                             SatsButton(
                                 onClick = { },
                                 label = "Unbook",
