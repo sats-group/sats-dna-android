@@ -66,7 +66,7 @@ fun UpcomingWorkoutDaySection(
  * @param onClick Callback to be invoked when this item is clicked.
  * @param instructor Information about the instructor for the workout.
  * @param modifier The modifier to apply to the list item.
- * @param unbookButton Optional slot for displaying an unbook button.
+ * @param button Optional slot for displaying a book/unbook button.
  * @param friendsAttending Optional slot for displaying friends that are also attending the workout. Typically a [UpcomingWorkoutAttendingFriendsLabel]
  * **/
 @Composable
@@ -76,11 +76,11 @@ fun UpcomingWorkoutListItem(
     location: String,
     duration: String,
     instructor: String,
-    modifier: Modifier = Modifier,
-    waitingListStatus: WaitingListStatus? = null,
-    unbookButton: @Composable (RowScope.() -> Unit)? = null,
-    friendsAttending: @Composable (ColumnScope.() -> Unit)? = null,
     onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    button: @Composable (() -> Unit)? = null,
+    friendsAttending: @Composable (ColumnScope.() -> Unit)? = null,
+    waitingListStatus: WaitingListStatus? = null,
 ) {
     Row(
         modifier
@@ -108,7 +108,7 @@ fun UpcomingWorkoutListItem(
                     modifier = Modifier.weight(1f),
                 )
 
-                unbookButton?.let { it() }
+                button?.let { it() }
             }
 
             friendsAttending?.let { it() }
@@ -158,7 +158,7 @@ private fun UpcomingWorkoutsListPreview() {
                         location = "SATS Storo",
                         duration = "45 min",
                         instructor = "Kristin Hagen",
-                        unbookButton = {
+                        button = {
                             SatsButton(
                                 onClick = { },
                                 label = "Unbook",
@@ -184,7 +184,8 @@ private fun UpcomingWorkoutsListPreview() {
                                 friendsAttendingLabel = "2 friends are joining this workout!",
                             )
                         },
-                    ) { }
+                        onClick = {},
+                    )
                 }
             }
         }
