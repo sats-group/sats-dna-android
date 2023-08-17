@@ -43,7 +43,8 @@ internal fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit) {
                                 colors = SatsButtonColor.Transparent,
                             )
                         },
-                    ) { }
+                        onClick = {},
+                    )
                 }
             }
 
@@ -64,7 +65,8 @@ internal fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit) {
                                 colors = SatsButtonColor.Transparent,
                             )
                         },
-                    ) { }
+                        onClick = {},
+                    )
                 }
             }
         }
