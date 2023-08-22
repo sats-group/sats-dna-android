@@ -36,9 +36,12 @@ internal fun CompletedWorkoutListItemScreen(navigateUp: () -> Unit) {
                     timestamp = "Jul 18, 2023, 06:18",
                     title = "Gym training",
                     location = "at Colosseum",
-                    numberOfCommentsLabel = "10 comments",
+                    numberOfComments = 10,
                     numberOfReactionsLabel = "15 people",
                     modifier = Modifier.clickable { },
+                    onSaidAwesomeClicked = {},
+                    onCompletedWorkoutClicked = {},
+                    isLiked = false,
                 )
             }
         }

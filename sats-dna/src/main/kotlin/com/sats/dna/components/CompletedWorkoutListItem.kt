@@ -1,10 +1,9 @@
 package com.sats.dna.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,8 +13,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
+import com.sats.dna.components.button.LikeButton
 import com.sats.dna.components.icons.WorkoutType
 import com.sats.dna.components.icons.WorkoutTypeIcon
 import com.sats.dna.theme.SatsTheme
@@ -29,7 +30,7 @@ import com.sats.dna.tooling.LightDarkPreview
  * @param timestamp A formatted date/time for when the workout started.
  * @param title The title of the workout.
  * @param location Where the workout took place, e.g. at which gym.
- * @param numberOfCommentsLabel How many comments the workout session has received, e.g. “10 comments”.
+ * @param numberOfComments How many comments the workout session has received, e.g. 10.
  * @param numberOfReactionsLabel How many people have reacted to the workout, e.g. “15 reactions”.
  * @param modifier The modifier to apply to the list item.
  */
@@ -39,42 +40,70 @@ fun CompletedWorkoutListItem(
     timestamp: String,
     title: String,
     location: String?,
-    numberOfCommentsLabel: String,
+    numberOfComments: Int,
     numberOfReactionsLabel: String,
+    onCompletedWorkoutClicked: () -> Unit,
+    onSaidAwesomeClicked: (isLiked: Boolean) -> Unit,
+    isLiked: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    Row(modifier.padding(SatsTheme.spacing.m), spacedBy(SatsTheme.spacing.m)) {
+    Row(
+        modifier
+            .clickable(onClick = onCompletedWorkoutClicked)
+            .padding(start = SatsTheme.spacing.m, end = SatsTheme.spacing.m, top = SatsTheme.spacing.m),
+        spacedBy(SatsTheme.spacing.m),
+    ) {
         icon()
 
         Column(Modifier.weight(1f), spacedBy(SatsTheme.spacing.m)) {
-            WorkoutInfo(timestamp, title, location)
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                WorkoutInfo(timestamp, title, location)
+                Icon(SatsTheme.icons.chevronRight, contentDescription = null)
+            }
 
-            SocialInfo(numberOfReactionsLabel, numberOfCommentsLabel)
+            SocialRow(
+                numberOfComments = numberOfComments,
+                numberOfReactionsLabel = numberOfReactionsLabel,
+                onSaidAwesomeClicked = onSaidAwesomeClicked,
+                isLiked = isLiked,
+                modifier = Modifier.fillMaxWidth(),
+            )
         }
-
-        Icon(SatsTheme.icons.chevronRight, contentDescription = null)
     }
 }
 
 @Composable
-@OptIn(ExperimentalLayoutApi::class)
-private fun SocialInfo(numberOfReactionsLabel: String, numberOfCommentsLabel: String) {
-    FlowRow(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalArrangement = spacedBy(SatsTheme.spacing.xs),
-    ) {
-        SocialCount(SatsTheme.icons.fistBump, numberOfReactionsLabel, Modifier.padding(end = SatsTheme.spacing.m))
+private fun SocialRow(
+    numberOfComments: Int,
+    numberOfReactionsLabel: String,
+    onSaidAwesomeClicked: (isLiked: Boolean) -> Unit,
+    isLiked: Boolean,
+    modifier: Modifier = Modifier,
+) {
+    Row(modifier, horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+        SocialCount(
+            icon = SatsTheme.icons.fistBump,
+            label = numberOfReactionsLabel,
+            tint = null,
+            modifier = Modifier
+                .padding(end = SatsTheme.spacing.m),
+        )
 
-        SocialCount(SatsTheme.icons.comment, numberOfCommentsLabel)
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            SocialCount(SatsTheme.icons.comment, SatsTheme.colors.action.default, "$numberOfComments")
+            LikeButton(isLiked = isLiked, onLikedChange = { isLiked -> onSaidAwesomeClicked(isLiked) })
+        }
     }
 }
 
 @Composable
-private fun SocialCount(icon: Painter, label: String, modifier: Modifier = Modifier) {
+private fun SocialCount(icon: Painter, tint: Color?, label: String, modifier: Modifier = Modifier) {
     Row(modifier, spacedBy(SatsTheme.spacing.xs), Alignment.CenterVertically) {
-        Icon(icon, contentDescription = null)
-
+        if (tint != null) {
+            Icon(icon, tint = tint, contentDescription = null)
+        } else {
+            Icon(icon, contentDescription = null)
+        }
         Text(label, color = SatsTheme.colors.onBackground.secondary)
     }
 }
@@ -117,8 +146,11 @@ private fun Preview() {
                     timestamp = "Jul 18, 2023, 06:18",
                     title = "Gym training",
                     location = "at Colosseum",
-                    numberOfCommentsLabel = "10 comments",
+                    numberOfComments = 10,
                     numberOfReactionsLabel = "15 people",
+                    onCompletedWorkoutClicked = {},
+                    onSaidAwesomeClicked = {},
+                    isLiked = false,
                 )
             }
         }
