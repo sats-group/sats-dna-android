@@ -30,7 +30,7 @@ import com.sats.dna.tooling.LightDarkPreview
  * @param timestamp A formatted date/time for when the workout started.
  * @param title The title of the workout.
  * @param location Where the workout took place, e.g. at which gym.
- * @param numberOfComments How many comments the workout session has received, e.g. “10”.
+ * @param numberOfComments How many comments the workout session has received, e.g. 10.
  * @param numberOfReactionsLabel How many people have reacted to the workout, e.g. “15 reactions”.
  * @param modifier The modifier to apply to the list item.
  */
@@ -40,7 +40,7 @@ fun CompletedWorkoutListItem(
     timestamp: String,
     title: String,
     location: String?,
-    numberOfComments: String,
+    numberOfComments: Int,
     numberOfReactionsLabel: String,
     onCompletedWorkoutClicked: () -> Unit,
     onSaidAwesomeClicked: (isLiked: Boolean) -> Unit,
@@ -74,7 +74,7 @@ fun CompletedWorkoutListItem(
 
 @Composable
 private fun SocialRow(
-    numberOfComments: String,
+    numberOfComments: Int,
     numberOfReactionsLabel: String,
     onSaidAwesomeClicked: (isLiked: Boolean) -> Unit,
     isLiked: Boolean,
@@ -88,8 +88,9 @@ private fun SocialRow(
             modifier = Modifier
                 .padding(end = SatsTheme.spacing.m),
         )
+
         Row(verticalAlignment = Alignment.CenterVertically) {
-            SocialCount(SatsTheme.icons.comment, SatsTheme.colors.action.default, numberOfComments)
+            SocialCount(SatsTheme.icons.comment, SatsTheme.colors.action.default, "$numberOfComments")
             LikeButton(isLiked = isLiked, onLikedChange = { isLiked -> onSaidAwesomeClicked(isLiked) })
         }
     }
@@ -145,7 +146,7 @@ private fun Preview() {
                     timestamp = "Jul 18, 2023, 06:18",
                     title = "Gym training",
                     location = "at Colosseum",
-                    numberOfComments = "10",
+                    numberOfComments = 10,
                     numberOfReactionsLabel = "15 people",
                     onCompletedWorkoutClicked = {},
                     onSaidAwesomeClicked = {},
