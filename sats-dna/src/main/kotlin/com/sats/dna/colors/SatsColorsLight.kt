@@ -20,7 +20,7 @@ internal val SatsLightColors = SatsColors(
         disabled = Color(0xFF878F97),
     ),
     cta = SatsColors.Cta(
-        default = Color(0xFFD93226),
+        default = Color(0xFFD64222),
         disabled = Color(0xFFE8E9EC),
         nonText = Color(0xFFFA5333),
     ),
