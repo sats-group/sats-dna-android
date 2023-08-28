@@ -1,7 +1,7 @@
 [versions]
 accompanist = "0.31.5-beta"
 agp = "8.1.1"
-jetpack-compose = "1.5.0-beta03"
+jetpack-compose = "1.5.0"
 jetpack-navigation = "2.7.1"
 compose-compiler = "1.5.0"
 kotlin = "1.9.0"
