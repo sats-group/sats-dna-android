@@ -75,11 +75,6 @@ private fun rememberSampleBottomNavigationState() = rememberSatsBottomNavigation
             selectedIcon = SatsTheme.icons.navActivityFilled,
             unselectedIcon = SatsTheme.icons.navActivityOutlined,
             label = "Activity",
-        ),
-        SatsBottomNavigationItem(
-            selectedIcon = SatsTheme.icons.navActivityFilled,
-            unselectedIcon = SatsTheme.icons.navActivityOutlined,
-            label = "Activity",
             hasBadge = true,
         ),
     ),
