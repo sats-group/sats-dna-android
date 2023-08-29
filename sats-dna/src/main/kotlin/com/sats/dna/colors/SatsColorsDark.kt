@@ -54,7 +54,7 @@ internal val SatsDarkColors = SatsColors(
         success = Color(0xFF424846),
         warning = Color(0xFF484641),
         error = Color(0xFF4A4444),
-        delete = Color(0xFF4B4343)
+        delete = Color(0xFF4B4343),
     ),
     signal = SatsColors.Signal(
         success = Color(0xFF8BBF9B),
