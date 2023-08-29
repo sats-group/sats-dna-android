@@ -80,7 +80,6 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
 
     implementation(libs.accompanist.insetsUi)
-    implementation(libs.accompanist.systemUiController)
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.compose.runtime)

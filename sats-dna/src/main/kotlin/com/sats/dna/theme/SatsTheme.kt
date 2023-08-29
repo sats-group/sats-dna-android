@@ -6,10 +6,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.staticCompositionLocalOf
-import androidx.compose.ui.graphics.Color
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.sats.dna.colors.SatsColors
 import com.sats.dna.colors.SatsDarkColors
 import com.sats.dna.colors.SatsLightColors
@@ -23,15 +20,6 @@ import com.sats.dna.typography.SatsTypographyImpl
 @Composable
 fun SatsTheme(content: @Composable () -> Unit) {
     val colors = if (isSystemInDarkTheme()) SatsDarkColors else SatsLightColors
-
-    val systemUiController = rememberSystemUiController()
-
-    SideEffect {
-        systemUiController.setSystemBarsColor(
-            color = Color.Transparent,
-            darkIcons = colors.isLightMode,
-        )
-    }
 
     CompositionLocalProvider(
         LocalSatsColors provides colors,
