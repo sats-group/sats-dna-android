@@ -26,6 +26,7 @@ data class SatsColors(
     val selection: Color,
     val waitingList: WaitingList,
     val onWaitingList: OnWaitingList,
+    val signalBackground: SignalBackground,
     val onSignal: Color,
     val rewards: Rewards,
     val workout: Workout,
@@ -87,6 +88,13 @@ data class SatsColors(
     data class OnCleanSecondary(
         val default: Color,
         val disabled: Color,
+    )
+
+    data class SignalBackground(
+        val success: Color,
+        val warning: Color,
+        val error: Color,
+        val delete: Color,
     )
 
     data class Signal(
@@ -162,6 +170,7 @@ data class SatsColors(
     }
 
     data class WaitingList(
+        val background: Color,
         val primary: Color,
         val text: Color,
         val disabled: Color,

@@ -50,6 +50,12 @@ internal val SatsLightColors = SatsColors(
         disabled = Color(0x99FFFFFF),
     ),
     navigation = Color(0xFF0E2133),
+    signalBackground = SatsColors.SignalBackground(
+        success = Color(0xFFEAF6F2),
+        warning = Color(0xFFF0E8DA),
+        error = Color(0xFFF5E2E4),
+        delete = Color(0xFFF9E0DE)
+    ),
     signal = SatsColors.Signal(
         success = Color(0xFF19976D),
         warning = Color(0xFFECA720),
@@ -112,6 +118,7 @@ internal val SatsLightColors = SatsColors(
     ),
 
     waitingList = SatsColors.WaitingList(
+        background = Color(0xFFEFEFF7),
         primary = Color(0XFF484BA2),
         text = Color(0XFF484BA2),
         disabled = Color(0XFF686DB9),

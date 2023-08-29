@@ -179,6 +179,12 @@ private fun SatsColors.toListItems(): List<ListItem> {
         HeaderItem("On Signal"),
         ColorItem("onSignal", onSignal),
 
+        HeaderItem("Signal Background"),
+        ColorItem("signalBackground.success", signalBackground.success),
+        ColorItem("signalBackground.warning", signalBackground.warning),
+        ColorItem("signalBackground.error", signalBackground.error),
+        ColorItem("signalBackground.delete", signalBackground.delete),
+
         HeaderItem("Signal Text"),
         ColorItem("signalText.success", signalText.success),
         ColorItem("signalText.warning", signalText.warning),
