@@ -46,7 +46,6 @@ object SatsIcons {
     val followersAndFollowees @Composable get() = painterResource(R.drawable.ic_followers_and_followees)
     val graph @Composable get() = painterResource(R.drawable.ic_graph)
     val gxClass @Composable get() = painterResource(R.drawable.ic_class)
-    val gymClass @Composable get() = painterResource(R.drawable.ic_gym_class)
     val hidden @Composable get() = painterResource(R.drawable.ic_hidden)
     val imagePlaceholder @Composable get() = painterResource(R.drawable.ic_image_placeholder)
     val images @Composable get() = painterResource(R.drawable.ic_images)
@@ -94,6 +93,7 @@ object SatsIcons {
     val trophy @Composable get() = painterResource(R.drawable.ic_trophy)
     val users @Composable get() = painterResource(R.drawable.ic_users)
     val vouchersAndGiftCards @Composable get() = painterResource(R.drawable.ic_vouchers_and_gift_cards)
+    val workoutCardio @Composable get() = painterResource(R.drawable.ic_workout_cardio)
     val workoutGx @Composable get() = painterResource(R.drawable.ic_workout_gx)
     val workoutGymFloor @Composable get() = painterResource(R.drawable.ic_workout_gym_floor)
     val workoutOther @Composable get() = painterResource(R.drawable.ic_workout_other)
@@ -143,6 +143,7 @@ private val allIcons: List<Painter>
         SatsIcons.starOutlined,
         SatsIcons.trophy,
         SatsIcons.users,
+        SatsIcons.workoutCardio,
         SatsIcons.workoutGx,
         SatsIcons.workoutGymFloor,
         SatsIcons.workoutOther,
