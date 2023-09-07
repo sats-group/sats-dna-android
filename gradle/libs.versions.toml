@@ -2,7 +2,7 @@
 accompanist = "0.32.0"
 agp = "8.1.1"
 compose-compiler = "1.5.3"
-jetpack-compose = "1.5.0"
+jetpack-compose = "1.5.1"
 jetpack-navigation = "2.7.2"
 kotlin = "1.9.10"
 
