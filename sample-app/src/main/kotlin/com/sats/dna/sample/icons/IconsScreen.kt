@@ -184,6 +184,7 @@ private fun SatsIcons.toIconDataList() = listOf(
     IconData("search", search),
     IconData("send", send),
     IconData("settings", settings),
+    IconData("share", share),
     IconData("showing", showing),
     IconData("starFilled", starFilled),
     IconData("starOutlined", starOutlined),
