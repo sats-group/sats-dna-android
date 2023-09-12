@@ -78,6 +78,7 @@ object SatsIcons {
     val ptPackages @Composable get() = painterResource(R.drawable.ic_pt_packages)
     val pushNotifications @Composable get() = painterResource(R.drawable.ic_push_notifications)
     val qrCode @Composable get() = painterResource(R.drawable.ic_qr_code)
+    val recruitFriends @Composable get() = painterResource(R.drawable.ic_recruit_friends)
     val rewardsElixia @Composable get() = painterResource(R.drawable.ic_rewards_elixia)
     val rewardsSats @Composable get() = painterResource(R.drawable.ic_rewards_sats)
     val search @Composable get() = painterResource(R.drawable.ic_search)
@@ -140,6 +141,7 @@ private val allIcons: List<Painter>
         SatsIcons.navHomeSatsOutlined,
         SatsIcons.navQrFilled,
         SatsIcons.navQrOutlined,
+        SatsIcons.recruitFriends,
         SatsIcons.starFilled,
         SatsIcons.starOutlined,
         SatsIcons.trophy,
