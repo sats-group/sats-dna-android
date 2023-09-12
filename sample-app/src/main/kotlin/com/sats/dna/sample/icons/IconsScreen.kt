@@ -144,6 +144,7 @@ private fun SatsIcons.toIconDataList() = listOf(
     IconData("fistBump", fistBump),
     IconData("flame", flame),
     IconData("followersAndFollowees", followersAndFollowees),
+    IconData("friends", friends),
     IconData("graph", graph),
     IconData("gxClass", gxClass),
     IconData("hidden", hidden),
