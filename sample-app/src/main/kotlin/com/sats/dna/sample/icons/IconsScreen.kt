@@ -1,39 +1,22 @@
 package com.sats.dna.sample.icons
 
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBars
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.FilterChip
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
-import androidx.compose.material.LocalContentColor
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.ui.Scaffold
 import com.google.accompanist.insets.ui.TopAppBar
@@ -42,8 +25,6 @@ import com.sats.dna.theme.SatsTheme
 
 @Composable
 internal fun IconsScreen(navigateUp: () -> Unit) {
-    val controlPanelState = remember { ControlPanelState() }
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -57,86 +38,29 @@ internal fun IconsScreen(navigateUp: () -> Unit) {
                 title = { Text("Icons") },
             )
         },
-        bottomBar = { ControlPanel(controlPanelState) },
         contentPadding = PaddingValues(SatsTheme.spacing.m),
     ) { innerPadding ->
         val icons = SatsTheme.icons.allIcons
+            .distinctBy { it.name }
+            .sortedBy { it.name }
 
-        LazyVerticalGrid(
+        LazyColumn(
             modifier = Modifier.fillMaxSize(),
-            columns = GridCells.Adaptive(iconCellSize),
             contentPadding = innerPadding,
+            verticalArrangement = spacedBy(SatsTheme.spacing.m),
         ) {
-            items(icons) { icon ->
-                IconCell(
-                    icon = icon,
-                    showBorder = controlPanelState.showIconBorders,
-                    showLargeIcons = controlPanelState.showLargeIcons,
-                )
+            items(icons, key = { "icon-${it.name}" }) { icon ->
+                Row(
+                    horizontalArrangement = spacedBy(SatsTheme.spacing.m),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Icon(icon.painter, contentDescription = null, Modifier.size(24.dp))
+                    Text(icon.name)
+                }
             }
         }
     }
 }
-
-@Stable
-private class ControlPanelState {
-    var showIconBorders: Boolean by mutableStateOf(false)
-        private set
-
-    var showLargeIcons: Boolean by mutableStateOf(false)
-        private set
-
-    fun toggleIconBorders() {
-        showIconBorders = !showIconBorders
-    }
-
-    fun toggleLargeIcons() {
-        showLargeIcons = !showLargeIcons
-    }
-}
-
-@OptIn(ExperimentalMaterialApi::class)
-@Composable
-private fun ControlPanel(state: ControlPanelState) {
-    Surface(Modifier.fillMaxWidth(), elevation = 2.dp) {
-        Row(
-            Modifier
-                .navigationBarsPadding()
-                .padding(SatsTheme.spacing.m),
-            Arrangement.spacedBy(SatsTheme.spacing.m),
-            Alignment.CenterVertically,
-        ) {
-            FilterChip(state.showIconBorders, state::toggleIconBorders) {
-                Text("Show borders")
-            }
-
-            FilterChip(state.showLargeIcons, state::toggleLargeIcons) {
-                Text("Show large icons")
-            }
-        }
-    }
-}
-
-@Composable
-private fun IconCell(icon: NamedIcon, showBorder: Boolean, showLargeIcons: Boolean) {
-    val borderColor = if (showBorder) LocalContentColor.current else Color.Transparent
-    val size = if (showLargeIcons) 48.dp else 24.dp
-
-    Box(
-        Modifier.size(iconCellSize),
-        contentAlignment = Alignment.Center,
-    ) {
-        Icon(
-            icon.painter,
-            contentDescription = null,
-            Modifier
-                .size(size)
-                .border(Dp.Hairline, borderColor),
-        )
-    }
-}
-
-private val iconCellSize = 56.dp
 
 private data class NamedIcon(
     val name: String,
