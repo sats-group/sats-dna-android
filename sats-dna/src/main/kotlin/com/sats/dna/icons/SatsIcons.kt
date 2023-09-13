@@ -1,25 +1,11 @@
 package com.sats.dna.icons
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.material.Icon
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment.Companion.Center
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.sats.dna.R
-import com.sats.dna.theme.SatsTheme
 
 object SatsIcons {
     val add @Composable get() = painterResource(R.drawable.ic_add)
-    val addOutlined @Composable get() = painterResource(R.drawable.ic_add_outlined)
     val addPerson @Composable get() = painterResource(R.drawable.ic_add_person)
     val addToCalendar @Composable get() = painterResource(R.drawable.ic_add_to_calendar)
     val back @Composable get() = painterResource(R.drawable.ic_back)
@@ -32,11 +18,9 @@ object SatsIcons {
     val chevronDown @Composable get() = painterResource(R.drawable.ic_chevron_down)
     val chevronRight @Composable get() = painterResource(R.drawable.ic_chevron_right)
     val chevronUp @Composable get() = painterResource(R.drawable.ic_chevron_up)
-    val clock @Composable get() = painterResource(R.drawable.ic_clock)
     val clockFilled @Composable get() = painterResource(R.drawable.ic_clock_filled)
     val close @Composable get() = painterResource(R.drawable.ic_close)
     val comment @Composable get() = painterResource(R.drawable.ic_comment)
-    val contactLocation @Composable get() = painterResource(R.drawable.ic_contact_location)
     val customerService @Composable get() = painterResource(R.drawable.ic_customer_service)
     val filter @Composable get() = painterResource(R.drawable.ic_filter)
     val findFriends @Composable get() = painterResource(R.drawable.ic_find_friends)
@@ -45,7 +29,6 @@ object SatsIcons {
     val flame @Composable get() = painterResource(R.drawable.ic_flame)
     val followersAndFollowees @Composable get() = painterResource(R.drawable.ic_followers_and_followees)
     val friends @Composable get() = painterResource(R.drawable.ic_friends)
-    val graph @Composable get() = painterResource(R.drawable.ic_graph)
     val gxClass @Composable get() = painterResource(R.drawable.ic_class)
     val hidden @Composable get() = painterResource(R.drawable.ic_hidden)
     val imagePlaceholder @Composable get() = painterResource(R.drawable.ic_image_placeholder)
@@ -57,7 +40,6 @@ object SatsIcons {
     val lock @Composable get() = painterResource(R.drawable.ic_lock)
     val logOut @Composable get() = painterResource(R.drawable.ic_log_out)
     val minus @Composable get() = painterResource(R.drawable.ic_minus)
-    val moreHorizontal @Composable get() = painterResource(R.drawable.ic_more_horizontal)
     val moreVertical @Composable get() = painterResource(R.drawable.ic_more_vertical)
     val myPage @Composable get() = painterResource(R.drawable.ic_my_page)
     val navActivityFilled @Composable get() = painterResource(R.drawable.ic_nav_activity_filled)
@@ -73,11 +55,9 @@ object SatsIcons {
     val navQrFilled @Composable get() = painterResource(R.drawable.ic_nav_qr_filled)
     val navQrOutlined @Composable get() = painterResource(R.drawable.ic_nav_qr_outlined)
     val negRemove @Composable get() = painterResource(R.drawable.ic_neg_remove)
-    val phone @Composable get() = painterResource(R.drawable.ic_phone)
     val privacyPolicy @Composable get() = painterResource(R.drawable.ic_privacy_policy)
     val profileOutlined @Composable get() = painterResource(R.drawable.ic_profile_outlined)
     val ptPackages @Composable get() = painterResource(R.drawable.ic_pt_packages)
-    val pushNotifications @Composable get() = painterResource(R.drawable.ic_push_notifications)
     val qrCode @Composable get() = painterResource(R.drawable.ic_qr_code)
     val recruitFriends @Composable get() = painterResource(R.drawable.ic_recruit_friends)
     val rewardsElixia @Composable get() = painterResource(R.drawable.ic_rewards_elixia)
@@ -94,7 +74,6 @@ object SatsIcons {
     val time @Composable get() = painterResource(R.drawable.ic_time)
     val treatment @Composable get() = painterResource(R.drawable.ic_treatment)
     val trophy @Composable get() = painterResource(R.drawable.ic_trophy)
-    val users @Composable get() = painterResource(R.drawable.ic_users)
     val vouchersAndGiftCards @Composable get() = painterResource(R.drawable.ic_vouchers_and_gift_cards)
     val workoutCardio @Composable get() = painterResource(R.drawable.ic_workout_cardio)
     val workoutGx @Composable get() = painterResource(R.drawable.ic_workout_gx)
@@ -102,55 +81,3 @@ object SatsIcons {
     val workoutOther @Composable get() = painterResource(R.drawable.ic_workout_other)
     val workoutPt @Composable get() = painterResource(R.drawable.ic_workout_pt)
 }
-
-@Preview
-@Composable
-private fun Preview() {
-    SatsTheme {
-        Surface {
-            val allIcons = allIcons
-            LazyVerticalGrid(GridCells.Adaptive(48.dp)) {
-                items(allIcons) { icon ->
-                    Box(Modifier.size(48.dp), contentAlignment = Center) {
-                        Icon(icon, contentDescription = null, Modifier.size(24.dp))
-                    }
-                }
-            }
-        }
-    }
-}
-
-private val allIcons: List<Painter>
-    @Composable get() = listOf(
-        SatsIcons.addToCalendar,
-        SatsIcons.back,
-        SatsIcons.checkThin,
-        SatsIcons.chevronRight,
-        SatsIcons.comment,
-        SatsIcons.fistBump,
-        SatsIcons.friends,
-        SatsIcons.graph,
-        SatsIcons.linkExternal,
-        SatsIcons.navActivityFilled,
-        SatsIcons.navActivityOutlined,
-        SatsIcons.navBookFilled,
-        SatsIcons.navBookOutlined,
-        SatsIcons.navClubsFilled,
-        SatsIcons.navClubsOutlined,
-        SatsIcons.navHomeElixiaFilled,
-        SatsIcons.navHomeElixiaOutlined,
-        SatsIcons.navHomeSatsFilled,
-        SatsIcons.navHomeSatsOutlined,
-        SatsIcons.navQrFilled,
-        SatsIcons.navQrOutlined,
-        SatsIcons.recruitFriends,
-        SatsIcons.starFilled,
-        SatsIcons.starOutlined,
-        SatsIcons.trophy,
-        SatsIcons.users,
-        SatsIcons.workoutCardio,
-        SatsIcons.workoutGx,
-        SatsIcons.workoutGymFloor,
-        SatsIcons.workoutOther,
-        SatsIcons.workoutPt,
-    )
