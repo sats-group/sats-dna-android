@@ -1,21 +1,8 @@
 package com.sats.dna.icons
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.material.Icon
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment.Companion.Center
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.sats.dna.R
-import com.sats.dna.theme.SatsTheme
 
 object SatsIcons {
     val add @Composable get() = painterResource(R.drawable.ic_add)
@@ -102,55 +89,3 @@ object SatsIcons {
     val workoutOther @Composable get() = painterResource(R.drawable.ic_workout_other)
     val workoutPt @Composable get() = painterResource(R.drawable.ic_workout_pt)
 }
-
-@Preview
-@Composable
-private fun Preview() {
-    SatsTheme {
-        Surface {
-            val allIcons = allIcons
-            LazyVerticalGrid(GridCells.Adaptive(48.dp)) {
-                items(allIcons) { icon ->
-                    Box(Modifier.size(48.dp), contentAlignment = Center) {
-                        Icon(icon, contentDescription = null, Modifier.size(24.dp))
-                    }
-                }
-            }
-        }
-    }
-}
-
-private val allIcons: List<Painter>
-    @Composable get() = listOf(
-        SatsIcons.addToCalendar,
-        SatsIcons.back,
-        SatsIcons.checkThin,
-        SatsIcons.chevronRight,
-        SatsIcons.comment,
-        SatsIcons.fistBump,
-        SatsIcons.friends,
-        SatsIcons.graph,
-        SatsIcons.linkExternal,
-        SatsIcons.navActivityFilled,
-        SatsIcons.navActivityOutlined,
-        SatsIcons.navBookFilled,
-        SatsIcons.navBookOutlined,
-        SatsIcons.navClubsFilled,
-        SatsIcons.navClubsOutlined,
-        SatsIcons.navHomeElixiaFilled,
-        SatsIcons.navHomeElixiaOutlined,
-        SatsIcons.navHomeSatsFilled,
-        SatsIcons.navHomeSatsOutlined,
-        SatsIcons.navQrFilled,
-        SatsIcons.navQrOutlined,
-        SatsIcons.recruitFriends,
-        SatsIcons.starFilled,
-        SatsIcons.starOutlined,
-        SatsIcons.trophy,
-        SatsIcons.users,
-        SatsIcons.workoutCardio,
-        SatsIcons.workoutGx,
-        SatsIcons.workoutGymFloor,
-        SatsIcons.workoutOther,
-        SatsIcons.workoutPt,
-    )

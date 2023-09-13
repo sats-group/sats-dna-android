@@ -69,11 +69,7 @@ tasks.withType<KotlinCompile>().configureEach {
 }
 
 dependencies {
-    implementation(project(":core-tooling"))
-    implementation(project(":sats-dna"))
-
-    implementation(platform(libs.androidx.compose.bom))
-
+    debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.accompanist.insetsUi)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.foundation)
@@ -84,6 +80,8 @@ dependencies {
     implementation(libs.androidx.core)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.google.material)
-
-    debugImplementation(libs.androidx.compose.ui.tooling)
+    implementation(libs.kotlin.reflect)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(project(":core-tooling"))
+    implementation(project(":sats-dna"))
 }
