@@ -5,6 +5,7 @@
     <application
         android:enableOnBackInvokedCallback="true"
         android:icon="@mipmap/ic_launcher"
+        android:label="SATS DNA"
         android:theme="@style/Theme.SatsDnaSample"
         tools:targetApi="tiramisu">
         <activity
