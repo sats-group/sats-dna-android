@@ -79,5 +79,6 @@ object SatsIcons {
     val workoutGx @Composable get() = painterResource(R.drawable.ic_workout_gx)
     val workoutGymFloor @Composable get() = painterResource(R.drawable.ic_workout_gym_floor)
     val workoutOther @Composable get() = painterResource(R.drawable.ic_workout_other)
+    val workoutPlan @Composable get() = painterResource(R.drawable.ic_workout_plan)
     val workoutPt @Composable get() = painterResource(R.drawable.ic_workout_pt)
 }
