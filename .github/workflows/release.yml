@@ -164,7 +164,7 @@ jobs:
       - name: Upload Bundle to Play Store
         uses: r0adkll/upload-google-play@v1.1.2
         with:
-          releaseFiles: ./sample-app/build/outputs/bundle/release/sample-app-release.aab
+          releaseFiles: sample-app/build/outputs/bundle/release/sample-app-release.aab
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
           packageName: com.sats.dna.sample
           track: beta
