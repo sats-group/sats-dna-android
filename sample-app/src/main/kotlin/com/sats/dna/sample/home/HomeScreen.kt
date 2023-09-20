@@ -50,7 +50,7 @@ internal fun HomeScreen(navController: NavController) {
             TopAppBar(
                 backgroundColor = SatsTheme.colors.surface.primary,
                 contentPadding = WindowInsets.statusBars.asPaddingValues(),
-                title = { Text("Sats DNA Sample App") },
+                title = { Text("SATS DNA Sample App") },
             )
         },
         bottomBar = { Box(Modifier.navigationBarsPadding()) },

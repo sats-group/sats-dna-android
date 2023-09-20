@@ -26,7 +26,7 @@ private fun Preview() {
                 SamplesColumn("Default", SatsTheme.typography.default)
                 SamplesColumn("Medium", SatsTheme.typography.medium)
                 SamplesColumn("Emphasis", SatsTheme.typography.emphasis)
-                SamplesColumn("Sats Feeling", SatsTheme.typography.satsFeeling)
+                SamplesColumn("SATS Feeling", SatsTheme.typography.satsFeeling)
             }
         }
     }
