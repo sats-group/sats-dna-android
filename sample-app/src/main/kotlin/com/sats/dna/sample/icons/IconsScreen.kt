@@ -3,9 +3,11 @@ package com.sats.dna.sample.icons
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.lazy.LazyColumn
@@ -18,26 +20,27 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.insets.ui.Scaffold
 import com.google.accompanist.insets.ui.TopAppBar
+import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 internal fun IconsScreen(navigateUp: () -> Unit) {
-    Scaffold(
+    SatsScreen(
         topBar = {
             TopAppBar(
                 backgroundColor = SatsTheme.colors.surface.primary,
                 contentPadding = WindowInsets.statusBars.asPaddingValues(),
                 navigationIcon = {
-                    IconButton(onClick = navigateUp) {
+                    IconButton(navigateUp) {
                         Icon(SatsTheme.icons.back, contentDescription = null)
                     }
                 },
                 title = { Text("Icons") },
             )
         },
+        bottomBar = { Spacer(Modifier.navigationBarsPadding()) },
         contentPadding = PaddingValues(SatsTheme.spacing.m),
     ) { innerPadding ->
         val icons = SatsTheme.icons.allIcons
@@ -143,5 +146,6 @@ private val SatsIcons.allIcons: List<NamedIcon>
         NamedIcon("workoutGx", workoutGx),
         NamedIcon("workoutGymFloor", workoutGymFloor),
         NamedIcon("workoutOther", workoutOther),
+        NamedIcon("workoutPlan", workoutPlan),
         NamedIcon("workoutPt", workoutPt),
     )
