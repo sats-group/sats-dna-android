@@ -75,10 +75,7 @@ tasks.withType<KotlinCompile>().configureEach {
 }
 
 dependencies {
-    implementation(project(":core-tooling"))
-
-    implementation(platform(libs.androidx.compose.bom))
-
+    debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.accompanist.insetsUi)
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.material)
@@ -86,8 +83,7 @@ dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.ui.util)
-
-    debugImplementation(libs.androidx.compose.ui.tooling)
+    implementation(platform(libs.androidx.compose.bom))
 }
 
 publishing {

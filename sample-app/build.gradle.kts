@@ -82,6 +82,5 @@ dependencies {
     implementation(libs.google.material)
     implementation(libs.kotlin.reflect)
     implementation(platform(libs.androidx.compose.bom))
-    implementation(project(":core-tooling"))
     implementation(project(":sats-dna"))
 }
