@@ -150,6 +150,7 @@ jobs:
 
   release-sample-app:
     name: Release DNA Sample App
+    needs: build-sample-app
     runs-on: buildjet-4vcpu-ubuntu-2204
     timeout-minutes: 5
 
