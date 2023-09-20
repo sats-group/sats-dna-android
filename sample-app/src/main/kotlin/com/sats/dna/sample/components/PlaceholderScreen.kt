@@ -16,7 +16,6 @@ import com.sats.dna.components.PlaceholderBox
 import com.sats.dna.components.PlaceholderParagraph
 import com.sats.dna.components.PlaceholderText
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 internal fun PlaceholderScreen(navigateUp: () -> Unit) {
@@ -45,13 +44,5 @@ internal fun PlaceholderScreen(navigateUp: () -> Unit) {
                 PlaceholderParagraph(lines = 10)
             }
         }
-    }
-}
-
-@LightDarkPreview
-@Composable
-private fun Preview() {
-    SatsTheme {
-        PlaceholderScreen(navigateUp = {})
     }
 }
