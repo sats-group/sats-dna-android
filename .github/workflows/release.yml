@@ -99,7 +99,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: sats-dna-lib
-          path: sats-dna/build/outputs/aar/sats-dna-release.aar
+          path: sats-dna/build/outputs/aar/
 
       - name: Publish to GitHub Packages
         uses: gradle/gradle-build-action@v2
@@ -175,7 +175,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: sats-dna-sample-app
-          path: sample-app/build/outputs/bundle/release/sample-app-release.aab
+          path: sample-app/build/outputs/bundle/release/
 
       - name: Upload Bundle to Play Store
         uses: r0adkll/upload-google-play@v1.1.2
