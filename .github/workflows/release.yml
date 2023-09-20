@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up JDK 19
         uses: actions/setup-java@v3
@@ -79,6 +81,17 @@ jobs:
       contents: write
 
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK 19
+        uses: actions/setup-java@v3
+        with:
+          distribution: zulu
+          java-version: 19
+
       - name: Download Artifacts
         uses: actions/download-artifact@v3
         with:
@@ -164,7 +177,7 @@ jobs:
       - name: Upload Bundle to Play Store
         uses: r0adkll/upload-google-play@v1.1.2
         with:
-          releaseFiles: ./sample-app/build/outputs/bundle/release/sample-app-release.aab
+          releaseFiles: sample-app/build/outputs/bundle/release/sample-app-release.aab
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
           packageName: com.sats.dna.sample
           track: beta
