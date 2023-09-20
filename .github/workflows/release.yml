@@ -92,6 +92,9 @@ jobs:
           distribution: zulu
           java-version: 19
 
+      - name: Generate Version Name
+        run: echo "VERSION_NAME=$(echo ${{ github.ref }} | sed 's/refs\/tags\/v//')" >> $GITHUB_ENV
+
       - name: Download Artifacts
         uses: actions/download-artifact@v3
         with:
@@ -157,7 +160,7 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: sats-dna-lib
+          name: sats-dna-sample-app
           path: sample-app/build/outputs/bundle/release/sample-app-release.aab
           if-no-files-found: error
 
@@ -171,7 +174,7 @@ jobs:
       - name: Download Artifacts
         uses: actions/download-artifact@v3
         with:
-          name: sats-dna-lib
+          name: sats-dna-sample-app
           path: sample-app/build/outputs/bundle/release/sample-app-release.aab
 
       - name: Upload Bundle to Play Store
