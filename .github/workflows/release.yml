@@ -92,6 +92,9 @@ jobs:
           distribution: zulu
           java-version: 19
 
+      - name: Generate Version Name
+        run: echo "VERSION_NAME=$(echo ${{ github.ref }} | sed 's/refs\/tags\/v//')" >> $GITHUB_ENV
+
       - name: Download Artifacts
         uses: actions/download-artifact@v3
         with:
