@@ -8,6 +8,9 @@ object SatsIcons {
     val add @Composable get() = painterResource(R.drawable.ic_add)
     val addPerson @Composable get() = painterResource(R.drawable.ic_add_person)
     val addToCalendar @Composable get() = painterResource(R.drawable.ic_add_to_calendar)
+    val arrowDown @Composable get() = painterResource(R.drawable.ic_arrow_down)
+    val arrowRight @Composable get() = painterResource(R.drawable.ic_arrow_right)
+    val arrowUp @Composable get() = painterResource(R.drawable.ic_arrow_up)
     val back @Composable get() = painterResource(R.drawable.ic_back)
     val barbell @Composable get() = painterResource(R.drawable.ic_barbell)
     val calendar @Composable get() = painterResource(R.drawable.ic_calendar)
@@ -15,9 +18,15 @@ object SatsIcons {
     val checkRound @Composable get() = painterResource(R.drawable.ic_check_round)
     val checkSeal @Composable get() = painterResource(R.drawable.ic_check_seal)
     val checkThin @Composable get() = painterResource(R.drawable.ic_check_thin)
-    val chevronDown @Composable get() = painterResource(R.drawable.ic_chevron_down)
-    val chevronRight @Composable get() = painterResource(R.drawable.ic_chevron_right)
-    val chevronUp @Composable get() = painterResource(R.drawable.ic_chevron_up)
+
+    @Deprecated("Replaced with arrowDown", ReplaceWith("arrowDown"))
+    val chevronDown @Composable get() = arrowDown
+
+    @Deprecated("Replaced with arrowRight", ReplaceWith("arrowRight"))
+    val chevronRight @Composable get() = arrowRight
+
+    @Deprecated("Replaced with arrowUp", ReplaceWith("arrowUp"))
+    val chevronUp @Composable get() = arrowUp
     val clockFilled @Composable get() = painterResource(R.drawable.ic_clock_filled)
     val close @Composable get() = painterResource(R.drawable.ic_close)
     val comment @Composable get() = painterResource(R.drawable.ic_comment)

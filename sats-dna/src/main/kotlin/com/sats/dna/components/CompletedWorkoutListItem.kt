@@ -58,7 +58,7 @@ fun CompletedWorkoutListItem(
         Column(Modifier.weight(1f), spacedBy(SatsTheme.spacing.m)) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                 WorkoutInfo(timestamp, title, location)
-                Icon(SatsTheme.icons.chevronRight, contentDescription = null)
+                Icon(SatsTheme.icons.arrowRight, contentDescription = null)
             }
 
             SocialRow(
