@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.ui.TopAppBar
+import com.sats.dna.components.chip.SatsChip
 import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
@@ -59,6 +60,12 @@ internal fun IconsScreen(navigateUp: () -> Unit) {
                 ) {
                     Icon(icon.painter, contentDescription = null, Modifier.size(24.dp))
                     Text(icon.name)
+
+                    Spacer(Modifier.weight(1f))
+
+                    if (icon.isDeprecated) {
+                        SatsChip("DEPRECATED")
+                    }
                 }
             }
         }
@@ -68,6 +75,7 @@ internal fun IconsScreen(navigateUp: () -> Unit) {
 private data class NamedIcon(
     val name: String,
     val painter: Painter,
+    val isDeprecated: Boolean = false,
 )
 
 private val SatsIcons.allIcons: List<NamedIcon>
@@ -78,9 +86,9 @@ private val SatsIcons.allIcons: List<NamedIcon>
         NamedIcon("arrowDown", arrowDown),
         NamedIcon("arrowRight", arrowRight),
         NamedIcon("arrowUp", arrowUp),
-        NamedIcon("chevronDown", chevronDown),
-        NamedIcon("chevronRight", chevronRight),
-        NamedIcon("chevronUp", chevronUp),
+        NamedIcon("chevronDown", chevronDown, isDeprecated = true),
+        NamedIcon("chevronRight", chevronRight, isDeprecated = true),
+        NamedIcon("chevronUp", chevronUp, isDeprecated = true),
         NamedIcon("back", back),
         NamedIcon("barbell", barbell),
         NamedIcon("calendar", calendar),
