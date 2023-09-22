@@ -133,12 +133,20 @@ internal val SatsLightColors = SatsColors(
     onSignal = Color(0xFFFFFFFF),
 
     rewards = SatsColors.Rewards(
+        blue = Color(0xFF0D2134),
+        silver = Color(0xFF767676),
+        gold = Color(0xFF996D17),
+        platinum = Color(0xFF464E55),
         selection = SatsColors.Rewards.RewardsColors(
             blue = Color(0xFFFA5333),
             silver = Color(0xFFCAD1D8),
             gold = Color(0xFFD4A852),
             platinum = Color(0xFF929AA1),
         ),
+    ),
+
+    onRewards = SatsColors.OnRewards(
+        primary = Color(0xFFFFFFFF),
     ),
 
     workout = SatsColors.Workout(
