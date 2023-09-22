@@ -34,7 +34,7 @@ private fun ScheduledDays(
 ) {
     Column(
         Modifier.padding(top = cardInnerPadding, bottom = cardInnerPadding - clickableVerticalPadding),
-        spacedBy(SatsTheme.spacing.xs),
+        spacedBy(SatsTheme.spacing.s - clickableVerticalPadding),
     ) {
         days.keys.forEach { dayName ->
             Column(verticalArrangement = spacedBy(SatsTheme.spacing.s - clickableVerticalPadding)) {
@@ -58,7 +58,7 @@ private fun ScheduledWorkouts(
     workouts: List<ScheduledWorkout>,
     onWorkoutClicked: (workout: ScheduledWorkout) -> Unit,
 ) {
-    Column(verticalArrangement = spacedBy(SatsTheme.spacing.xxs)) {
+    Column(verticalArrangement = spacedBy(SatsTheme.spacing.xs - clickableVerticalPadding)) {
         workouts.forEach { workout ->
             Row(
                 Modifier
