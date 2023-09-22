@@ -9,6 +9,7 @@ import com.sats.dna.sample.components.ButtonsScreen
 import com.sats.dna.sample.components.CheckboxScreen
 import com.sats.dna.sample.components.CircularProgressIndicatorScreen
 import com.sats.dna.sample.components.CompletedWorkoutListItemScreen
+import com.sats.dna.sample.components.LabelsScreen
 import com.sats.dna.sample.components.PlaceholderScreen
 import com.sats.dna.sample.components.RadioButtonsScreen
 import com.sats.dna.sample.components.SatsTextFieldScreen
@@ -35,22 +36,23 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         iconsScreen(navController::navigateUp)
         typographyScreen(navController::navigateUp)
 
-        buttonsScreen(navController::navigateUp)
-        chipsScreen(navController::navigateUp)
-        progressBarsScreen(navController::navigateUp)
-        topAppBarScreen(navController::navigateUp)
-        cardScreen(navController::navigateUp)
         bottomNavigationScreen(navController::navigateUp)
-        scheduleScreen(navController::navigateUp)
-        radioButtonsScreen(navController::navigateUp)
-        switchScreen(navController::navigateUp)
+        buttonsScreen(navController::navigateUp)
+        cardScreen(navController::navigateUp)
         checkboxScreen(navController::navigateUp)
+        chipsScreen(navController::navigateUp)
         circularProgressIndicatorScreen(navController::navigateUp)
-        surfaceScreen(navController::navigateUp)
-        textFieldScreen(navController::navigateUp)
-        snackbarScreen(navController::navigateUp)
-        placeholdersScreen(navController::navigateUp)
         completedWorkoutListItemScreen(navController::navigateUp)
+        labelsScreen(navController::navigateUp)
+        placeholdersScreen(navController::navigateUp)
+        progressBarsScreen(navController::navigateUp)
+        radioButtonsScreen(navController::navigateUp)
+        scheduleScreen(navController::navigateUp)
+        snackbarScreen(navController::navigateUp)
+        surfaceScreen(navController::navigateUp)
+        switchScreen(navController::navigateUp)
+        textFieldScreen(navController::navigateUp)
+        topAppBarScreen(navController::navigateUp)
         upcomingWorkoutListItemScreen(navController::navigateUp)
     }
 }
@@ -181,6 +183,12 @@ private fun NavGraphBuilder.upcomingWorkoutListItemScreen(navigateUp: () -> Unit
     }
 }
 
+private fun NavGraphBuilder.labelsScreen(navigateUp: () -> Unit) {
+    composable("/components/labels") {
+        LabelsScreen(navigateUp)
+    }
+}
+
 internal fun NavController.navigateToColors() {
     navigate("/colors")
 }
@@ -259,4 +267,8 @@ internal fun NavController.navigateToCompletedWorkoutListItem() {
 
 internal fun NavController.navigateToUpcomingWorkoutListItem() {
     navigate("/components/upcoming-workout-list-item")
+}
+
+internal fun NavController.navigateToLabels() {
+    navigate("/components/labels")
 }

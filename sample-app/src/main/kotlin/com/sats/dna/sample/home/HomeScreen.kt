@@ -31,6 +31,7 @@ import com.sats.dna.sample.navigateToCircularProgressIndicator
 import com.sats.dna.sample.navigateToColors
 import com.sats.dna.sample.navigateToCompletedWorkoutListItem
 import com.sats.dna.sample.navigateToIcons
+import com.sats.dna.sample.navigateToLabels
 import com.sats.dna.sample.navigateToPlaceholders
 import com.sats.dna.sample.navigateToProgressBars
 import com.sats.dna.sample.navigateToRadioButtons
@@ -105,6 +106,11 @@ internal fun HomeScreen(navController: NavController) {
             ListItem(
                 modifier = Modifier.clickable { navController.navigateToBottomNavigationScreen() },
                 text = { Text("Bottom Navigation") },
+            )
+
+            ListItem(
+                modifier = Modifier.clickable { navController.navigateToLabels() },
+                text = { Text("Labels") },
             )
 
             ListItem(

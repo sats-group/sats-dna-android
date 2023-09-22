@@ -29,6 +29,7 @@ data class SatsColors(
     val signalBackground: SignalBackground,
     val onSignal: Color,
     val rewards: Rewards,
+    val onRewards: OnRewards,
     val workout: Workout,
 
     val isLightMode: Boolean,
@@ -182,15 +183,23 @@ data class SatsColors(
     )
 
     data class Rewards(
+        val blue: Color,
+        val silver: Color,
+        val gold: Color,
+        val platinum: Color,
         val selection: RewardsColors,
     ) {
         data class RewardsColors(
-            val blue: Color,
-            val silver: Color,
-            val gold: Color,
-            val platinum: Color,
+            @Deprecated("Remove .selection") val blue: Color,
+            @Deprecated("Remove .selection") val silver: Color,
+            @Deprecated("Remove .selection") val gold: Color,
+            @Deprecated("Remove .selection") val platinum: Color,
         )
     }
+
+    data class OnRewards(
+        val primary: Color,
+    )
 
     data class Workout(
         val pt: Color,

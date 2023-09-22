@@ -27,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.ui.Scaffold
 import com.google.accompanist.insets.ui.TopAppBar
@@ -246,9 +247,20 @@ private fun SatsColors.toListItems(): List<ListItem> {
         ColorItem("onWaitingList.disabled", onWaitingList.disabled),
 
         HeaderItem("Rewards"),
-        ColorItem("rewards.selection.blue", rewards.selection.blue),
-        ColorItem("rewards.selection.silver", rewards.selection.silver),
-        ColorItem("rewards.selection.gold", rewards.selection.gold),
-        ColorItem("rewards.selection.platinum", rewards.selection.platinum),
+        ColorItem("rewards.blue", rewards.blue),
+        ColorItem("rewards.silver", rewards.silver),
+        ColorItem("rewards.gold", rewards.gold),
+        ColorItem("rewards.platinum", rewards.platinum),
+
+        HeaderItem("On Rewards"),
+        ColorItem("onRewards.primary", onRewards.primary),
     )
+}
+
+@Preview
+@Composable
+private fun ColorsScreenPreview() {
+    SatsTheme {
+        ColorsScreen(navigateUp = {})
+    }
 }
