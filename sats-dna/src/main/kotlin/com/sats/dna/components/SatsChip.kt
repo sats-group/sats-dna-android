@@ -104,15 +104,14 @@ fun SatsInputChipClearButton(
     iconColor: Color = SatsTheme.colors.primary.default,
 ) {
     SatsSurface(
-        modifier = modifier
-            .size(16.dp)
-            .clickable(onClickLabel = onClickLabel, role = Role.Button) { onClick() },
+        modifier = modifier.size(16.dp),
         color = backgroundColor,
         shape = SatsTheme.shapes.circle,
     ) {
         Icon(
             painter = SatsTheme.icons.close,
             contentDescription = null,
+            modifier = Modifier.clickable(onClickLabel = onClickLabel, role = Role.Button) { onClick() },
             tint = iconColor,
         )
     }
