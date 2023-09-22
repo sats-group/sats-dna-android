@@ -5,16 +5,16 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.button.LikeButton
 import com.sats.dna.components.icons.WorkoutType
@@ -41,7 +41,7 @@ fun CompletedWorkoutListItem(
     title: String,
     location: String?,
     numberOfComments: Int,
-    numberOfReactionsLabel: String,
+    numberOfReactionsLabel: String?,
     onCompletedWorkoutClicked: () -> Unit,
     onSaidAwesomeClicked: (isLiked: Boolean) -> Unit,
     isLiked: Boolean,
@@ -50,7 +50,8 @@ fun CompletedWorkoutListItem(
     Row(
         modifier
             .clickable(onClick = onCompletedWorkoutClicked)
-            .padding(start = SatsTheme.spacing.m, end = SatsTheme.spacing.m, top = SatsTheme.spacing.m),
+            .padding(horizontal = SatsTheme.spacing.m)
+            .padding(top = SatsTheme.spacing.m),
         spacedBy(SatsTheme.spacing.m),
     ) {
         icon()
@@ -75,36 +76,44 @@ fun CompletedWorkoutListItem(
 @Composable
 private fun SocialRow(
     numberOfComments: Int,
-    numberOfReactionsLabel: String,
+    numberOfReactionsLabel: String?,
     onSaidAwesomeClicked: (isLiked: Boolean) -> Unit,
     isLiked: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    Row(modifier, horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-        SocialCount(
-            icon = SatsTheme.icons.fistBump,
-            label = numberOfReactionsLabel,
-            tint = null,
-            modifier = Modifier
-                .padding(end = SatsTheme.spacing.m),
-        )
+    Row(modifier, verticalAlignment = Alignment.CenterVertically) {
+        if (numberOfReactionsLabel != null) {
+            Row(
+                modifier = Modifier.padding(end = SatsTheme.spacing.m),
+                horizontalArrangement = spacedBy(SatsTheme.spacing.xs),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Icon(
+                    SatsTheme.icons.fistBump,
+                    contentDescription = null,
+                    tint = SatsTheme.colors.onBackground.secondary,
+                )
+
+                Text(numberOfReactionsLabel, color = SatsTheme.colors.onBackground.secondary)
+            }
+        }
+
+        Spacer(Modifier.weight(1f))
+
+        val normalizedNumberOfComments = if (numberOfComments < 100) {
+            "$numberOfComments"
+        } else {
+            "99+"
+        }
 
         Row(verticalAlignment = Alignment.CenterVertically) {
-            SocialCount(SatsTheme.icons.comment, SatsTheme.colors.action.default, "$numberOfComments")
-            LikeButton(isLiked = isLiked, onLikedChange = { isLiked -> onSaidAwesomeClicked(isLiked) })
-        }
-    }
-}
+            Row(Modifier, spacedBy(SatsTheme.spacing.xs), Alignment.CenterVertically) {
+                Icon(SatsTheme.icons.comment, contentDescription = null, tint = SatsTheme.colors.action.default)
+                Text(normalizedNumberOfComments, color = SatsTheme.colors.onBackground.secondary)
+            }
 
-@Composable
-private fun SocialCount(icon: Painter, tint: Color?, label: String, modifier: Modifier = Modifier) {
-    Row(modifier, spacedBy(SatsTheme.spacing.xs), Alignment.CenterVertically) {
-        if (tint != null) {
-            Icon(icon, tint = tint, contentDescription = null)
-        } else {
-            Icon(icon, contentDescription = null)
+            LikeButton(isLiked = isLiked, onSaidAwesomeClicked)
         }
-        Text(label, color = SatsTheme.colors.onBackground.secondary)
     }
 }
 
@@ -141,6 +150,20 @@ private fun Preview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors.background.primary) {
             Column {
+                CompletedWorkoutListItem(
+                    icon = { WorkoutTypeIcon(WorkoutType.OwnTraining, null, Modifier.size(34.dp)) },
+                    timestamp = "Jul 18, 2023, 06:18",
+                    title = "Gym training",
+                    location = "at Colosseum",
+                    numberOfComments = 123,
+                    numberOfReactionsLabel = null,
+                    onCompletedWorkoutClicked = {},
+                    onSaidAwesomeClicked = {},
+                    isLiked = false,
+                )
+
+                Divider()
+
                 CompletedWorkoutListItem(
                     icon = { WorkoutTypeIcon(WorkoutType.OwnTraining, null, Modifier.size(34.dp)) },
                     timestamp = "Jul 18, 2023, 06:18",
