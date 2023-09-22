@@ -1,4 +1,4 @@
-package com.sats.dna.sample.components.chip
+package com.sats.dna.sample.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
