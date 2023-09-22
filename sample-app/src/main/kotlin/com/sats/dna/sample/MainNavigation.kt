@@ -7,6 +7,7 @@ import androidx.navigation.compose.navigation
 import com.sats.dna.sample.colors.ColorsScreen
 import com.sats.dna.sample.components.ButtonsScreen
 import com.sats.dna.sample.components.CheckboxScreen
+import com.sats.dna.sample.components.ChipsScreen
 import com.sats.dna.sample.components.CircularProgressIndicatorScreen
 import com.sats.dna.sample.components.CompletedWorkoutListItemScreen
 import com.sats.dna.sample.components.PlaceholderScreen
@@ -18,7 +19,6 @@ import com.sats.dna.sample.components.SwitchScreen
 import com.sats.dna.sample.components.UpcomingWorkoutListItemScreen
 import com.sats.dna.sample.components.appbar.SatsTopAppBarScreen
 import com.sats.dna.sample.components.card.SatsCardScreen
-import com.sats.dna.sample.components.chip.ChipsScreen
 import com.sats.dna.sample.components.navigation.BottomNavigationScreen
 import com.sats.dna.sample.components.progressbar.ProgressBarsScreen
 import com.sats.dna.sample.components.schedule.ScheduleScreen
