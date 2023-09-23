@@ -5,6 +5,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import com.sats.dna.sample.colors.ColorsScreen
+import com.sats.dna.sample.components.BannerScreen
 import com.sats.dna.sample.components.ButtonsScreen
 import com.sats.dna.sample.components.CheckboxScreen
 import com.sats.dna.sample.components.ChipsScreen
@@ -36,6 +37,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         iconsScreen(navController::navigateUp)
         typographyScreen(navController::navigateUp)
 
+        bannersScreen(navController::navigateUp)
         bottomNavigationScreen(navController::navigateUp)
         buttonsScreen(navController::navigateUp)
         cardScreen(navController::navigateUp)
@@ -78,6 +80,12 @@ private fun NavGraphBuilder.typographyScreen(navigateUp: () -> Unit) {
 private fun NavGraphBuilder.iconsScreen(navigateUp: () -> Unit) {
     composable("/icons") {
         IconsScreen(navigateUp)
+    }
+}
+
+private fun NavGraphBuilder.bannersScreen(navigateUp: () -> Unit) {
+    composable("/components/banners") {
+        BannerScreen(navigateUp)
     }
 }
 
@@ -199,6 +207,10 @@ internal fun NavController.navigateToTypography() {
 
 internal fun NavController.navigateToIcons() {
     navigate("/icons")
+}
+
+internal fun NavController.navigateToBanners() {
+    navigate("/components/banners")
 }
 
 internal fun NavController.navigateToButtons() {

@@ -22,6 +22,7 @@ import androidx.navigation.NavController
 import com.google.accompanist.insets.ui.Scaffold
 import com.google.accompanist.insets.ui.TopAppBar
 import com.sats.dna.sample.navigateSurface
+import com.sats.dna.sample.navigateToBanners
 import com.sats.dna.sample.navigateToBottomNavigationScreen
 import com.sats.dna.sample.navigateToButtons
 import com.sats.dna.sample.navigateToCardScreen
@@ -77,6 +78,11 @@ internal fun HomeScreen(navController: NavController) {
             )
 
             Divider(Modifier.padding(vertical = SatsTheme.spacing.s))
+
+            ListItem(
+                modifier = Modifier.clickable { navController.navigateToBanners() },
+                text = { Text("Banners") },
+            )
 
             ListItem(
                 modifier = Modifier.clickable { navController.navigateToButtons() },
