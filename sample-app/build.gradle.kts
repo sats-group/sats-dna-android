@@ -65,6 +65,8 @@ android {
 tasks.withType<KotlinCompile>().configureEach {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_11)
+
+        freeCompilerArgs.add("-Xcontext-receivers")
     }
 }
 
