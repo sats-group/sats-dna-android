@@ -4,60 +4,59 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
-import com.sats.dna.sample.colors.ColorsScreen
-import com.sats.dna.sample.components.BannerScreen
-import com.sats.dna.sample.components.ButtonsScreen
-import com.sats.dna.sample.components.CampaignModulesScreen
-import com.sats.dna.sample.components.CheckboxScreen
-import com.sats.dna.sample.components.ChipsScreen
-import com.sats.dna.sample.components.CircularProgressIndicatorScreen
-import com.sats.dna.sample.components.CompletedWorkoutListItemScreen
-import com.sats.dna.sample.components.LabelsScreen
-import com.sats.dna.sample.components.PlaceholderScreen
-import com.sats.dna.sample.components.RadioButtonsScreen
-import com.sats.dna.sample.components.SatsTextFieldScreen
-import com.sats.dna.sample.components.SnackbarScreen
-import com.sats.dna.sample.components.SurfaceScreen
-import com.sats.dna.sample.components.SwitchScreen
-import com.sats.dna.sample.components.UpcomingWorkoutListItemScreen
-import com.sats.dna.sample.components.appbar.SatsTopAppBarScreen
-import com.sats.dna.sample.components.card.SatsCardScreen
-import com.sats.dna.sample.components.navigation.BottomNavigationScreen
-import com.sats.dna.sample.components.progressbar.ProgressBarsScreen
-import com.sats.dna.sample.components.schedule.ScheduleScreen
 import com.sats.dna.sample.home.HomeScreen
-import com.sats.dna.sample.icons.IconsScreen
-import com.sats.dna.sample.typography.TypographyScreen
+import com.sats.dna.sample.screens.BottomNavigationSampleScreen
+import com.sats.dna.sample.screens.ButtonsSampleScreen
+import com.sats.dna.sample.screens.CampaignModuleSampleScreen
+import com.sats.dna.sample.screens.CardSampleScreen
+import com.sats.dna.sample.screens.CheckboxSampleScreen
+import com.sats.dna.sample.screens.ChipsSampleScreen
+import com.sats.dna.sample.screens.CircularProgressIndicatorSampleScreen
+import com.sats.dna.sample.screens.ColorsSampleScreen
+import com.sats.dna.sample.screens.CompletedWorkoutListItemSampleScreen
+import com.sats.dna.sample.screens.IconsSampleScreen
+import com.sats.dna.sample.screens.LabelsSampleScreen
+import com.sats.dna.sample.screens.PlaceholdersSampleScreen
+import com.sats.dna.sample.screens.ProgressBarsSampleScreen
+import com.sats.dna.sample.screens.RadioButtonsSampleScreen
+import com.sats.dna.sample.screens.ScheduleSampleScreen
+import com.sats.dna.sample.screens.SnackbarSampleScreen
+import com.sats.dna.sample.screens.SurfaceSampleScreen
+import com.sats.dna.sample.screens.SwitchSampleScreen
+import com.sats.dna.sample.screens.TextFieldSampleScreen
+import com.sats.dna.sample.screens.TopBarSampleScreen
+import com.sats.dna.sample.screens.TypographySampleScreen
+import com.sats.dna.sample.screens.UpcomingWorkoutListItemSampleScreen
 
 internal const val MainRoute = "sats-dna"
 
 internal fun NavGraphBuilder.mainGraph(navController: NavController) {
     navigation(startDestination = "/", MainRoute) {
         homeScreen(navController)
-        colorsScreen(navController::navigateUp)
-        iconsScreen(navController::navigateUp)
-        typographyScreen(navController::navigateUp)
 
-        bannersScreen(navController::navigateUp)
-        bottomNavigationScreen(navController::navigateUp)
-        buttonsScreen(navController::navigateUp)
-        campaignModulesScreen(navController::navigateUp)
-        cardScreen(navController::navigateUp)
-        checkboxScreen(navController::navigateUp)
-        chipsScreen(navController::navigateUp)
-        circularProgressIndicatorScreen(navController::navigateUp)
-        completedWorkoutListItemScreen(navController::navigateUp)
-        labelsScreen(navController::navigateUp)
-        placeholdersScreen(navController::navigateUp)
-        progressBarsScreen(navController::navigateUp)
-        radioButtonsScreen(navController::navigateUp)
-        scheduleScreen(navController::navigateUp)
-        snackbarScreen(navController::navigateUp)
-        surfaceScreen(navController::navigateUp)
-        switchScreen(navController::navigateUp)
-        textFieldScreen(navController::navigateUp)
-        topAppBarScreen(navController::navigateUp)
-        upcomingWorkoutListItemScreen(navController::navigateUp)
+        ColorsSampleScreen.navScreen(navController)
+        IconsSampleScreen.navScreen(navController)
+        TypographySampleScreen.navScreen(navController)
+
+        BottomNavigationSampleScreen.navScreen(navController)
+        ButtonsSampleScreen.navScreen(navController)
+        CampaignModuleSampleScreen.navScreen(navController)
+        CardSampleScreen.navScreen(navController)
+        CheckboxSampleScreen.navScreen(navController)
+        ChipsSampleScreen.navScreen(navController)
+        CircularProgressIndicatorSampleScreen.navScreen(navController)
+        CompletedWorkoutListItemSampleScreen.navScreen(navController)
+        LabelsSampleScreen.navScreen(navController)
+        PlaceholdersSampleScreen.navScreen(navController)
+        ProgressBarsSampleScreen.navScreen(navController)
+        RadioButtonsSampleScreen.navScreen(navController)
+        ScheduleSampleScreen.navScreen(navController)
+        SnackbarSampleScreen.navScreen(navController)
+        SurfaceSampleScreen.navScreen(navController)
+        SwitchSampleScreen.navScreen(navController)
+        TextFieldSampleScreen.navScreen(navController)
+        TopBarSampleScreen.navScreen(navController)
+        UpcomingWorkoutListItemSampleScreen.navScreen(navController)
     }
 }
 
@@ -65,234 +64,4 @@ private fun NavGraphBuilder.homeScreen(navController: NavController) {
     composable("/") {
         HomeScreen(navController)
     }
-}
-
-private fun NavGraphBuilder.colorsScreen(navigateUp: () -> Unit) {
-    composable("/colors") {
-        ColorsScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.typographyScreen(navigateUp: () -> Unit) {
-    composable("/typography") {
-        TypographyScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.iconsScreen(navigateUp: () -> Unit) {
-    composable("/icons") {
-        IconsScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.bannersScreen(navigateUp: () -> Unit) {
-    composable("/components/banners") {
-        BannerScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.buttonsScreen(navigateUp: () -> Unit) {
-    composable("/components/buttons") {
-        ButtonsScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.chipsScreen(navigateUp: () -> Unit) {
-    composable("/components/chips") {
-        ChipsScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.progressBarsScreen(navigateUp: () -> Unit) {
-    composable("/components/progress-bars") {
-        ProgressBarsScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.topAppBarScreen(navigateUp: () -> Unit) {
-    composable("/components/top-app-bar") {
-        SatsTopAppBarScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.campaignModulesScreen(navigateUp: () -> Unit) {
-    composable("/components/campaign-modules") {
-        CampaignModulesScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.cardScreen(navigateUp: () -> Unit) {
-    composable("/components/card") {
-        SatsCardScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.bottomNavigationScreen(navigateUp: () -> Unit) {
-    composable("/components/bottom-navigation") {
-        BottomNavigationScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.scheduleScreen(navigateUp: () -> Unit) {
-    composable("/components/schedule") {
-        ScheduleScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.radioButtonsScreen(navigateUp: () -> Unit) {
-    composable("/components/radio-buttons") {
-        RadioButtonsScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.switchScreen(navigateUp: () -> Unit) {
-    composable("/components/switch") {
-        SwitchScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.checkboxScreen(navigateUp: () -> Unit) {
-    composable("/components/checkbox") {
-        CheckboxScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.circularProgressIndicatorScreen(navigateUp: () -> Unit) {
-    composable("/components/circular-progress-indicator") {
-        CircularProgressIndicatorScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.surfaceScreen(navigateUp: () -> Unit) {
-    composable("/components/surface") {
-        SurfaceScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.textFieldScreen(navigateUp: () -> Unit) {
-    composable("/components/text-field") {
-        SatsTextFieldScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.snackbarScreen(navigateUp: () -> Unit) {
-    composable("/components/snackbar") {
-        SnackbarScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.placeholdersScreen(navigateUp: () -> Unit) {
-    composable("/components/placeholders") {
-        PlaceholderScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.completedWorkoutListItemScreen(navigateUp: () -> Unit) {
-    composable("/components/completed-workout-list-item") {
-        CompletedWorkoutListItemScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.upcomingWorkoutListItemScreen(navigateUp: () -> Unit) {
-    composable("/components/upcoming-workout-list-item") {
-        UpcomingWorkoutListItemScreen(navigateUp)
-    }
-}
-
-private fun NavGraphBuilder.labelsScreen(navigateUp: () -> Unit) {
-    composable("/components/labels") {
-        LabelsScreen(navigateUp)
-    }
-}
-
-internal fun NavController.navigateToColors() {
-    navigate("/colors")
-}
-
-internal fun NavController.navigateToTypography() {
-    navigate("/typography")
-}
-
-internal fun NavController.navigateToIcons() {
-    navigate("/icons")
-}
-
-internal fun NavController.navigateToBanners() {
-    navigate("/components/banners")
-}
-
-internal fun NavController.navigateToButtons() {
-    navigate("/components/buttons")
-}
-
-internal fun NavController.navigateToCampaignModules() {
-    navigate("/components/campaign-modules")
-}
-
-internal fun NavController.navigateToChips() {
-    navigate("/components/chips")
-}
-
-internal fun NavController.navigateToProgressBars() {
-    navigate("/components/progress-bars")
-}
-
-internal fun NavController.navigateToTopAppBarScreen() {
-    navigate("/components/top-app-bar")
-}
-
-internal fun NavController.navigateToCardScreen() {
-    navigate("/components/card")
-}
-
-internal fun NavController.navigateToBottomNavigationScreen() {
-    navigate("/components/bottom-navigation")
-}
-
-internal fun NavController.navigateToSchedule() {
-    navigate("/components/schedule")
-}
-
-internal fun NavController.navigateToRadioButtons() {
-    navigate("/components/radio-buttons")
-}
-
-internal fun NavController.navigateToSwitch() {
-    navigate("/components/switch")
-}
-
-internal fun NavController.navigateToCheckbox() {
-    navigate("/components/checkbox")
-}
-
-internal fun NavController.navigateToCircularProgressIndicator() {
-    navigate("/components/circular-progress-indicator")
-}
-
-internal fun NavController.navigateSurface() {
-    navigate("/components/surface")
-}
-
-internal fun NavController.navigateToTextField() {
-    navigate("/components/text-field")
-}
-
-internal fun NavController.navigateToSnackbar() {
-    navigate("/components/snackbar")
-}
-
-internal fun NavController.navigateToPlaceholders() {
-    navigate("/components/placeholders")
-}
-
-internal fun NavController.navigateToCompletedWorkoutListItem() {
-    navigate("/components/completed-workout-list-item")
-}
-
-internal fun NavController.navigateToUpcomingWorkoutListItem() {
-    navigate("/components/upcoming-workout-list-item")
-}
-
-internal fun NavController.navigateToLabels() {
-    navigate("/components/labels")
 }
