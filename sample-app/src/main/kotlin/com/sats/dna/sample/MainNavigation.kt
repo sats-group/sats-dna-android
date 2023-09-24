@@ -7,6 +7,7 @@ import androidx.navigation.compose.navigation
 import com.sats.dna.sample.colors.ColorsScreen
 import com.sats.dna.sample.components.BannerScreen
 import com.sats.dna.sample.components.ButtonsScreen
+import com.sats.dna.sample.components.CampaignModulesScreen
 import com.sats.dna.sample.components.CheckboxScreen
 import com.sats.dna.sample.components.ChipsScreen
 import com.sats.dna.sample.components.CircularProgressIndicatorScreen
@@ -40,6 +41,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         bannersScreen(navController::navigateUp)
         bottomNavigationScreen(navController::navigateUp)
         buttonsScreen(navController::navigateUp)
+        campaignModulesScreen(navController::navigateUp)
         cardScreen(navController::navigateUp)
         checkboxScreen(navController::navigateUp)
         chipsScreen(navController::navigateUp)
@@ -110,6 +112,12 @@ private fun NavGraphBuilder.progressBarsScreen(navigateUp: () -> Unit) {
 private fun NavGraphBuilder.topAppBarScreen(navigateUp: () -> Unit) {
     composable("/components/top-app-bar") {
         SatsTopAppBarScreen(navigateUp)
+    }
+}
+
+private fun NavGraphBuilder.campaignModulesScreen(navigateUp: () -> Unit) {
+    composable("/components/campaign-modules") {
+        CampaignModulesScreen(navigateUp)
     }
 }
 
@@ -215,6 +223,10 @@ internal fun NavController.navigateToBanners() {
 
 internal fun NavController.navigateToButtons() {
     navigate("/components/buttons")
+}
+
+internal fun NavController.navigateToCampaignModules() {
+    navigate("/components/campaign-modules")
 }
 
 internal fun NavController.navigateToChips() {

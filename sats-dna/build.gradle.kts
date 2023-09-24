@@ -83,6 +83,7 @@ dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.ui.util)
+    implementation(libs.coil.compose)
     implementation(platform(libs.androidx.compose.bom))
 }
 
