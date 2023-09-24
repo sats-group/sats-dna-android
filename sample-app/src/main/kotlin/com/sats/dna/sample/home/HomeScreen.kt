@@ -24,6 +24,7 @@ import com.google.accompanist.insets.ui.TopAppBar
 import com.sats.dna.sample.navigateSurface
 import com.sats.dna.sample.navigateToBottomNavigationScreen
 import com.sats.dna.sample.navigateToButtons
+import com.sats.dna.sample.navigateToCampaignModules
 import com.sats.dna.sample.navigateToCardScreen
 import com.sats.dna.sample.navigateToCheckbox
 import com.sats.dna.sample.navigateToChips
@@ -81,6 +82,11 @@ internal fun HomeScreen(navController: NavController) {
             ListItem(
                 modifier = Modifier.clickable { navController.navigateToButtons() },
                 text = { Text("Buttons") },
+            )
+
+            ListItem(
+                modifier = Modifier.clickable { navController.navigateToCampaignModules() },
+                text = { Text("Campaign Module") },
             )
 
             ListItem(
