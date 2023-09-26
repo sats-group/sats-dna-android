@@ -25,6 +25,7 @@ import com.sats.dna.sample.screens.SurfaceSampleScreen
 import com.sats.dna.sample.screens.SwitchSampleScreen
 import com.sats.dna.sample.screens.TextFieldSampleScreen
 import com.sats.dna.sample.screens.TopBarSampleScreen
+import com.sats.dna.sample.screens.TrafficLightsSampleScreen
 import com.sats.dna.sample.screens.TypographySampleScreen
 import com.sats.dna.sample.screens.UpcomingWorkoutListItemSampleScreen
 
@@ -56,6 +57,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         SwitchSampleScreen.navScreen(navController)
         TextFieldSampleScreen.navScreen(navController)
         TopBarSampleScreen.navScreen(navController)
+        TrafficLightsSampleScreen.navScreen(navController)
         UpcomingWorkoutListItemSampleScreen.navScreen(navController)
     }
 }
