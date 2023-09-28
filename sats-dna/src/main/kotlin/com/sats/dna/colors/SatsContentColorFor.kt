@@ -27,10 +27,10 @@ fun satsContentColorFor(backgroundColor: Color): Color {
         SatsTheme.colors.signal.warning -> SatsTheme.colors.onSignal
         SatsTheme.colors.signal.error -> SatsTheme.colors.onSignal
         SatsTheme.colors.signal.delete -> SatsTheme.colors.onSignal
-        SatsTheme.colors.rewards.blue -> SatsTheme.colors.onRewards.primary
-        SatsTheme.colors.rewards.silver -> SatsTheme.colors.onRewards.primary
-        SatsTheme.colors.rewards.gold -> SatsTheme.colors.onRewards.primary
-        SatsTheme.colors.rewards.platinum -> SatsTheme.colors.onRewards.primary
+        SatsTheme.colors.rewards.blue -> SatsTheme.colors.onRewards.default
+        SatsTheme.colors.rewards.silver -> SatsTheme.colors.onRewards.default
+        SatsTheme.colors.rewards.gold -> SatsTheme.colors.onRewards.default
+        SatsTheme.colors.rewards.platinum -> SatsTheme.colors.onRewards.default
         else -> Color.Unspecified
     }
 }

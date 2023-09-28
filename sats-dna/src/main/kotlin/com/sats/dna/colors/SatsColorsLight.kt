@@ -146,7 +146,7 @@ internal val SatsLightColors = SatsColors(
     ),
 
     onRewards = SatsColors.OnRewards(
-        primary = Color(0xFFFFFFFF),
+        default = Color(0xFFFFFFFF),
     ),
 
     workout = SatsColors.Workout(

@@ -60,7 +60,7 @@ fun SatsRewardsLabel(
         SatsRewardsLevel.Platinum -> "PLATINUM"
     }
 
-    val contentColor = SatsTheme.colors.onRewards.primary
+    val contentColor = SatsTheme.colors.onRewards.default
 
     SatsLabelLayout(text, backgroundColor = backgroundColor, contentColor = contentColor, modifier)
 }

@@ -198,7 +198,7 @@ data class SatsColors(
     }
 
     data class OnRewards(
-        val primary: Color,
+        val default: Color,
     )
 
     data class Workout(
