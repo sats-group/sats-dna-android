@@ -187,15 +187,7 @@ data class SatsColors(
         val silver: Color,
         val gold: Color,
         val platinum: Color,
-        val selection: RewardsColors,
-    ) {
-        data class RewardsColors(
-            @Deprecated("Remove .selection") val blue: Color,
-            @Deprecated("Remove .selection") val silver: Color,
-            @Deprecated("Remove .selection") val gold: Color,
-            @Deprecated("Remove .selection") val platinum: Color,
-        )
-    }
+    )
 
     data class OnRewards(
         val default: Color,
