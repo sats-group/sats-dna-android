@@ -43,7 +43,6 @@ fun SatsLabel(
 
 @Composable
 fun SatsRewardsLabel(
-    text: String,
     level: SatsRewardsLevel,
     modifier: Modifier = Modifier,
 ) {
@@ -52,6 +51,13 @@ fun SatsRewardsLabel(
         SatsRewardsLevel.Silver -> SatsTheme.colors.rewards.silver
         SatsRewardsLevel.Gold -> SatsTheme.colors.rewards.gold
         SatsRewardsLevel.Platinum -> SatsTheme.colors.rewards.platinum
+    }
+
+    val text = when (level) {
+        SatsRewardsLevel.Blue -> "BLUE"
+        SatsRewardsLevel.Silver -> "SILVER"
+        SatsRewardsLevel.Gold -> "GOLD"
+        SatsRewardsLevel.Platinum -> "PLATINUM"
     }
 
     val contentColor = SatsTheme.colors.onRewards.primary
@@ -108,7 +114,7 @@ private fun SatsRewardsLabelPreview() {
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 SatsRewardsLevel.entries.forEach { level ->
-                    SatsRewardsLabel("$level", level = level)
+                    SatsRewardsLabel(level)
                 }
             }
         }

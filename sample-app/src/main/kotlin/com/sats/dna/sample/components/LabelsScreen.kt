@@ -12,8 +12,6 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -57,7 +55,7 @@ internal fun LabelsScreen(navigateUp: () -> Unit) {
 
             Section("Rewards Labels") {
                 SatsRewardsLevel.entries.forEach { level ->
-                    SatsRewardsLabel("$level", level)
+                    SatsRewardsLabel(level)
                 }
             }
         }
