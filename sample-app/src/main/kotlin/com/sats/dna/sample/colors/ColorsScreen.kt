@@ -253,7 +253,7 @@ private fun SatsColors.toListItems(): List<ListItem> {
         ColorItem("rewards.platinum", rewards.platinum),
 
         HeaderItem("On Rewards"),
-        ColorItem("onRewards.primary", onRewards.primary),
+        ColorItem("onRewards.primary", onRewards.default),
     )
 }
 
