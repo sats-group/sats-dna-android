@@ -19,12 +19,12 @@ import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
-fun TrafficLights(color: TrafficLightsColor, modifier: Modifier = Modifier) {
+fun TrafficLight(color: TrafficLightColor, modifier: Modifier = Modifier) {
     val actualColor = when (color) {
-        TrafficLightsColor.Green -> SatsTheme.colors.signal.success
-        TrafficLightsColor.Yellow -> SatsTheme.colors.signal.warning
-        TrafficLightsColor.Red -> SatsTheme.colors.signal.error
-        TrafficLightsColor.Gray -> SatsTheme.colors.ui.graphicalElements1
+        TrafficLightColor.Green -> SatsTheme.colors.signal.success
+        TrafficLightColor.Yellow -> SatsTheme.colors.signal.warning
+        TrafficLightColor.Red -> SatsTheme.colors.signal.error
+        TrafficLightColor.Gray -> SatsTheme.colors.ui.graphicalElements1
     }
 
     Box(
@@ -42,7 +42,7 @@ fun TrafficLights(color: TrafficLightsColor, modifier: Modifier = Modifier) {
     }
 }
 
-enum class TrafficLightsColor {
+enum class TrafficLightColor {
     Green,
     Yellow,
     Red,
@@ -59,10 +59,10 @@ private fun TrafficLightPreview() {
                 Arrangement.spacedBy(SatsTheme.spacing.m),
             ) {
                 val openStates = listOf(
-                    TrafficLightsColor.Gray,
-                    TrafficLightsColor.Green,
-                    TrafficLightsColor.Yellow,
-                    TrafficLightsColor.Red,
+                    TrafficLightColor.Gray,
+                    TrafficLightColor.Green,
+                    TrafficLightColor.Yellow,
+                    TrafficLightColor.Red,
                 )
 
                 openStates.forEach { color ->
@@ -71,7 +71,7 @@ private fun TrafficLightPreview() {
                         Arrangement.spacedBy(SatsTheme.spacing.m),
                         Alignment.CenterVertically,
                     ) {
-                        TrafficLights(color, Modifier.size(32.dp))
+                        TrafficLight(color, Modifier.size(32.dp))
 
                         Text(color.toString())
                     }

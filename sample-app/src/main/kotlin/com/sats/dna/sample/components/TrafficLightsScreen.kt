@@ -15,8 +15,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.sats.dna.components.TrafficLights
-import com.sats.dna.components.TrafficLightsColor
+import com.sats.dna.components.TrafficLight
+import com.sats.dna.components.TrafficLightColor
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -32,10 +32,10 @@ internal fun TrafficLightsScreen(navigateUp: () -> Unit) {
                 .padding(innerPadding),
         ) {
             val openStates = listOf(
-                TrafficLightsColor.Gray,
-                TrafficLightsColor.Green,
-                TrafficLightsColor.Yellow,
-                TrafficLightsColor.Red,
+                TrafficLightColor.Gray,
+                TrafficLightColor.Green,
+                TrafficLightColor.Yellow,
+                TrafficLightColor.Red,
             )
 
             openStates.forEach { color ->
@@ -44,7 +44,7 @@ internal fun TrafficLightsScreen(navigateUp: () -> Unit) {
                     Arrangement.spacedBy(SatsTheme.spacing.m),
                     Alignment.CenterVertically,
                 ) {
-                    TrafficLights(color, Modifier.size(32.dp))
+                    TrafficLight(color, Modifier.size(32.dp))
 
                     Text(color.toString())
                 }
