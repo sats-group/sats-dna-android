@@ -40,6 +40,7 @@ import com.sats.dna.sample.screens.SurfaceSampleScreen
 import com.sats.dna.sample.screens.SwitchSampleScreen
 import com.sats.dna.sample.screens.TextFieldSampleScreen
 import com.sats.dna.sample.screens.TopBarSampleScreen
+import com.sats.dna.sample.screens.TrafficLightsSampleScreen
 import com.sats.dna.sample.screens.TypographySampleScreen
 import com.sats.dna.sample.screens.UpcomingWorkoutListItemSampleScreen
 import com.sats.dna.theme.SatsTheme
@@ -86,6 +87,7 @@ internal fun HomeScreen(navController: NavController) {
             SwitchSampleScreen.HomeListItem(navController)
             TextFieldSampleScreen.HomeListItem(navController)
             TopBarSampleScreen.HomeListItem(navController)
+            TrafficLightsSampleScreen.HomeListItem(navController)
             UpcomingWorkoutListItemSampleScreen.HomeListItem(navController)
         }
     }
