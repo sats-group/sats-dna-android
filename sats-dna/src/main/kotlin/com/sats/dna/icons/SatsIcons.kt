@@ -21,15 +21,6 @@ object SatsIcons {
     val checkSeal @Composable get() = painterResource(R.drawable.ic_check_seal)
     val checkThin @Composable get() = painterResource(R.drawable.ic_check_thin)
     val cherry @Composable get() = painterResource(R.drawable.ic_cherry)
-
-    @Deprecated("Replaced with arrowDown", ReplaceWith("arrowDown"))
-    val chevronDown @Composable get() = arrowDown
-
-    @Deprecated("Replaced with arrowRight", ReplaceWith("arrowRight"))
-    val chevronRight @Composable get() = arrowRight
-
-    @Deprecated("Replaced with arrowUp", ReplaceWith("arrowUp"))
-    val chevronUp @Composable get() = arrowUp
     val choosePhoto @Composable get() = painterResource(R.drawable.ic_choose_photo)
     val clockFilled @Composable get() = painterResource(R.drawable.ic_clock_filled)
     val close @Composable get() = painterResource(R.drawable.ic_close)
