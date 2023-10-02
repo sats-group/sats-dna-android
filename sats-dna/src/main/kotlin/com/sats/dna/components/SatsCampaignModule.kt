@@ -21,7 +21,7 @@ import com.sats.dna.tooling.PreviewImagePlaceholder
 fun SatsCampaignModule(
     imageUrl: String,
     title: String,
-    subtitle: String,
+    subtitle: String?,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -35,7 +35,9 @@ fun SatsCampaignModule(
             ) {
                 Text(title, style = SatsTheme.typography.medium.basic)
 
-                Text(subtitle, style = SatsTheme.typography.default.small)
+                if (subtitle != null) {
+                    Text(subtitle, style = SatsTheme.typography.default.small)
+                }
             }
         }
     }
@@ -71,6 +73,19 @@ private fun SatsCampaignModulePreview() {
             subtitle = "Today is a day to learn, grow, and challenge yourself. " +
                 "It's a day to step outside of your comfort zone and try new things. " +
                 "It's a day to invest in yourself and your future.",
+            onClick = {},
+        )
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun SatsCampaignWithoutSubtitleModulePreview() {
+    SatsTheme {
+        SatsCampaignModule(
+            imageUrl = "https://picsum.photos/1920/1080",
+            title = "Happy Training Day",
+            subtitle = null,
             onClick = {},
         )
     }

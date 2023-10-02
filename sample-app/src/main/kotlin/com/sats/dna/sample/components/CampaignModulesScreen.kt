@@ -38,6 +38,13 @@ internal fun CampaignModulesScreen(navigateUp: () -> Unit) {
                 subtitle = "Today is a day to learn, grow, and challenge yourself.",
                 onClick = {},
             )
+
+            SatsCampaignModule(
+                imageUrl = "https://picsum.photos/id/30/1920/1080.webp",
+                title = "Happy Training Day",
+                subtitle = null,
+                onClick = {},
+            )
         }
     }
 }
