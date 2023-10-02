@@ -1,37 +1,17 @@
 package com.sats.dna.sample.components.schedule
 
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBars
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.google.accompanist.insets.ui.Scaffold
-import com.google.accompanist.insets.ui.TopAppBar
 import com.sats.dna.components.upcomingworkouts.Schedule
 import com.sats.dna.components.upcomingworkouts.ScheduledWorkout
 import com.sats.dna.components.upcomingworkouts.WaitingListStatus
+import com.sats.dna.sample.components.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 internal fun ScheduleScreen(navigateUp: () -> Unit) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                backgroundColor = SatsTheme.colors.surface.primary,
-                contentPadding = WindowInsets.statusBars.asPaddingValues(),
-                navigationIcon = {
-                    IconButton(navigateUp) {
-                        Icon(SatsTheme.icons.back, contentDescription = null)
-                    }
-                },
-                title = { Text("Schedule") },
-            )
-        },
-    ) { innerPadding ->
+    ComponentScreen("Schedule", navigateUp) { innerPadding ->
         val schedule = listOf(
             ScheduledWorkout(
                 id = "foo",

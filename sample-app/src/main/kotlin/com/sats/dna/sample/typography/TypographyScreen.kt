@@ -11,13 +11,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.FilterChip
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -28,27 +25,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.insets.ui.Scaffold
-import com.google.accompanist.insets.ui.TopAppBar
+import com.sats.dna.sample.components.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 internal fun TypographyScreen(navigateUp: () -> Unit) {
     var currentStyle by remember { mutableStateOf(SatsTextStyle.Default) }
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                backgroundColor = SatsTheme.colors.surface.primary,
-                contentPadding = WindowInsets.statusBars.asPaddingValues(),
-                navigationIcon = {
-                    IconButton(onClick = navigateUp) {
-                        Icon(SatsTheme.icons.back, contentDescription = null)
-                    }
-                },
-                title = { Text("Typography") },
-            )
-        },
+    ComponentScreen(
+        title = "Typography",
+        navigateUp = navigateUp,
         bottomBar = {
             ConfigurationBar(
                 contentPadding = WindowInsets.navigationBars.asPaddingValues(),
