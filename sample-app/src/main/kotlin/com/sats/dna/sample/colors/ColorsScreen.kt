@@ -6,20 +6,14 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
 import androidx.compose.material.ListItem
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -29,28 +23,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.insets.ui.Scaffold
-import com.google.accompanist.insets.ui.TopAppBar
 import com.sats.dna.colors.SatsColors
+import com.sats.dna.sample.components.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 internal fun ColorsScreen(navigateUp: () -> Unit) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                backgroundColor = SatsTheme.colors.surface.primary,
-                contentPadding = WindowInsets.statusBars.asPaddingValues(),
-                navigationIcon = {
-                    IconButton(onClick = navigateUp) {
-                        Icon(SatsTheme.icons.back, contentDescription = null)
-                    }
-                },
-                title = { Text("Colors") },
-            )
-        },
-        bottomBar = { Box(Modifier.navigationBarsPadding()) },
-    ) { innerPadding ->
+    ComponentScreen("Colors", navigateUp) { innerPadding ->
         val listItems = SatsTheme.colors.toListItems()
 
         LazyColumn(contentPadding = innerPadding) {

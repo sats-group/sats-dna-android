@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalMaterialApi::class)
-
 package com.sats.dna.sample.home
 
 import androidx.compose.foundation.layout.Box
@@ -12,13 +10,12 @@ import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.google.accompanist.insets.ui.Scaffold
 import com.google.accompanist.insets.ui.TopAppBar
+import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.sample.screens.BottomNavigationSampleScreen
 import com.sats.dna.sample.screens.ButtonsSampleScreen
 import com.sats.dna.sample.screens.CampaignModuleSampleScreen
@@ -47,7 +44,7 @@ import com.sats.dna.theme.SatsTheme
 
 @Composable
 internal fun HomeScreen(navController: NavController) {
-    Scaffold(
+    SatsScreen(
         topBar = {
             TopAppBar(
                 backgroundColor = SatsTheme.colors.surface.primary,

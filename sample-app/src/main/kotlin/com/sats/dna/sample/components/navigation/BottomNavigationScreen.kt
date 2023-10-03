@@ -5,36 +5,23 @@ import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.google.accompanist.insets.ui.Scaffold
-import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.navigation.SatsBottomNavigation
 import com.sats.dna.components.navigation.SatsBottomNavigationItem
 import com.sats.dna.components.navigation.rememberSatsBottomNavigationState
+import com.sats.dna.sample.components.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 internal fun BottomNavigationScreen(navigateUp: () -> Unit) {
     val state = rememberSampleBottomNavigationState()
 
-    Scaffold(
-        topBar = {
-            SatsTopAppBar(
-                contentPadding = WindowInsets.statusBars.asPaddingValues(),
-                navigationIcon = {
-                    IconButton(navigateUp) {
-                        Icon(SatsTheme.icons.back, contentDescription = null)
-                    }
-                },
-                title = { Text("Bottom Navigation") },
-            )
-        },
+    ComponentScreen(
+        title = "Bottom Navigation",
+        navigateUp = navigateUp,
         bottomBar = { SatsBottomNavigation(state, contentPadding = WindowInsets.navigationBars.asPaddingValues()) },
     ) { innerPadding ->
         Text(

@@ -2,39 +2,21 @@ package com.sats.dna.sample.components.appbar
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBars
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.google.accompanist.insets.ui.Scaffold
 import com.sats.dna.components.appbar.SatsTopAppBar
+import com.sats.dna.sample.components.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 internal fun SatsTopAppBarScreen(navigateUp: () -> Unit) {
-    Scaffold(
-        topBar = {
-            SatsTopAppBar(
-                contentPadding = WindowInsets.statusBars.asPaddingValues(),
-                navigationIcon = {
-                    IconButton(onClick = navigateUp) {
-                        Icon(SatsTheme.icons.back, contentDescription = null)
-                    }
-                },
-                title = { Text("Top App Bar") },
-            )
-        },
-        bottomBar = { Spacer(Modifier.navigationBarsPadding()) },
-    ) { innerPadding ->
+    ComponentScreen("Top App Bar", navigateUp) { innerPadding ->
         Column(
             Modifier
                 .fillMaxSize()
