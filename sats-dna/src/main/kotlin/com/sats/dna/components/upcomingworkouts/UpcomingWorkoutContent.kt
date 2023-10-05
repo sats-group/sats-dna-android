@@ -56,19 +56,29 @@ internal fun WorkoutInfo(
         )
 
         waitingListStatus?.let { status ->
-            WaitingListText(status)
+            WaitingListStatus(status)
         }
     }
 }
 
 @Composable
-internal fun WaitingListText(status: WaitingListStatus) {
+private fun WaitingListStatus(status: WaitingListStatus) {
     val color = when (status) {
         is WaitingListStatus.OnWaitingList -> SatsTheme.colors.waitingList.text
         is WaitingListStatus.SpotSecured -> SatsTheme.colors.signalText.success
     }
 
     Text(status.text, color = color, style = SatsTheme.typography.default.small)
+
+    if (status is WaitingListStatus.SpotSecured) {
+        status.waitingListText?.let {
+            Text(
+                text = status.waitingListText,
+                color = SatsTheme.colors.waitingList.text,
+                style = SatsTheme.typography.default.small,
+            )
+        }
+    }
 }
 
 @LightDarkPreview
