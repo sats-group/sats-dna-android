@@ -102,7 +102,7 @@ private fun SchedulePreview() {
             name = "Yoga Flow",
             location = "SATS Nydalen",
             instructor = "w/ Andrew Nielsen",
-            waitingListStatus = WaitingListStatus.SpotSecured("Spot secured! 32 on the waiting list."),
+            waitingListStatus = WaitingListStatus.SpotSecured("Spot secured!", "32 on waiting list"),
         ),
         ScheduledWorkout(
             id = "bar",

@@ -15,5 +15,8 @@ sealed interface WaitingListStatus {
     val text: String
 
     data class OnWaitingList(override val text: String) : WaitingListStatus
-    data class SpotSecured(override val text: String) : WaitingListStatus
+    data class SpotSecured(
+        override val text: String,
+        val waitingListText: String? = null,
+    ) : WaitingListStatus
 }
