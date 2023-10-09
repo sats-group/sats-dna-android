@@ -24,21 +24,37 @@ object SatsShapes {
 
     val roundedCorners = RoundedCorners
 
+    val cornerRadius = CornerRadius
+
     /** Circular shape */
     val circle = CircleShape
 
     object RoundedCorners {
         /** Rounded corners with 4 dp radius. */
-        val extraSmall = RoundedCornerShape(4.dp)
+        val extraSmall = RoundedCornerShape(CornerRadius.extraSmall)
 
         /** Rounded corners with 8 dp radius. */
-        val small = RoundedCornerShape(8.dp)
+        val small = RoundedCornerShape(CornerRadius.small)
 
         /** Rounded corners with 12 dp radius. */
-        val medium = RoundedCornerShape(12.dp)
+        val medium = RoundedCornerShape(CornerRadius.medium)
 
         /** Rounded corners with 24 dp radius. */
-        val large = RoundedCornerShape(24.dp)
+        val large = RoundedCornerShape(CornerRadius.large)
+    }
+
+    object CornerRadius {
+        /** Rounded corners with 4 dp radius. */
+        val extraSmall = 4.dp
+
+        /** Rounded corners with 8 dp radius. */
+        val small = 8.dp
+
+        /** Rounded corners with 12 dp radius. */
+        val medium = 12.dp
+
+        /** Rounded corners with 24 dp radius. */
+        val large = 24.dp
     }
 }
 
