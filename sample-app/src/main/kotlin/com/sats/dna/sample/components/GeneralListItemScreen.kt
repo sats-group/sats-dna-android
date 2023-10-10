@@ -29,27 +29,29 @@ fun GeneralListItemScreen(navigateUp: () -> Unit) {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "General List Item",
-                icon = SatsTheme.icons.info
+                icon = SatsTheme.icons.info,
             )
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "General List Item with subtitle",
                 subtitle = "Subtitle",
-                icon = SatsTheme.icons.info
+                icon = SatsTheme.icons.info,
             )
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "General List Item with trailing content",
                 icon = SatsTheme.icons.info,
-                trailingContent = { SimpleTrailingContent() })
+                trailingContent = { SimpleTrailingContent() },
+            )
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "General List Item with advanced trailing content",
                 icon = SatsTheme.icons.info,
-                trailingContent = { AdvancedTrailingContent() })
+                trailingContent = { AdvancedTrailingContent() },
+            )
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -58,8 +60,8 @@ fun GeneralListItemScreen(navigateUp: () -> Unit) {
                 colors = DefaultSatsGeneralListItem(
                     titleColor = SatsTheme.colors.cta.default,
                     subtitleColor = SatsTheme.colors.cta.default,
-                    iconColor = SatsTheme.colors.cta.default
-                )
+                    iconColor = SatsTheme.colors.cta.default,
+                ),
             )
         }
     }

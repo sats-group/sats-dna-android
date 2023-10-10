@@ -36,7 +36,7 @@ fun SatsGeneralListItem(
                 .clickable(onClick = onClick)
                 .padding(
                     vertical = SatsTheme.spacing.s,
-                    horizontal = SatsTheme.spacing.m
+                    horizontal = SatsTheme.spacing.m,
                 ),
         ) {
             Icon(icon, null, tint = colors.iconColor)
@@ -155,7 +155,7 @@ private fun WithNonDefaultColorsPreview() {
                 colors = DefaultSatsGeneralListItem(
                     titleColor = SatsTheme.colors.cta.default,
                     subtitleColor = SatsTheme.colors.cta.default,
-                    iconColor = SatsTheme.colors.cta.default
+                    iconColor = SatsTheme.colors.cta.default,
                 ),
             )
         }
