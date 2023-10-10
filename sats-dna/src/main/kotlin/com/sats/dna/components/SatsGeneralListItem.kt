@@ -28,14 +28,16 @@ fun SatsGeneralListItem(
     trailingContent: @Composable (() -> Unit)? = null,
     colors: SatsGeneralListItemColors = SatsGeneralListItemDefaults.generalListItemColors(),
 ) {
-    SatsSurface(modifier.clickable(onClick = onClick)) {
+    SatsSurface(modifier) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
-            modifier = Modifier.padding(
-                vertical = SatsTheme.spacing.s,
-                horizontal = SatsTheme.spacing.m
-            ),
+            modifier = Modifier
+                .clickable(onClick = onClick)
+                .padding(
+                    vertical = SatsTheme.spacing.s,
+                    horizontal = SatsTheme.spacing.m
+                ),
         ) {
             Icon(icon, null, tint = colors.iconColor)
             Column(Modifier.weight(1f)) {
