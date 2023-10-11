@@ -17,7 +17,7 @@ import com.sats.dna.components.SatsRewardsLevel
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-internal fun LabelsScreen(navigateUp: () -> Unit) {
+internal fun TagsScreen(navigateUp: () -> Unit) {
     ComponentScreen("Labels", navigateUp) { innerPadding ->
         Column(
             Modifier
@@ -63,6 +63,6 @@ private fun Section(title: String, content: @Composable ColumnScope.() -> Unit) 
 @Composable
 private fun Preview() {
     SatsTheme {
-        LabelsScreen(navigateUp = {})
+        TagsScreen(navigateUp = {})
     }
 }

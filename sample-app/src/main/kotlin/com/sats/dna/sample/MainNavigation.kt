@@ -17,7 +17,6 @@ import com.sats.dna.sample.screens.ColorsSampleScreen
 import com.sats.dna.sample.screens.CompletedWorkoutListItemSampleScreen
 import com.sats.dna.sample.screens.GeneralListItemSampleScreen
 import com.sats.dna.sample.screens.IconsSampleScreen
-import com.sats.dna.sample.screens.LabelsSampleScreen
 import com.sats.dna.sample.screens.PlaceholdersSampleScreen
 import com.sats.dna.sample.screens.ProgressBarsSampleScreen
 import com.sats.dna.sample.screens.RadioButtonsSampleScreen
@@ -25,6 +24,7 @@ import com.sats.dna.sample.screens.ScheduleSampleScreen
 import com.sats.dna.sample.screens.SnackbarSampleScreen
 import com.sats.dna.sample.screens.SurfaceSampleScreen
 import com.sats.dna.sample.screens.SwitchSampleScreen
+import com.sats.dna.sample.screens.TagsSampleScreen
 import com.sats.dna.sample.screens.TextFieldSampleScreen
 import com.sats.dna.sample.screens.TopBarSampleScreen
 import com.sats.dna.sample.screens.TrafficLightsSampleScreen
@@ -51,7 +51,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         CircularProgressIndicatorSampleScreen.navScreen(navController)
         CompletedWorkoutListItemSampleScreen.navScreen(navController)
         GeneralListItemSampleScreen.navScreen(navController)
-        LabelsSampleScreen.navScreen(navController)
+        TagsSampleScreen.navScreen(navController)
         PlaceholdersSampleScreen.navScreen(navController)
         ProgressBarsSampleScreen.navScreen(navController)
         RadioButtonsSampleScreen.navScreen(navController)
