@@ -75,11 +75,11 @@ tasks.withType<KotlinCompile>().configureEach {
 }
 
 dependencies {
+    api(libs.androidx.compose.material)
+    api(libs.androidx.compose.material3)
     debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.accompanist.insetsUi)
     implementation(libs.androidx.compose.foundation)
-    implementation(libs.androidx.compose.material)
-    implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.tooling.preview)
