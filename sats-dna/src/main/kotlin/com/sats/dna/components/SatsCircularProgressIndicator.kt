@@ -1,7 +1,7 @@
 package com.sats.dna.components
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,7 +25,7 @@ fun SatsCircularProgressIndicator(
         modifier = modifier,
         color = color,
         strokeWidth = strokeWidth,
-        backgroundColor = backgroundColor,
+        trackColor = backgroundColor,
         strokeCap = strokeCap,
     )
 }
@@ -44,7 +44,7 @@ fun SatsCircularProgressIndicator(
         modifier = modifier,
         color = color,
         strokeWidth = strokeWidth,
-        backgroundColor = backgroundColor,
+        trackColor = backgroundColor,
         strokeCap = strokeCap,
     )
 }

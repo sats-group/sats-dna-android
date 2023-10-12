@@ -1,8 +1,8 @@
 package com.sats.dna.components
 
-import androidx.compose.material.CheckboxDefaults
-import androidx.compose.material.Surface
-import androidx.compose.material.TriStateCheckbox
+import androidx.compose.material3.CheckboxDefaults
+import androidx.compose.material3.Surface
+import androidx.compose.material3.TriStateCheckbox
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.state.ToggleableState
@@ -31,8 +31,9 @@ private val colors
     @Composable get() = CheckboxDefaults.colors(
         checkedColor = SatsTheme.colors.onBackground.controls.enabledOn,
         uncheckedColor = SatsTheme.colors.onBackground.controls.enabledOff,
-        disabledColor = SatsTheme.colors.onBackground.controls.disabledOff,
+        disabledCheckedColor = SatsTheme.colors.onBackground.controls.disabledOn,
         disabledIndeterminateColor = SatsTheme.colors.onBackground.controls.disabledOn,
+        disabledUncheckedColor = SatsTheme.colors.onBackground.controls.disabledOff,
     )
 
 @LightDarkPreview

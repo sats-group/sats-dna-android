@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalMaterialApi::class)
-
 package com.sats.dna.sample.components
 
 import androidx.compose.foundation.layout.Arrangement.Absolute.spacedBy
@@ -11,10 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.FilterChip
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
@@ -24,6 +18,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.sats.dna.components.SatsFilterChip
+import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsIconButton
@@ -113,42 +109,38 @@ private class ControlPanelState {
 @Composable
 @OptIn(ExperimentalLayoutApi::class)
 private fun ControlPanel(state: ControlPanelState) {
-    Surface(Modifier.fillMaxWidth(), elevation = 2.dp) {
+    SatsSurface(Modifier.fillMaxWidth(), elevation = 2.dp) {
         FlowRow(
             Modifier
                 .navigationBarsPadding()
                 .padding(SatsTheme.spacing.m),
             horizontalArrangement = spacedBy(SatsTheme.spacing.s),
         ) {
-            FilterChip(
-                enabled = !state.isLoadingToggled,
-                selected = state.isEnabledToggled && !state.isLoadingToggled,
+            SatsFilterChip(
+                text = "Enabled",
+                isEnabled = !state.isLoadingToggled,
+                isSelected = state.isEnabledToggled && !state.isLoadingToggled,
                 onClick = { state.isEnabledToggled = !state.isEnabledToggled },
-            ) {
-                Text("Enabled")
-            }
+            )
 
-            FilterChip(
-                selected = state.isLoadingToggled,
+            SatsFilterChip(
+                text = "Loading",
+                isSelected = state.isLoadingToggled,
                 onClick = { state.isLoadingToggled = !state.isLoadingToggled },
-            ) {
-                Text("Loading")
-            }
+            )
 
-            FilterChip(
-                selected = state.isLargeToggled,
+            SatsFilterChip(
+                text = "Large",
+                isSelected = state.isLargeToggled,
                 onClick = { state.isLargeToggled = !state.isLargeToggled },
-            ) {
-                Text("Large")
-            }
+            )
 
-            FilterChip(
-                selected = state.isIconEnabled,
-                enabled = !state.isLoadingToggled,
+            SatsFilterChip(
+                text = "Icon",
+                isSelected = state.isIconEnabled,
+                isEnabled = !state.isLoadingToggled,
                 onClick = { state.isIconEnabled = !state.isIconEnabled },
-            ) {
-                Text("Icon")
-            }
+            )
         }
     }
 }

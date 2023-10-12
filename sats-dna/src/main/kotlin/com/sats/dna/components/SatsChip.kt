@@ -10,9 +10,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.Icon
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.State
@@ -30,9 +30,9 @@ import com.sats.dna.tooling.LightDarkPreview
 fun SatsFilterChip(
     text: String,
     isSelected: Boolean,
-    isEnabled: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    isEnabled: Boolean = true,
     colors: SatsFilterChipColors = SatsChipDefaults.filterChipColors(),
 ) {
     val backgroundColor = colors.backgroundColor(
