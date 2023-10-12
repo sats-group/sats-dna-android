@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,6 +22,7 @@ import com.sats.dna.components.PlaceholderBox
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
+import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.FontSizePreview
 import com.sats.dna.tooling.LightDarkPreview
@@ -38,20 +38,21 @@ import com.sats.dna.tooling.LightDarkPreview
 fun UpcomingWorkoutDaySection(
     day: String,
     modifier: Modifier = Modifier,
+    useMaterial3: Boolean = false,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    Column(
-        modifier = modifier,
-    ) {
-        SatsSurface(Modifier.fillMaxWidth(), elevation = 1.dp) {
-            Text(
-                day,
-                Modifier.padding(
+    Column(modifier) {
+        SatsSurface(Modifier.fillMaxWidth(), elevation = 1.dp, useMaterial3 = useMaterial3) {
+            MaterialText(
+                useMaterial3 = useMaterial3,
+                text = day,
+                modifier = Modifier.padding(
                     vertical = SatsTheme.spacing.s,
                     horizontal = SatsTheme.spacing.m,
                 ),
             )
         }
+
         content()
     }
 }
@@ -81,6 +82,7 @@ fun UpcomingWorkoutListItem(
     button: @Composable (() -> Unit)? = null,
     friendsAttending: @Composable (ColumnScope.() -> Unit)? = null,
     waitingListStatus: WaitingListStatus? = null,
+    useMaterial3: Boolean = false,
 ) {
     Row(
         modifier
@@ -91,7 +93,9 @@ fun UpcomingWorkoutListItem(
         TimeAndDuration(
             time = time,
             duration = duration,
+            useMaterial3 = useMaterial3,
         )
+
         Column(
             verticalArrangement = spacedBy(SatsTheme.spacing.s),
         ) {
@@ -106,6 +110,7 @@ fun UpcomingWorkoutListItem(
                     instructor = instructor,
                     waitingListStatus = waitingListStatus,
                     modifier = Modifier.weight(1f),
+                    useMaterial3 = useMaterial3,
                 )
 
                 button?.let { it() }
@@ -130,6 +135,7 @@ fun UpcomingWorkoutAttendingFriendsLabel(
     memberImages: @Composable RowScope.() -> Unit,
     friendsAttendingLabel: String,
     modifier: Modifier = Modifier,
+    useMaterial3: Boolean = false,
 ) {
     Row(
         modifier = modifier,
@@ -140,7 +146,7 @@ fun UpcomingWorkoutAttendingFriendsLabel(
             memberImages()
         }
 
-        Text(friendsAttendingLabel)
+        MaterialText(useMaterial3, friendsAttendingLabel)
     }
 }
 
@@ -149,9 +155,9 @@ fun UpcomingWorkoutAttendingFriendsLabel(
 @Composable
 private fun UpcomingWorkoutsListPreview() {
     SatsTheme {
-        SatsSurface {
+        SatsSurface(useMaterial3 = true) {
             Column {
-                UpcomingWorkoutDaySection(day = "Thu, Jul 27 2023") {
+                UpcomingWorkoutDaySection(day = "Thu, Jul 27 2023", useMaterial3 = true) {
                     UpcomingWorkoutListItem(
                         name = "Pure Strength",
                         time = "11:00 AM",
@@ -182,9 +188,11 @@ private fun UpcomingWorkoutsListPreview() {
                                     )
                                 },
                                 friendsAttendingLabel = "2 friends are joining this workout!",
+                                useMaterial3 = true,
                             )
                         },
                         onClick = {},
+                        useMaterial3 = true,
                     )
                 }
             }
