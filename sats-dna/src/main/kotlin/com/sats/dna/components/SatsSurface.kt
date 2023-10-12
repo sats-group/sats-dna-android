@@ -8,6 +8,7 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sats.dna.colors.satsContentColorFor
 import com.sats.dna.theme.SatsTheme
 import androidx.compose.material3.Surface as Material3Surface
 
@@ -15,7 +16,7 @@ import androidx.compose.material3.Surface as Material3Surface
 fun SatsSurface(
     modifier: Modifier = Modifier,
     color: Color = SatsTheme.colors.surface.primary,
-    contentColor: Color = SatsTheme.colors.onSurface.primary,
+    contentColor: Color = satsContentColorFor(color),
     shape: Shape = RectangleShape,
     elevation: Dp = 0.dp,
     useMaterial3: Boolean = false,
