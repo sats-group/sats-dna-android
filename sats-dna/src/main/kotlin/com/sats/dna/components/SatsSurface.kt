@@ -9,6 +9,7 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sats.dna.theme.SatsTheme
+import androidx.compose.material3.Surface as Material3Surface
 
 @Composable
 fun SatsSurface(
@@ -17,14 +18,26 @@ fun SatsSurface(
     contentColor: Color = SatsTheme.colors.onSurface.primary,
     shape: Shape = RectangleShape,
     elevation: Dp = 0.dp,
+    useMaterial3: Boolean = false,
     content: @Composable () -> Unit,
 ) {
-    Surface(
-        modifier = modifier,
-        shape = shape,
-        color = color,
-        contentColor = contentColor,
-        elevation = elevation,
-        content = content,
-    )
+    if (useMaterial3) {
+        Material3Surface(
+            modifier = modifier,
+            shape = shape,
+            color = color,
+            contentColor = contentColor,
+            shadowElevation = elevation,
+            content = content,
+        )
+    } else {
+        Surface(
+            modifier = modifier,
+            shape = shape,
+            color = color,
+            contentColor = contentColor,
+            elevation = elevation,
+            content = content,
+        )
+    }
 }
