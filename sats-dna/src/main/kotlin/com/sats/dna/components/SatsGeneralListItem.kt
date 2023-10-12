@@ -6,15 +6,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Icon
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import com.sats.dna.internal.MaterialIcon
+import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
@@ -27,8 +26,9 @@ fun SatsGeneralListItem(
     icon: Painter,
     trailingContent: @Composable (() -> Unit)? = null,
     colors: SatsGeneralListItemColors = SatsGeneralListItemDefaults.generalListItemColors(),
+    useMaterial3: Boolean = false,
 ) {
-    SatsSurface(modifier) {
+    SatsSurface(modifier, useMaterial3 = useMaterial3) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
@@ -39,11 +39,11 @@ fun SatsGeneralListItem(
                     horizontal = SatsTheme.spacing.m,
                 ),
         ) {
-            Icon(icon, null, tint = colors.iconColor)
+            MaterialIcon(useMaterial3, icon, null, tint = colors.iconColor)
             Column(Modifier.weight(1f)) {
-                Text(title, color = colors.titleColor)
+                MaterialText(useMaterial3, title, color = colors.titleColor)
                 subtitle?.let {
-                    Text(it, color = colors.subtitleColor)
+                    MaterialText(useMaterial3, it, color = colors.subtitleColor)
                 }
             }
             trailingContent?.let {
@@ -83,7 +83,7 @@ class DefaultSatsGeneralListItem(
 @Composable
 private fun Preview() {
     SatsTheme {
-        Surface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -98,7 +98,7 @@ private fun Preview() {
 @Composable
 private fun WithSubtitle() {
     SatsTheme {
-        Surface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -114,7 +114,7 @@ private fun WithSubtitle() {
 @Composable
 private fun WithTrailingContentPreview() {
     SatsTheme {
-        Surface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -130,7 +130,7 @@ private fun WithTrailingContentPreview() {
 @Composable
 private fun WithAdvancedTrailingContentPreview() {
     SatsTheme {
-        Surface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -146,7 +146,7 @@ private fun WithAdvancedTrailingContentPreview() {
 @Composable
 private fun WithNonDefaultColorsPreview() {
     SatsTheme {
-        Surface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -163,17 +163,17 @@ private fun WithNonDefaultColorsPreview() {
 }
 
 @Composable
-fun SimpleTrailingContent() {
-    Icon(SatsTheme.icons.arrowRight, contentDescription = null)
+fun SimpleTrailingContent(useMaterial3: Boolean = false) {
+    MaterialIcon(useMaterial3, SatsTheme.icons.arrowRight, contentDescription = null)
 }
 
 @Composable
-fun AdvancedTrailingContent() {
+fun AdvancedTrailingContent(useMaterial3: Boolean = false) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
     ) {
-        Text("Label")
-        Icon(SatsTheme.icons.arrowRight, contentDescription = null)
+        MaterialText(useMaterial3, "Label")
+        MaterialIcon(useMaterial3, SatsTheme.icons.arrowRight, contentDescription = null)
     }
 }
