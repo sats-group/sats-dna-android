@@ -2,13 +2,15 @@ package com.sats.dna.sample.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material.Text
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.sats.dna.components.M3SatsOutlinedTextField
 import com.sats.dna.components.M3SatsTextField
@@ -19,40 +21,40 @@ internal fun SatsTextFieldScreen(navigateUp: () -> Unit) {
     val (inputValue, setValue) = remember { mutableStateOf("") }
     val (outlinedInputValue, outlinedSetValue) = remember { mutableStateOf("") }
 
-    ComponentScreen(title = "Text Field", navigateUp = navigateUp) { innerPadding ->
+    ComponentScreen("Text Field", navigateUp) { innerPadding ->
         Column(
             Modifier
+                .verticalScroll(rememberScrollState())
                 .padding(innerPadding)
                 .padding(SatsTheme.spacing.m)
-                .fillMaxSize()
-                .wrapContentSize(),
-            Arrangement.spacedBy(SatsTheme.spacing.m),
+                .fillMaxWidth(),
+            Arrangement.spacedBy(SatsTheme.spacing.l),
+            Alignment.CenterHorizontally,
         ) {
             LabeledTextField(
                 label = "Enabled text field",
                 value = inputValue,
                 onValueChange = setValue,
-                placeholder = { Text("Text") },
             )
+
             LabeledTextField(
                 label = "Disabled text field",
                 value = inputValue,
                 onValueChange = setValue,
                 enabled = false,
-                placeholder = { Text("Text") },
             )
+
             LabeledOutlinedTextField(
                 label = "Enabled outlined text field",
                 value = outlinedInputValue,
                 onValueChange = outlinedSetValue,
-                placeholder = { Text("Text") },
             )
+
             LabeledOutlinedTextField(
                 label = "Disabled outlined text field",
                 value = outlinedInputValue,
                 onValueChange = outlinedSetValue,
                 enabled = false,
-                placeholder = { Text("Text") },
             )
         }
     }
@@ -64,12 +66,13 @@ private fun LabeledTextField(
     value: String,
     onValueChange: (newValue: String) -> Unit,
     enabled: Boolean = true,
-    placeholder: @Composable () -> Unit,
 ) {
-    Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs)) {
-        Text(label)
-        M3SatsTextField(value = value, onValueChange = onValueChange, enabled = enabled, placeholder = placeholder)
-    }
+    M3SatsTextField(
+        value = value,
+        onValueChange = onValueChange,
+        enabled = enabled,
+        label = { Text(label) },
+    )
 }
 
 @Composable
@@ -78,15 +81,13 @@ private fun LabeledOutlinedTextField(
     value: String,
     onValueChange: (newValue: String) -> Unit,
     enabled: Boolean = true,
-    placeholder: @Composable () -> Unit,
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs)) {
-        Text(label)
         M3SatsOutlinedTextField(
             value = value,
             onValueChange = onValueChange,
             enabled = enabled,
-            placeholder = placeholder,
+            label = { Text(label) },
         )
     }
 }

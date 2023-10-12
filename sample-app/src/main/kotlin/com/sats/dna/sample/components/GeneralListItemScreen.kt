@@ -16,7 +16,7 @@ import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun GeneralListItemScreen(navigateUp: () -> Unit) {
-    ComponentScreen(title = "General List Item", navigateUp = navigateUp) { innerPadding ->
+    ComponentScreen("General List Item", navigateUp) { innerPadding ->
         Column(
             Modifier
                 .padding(innerPadding)
