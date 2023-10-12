@@ -4,9 +4,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Icon
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
@@ -22,7 +22,7 @@ fun SatsSnackbar(message: String, action: SatsSnackbarAction?, modifier: Modifie
     Surface(
         modifier = modifier.fillMaxWidth(),
         shape = SatsTheme.shapes.roundedCorners.small,
-        elevation = 6.dp,
+        shadowElevation = 6.dp,
         color = SatsTheme.colors.surface.primary,
         contentColor = SatsTheme.colors.onSurface.primary,
     ) {

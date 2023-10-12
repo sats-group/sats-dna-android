@@ -5,20 +5,20 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.sats.dna.components.SatsLabel
-import com.sats.dna.components.SatsLabelColor
-import com.sats.dna.components.SatsRewardsLabel
 import com.sats.dna.components.SatsRewardsLevel
+import com.sats.dna.components.SatsRewardsTag
+import com.sats.dna.components.SatsTag
+import com.sats.dna.components.SatsTagColor
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 internal fun TagsScreen(navigateUp: () -> Unit) {
-    ComponentScreen("Labels", navigateUp) { innerPadding ->
+    ComponentScreen("Tags", navigateUp) { innerPadding ->
         Column(
             Modifier
                 .fillMaxSize()
@@ -27,15 +27,15 @@ internal fun TagsScreen(navigateUp: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxl),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Section("Filter Labels") {
-                SatsLabelColor.entries.forEach { color ->
-                    SatsLabel("$color", color = color)
+            Section("Filter Tags") {
+                SatsTagColor.entries.forEach { color ->
+                    SatsTag("$color", color = color)
                 }
             }
 
-            Section("Rewards Labels") {
+            Section("Rewards Tags") {
                 SatsRewardsLevel.entries.forEach { level ->
-                    SatsRewardsLabel(level)
+                    SatsRewardsTag(level)
                 }
             }
         }

@@ -3,14 +3,15 @@ package com.sats.dna.components.navigation
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
@@ -22,7 +23,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.insets.ui.BottomNavigation
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
@@ -30,23 +30,24 @@ import com.sats.dna.tooling.LightDarkPreview
 fun SatsBottomNavigation(
     state: SatsBottomNavigationState,
     modifier: Modifier = Modifier,
-    contentPadding: PaddingValues = PaddingValues(),
 ) {
-    BottomNavigation(
-        modifier = modifier,
-        contentPadding = contentPadding,
-        backgroundColor = SatsTheme.colors.surface.primary,
-        contentColor = SatsTheme.colors.onSurface.primary,
-    ) {
+    NavigationBar(modifier, containerColor = SatsTheme.colors.surface.secondary) {
         state.items.forEach { item ->
             val icon = if (item == state.selectedItem) item.selectedIcon else item.unselectedIcon
 
-            BottomNavigationItem(
+            NavigationBarItem(
                 icon = { BottomNavIcon(icon, item.hasBadge) },
                 label = { BottomNavLabel(item) },
                 selected = item == state.selectedItem,
-                selectedContentColor = SatsTheme.colors.navigation,
-                unselectedContentColor = SatsTheme.colors.onSurface.secondary,
+                colors = NavigationBarItemDefaults.colors(
+                    selectedIconColor = SatsTheme.colors.navigation,
+                    selectedTextColor = SatsTheme.colors.navigation,
+                    indicatorColor = SatsTheme.colors.surface.secondary,
+                    unselectedIconColor = SatsTheme.colors.onSurface.secondary,
+                    unselectedTextColor = SatsTheme.colors.onSurface.secondary,
+                    disabledIconColor = SatsTheme.colors.onSurface.disabled,
+                    disabledTextColor = SatsTheme.colors.onSurface.disabled,
+                ),
                 onClick = { state.selectedItem = item },
             )
         }
@@ -77,7 +78,11 @@ private fun BottomNavIcon(icon: Painter, hasBadge: Boolean) {
 
 @Composable
 private fun BottomNavIconBadge(modifier: Modifier = Modifier) {
-    Box(modifier.size(8.dp).background(SatsTheme.colors.cta.default, CircleShape))
+    Box(
+        modifier
+            .size(8.dp)
+            .background(SatsTheme.colors.cta.default, CircleShape),
+    )
 }
 
 @Composable

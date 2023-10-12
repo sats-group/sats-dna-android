@@ -1,8 +1,8 @@
 package com.sats.dna.components
 
-import androidx.compose.material.RadioButton
-import androidx.compose.material.RadioButtonDefaults
-import androidx.compose.material.Surface
+import androidx.compose.material3.RadioButton
+import androidx.compose.material3.RadioButtonDefaults
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.sats.dna.theme.SatsTheme
@@ -22,7 +22,8 @@ private val colors
     @Composable get() = RadioButtonDefaults.colors(
         selectedColor = SatsTheme.colors.onBackground.controls.enabledOn,
         unselectedColor = SatsTheme.colors.onBackground.controls.enabledOff,
-        disabledColor = SatsTheme.colors.onBackground.controls.disabledOff,
+        disabledSelectedColor = SatsTheme.colors.onBackground.controls.disabledOn,
+        disabledUnselectedColor = SatsTheme.colors.onBackground.controls.disabledOff,
     )
 
 @LightDarkPreview
