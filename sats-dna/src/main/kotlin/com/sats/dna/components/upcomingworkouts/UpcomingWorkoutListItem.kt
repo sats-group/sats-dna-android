@@ -29,7 +29,7 @@ import com.sats.dna.tooling.LightDarkPreview
 
 /**
  * A section for a day of upcoming workouts
-
+ *
  * @param day A formatted day that will be displayed as the title of the section.
  * @param content The list of the containing workouts for this day. Consider using [UpcomingWorkoutListItem].
  * @param modifier The modifier to apply to the section.
