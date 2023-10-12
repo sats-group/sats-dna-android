@@ -20,7 +20,7 @@ import com.sats.dna.theme.SatsTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun SatsTopAppBarScreen(navigateUp: () -> Unit) {
-    ComponentScreen("Top App Bar", navigateUp, useMaterial3 = true) { innerPadding ->
+    ComponentScreen("Top App Bar", navigateUp) { innerPadding ->
         Column(
             Modifier
                 .fillMaxSize()

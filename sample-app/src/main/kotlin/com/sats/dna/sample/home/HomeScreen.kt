@@ -2,19 +2,16 @@ package com.sats.dna.sample.home
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Divider
-import androidx.compose.material.Text
+import androidx.compose.material3.Divider
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.google.accompanist.insets.ui.TopAppBar
+import com.sats.dna.components.appbar.M3SatsTopAppBar
 import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.sample.screens.BottomNavigationSampleScreen
 import com.sats.dna.sample.screens.ButtonsSampleScreen
@@ -43,16 +40,11 @@ import com.sats.dna.sample.screens.TypographySampleScreen
 import com.sats.dna.sample.screens.UpcomingWorkoutListItemSampleScreen
 import com.sats.dna.theme.SatsTheme
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun HomeScreen(navController: NavController) {
     SatsScreen(
-        topBar = {
-            TopAppBar(
-                backgroundColor = SatsTheme.colors.surface.primary,
-                contentPadding = WindowInsets.statusBars.asPaddingValues(),
-                title = { Text("SATS DNA Sample App") },
-            )
-        },
+        topBar = { M3SatsTopAppBar("SATS DNA Sample App") },
         bottomBar = { Box(Modifier.navigationBarsPadding()) },
     ) { innerPadding ->
         Column(
