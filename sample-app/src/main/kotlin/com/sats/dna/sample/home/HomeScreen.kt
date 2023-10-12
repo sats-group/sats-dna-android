@@ -28,7 +28,6 @@ import com.sats.dna.sample.screens.ColorsSampleScreen
 import com.sats.dna.sample.screens.CompletedWorkoutListItemSampleScreen
 import com.sats.dna.sample.screens.GeneralListItemSampleScreen
 import com.sats.dna.sample.screens.IconsSampleScreen
-import com.sats.dna.sample.screens.LabelsSampleScreen
 import com.sats.dna.sample.screens.PlaceholdersSampleScreen
 import com.sats.dna.sample.screens.ProgressBarsSampleScreen
 import com.sats.dna.sample.screens.RadioButtonsSampleScreen
@@ -36,6 +35,7 @@ import com.sats.dna.sample.screens.ScheduleSampleScreen
 import com.sats.dna.sample.screens.SnackbarSampleScreen
 import com.sats.dna.sample.screens.SurfaceSampleScreen
 import com.sats.dna.sample.screens.SwitchSampleScreen
+import com.sats.dna.sample.screens.TagsSampleScreen
 import com.sats.dna.sample.screens.TextFieldSampleScreen
 import com.sats.dna.sample.screens.TopBarSampleScreen
 import com.sats.dna.sample.screens.TrafficLightsSampleScreen
@@ -76,7 +76,7 @@ internal fun HomeScreen(navController: NavController) {
             CircularProgressIndicatorSampleScreen.HomeListItem(navController)
             CompletedWorkoutListItemSampleScreen.HomeListItem(navController)
             GeneralListItemSampleScreen.HomeListItem(navController)
-            LabelsSampleScreen.HomeListItem(navController)
+            TagsSampleScreen.HomeListItem(navController)
             PlaceholdersSampleScreen.HomeListItem(navController)
             ProgressBarsSampleScreen.HomeListItem(navController)
             RadioButtonsSampleScreen.HomeListItem(navController)
