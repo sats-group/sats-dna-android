@@ -22,7 +22,7 @@ import kotlin.math.roundToInt
 
 @Composable
 internal fun SurfaceScreen(navigateUp: () -> Unit) {
-    ComponentScreen("Surface", navigateUp, useMaterial3 = true) { innerPadding ->
+    ComponentScreen("Surface", navigateUp) { innerPadding ->
         Column(
             Modifier
                 .padding(innerPadding)

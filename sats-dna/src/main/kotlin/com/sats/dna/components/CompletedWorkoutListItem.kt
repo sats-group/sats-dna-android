@@ -9,9 +9,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.Divider
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,9 +16,12 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.components.button.LikeButton
 import com.sats.dna.components.icons.WorkoutType
 import com.sats.dna.components.icons.WorkoutTypeIcon
+import com.sats.dna.internal.MaterialIcon
+import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.FontSizePreview
 import com.sats.dna.tooling.LightDarkPreview
+import androidx.compose.material3.Divider as Material3Divider
 
 /**
  * Displays a list item for a completed workout.
@@ -46,6 +46,7 @@ fun CompletedWorkoutListItem(
     onSaidAwesomeClicked: (isLiked: Boolean) -> Unit,
     isLiked: Boolean,
     modifier: Modifier = Modifier,
+    useMaterial3: Boolean = false,
 ) {
     Row(
         modifier
@@ -58,8 +59,8 @@ fun CompletedWorkoutListItem(
 
         Column(Modifier.weight(1f), spacedBy(SatsTheme.spacing.m)) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                WorkoutInfo(timestamp, title, location)
-                Icon(SatsTheme.icons.arrowRight, contentDescription = null)
+                WorkoutInfo(timestamp, title, location, useMaterial3)
+                MaterialIcon(useMaterial3, SatsTheme.icons.arrowRight, contentDescription = null)
             }
 
             SocialRow(
@@ -68,6 +69,7 @@ fun CompletedWorkoutListItem(
                 onSaidAwesomeClicked = onSaidAwesomeClicked,
                 isLiked = isLiked,
                 modifier = Modifier.fillMaxWidth(),
+                useMaterial3 = useMaterial3,
             )
         }
     }
@@ -79,6 +81,7 @@ private fun SocialRow(
     numberOfReactionsLabel: String?,
     onSaidAwesomeClicked: (isLiked: Boolean) -> Unit,
     isLiked: Boolean,
+    useMaterial3: Boolean,
     modifier: Modifier = Modifier,
 ) {
     Row(modifier, verticalAlignment = Alignment.CenterVertically) {
@@ -88,13 +91,14 @@ private fun SocialRow(
                 horizontalArrangement = spacedBy(SatsTheme.spacing.xs),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Icon(
+                MaterialIcon(
+                    useMaterial3,
                     SatsTheme.icons.fistBump,
                     contentDescription = null,
                     tint = SatsTheme.colors.onBackground.secondary,
                 )
 
-                Text(numberOfReactionsLabel, color = SatsTheme.colors.onBackground.secondary)
+                MaterialText(useMaterial3, numberOfReactionsLabel, SatsTheme.colors.onBackground.secondary)
             }
         }
 
@@ -108,8 +112,13 @@ private fun SocialRow(
 
         Row(verticalAlignment = Alignment.CenterVertically) {
             Row(Modifier, spacedBy(SatsTheme.spacing.xs), Alignment.CenterVertically) {
-                Icon(SatsTheme.icons.comment, contentDescription = null, tint = SatsTheme.colors.action.default)
-                Text(normalizedNumberOfComments, color = SatsTheme.colors.onBackground.secondary)
+                MaterialIcon(
+                    useMaterial3,
+                    SatsTheme.icons.comment,
+                    contentDescription = null,
+                    tint = SatsTheme.colors.action.default,
+                )
+                MaterialText(useMaterial3, normalizedNumberOfComments, color = SatsTheme.colors.onBackground.secondary)
             }
 
             LikeButton(isLiked = isLiked, onSaidAwesomeClicked)
@@ -122,19 +131,22 @@ private fun WorkoutInfo(
     timestamp: String,
     title: String,
     subtitle: String?,
+    useMaterial3: Boolean,
     modifier: Modifier = Modifier,
 ) {
     Column(modifier) {
-        Text(
+        MaterialText(
+            useMaterial3,
             timestamp,
             color = SatsTheme.colors.onBackground.secondary,
             style = SatsTheme.typography.default.small,
         )
 
-        Text(title)
+        MaterialText(useMaterial3, title)
 
         if (subtitle != null) {
-            Text(
+            MaterialText(
+                useMaterial3,
                 subtitle,
                 color = SatsTheme.colors.onBackground.secondary,
                 style = SatsTheme.typography.default.small,
@@ -148,32 +160,34 @@ private fun WorkoutInfo(
 @Composable
 private fun Preview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
             Column {
                 CompletedWorkoutListItem(
                     icon = { WorkoutTypeIcon(WorkoutType.OwnTraining, null, Modifier.size(34.dp)) },
                     timestamp = "Jul 18, 2023, 06:18",
-                    title = "Gym training",
+                    title = "Gym training (M2)",
                     location = "at Colosseum",
                     numberOfComments = 123,
                     numberOfReactionsLabel = null,
                     onCompletedWorkoutClicked = {},
                     onSaidAwesomeClicked = {},
                     isLiked = false,
+                    useMaterial3 = true,
                 )
 
-                Divider()
+                Material3Divider()
 
                 CompletedWorkoutListItem(
                     icon = { WorkoutTypeIcon(WorkoutType.OwnTraining, null, Modifier.size(34.dp)) },
                     timestamp = "Jul 18, 2023, 06:18",
-                    title = "Gym training",
+                    title = "Gym training (M3)",
                     location = "at Colosseum",
                     numberOfComments = 10,
                     numberOfReactionsLabel = "15 people",
                     onCompletedWorkoutClicked = {},
                     onSaidAwesomeClicked = {},
                     isLiked = false,
+                    useMaterial3 = true,
                 )
             }
         }
