@@ -15,7 +15,12 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun LikeButton(isLiked: Boolean, onLikedChange: (isLiked: Boolean) -> Unit, modifier: Modifier = Modifier) {
+fun LikeButton(
+    isLiked: Boolean,
+    onLikedChange: (isLiked: Boolean) -> Unit,
+    modifier: Modifier = Modifier,
+    useMaterial3: Boolean = false,
+) {
     IconToggleButton(modifier = modifier, checked = isLiked, onCheckedChange = onLikedChange) {
         if (isLiked) {
             Icon(SatsTheme.icons.fistBumpFilled, tint = SatsTheme.colors.action.default, contentDescription = null)
