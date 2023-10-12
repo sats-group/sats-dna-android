@@ -16,17 +16,14 @@ import com.sats.dna.tooling.LightDarkPreview
 @Composable
 fun SatsCircularProgressIndicator(
     modifier: Modifier = Modifier,
-    color: Color = SatsTheme.colors.primary.default,
     strokeWidth: Dp = 4.dp,
-    backgroundColor: Color = Color.Transparent,
-    strokeCap: StrokeCap = StrokeCap.Round,
 ) {
     CircularProgressIndicator(
         modifier = modifier,
-        color = color,
+        color = SatsTheme.colors.primary.default,
         strokeWidth = strokeWidth,
-        trackColor = backgroundColor,
-        strokeCap = strokeCap,
+        trackColor = Color.Transparent,
+        strokeCap = StrokeCap.Round,
     )
 }
 
@@ -36,16 +33,14 @@ fun SatsCircularProgressIndicator(
     modifier: Modifier = Modifier,
     color: Color = SatsTheme.colors.primary.default,
     strokeWidth: Dp = 4.dp,
-    backgroundColor: Color = Color.Transparent,
-    strokeCap: StrokeCap = StrokeCap.Round,
 ) {
     CircularProgressIndicator(
         progress = progress,
         modifier = modifier,
         color = color,
         strokeWidth = strokeWidth,
-        trackColor = backgroundColor,
-        strokeCap = strokeCap,
+        trackColor = Color.Transparent,
+        strokeCap = StrokeCap.Round,
     )
 }
 

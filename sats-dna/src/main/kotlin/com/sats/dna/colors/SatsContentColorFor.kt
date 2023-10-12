@@ -9,6 +9,7 @@ fun satsContentColorFor(backgroundColor: Color): Color {
     return when (backgroundColor) {
         SatsTheme.colors.primary.default -> SatsTheme.colors.onPrimary.default
         SatsTheme.colors.secondary.default -> SatsTheme.colors.onSecondary.default
+        SatsTheme.colors.primary.disabled -> SatsTheme.colors.onPrimary.disabled
         SatsTheme.colors.cta.default -> SatsTheme.colors.onCta.default
         SatsTheme.colors.clean.default -> SatsTheme.colors.onClean.default
         SatsTheme.colors.cleanSecondary.default -> SatsTheme.colors.onCleanSecondary.default

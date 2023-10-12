@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.sats.dna.colors.satsContentColorFor
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -112,13 +113,11 @@ fun SatsInputChipClearButton(
     onClick: () -> Unit,
     onClickLabel: String?,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = SatsTheme.colors.onPrimary.default,
-    iconColor: Color = SatsTheme.colors.primary.default,
     useMaterial3: Boolean = false,
 ) {
     SatsSurface(
         modifier = modifier.size(16.dp),
-        color = backgroundColor,
+        color = SatsTheme.colors.onPrimary.default,
         shape = SatsTheme.shapes.circle,
     ) {
         MaterialIcon(
@@ -126,7 +125,7 @@ fun SatsInputChipClearButton(
             painter = SatsTheme.icons.close,
             contentDescription = null,
             modifier = Modifier.clickable(onClickLabel = onClickLabel, role = Role.Button) { onClick() },
-            tint = iconColor,
+            tint = SatsTheme.colors.primary.default,
         )
     }
 }
@@ -186,7 +185,7 @@ object SatsChipDefaults {
     @Composable
     fun inputChipColors(
         backgroundColor: Color = SatsTheme.colors.primary.default,
-        contentColor: Color = SatsTheme.colors.onPrimary.default,
+        contentColor: Color = satsContentColorFor(backgroundColor),
     ): SatsInputChipColors = DefaultSatsInputChipColors(
         backgroundColor = backgroundColor,
         contentColor = contentColor,
@@ -199,9 +198,9 @@ object SatsChipDefaults {
         disabledBorderColor: Color = borderColor.copy(alpha = .5f),
         disabledContentColor: Color = SatsTheme.colors.onBackground.disabled,
         selectedBackgroundColor: Color = SatsTheme.colors.primary.default,
-        selectedContentColor: Color = SatsTheme.colors.primary.disabled,
-        disabledSelectedBackgroundColor: Color = SatsTheme.colors.onPrimary.disabled,
-        disabledSelectedContentColor: Color = SatsTheme.colors.primary.disabled,
+        selectedContentColor: Color = satsContentColorFor(selectedBackgroundColor),
+        disabledSelectedBackgroundColor: Color = SatsTheme.colors.primary.disabled,
+        disabledSelectedContentColor: Color = satsContentColorFor(disabledSelectedBackgroundColor),
     ): SatsFilterChipColors = DefaultSatsFilterChipColors(
         borderColor = borderColor,
         contentColor = contentColor,
