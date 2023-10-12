@@ -7,10 +7,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material.Slider
-import androidx.compose.material.Text
+import androidx.compose.material3.Slider
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Alignment.Companion.CenterVertically
@@ -22,7 +22,7 @@ import kotlin.math.roundToInt
 
 @Composable
 internal fun SurfaceScreen(navigateUp: () -> Unit) {
-    ComponentScreen("Surface", navigateUp) { innerPadding ->
+    ComponentScreen("Surface", navigateUp, useMaterial3 = true) { innerPadding ->
         Column(
             Modifier
                 .padding(innerPadding)
@@ -31,7 +31,7 @@ internal fun SurfaceScreen(navigateUp: () -> Unit) {
             spacedBy(SatsTheme.spacing.l, CenterVertically),
             CenterHorizontally,
         ) {
-            val (elevation, setElevation) = rememberSaveable { mutableStateOf(0f) }
+            val (elevation, setElevation) = rememberSaveable { mutableFloatStateOf(0f) }
 
             SatsSurface(
                 Modifier
@@ -39,6 +39,7 @@ internal fun SurfaceScreen(navigateUp: () -> Unit) {
                     .height(256.dp),
                 shape = SatsTheme.shapes.roundedCorners.medium,
                 elevation = elevation.dp,
+                useMaterial3 = true,
             ) {
                 Column(
                     Modifier
