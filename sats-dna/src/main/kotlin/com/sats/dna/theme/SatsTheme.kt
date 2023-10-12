@@ -103,7 +103,6 @@ private fun SatsTypography.toMaterial2() = Material2Typography(
     defaultFontFamily = FontInter,
 )
 
-// TODO: Go through with design to see if this makes sense
 private fun SatsColors.toMaterial3(): ColorScheme = if (isLightMode) {
     lightColorScheme(
         primary = primary.default,
@@ -144,7 +143,6 @@ private fun SatsColors.toMaterial3(): ColorScheme = if (isLightMode) {
     )
 }
 
-// TODO: Go through with design to see if this makes sense
 private fun SatsTypography.toMaterial3() = Material3Typography(
     displayLarge = default.heading1,
     displayMedium = default.heading1,
