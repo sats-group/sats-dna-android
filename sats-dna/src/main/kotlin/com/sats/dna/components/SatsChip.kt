@@ -10,9 +10,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.State
@@ -23,8 +20,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.sats.dna.internal.MaterialIcon
+import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
+import androidx.compose.material.Surface as Material2Surface
+import androidx.compose.material3.Surface as Material3Surface
 
 @Composable
 fun SatsFilterChip(
@@ -34,6 +35,7 @@ fun SatsFilterChip(
     modifier: Modifier = Modifier,
     isEnabled: Boolean = true,
     colors: SatsFilterChipColors = SatsChipDefaults.filterChipColors(),
+    useMaterial3: Boolean = false,
 ) {
     val backgroundColor = colors.backgroundColor(
         isSelected = isSelected,
@@ -54,11 +56,13 @@ fun SatsFilterChip(
         backgroundColor = backgroundColor.value,
         contentColor = contentColor.value,
         borderColor = borderColor.value,
+        useMaterial3 = useMaterial3,
         modifier = modifier,
     ) {
-        Text(
-            text,
-            Modifier
+        MaterialText(
+            useMaterial3 = useMaterial3,
+            text = text,
+            modifier = Modifier
                 .clickable(enabled = isEnabled, role = Role.Switch) { onClick() }
                 .padding(horizontal = SatsTheme.spacing.m, vertical = SatsTheme.spacing.s),
             maxLines = 1,
@@ -73,6 +77,7 @@ fun SatsInputChip(
     action: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     colors: SatsInputChipColors = SatsChipDefaults.inputChipColors(),
+    useMaterial3: Boolean = false,
 ) {
     val backgroundColor = colors.backgroundColor().value
     val contentColor = colors.contentColor().value
@@ -81,6 +86,7 @@ fun SatsInputChip(
         backgroundColor = backgroundColor,
         contentColor = contentColor,
         borderColor = null,
+        useMaterial3 = useMaterial3,
         modifier = modifier.width(IntrinsicSize.Max),
     ) {
         Row(
@@ -88,7 +94,13 @@ fun SatsInputChip(
             horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Text(text, Modifier.weight(1f), maxLines = 1, overflow = TextOverflow.Ellipsis)
+            MaterialText(
+                useMaterial3 = useMaterial3,
+                text = text,
+                modifier = Modifier.weight(1f),
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
 
             action()
         }
@@ -102,13 +114,15 @@ fun SatsInputChipClearButton(
     modifier: Modifier = Modifier,
     backgroundColor: Color = SatsTheme.colors.onPrimary.default,
     iconColor: Color = SatsTheme.colors.primary.default,
+    useMaterial3: Boolean = false,
 ) {
     SatsSurface(
         modifier = modifier.size(16.dp),
         color = backgroundColor,
         shape = SatsTheme.shapes.circle,
     ) {
-        Icon(
+        MaterialIcon(
+            useMaterial3 = useMaterial3,
             painter = SatsTheme.icons.close,
             contentDescription = null,
             modifier = Modifier.clickable(onClickLabel = onClickLabel, role = Role.Button) { onClick() },
@@ -122,17 +136,30 @@ private fun SatsChipLayout(
     backgroundColor: Color,
     contentColor: Color,
     borderColor: Color?,
+    useMaterial3: Boolean,
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit,
 ) {
-    Surface(
-        modifier,
-        shape = SatsTheme.shapes.roundedCorners.extraSmall,
-        color = backgroundColor,
-        contentColor = contentColor,
-        border = borderColor?.let { BorderStroke(1.dp, it) },
-    ) {
-        content()
+    if (useMaterial3) {
+        Material3Surface(
+            modifier,
+            shape = SatsTheme.shapes.roundedCorners.extraSmall,
+            color = backgroundColor,
+            contentColor = contentColor,
+            border = borderColor?.let { BorderStroke(1.dp, it) },
+        ) {
+            content()
+        }
+    } else {
+        Material2Surface(
+            modifier,
+            shape = SatsTheme.shapes.roundedCorners.extraSmall,
+            color = backgroundColor,
+            contentColor = contentColor,
+            border = borderColor?.let { BorderStroke(1.dp, it) },
+        ) {
+            content()
+        }
     }
 }
 
@@ -255,7 +282,7 @@ private class DefaultSatsInputChipColors(
 @Composable
 private fun SatsFilterChipPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
             Column {
                 Row(
                     Modifier.padding(SatsTheme.spacing.m),
@@ -266,6 +293,7 @@ private fun SatsFilterChipPreview() {
                         isSelected = false,
                         isEnabled = true,
                         onClick = { },
+                        useMaterial3 = true,
                     )
 
                     SatsFilterChip(
@@ -273,6 +301,7 @@ private fun SatsFilterChipPreview() {
                         isSelected = true,
                         isEnabled = true,
                         onClick = { },
+                        useMaterial3 = true,
                     )
                 }
 
@@ -285,6 +314,7 @@ private fun SatsFilterChipPreview() {
                         isSelected = false,
                         isEnabled = false,
                         onClick = { },
+                        useMaterial3 = true,
                     )
 
                     SatsFilterChip(
@@ -292,6 +322,7 @@ private fun SatsFilterChipPreview() {
                         isSelected = true,
                         isEnabled = false,
                         onClick = { },
+                        useMaterial3 = true,
                     )
                 }
             }
@@ -303,7 +334,7 @@ private fun SatsFilterChipPreview() {
 @Composable
 private fun SatsInputChipPreview() {
     SatsTheme {
-        SatsSurface(Modifier.width(250.dp), color = SatsTheme.colors.background.primary) {
+        SatsSurface(Modifier.width(250.dp), color = SatsTheme.colors.background.primary, useMaterial3 = true) {
             Column(
                 Modifier.padding(SatsTheme.spacing.m),
                 verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
@@ -311,11 +342,13 @@ private fun SatsInputChipPreview() {
                 SatsInputChip(
                     text = "Oslo",
                     action = { SatsInputChipClearButton(onClick = {}, onClickLabel = "Clear") },
+                    useMaterial3 = true,
                 )
 
                 SatsInputChip(
                     text = "(4) Akersgata, Bislett, Storo, Nydalen",
                     action = { SatsInputChipClearButton(onClick = {}, onClickLabel = "Clear") },
+                    useMaterial3 = true,
                 )
             }
         }
