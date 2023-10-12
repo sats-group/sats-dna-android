@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,13 +24,14 @@ internal fun SatsCardScreen(navigateUp: () -> Unit) {
     ComponentScreen("Cards", navigateUp) { innerPadding ->
         Column(
             Modifier
+                .verticalScroll(rememberScrollState())
                 .fillMaxSize()
                 .padding(innerPadding)
                 .padding(SatsTheme.spacing.m),
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            SatsCard {
+            SatsCard(useMaterial3 = true) {
                 Column(Modifier.clickable { }) {
                     Box(
                         Modifier
@@ -40,7 +43,26 @@ internal fun SatsCardScreen(navigateUp: () -> Unit) {
                     }
 
                     Column(Modifier.padding(SatsTheme.spacing.m), Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
-                        Text("Some title", style = SatsTheme.typography.medium.large)
+                        Text("Material 3 Card", style = SatsTheme.typography.medium.large)
+
+                        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+                    }
+                }
+            }
+
+            SatsCard(useMaterial3 = false) {
+                Column(Modifier.clickable { }) {
+                    Box(
+                        Modifier
+                            .fillMaxWidth()
+                            .aspectRatio(16f / 9)
+                            .background(SatsTheme.colors.waitingList.primary),
+                    ) {
+                        Text("Image", Modifier.align(Alignment.Center), color = SatsTheme.colors.onWaitingList.primary)
+                    }
+
+                    Column(Modifier.padding(SatsTheme.spacing.m), Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
+                        Text("Material 2 Card", style = SatsTheme.typography.medium.large)
 
                         Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
                     }
