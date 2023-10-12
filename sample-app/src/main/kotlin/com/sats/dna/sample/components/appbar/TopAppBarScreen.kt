@@ -2,21 +2,25 @@ package com.sats.dna.sample.components.appbar
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.sats.dna.components.appbar.SatsTopAppBar
+import androidx.compose.ui.unit.dp
+import com.sats.dna.components.appbar.M3SatsTopAppBar
 import com.sats.dna.sample.components.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun SatsTopAppBarScreen(navigateUp: () -> Unit) {
-    ComponentScreen("Top App Bar", navigateUp) { innerPadding ->
+    ComponentScreen("Top App Bar", navigateUp, useMaterial3 = true) { innerPadding ->
         Column(
             Modifier
                 .fillMaxSize()
@@ -25,24 +29,28 @@ internal fun SatsTopAppBarScreen(navigateUp: () -> Unit) {
             verticalArrangement = Arrangement.Absolute.spacedBy(SatsTheme.spacing.m),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            SatsTopAppBar(
+            M3SatsTopAppBar(
                 title = { Text("Top App Bar") },
+                windowInsets = WindowInsets(0.dp),
             )
 
-            SatsTopAppBar(
+            M3SatsTopAppBar(
                 title = { Text("Top App Bar") },
                 actions = { Actions() },
+                windowInsets = WindowInsets(0.dp),
             )
 
-            SatsTopAppBar(
-                navigationIcon = { UpIconButton() },
+            M3SatsTopAppBar(
                 title = { Text("Top App Bar") },
+                navigationIcon = { UpIconButton() },
+                windowInsets = WindowInsets(0.dp),
             )
 
-            SatsTopAppBar(
-                navigationIcon = { UpIconButton() },
+            M3SatsTopAppBar(
                 title = { Text("Top App Bar") },
+                navigationIcon = { UpIconButton() },
                 actions = { Actions() },
+                windowInsets = WindowInsets(0.dp),
             )
         }
     }
