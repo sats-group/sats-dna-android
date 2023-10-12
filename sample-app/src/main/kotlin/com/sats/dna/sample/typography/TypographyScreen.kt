@@ -13,10 +13,7 @@ import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.FilterChip
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -25,6 +22,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import com.sats.dna.components.SatsFilterChip
+import com.sats.dna.components.SatsSurface
 import com.sats.dna.sample.components.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
@@ -84,14 +83,13 @@ private data class TextSample(
     val textStyle: TextStyle,
 )
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 private fun ConfigurationBar(
     contentPadding: PaddingValues,
     currentStyle: SatsTextStyle,
     onStyleChanged: (SatsTextStyle) -> Unit,
 ) {
-    Surface(elevation = 2.dp) {
+    SatsSurface(elevation = 2.dp) {
         Row(
             Modifier
                 .fillMaxWidth()
@@ -101,9 +99,11 @@ private fun ConfigurationBar(
             horizontalArrangement = spacedBy(SatsTheme.spacing.s),
         ) {
             SatsTextStyle.entries.forEach { textStyle ->
-                FilterChip(selected = currentStyle == textStyle, onClick = { onStyleChanged(textStyle) }) {
-                    Text(textStyle.styleName)
-                }
+                SatsFilterChip(
+                    text = textStyle.styleName,
+                    isSelected = currentStyle == textStyle,
+                    onClick = { onStyleChanged(textStyle) },
+                )
             }
         }
     }

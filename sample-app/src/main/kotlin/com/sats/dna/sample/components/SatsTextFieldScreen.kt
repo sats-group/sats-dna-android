@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -32,27 +32,23 @@ internal fun SatsTextFieldScreen(navigateUp: () -> Unit) {
                 label = "Enabled text field",
                 value = inputValue,
                 onValueChange = setValue,
-                placeholder = { Text("Text") },
             )
             LabeledTextField(
                 label = "Disabled text field",
                 value = inputValue,
                 onValueChange = setValue,
                 enabled = false,
-                placeholder = { Text("Text") },
             )
             LabeledOutlinedTextField(
                 label = "Enabled outlined text field",
                 value = outlinedInputValue,
                 onValueChange = outlinedSetValue,
-                placeholder = { Text("Text") },
             )
             LabeledOutlinedTextField(
                 label = "Disabled outlined text field",
                 value = outlinedInputValue,
                 onValueChange = outlinedSetValue,
                 enabled = false,
-                placeholder = { Text("Text") },
             )
         }
     }
@@ -64,11 +60,14 @@ private fun LabeledTextField(
     value: String,
     onValueChange: (newValue: String) -> Unit,
     enabled: Boolean = true,
-    placeholder: @Composable () -> Unit,
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs)) {
-        Text(label)
-        SatsTextField(value = value, onValueChange = onValueChange, enabled = enabled, placeholder = placeholder)
+        SatsTextField(
+            label = { Text(label) },
+            value = value,
+            onValueChange = onValueChange,
+            enabled = enabled,
+        )
     }
 }
 
@@ -78,15 +77,13 @@ private fun LabeledOutlinedTextField(
     value: String,
     onValueChange: (newValue: String) -> Unit,
     enabled: Boolean = true,
-    placeholder: @Composable () -> Unit,
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs)) {
-        Text(label)
         SatsOutlinedTextField(
+            label = { Text(label) },
             value = value,
             onValueChange = onValueChange,
             enabled = enabled,
-            placeholder = placeholder,
         )
     }
 }

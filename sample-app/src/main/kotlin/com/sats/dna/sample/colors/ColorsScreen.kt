@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalMaterialApi::class)
-
 package com.sats.dna.sample.colors
 
 import androidx.compose.foundation.background
@@ -13,9 +11,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.ListItem
-import androidx.compose.material.Text
+import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -44,7 +42,7 @@ internal fun ColorsScreen(navigateUp: () -> Unit) {
 
                     is ColorItem -> {
                         ListItem(
-                            icon = {
+                            leadingContent = {
                                 Box(
                                     modifier = Modifier
                                         .clip(CircleShape)
@@ -53,8 +51,9 @@ internal fun ColorsScreen(navigateUp: () -> Unit) {
                                         .size(40.dp),
                                 )
                             },
-                            text = { Text(listItem.name) },
-                            secondaryText = { Text(listItem.color.toRgbaHex()) },
+                            headlineContent = { Text(listItem.name) },
+                            supportingContent = { Text(listItem.color.toRgbaHex()) },
+                            colors = ListItemDefaults.colors(containerColor = SatsTheme.colors.background.primary),
                         )
                     }
                 }
@@ -111,22 +110,18 @@ private fun SatsColors.toListItems(): List<ListItem> {
         ColorItem("onSecondary.disabled", onSecondary.disabled),
 
         HeaderItem("Clean"),
-
         ColorItem("clean.default", clean.default),
         ColorItem("clean.disabled", clean.disabled),
 
         HeaderItem("On Clean"),
-
         ColorItem("onClean.default", onClean.default),
         ColorItem("onClean.disabled", onClean.disabled),
 
         HeaderItem("Clean Secondary"),
-
         ColorItem("cleanSecondary.default", cleanSecondary.default),
         ColorItem("cleanSecondary.disabled", cleanSecondary.disabled),
 
         HeaderItem("On Clean Secondary"),
-
         ColorItem("onCleanSecondary.default", onCleanSecondary.default),
         ColorItem("onCleanSecondary.disabled", onCleanSecondary.disabled),
 
