@@ -10,8 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import com.sats.dna.components.SatsOutlinedTextField
-import com.sats.dna.components.SatsTextField
+import com.sats.dna.components.M3SatsOutlinedTextField
+import com.sats.dna.components.M3SatsTextField
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -68,7 +68,7 @@ private fun LabeledTextField(
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs)) {
         Text(label)
-        SatsTextField(value = value, onValueChange = onValueChange, enabled = enabled, placeholder = placeholder)
+        M3SatsTextField(value = value, onValueChange = onValueChange, enabled = enabled, placeholder = placeholder)
     }
 }
 
@@ -82,7 +82,7 @@ private fun LabeledOutlinedTextField(
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs)) {
         Text(label)
-        SatsOutlinedTextField(
+        M3SatsOutlinedTextField(
             value = value,
             onValueChange = onValueChange,
             enabled = enabled,
