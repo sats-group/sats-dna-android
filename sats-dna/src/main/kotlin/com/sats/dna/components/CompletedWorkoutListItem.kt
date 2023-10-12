@@ -98,7 +98,7 @@ private fun SocialRow(
                     tint = SatsTheme.colors.onBackground.secondary,
                 )
 
-                MaterialText(useMaterial3, numberOfReactionsLabel, SatsTheme.colors.onBackground.secondary)
+                MaterialText(useMaterial3, numberOfReactionsLabel, color = SatsTheme.colors.onBackground.secondary)
             }
         }
 

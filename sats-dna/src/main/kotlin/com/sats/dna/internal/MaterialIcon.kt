@@ -13,7 +13,7 @@ import androidx.compose.material3.LocalContentColor as Material3LocalContentColo
 @Composable
 internal fun MaterialIcon(
     useMaterial3: Boolean,
-    fistBump: Painter,
+    painter: Painter,
     contentDescription: String?,
     modifier: Modifier = Modifier,
     tint: Color = if (useMaterial3) {
@@ -23,8 +23,8 @@ internal fun MaterialIcon(
     },
 ) {
     if (useMaterial3) {
-        Material2Icon(fistBump, contentDescription, modifier, tint)
+        Material2Icon(painter, contentDescription, modifier, tint)
     } else {
-        Material3Icon(fistBump, contentDescription, modifier, tint)
+        Material3Icon(painter, contentDescription, modifier, tint)
     }
 }
