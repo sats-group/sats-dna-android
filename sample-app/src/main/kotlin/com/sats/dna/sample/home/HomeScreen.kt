@@ -14,6 +14,7 @@ import androidx.navigation.NavController
 import com.sats.dna.components.appbar.M3SatsTopAppBar
 import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.sample.screens.BottomNavigationSampleScreen
+import com.sats.dna.sample.screens.BrandLogoSampleScreen
 import com.sats.dna.sample.screens.ButtonsSampleScreen
 import com.sats.dna.sample.screens.CampaignModuleSampleScreen
 import com.sats.dna.sample.screens.CardSampleScreen
@@ -59,6 +60,7 @@ internal fun HomeScreen(navController: NavController) {
             Divider(Modifier.padding(vertical = SatsTheme.spacing.s))
 
             BottomNavigationSampleScreen.HomeListItem(navController)
+            BrandLogoSampleScreen.HomeListItem(navController)
             ButtonsSampleScreen.HomeListItem(navController)
             CampaignModuleSampleScreen.HomeListItem(navController)
             CardSampleScreen.HomeListItem(navController)
@@ -68,7 +70,6 @@ internal fun HomeScreen(navController: NavController) {
             CircularProgressIndicatorSampleScreen.HomeListItem(navController)
             CompletedWorkoutListItemSampleScreen.HomeListItem(navController)
             GeneralListItemSampleScreen.HomeListItem(navController)
-            TagsSampleScreen.HomeListItem(navController)
             PlaceholdersSampleScreen.HomeListItem(navController)
             ProgressBarsSampleScreen.HomeListItem(navController)
             RadioButtonsSampleScreen.HomeListItem(navController)
@@ -76,6 +77,7 @@ internal fun HomeScreen(navController: NavController) {
             SnackbarSampleScreen.HomeListItem(navController)
             SurfaceSampleScreen.HomeListItem(navController)
             SwitchSampleScreen.HomeListItem(navController)
+            TagsSampleScreen.HomeListItem(navController)
             TextFieldSampleScreen.HomeListItem(navController)
             TopBarSampleScreen.HomeListItem(navController)
             TrafficLightsSampleScreen.HomeListItem(navController)
