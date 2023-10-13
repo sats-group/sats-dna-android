@@ -63,6 +63,13 @@ fun GeneralListItemScreen(navigateUp: () -> Unit) {
                     iconColor = SatsTheme.colors.cta.default,
                 ),
             )
+            SatsGeneralListItem(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = {},
+                title = "General List Item without icon",
+                subtitle = "Subtitle",
+                trailingContent = { SimpleTrailingContent() },
+            )
         }
     }
 }

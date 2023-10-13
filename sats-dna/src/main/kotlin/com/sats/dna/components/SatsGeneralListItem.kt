@@ -6,12 +6,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.unit.dp
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -23,9 +25,10 @@ fun SatsGeneralListItem(
     modifier: Modifier = Modifier,
     title: String,
     subtitle: String? = null,
-    icon: Painter,
+    icon: Painter? = null,
     trailingContent: @Composable (() -> Unit)? = null,
     colors: SatsGeneralListItemColors = SatsGeneralListItemDefaults.generalListItemColors(),
+    isEnabled: Boolean = true,
     useMaterial3: Boolean = false,
 ) {
     SatsSurface(modifier, useMaterial3 = useMaterial3) {
@@ -33,13 +36,15 @@ fun SatsGeneralListItem(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
             modifier = Modifier
-                .clickable(onClick = onClick)
+                .clickable(onClick = onClick, enabled = isEnabled)
                 .padding(
                     vertical = SatsTheme.spacing.s,
                     horizontal = SatsTheme.spacing.m,
                 ),
         ) {
-            MaterialIcon(useMaterial3, icon, null, tint = colors.iconColor)
+            icon?.let {
+                MaterialIcon(useMaterial3, it, null, tint = colors.iconColor, modifier = Modifier.size(18.dp))
+            }
             Column(Modifier.weight(1f)) {
                 MaterialText(useMaterial3, title, color = colors.titleColor)
                 subtitle?.let {
@@ -88,7 +93,7 @@ private fun Preview() {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsTheme.icons.info,
+                icon = SatsTheme.icons.customerService,
             )
         }
     }
@@ -104,7 +109,7 @@ private fun WithSubtitle() {
                 onClick = {},
                 title = "Title",
                 subtitle = "Subtitle",
-                icon = SatsTheme.icons.info,
+                icon = SatsTheme.icons.customerService,
             )
         }
     }
@@ -119,7 +124,7 @@ private fun WithTrailingContentPreview() {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsTheme.icons.info,
+                icon = SatsTheme.icons.customerService,
                 trailingContent = { SimpleTrailingContent() },
             )
         }
@@ -135,7 +140,7 @@ private fun WithAdvancedTrailingContentPreview() {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsTheme.icons.info,
+                icon = SatsTheme.icons.customerService,
                 trailingContent = { AdvancedTrailingContent() },
             )
         }
@@ -151,12 +156,28 @@ private fun WithNonDefaultColorsPreview() {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsTheme.icons.info,
+                icon = SatsTheme.icons.customerService,
                 colors = DefaultSatsGeneralListItem(
                     titleColor = SatsTheme.colors.cta.default,
                     subtitleColor = SatsTheme.colors.cta.default,
                     iconColor = SatsTheme.colors.cta.default,
                 ),
+            )
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun WithoutIconPreview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors.background.primary) {
+            SatsGeneralListItem(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = {},
+                title = "Title",
+                subtitle = "Subtitle",
+                trailingContent = { SimpleTrailingContent() },
             )
         }
     }
