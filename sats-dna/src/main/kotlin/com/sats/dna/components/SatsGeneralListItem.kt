@@ -172,7 +172,7 @@ private fun WithNonDefaultColorsPreview() {
 
 @LightDarkPreview
 @Composable
-private fun WithoutIcon() {
+private fun WithoutIconPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors.background.primary) {
             SatsGeneralListItem(
