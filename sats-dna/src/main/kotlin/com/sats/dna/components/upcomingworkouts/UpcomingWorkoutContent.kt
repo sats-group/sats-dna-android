@@ -13,18 +13,15 @@ import com.sats.dna.tooling.LightDarkPreview
 internal fun TimeAndDuration(
     time: String,
     duration: String,
-    useMaterial3: Boolean,
     modifier: Modifier = Modifier,
 ) {
     Column(modifier) {
         MaterialText(
-            useMaterial3 = useMaterial3,
             text = time,
             style = SatsTheme.typography.medium.basic,
         )
 
         MaterialText(
-            useMaterial3 = useMaterial3,
             text = duration,
             style = SatsTheme.typography.default.small,
             color = SatsTheme.colors.onBackground.secondary,
@@ -37,46 +34,41 @@ internal fun WorkoutInfo(
     name: String,
     location: String,
     instructor: String,
-    useMaterial3: Boolean,
     modifier: Modifier = Modifier,
     waitingListStatus: WaitingListStatus? = null,
 ) {
     Column(modifier) {
         MaterialText(
-            useMaterial3,
-            name,
+            text = name,
             style = SatsTheme.typography.medium.basic,
         )
 
         MaterialText(
-            useMaterial3,
-            location,
+            text = location,
             color = SatsTheme.colors.onSurface.secondary,
             style = SatsTheme.typography.default.small,
         )
 
         MaterialText(
-            useMaterial3,
-            instructor,
+            text = instructor,
             style = SatsTheme.typography.default.small,
             color = SatsTheme.colors.onBackground.secondary,
         )
 
         waitingListStatus?.let { status ->
-            WaitingListStatus(status, useMaterial3)
+            WaitingListStatus(status)
         }
     }
 }
 
 @Composable
-private fun WaitingListStatus(status: WaitingListStatus, useMaterial3: Boolean) {
+private fun WaitingListStatus(status: WaitingListStatus) {
     val color = when (status) {
         is WaitingListStatus.OnWaitingList -> SatsTheme.colors.waitingList.text
         is WaitingListStatus.SpotSecured -> SatsTheme.colors.signalText.success
     }
 
     MaterialText(
-        useMaterial3 = useMaterial3,
         text = status.text,
         color = color,
         style = SatsTheme.typography.default.small,
@@ -85,7 +77,6 @@ private fun WaitingListStatus(status: WaitingListStatus, useMaterial3: Boolean) 
     if (status is WaitingListStatus.SpotSecured) {
         status.waitingListText?.let {
             MaterialText(
-                useMaterial3,
                 text = status.waitingListText,
                 color = SatsTheme.colors.waitingList.text,
                 style = SatsTheme.typography.default.small,
@@ -103,7 +94,6 @@ private fun TimeAndDurationPreview() {
                 time = "9:00 PM",
                 duration = "45 min",
                 modifier = Modifier.padding(SatsTheme.spacing.m),
-                useMaterial3 = true,
             )
         }
     }
@@ -120,7 +110,6 @@ private fun WorkoutInfoPreview() {
                 instructor = "w/ Andrew Nielsen",
                 waitingListStatus = WaitingListStatus.SpotSecured("Spot secured! 32 on the waiting list."),
                 modifier = Modifier.padding(SatsTheme.spacing.m),
-                useMaterial3 = true,
             )
         }
     }

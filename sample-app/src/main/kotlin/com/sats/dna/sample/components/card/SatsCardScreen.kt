@@ -31,7 +31,7 @@ internal fun SatsCardScreen(navigateUp: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            SatsCard(useMaterial3 = true) {
+            SatsCard {
                 Column(Modifier.clickable { }) {
                     Box(
                         Modifier
@@ -44,25 +44,6 @@ internal fun SatsCardScreen(navigateUp: () -> Unit) {
 
                     Column(Modifier.padding(SatsTheme.spacing.m), Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
                         Text("Material 3 Card", style = SatsTheme.typography.medium.large)
-
-                        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-                    }
-                }
-            }
-
-            SatsCard(useMaterial3 = false) {
-                Column(Modifier.clickable { }) {
-                    Box(
-                        Modifier
-                            .fillMaxWidth()
-                            .aspectRatio(16f / 9)
-                            .background(SatsTheme.colors.waitingList.primary),
-                    ) {
-                        Text("Image", Modifier.align(Alignment.Center), color = SatsTheme.colors.onWaitingList.primary)
-                    }
-
-                    Column(Modifier.padding(SatsTheme.spacing.m), Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
-                        Text("Material 2 Card", style = SatsTheme.typography.medium.large)
 
                         Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
                     }

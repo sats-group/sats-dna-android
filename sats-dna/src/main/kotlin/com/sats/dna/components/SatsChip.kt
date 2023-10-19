@@ -36,7 +36,6 @@ fun SatsFilterChip(
     modifier: Modifier = Modifier,
     isEnabled: Boolean = true,
     colors: SatsFilterChipColors = SatsChipDefaults.filterChipColors(),
-    useMaterial3: Boolean = LocalUseMaterial3.current,
 ) {
     val backgroundColor = colors.backgroundColor(
         isSelected = isSelected,
@@ -57,11 +56,9 @@ fun SatsFilterChip(
         backgroundColor = backgroundColor.value,
         contentColor = contentColor.value,
         borderColor = borderColor.value,
-        useMaterial3 = useMaterial3,
         modifier = modifier,
     ) {
         MaterialText(
-            useMaterial3 = useMaterial3,
             text = text,
             modifier = Modifier
                 .clickable(enabled = isEnabled, role = Role.Switch) { onClick() }
@@ -78,7 +75,6 @@ fun SatsInputChip(
     action: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     colors: SatsInputChipColors = SatsChipDefaults.inputChipColors(),
-    useMaterial3: Boolean = LocalUseMaterial3.current,
 ) {
     val backgroundColor = colors.backgroundColor().value
     val contentColor = colors.contentColor().value
@@ -87,7 +83,6 @@ fun SatsInputChip(
         backgroundColor = backgroundColor,
         contentColor = contentColor,
         borderColor = null,
-        useMaterial3 = useMaterial3,
         modifier = modifier.width(IntrinsicSize.Max),
     ) {
         Row(
@@ -96,7 +91,6 @@ fun SatsInputChip(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             MaterialText(
-                useMaterial3 = useMaterial3,
                 text = text,
                 modifier = Modifier.weight(1f),
                 maxLines = 1,
@@ -113,7 +107,6 @@ fun SatsInputChipClearButton(
     onClick: () -> Unit,
     onClickLabel: String?,
     modifier: Modifier = Modifier,
-    useMaterial3: Boolean = LocalUseMaterial3.current,
 ) {
     SatsSurface(
         modifier = modifier.size(16.dp),
@@ -121,7 +114,6 @@ fun SatsInputChipClearButton(
         shape = SatsTheme.shapes.circle,
     ) {
         MaterialIcon(
-            useMaterial3 = useMaterial3,
             painter = SatsTheme.icons.close,
             contentDescription = null,
             modifier = Modifier.clickable(onClickLabel = onClickLabel, role = Role.Button) { onClick() },
@@ -135,11 +127,10 @@ private fun SatsChipLayout(
     backgroundColor: Color,
     contentColor: Color,
     borderColor: Color?,
-    useMaterial3: Boolean,
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit,
 ) {
-    if (useMaterial3) {
+    if (LocalUseMaterial3.current) {
         Material3Surface(
             modifier,
             shape = SatsTheme.shapes.roundedCorners.extraSmall,
@@ -292,7 +283,6 @@ private fun SatsFilterChipPreview() {
                         isSelected = false,
                         isEnabled = true,
                         onClick = { },
-                        useMaterial3 = true,
                     )
 
                     SatsFilterChip(
@@ -300,7 +290,6 @@ private fun SatsFilterChipPreview() {
                         isSelected = true,
                         isEnabled = true,
                         onClick = { },
-                        useMaterial3 = true,
                     )
                 }
 
@@ -313,7 +302,6 @@ private fun SatsFilterChipPreview() {
                         isSelected = false,
                         isEnabled = false,
                         onClick = { },
-                        useMaterial3 = true,
                     )
 
                     SatsFilterChip(
@@ -321,7 +309,6 @@ private fun SatsFilterChipPreview() {
                         isSelected = true,
                         isEnabled = false,
                         onClick = { },
-                        useMaterial3 = true,
                     )
                 }
             }
@@ -341,13 +328,11 @@ private fun SatsInputChipPreview() {
                 SatsInputChip(
                     text = "Oslo",
                     action = { SatsInputChipClearButton(onClick = {}, onClickLabel = "Clear") },
-                    useMaterial3 = true,
                 )
 
                 SatsInputChip(
                     text = "(4) Akersgata, Bislett, Storo, Nydalen",
                     action = { SatsInputChipClearButton(onClick = {}, onClickLabel = "Clear") },
-                    useMaterial3 = true,
                 )
             }
         }

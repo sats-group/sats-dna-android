@@ -33,9 +33,8 @@ fun SatsGeneralListItem(
     trailingContent: @Composable (() -> Unit)? = null,
     colors: SatsGeneralListItemColors = SatsGeneralListItemDefaults.generalListItemColors(),
     isEnabled: Boolean = true,
-    useMaterial3: Boolean = LocalUseMaterial3.current,
 ) {
-    SatsSurface(modifier, useMaterial3 = useMaterial3) {
+    SatsSurface(modifier) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
@@ -48,7 +47,6 @@ fun SatsGeneralListItem(
         ) {
             icon?.let {
                 MaterialIcon(
-                    useMaterial3,
                     it,
                     null,
                     tint = colors.iconColor,
@@ -56,9 +54,9 @@ fun SatsGeneralListItem(
                 )
             }
             Column(Modifier.weight(1f)) {
-                MaterialText(useMaterial3, title, color = colors.titleColor)
+                MaterialText(title, color = colors.titleColor)
                 subtitle?.let {
-                    MaterialText(useMaterial3, it, color = colors.subtitleColor)
+                    MaterialText(it, color = colors.subtitleColor)
                 }
             }
             trailingContent?.let {
@@ -72,25 +70,23 @@ object TrailingContent {
     @Composable
     fun Icon(
         icon: Painter,
-        useMaterial3: Boolean = LocalUseMaterial3.current,
-        tint: Color = materialIconTint(useMaterial3),
+        tint: Color = materialIconTint(),
     ) {
-        MaterialIcon(useMaterial3, icon, null, tint = tint, modifier = Modifier.size(18.dp))
+        MaterialIcon(icon, null, tint = tint, modifier = Modifier.size(18.dp))
     }
 
     @Composable
     fun TextAndIcon(
         text: String,
         icon: Painter,
-        useMaterial3: Boolean = LocalUseMaterial3.current,
-        tint: Color = materialIconTint(useMaterial3),
+        tint: Color = materialIconTint(),
     ) {
         Row(
             horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            MaterialText(useMaterial3, text, color = tint)
-            MaterialIcon(useMaterial3, icon, null, tint = tint, modifier = Modifier.size(18.dp))
+            MaterialText(text, color = tint)
+            MaterialIcon(icon, null, tint = tint, modifier = Modifier.size(18.dp))
         }
     }
 }

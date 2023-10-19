@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalInspectionMode
@@ -25,18 +26,20 @@ fun SatsCampaignModule(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    SatsCard(modifier, useMaterial3 = true) {
-        Column(Modifier.clickable { onClick() }) {
-            HeroImage(imageUrl)
+    CompositionLocalProvider(LocalUseMaterial3 provides true) {
+        SatsCard(modifier) {
+            Column(Modifier.clickable { onClick() }) {
+                HeroImage(imageUrl)
 
-            Column(
-                Modifier.padding(SatsTheme.spacing.m),
-                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs),
-            ) {
-                Text(title, style = SatsTheme.typography.medium.basic)
+                Column(
+                    Modifier.padding(SatsTheme.spacing.m),
+                    verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs),
+                ) {
+                    Text(title, style = SatsTheme.typography.medium.basic)
 
-                if (subtitle != null) {
-                    Text(subtitle, style = SatsTheme.typography.default.small)
+                    if (subtitle != null) {
+                        Text(subtitle, style = SatsTheme.typography.default.small)
+                    }
                 }
             }
         }
