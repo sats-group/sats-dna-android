@@ -19,17 +19,17 @@ internal fun MaterialIcon(
     tint: Color = materialIconTint(useMaterial3),
 ) {
     if (useMaterial3) {
-        Material2Icon(painter, contentDescription, modifier, tint)
-    } else {
         Material3Icon(painter, contentDescription, modifier, tint)
+    } else {
+        Material2Icon(painter, contentDescription, modifier, tint)
     }
 }
 
 @Composable
 internal fun materialIconTint(useMaterial3: Boolean): Color {
     return if (useMaterial3) {
-        Material2LocalContentColor.current.copy(alpha = Material2LocalContentAlpha.current)
-    } else {
         Material3LocalContentColor.current
+    } else {
+        Material2LocalContentColor.current.copy(alpha = Material2LocalContentAlpha.current)
     }
 }

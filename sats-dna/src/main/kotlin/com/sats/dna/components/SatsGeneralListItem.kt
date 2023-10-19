@@ -16,9 +16,13 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
+import com.sats.dna.internal.materialIconTint
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
+/**
+ * @param trailingContent trailing content of list item. Consider using [TrailingContent].
+ */
 @Composable
 fun SatsGeneralListItem(
     onClick: () -> Unit,
@@ -43,7 +47,13 @@ fun SatsGeneralListItem(
                 ),
         ) {
             icon?.let {
-                MaterialIcon(useMaterial3, it, null, tint = colors.iconColor, modifier = Modifier.size(18.dp))
+                MaterialIcon(
+                    useMaterial3,
+                    it,
+                    null,
+                    tint = colors.iconColor,
+                    modifier = Modifier.size(18.dp),
+                )
             }
             Column(Modifier.weight(1f)) {
                 MaterialText(useMaterial3, title, color = colors.titleColor)
@@ -54,6 +64,33 @@ fun SatsGeneralListItem(
             trailingContent?.let {
                 it()
             }
+        }
+    }
+}
+
+object TrailingContent {
+    @Composable
+    fun Icon(
+        icon: Painter,
+        useMaterial3: Boolean = false,
+        tint: Color = materialIconTint(useMaterial3),
+    ) {
+        MaterialIcon(useMaterial3, icon, null, tint = tint, modifier = Modifier.size(18.dp))
+    }
+
+    @Composable
+    fun TextAndIcon(
+        text: String,
+        icon: Painter,
+        useMaterial3: Boolean = false,
+        tint: Color = materialIconTint(useMaterial3),
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            MaterialText(useMaterial3, text, color = tint)
+            MaterialIcon(useMaterial3, icon, null, tint = tint, modifier = Modifier.size(18.dp))
         }
     }
 }
@@ -93,7 +130,7 @@ private fun Preview() {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsTheme.icons.customerService,
+                icon = SatsTheme.icons.questionMark,
             )
         }
     }
@@ -109,7 +146,7 @@ private fun WithSubtitle() {
                 onClick = {},
                 title = "Title",
                 subtitle = "Subtitle",
-                icon = SatsTheme.icons.customerService,
+                icon = SatsTheme.icons.questionMark,
             )
         }
     }
@@ -124,7 +161,7 @@ private fun WithTrailingContentPreview() {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsTheme.icons.customerService,
+                icon = SatsTheme.icons.questionMark,
                 trailingContent = { SimpleTrailingContent() },
             )
         }
@@ -140,7 +177,7 @@ private fun WithAdvancedTrailingContentPreview() {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsTheme.icons.customerService,
+                icon = SatsTheme.icons.questionMark,
                 trailingContent = { AdvancedTrailingContent() },
             )
         }
@@ -156,7 +193,7 @@ private fun WithNonDefaultColorsPreview() {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsTheme.icons.customerService,
+                icon = SatsTheme.icons.questionMark,
                 colors = DefaultSatsGeneralListItem(
                     titleColor = SatsTheme.colors.cta.default,
                     subtitleColor = SatsTheme.colors.cta.default,
@@ -184,17 +221,11 @@ private fun WithoutIconPreview() {
 }
 
 @Composable
-fun SimpleTrailingContent(useMaterial3: Boolean = false) {
-    MaterialIcon(useMaterial3, SatsTheme.icons.arrowRight, contentDescription = null)
+fun SimpleTrailingContent() {
+    TrailingContent.Icon(SatsTheme.icons.arrowRight)
 }
 
 @Composable
-fun AdvancedTrailingContent(useMaterial3: Boolean = false) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
-    ) {
-        MaterialText(useMaterial3, "Label")
-        MaterialIcon(useMaterial3, SatsTheme.icons.arrowRight, contentDescription = null)
-    }
+fun AdvancedTrailingContent() {
+    TrailingContent.TextAndIcon(text = "Label", icon = SatsTheme.icons.arrowRight)
 }
