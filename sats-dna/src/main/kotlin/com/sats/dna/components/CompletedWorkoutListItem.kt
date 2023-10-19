@@ -46,7 +46,7 @@ fun CompletedWorkoutListItem(
     onSaidAwesomeClicked: (isLiked: Boolean) -> Unit,
     isLiked: Boolean,
     modifier: Modifier = Modifier,
-    useMaterial3: Boolean = false,
+    useMaterial3: Boolean = LocalUseMaterial3.current,
 ) {
     Row(
         modifier

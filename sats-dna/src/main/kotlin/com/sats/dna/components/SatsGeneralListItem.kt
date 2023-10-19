@@ -33,7 +33,7 @@ fun SatsGeneralListItem(
     trailingContent: @Composable (() -> Unit)? = null,
     colors: SatsGeneralListItemColors = SatsGeneralListItemDefaults.generalListItemColors(),
     isEnabled: Boolean = true,
-    useMaterial3: Boolean = false,
+    useMaterial3: Boolean = LocalUseMaterial3.current,
 ) {
     SatsSurface(modifier, useMaterial3 = useMaterial3) {
         Row(
@@ -72,7 +72,7 @@ object TrailingContent {
     @Composable
     fun Icon(
         icon: Painter,
-        useMaterial3: Boolean = false,
+        useMaterial3: Boolean = LocalUseMaterial3.current,
         tint: Color = materialIconTint(useMaterial3),
     ) {
         MaterialIcon(useMaterial3, icon, null, tint = tint, modifier = Modifier.size(18.dp))
@@ -82,7 +82,7 @@ object TrailingContent {
     fun TextAndIcon(
         text: String,
         icon: Painter,
-        useMaterial3: Boolean = false,
+        useMaterial3: Boolean = LocalUseMaterial3.current,
         tint: Color = materialIconTint(useMaterial3),
     ) {
         Row(

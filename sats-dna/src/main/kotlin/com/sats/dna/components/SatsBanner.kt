@@ -22,7 +22,7 @@ fun SatsBanner(
     action: @Composable (() -> Unit)? = null,
     backgroundColor: Color = SatsTheme.colors.primary.default,
     contentColor: Color = satsContentColorFor(backgroundColor),
-    useMaterial3: Boolean = false,
+    useMaterial3: Boolean = LocalUseMaterial3.current,
 ) {
     SatsSurface(
         modifier = modifier,

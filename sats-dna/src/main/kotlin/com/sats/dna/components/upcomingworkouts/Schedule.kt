@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import com.sats.dna.components.LocalUseMaterial3
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -19,7 +20,7 @@ fun Schedule(
     workouts: List<ScheduledWorkout>,
     onWorkoutClicked: (workout: ScheduledWorkout) -> Unit,
     modifier: Modifier = Modifier,
-    useMaterial3: Boolean = false,
+    useMaterial3: Boolean = LocalUseMaterial3.current,
 ) {
     SatsCard(modifier.fillMaxWidth(), useMaterial3 = true) {
         val days = workouts.groupBy { it.day }

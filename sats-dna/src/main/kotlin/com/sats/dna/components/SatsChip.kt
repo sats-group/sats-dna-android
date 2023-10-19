@@ -36,7 +36,7 @@ fun SatsFilterChip(
     modifier: Modifier = Modifier,
     isEnabled: Boolean = true,
     colors: SatsFilterChipColors = SatsChipDefaults.filterChipColors(),
-    useMaterial3: Boolean = false,
+    useMaterial3: Boolean = LocalUseMaterial3.current,
 ) {
     val backgroundColor = colors.backgroundColor(
         isSelected = isSelected,
@@ -78,7 +78,7 @@ fun SatsInputChip(
     action: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     colors: SatsInputChipColors = SatsChipDefaults.inputChipColors(),
-    useMaterial3: Boolean = false,
+    useMaterial3: Boolean = LocalUseMaterial3.current,
 ) {
     val backgroundColor = colors.backgroundColor().value
     val contentColor = colors.contentColor().value
@@ -113,7 +113,7 @@ fun SatsInputChipClearButton(
     onClick: () -> Unit,
     onClickLabel: String?,
     modifier: Modifier = Modifier,
-    useMaterial3: Boolean = false,
+    useMaterial3: Boolean = LocalUseMaterial3.current,
 ) {
     SatsSurface(
         modifier = modifier.size(16.dp),

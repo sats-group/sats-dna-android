@@ -15,12 +15,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.sats.dna.components.LocalUseMaterial3
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 import androidx.compose.material.Card as M2Card
 
 @Composable
-fun SatsCard(modifier: Modifier = Modifier, useMaterial3: Boolean = false, content: @Composable () -> Unit) {
+fun SatsCard(
+    modifier: Modifier = Modifier,
+    useMaterial3: Boolean = LocalUseMaterial3.current,
+    content: @Composable () -> Unit,
+) {
     if (useMaterial3) {
         ElevatedCard(
             modifier = modifier,

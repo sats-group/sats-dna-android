@@ -9,11 +9,13 @@ import androidx.compose.material.SnackbarHost
 import androidx.compose.material.SnackbarHostState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.ui.Scaffold
+import com.sats.dna.components.LocalUseMaterial3
 import com.sats.dna.components.SatsSnackbar
 import com.sats.dna.components.SatsSnackbarAction
 import com.sats.dna.theme.SatsTheme
@@ -34,16 +36,18 @@ fun SatsScreen(
     contentPadding: PaddingValues = PaddingValues(0.dp),
     content: @Composable (contentPadding: PaddingValues) -> Unit,
 ) {
-    Scaffold(
-        modifier = modifier,
-        scaffoldState = scaffoldState,
-        topBar = topBar,
-        bottomBar = bottomBar,
-        snackbarHost = snackbarHost,
-        floatingActionButton = floatingActionButton,
-        contentPadding = contentPadding,
-        content = content,
-    )
+    CompositionLocalProvider(LocalUseMaterial3 provides false) {
+        Scaffold(
+            modifier = modifier,
+            scaffoldState = scaffoldState,
+            topBar = topBar,
+            bottomBar = bottomBar,
+            snackbarHost = snackbarHost,
+            floatingActionButton = floatingActionButton,
+            contentPadding = contentPadding,
+            content = content,
+        )
+    }
 }
 
 @Composable
@@ -59,23 +63,25 @@ fun M3SatsScreen(
     contentPadding: PaddingValues = PaddingValues(0.dp),
     content: @Composable (contentPadding: PaddingValues) -> Unit,
 ) {
-    M3Scaffold(
-        modifier = modifier,
-        topBar = topBar,
-        bottomBar = bottomBar,
-        snackbarHost = { snackbarHost(snackbarHostState) },
-        floatingActionButton = floatingActionButton,
-    ) { scaffoldContentPadding ->
-        val screenContentPadding = PaddingValues(
-            start = scaffoldContentPadding.calculateStartPadding(LocalLayoutDirection.current) +
-                contentPadding.calculateStartPadding(LocalLayoutDirection.current),
-            top = scaffoldContentPadding.calculateTopPadding() + contentPadding.calculateTopPadding(),
-            end = scaffoldContentPadding.calculateEndPadding(LocalLayoutDirection.current) +
-                contentPadding.calculateEndPadding(LocalLayoutDirection.current),
-            bottom = scaffoldContentPadding.calculateBottomPadding() + contentPadding.calculateBottomPadding(),
-        )
+    CompositionLocalProvider(LocalUseMaterial3 provides true) {
+        M3Scaffold(
+            modifier = modifier,
+            topBar = topBar,
+            bottomBar = bottomBar,
+            snackbarHost = { snackbarHost(snackbarHostState) },
+            floatingActionButton = floatingActionButton,
+        ) { scaffoldContentPadding ->
+            val screenContentPadding = PaddingValues(
+                start = scaffoldContentPadding.calculateStartPadding(LocalLayoutDirection.current) +
+                    contentPadding.calculateStartPadding(LocalLayoutDirection.current),
+                top = scaffoldContentPadding.calculateTopPadding() + contentPadding.calculateTopPadding(),
+                end = scaffoldContentPadding.calculateEndPadding(LocalLayoutDirection.current) +
+                    contentPadding.calculateEndPadding(LocalLayoutDirection.current),
+                bottom = scaffoldContentPadding.calculateBottomPadding() + contentPadding.calculateBottomPadding(),
+            )
 
-        content(screenContentPadding)
+            content(screenContentPadding)
+        }
     }
 }
 

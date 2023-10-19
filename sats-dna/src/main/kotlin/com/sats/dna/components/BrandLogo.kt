@@ -17,7 +17,7 @@ fun BrandLogo(
     contentDescription: String?,
     modifier: Modifier = Modifier,
     isFullName: Boolean = false,
-    useMaterial3: Boolean = false,
+    useMaterial3: Boolean = LocalUseMaterial3.current,
     tint: Color = materialIconTint(useMaterial3),
 ) {
     val painter = if (isFullName) brand.fullNameIconPainter() else brand.letterIconPainter()

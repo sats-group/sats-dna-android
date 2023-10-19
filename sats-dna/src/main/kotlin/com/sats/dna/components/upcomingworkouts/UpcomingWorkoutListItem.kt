@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
+import com.sats.dna.components.LocalUseMaterial3
 import com.sats.dna.components.PlaceholderBox
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.button.SatsButton
@@ -38,7 +39,7 @@ import com.sats.dna.tooling.LightDarkPreview
 fun UpcomingWorkoutDaySection(
     day: String,
     modifier: Modifier = Modifier,
-    useMaterial3: Boolean = false,
+    useMaterial3: Boolean = LocalUseMaterial3.current,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(modifier) {
@@ -82,7 +83,7 @@ fun UpcomingWorkoutListItem(
     button: @Composable (() -> Unit)? = null,
     friendsAttending: @Composable (ColumnScope.() -> Unit)? = null,
     waitingListStatus: WaitingListStatus? = null,
-    useMaterial3: Boolean = false,
+    useMaterial3: Boolean = LocalUseMaterial3.current,
 ) {
     Row(
         modifier
@@ -135,7 +136,7 @@ fun UpcomingWorkoutAttendingFriendsLabel(
     memberImages: @Composable RowScope.() -> Unit,
     friendsAttendingLabel: String,
     modifier: Modifier = Modifier,
-    useMaterial3: Boolean = false,
+    useMaterial3: Boolean = LocalUseMaterial3.current,
 ) {
     Row(
         modifier = modifier,

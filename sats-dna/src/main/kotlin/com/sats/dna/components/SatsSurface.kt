@@ -19,7 +19,7 @@ fun SatsSurface(
     contentColor: Color = satsContentColorFor(color),
     shape: Shape = RectangleShape,
     elevation: Dp = 0.dp,
-    useMaterial3: Boolean = false,
+    useMaterial3: Boolean = LocalUseMaterial3.current,
     content: @Composable () -> Unit,
 ) {
     if (useMaterial3) {
