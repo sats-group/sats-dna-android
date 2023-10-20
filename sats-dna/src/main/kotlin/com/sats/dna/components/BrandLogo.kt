@@ -17,13 +17,11 @@ fun BrandLogo(
     contentDescription: String?,
     modifier: Modifier = Modifier,
     isFullName: Boolean = false,
-    useMaterial3: Boolean = false,
-    tint: Color = materialIconTint(useMaterial3),
+    tint: Color = materialIconTint(),
 ) {
     val painter = if (isFullName) brand.fullNameIconPainter() else brand.letterIconPainter()
 
     MaterialIcon(
-        useMaterial3 = useMaterial3,
         painter = painter,
         contentDescription = contentDescription,
         modifier = modifier,

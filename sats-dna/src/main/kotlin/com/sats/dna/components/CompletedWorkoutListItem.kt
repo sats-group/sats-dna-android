@@ -46,7 +46,6 @@ fun CompletedWorkoutListItem(
     onSaidAwesomeClicked: (isLiked: Boolean) -> Unit,
     isLiked: Boolean,
     modifier: Modifier = Modifier,
-    useMaterial3: Boolean = false,
 ) {
     Row(
         modifier
@@ -59,8 +58,8 @@ fun CompletedWorkoutListItem(
 
         Column(Modifier.weight(1f), spacedBy(SatsTheme.spacing.m)) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                WorkoutInfo(timestamp, title, location, useMaterial3)
-                MaterialIcon(useMaterial3, SatsTheme.icons.arrowRight, contentDescription = null)
+                WorkoutInfo(timestamp, title, location)
+                MaterialIcon(SatsTheme.icons.arrowRight, contentDescription = null)
             }
 
             SocialRow(
@@ -69,7 +68,6 @@ fun CompletedWorkoutListItem(
                 onSaidAwesomeClicked = onSaidAwesomeClicked,
                 isLiked = isLiked,
                 modifier = Modifier.fillMaxWidth(),
-                useMaterial3 = useMaterial3,
             )
         }
     }
@@ -81,7 +79,6 @@ private fun SocialRow(
     numberOfReactionsLabel: String?,
     onSaidAwesomeClicked: (isLiked: Boolean) -> Unit,
     isLiked: Boolean,
-    useMaterial3: Boolean,
     modifier: Modifier = Modifier,
 ) {
     Row(modifier, verticalAlignment = Alignment.CenterVertically) {
@@ -92,13 +89,12 @@ private fun SocialRow(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 MaterialIcon(
-                    useMaterial3,
                     SatsTheme.icons.fistBump,
                     contentDescription = null,
                     tint = SatsTheme.colors.onBackground.secondary,
                 )
 
-                MaterialText(useMaterial3, numberOfReactionsLabel, color = SatsTheme.colors.onBackground.secondary)
+                MaterialText(numberOfReactionsLabel, color = SatsTheme.colors.onBackground.secondary)
             }
         }
 
@@ -113,12 +109,11 @@ private fun SocialRow(
         Row(verticalAlignment = Alignment.CenterVertically) {
             Row(Modifier, spacedBy(SatsTheme.spacing.xs), Alignment.CenterVertically) {
                 MaterialIcon(
-                    useMaterial3,
                     SatsTheme.icons.comment,
                     contentDescription = null,
                     tint = SatsTheme.colors.action.default,
                 )
-                MaterialText(useMaterial3, normalizedNumberOfComments, color = SatsTheme.colors.onBackground.secondary)
+                MaterialText(normalizedNumberOfComments, color = SatsTheme.colors.onBackground.secondary)
             }
 
             LikeButton(isLiked = isLiked, onSaidAwesomeClicked)
@@ -131,22 +126,19 @@ private fun WorkoutInfo(
     timestamp: String,
     title: String,
     subtitle: String?,
-    useMaterial3: Boolean,
     modifier: Modifier = Modifier,
 ) {
     Column(modifier) {
         MaterialText(
-            useMaterial3,
             timestamp,
             color = SatsTheme.colors.onBackground.secondary,
             style = SatsTheme.typography.default.small,
         )
 
-        MaterialText(useMaterial3, title)
+        MaterialText(title)
 
         if (subtitle != null) {
             MaterialText(
-                useMaterial3,
                 subtitle,
                 color = SatsTheme.colors.onBackground.secondary,
                 style = SatsTheme.typography.default.small,
@@ -172,7 +164,6 @@ private fun Preview() {
                     onCompletedWorkoutClicked = {},
                     onSaidAwesomeClicked = {},
                     isLiked = false,
-                    useMaterial3 = true,
                 )
 
                 Material3Divider()
@@ -187,7 +178,6 @@ private fun Preview() {
                     onCompletedWorkoutClicked = {},
                     onSaidAwesomeClicked = {},
                     isLiked = false,
-                    useMaterial3 = true,
                 )
             }
         }

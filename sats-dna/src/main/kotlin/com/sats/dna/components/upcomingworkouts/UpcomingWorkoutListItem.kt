@@ -38,13 +38,11 @@ import com.sats.dna.tooling.LightDarkPreview
 fun UpcomingWorkoutDaySection(
     day: String,
     modifier: Modifier = Modifier,
-    useMaterial3: Boolean = false,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(modifier) {
-        SatsSurface(Modifier.fillMaxWidth(), elevation = 1.dp, useMaterial3 = useMaterial3) {
+        SatsSurface(Modifier.fillMaxWidth(), elevation = 1.dp) {
             MaterialText(
-                useMaterial3 = useMaterial3,
                 text = day,
                 modifier = Modifier.padding(
                     vertical = SatsTheme.spacing.s,
@@ -82,7 +80,6 @@ fun UpcomingWorkoutListItem(
     button: @Composable (() -> Unit)? = null,
     friendsAttending: @Composable (ColumnScope.() -> Unit)? = null,
     waitingListStatus: WaitingListStatus? = null,
-    useMaterial3: Boolean = false,
 ) {
     Row(
         modifier
@@ -93,7 +90,6 @@ fun UpcomingWorkoutListItem(
         TimeAndDuration(
             time = time,
             duration = duration,
-            useMaterial3 = useMaterial3,
         )
 
         Column(
@@ -110,7 +106,6 @@ fun UpcomingWorkoutListItem(
                     instructor = instructor,
                     waitingListStatus = waitingListStatus,
                     modifier = Modifier.weight(1f),
-                    useMaterial3 = useMaterial3,
                 )
 
                 button?.let { it() }
@@ -135,7 +130,6 @@ fun UpcomingWorkoutAttendingFriendsLabel(
     memberImages: @Composable RowScope.() -> Unit,
     friendsAttendingLabel: String,
     modifier: Modifier = Modifier,
-    useMaterial3: Boolean = false,
 ) {
     Row(
         modifier = modifier,
@@ -146,7 +140,7 @@ fun UpcomingWorkoutAttendingFriendsLabel(
             memberImages()
         }
 
-        MaterialText(useMaterial3, friendsAttendingLabel)
+        MaterialText(friendsAttendingLabel)
     }
 }
 
@@ -157,7 +151,7 @@ private fun UpcomingWorkoutsListPreview() {
     SatsTheme {
         SatsSurface(useMaterial3 = true) {
             Column {
-                UpcomingWorkoutDaySection(day = "Thu, Jul 27 2023", useMaterial3 = true) {
+                UpcomingWorkoutDaySection(day = "Thu, Jul 27 2023") {
                     UpcomingWorkoutListItem(
                         name = "Pure Strength",
                         time = "11:00 AM",
@@ -188,11 +182,9 @@ private fun UpcomingWorkoutsListPreview() {
                                     )
                                 },
                                 friendsAttendingLabel = "2 friends are joining this workout!",
-                                useMaterial3 = true,
                             )
                         },
                         onClick = {},
-                        useMaterial3 = true,
                     )
                 }
             }

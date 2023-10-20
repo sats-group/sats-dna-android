@@ -2,6 +2,7 @@ package com.sats.dna.components
 
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
@@ -19,26 +20,28 @@ fun SatsSurface(
     contentColor: Color = satsContentColorFor(color),
     shape: Shape = RectangleShape,
     elevation: Dp = 0.dp,
-    useMaterial3: Boolean = false,
+    useMaterial3: Boolean = LocalUseMaterial3.current,
     content: @Composable () -> Unit,
 ) {
-    if (useMaterial3) {
-        Material3Surface(
-            modifier = modifier,
-            shape = shape,
-            color = color,
-            contentColor = contentColor,
-            shadowElevation = elevation,
-            content = content,
-        )
-    } else {
-        Surface(
-            modifier = modifier,
-            shape = shape,
-            color = color,
-            contentColor = contentColor,
-            elevation = elevation,
-            content = content,
-        )
+    CompositionLocalProvider(LocalUseMaterial3 provides useMaterial3) {
+        if (useMaterial3) {
+            Material3Surface(
+                modifier = modifier,
+                shape = shape,
+                color = color,
+                contentColor = contentColor,
+                shadowElevation = elevation,
+                content = content,
+            )
+        } else {
+            Surface(
+                modifier = modifier,
+                shape = shape,
+                color = color,
+                contentColor = contentColor,
+                elevation = elevation,
+                content = content,
+            )
+        }
     }
 }

@@ -19,12 +19,11 @@ fun Schedule(
     workouts: List<ScheduledWorkout>,
     onWorkoutClicked: (workout: ScheduledWorkout) -> Unit,
     modifier: Modifier = Modifier,
-    useMaterial3: Boolean = false,
 ) {
-    SatsCard(modifier.fillMaxWidth(), useMaterial3 = true) {
+    SatsCard(modifier.fillMaxWidth()) {
         val days = workouts.groupBy { it.day }
 
-        ScheduledDays(days, onWorkoutClicked, useMaterial3 = useMaterial3)
+        ScheduledDays(days, onWorkoutClicked)
     }
 }
 
@@ -32,7 +31,6 @@ fun Schedule(
 private fun ScheduledDays(
     days: Map<String, List<ScheduledWorkout>>,
     onWorkoutClicked: (workout: ScheduledWorkout) -> Unit,
-    useMaterial3: Boolean,
 ) {
     Column(
         Modifier.padding(top = cardInnerPadding, bottom = cardInnerPadding - clickableVerticalPadding),
@@ -41,7 +39,6 @@ private fun ScheduledDays(
         days.keys.forEach { dayName ->
             Column(verticalArrangement = spacedBy(SatsTheme.spacing.s - clickableVerticalPadding)) {
                 MaterialText(
-                    useMaterial3 = useMaterial3,
                     text = dayName,
                     modifier = Modifier.padding(horizontal = cardInnerPadding),
                     color = SatsTheme.colors.onSurface.secondary,
@@ -50,7 +47,7 @@ private fun ScheduledDays(
 
                 val workouts = days.getValue(dayName)
 
-                ScheduledWorkouts(workouts, onWorkoutClicked, useMaterial3)
+                ScheduledWorkouts(workouts, onWorkoutClicked)
             }
         }
     }
@@ -60,7 +57,6 @@ private fun ScheduledDays(
 private fun ScheduledWorkouts(
     workouts: List<ScheduledWorkout>,
     onWorkoutClicked: (workout: ScheduledWorkout) -> Unit,
-    useMaterial3: Boolean,
 ) {
     Column(verticalArrangement = spacedBy(SatsTheme.spacing.xs - clickableVerticalPadding)) {
         workouts.forEach { workout ->
@@ -80,7 +76,6 @@ private fun ScheduledWorkouts(
                     time = workout.time,
                     duration = workout.duration,
                     modifier = Modifier.weight(1f),
-                    useMaterial3 = useMaterial3,
                 )
 
                 WorkoutInfo(
@@ -89,7 +84,6 @@ private fun ScheduledWorkouts(
                     instructor = workout.instructor,
                     waitingListStatus = workout.waitingListStatus,
                     modifier = Modifier.weight(4f),
-                    useMaterial3 = useMaterial3,
                 )
             }
         }

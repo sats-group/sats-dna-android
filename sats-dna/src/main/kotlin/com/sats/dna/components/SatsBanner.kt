@@ -22,13 +22,11 @@ fun SatsBanner(
     action: @Composable (() -> Unit)? = null,
     backgroundColor: Color = SatsTheme.colors.primary.default,
     contentColor: Color = satsContentColorFor(backgroundColor),
-    useMaterial3: Boolean = false,
 ) {
     SatsSurface(
         modifier = modifier,
         color = backgroundColor,
         contentColor = contentColor,
-        useMaterial3 = useMaterial3,
     ) {
         Row(
             Modifier.padding(horizontal = SatsTheme.spacing.m, vertical = SatsTheme.spacing.xs),
@@ -36,7 +34,6 @@ fun SatsBanner(
             horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
         ) {
             MaterialText(
-                useMaterial3 = useMaterial3,
                 text = title,
                 modifier = Modifier.weight(1f),
             )
@@ -50,11 +47,12 @@ fun SatsBanner(
 @Composable
 private fun SatsBannerPreview() {
     SatsTheme {
-        SatsBanner(
-            modifier = Modifier.fillMaxWidth(),
-            title = "Will the real Slim Shady please stand up?",
-            useMaterial3 = true,
-        )
+        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+            SatsBanner(
+                modifier = Modifier.fillMaxWidth(),
+                title = "Will the real Slim Shady please stand up?",
+            )
+        }
     }
 }
 
@@ -62,11 +60,12 @@ private fun SatsBannerPreview() {
 @Composable
 private fun SatsBannerWithActionPreview() {
     SatsTheme {
-        SatsBanner(
-            modifier = Modifier.fillMaxWidth(),
-            title = "Will the real Slim Shady please stand up?",
-            action = { SatsButton(onClick = {}, "Stand up", colors = SatsButtonColor.Clean) },
-            useMaterial3 = true,
-        )
+        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+            SatsBanner(
+                modifier = Modifier.fillMaxWidth(),
+                title = "Will the real Slim Shady please stand up?",
+                action = { SatsButton(onClick = {}, "Stand up", colors = SatsButtonColor.Clean) },
+            )
+        }
     }
 }
