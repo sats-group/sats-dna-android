@@ -17,10 +17,12 @@ import androidx.compose.material3.IconButton as M3IconButton
 internal fun ComponentScreen(
     title: String,
     navigateUp: () -> Unit,
+    modifier: Modifier = Modifier,
     bottomBar: @Composable () -> Unit = { Box(Modifier.navigationBarsPadding()) },
     content: @Composable (innerPadding: PaddingValues) -> Unit,
 ) {
     M3SatsScreen(
+        modifier = modifier,
         topBar = {
             M3SatsTopAppBar(
                 navigationIcon = {
