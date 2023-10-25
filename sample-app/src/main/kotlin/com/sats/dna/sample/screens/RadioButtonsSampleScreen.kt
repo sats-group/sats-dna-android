@@ -1,9 +1,60 @@
 package com.sats.dna.sample.screens
 
-import com.sats.dna.sample.components.RadioButtonsScreen
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import com.sats.dna.components.SatsRadioButton
+import com.sats.dna.theme.SatsTheme
+import com.sats.dna.tooling.LightDarkPreview
 
 data object RadioButtonsSampleScreen : SampleScreen(
     name = "Radio Buttons",
     route = "/components/radio-buttons",
     screen = { RadioButtonsScreen(it::navigateUp) },
 )
+
+@Composable
+private fun RadioButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+    ComponentScreen("Radio Buttons", navigateUp, modifier) { innerPadding ->
+        Column(
+            Modifier
+                .padding(innerPadding)
+                .padding(SatsTheme.spacing.m)
+                .fillMaxSize()
+                .wrapContentSize(),
+            Arrangement.spacedBy(SatsTheme.spacing.m, Alignment.CenterVertically),
+        ) {
+            LabeledRadioButton("Enabled, unselected", enabled = true, selected = false)
+            LabeledRadioButton("Enabled, selected", enabled = true, selected = true)
+            LabeledRadioButton("Disabled, unselected", enabled = false, selected = false)
+            LabeledRadioButton("Disabled, selected", enabled = false, selected = true)
+        }
+    }
+}
+
+@Composable
+private fun LabeledRadioButton(label: String, enabled: Boolean, selected: Boolean) {
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        SatsRadioButton(selected, null, enabled = enabled)
+
+        Text(label)
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun Preview() {
+    SatsTheme {
+        RadioButtonsScreen(navigateUp = {})
+    }
+}

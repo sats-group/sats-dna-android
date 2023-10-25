@@ -21,7 +21,7 @@ object SatsIcons {
     val check @Composable get() = painterResource(R.drawable.ic_check)
     val checkSeal @Composable get() = painterResource(R.drawable.ic_check_seal)
 
-    @Deprecated("Asset, not an icon", replaceWith = ReplaceWith("Animated Composable"))
+    @Deprecated("Asset, not an icon")
     val checkThin @Composable get() = painterResource(R.drawable.ic_check_thin)
     val cherry @Composable get() = painterResource(R.drawable.ic_cherry)
     val clockFilled @Composable get() = painterResource(R.drawable.ic_clock_filled)
