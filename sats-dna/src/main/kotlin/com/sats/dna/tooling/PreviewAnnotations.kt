@@ -5,8 +5,8 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Preview("Light Mode", group = "Theme", uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Preview("Dark Mode", group = "Theme", uiMode = Configuration.UI_MODE_NIGHT_YES)
-internal annotation class LightDarkPreview
+annotation class LightDarkPreview
 
 @Preview("Small Font Size", group = "Font Sizes", fontScale = 0.75f)
 @Preview("Large Font Size", group = "Font Sizes", fontScale = 1.50f)
-internal annotation class FontSizePreview
+annotation class FontSizePreview
