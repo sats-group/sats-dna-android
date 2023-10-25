@@ -1,29 +1,35 @@
-package com.sats.dna.sample.components
+package com.sats.dna.sample.screens
 
-import androidx.compose.foundation.layout.Arrangement.spacedBy
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.sats.dna.components.SatsBanner
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.theme.SatsTheme
+import com.sats.dna.tooling.LightDarkPreview
+
+data object BannerSampleScreen : SampleScreen(
+    name = "Banner",
+    route = "/components/banner",
+    screen = { BannerScreen(it::navigateUp) },
+)
 
 @Composable
-internal fun BannerScreen(navigateUp: () -> Unit) {
-    ComponentScreen("Banner", navigateUp) { innerPadding ->
+private fun BannerScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+    ComponentScreen("Banner", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .padding(innerPadding)
                 .padding(SatsTheme.spacing.m)
                 .fillMaxSize(),
-            verticalArrangement = spacedBy(SatsTheme.spacing.l),
-            horizontalAlignment = CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.l, Alignment.CenterVertically),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             SatsBanner(
                 modifier = Modifier.fillMaxWidth(),
@@ -39,8 +45,10 @@ internal fun BannerScreen(navigateUp: () -> Unit) {
     }
 }
 
-@Preview
+@LightDarkPreview
 @Composable
 private fun BannerScreenPreview() {
-    BannerScreen(navigateUp = {})
+    SatsTheme {
+        BannerScreen(navigateUp = {})
+    }
 }
