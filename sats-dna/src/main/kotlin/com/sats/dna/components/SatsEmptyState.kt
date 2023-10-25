@@ -5,7 +5,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
@@ -13,8 +16,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.card.SatsCard
-import com.sats.dna.internal.MaterialIcon
-import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
@@ -40,34 +41,36 @@ fun SatsEmptyState(
     action: SatsEmptyStateAction?,
     modifier: Modifier = Modifier,
 ) {
-    SatsCard(modifier) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(SatsTheme.spacing.m),
-            verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            MaterialIcon(icon, contentDescription = null, Modifier.size(18.dp))
-
+    CompositionLocalProvider(LocalUseMaterial3 provides true) {
+        SatsCard(modifier) {
             Column(
-                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(SatsTheme.spacing.m),
+                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                MaterialText(title, textAlign = TextAlign.Center)
+                Icon(icon, contentDescription = null, Modifier.size(18.dp))
 
-                if (body != null) {
-                    MaterialText(
-                        text = body,
-                        color = SatsTheme.colors.onSurface.secondary,
-                        textAlign = TextAlign.Center,
-                        style = SatsTheme.typography.default.small,
-                    )
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    Text(title, textAlign = TextAlign.Center)
+
+                    if (body != null) {
+                        Text(
+                            text = body,
+                            color = SatsTheme.colors.onSurface.secondary,
+                            textAlign = TextAlign.Center,
+                            style = SatsTheme.typography.default.small,
+                        )
+                    }
                 }
-            }
 
-            if (action != null) {
-                SatsButton(action.action, action.label)
+                if (action != null) {
+                    SatsButton(action.action, action.label)
+                }
             }
         }
     }
@@ -83,26 +86,9 @@ data class SatsEmptyStateAction(val action: () -> Unit, val label: String)
 
 @LightDarkPreview
 @Composable
-private fun Material3Preview() {
+private fun SatsEmptyStatePreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
-            SatsEmptyState(
-                icon = SatsTheme.icons.barbell,
-                title = "You don't have friends",
-                body = "If you make friends, you can follow in their working out and stuff. " +
-                    "And they can follow whatever you're doing, as well!",
-                action = SatsEmptyStateAction(action = {}, "Make friends"),
-                modifier = Modifier.padding(SatsTheme.spacing.m),
-            )
-        }
-    }
-}
-
-@LightDarkPreview
-@Composable
-private fun Material2Preview() {
-    SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary) {
             SatsEmptyState(
                 icon = SatsTheme.icons.barbell,
                 title = "You don't have friends",
