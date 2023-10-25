@@ -24,6 +24,7 @@ import com.sats.dna.sample.screens.ChipsSampleScreen
 import com.sats.dna.sample.screens.CircularProgressIndicatorSampleScreen
 import com.sats.dna.sample.screens.ColorsSampleScreen
 import com.sats.dna.sample.screens.CompletedWorkoutListItemSampleScreen
+import com.sats.dna.sample.screens.EmptyStateSampleScreen
 import com.sats.dna.sample.screens.GeneralListItemSampleScreen
 import com.sats.dna.sample.screens.IconsSampleScreen
 import com.sats.dna.sample.screens.PlaceholdersSampleScreen
@@ -69,6 +70,7 @@ internal fun HomeScreen(navController: NavController) {
             ChipsSampleScreen.HomeListItem(navController)
             CircularProgressIndicatorSampleScreen.HomeListItem(navController)
             CompletedWorkoutListItemSampleScreen.HomeListItem(navController)
+            EmptyStateSampleScreen.HomeListItem(navController)
             GeneralListItemSampleScreen.HomeListItem(navController)
             PlaceholdersSampleScreen.HomeListItem(navController)
             ProgressBarsSampleScreen.HomeListItem(navController)
