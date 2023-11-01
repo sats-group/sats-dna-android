@@ -88,7 +88,6 @@ private val SatsIcons.allIcons: List<NamedIcon>
         NamedIcon("cardio", cardio),
         NamedIcon("check", check),
         NamedIcon("checkSeal", checkSeal),
-        NamedIcon("checkThin", checkThin),
         NamedIcon("cherry", cherry),
         NamedIcon("clockFilled", clockFilled),
         NamedIcon("close", close),
