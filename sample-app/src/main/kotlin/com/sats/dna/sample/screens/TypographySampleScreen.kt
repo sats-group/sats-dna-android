@@ -1,29 +1,33 @@
 package com.sats.dna.sample.screens
 
-import androidx.compose.foundation.horizontalScroll
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.asPaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Divider
+import androidx.compose.material3.DividerDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.dp
-import com.sats.dna.components.SatsFilterChip
-import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
@@ -35,92 +39,125 @@ data object TypographySampleScreen : SampleScreen(
 
 @Composable
 private fun TypographyScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    var currentStyle by remember { mutableStateOf(SatsTextStyle.Default) }
-
     ComponentScreen(
         title = "Typography",
         navigateUp = navigateUp,
         modifier = modifier,
-        bottomBar = {
-            ConfigurationBar(
-                contentPadding = WindowInsets.navigationBars.asPaddingValues(),
-                currentStyle = currentStyle,
-                onStyleChanged = { currentStyle = it },
-            )
-        },
     ) { innerPadding ->
         Column(
             Modifier
-                .fillMaxSize()
                 .verticalScroll(rememberScrollState())
                 .padding(innerPadding)
                 .padding(SatsTheme.spacing.m),
-            verticalArrangement = Arrangement.Absolute.spacedBy(SatsTheme.spacing.m),
+            verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.l),
         ) {
-            currentStyle.toTextSamples().forEach {
-                Text(it.name, style = it.textStyle)
+            Section("NORMAL") {
+                TextSample2("Headline 1", SatsTheme.typography.normal.headline1)
+                TextSample2("Headline 2", SatsTheme.typography.normal.headline2)
+                TextSample2("Headline 3", SatsTheme.typography.normal.headline3)
+                TextSample2("Large", SatsTheme.typography.normal.large)
+                TextSample2("Basic", SatsTheme.typography.normal.basic)
+                TextSample2("Small", SatsTheme.typography.normal.small)
+                TextSample2("Button", SatsTheme.typography.normal.button)
+                TextSample2("Section", SatsTheme.typography.normal.section)
+            }
+
+            Divider()
+
+            Section("MEDIUM") {
+                TextSample2("Headline 1", SatsTheme.typography.medium.headline1)
+                TextSample2("Headline 2", SatsTheme.typography.medium.headline2)
+                TextSample2("Headline 3", SatsTheme.typography.medium.headline3)
+                TextSample2("Large", SatsTheme.typography.medium.large)
+                TextSample2("Basic", SatsTheme.typography.medium.basic)
+                TextSample2("Small", SatsTheme.typography.medium.small)
+            }
+
+            Divider()
+
+            Section("EMPHASIS") {
+                TextSample2("Headline 1", SatsTheme.typography.emphasis.headline1)
+                TextSample2("Headline 2", SatsTheme.typography.emphasis.headline2)
+                TextSample2("Headline 3", SatsTheme.typography.emphasis.headline3)
+                TextSample2("Large", SatsTheme.typography.emphasis.large)
+                TextSample2("Basic", SatsTheme.typography.emphasis.basic)
+                TextSample2("Small", SatsTheme.typography.emphasis.small)
+            }
+
+            Divider()
+
+            Section("SATS HEADLINE – NORMAL") {
+                TextSample2("Headline 1", SatsTheme.typography.satsHeadlineNormal.headline1)
+                TextSample2("Headline 2", SatsTheme.typography.satsHeadlineNormal.headline2)
+                TextSample2("Headline 3", SatsTheme.typography.satsHeadlineNormal.headline3)
+                TextSample2("Large", SatsTheme.typography.satsHeadlineNormal.large)
+                TextSample2("Basic", SatsTheme.typography.satsHeadlineNormal.basic)
+                TextSample2("Small", SatsTheme.typography.satsHeadlineNormal.small)
+            }
+
+            Divider()
+
+            Section("SATS HEADLINE – EMPHASIS") {
+                TextSample2("Headline 1", SatsTheme.typography.satsHeadlineEmphasis.headline1)
+                TextSample2("Headline 2", SatsTheme.typography.satsHeadlineEmphasis.headline2)
+                TextSample2("Headline 3", SatsTheme.typography.satsHeadlineEmphasis.headline3)
+                TextSample2("Large", SatsTheme.typography.satsHeadlineEmphasis.large)
+                TextSample2("Basic", SatsTheme.typography.satsHeadlineEmphasis.basic)
+                TextSample2("Small", SatsTheme.typography.satsHeadlineEmphasis.small)
             }
         }
     }
 }
 
 @Composable
-private fun SatsTextStyle.toTextSamples(): List<TextSample> {
-    val textStyle = when (this) {
-        SatsTextStyle.Default -> SatsTheme.typography.default
-        SatsTextStyle.Medium -> SatsTheme.typography.medium
-        SatsTextStyle.Emphasis -> SatsTheme.typography.emphasis
-        SatsTextStyle.SatsFeeling -> SatsTheme.typography.satsFeeling
-    }
+private fun Section(title: String, content: @Composable ColumnScope.() -> Unit) {
+    Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m)) {
+        Text(title, style = SatsTheme.typography.emphasis.basic)
 
-    return listOf(
-        TextSample(name = "Heading 1", textStyle = textStyle.heading1),
-        TextSample(name = "Heading 2", textStyle = textStyle.heading2),
-        TextSample(name = "Heading 3", textStyle = textStyle.heading3),
-        TextSample(name = "Large", textStyle = textStyle.large),
-        TextSample(name = "Basic", textStyle = textStyle.basic),
-        TextSample(name = "Small", textStyle = textStyle.small),
-        TextSample(name = "Button", textStyle = textStyle.button),
-        TextSample(name = "Section", textStyle = textStyle.section),
-    )
+        Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
+            content()
+        }
+    }
 }
 
-private data class TextSample(
-    val name: String,
-    val textStyle: TextStyle,
-)
-
 @Composable
-private fun ConfigurationBar(
-    contentPadding: PaddingValues,
-    currentStyle: SatsTextStyle,
-    onStyleChanged: (SatsTextStyle) -> Unit,
-) {
-    SatsSurface(elevation = 2.dp) {
+private fun TextSample2(text: String, style: TextStyle) {
+    Column {
+        var isExpanded by rememberSaveable { mutableStateOf(false) }
+
         Row(
-            Modifier
-                .fillMaxWidth()
-                .horizontalScroll(rememberScrollState())
-                .padding(contentPadding)
-                .padding(SatsTheme.spacing.m),
-            horizontalArrangement = Arrangement.Absolute.spacedBy(SatsTheme.spacing.s),
+            Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
         ) {
-            SatsTextStyle.entries.forEach { textStyle ->
-                SatsFilterChip(
-                    textStyle.styleName,
-                    isSelected = currentStyle == textStyle,
-                    onClick = { onStyleChanged(textStyle) },
+            Text(text, style = style)
+
+            IconToggleButton(checked = isExpanded, onCheckedChange = { isExpanded = it }) {
+                if (isExpanded) {
+                    Icon(SatsTheme.icons.arrowUp, contentDescription = null)
+                } else {
+                    Icon(SatsTheme.icons.arrowDown, contentDescription = null)
+                }
+            }
+        }
+
+        AnimatedVisibility(isExpanded) {
+            Row(Modifier.height(IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
+                Box(
+                    Modifier
+                        .fillMaxHeight()
+                        .width(DividerDefaults.Thickness)
+                        .background(DividerDefaults.color),
                 )
+
+                Column {
+                    Text("Weight: ${style.fontWeight?.weight}")
+                    Text("Style: ${style.fontStyle}")
+                    Text("Size: ${style.fontSize}")
+                }
             }
         }
     }
-}
-
-private enum class SatsTextStyle(val styleName: String) {
-    Default("Default"),
-    Medium("Medium"),
-    Emphasis("Emphasis"),
-    SatsFeeling("SATS Feeling"),
 }
 
 @LightDarkPreview

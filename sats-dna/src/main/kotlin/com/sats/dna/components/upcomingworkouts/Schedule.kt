@@ -42,7 +42,7 @@ private fun ScheduledDays(
                     text = dayName,
                     modifier = Modifier.padding(horizontal = cardInnerPadding),
                     color = SatsTheme.colors.onSurface.secondary,
-                    style = SatsTheme.typography.default.small,
+                    style = SatsTheme.typography.normal.small,
                 )
 
                 val workouts = days.getValue(dayName)

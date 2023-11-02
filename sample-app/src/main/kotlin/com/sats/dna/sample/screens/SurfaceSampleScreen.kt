@@ -53,7 +53,7 @@ private fun SurfaceScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         .wrapContentSize(),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
-                    Text("Elevation", style = SatsTheme.typography.medium.heading1)
+                    Text("Elevation", style = SatsTheme.typography.medium.headline1)
                     Text("${elevation.roundToInt()} dp", style = SatsTheme.typography.emphasis.large)
                 }
             }

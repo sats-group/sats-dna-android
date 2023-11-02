@@ -36,7 +36,7 @@ fun DefaultInstructorIcon(
     ) {
         Text(
             text = placeholderText,
-            style = SatsTheme.typography.satsFeeling.small,
+            style = SatsTheme.typography.satsHeadlineEmphasis.small,
             color = SatsTheme.colors.onPrimary.default,
             modifier = Modifier.align(Alignment.Center),
         )

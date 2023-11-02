@@ -50,3 +50,6 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: lintDebug
+        env:
+          GH_PACKAGES_USERNAME: ${{ secrets.GH_PACKAGES_USERNAME }}
+          GH_PACKAGES_PASSWORD: ${{ secrets.GH_PACKAGES_PASSWORD }}

@@ -61,7 +61,7 @@ fun PlaceholderBox(
 fun PlaceholderText(
     text: String,
     modifier: Modifier = Modifier,
-    style: TextStyle = SatsTheme.typography.default.basic,
+    style: TextStyle = SatsTheme.typography.normal.basic,
 ) {
     Box(
         modifier
@@ -74,7 +74,7 @@ fun PlaceholderText(
 fun PlaceholderParagraph(
     modifier: Modifier = Modifier,
     lines: Int = 5,
-    style: TextStyle = SatsTheme.typography.default.basic,
+    style: TextStyle = SatsTheme.typography.normal.basic,
 ) {
     @Suppress("SpellCheckingInspection")
     val texts = listOf(
@@ -132,7 +132,7 @@ private fun PlaceholderTextPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors.background.primary) {
             Column(Modifier.padding(SatsTheme.spacing.m), spacedBy(SatsTheme.spacing.m)) {
-                PlaceholderText("Some Heading", style = SatsTheme.typography.emphasis.heading2)
+                PlaceholderText("Some Heading", style = SatsTheme.typography.emphasis.headline2)
 
                 PlaceholderParagraph()
             }

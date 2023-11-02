@@ -54,7 +54,7 @@ private fun Section(title: String, content: @Composable ColumnScope.() -> Unit) 
         verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(title, style = SatsTheme.typography.medium.heading3)
+        Text(title, style = SatsTheme.typography.medium.headline3)
 
         Column(
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
