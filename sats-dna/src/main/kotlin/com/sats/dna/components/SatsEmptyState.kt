@@ -63,7 +63,7 @@ fun SatsEmptyState(
                             text = body,
                             color = SatsTheme.colors.onSurface.secondary,
                             textAlign = TextAlign.Center,
-                            style = SatsTheme.typography.default.small,
+                            style = SatsTheme.typography.normal.small,
                         )
                     }
                 }

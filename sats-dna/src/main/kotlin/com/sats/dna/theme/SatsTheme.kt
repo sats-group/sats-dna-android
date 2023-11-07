@@ -14,9 +14,8 @@ import com.sats.dna.colors.SatsLightColors
 import com.sats.dna.icons.SatsIcons
 import com.sats.dna.shapes.SatsShapes
 import com.sats.dna.spacing.SatsSpacing
-import com.sats.dna.typography.FontInter
+import com.sats.dna.typography.InterFont
 import com.sats.dna.typography.SatsTypography
-import com.sats.dna.typography.SatsTypographyImpl
 import androidx.compose.material.MaterialTheme as Material2Theme
 import androidx.compose.material.ProvideTextStyle as ProvideMaterial2TextStyle
 import androidx.compose.material.Typography as Material2Typography
@@ -28,20 +27,17 @@ import androidx.compose.material3.Typography as Material3Typography
 fun SatsTheme(content: @Composable () -> Unit) {
     val colors = if (isSystemInDarkTheme()) SatsDarkColors else SatsLightColors
 
-    CompositionLocalProvider(
-        LocalSatsColors provides colors,
-        LocalSatsTypography provides SatsTypographyImpl,
-    ) {
+    CompositionLocalProvider(LocalSatsColors provides colors) {
         Material2Theme(
             colors = LocalSatsColors.current.toMaterial2(),
             typography = LocalSatsTypography.current.toMaterial2(),
         ) {
-            ProvideMaterial2TextStyle(SatsTheme.typography.default.basic) {
+            ProvideMaterial2TextStyle(SatsTheme.typography.normal.basic) {
                 Material3Theme(
                     colorScheme = LocalSatsColors.current.toMaterial3(),
                     typography = LocalSatsTypography.current.toMaterial3(),
                 ) {
-                    ProvideMaterial3TextStyle(SatsTheme.typography.default.basic) {
+                    ProvideMaterial3TextStyle(SatsTheme.typography.normal.basic) {
                         content()
                     }
                 }
@@ -68,7 +64,7 @@ object SatsTheme {
 }
 
 internal val LocalSatsColors = staticCompositionLocalOf { SatsLightColors }
-internal val LocalSatsTypography = staticCompositionLocalOf { SatsTypographyImpl }
+internal val LocalSatsTypography = staticCompositionLocalOf { SatsTypography }
 internal val LocalSatsSpacing = staticCompositionLocalOf { SatsSpacing }
 internal val LocalSatsShapes = staticCompositionLocalOf { SatsShapes }
 internal val LocalSatsIcons = staticCompositionLocalOf { SatsIcons }
@@ -90,17 +86,17 @@ private fun SatsColors.toMaterial2() = Colors(
 )
 
 private fun SatsTypography.toMaterial2() = Material2Typography(
-    h1 = default.heading1,
-    h2 = default.heading2,
-    h3 = default.heading3,
-    body1 = default.basic,
-    body2 = default.small,
-    button = default.button,
-    caption = default.small,
-    overline = default.small,
-    subtitle1 = default.large,
-    subtitle2 = default.basic,
-    defaultFontFamily = FontInter,
+    h1 = normal.headline1,
+    h2 = normal.headline2,
+    h3 = normal.headline3,
+    body1 = normal.basic,
+    body2 = normal.small,
+    button = normal.button,
+    caption = normal.small,
+    overline = normal.small,
+    subtitle1 = normal.large,
+    subtitle2 = normal.basic,
+    defaultFontFamily = InterFont,
 )
 
 private fun SatsColors.toMaterial3(): ColorScheme = if (isLightMode) {
@@ -144,19 +140,19 @@ private fun SatsColors.toMaterial3(): ColorScheme = if (isLightMode) {
 }
 
 private fun SatsTypography.toMaterial3() = Material3Typography(
-    displayLarge = default.heading1,
-    displayMedium = default.heading1,
-    displaySmall = default.heading1,
-    headlineLarge = default.heading2,
-    headlineMedium = default.heading2,
-    headlineSmall = default.heading2,
-    titleLarge = default.heading3,
-    titleMedium = default.heading3,
-    titleSmall = default.heading3,
-    bodyLarge = default.large,
-    bodyMedium = default.basic,
-    bodySmall = default.small,
-    labelLarge = default.section,
-    labelMedium = default.section,
-    labelSmall = default.section,
+    displayLarge = normal.headline1,
+    displayMedium = normal.headline1,
+    displaySmall = normal.headline1,
+    headlineLarge = normal.headline2,
+    headlineMedium = normal.headline2,
+    headlineSmall = normal.headline2,
+    titleLarge = normal.headline3,
+    titleMedium = normal.headline3,
+    titleSmall = normal.headline3,
+    bodyLarge = normal.large,
+    bodyMedium = normal.basic,
+    bodySmall = normal.small,
+    labelLarge = normal.section,
+    labelMedium = normal.section,
+    labelSmall = normal.section,
 )

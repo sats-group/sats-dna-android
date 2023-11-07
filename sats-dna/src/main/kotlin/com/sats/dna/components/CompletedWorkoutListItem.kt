@@ -132,7 +132,7 @@ private fun WorkoutInfo(
         MaterialText(
             timestamp,
             color = SatsTheme.colors.onBackground.secondary,
-            style = SatsTheme.typography.default.small,
+            style = SatsTheme.typography.normal.small,
         )
 
         MaterialText(title)
@@ -141,7 +141,7 @@ private fun WorkoutInfo(
             MaterialText(
                 subtitle,
                 color = SatsTheme.colors.onBackground.secondary,
-                style = SatsTheme.typography.default.small,
+                style = SatsTheme.typography.normal.small,
             )
         }
     }

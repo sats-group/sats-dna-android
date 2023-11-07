@@ -38,7 +38,7 @@ fun SatsCampaignModule(
                     Text(title, style = SatsTheme.typography.medium.basic)
 
                     if (subtitle != null) {
-                        Text(subtitle, style = SatsTheme.typography.default.small)
+                        Text(subtitle, style = SatsTheme.typography.normal.small)
                     }
                 }
             }

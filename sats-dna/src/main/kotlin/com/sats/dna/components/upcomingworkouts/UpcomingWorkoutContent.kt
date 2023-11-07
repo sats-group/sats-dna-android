@@ -23,7 +23,7 @@ internal fun TimeAndDuration(
 
         MaterialText(
             text = duration,
-            style = SatsTheme.typography.default.small,
+            style = SatsTheme.typography.normal.small,
             color = SatsTheme.colors.onBackground.secondary,
         )
     }
@@ -46,12 +46,12 @@ internal fun WorkoutInfo(
         MaterialText(
             text = location,
             color = SatsTheme.colors.onSurface.secondary,
-            style = SatsTheme.typography.default.small,
+            style = SatsTheme.typography.normal.small,
         )
 
         MaterialText(
             text = instructor,
-            style = SatsTheme.typography.default.small,
+            style = SatsTheme.typography.normal.small,
             color = SatsTheme.colors.onBackground.secondary,
         )
 
@@ -71,7 +71,7 @@ private fun WaitingListStatus(status: WaitingListStatus) {
     MaterialText(
         text = status.text,
         color = color,
-        style = SatsTheme.typography.default.small,
+        style = SatsTheme.typography.normal.small,
     )
 
     if (status is WaitingListStatus.SpotSecured) {
@@ -79,7 +79,7 @@ private fun WaitingListStatus(status: WaitingListStatus) {
             MaterialText(
                 text = status.waitingListText,
                 color = SatsTheme.colors.waitingList.text,
-                style = SatsTheme.typography.default.small,
+                style = SatsTheme.typography.normal.small,
             )
         }
     }

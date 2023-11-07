@@ -1,100 +1,150 @@
 package com.sats.dna.typography
 
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.sats.dna.R
+import com.sats.fonts.headline.SatsHeadlineFont
 
-data class SatsTypography(
-    val default: SatsTextStyles,
-    val medium: SatsTextStyles,
-    val emphasis: SatsTextStyles,
-    val satsFeeling: SatsTextStyles,
-)
+object SatsTypography {
+    val normal: NormalTextStyles = NormalTextStylesApp
+    val medium: MediumTextStyles = MediumTextStylesApp
+    val emphasis: EmphasisTextStyles = EmphasisTextStylesApp
+    val satsHeadlineNormal: SatsHeadlineNormalTextStyles = SatsHeadlineNormalTextStylesApp
+    val satsHeadlineEmphasis: SatsHeadlineEmphasisTextStyles = SatsHeadlineEmphasisTextStylesApp
+}
 
-data class SatsTextStyles(
-    val heading1: TextStyle,
-    val heading2: TextStyle,
-    val heading3: TextStyle,
-    val large: TextStyle,
-    val basic: TextStyle,
-    val small: TextStyle,
-    val button: TextStyle,
-    val section: TextStyle,
-)
+interface NormalTextStyles {
+    val headline1: TextStyle
+    val headline2: TextStyle
+    val headline3: TextStyle
+    val large: TextStyle
+    val basic: TextStyle
+    val small: TextStyle
+    val button: TextStyle
+    val section: TextStyle
+}
 
-internal val FontInter = FontFamily(
-    Font(R.font.inter_regular, FontWeight.Normal),
-    Font(R.font.inter_regular_italic, FontWeight.Normal, FontStyle.Italic),
-    Font(R.font.inter_medium, FontWeight.Medium),
-    Font(R.font.inter_medium_italic, FontWeight.Medium, FontStyle.Italic),
-    Font(R.font.inter_semi_bold, FontWeight.SemiBold),
-    Font(R.font.inter_semi_bold_italic, FontWeight.SemiBold, FontStyle.Italic),
-    Font(R.font.inter_bold, FontWeight.Bold),
-    Font(R.font.inter_bold_italic, FontWeight.Bold, FontStyle.Italic),
-)
+interface MediumTextStyles {
+    val headline1: TextStyle
+    val headline2: TextStyle
+    val headline3: TextStyle
+    val large: TextStyle
+    val basic: TextStyle
+    val small: TextStyle
+}
 
-private val baseTextStyles = SatsTextStyles(
-    heading1 = TextStyle(fontFamily = FontInter, fontSize = 28.sp),
-    heading2 = TextStyle(fontFamily = FontInter, fontSize = 24.sp),
-    heading3 = TextStyle(fontFamily = FontInter, fontSize = 20.sp),
-    large = TextStyle(fontFamily = FontInter, fontSize = 16.sp),
-    basic = TextStyle(fontFamily = FontInter, fontSize = 14.sp),
-    small = TextStyle(fontFamily = FontInter, fontSize = 12.sp),
-    button = TextStyle(fontFamily = FontInter, fontSize = 14.sp),
-    section = TextStyle(fontFamily = FontInter, fontSize = 16.sp),
-)
+interface EmphasisTextStyles {
+    val headline1: TextStyle
+    val headline2: TextStyle
+    val headline3: TextStyle
+    val large: TextStyle
+    val basic: TextStyle
+    val small: TextStyle
+}
 
-private val defaultTextStyles = baseTextStyles.copy(
-    heading1 = baseTextStyles.heading1.copy(fontWeight = FontWeight.Normal),
-    heading2 = baseTextStyles.heading2.copy(fontWeight = FontWeight.Normal),
-    heading3 = baseTextStyles.heading3.copy(fontWeight = FontWeight.Normal),
-    large = baseTextStyles.large.copy(fontWeight = FontWeight.Normal),
-    basic = baseTextStyles.basic.copy(fontWeight = FontWeight.Normal),
-    small = baseTextStyles.small.copy(fontWeight = FontWeight.Normal),
-    button = baseTextStyles.button.copy(fontWeight = FontWeight.SemiBold),
-    section = baseTextStyles.section.copy(fontWeight = FontWeight.SemiBold),
-)
+interface SatsHeadlineNormalTextStyles {
+    val headline1: TextStyle
+    val headline2: TextStyle
+    val headline3: TextStyle
+    val large: TextStyle
+    val basic: TextStyle
+    val small: TextStyle
+}
 
-private val mediumTextStyles = baseTextStyles.copy(
-    heading1 = baseTextStyles.heading1.copy(fontWeight = FontWeight.Medium),
-    heading2 = baseTextStyles.heading2.copy(fontWeight = FontWeight.Medium),
-    heading3 = baseTextStyles.heading3.copy(fontWeight = FontWeight.Medium),
-    large = baseTextStyles.large.copy(fontWeight = FontWeight.Medium),
-    basic = baseTextStyles.basic.copy(fontWeight = FontWeight.Medium),
-    small = baseTextStyles.small.copy(fontWeight = FontWeight.Medium),
-    button = baseTextStyles.button.copy(fontWeight = FontWeight.SemiBold),
-    section = baseTextStyles.section.copy(fontWeight = FontWeight.SemiBold),
-)
+interface SatsHeadlineEmphasisTextStyles {
+    val headline1: TextStyle
+    val headline2: TextStyle
+    val headline3: TextStyle
+    val large: TextStyle
+    val basic: TextStyle
+    val small: TextStyle
+}
 
-private val emphasisTextStyles = baseTextStyles.copy(
-    heading1 = baseTextStyles.heading1.copy(fontWeight = FontWeight.SemiBold),
-    heading2 = baseTextStyles.heading2.copy(fontWeight = FontWeight.SemiBold),
-    heading3 = baseTextStyles.heading3.copy(fontWeight = FontWeight.SemiBold),
-    large = baseTextStyles.large.copy(fontWeight = FontWeight.SemiBold),
-    basic = baseTextStyles.basic.copy(fontWeight = FontWeight.SemiBold),
-    small = baseTextStyles.small.copy(fontWeight = FontWeight.SemiBold),
-    button = baseTextStyles.button.copy(fontWeight = FontWeight.SemiBold),
-    section = baseTextStyles.section.copy(fontWeight = FontWeight.SemiBold),
-)
+private object NormalTextStylesApp : NormalTextStyles {
+    private val base = TextStyle(
+        fontFamily = InterFont,
+        fontWeight = FontWeight.Normal,
+        fontStyle = FontStyle.Normal,
+    )
 
-private val satsFeelingTextStyles = baseTextStyles.copy(
-    heading1 = baseTextStyles.heading1.copy(fontStyle = FontStyle.Italic, fontWeight = FontWeight.Bold),
-    heading2 = baseTextStyles.heading2.copy(fontStyle = FontStyle.Italic, fontWeight = FontWeight.SemiBold),
-    heading3 = baseTextStyles.heading3.copy(fontStyle = FontStyle.Italic, fontWeight = FontWeight.SemiBold),
-    large = baseTextStyles.large.copy(fontStyle = FontStyle.Italic, fontWeight = FontWeight.SemiBold),
-    basic = baseTextStyles.basic.copy(fontStyle = FontStyle.Italic, fontWeight = FontWeight.SemiBold),
-    small = baseTextStyles.small.copy(fontStyle = FontStyle.Italic, fontWeight = FontWeight.SemiBold),
-    button = baseTextStyles.button.copy(fontStyle = FontStyle.Italic, fontWeight = FontWeight.SemiBold),
-    section = baseTextStyles.section.copy(fontStyle = FontStyle.Italic, fontWeight = FontWeight.SemiBold),
-)
+    override val headline1 = base.copy(fontSize = Sizes.headline1)
+    override val headline2 = base.copy(fontSize = Sizes.headline2)
+    override val headline3 = base.copy(fontSize = Sizes.headline3)
+    override val large = base.copy(fontSize = Sizes.large)
+    override val basic = base.copy(fontSize = Sizes.basic)
+    override val small = base.copy(fontSize = Sizes.small)
+    override val button = base.copy(fontSize = Sizes.button, fontWeight = FontWeight.SemiBold)
+    override val section = base.copy(fontSize = Sizes.section, fontWeight = FontWeight.SemiBold)
+}
 
-internal val SatsTypographyImpl = SatsTypography(
-    default = defaultTextStyles,
-    medium = mediumTextStyles,
-    emphasis = emphasisTextStyles,
-    satsFeeling = satsFeelingTextStyles,
-)
+private object MediumTextStylesApp : MediumTextStyles {
+    private val base = TextStyle(
+        fontFamily = InterFont,
+        fontWeight = FontWeight.Medium,
+        fontStyle = FontStyle.Normal,
+    )
+
+    override val headline1 = base.copy(fontSize = Sizes.headline1)
+    override val headline2 = base.copy(fontSize = Sizes.headline2)
+    override val headline3 = base.copy(fontSize = Sizes.headline3)
+    override val large = base.copy(fontSize = Sizes.large)
+    override val basic = base.copy(fontSize = Sizes.basic)
+    override val small = base.copy(fontSize = Sizes.small)
+}
+
+private object EmphasisTextStylesApp : EmphasisTextStyles {
+    private val base = TextStyle(
+        fontFamily = InterFont,
+        fontWeight = FontWeight.SemiBold,
+        fontStyle = FontStyle.Normal,
+    )
+
+    override val headline1 = base.copy(fontSize = Sizes.headline1)
+    override val headline2 = base.copy(fontSize = Sizes.headline2)
+    override val headline3 = base.copy(fontSize = Sizes.headline3)
+    override val large = base.copy(fontSize = Sizes.large)
+    override val basic = base.copy(fontSize = Sizes.basic)
+    override val small = base.copy(fontSize = Sizes.small)
+}
+
+private object SatsHeadlineNormalTextStylesApp : SatsHeadlineNormalTextStyles {
+    private val base = TextStyle(
+        fontFamily = SatsHeadlineFont,
+        fontWeight = FontWeight.Normal,
+        fontStyle = FontStyle.Italic,
+    )
+
+    override val headline1 = base.copy(fontSize = Sizes.headline1)
+    override val headline2 = base.copy(fontSize = Sizes.headline2)
+    override val headline3 = base.copy(fontSize = Sizes.headline3)
+    override val large = base.copy(fontSize = Sizes.large)
+    override val basic = base.copy(fontSize = Sizes.basic)
+    override val small = base.copy(fontSize = Sizes.small)
+}
+
+private object SatsHeadlineEmphasisTextStylesApp : SatsHeadlineEmphasisTextStyles {
+    private val base = TextStyle(
+        fontFamily = SatsHeadlineFont,
+        fontWeight = FontWeight.Bold,
+        fontStyle = FontStyle.Italic,
+    )
+
+    override val headline1 = base.copy(fontSize = Sizes.headline1)
+    override val headline2 = base.copy(fontSize = Sizes.headline2)
+    override val headline3 = base.copy(fontSize = Sizes.headline3)
+    override val large = base.copy(fontSize = Sizes.large)
+    override val basic = base.copy(fontSize = Sizes.basic)
+    override val small = base.copy(fontSize = Sizes.small)
+}
+
+private object Sizes {
+    val headline1 = 28.sp
+    val headline2 = 24.sp
+    val headline3 = 20.sp
+    val large = 16.sp
+    val basic = 14.sp
+    val small = 12.sp
+    val button = 14.sp
+    val section = 16.sp
+}

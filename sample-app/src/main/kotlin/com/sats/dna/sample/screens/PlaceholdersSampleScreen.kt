@@ -47,7 +47,7 @@ private fun PlaceholderScreen(navigateUp: () -> Unit, modifier: Modifier = Modif
 
                     Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
                         PlaceholderText("Austin Powers", style = SatsTheme.typography.medium.basic)
-                        PlaceholderText("International Man of Mystery", style = SatsTheme.typography.default.small)
+                        PlaceholderText("International Man of Mystery", style = SatsTheme.typography.normal.small)
                     }
                 }
 

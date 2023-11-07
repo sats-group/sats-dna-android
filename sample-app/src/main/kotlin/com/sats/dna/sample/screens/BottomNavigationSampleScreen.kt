@@ -34,7 +34,7 @@ private fun BottomNavigationScreen(navigateUp: () -> Unit, modifier: Modifier = 
                 .padding(innerPadding)
                 .fillMaxSize()
                 .wrapContentSize(),
-            style = SatsTheme.typography.medium.heading1,
+            style = SatsTheme.typography.medium.headline1,
         )
     }
 }

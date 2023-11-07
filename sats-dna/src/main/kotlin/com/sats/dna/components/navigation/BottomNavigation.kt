@@ -110,7 +110,7 @@ private fun Preview() {
                     Modifier
                         .padding(SatsTheme.spacing.xxl)
                         .align(Alignment.CenterHorizontally),
-                    style = SatsTheme.typography.medium.heading1,
+                    style = SatsTheme.typography.medium.headline1,
                 )
 
                 SatsBottomNavigation(state)

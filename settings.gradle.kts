@@ -3,8 +3,9 @@
 pluginManagement {
     repositories {
         google()
-        mavenCentral()
         gradlePluginPortal()
+        mavenCentral()
+        mavenLocal()
     }
 }
 
@@ -14,6 +15,17 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
+
+        maven("https://maven.pkg.github.com/sats-group/sats-headline-font-android") {
+            credentials {
+                username = providers.gradleProperty("github.packages.username").orNull
+                    ?: System.getenv("GH_PACKAGES_USERNAME")
+
+                password = providers.gradleProperty("github.packages.password").orNull
+                    ?: System.getenv("GH_PACKAGES_PASSWORD")
+            }
+        }
     }
 }
 
