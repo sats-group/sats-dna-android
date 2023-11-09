@@ -58,10 +58,6 @@ jobs:
         with:
           arguments: :sats-dna:build
         env:
-          SATS_KEYSTORE_FILE: ${{ github.workspace }}/play-upload.keystore
-          SATS_KEYSTORE_PASSWORD: ${{ secrets.PLAY_UPLOAD_KEYSTORE_PASSWORD }}
-          SATS_KEYSTORE_KEY_ALIAS: ${{ secrets.PLAY_UPLOAD_KEY_ALIAS }}
-          SATS_KEYSTORE_KEY_PASSWORD: ${{ secrets.PLAY_UPLOAD_KEY_PASSWORD }}
           GH_PACKAGES_USERNAME: ${{ secrets.GH_PACKAGES_USERNAME }}
           GH_PACKAGES_PASSWORD: ${{ secrets.GH_PACKAGES_PASSWORD }}
 
