@@ -25,6 +25,9 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: test
+        env:
+          GH_PACKAGES_USERNAME: ${{ secrets.GH_PACKAGES_USERNAME }}
+          GH_PACKAGES_PASSWORD: ${{ secrets.GH_PACKAGES_PASSWORD }}
 
   build-lib:
     name: Build Library
@@ -59,6 +62,8 @@ jobs:
           SATS_KEYSTORE_PASSWORD: ${{ secrets.PLAY_UPLOAD_KEYSTORE_PASSWORD }}
           SATS_KEYSTORE_KEY_ALIAS: ${{ secrets.PLAY_UPLOAD_KEY_ALIAS }}
           SATS_KEYSTORE_KEY_PASSWORD: ${{ secrets.PLAY_UPLOAD_KEY_PASSWORD }}
+          GH_PACKAGES_USERNAME: ${{ secrets.GH_PACKAGES_USERNAME }}
+          GH_PACKAGES_PASSWORD: ${{ secrets.GH_PACKAGES_PASSWORD }}
 
       - name: Remove Decoded Keystore File
         run: rm $GITHUB_WORKSPACE/play-upload.keystore
@@ -149,6 +154,8 @@ jobs:
           SATS_KEYSTORE_PASSWORD: ${{ secrets.PLAY_UPLOAD_KEYSTORE_PASSWORD }}
           SATS_KEYSTORE_KEY_ALIAS: ${{ secrets.PLAY_UPLOAD_KEY_ALIAS }}
           SATS_KEYSTORE_KEY_PASSWORD: ${{ secrets.PLAY_UPLOAD_KEY_PASSWORD }}
+          GH_PACKAGES_USERNAME: ${{ secrets.GH_PACKAGES_USERNAME }}
+          GH_PACKAGES_PASSWORD: ${{ secrets.GH_PACKAGES_PASSWORD }}
 
       - name: Remove Decoded Keystore File
         run: rm $GITHUB_WORKSPACE/play-upload.keystore
