@@ -25,6 +25,7 @@ import com.sats.dna.sample.screens.PlaceholdersSampleScreen
 import com.sats.dna.sample.screens.ProgressBarsSampleScreen
 import com.sats.dna.sample.screens.RadioButtonsSampleScreen
 import com.sats.dna.sample.screens.ScheduleSampleScreen
+import com.sats.dna.sample.screens.SessionDetailsInfoLabelSampleScreen
 import com.sats.dna.sample.screens.SnackbarSampleScreen
 import com.sats.dna.sample.screens.SurfaceSampleScreen
 import com.sats.dna.sample.screens.SwitchSampleScreen
@@ -63,6 +64,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         ProgressBarsSampleScreen.navScreen(navController)
         RadioButtonsSampleScreen.navScreen(navController)
         ScheduleSampleScreen.navScreen(navController)
+        SessionDetailsInfoLabelSampleScreen.navScreen(navController)
         SnackbarSampleScreen.navScreen(navController)
         SurfaceSampleScreen.navScreen(navController)
         SwitchSampleScreen.navScreen(navController)
