@@ -76,7 +76,6 @@ fun FriendsBookingStatusListItem(
         }
         Text(bookingState.statusText, color = textColor)
         if (contextMenu != null) {
-            Spacer(modifier = Modifier.weight(1f))
             contextMenu()
         }
     }
@@ -88,9 +87,7 @@ private fun FriendsBookingListItemPreview(
     @PreviewParameter(FriendsBookingStatusPreviewProvider::class) bookingState: FriendsBookingState,
 ) {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.secondary.default,
-        ) {
+        SatsSurface {
             Column {
                 FriendsBookingStatusListItem(
                     image = {
