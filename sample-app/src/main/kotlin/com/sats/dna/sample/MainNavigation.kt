@@ -18,12 +18,14 @@ import com.sats.dna.sample.screens.CircularProgressIndicatorSampleScreen
 import com.sats.dna.sample.screens.ColorsSampleScreen
 import com.sats.dna.sample.screens.CompletedWorkoutListItemSampleScreen
 import com.sats.dna.sample.screens.EmptyStateSampleScreen
+import com.sats.dna.sample.screens.FriendsBookingStatusSampleScreen
 import com.sats.dna.sample.screens.GeneralListItemSampleScreen
 import com.sats.dna.sample.screens.IconsSampleScreen
 import com.sats.dna.sample.screens.PlaceholdersSampleScreen
 import com.sats.dna.sample.screens.ProgressBarsSampleScreen
 import com.sats.dna.sample.screens.RadioButtonsSampleScreen
 import com.sats.dna.sample.screens.ScheduleSampleScreen
+import com.sats.dna.sample.screens.SessionDetailsInfoLabelSampleScreen
 import com.sats.dna.sample.screens.SnackbarSampleScreen
 import com.sats.dna.sample.screens.SurfaceSampleScreen
 import com.sats.dna.sample.screens.SwitchSampleScreen
@@ -56,11 +58,13 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         CircularProgressIndicatorSampleScreen.navScreen(navController)
         CompletedWorkoutListItemSampleScreen.navScreen(navController)
         EmptyStateSampleScreen.navScreen(navController)
+        FriendsBookingStatusSampleScreen.navScreen(navController)
         GeneralListItemSampleScreen.navScreen(navController)
         PlaceholdersSampleScreen.navScreen(navController)
         ProgressBarsSampleScreen.navScreen(navController)
         RadioButtonsSampleScreen.navScreen(navController)
         ScheduleSampleScreen.navScreen(navController)
+        SessionDetailsInfoLabelSampleScreen.navScreen(navController)
         SnackbarSampleScreen.navScreen(navController)
         SurfaceSampleScreen.navScreen(navController)
         SwitchSampleScreen.navScreen(navController)
