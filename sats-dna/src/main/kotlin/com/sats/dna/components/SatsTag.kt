@@ -21,20 +21,20 @@ fun SatsTag(
     val backgroundColor = when (color) {
         SatsTagColor.Primary -> SatsTheme.colors.primary.default
         SatsTagColor.Secondary -> SatsTheme.colors.secondary.default
-        SatsTagColor.Cta -> SatsTheme.colors.cta.default
+        SatsTagColor.Featured -> SatsTheme.colors.cta.default
     }
 
     val contentColor = when (color) {
         SatsTagColor.Primary -> SatsTheme.colors.onPrimary.default
         SatsTagColor.Secondary -> SatsTheme.colors.onSecondary.default
-        SatsTagColor.Cta -> SatsTheme.colors.onCta.default
+        SatsTagColor.Featured -> SatsTheme.colors.onCta.default
     }
 
     SatsTagLayout(text, backgroundColor = backgroundColor, contentColor = contentColor, modifier)
 }
 
 enum class SatsTagColor {
-    Primary, Secondary, Cta,
+    Primary, Secondary, Featured,
 }
 
 @Deprecated("Renamed to SatsTag", ReplaceWith("SatsTag(text, modifier, color)"))
