@@ -1,6 +1,6 @@
 [versions]
 accompanist = "0.32.0"
-agp = "8.1.4"
+agp = "8.2.0"
 androidx-compose = "1.5.4"
 androidx-navigation = "2.7.5"
 compose-compiler = "1.5.4"
