@@ -85,3 +85,6 @@ object SatsIcons {
     val workoutPlan @Composable get() = painterResource(R.drawable.ic_workout_plan)
     val workoutPt @Composable get() = painterResource(R.drawable.ic_workout_pt)
 }
+
+@Composable
+fun SatsIcons.fistBump(isLiked: Boolean) = if (isLiked) fistBumpFilled else fistBump
