@@ -37,8 +37,8 @@ fun SessionDetailsInfoSection(
     dateLabel: @Composable () -> Unit,
     locationLabel: @Composable () -> Unit,
     modifier: Modifier = Modifier,
-    workoutTypeLabel: (@Composable () -> Unit)? = null,
-    gxNameLabel: (@Composable () -> Unit)? = null,
+    workoutTypeLabel: (@Composable () -> Unit)?,
+    gxNameLabel: (@Composable () -> Unit)?,
 ) {
     Column(
         modifier
@@ -63,6 +63,7 @@ fun SessionDetailsInfoSection(
             locationLabel()
             workoutTypeLabel?.invoke()
         }
+
         gxNameLabel?.invoke()
     }
 }
