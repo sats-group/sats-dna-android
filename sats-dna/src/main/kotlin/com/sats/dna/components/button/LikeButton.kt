@@ -17,8 +17,9 @@ fun LikeButton(
     isLiked: Boolean,
     onLikedChange: (isLiked: Boolean) -> Unit,
     modifier: Modifier = Modifier,
+    isEnabled: Boolean = true,
 ) {
-    IconToggleButton(isLiked, onLikedChange, modifier) {
+    IconToggleButton(isLiked, onLikedChange, modifier, isEnabled) {
         MaterialIcon(
             SatsTheme.icons.fistBump(isLiked),
             tint = SatsTheme.colors.action.default,
