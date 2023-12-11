@@ -112,7 +112,7 @@ fun SessionDetailsInfoLabel(
 }
 
 @Composable
-fun SessionDetailsSectionPlaceholder(
+fun SessionDetailsInfoSectionPlaceholder(
     modifier: Modifier = Modifier,
     showDurationLabel: Boolean = true,
     showDateLabel: Boolean = true,
@@ -209,7 +209,7 @@ private fun SessionDetailsInfoSectionPreview() {
 private fun SessionDetailsInfoSectionPlaceholderPreview() {
     SatsTheme {
         SatsSurface {
-            SessionDetailsSectionPlaceholder()
+            SessionDetailsInfoSectionPlaceholder()
         }
     }
 }
