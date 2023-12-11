@@ -18,6 +18,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.PlaceholderBox
+import com.sats.dna.components.PlaceholderText
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
@@ -36,9 +37,9 @@ fun SessionDetailsInfoSection(
     durationLabel: @Composable () -> Unit,
     dateLabel: @Composable () -> Unit,
     locationLabel: @Composable () -> Unit,
-    modifier: Modifier = Modifier,
     workoutTypeLabel: (@Composable () -> Unit)?,
     gxNameLabel: (@Composable () -> Unit)?,
+    modifier: Modifier = Modifier,
 ) {
     Column(
         modifier
@@ -97,13 +98,13 @@ fun SessionDetailsInfoLabel(
         horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        CompositionLocalProvider(
-            LocalContentColor provides if (onClick != null) {
-                SatsTheme.colors.action.default
-            } else {
-                LocalContentColor.current
-            },
-        ) {
+        val contentColor = if (onClick == null) {
+            SatsTheme.colors.onBackground.primary
+        } else {
+            SatsTheme.colors.action.default
+        }
+
+        CompositionLocalProvider(LocalContentColor provides contentColor) {
             Icon(icon, contentDescription = null, Modifier.size(20.dp))
             Text(text)
         }
@@ -116,61 +117,49 @@ fun SessionDetailsSectionPlaceholder(
     showDurationLabel: Boolean = true,
     showDateLabel: Boolean = true,
     showLocationLabel: Boolean = true,
-    showWorkoutTypeLabel: Boolean = false,
+    showWorkoutTypeLabel: Boolean = true,
+    showGxNameLabel: Boolean = true,
 ) {
     SessionDetailsInfoSection(
         modifier = modifier,
         durationLabel = {
             if (showDurationLabel) {
-                PlaceholderBox {
-                    SessionDetailsInfoLabel(
-                        icon = SatsTheme.icons.time,
-                        text = "60 minutes",
-                    )
-                }
+                SessionDetailsInfoLabelPlaceholder("60 min")
             }
         },
         dateLabel = {
             if (showDateLabel) {
-                PlaceholderBox {
-                    SessionDetailsInfoLabel(
-                        icon = SatsTheme.icons.calendar,
-                        text = "7.des., 10:30",
-                    )
-                }
+                SessionDetailsInfoLabelPlaceholder("Sat, Dec 2 2:30 PM")
             }
         },
         locationLabel = {
             if (showLocationLabel) {
-                PlaceholderBox {
-                    SessionDetailsInfoLabel(
-                        icon = SatsTheme.icons.location,
-                        text = "SATS Sagene",
-                    )
-                }
+                SessionDetailsInfoLabelPlaceholder("SATS Bergen LHG")
             }
         },
         workoutTypeLabel = {
             if (showWorkoutTypeLabel) {
-                PlaceholderBox {
-                    SessionDetailsInfoLabel(
-                        icon = SatsTheme.icons.workoutGymFloor,
-                        text = "Strength Training",
-                    )
-                }
+                SessionDetailsInfoLabelPlaceholder("Strength Training")
             }
         },
         gxNameLabel = {
-            if (showWorkoutTypeLabel) {
-                PlaceholderBox {
-                    SessionDetailsInfoLabel(
-                        icon = SatsTheme.icons.workoutGymFloor,
-                        text = "Pure Strength",
-                    )
-                }
+            if (showGxNameLabel) {
+                SessionDetailsInfoLabelPlaceholder("Pure Strength")
             }
         },
     )
+}
+
+@Composable
+fun SessionDetailsInfoLabelPlaceholder(text: String, modifier: Modifier = Modifier) {
+    Row(
+        modifier = modifier.padding(horizontal = SatsTheme.spacing.m, vertical = SatsTheme.spacing.xs),
+        horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        PlaceholderBox(Modifier.size(20.dp), SatsTheme.shapes.circle)
+        PlaceholderText(text)
+    }
 }
 
 @LightDarkPreview
@@ -220,8 +209,22 @@ private fun SessionDetailsInfoSectionPreview() {
 private fun SessionDetailsInfoSectionPlaceholderPreview() {
     SatsTheme {
         SatsSurface {
-            SessionDetailsSectionPlaceholder(
-                Modifier.padding(horizontal = SatsTheme.spacing.m),
+            SessionDetailsSectionPlaceholder()
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun SessionDetailsInfoLabelPlaceholderPreview() {
+    SatsTheme {
+        SatsSurface {
+            SessionDetailsInfoSection(
+                durationLabel = { SessionDetailsInfoLabelPlaceholder("60 min") },
+                dateLabel = { SessionDetailsInfoLabelPlaceholder("Sat, Dec 2 2:30 PM") },
+                locationLabel = { SessionDetailsInfoLabelPlaceholder("SATS Bergen LHG") },
+                workoutTypeLabel = { SessionDetailsInfoLabelPlaceholder("Strength Training") },
+                gxNameLabel = { SessionDetailsInfoLabelPlaceholder("Pure Strength") },
             )
         }
     }
