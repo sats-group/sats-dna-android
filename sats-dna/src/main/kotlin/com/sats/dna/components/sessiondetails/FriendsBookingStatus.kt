@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.Icon
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -16,6 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
+import com.sats.dna.components.PlaceholderBox
+import com.sats.dna.components.PlaceholderText
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
@@ -81,6 +84,37 @@ fun FriendsBookingStatusListItem(
     }
 }
 
+@Composable
+fun FriendsBookingStatusListPlaceholder(
+    modifier: Modifier = Modifier,
+    count: Int = 1,
+) {
+    Column(modifier) {
+        repeat(count) {
+            Row(
+                modifier = Modifier.padding(SatsTheme.spacing.m),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                PlaceholderBox(
+                    shape = SatsTheme.shapes.circle,
+                ) {
+                    Icon(
+                        modifier = Modifier.size(24.dp),
+                        contentDescription = null,
+                        painter = SatsTheme.icons.profile,
+                    )
+                }
+                PlaceholderText(
+                    modifier = Modifier.padding(start = SatsTheme.spacing.m),
+                    text = "Guro Olsen Ørbech",
+                )
+                Spacer(Modifier.weight(1f))
+                PlaceholderText(text = "Pending")
+            }
+        }
+    }
+}
+
 @LightDarkPreview
 @Composable
 private fun FriendsBookingListItemPreview(
@@ -103,6 +137,16 @@ private fun FriendsBookingListItemPreview(
                     contextMenu = null,
                 )
             }
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun FriendsBookingListItemPlaceholderPreview() {
+    SatsTheme {
+        SatsSurface {
+            FriendsBookingStatusListPlaceholder(count = 3)
         }
     }
 }

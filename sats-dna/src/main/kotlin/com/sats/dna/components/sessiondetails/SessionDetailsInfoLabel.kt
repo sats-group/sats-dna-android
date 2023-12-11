@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
+import com.sats.dna.components.PlaceholderBox
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
@@ -36,6 +37,8 @@ fun SessionDetailsInfoSection(
     dateLabel: @Composable () -> Unit,
     locationLabel: @Composable () -> Unit,
     modifier: Modifier = Modifier,
+    workoutTypeLabel: (@Composable () -> Unit)?,
+    gxNameLabel: (@Composable () -> Unit)?,
 ) {
     Column(
         modifier
@@ -52,7 +55,16 @@ fun SessionDetailsInfoSection(
             dateLabel()
         }
 
-        locationLabel()
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            locationLabel()
+            workoutTypeLabel?.invoke()
+        }
+
+        gxNameLabel?.invoke()
     }
 }
 
@@ -98,6 +110,69 @@ fun SessionDetailsInfoLabel(
     }
 }
 
+@Composable
+fun SessionDetailsSectionPlaceholder(
+    modifier: Modifier = Modifier,
+    showDurationLabel: Boolean = true,
+    showDateLabel: Boolean = true,
+    showLocationLabel: Boolean = true,
+    showWorkoutTypeLabel: Boolean = false,
+) {
+    SessionDetailsInfoSection(
+        modifier = modifier,
+        durationLabel = {
+            if (showDurationLabel) {
+                PlaceholderBox {
+                    SessionDetailsInfoLabel(
+                        icon = SatsTheme.icons.time,
+                        text = "60 minutes",
+                    )
+                }
+            }
+        },
+        dateLabel = {
+            if (showDateLabel) {
+                PlaceholderBox {
+                    SessionDetailsInfoLabel(
+                        icon = SatsTheme.icons.calendar,
+                        text = "7.des., 10:30",
+                    )
+                }
+            }
+        },
+        locationLabel = {
+            if (showLocationLabel) {
+                PlaceholderBox {
+                    SessionDetailsInfoLabel(
+                        icon = SatsTheme.icons.location,
+                        text = "SATS Sagene",
+                    )
+                }
+            }
+        },
+        workoutTypeLabel = {
+            if (showWorkoutTypeLabel) {
+                PlaceholderBox {
+                    SessionDetailsInfoLabel(
+                        icon = SatsTheme.icons.workoutGymFloor,
+                        text = "Strength Training",
+                    )
+                }
+            }
+        },
+        gxNameLabel = {
+            if (showWorkoutTypeLabel) {
+                PlaceholderBox {
+                    SessionDetailsInfoLabel(
+                        icon = SatsTheme.icons.workoutGymFloor,
+                        text = "Pure Strength",
+                    )
+                }
+            }
+        },
+    )
+}
+
 @LightDarkPreview
 @Composable
 private fun SessionDetailsInfoSectionPreview() {
@@ -123,6 +198,30 @@ private fun SessionDetailsInfoSectionPreview() {
                         onClick = {},
                     )
                 },
+                workoutTypeLabel = {
+                    SessionDetailsInfoLabel(
+                        icon = SatsTheme.icons.workoutGx,
+                        text = "Strength Training",
+                    )
+                },
+                gxNameLabel = {
+                    SessionDetailsInfoLabel(
+                        icon = SatsTheme.icons.workoutPt,
+                        text = "Pure Strength",
+                    )
+                },
+            )
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun SessionDetailsInfoSectionPlaceholderPreview() {
+    SatsTheme {
+        SatsSurface {
+            SessionDetailsSectionPlaceholder(
+                Modifier.padding(horizontal = SatsTheme.spacing.m),
             )
         }
     }
