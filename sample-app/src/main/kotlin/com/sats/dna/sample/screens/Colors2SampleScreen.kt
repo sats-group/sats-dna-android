@@ -42,7 +42,11 @@ private fun Colors2Screen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
 
             GraphicalElements()
 
-            BackgroundsAndSurfaces()
+            Backgrounds()
+
+            Surfaces()
+
+            SignalSurfaces()
         }
     }
 }
@@ -51,190 +55,198 @@ private fun Colors2Screen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
 private fun Buttons() {
     Section("Buttons", SectionLevel.Level1) {
         Section("Primary Button", SectionLevel.Level2) {
-            val base = SatsTheme.colors2.buttonColors.primary
+            val base = SatsTheme.colors2.buttons.primary
 
             ColorSample(
-                backgroundColor = base.background.default named "Default",
-                contentColor = base.content.default named "Default",
+                backgroundColor = base.default.bg named "Default",
+                contentColor = base.default.fg named "Default",
             )
 
             ColorSample(
-                backgroundColor = base.background.hover named "Hover",
-                contentColor = base.content.default named "Default",
+                backgroundColor = base.hover.bg named "Hover",
+                contentColor = base.default.fg named "Default",
             )
 
             ColorSample(
-                backgroundColor = base.background.disabled named "Disabled",
-                contentColor = base.content.disabled named "Disabled",
+                backgroundColor = base.disabled.bg named "Disabled",
+                contentColor = base.disabled.fg named "Disabled",
             )
         }
 
         Section("Secondary Button", SectionLevel.Level2) {
-            val base = SatsTheme.colors2.buttonColors.secondary
+            val base = SatsTheme.colors2.buttons.secondary
 
             ColorSample(
-                backgroundColor = base.background.default named "Default",
-                contentColor = base.content.default named "Default",
+                backgroundColor = base.default.bg named "Default",
+                contentColor = base.default.fg named "Default",
             )
 
             ColorSample(
-                backgroundColor = base.background.hover named "Hover",
-                contentColor = base.content.default named "Default",
+                backgroundColor = base.hover.bg named "Hover",
+                contentColor = base.default.fg named "Default",
             )
 
             ColorSample(
-                backgroundColor = base.background.disabled named "Disabled",
-                contentColor = base.content.disabled named "Disabled",
+                backgroundColor = base.disabled.bg named "Disabled",
+                contentColor = base.disabled.fg named "Disabled",
             )
         }
 
         Section("Clean Buttons", SectionLevel.Level2) {
-            val base = SatsTheme.colors2.buttonColors.clean
+            val base = SatsTheme.colors2.buttons.clean
 
             ColorSample(
-                backgroundColor = base.background.default named "Default",
-                contentColor = base.content.default named "Default",
+                backgroundColor = base.default.bg named "Default",
+                contentColor = base.default.fg named "Default",
             )
 
             ColorSample(
-                backgroundColor = base.background.hover named "Hover",
-                contentColor = base.content.default named "Default",
+                backgroundColor = base.hover.bg named "Hover",
+                contentColor = base.default.fg named "Default",
             )
 
             ColorSample(
-                backgroundColor = base.background.disabled named "Disabled",
-                contentColor = base.content.disabled named "Disabled",
+                backgroundColor = base.disabled.bg named "Disabled",
+                contentColor = base.disabled.fg named "Disabled",
             )
         }
 
         Section("Clean Secondary Button", SectionLevel.Level2) {
-            val base = SatsTheme.colors2.buttonColors.cleanSecondary
+            val base = SatsTheme.colors2.buttons.cleanSecondary
 
             ColorSample(
-                backgroundColor = base.background.default named "Default",
-                contentColor = base.content.default named "Default",
+                backgroundColor = base.default.bg named "Default",
+                contentColor = base.default.fg named "Default",
             )
 
             ColorSample(
-                backgroundColor = base.background.hover named "Hover",
-                contentColor = base.content.default named "Default",
+                backgroundColor = base.hover.bg named "Hover",
+                contentColor = base.default.fg named "Default",
             )
 
             ColorSample(
-                backgroundColor = base.background.disabled named "Disabled",
-                contentColor = base.content.disabled named "Disabled",
+                backgroundColor = base.disabled.bg named "Disabled",
+                contentColor = base.disabled.fg named "Disabled",
             )
         }
 
         Section("CTA Button", SectionLevel.Level2) {
-            val base = SatsTheme.colors2.buttonColors.cta
+            val base = SatsTheme.colors2.buttons.cta
 
             ColorSample(
-                backgroundColor = base.background.default named "Default",
-                contentColor = base.content.default named "Default",
+                backgroundColor = base.default.bg named "Default",
+                contentColor = base.default.fg named "Default",
             )
 
             ColorSample(
-                backgroundColor = base.background.hover named "Hover",
-                contentColor = base.content.default named "Default",
+                backgroundColor = base.hover.bg named "Hover",
+                contentColor = base.default.fg named "Default",
             )
 
             ColorSample(
-                backgroundColor = base.background.disabled named "Disabled",
-                contentColor = base.content.disabled named "Disabled",
+                backgroundColor = base.disabled.bg named "Disabled",
+                contentColor = base.disabled.fg named "Disabled",
             )
         }
 
         Section("Action", SectionLevel.Level2) {
-            val base = SatsTheme.colors2.buttonColors.action
+            val base = SatsTheme.colors2.buttons.action
 
             ColorSample(
-                backgroundColor = base.background.default named "Default",
-                contentColor = base.content.default named "Default",
+                backgroundColor = Color.Transparent named "Transparent",
+                contentColor = base.default named "Default",
             )
 
             ColorSample(
-                backgroundColor = base.background.hover named "Hover",
-                contentColor = base.content.default named "Default",
+                backgroundColor = Color.Transparent named "Transparent",
+                contentColor = base.default named "Default",
             )
 
             ColorSample(
-                backgroundColor = base.background.disabled named "Disabled",
-                contentColor = base.content.disabled named "Disabled",
+                backgroundColor = Color.Transparent named "Transparent",
+                contentColor = base.disabled named "Disabled",
             )
         }
 
-        Section("Waiting List Button", SectionLevel.Level2) {
-            val base = SatsTheme.colors2.buttonColors.waitingList
+        Section("Waiting List Button (filled)", SectionLevel.Level2) {
+            val base = SatsTheme.colors2.buttons.waitingListFilled
 
             ColorSample(
-                backgroundColor = base.background.default named "Default",
-                contentColor = base.content.default.default named "Default",
+                backgroundColor = base.default.bg named "Default",
+                contentColor = base.default.fg named "Default",
             )
 
             ColorSample(
-                backgroundColor = base.background.hover named "Hover",
-                contentColor = base.content.default.default named "Default",
+                backgroundColor = base.hover.bg named "Hover",
+                contentColor = base.default.fg named "Default",
             )
 
             ColorSample(
-                backgroundColor = base.background.disabled named "Disabled",
-                contentColor = base.content.default.disabled named "Disabled",
-            )
-
-            ColorSample(
-                backgroundColor = Color.Transparent named "Transparent",
-                contentColor = base.content.alternate.default named "Alternate Default",
-                borderColor = base.content.alternate.default,
-            )
-
-            ColorSample(
-                backgroundColor = Color.Transparent named "Transparent",
-                contentColor = base.content.alternate.hover named "Alternate Hover",
-                borderColor = base.content.alternate.hover,
-            )
-
-            ColorSample(
-                backgroundColor = Color.Transparent named "Transparent",
-                contentColor = base.content.alternate.disabled named "Alternate Disabled",
-                borderColor = base.content.alternate.disabled,
+                backgroundColor = base.disabled.bg named "Disabled",
+                contentColor = base.disabled.fg named "Disabled",
             )
         }
 
-        Section("Delete Button", SectionLevel.Level2) {
-            val base = SatsTheme.colors2.buttonColors.delete
+        Section("Waiting List Button (outlined)", SectionLevel.Level2) {
+            val base = SatsTheme.colors2.buttons.waitingListOutlined
 
             ColorSample(
-                backgroundColor = base.background.default named "Default",
-                contentColor = base.content.default.default named "Default",
-            )
-
-            ColorSample(
-                backgroundColor = base.background.hover named "Hover",
-                contentColor = base.content.default.default named "Default",
-            )
-
-            ColorSample(
-                backgroundColor = base.background.disabled named "Disabled",
-                contentColor = base.content.default.disabled named "Disabled",
+                backgroundColor = Color.Transparent named "Transparent",
+                contentColor = base.default named "Default",
+                borderColor = base.default,
             )
 
             ColorSample(
                 backgroundColor = Color.Transparent named "Transparent",
-                contentColor = base.content.alternate.default named "Alternate Default",
-                borderColor = base.content.alternate.default,
+                contentColor = base.default named "Default",
+                borderColor = base.default,
             )
 
             ColorSample(
                 backgroundColor = Color.Transparent named "Transparent",
-                contentColor = base.content.alternate.hover named "Alternate Hover",
-                borderColor = base.content.alternate.hover,
+                contentColor = base.default named "Default",
+                borderColor = base.default,
+            )
+        }
+
+        Section("Delete Button (filled)", SectionLevel.Level2) {
+            val base = SatsTheme.colors2.buttons.deleteFilled
+
+            ColorSample(
+                backgroundColor = base.default.bg named "Default",
+                contentColor = base.default.fg named "Default",
+            )
+
+            ColorSample(
+                backgroundColor = base.hover.bg named "Hover",
+                contentColor = base.default.fg named "Default",
+            )
+
+            ColorSample(
+                backgroundColor = base.disabled.bg named "Disabled",
+                contentColor = base.disabled.fg named "Disabled",
+            )
+        }
+
+        Section("Delete Button (outlined)", SectionLevel.Level2) {
+            val base = SatsTheme.colors2.buttons.deleteOutlined
+
+            ColorSample(
+                backgroundColor = Color.Transparent named "Transparent",
+                contentColor = base.default named "Default",
+                borderColor = base.default,
             )
 
             ColorSample(
                 backgroundColor = Color.Transparent named "Transparent",
-                contentColor = base.content.alternate.disabled named "Alternate Disabled",
-                borderColor = base.content.alternate.disabled,
+                contentColor = base.default named "Default",
+                borderColor = base.default,
+            )
+
+            ColorSample(
+                backgroundColor = Color.Transparent named "Transparent",
+                contentColor = base.default named "Default",
+                borderColor = base.default,
             )
         }
     }
@@ -282,7 +294,7 @@ private fun GraphicalElements() {
             val base = SatsTheme.colors2.graphicalElements.progressBar
 
             ColorSample(
-                backgroundColor = base.background named "Background",
+                backgroundColor = base.bg named "Background",
                 contentColor = base.indicator named "Indicator",
             )
         }
@@ -291,12 +303,12 @@ private fun GraphicalElements() {
             val base = SatsTheme.colors2.graphicalElements.graphs
 
             ColorSample(
-                backgroundColor = base.bar.primary.background named "Bar Background Primary",
+                backgroundColor = base.bar.primary.bg named "Bar Background Primary",
                 contentColor = base.bar.primary.default named "Bar Primary",
             )
 
             ColorSample(
-                backgroundColor = base.bar.secondary.background named "Bar Background Secondary",
+                backgroundColor = base.bar.secondary.bg named "Bar Background Secondary",
                 contentColor = base.bar.secondary.default named "Bar Secondary",
             )
 
@@ -344,28 +356,28 @@ private fun GraphicalElements() {
             val base = SatsTheme.colors2.graphicalElements.chips
 
             ColorSample(
-                backgroundColor = base.unselected.background.default named "Unselected Default",
-                contentColor = base.unselected.content.default named "Unselected Default",
+                backgroundColor = base.unselected.bg.default named "Unselected Default",
+                contentColor = base.unselected.fg.default named "Unselected Default",
             )
 
             ColorSample(
-                backgroundColor = base.unselected.background.disabled named "Unselected Disabled",
-                contentColor = base.unselected.content.disabled named "Unselected Disabled",
+                backgroundColor = base.unselected.bg.disabled named "Unselected Disabled",
+                contentColor = base.unselected.fg.disabled named "Unselected Disabled",
             )
 
             ColorSample(
-                backgroundColor = base.selected.background.default named "Selected Default",
-                contentColor = base.selected.content.default named "Selected Default",
+                backgroundColor = base.selected.bg.default named "Selected Default",
+                contentColor = base.selected.fg.default named "Selected Default",
             )
 
             ColorSample(
-                backgroundColor = base.selected.background.hover named "Selected Hover",
-                contentColor = base.selected.content.default named "Selected Default",
+                backgroundColor = base.selected.bg.hover named "Selected Hover",
+                contentColor = base.selected.fg.default named "Selected Default",
             )
 
             ColorSample(
-                backgroundColor = base.selected.background.disabled named "Selected Disabled",
-                contentColor = base.selected.content.disabled named "Selected Disabled",
+                backgroundColor = base.selected.bg.disabled named "Selected Disabled",
+                contentColor = base.selected.fg.disabled named "Selected Disabled",
             )
         }
 
@@ -519,18 +531,18 @@ private fun GraphicalElements() {
             val base = SatsTheme.colors2.graphicalElements.tags
 
             ColorSample(
-                backgroundColor = base.primary.background named "Primary",
-                contentColor = base.primary.content named "Primary",
+                backgroundColor = base.primary.bg named "Primary",
+                contentColor = base.primary.fg named "Primary",
             )
 
             ColorSample(
-                backgroundColor = base.secondary.background named "Secondary",
-                contentColor = base.secondary.content named "Secondary",
+                backgroundColor = base.secondary.bg named "Secondary",
+                contentColor = base.secondary.fg named "Secondary",
             )
 
             ColorSample(
-                backgroundColor = base.featured.background named "Featured",
-                contentColor = base.featured.content named "Featured",
+                backgroundColor = base.featured.bg named "Featured",
+                contentColor = base.featured.fg named "Featured",
             )
         }
 
@@ -538,23 +550,23 @@ private fun GraphicalElements() {
             val base = SatsTheme.colors2.graphicalElements.rewards
 
             ColorSample(
-                backgroundColor = base.background.blue named "Blue",
-                contentColor = base.content named "Rewards",
+                backgroundColor = base.bg.blue named "Blue",
+                contentColor = base.fg named "Rewards",
             )
 
             ColorSample(
-                backgroundColor = base.background.silver named "Silver",
-                contentColor = base.content named "Rewards",
+                backgroundColor = base.bg.silver named "Silver",
+                contentColor = base.fg named "Rewards",
             )
 
             ColorSample(
-                backgroundColor = base.background.gold named "Gold",
-                contentColor = base.content named "Rewards",
+                backgroundColor = base.bg.gold named "Gold",
+                contentColor = base.fg named "Rewards",
             )
 
             ColorSample(
-                backgroundColor = base.background.platinum named "Platinum",
-                contentColor = base.content named "Rewards",
+                backgroundColor = base.bg.platinum named "Platinum",
+                contentColor = base.fg named "Rewards",
             )
         }
 
@@ -590,299 +602,303 @@ private fun GraphicalElements() {
 }
 
 @Composable
-private fun BackgroundsAndSurfaces() {
-    Section("Background & Surfaces", SectionLevel.Level1) {
-        Section("Background", SectionLevel.Level2) {
-            val base = SatsTheme.colors2.backgrounds.background
+private fun Backgrounds() {
+    Section("Backgrounds", SectionLevel.Level1) {
+        val base = SatsTheme.colors2.backgrounds
 
-            ColorSample(
-                backgroundColor = base.primary.background.default named "Primary Default",
-                contentColor = base.primary.content.default named "Primary Default",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.default named "Primary Default",
+            contentColor = base.primary.fg.default named "Primary Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.primary.background.default named "Primary Default",
-                contentColor = base.primary.content.alternate named "Primary Alternate",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.default named "Primary Default",
+            contentColor = base.primary.fg.alternate named "Primary Alternate",
+        )
 
-            ColorSample(
-                backgroundColor = base.primary.background.default named "Primary Default",
-                contentColor = base.primary.content.disabled named "Primary Disabled",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.default named "Primary Default",
+            contentColor = base.primary.fg.disabled named "Primary Disabled",
+        )
 
-            ColorSample(
-                backgroundColor = base.primary.background.hover named "Primary Hover",
-                contentColor = base.primary.content.default named "Primary Default",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.hover named "Primary Hover",
+            contentColor = base.primary.fg.default named "Primary Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.primary.background.selected named "Primary Selected",
-                contentColor = base.primary.content.default named "Primary Default",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.selected named "Primary Selected",
+            contentColor = base.primary.fg.default named "Primary Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.default named "Secondary Default",
-                contentColor = base.secondary.content.default named "Secondary Default",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.default named "Secondary Default",
+            contentColor = base.secondary.fg.default named "Secondary Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.default named "Secondary Default",
-                contentColor = base.secondary.content.alternate named "Secondary Alternate",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.default named "Secondary Default",
+            contentColor = base.secondary.fg.alternate named "Secondary Alternate",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.default named "Secondary Default",
-                contentColor = base.secondary.content.disabled named "Secondary Disabled",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.default named "Secondary Default",
+            contentColor = base.secondary.fg.disabled named "Secondary Disabled",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.hover named "Secondary Hover",
-                contentColor = base.secondary.content.default named "Secondary Default",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.hover named "Secondary Hover",
+            contentColor = base.secondary.fg.default named "Secondary Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.selected named "Secondary Selected",
-                contentColor = base.secondary.content.default named "Secondary Default",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.selected named "Secondary Selected",
+            contentColor = base.secondary.fg.default named "Secondary Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.fixed.background.default named "Fixed Default",
-                contentColor = base.fixed.content.default named "Fixed Default",
-            )
+        ColorSample(
+            backgroundColor = base.fixed.bg.default named "Fixed Default",
+            contentColor = base.fixed.fg.default named "Fixed Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.fixed.background.default named "Fixed Default",
-                contentColor = base.fixed.content.alternate named "Fixed Alternate",
-            )
+        ColorSample(
+            backgroundColor = base.fixed.bg.default named "Fixed Default",
+            contentColor = base.fixed.fg.alternate named "Fixed Alternate",
+        )
 
-            ColorSample(
-                backgroundColor = base.fixed.background.default named "Fixed Default",
-                contentColor = base.fixed.content.disabled named "Fixed Disabled",
-            )
+        ColorSample(
+            backgroundColor = base.fixed.bg.default named "Fixed Default",
+            contentColor = base.fixed.fg.disabled named "Fixed Disabled",
+        )
 
-            ColorSample(
-                backgroundColor = base.fixed.background.hover named "Fixed Hover",
-                contentColor = base.fixed.content.default named "Fixed Default",
-            )
+        ColorSample(
+            backgroundColor = base.fixed.bg.hover named "Fixed Hover",
+            contentColor = base.fixed.fg.default named "Fixed Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.fixed.background.selected named "Fixed Selected",
-                contentColor = base.fixed.content.default named "Fixed Default",
-            )
-        }
+        ColorSample(
+            backgroundColor = base.fixed.bg.selected named "Fixed Selected",
+            contentColor = base.fixed.fg.default named "Fixed Default",
+        )
+    }
+}
 
-        Section("Surface", SectionLevel.Level2) {
-            val base = SatsTheme.colors2.backgrounds.surface
+@Composable
+private fun Surfaces() {
+    Section("Surfaces", SectionLevel.Level1) {
+        val base = SatsTheme.colors2.surfaces
 
-            ColorSample(
-                backgroundColor = base.primary.background.default named "Primary Default",
-                contentColor = base.primary.content.default named "Primary Default",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.default named "Primary Default",
+            contentColor = base.primary.fg.default named "Primary Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.primary.background.default named "Primary Default",
-                contentColor = base.primary.content.alternate named "Primary Alternate",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.default named "Primary Default",
+            contentColor = base.primary.fg.alternate named "Primary Alternate",
+        )
 
-            ColorSample(
-                backgroundColor = base.primary.background.default named "Primary Default",
-                contentColor = base.primary.content.disabled named "Primary Disabled",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.default named "Primary Default",
+            contentColor = base.primary.fg.disabled named "Primary Disabled",
+        )
 
-            ColorSample(
-                backgroundColor = base.primary.background.default named "Primary Default",
-                contentColor = base.primary.content.disabled named "Primary Disabled",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.default named "Primary Default",
+            contentColor = base.primary.fg.disabled named "Primary Disabled",
+        )
 
-            ColorSample(
-                backgroundColor = base.primary.background.default named "Primary Default",
-                contentColor = base.primary.content.success named "Success",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.default named "Primary Default",
+            contentColor = base.primary.fg.success named "Success",
+        )
 
-            ColorSample(
-                backgroundColor = base.primary.background.default named "Primary Default",
-                contentColor = base.primary.content.warning named "Warning",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.default named "Primary Default",
+            contentColor = base.primary.fg.warning named "Warning",
+        )
 
-            ColorSample(
-                backgroundColor = base.primary.background.default named "Primary Default",
-                contentColor = base.primary.content.error named "Error",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.default named "Primary Default",
+            contentColor = base.primary.fg.error named "Error",
+        )
 
-            ColorSample(
-                backgroundColor = base.primary.background.default named "Primary Default",
-                contentColor = base.primary.content.waitlist named "Waitlist",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.default named "Primary Default",
+            contentColor = base.primary.fg.waitlist named "Waitlist",
+        )
 
-            ColorSample(
-                backgroundColor = base.primary.background.default named "Primary Default",
-                contentColor = base.primary.content.neutral named "Neutral",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.default named "Primary Default",
+            contentColor = base.primary.fg.neutral named "Neutral",
+        )
 
-            ColorSample(
-                backgroundColor = base.primary.background.default named "Primary Default",
-                contentColor = base.primary.content.information named "Information",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.default named "Primary Default",
+            contentColor = base.primary.fg.information named "Information",
+        )
 
-            ColorSample(
-                backgroundColor = base.primary.background.hover named "Primary Hover",
-                contentColor = base.primary.content.default named "Primary Default",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.hover named "Primary Hover",
+            contentColor = base.primary.fg.default named "Primary Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.primary.background.selected named "Primary Selected",
-                contentColor = base.primary.content.default named "Primary Default",
-            )
+        ColorSample(
+            backgroundColor = base.primary.bg.selected named "Primary Selected",
+            contentColor = base.primary.fg.default named "Primary Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.default named "Secondary Default",
-                contentColor = base.secondary.content.default named "Secondary Default",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.default named "Secondary Default",
+            contentColor = base.secondary.fg.default named "Secondary Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.default named "Secondary Default",
-                contentColor = base.secondary.content.alternate named "Secondary Alternate",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.default named "Secondary Default",
+            contentColor = base.secondary.fg.alternate named "Secondary Alternate",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.default named "Secondary Default",
-                contentColor = base.secondary.content.disabled named "Secondary Disabled",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.default named "Secondary Default",
+            contentColor = base.secondary.fg.disabled named "Secondary Disabled",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.default named "Secondary Default",
-                contentColor = base.secondary.content.disabled named "Secondary Disabled",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.default named "Secondary Default",
+            contentColor = base.secondary.fg.disabled named "Secondary Disabled",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.default named "Secondary Default",
-                contentColor = base.secondary.content.success named "Success",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.default named "Secondary Default",
+            contentColor = base.secondary.fg.success named "Success",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.default named "Secondary Default",
-                contentColor = base.secondary.content.warning named "Warning",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.default named "Secondary Default",
+            contentColor = base.secondary.fg.warning named "Warning",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.default named "Secondary Default",
-                contentColor = base.secondary.content.error named "Error",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.default named "Secondary Default",
+            contentColor = base.secondary.fg.error named "Error",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.default named "Secondary Default",
-                contentColor = base.secondary.content.waitlist named "Waitlist",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.default named "Secondary Default",
+            contentColor = base.secondary.fg.waitlist named "Waitlist",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.default named "Secondary Default",
-                contentColor = base.secondary.content.neutral named "Neutral",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.default named "Secondary Default",
+            contentColor = base.secondary.fg.neutral named "Neutral",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.default named "Secondary Default",
-                contentColor = base.secondary.content.information named "Information",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.default named "Secondary Default",
+            contentColor = base.secondary.fg.information named "Information",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.hover named "Secondary Hover",
-                contentColor = base.secondary.content.default named "Secondary Default",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.hover named "Secondary Hover",
+            contentColor = base.secondary.fg.default named "Secondary Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.secondary.background.selected named "Secondary Selected",
-                contentColor = base.secondary.content.default named "Secondary Default",
-            )
+        ColorSample(
+            backgroundColor = base.secondary.bg.selected named "Secondary Selected",
+            contentColor = base.secondary.fg.default named "Secondary Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.fixed.background.default named "Fixed Default",
-                contentColor = base.fixed.content.default named "Fixed Default",
-            )
+        ColorSample(
+            backgroundColor = base.fixed.bg.default named "Fixed Default",
+            contentColor = base.fixed.fg.default named "Fixed Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.fixed.background.default named "Fixed Default",
-                contentColor = base.fixed.content.alternate named "Fixed Alternate",
-            )
+        ColorSample(
+            backgroundColor = base.fixed.bg.default named "Fixed Default",
+            contentColor = base.fixed.fg.alternate named "Fixed Alternate",
+        )
 
-            ColorSample(
-                backgroundColor = base.fixed.background.default named "Fixed Default",
-                contentColor = base.fixed.content.disabled named "Fixed Disabled",
-            )
+        ColorSample(
+            backgroundColor = base.fixed.bg.default named "Fixed Default",
+            contentColor = base.fixed.fg.disabled named "Fixed Disabled",
+        )
 
-            ColorSample(
-                backgroundColor = base.fixed.background.default named "Fixed Default",
-                contentColor = base.fixed.content.disabled named "Fixed Disabled",
-            )
+        ColorSample(
+            backgroundColor = base.fixed.bg.default named "Fixed Default",
+            contentColor = base.fixed.fg.disabled named "Fixed Disabled",
+        )
 
-            ColorSample(
-                backgroundColor = base.fixed.background.hover named "Fixed Hover",
-                contentColor = base.fixed.content.default named "Fixed Default",
-            )
+        ColorSample(
+            backgroundColor = base.fixed.bg.hover named "Fixed Hover",
+            contentColor = base.fixed.fg.default named "Fixed Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.fixed.background.selected named "Fixed Selected",
-                contentColor = base.fixed.content.default named "Fixed Default",
-            )
-        }
+        ColorSample(
+            backgroundColor = base.fixed.bg.selected named "Fixed Selected",
+            contentColor = base.fixed.fg.default named "Fixed Default",
+        )
+    }
+}
 
-        Section("Signal Surface", SectionLevel.Level2) {
-            val base = SatsTheme.colors2.backgrounds.signalSurface
+@Composable
+private fun SignalSurfaces() {
+    Section("Signal Surface", SectionLevel.Level1) {
+        val base = SatsTheme.colors2.signalSurfaces
 
-            ColorSample(
-                backgroundColor = base.success.background named "Success",
-                contentColor = base.success.content.default named "Success Default",
-            )
+        ColorSample(
+            backgroundColor = base.success.bg named "Success",
+            contentColor = base.success.fg.default named "Success Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.warning.background named "Warning",
-                contentColor = base.warning.content.default named "Warning Default",
-            )
+        ColorSample(
+            backgroundColor = base.warning.bg named "Warning",
+            contentColor = base.warning.fg.default named "Warning Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.warning.background named "Warning",
-                contentColor = base.warning.content.alternate named "Warning Alternate",
-            )
+        ColorSample(
+            backgroundColor = base.warning.bg named "Warning",
+            contentColor = base.warning.fg.alternate named "Warning Alternate",
+        )
 
-            ColorSample(
-                backgroundColor = base.error.background named "Error",
-                contentColor = base.error.content.default named "Error Default",
-            )
+        ColorSample(
+            backgroundColor = base.error.bg named "Error",
+            contentColor = base.error.fg.default named "Error Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.error.background named "Error",
-                contentColor = base.error.content.alternate named "Error Alternate",
-            )
+        ColorSample(
+            backgroundColor = base.error.bg named "Error",
+            contentColor = base.error.fg.alternate named "Error Alternate",
+        )
 
-            ColorSample(
-                backgroundColor = base.waitlist.background named "Waitlist",
-                contentColor = base.waitlist.content.default named "Waitlist Default",
-            )
+        ColorSample(
+            backgroundColor = base.waitlist.bg named "Waitlist",
+            contentColor = base.waitlist.fg.default named "Waitlist Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.waitlist.background named "Waitlist",
-                contentColor = base.waitlist.content.alternate named "Waitlist Alternate",
-            )
+        ColorSample(
+            backgroundColor = base.waitlist.bg named "Waitlist",
+            contentColor = base.waitlist.fg.alternate named "Waitlist Alternate",
+        )
 
-            ColorSample(
-                backgroundColor = base.neutral.background named "Neutral",
-                contentColor = base.neutral.content.default named "Neutral Default",
-            )
+        ColorSample(
+            backgroundColor = base.neutral.bg named "Neutral",
+            contentColor = base.neutral.fg.default named "Neutral Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.neutral.background named "Neutral",
-                contentColor = base.neutral.content.alternate named "Neutral Alternate",
-            )
+        ColorSample(
+            backgroundColor = base.neutral.bg named "Neutral",
+            contentColor = base.neutral.fg.alternate named "Neutral Alternate",
+        )
 
-            ColorSample(
-                backgroundColor = base.information.background named "Information",
-                contentColor = base.information.content.default named "Information Default",
-            )
+        ColorSample(
+            backgroundColor = base.information.bg named "Information",
+            contentColor = base.information.fg.default named "Information Default",
+        )
 
-            ColorSample(
-                backgroundColor = base.information.background named "Information",
-                contentColor = base.information.content.alternate named "Information Alternate",
-            )
-        }
+        ColorSample(
+            backgroundColor = base.information.bg named "Information",
+            contentColor = base.information.fg.alternate named "Information Alternate",
+        )
     }
 }
 
@@ -961,7 +977,7 @@ private fun ColorNameAndHex(backgroundColor: NamedColor, modifier: Modifier = Mo
 
         Text(
             backgroundColor.toHexString(),
-            color = SatsTheme.colors2.backgrounds.surface.primary.content.alternate,
+            color = SatsTheme.colors2.surfaces.primary.fg.alternate,
         )
     }
 }
