@@ -160,24 +160,27 @@ internal val SatsLightColors2 = SatsColors2(
         ),
         chips = SatsColors2.GraphicalElements.Chips(
             unselected = SatsColors2.GraphicalElements.Chips.Unselected(
-                bg = SatsColors2.GraphicalElements.Chips.Unselected.Bg(
-                    default = SatsColorPrimitives.SatsBlue40,
-                    disabled = SatsColorPrimitives.SatsLightGrey15,
+                default = SatsColors2.GraphicalElements.Chips.Unselected.Default(
+                    bg = SatsColorPrimitives.SatsBlue40,
+                    fg = SatsColorPrimitives.SatsLightGrey15,
                 ),
-                fg = SatsColors2.GraphicalElements.Chips.Unselected.Fg(
-                    default = SatsColorPrimitives.SatsBlue,
-                    disabled = SatsColorPrimitives.Black40,
+                disabled = SatsColors2.GraphicalElements.Chips.Unselected.Disabled(
+                    bg = SatsColorPrimitives.SatsLightGrey15,
+                    fg = SatsColorPrimitives.Black40,
                 ),
             ),
             selected = SatsColors2.GraphicalElements.Chips.Selected(
-                bg = SatsColors2.GraphicalElements.Chips.Selected.Bg(
-                    default = SatsColorPrimitives.SatsBlue,
-                    hover = SatsColorPrimitives.BrightBlue10,
-                    disabled = SatsColorPrimitives.SatsLightGrey15,
+                default = SatsColors2.GraphicalElements.Chips.Selected.Default(
+                    bg = SatsColorPrimitives.SatsBlue,
+                    fg = SatsColorPrimitives.White100,
                 ),
-                fg = SatsColors2.GraphicalElements.Chips.Selected.Fg(
-                    default = SatsColorPrimitives.White100,
-                    disabled = SatsColorPrimitives.SatsBlue70,
+                hover = SatsColors2.GraphicalElements.Chips.Selected.Hover(
+                    bg = SatsColorPrimitives.BrightBlue10,
+                    fg = SatsColorPrimitives.White100,
+                ),
+                disabled = SatsColors2.GraphicalElements.Chips.Selected.Disabled(
+                    bg = SatsColorPrimitives.SatsLightGrey15,
+                    fg = SatsColorPrimitives.SatsBlue70,
                 ),
             ),
         ),
@@ -242,13 +245,22 @@ internal val SatsLightColors2 = SatsColors2(
             ),
         ),
         rewards = SatsColors2.GraphicalElements.Rewards(
-            bg = SatsColors2.GraphicalElements.Rewards.Bg(
-                blue = SatsColorPrimitives.SatsBlue,
-                silver = SatsColorPrimitives.Black50,
-                gold = SatsColorPrimitives.Gold130,
-                platinum = SatsColorPrimitives.SatsBlueGrey80,
+            blue = SatsColors2.GraphicalElements.Rewards.Blue(
+                bg = SatsColorPrimitives.SatsBlue,
+                fg = SatsColorPrimitives.White100,
             ),
-            fg = SatsColorPrimitives.White100,
+            silver = SatsColors2.GraphicalElements.Rewards.Silver(
+                bg = SatsColorPrimitives.Black50,
+                fg = SatsColorPrimitives.White100,
+            ),
+            gold = SatsColors2.GraphicalElements.Rewards.Gold(
+                bg = SatsColorPrimitives.Gold130,
+                fg = SatsColorPrimitives.White100,
+            ),
+            platinum = SatsColors2.GraphicalElements.Rewards.Platinum(
+                bg = SatsColorPrimitives.SatsBlueGrey80,
+                fg = SatsColorPrimitives.White100,
+            ),
         ),
         workouts = SatsColors2.GraphicalElements.Workouts(
             pt = SatsColorPrimitives.UranianBlue100,

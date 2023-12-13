@@ -265,33 +265,38 @@ class SatsColors2(
             val selected: Selected,
         ) {
             class Unselected(
-                val bg: Bg,
-                val fg: Fg,
+                val default: Default,
+                val disabled: Disabled,
             ) {
-                class Bg(
-                    val default: Color,
-                    val disabled: Color,
+                class Default(
+                    val bg: Color,
+                    val fg: Color,
                 )
 
-                class Fg(
-                    val default: Color,
-                    val disabled: Color,
+                class Disabled(
+                    val bg: Color,
+                    val fg: Color,
                 )
             }
 
             class Selected(
-                val bg: Bg,
-                val fg: Fg,
+                val default: Default,
+                val hover: Hover,
+                val disabled: Disabled,
             ) {
-                class Bg(
-                    val default: Color,
-                    val hover: Color,
-                    val disabled: Color,
+                class Default(
+                    val bg: Color,
+                    val fg: Color,
                 )
 
-                class Fg(
-                    val default: Color,
-                    val disabled: Color,
+                class Hover(
+                    val bg: Color,
+                    val fg: Color,
+                )
+
+                class Disabled(
+                    val bg: Color,
+                    val fg: Color,
                 )
             }
         }
@@ -380,14 +385,29 @@ class SatsColors2(
         }
 
         class Rewards(
-            val bg: Bg,
-            val fg: Color,
+            val blue: Blue,
+            val silver: Silver,
+            val gold: Gold,
+            val platinum: Platinum,
         ) {
-            class Bg(
-                val blue: Color,
-                val silver: Color,
-                val gold: Color,
-                val platinum: Color,
+            class Blue(
+                val bg: Color,
+                val fg: Color,
+            )
+
+            class Silver(
+                val bg: Color,
+                val fg: Color,
+            )
+
+            class Gold(
+                val bg: Color,
+                val fg: Color,
+            )
+
+            class Platinum(
+                val bg: Color,
+                val fg: Color,
             )
         }
 
