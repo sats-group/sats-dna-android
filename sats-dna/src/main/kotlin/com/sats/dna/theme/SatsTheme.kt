@@ -2,15 +2,17 @@ package com.sats.dna.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.Colors
-import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.staticCompositionLocalOf
 import com.sats.dna.colors.SatsColors
+import com.sats.dna.colors.SatsColors2
 import com.sats.dna.colors.SatsDarkColors
+import com.sats.dna.colors.SatsDarkColors2
 import com.sats.dna.colors.SatsLightColors
+import com.sats.dna.colors.SatsLightColors2
 import com.sats.dna.icons.SatsIcons
 import com.sats.dna.shapes.SatsShapes
 import com.sats.dna.spacing.SatsSpacing
@@ -26,8 +28,12 @@ import androidx.compose.material3.Typography as Material3Typography
 @Composable
 fun SatsTheme(content: @Composable () -> Unit) {
     val colors = if (isSystemInDarkTheme()) SatsDarkColors else SatsLightColors
+    val colors2 = if (isSystemInDarkTheme()) SatsDarkColors2 else SatsLightColors2
 
-    CompositionLocalProvider(LocalSatsColors provides colors) {
+    CompositionLocalProvider(
+        LocalSatsColors provides colors,
+        LocalSatsColors2 provides colors2,
+    ) {
         Material2Theme(
             colors = LocalSatsColors.current.toMaterial2(),
             typography = LocalSatsTypography.current.toMaterial2(),
@@ -50,6 +56,9 @@ object SatsTheme {
     val colors: SatsColors
         @Composable get() = LocalSatsColors.current
 
+    val colors2: SatsColors2
+        @Composable get() = LocalSatsColors2.current
+
     val typography: SatsTypography
         @Composable get() = LocalSatsTypography.current
 
@@ -64,6 +73,7 @@ object SatsTheme {
 }
 
 internal val LocalSatsColors = staticCompositionLocalOf { SatsLightColors }
+internal val LocalSatsColors2 = staticCompositionLocalOf { SatsLightColors2 }
 internal val LocalSatsTypography = staticCompositionLocalOf { SatsTypography }
 internal val LocalSatsSpacing = staticCompositionLocalOf { SatsSpacing }
 internal val LocalSatsShapes = staticCompositionLocalOf { SatsShapes }
@@ -99,7 +109,7 @@ private fun SatsTypography.toMaterial2() = Material2Typography(
     defaultFontFamily = InterFont,
 )
 
-private fun SatsColors.toMaterial3(): ColorScheme = if (isLightMode) {
+private fun SatsColors.toMaterial3() = if (isLightMode) {
     lightColorScheme(
         primary = primary.default,
         onPrimary = onPrimary.default,
