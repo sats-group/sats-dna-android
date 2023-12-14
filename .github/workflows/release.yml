@@ -65,7 +65,7 @@ jobs:
         run: rm $GITHUB_WORKSPACE/play-upload.keystore
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: sats-dna-lib
           path: sats-dna/build/outputs/aar/sats-dna-release.aar
@@ -157,7 +157,7 @@ jobs:
         run: rm $GITHUB_WORKSPACE/play-upload.keystore
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: sats-dna-sample-app
           path: sample-app/build/outputs/bundle/release/sample-app-release.aab
