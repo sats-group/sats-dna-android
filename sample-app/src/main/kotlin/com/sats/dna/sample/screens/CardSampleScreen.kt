@@ -43,9 +43,13 @@ private fun SatsCardScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                         Modifier
                             .fillMaxWidth()
                             .aspectRatio(16f / 9)
-                            .background(SatsTheme.colors.waitingList.primary),
+                            .background(SatsTheme.colors2.surfaces.fixed.bg.default),
                     ) {
-                        Text("Image", Modifier.align(Alignment.Center), color = SatsTheme.colors.onWaitingList.primary)
+                        Text(
+                            text = "Image",
+                            modifier = Modifier.align(Alignment.Center),
+                            color = SatsTheme.colors2.surfaces.fixed.fg.default,
+                        )
                     }
 
                     Column(Modifier.padding(SatsTheme.spacing.m), Arrangement.spacedBy(SatsTheme.spacing.xxs)) {

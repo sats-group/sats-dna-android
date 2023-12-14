@@ -1,5 +1,6 @@
 package com.sats.dna.components.icons
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -28,12 +29,12 @@ fun WorkoutTypeIcon(type: WorkoutType, contentDescription: String?, modifier: Mo
     }
 
     val color = when (type) {
-        WorkoutType.GroupExercise -> SatsTheme.colors.workout.gx
-        WorkoutType.GymTraining -> SatsTheme.colors.workout.gymFloor
-        WorkoutType.OnlineTraining -> SatsTheme.colors.workout.other
-        WorkoutType.OwnTraining -> SatsTheme.colors.workout.other
-        WorkoutType.PtAppointment -> SatsTheme.colors.workout.pt
-        WorkoutType.Unknown -> SatsTheme.colors.workout.other
+        WorkoutType.GroupExercise -> SatsTheme.colors2.graphicalElements.workouts.gx
+        WorkoutType.GymTraining -> SatsTheme.colors2.graphicalElements.workouts.gymfloor
+        WorkoutType.OnlineTraining -> SatsTheme.colors2.graphicalElements.workouts.ownTrainingOther
+        WorkoutType.OwnTraining -> SatsTheme.colors2.graphicalElements.workouts.ownTrainingOther
+        WorkoutType.PtAppointment -> SatsTheme.colors2.graphicalElements.workouts.pt
+        WorkoutType.Unknown -> SatsTheme.colors2.graphicalElements.workouts.ownTrainingOther
     }
 
     Icon(icon, contentDescription, modifier, color)
@@ -55,8 +56,8 @@ enum class WorkoutType {
 @Composable
 private fun Preview(@PreviewParameter(WorkoutTypePreviewProvider::class) workoutType: WorkoutType) {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary) {
-            WorkoutTypeIcon(workoutType, contentDescription = null)
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            WorkoutTypeIcon(workoutType, contentDescription = null, Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }

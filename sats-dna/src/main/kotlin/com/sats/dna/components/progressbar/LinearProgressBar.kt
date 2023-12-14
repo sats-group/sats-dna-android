@@ -22,9 +22,10 @@ import com.sats.dna.tooling.LightDarkPreview
 fun LinearProgressBar(
     progress: Float,
     modifier: Modifier = Modifier,
-    foregroundColor: Color = SatsTheme.colors.onBackground.controls.enabledOn,
-    backgroundColor: Color = SatsTheme.colors.onBackground.primary.copy(alpha = .15f),
 ) {
+    val foregroundColor = SatsTheme.colors2.graphicalElements.progressBar.indicator
+    val backgroundColor = SatsTheme.colors2.graphicalElements.progressBar.bg
+
     Canvas(
         modifier
             .progressSemantics(progress)

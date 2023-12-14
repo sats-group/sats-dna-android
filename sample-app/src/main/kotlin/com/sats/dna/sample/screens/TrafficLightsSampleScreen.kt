@@ -38,14 +38,7 @@ private fun TrafficLightsScreen(navigateUp: () -> Unit, modifier: Modifier = Mod
                 .verticalScroll(rememberScrollState())
                 .padding(innerPadding),
         ) {
-            val openStates = listOf(
-                TrafficLightColor.Gray,
-                TrafficLightColor.Green,
-                TrafficLightColor.Yellow,
-                TrafficLightColor.Red,
-            )
-
-            openStates.forEach { color ->
+            TrafficLightColor.entries.forEach { color ->
                 Row(
                     Modifier.padding(SatsTheme.spacing.m),
                     Arrangement.spacedBy(SatsTheme.spacing.m),

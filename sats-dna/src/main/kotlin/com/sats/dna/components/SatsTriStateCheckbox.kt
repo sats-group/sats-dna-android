@@ -1,7 +1,6 @@
 package com.sats.dna.components
 
 import androidx.compose.material3.CheckboxDefaults
-import androidx.compose.material3.Surface
 import androidx.compose.material3.TriStateCheckbox
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -29,18 +28,19 @@ fun SatsTriStateCheckbox(
 
 private val colors
     @Composable get() = CheckboxDefaults.colors(
-        checkedColor = SatsTheme.colors.onBackground.controls.enabledOn,
-        uncheckedColor = SatsTheme.colors.onBackground.controls.enabledOff,
-        disabledCheckedColor = SatsTheme.colors.onBackground.controls.disabledOn,
-        disabledIndeterminateColor = SatsTheme.colors.onBackground.controls.disabledOn,
-        disabledUncheckedColor = SatsTheme.colors.onBackground.controls.disabledOff,
+        checkedColor = SatsTheme.colors2.graphicalElements.toggle.selected.default,
+        uncheckedColor = SatsTheme.colors2.graphicalElements.toggle.unselected.default,
+        disabledCheckedColor = SatsTheme.colors2.graphicalElements.toggle.selected.disabled,
+        disabledIndeterminateColor = SatsTheme.colors2.graphicalElements.toggle.selected.disabled,
+        disabledUncheckedColor = SatsTheme.colors2.graphicalElements.toggle.unselected.disabled,
+        checkmarkColor = SatsTheme.colors2.graphicalElements.toggle.interactiveElement,
     )
 
 @LightDarkPreview
 @Composable
 private fun EnabledPreview(@PreviewParameter(ToggleableStatePreviewProvider::class) state: ToggleableState) {
     SatsTheme {
-        Surface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsTriStateCheckbox(state, onClick = null, enabled = true)
         }
     }
@@ -50,7 +50,7 @@ private fun EnabledPreview(@PreviewParameter(ToggleableStatePreviewProvider::cla
 @Composable
 private fun DisabledPreview(@PreviewParameter(ToggleableStatePreviewProvider::class) state: ToggleableState) {
     SatsTheme {
-        Surface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsTriStateCheckbox(state, onClick = null, enabled = false)
         }
     }

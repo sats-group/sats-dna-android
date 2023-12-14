@@ -5,8 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
@@ -16,6 +14,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.card.SatsCard
+import com.sats.dna.internal.MaterialIcon
+import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
@@ -50,18 +50,18 @@ fun SatsEmptyState(
                 verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                Icon(icon, contentDescription = null, Modifier.size(18.dp))
+                MaterialIcon(icon, contentDescription = null, Modifier.size(18.dp))
 
                 Column(
                     verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
-                    Text(title, textAlign = TextAlign.Center)
+                    MaterialText(title, textAlign = TextAlign.Center)
 
                     if (body != null) {
-                        Text(
+                        MaterialText(
                             text = body,
-                            color = SatsTheme.colors.onSurface.secondary,
+                            color = SatsTheme.colors2.surfaces.primary.fg.alternate,
                             textAlign = TextAlign.Center,
                             style = SatsTheme.typography.normal.small,
                         )
@@ -88,7 +88,7 @@ data class SatsEmptyStateAction(val action: () -> Unit, val label: String)
 @Composable
 private fun SatsEmptyStatePreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsEmptyState(
                 icon = SatsTheme.icons.barbell,
                 title = "You don't have friends",

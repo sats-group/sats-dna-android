@@ -10,7 +10,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
@@ -23,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
@@ -31,7 +31,11 @@ fun SatsBottomNavigation(
     state: SatsBottomNavigationState,
     modifier: Modifier = Modifier,
 ) {
-    NavigationBar(modifier, containerColor = SatsTheme.colors.surface.secondary) {
+    NavigationBar(
+        modifier = modifier,
+        containerColor = SatsTheme.colors2.surfaces.primary.bg.default,
+        contentColor = SatsTheme.colors2.surfaces.primary.fg.default,
+    ) {
         state.items.forEach { item ->
             val icon = if (item == state.selectedItem) item.selectedIcon else item.unselectedIcon
 
@@ -40,13 +44,11 @@ fun SatsBottomNavigation(
                 label = { BottomNavLabel(item) },
                 selected = item == state.selectedItem,
                 colors = NavigationBarItemDefaults.colors(
-                    selectedIconColor = SatsTheme.colors.navigation,
-                    selectedTextColor = SatsTheme.colors.navigation,
-                    indicatorColor = SatsTheme.colors.surface.secondary,
-                    unselectedIconColor = SatsTheme.colors.onSurface.secondary,
-                    unselectedTextColor = SatsTheme.colors.onSurface.secondary,
-                    disabledIconColor = SatsTheme.colors.onSurface.disabled,
-                    disabledTextColor = SatsTheme.colors.onSurface.disabled,
+                    selectedIconColor = SatsTheme.colors2.surfaces.primary.bg.default,
+                    selectedTextColor = SatsTheme.colors2.graphicalElements.navBar.selected,
+                    indicatorColor = SatsTheme.colors2.graphicalElements.navBar.selected,
+                    unselectedIconColor = SatsTheme.colors2.graphicalElements.navBar.notSelected,
+                    unselectedTextColor = SatsTheme.colors2.graphicalElements.navBar.notSelected,
                 ),
                 onClick = { state.selectedItem = item },
             )
@@ -81,7 +83,7 @@ private fun BottomNavIconBadge(modifier: Modifier = Modifier) {
     Box(
         modifier
             .size(8.dp)
-            .background(SatsTheme.colors.cta.default, CircleShape),
+            .background(SatsTheme.colors2.graphicalElements.indicators.positive.default, CircleShape),
     )
 }
 
@@ -101,7 +103,7 @@ data class SatsBottomNavigationItem(
 @Composable
 private fun Preview() {
     SatsTheme {
-        Surface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             val state = rememberSampleBottomNavigationState()
 
             Column {

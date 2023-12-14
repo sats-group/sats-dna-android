@@ -30,7 +30,7 @@ fun SatsChallengeBadge(
                 modifier = Modifier.fillMaxSize(),
                 progress = progress,
                 strokeWidth = 2.dp,
-                color = SatsTheme.colors.ui.graphicalElements5,
+                color = SatsTheme.colors2.graphicalElements.progressBar.indicator,
             )
         }
 
@@ -63,7 +63,7 @@ private fun ErrorFallback(contentDescription: String?, modifier: Modifier = Modi
 @Composable
 private fun Preview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
             SatsChallengeBadge(
                 imageUrl = null,
                 contentDescription = null,
@@ -79,7 +79,7 @@ private fun Preview() {
 @Composable
 private fun ProgressPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
             SatsChallengeBadge(
                 imageUrl = null,
                 contentDescription = null,

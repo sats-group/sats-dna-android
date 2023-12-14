@@ -50,7 +50,7 @@ private fun Brand.fullNameIconPainter() = when (this) {
 @Composable
 private fun ElixiaLetterPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             BrandLogo(
                 brand = Brand.Elixia,
                 contentDescription = null,
@@ -64,7 +64,7 @@ private fun ElixiaLetterPreview() {
 @Composable
 private fun ElixiaFullPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             BrandLogo(
                 brand = Brand.Elixia,
                 contentDescription = null,
@@ -79,7 +79,7 @@ private fun ElixiaFullPreview() {
 @Composable
 private fun SatsLetterPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             BrandLogo(
                 brand = Brand.Sats,
                 contentDescription = null,
@@ -93,7 +93,7 @@ private fun SatsLetterPreview() {
 @Composable
 private fun SatsFullPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             BrandLogo(
                 brand = Brand.Sats,
                 contentDescription = null,

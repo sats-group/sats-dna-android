@@ -2,7 +2,6 @@ package com.sats.dna.components
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.runtime.Composable
@@ -34,29 +33,29 @@ fun SatsSwitch(
 
 private val colors
     @Composable get() = SwitchDefaults.colors(
-        checkedThumbColor = SatsTheme.colors.background.primary,
-        checkedTrackColor = SatsTheme.colors.onBackground.controls.enabledOn,
+        checkedThumbColor = SatsTheme.colors2.graphicalElements.toggle.interactiveElement,
+        checkedTrackColor = SatsTheme.colors2.graphicalElements.toggle.selected.default,
         checkedBorderColor = Color.Transparent,
-        checkedIconColor = SatsTheme.colors.onBackground.controls.enabledOn,
-        uncheckedThumbColor = SatsTheme.colors.background.primary,
-        uncheckedTrackColor = SatsTheme.colors.onBackground.controls.enabledOff,
+        checkedIconColor = SatsTheme.colors2.graphicalElements.toggle.selected.default,
+        uncheckedThumbColor = SatsTheme.colors2.graphicalElements.toggle.interactiveElement,
+        uncheckedTrackColor = SatsTheme.colors2.graphicalElements.toggle.unselected.default,
         uncheckedBorderColor = Color.Transparent,
-        uncheckedIconColor = SatsTheme.colors.onBackground.controls.enabledOff,
-        disabledCheckedThumbColor = SatsTheme.colors.background.primary,
-        disabledCheckedTrackColor = SatsTheme.colors.onBackground.controls.disabledOn,
+        uncheckedIconColor = SatsTheme.colors2.graphicalElements.toggle.unselected.default,
+        disabledCheckedThumbColor = SatsTheme.colors2.graphicalElements.toggle.interactiveElement,
+        disabledCheckedTrackColor = SatsTheme.colors2.graphicalElements.toggle.selected.disabled,
         disabledCheckedBorderColor = Color.Transparent,
-        disabledCheckedIconColor = SatsTheme.colors.onBackground.controls.disabledOn,
-        disabledUncheckedThumbColor = SatsTheme.colors.background.primary,
-        disabledUncheckedTrackColor = SatsTheme.colors.onBackground.controls.disabledOff,
+        disabledCheckedIconColor = SatsTheme.colors2.graphicalElements.toggle.selected.disabled,
+        disabledUncheckedThumbColor = SatsTheme.colors2.graphicalElements.toggle.interactiveElement,
+        disabledUncheckedTrackColor = SatsTheme.colors2.graphicalElements.toggle.unselected.disabled,
         disabledUncheckedBorderColor = Color.Transparent,
-        disabledUncheckedIconColor = SatsTheme.colors.onBackground.controls.disabledOff,
+        disabledUncheckedIconColor = SatsTheme.colors2.graphicalElements.toggle.unselected.disabled,
     )
 
 @LightDarkPreview
 @Composable
 private fun EnabledSelectedPreview() {
     SatsTheme {
-        Surface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsSwitch(checked = true, onCheckedChange = {}, Modifier.padding(SatsTheme.spacing.m))
         }
     }
@@ -66,7 +65,7 @@ private fun EnabledSelectedPreview() {
 @Composable
 private fun EnabledUnselectedPreview() {
     SatsTheme {
-        Surface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsSwitch(checked = false, onCheckedChange = {}, Modifier.padding(SatsTheme.spacing.m))
         }
     }
@@ -76,7 +75,7 @@ private fun EnabledUnselectedPreview() {
 @Composable
 private fun DisabledSelectedPreview() {
     SatsTheme {
-        Surface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsSwitch(checked = true, onCheckedChange = {}, Modifier.padding(SatsTheme.spacing.m), enabled = false)
         }
     }
@@ -86,7 +85,7 @@ private fun DisabledSelectedPreview() {
 @Composable
 private fun DisabledUnselectedPreview() {
     SatsTheme {
-        Surface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsSwitch(checked = false, onCheckedChange = {}, Modifier.padding(SatsTheme.spacing.m), enabled = false)
         }
     }

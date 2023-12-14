@@ -24,58 +24,58 @@ internal fun SatsButtonColor.asMaterialButtonColors(isEnabled: Boolean): ButtonC
 
 internal val SatsButtonColor.borderColor: Color?
     @Composable get() = when (this) {
-        SatsButtonColor.WaitingListSecondary -> SatsTheme.colors.waitingList.primary
-        SatsButtonColor.Secondary -> SatsTheme.colors.primary.default
+        SatsButtonColor.WaitingListSecondary -> SatsTheme.colors2.buttons.waitingListOutlined.default
+        SatsButtonColor.Secondary -> SatsTheme.colors2.buttons.primary.default.bg
         else -> null
     }
 
 internal val SatsButtonColor.disabledBorderColor: Color?
     @Composable get() = when (this) {
-        SatsButtonColor.WaitingListSecondary -> SatsTheme.colors.waitingList.primary
-        SatsButtonColor.Secondary -> SatsTheme.colors.primary.disabled
+        SatsButtonColor.WaitingListSecondary -> SatsTheme.colors2.buttons.waitingListOutlined.disabled
+        SatsButtonColor.Secondary -> SatsTheme.colors2.buttons.primary.disabled.bg
         else -> null
     }
 
 internal val SatsButtonColor.backgroundColor: Color
     @Composable get() = when (this) {
-        SatsButtonColor.Primary -> SatsTheme.colors.primary.default
-        SatsButtonColor.Cta -> SatsTheme.colors.cta.default
+        SatsButtonColor.Primary -> SatsTheme.colors2.buttons.primary.default.bg
+        SatsButtonColor.Cta -> SatsTheme.colors2.buttons.cta.default.bg
         SatsButtonColor.Secondary -> Color.Transparent
-        SatsButtonColor.Clean -> SatsTheme.colors.clean.default
-        SatsButtonColor.WaitingList -> SatsTheme.colors.waitingList.primary
+        SatsButtonColor.Clean -> SatsTheme.colors2.buttons.clean.default.bg
+        SatsButtonColor.WaitingList -> SatsTheme.colors2.buttons.waitingListFilled.default.bg
         SatsButtonColor.WaitingListSecondary -> Color.Transparent
         SatsButtonColor.Transparent -> Color.Transparent
     }
 
 internal val SatsButtonColor.contentColor: Color
     @Composable get() = when (this) {
-        SatsButtonColor.Primary -> SatsTheme.colors.onPrimary.default
-        SatsButtonColor.Cta -> SatsTheme.colors.onCta.default
-        SatsButtonColor.Secondary -> SatsTheme.colors.onSecondary.default
-        SatsButtonColor.Clean -> SatsTheme.colors.onClean.default
-        SatsButtonColor.WaitingList -> SatsTheme.colors.onWaitingList.primary
-        SatsButtonColor.WaitingListSecondary -> SatsTheme.colors.waitingList.text
-        SatsButtonColor.Transparent -> SatsTheme.colors.action.default
+        SatsButtonColor.Primary -> SatsTheme.colors2.buttons.primary.default.fg
+        SatsButtonColor.Cta -> SatsTheme.colors2.buttons.cta.default.fg
+        SatsButtonColor.Secondary -> SatsTheme.colors2.buttons.primary.default.fg
+        SatsButtonColor.Clean -> SatsTheme.colors2.buttons.clean.default.fg
+        SatsButtonColor.WaitingList -> SatsTheme.colors2.buttons.waitingListFilled.default.fg
+        SatsButtonColor.WaitingListSecondary -> SatsTheme.colors2.buttons.waitingListOutlined.default
+        SatsButtonColor.Transparent -> SatsTheme.colors2.buttons.action.default
     }
 
 internal val SatsButtonColor.disabledBackgroundColor: Color
     @Composable get() = when (this) {
-        SatsButtonColor.Primary -> SatsTheme.colors.primary.disabled
-        SatsButtonColor.Cta -> SatsTheme.colors.cta.disabled
+        SatsButtonColor.Primary -> SatsTheme.colors2.buttons.primary.disabled.bg
+        SatsButtonColor.Cta -> SatsTheme.colors2.buttons.cta.disabled.bg
         SatsButtonColor.Secondary -> Color.Transparent
-        SatsButtonColor.Clean -> SatsTheme.colors.clean.disabled
-        SatsButtonColor.WaitingList -> SatsTheme.colors.waitingList.disabled
+        SatsButtonColor.Clean -> SatsTheme.colors2.buttons.clean.disabled.bg
+        SatsButtonColor.WaitingList -> SatsTheme.colors2.buttons.waitingListFilled.disabled.bg
         SatsButtonColor.WaitingListSecondary -> Color.Transparent
         SatsButtonColor.Transparent -> Color.Transparent
     }
 
 internal val SatsButtonColor.disabledContentColor: Color
     @Composable get() = when (this) {
-        SatsButtonColor.Primary -> SatsTheme.colors.onPrimary.disabled
-        SatsButtonColor.Cta -> SatsTheme.colors.onCta.disabled
-        SatsButtonColor.Secondary -> SatsTheme.colors.onSecondary.disabled
-        SatsButtonColor.Clean -> SatsTheme.colors.onClean.disabled
-        SatsButtonColor.WaitingList -> SatsTheme.colors.onWaitingList.disabled
-        SatsButtonColor.WaitingListSecondary -> SatsTheme.colors.waitingList.disabled
-        SatsButtonColor.Transparent -> SatsTheme.colors.action.disabled
+        SatsButtonColor.Primary -> SatsTheme.colors2.buttons.primary.disabled.fg
+        SatsButtonColor.Cta -> SatsTheme.colors2.buttons.cta.disabled.fg
+        SatsButtonColor.Secondary -> SatsTheme.colors2.buttons.secondary.disabled.fg
+        SatsButtonColor.Clean -> SatsTheme.colors2.buttons.clean.disabled.fg
+        SatsButtonColor.WaitingList -> SatsTheme.colors2.buttons.waitingListFilled.disabled.fg
+        SatsButtonColor.WaitingListSecondary -> SatsTheme.colors2.buttons.waitingListOutlined.disabled
+        SatsButtonColor.Transparent -> SatsTheme.colors2.buttons.action.disabled
     }

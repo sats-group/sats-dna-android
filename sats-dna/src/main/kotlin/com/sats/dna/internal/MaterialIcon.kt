@@ -42,7 +42,7 @@ internal fun materialIconTint(): Color {
 @Composable
 private fun M2Preview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = false) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = false) {
             MaterialIcon(SatsTheme.icons.barbell, contentDescription = null, Modifier.padding(SatsTheme.spacing.m))
         }
     }
@@ -52,7 +52,7 @@ private fun M2Preview() {
 @Composable
 private fun M3Preview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             MaterialIcon(SatsTheme.icons.barbell, contentDescription = null, Modifier.padding(SatsTheme.spacing.m))
         }
     }

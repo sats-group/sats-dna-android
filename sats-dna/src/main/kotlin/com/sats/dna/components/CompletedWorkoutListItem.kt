@@ -91,10 +91,10 @@ private fun SocialRow(
                 MaterialIcon(
                     SatsTheme.icons.fistBump,
                     contentDescription = null,
-                    tint = SatsTheme.colors.onBackground.secondary,
+                    tint = SatsTheme.colors2.backgrounds.secondary.fg.default,
                 )
 
-                MaterialText(numberOfReactionsLabel, color = SatsTheme.colors.onBackground.secondary)
+                MaterialText(numberOfReactionsLabel, color = SatsTheme.colors2.backgrounds.secondary.fg.default)
             }
         }
 
@@ -111,9 +111,9 @@ private fun SocialRow(
                 MaterialIcon(
                     SatsTheme.icons.comment,
                     contentDescription = null,
-                    tint = SatsTheme.colors.action.default,
+                    tint = SatsTheme.colors2.buttons.action.default,
                 )
-                MaterialText(normalizedNumberOfComments, color = SatsTheme.colors.onBackground.secondary)
+                MaterialText(normalizedNumberOfComments, color = SatsTheme.colors2.backgrounds.secondary.fg.default)
             }
 
             LikeButton(isLiked = isLiked, onSaidAwesomeClicked)
@@ -131,7 +131,7 @@ private fun WorkoutInfo(
     Column(modifier) {
         MaterialText(
             timestamp,
-            color = SatsTheme.colors.onBackground.secondary,
+            color = SatsTheme.colors2.backgrounds.secondary.fg.default,
             style = SatsTheme.typography.normal.small,
         )
 
@@ -140,7 +140,7 @@ private fun WorkoutInfo(
         if (subtitle != null) {
             MaterialText(
                 subtitle,
-                color = SatsTheme.colors.onBackground.secondary,
+                color = SatsTheme.colors2.backgrounds.secondary.fg.default,
                 style = SatsTheme.typography.normal.small,
             )
         }
@@ -152,7 +152,7 @@ private fun WorkoutInfo(
 @Composable
 private fun Preview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             Column {
                 CompletedWorkoutListItem(
                     icon = { WorkoutTypeIcon(WorkoutType.OwnTraining, null, Modifier.size(34.dp)) },
