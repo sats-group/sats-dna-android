@@ -162,7 +162,7 @@ internal val SatsLightColors2 = SatsColors2(
             unselected = SatsColors2.GraphicalElements.Chips.Unselected(
                 default = SatsColors2.GraphicalElements.Chips.Unselected.Default(
                     bg = SatsColorPrimitives.SatsBlue40,
-                    fg = SatsColorPrimitives.SatsLightGrey15,
+                    fg = SatsColorPrimitives.SatsBlue,
                 ),
                 disabled = SatsColors2.GraphicalElements.Chips.Unselected.Disabled(
                     bg = SatsColorPrimitives.SatsLightGrey15,
