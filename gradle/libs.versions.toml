@@ -30,7 +30,7 @@ androidx-navigation-compose = { module = "androidx.navigation:navigation-compose
 androidx-test-espresso = "androidx.test.espresso:espresso-core:3.5.1"
 androidx-test-junit = "androidx.test.ext:junit:1.1.5"
 coil-compose = "io.coil-kt:coil-compose:2.5.0"
-google-material = "com.google.android.material:material:1.10.0"
+google-material = "com.google.android.material:material:1.11.0"
 junit4 = "junit:junit:4.13.2"
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 sats-fonts-headline = "com.sats.fonts:sats-headline-font:1.0.1"
