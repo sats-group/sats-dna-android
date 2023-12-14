@@ -93,7 +93,7 @@ jobs:
         run: echo "VERSION_NAME=$(echo ${{ github.ref }} | sed 's/refs\/tags\/v//')" >> $GITHUB_ENV
 
       - name: Download Artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: sats-dna-lib
           path: sats-dna/build/outputs/aar/
@@ -171,7 +171,7 @@ jobs:
 
     steps:
       - name: Download Artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: sats-dna-sample-app
           path: sample-app/build/outputs/bundle/release/
