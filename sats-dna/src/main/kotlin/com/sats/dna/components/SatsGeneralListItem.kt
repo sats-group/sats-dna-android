@@ -100,9 +100,9 @@ interface SatsGeneralListItemColors {
 object SatsGeneralListItemDefaults {
     @Composable
     fun generalListItemColors(
-        titleColor: Color = SatsTheme.colors.onSurface.primary,
-        subtitleColor: Color = SatsTheme.colors.onSurface.secondary,
-        iconColor: Color = SatsTheme.colors.onSurface.primary,
+        titleColor: Color = SatsTheme.colors2.surfaces.primary.fg.default,
+        subtitleColor: Color = SatsTheme.colors2.surfaces.primary.fg.alternate,
+        iconColor: Color = SatsTheme.colors2.surfaces.primary.fg.default,
     ): SatsGeneralListItemColors = DefaultSatsGeneralListItem(
         titleColor = titleColor,
         subtitleColor = subtitleColor,
@@ -111,7 +111,7 @@ object SatsGeneralListItemDefaults {
 }
 
 @Immutable
-class DefaultSatsGeneralListItem(
+private class DefaultSatsGeneralListItem(
     override val titleColor: Color,
     override val subtitleColor: Color,
     override val iconColor: Color,
@@ -121,7 +121,7 @@ class DefaultSatsGeneralListItem(
 @Composable
 private fun Preview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -136,7 +136,7 @@ private fun Preview() {
 @Composable
 private fun WithSubtitle() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -152,7 +152,7 @@ private fun WithSubtitle() {
 @Composable
 private fun WithTrailingContentPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -168,7 +168,7 @@ private fun WithTrailingContentPreview() {
 @Composable
 private fun WithAdvancedTrailingContentPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -184,16 +184,14 @@ private fun WithAdvancedTrailingContentPreview() {
 @Composable
 private fun WithNonDefaultColorsPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsTheme.icons.questionMark,
-                colors = DefaultSatsGeneralListItem(
-                    titleColor = SatsTheme.colors.cta.default,
-                    subtitleColor = SatsTheme.colors.cta.default,
-                    iconColor = SatsTheme.colors.cta.default,
+                icon = SatsTheme.icons.info,
+                colors = SatsGeneralListItemDefaults.generalListItemColors(
+                    iconColor = SatsTheme.colors2.graphicalElements.icons.attention,
                 ),
             )
         }
@@ -204,7 +202,7 @@ private fun WithNonDefaultColorsPreview() {
 @Composable
 private fun WithoutIconPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},

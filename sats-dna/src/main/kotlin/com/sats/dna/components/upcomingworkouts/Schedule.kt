@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -41,7 +42,7 @@ private fun ScheduledDays(
                 MaterialText(
                     text = dayName,
                     modifier = Modifier.padding(horizontal = cardInnerPadding),
-                    color = SatsTheme.colors.onSurface.secondary,
+                    color = SatsTheme.colors2.surfaces.primary.fg.alternate,
                     style = SatsTheme.typography.normal.small,
                 )
 
@@ -137,7 +138,9 @@ private fun SchedulePreview() {
     )
 
     SatsTheme {
-        Schedule(schedule, onWorkoutClicked = {})
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            Schedule(schedule, onWorkoutClicked = {}, Modifier.padding(SatsTheme.spacing.m))
+        }
     }
 }
 

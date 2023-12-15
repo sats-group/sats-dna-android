@@ -356,28 +356,28 @@ private fun GraphicalElements() {
             val base = SatsTheme.colors2.graphicalElements.chips
 
             ColorSample(
-                backgroundColor = base.unselected.bg.default named "Unselected Default",
-                contentColor = base.unselected.fg.default named "Unselected Default",
+                backgroundColor = base.unselected.default.bg named "Unselected Default",
+                contentColor = base.unselected.default.fg named "Unselected Default",
             )
 
             ColorSample(
-                backgroundColor = base.unselected.bg.disabled named "Unselected Disabled",
-                contentColor = base.unselected.fg.disabled named "Unselected Disabled",
+                backgroundColor = base.unselected.disabled.bg named "Unselected Disabled",
+                contentColor = base.unselected.disabled.fg named "Unselected Disabled",
             )
 
             ColorSample(
-                backgroundColor = base.selected.bg.default named "Selected Default",
-                contentColor = base.selected.fg.default named "Selected Default",
+                backgroundColor = base.selected.default.bg named "Selected Default",
+                contentColor = base.selected.default.fg named "Selected Default",
             )
 
             ColorSample(
-                backgroundColor = base.selected.bg.hover named "Selected Hover",
-                contentColor = base.selected.fg.default named "Selected Default",
+                backgroundColor = base.selected.hover.bg named "Selected Hover",
+                contentColor = base.selected.default.fg named "Selected Default",
             )
 
             ColorSample(
-                backgroundColor = base.selected.bg.disabled named "Selected Disabled",
-                contentColor = base.selected.fg.disabled named "Selected Disabled",
+                backgroundColor = base.selected.disabled.bg named "Selected Disabled",
+                contentColor = base.selected.disabled.fg named "Selected Disabled",
             )
         }
 
@@ -550,23 +550,23 @@ private fun GraphicalElements() {
             val base = SatsTheme.colors2.graphicalElements.rewards
 
             ColorSample(
-                backgroundColor = base.bg.blue named "Blue",
-                contentColor = base.fg named "Rewards",
+                backgroundColor = base.blue.bg named "Blue",
+                contentColor = base.blue.fg named "Rewards",
             )
 
             ColorSample(
-                backgroundColor = base.bg.silver named "Silver",
-                contentColor = base.fg named "Rewards",
+                backgroundColor = base.silver.bg named "Silver",
+                contentColor = base.silver.fg named "Rewards",
             )
 
             ColorSample(
-                backgroundColor = base.bg.gold named "Gold",
-                contentColor = base.fg named "Rewards",
+                backgroundColor = base.gold.bg named "Gold",
+                contentColor = base.gold.fg named "Rewards",
             )
 
             ColorSample(
-                backgroundColor = base.bg.platinum named "Platinum",
-                contentColor = base.fg named "Rewards",
+                backgroundColor = base.platinum.bg named "Platinum",
+                contentColor = base.platinum.fg named "Rewards",
             )
         }
 
@@ -997,7 +997,7 @@ class NamedColor(val name: String, val color: Color) {
 @Composable
 private fun ColorSamplePreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             ColorSample(
                 backgroundColor = Color.Green named "Green",
                 contentColor = Color.Red named "Red",

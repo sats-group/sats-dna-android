@@ -29,9 +29,9 @@ fun SatsTopAppBar(
     contentPadding: PaddingValues = PaddingValues(),
 ) {
     TopAppBar(
-        backgroundColor = SatsTheme.colors.surface.primary,
+        backgroundColor = SatsTheme.colors2.surfaces.primary.bg.default,
         contentPadding = contentPadding,
-        contentColor = SatsTheme.colors.onSurface.primary,
+        contentColor = SatsTheme.colors2.surfaces.primary.fg.default,
         title = title,
         modifier = modifier,
         navigationIcon = navigationIcon,
@@ -69,15 +69,15 @@ fun M3SatsTopAppBar(
     scrollBehavior: TopAppBarScrollBehavior? = null,
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
 ) {
-    val scrolledContainerColor = SatsTheme.colors.primary.default.copy(alpha = .08f)
-        .compositeOver(SatsTheme.colors.surface.primary)
+    val scrolledContainerColor = SatsTheme.colors2.surfaces.fixed.bg.default.copy(alpha = .08f)
+        .compositeOver(SatsTheme.colors2.surfaces.primary.bg.default)
 
     // If we don't have a scroll behaviour, then we need to always separate the top app bar from the following
     // content, and using the same color as we would when the content was scrolled makes sense here.
     val containerColor = if (scrollBehavior == null) {
         scrolledContainerColor
     } else {
-        SatsTheme.colors.background.primary
+        SatsTheme.colors2.surfaces.primary.bg.default
     }
 
     M3TopAppBar(

@@ -132,18 +132,21 @@ private fun ControlPanel(state: ControlPanelState) {
                 isEnabled = !state.isLoadingToggled,
                 isSelected = state.isEnabledToggled && !state.isLoadingToggled,
                 onClick = { state.isEnabledToggled = !state.isEnabledToggled },
+                onClickLabel = null,
             )
 
             SatsFilterChip(
                 text = "Loading",
                 isSelected = state.isLoadingToggled,
                 onClick = { state.isLoadingToggled = !state.isLoadingToggled },
+                onClickLabel = null,
             )
 
             SatsFilterChip(
                 text = "Large",
                 isSelected = state.isLargeToggled,
                 onClick = { state.isLargeToggled = !state.isLargeToggled },
+                onClickLabel = null,
             )
 
             SatsFilterChip(
@@ -151,6 +154,7 @@ private fun ControlPanel(state: ControlPanelState) {
                 isSelected = state.isIconEnabled,
                 isEnabled = !state.isLoadingToggled,
                 onClick = { state.isIconEnabled = !state.isIconEnabled },
+                onClickLabel = null,
             )
         }
     }

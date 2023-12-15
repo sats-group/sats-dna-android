@@ -11,45 +11,63 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Immutable
-import androidx.compose.runtime.State
-import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.sats.dna.colors.satsContentColorFor
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
-import androidx.compose.material.Surface as Material2Surface
-import androidx.compose.material3.Surface as Material3Surface
 
 @Composable
 fun SatsFilterChip(
     text: String,
     isSelected: Boolean,
     onClick: () -> Unit,
+    onClickLabel: String?,
     modifier: Modifier = Modifier,
     isEnabled: Boolean = true,
-    colors: SatsFilterChipColors = SatsChipDefaults.filterChipColors(),
 ) {
-    val backgroundColor = colors.backgroundColor(
-        isSelected = isSelected,
-        isEnabled = isEnabled,
+    val backgroundColor = animateColorAsState(
+        targetValue = when (isSelected) {
+            true -> when (isEnabled) {
+                true -> SatsTheme.colors2.graphicalElements.chips.selected.default.bg
+                false -> SatsTheme.colors2.graphicalElements.chips.selected.disabled.bg
+            }
+
+            false -> Color.Transparent
+        },
+        label = "background color",
     )
 
-    val contentColor = colors.contentColor(
-        isSelected = isSelected,
-        isEnabled = isEnabled,
+    val contentColor = animateColorAsState(
+        targetValue = when (isSelected) {
+            true -> when (isEnabled) {
+                true -> SatsTheme.colors2.graphicalElements.chips.selected.default.fg
+                false -> SatsTheme.colors2.graphicalElements.chips.selected.disabled.fg
+            }
+
+            false -> when (isEnabled) {
+                true -> SatsTheme.colors2.graphicalElements.chips.unselected.default.fg
+                false -> SatsTheme.colors2.graphicalElements.chips.unselected.disabled.fg
+            }
+        },
+        label = "content color",
     )
 
-    val borderColor = colors.borderColor(
-        isSelected = isSelected,
-        isEnabled = isEnabled,
+    val borderColor = animateColorAsState(
+        targetValue = when (isSelected) {
+            true -> Color.Transparent
+
+            false -> when (isEnabled) {
+                true -> SatsTheme.colors2.graphicalElements.chips.unselected.default.fg
+                false -> SatsTheme.colors2.graphicalElements.chips.unselected.disabled.fg
+            }
+        },
+        label = "border color",
     )
 
     SatsChipLayout(
@@ -61,7 +79,12 @@ fun SatsFilterChip(
         MaterialText(
             text = text,
             modifier = Modifier
-                .clickable(enabled = isEnabled, role = Role.Switch) { onClick() }
+                .clickable(
+                    onClick = onClick,
+                    onClickLabel = onClickLabel,
+                    enabled = isEnabled,
+                    role = Role.Switch,
+                )
                 .padding(horizontal = SatsTheme.spacing.m, vertical = SatsTheme.spacing.s),
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
@@ -72,16 +95,12 @@ fun SatsFilterChip(
 @Composable
 fun SatsInputChip(
     text: String,
-    action: @Composable () -> Unit,
+    clearAction: SatsInputChipClearAction?,
     modifier: Modifier = Modifier,
-    colors: SatsInputChipColors = SatsChipDefaults.inputChipColors(),
 ) {
-    val backgroundColor = colors.backgroundColor().value
-    val contentColor = colors.contentColor().value
-
     SatsChipLayout(
-        backgroundColor = backgroundColor,
-        contentColor = contentColor,
+        backgroundColor = SatsTheme.colors2.graphicalElements.chips.selected.default.bg,
+        contentColor = SatsTheme.colors2.graphicalElements.chips.selected.default.fg,
         borderColor = null,
         modifier = modifier.width(IntrinsicSize.Max),
     ) {
@@ -97,10 +116,14 @@ fun SatsInputChip(
                 overflow = TextOverflow.Ellipsis,
             )
 
-            action()
+            clearAction?.let {
+                SatsInputChipClearButton(clearAction.onClick, clearAction.onClickLabel)
+            }
         }
     }
 }
+
+class SatsInputChipClearAction(val onClick: () -> Unit, val onClickLabel: String?)
 
 @Composable
 fun SatsInputChipClearButton(
@@ -110,14 +133,14 @@ fun SatsInputChipClearButton(
 ) {
     SatsSurface(
         modifier = modifier.size(16.dp),
-        color = SatsTheme.colors.onPrimary.default,
+        color = SatsTheme.colors2.graphicalElements.chips.selected.default.fg,
         shape = SatsTheme.shapes.circle,
     ) {
         MaterialIcon(
             painter = SatsTheme.icons.close,
             contentDescription = null,
             modifier = Modifier.clickable(onClickLabel = onClickLabel, role = Role.Button) { onClick() },
-            tint = SatsTheme.colors.primary.default,
+            tint = SatsTheme.colors2.graphicalElements.chips.selected.default.bg,
         )
     }
 }
@@ -130,141 +153,14 @@ private fun SatsChipLayout(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit,
 ) {
-    if (LocalUseMaterial3.current) {
-        Material3Surface(
-            modifier,
-            shape = SatsTheme.shapes.roundedCorners.extraSmall,
-            color = backgroundColor,
-            contentColor = contentColor,
-            border = borderColor?.let { BorderStroke(1.dp, it) },
-        ) {
-            content()
-        }
-    } else {
-        Material2Surface(
-            modifier,
-            shape = SatsTheme.shapes.roundedCorners.extraSmall,
-            color = backgroundColor,
-            contentColor = contentColor,
-            border = borderColor?.let { BorderStroke(1.dp, it) },
-        ) {
-            content()
-        }
-    }
-}
-
-interface SatsInputChipColors {
-    @Composable
-    fun backgroundColor(): State<Color>
-
-    @Composable
-    fun contentColor(): State<Color>
-}
-
-interface SatsFilterChipColors {
-    @Composable
-    fun backgroundColor(isSelected: Boolean, isEnabled: Boolean): State<Color>
-
-    @Composable
-    fun contentColor(isSelected: Boolean, isEnabled: Boolean): State<Color>
-
-    @Composable
-    fun borderColor(isSelected: Boolean, isEnabled: Boolean): State<Color>
-}
-
-object SatsChipDefaults {
-    @Composable
-    fun inputChipColors(
-        backgroundColor: Color = SatsTheme.colors.primary.default,
-        contentColor: Color = satsContentColorFor(backgroundColor),
-    ): SatsInputChipColors = DefaultSatsInputChipColors(
-        backgroundColor = backgroundColor,
+    SatsSurface(
+        modifier = modifier,
+        shape = SatsTheme.shapes.roundedCorners.extraSmall,
+        color = backgroundColor,
         contentColor = contentColor,
-    )
-
-    @Composable
-    fun filterChipColors(
-        borderColor: Color = SatsTheme.colors.ui.graphicalElements3,
-        contentColor: Color = SatsTheme.colors.primary.default,
-        disabledBorderColor: Color = borderColor.copy(alpha = .5f),
-        disabledContentColor: Color = SatsTheme.colors.onBackground.disabled,
-        selectedBackgroundColor: Color = SatsTheme.colors.primary.default,
-        selectedContentColor: Color = satsContentColorFor(selectedBackgroundColor),
-        disabledSelectedBackgroundColor: Color = SatsTheme.colors.primary.disabled,
-        disabledSelectedContentColor: Color = satsContentColorFor(disabledSelectedBackgroundColor),
-    ): SatsFilterChipColors = DefaultSatsFilterChipColors(
-        borderColor = borderColor,
-        contentColor = contentColor,
-        disabledBorderColor = disabledBorderColor,
-        disabledContentColor = disabledContentColor,
-        selectedBackgroundColor = selectedBackgroundColor,
-        selectedContentColor = selectedContentColor,
-        disabledSelectedBackgroundColor = disabledSelectedBackgroundColor,
-        disabledSelectedContentColor = disabledSelectedContentColor,
-    )
-}
-
-@Immutable
-private class DefaultSatsFilterChipColors(
-    private val borderColor: Color,
-    private val contentColor: Color,
-    private val disabledBorderColor: Color,
-    private val disabledContentColor: Color,
-    private val selectedBackgroundColor: Color,
-    private val selectedContentColor: Color,
-    private val disabledSelectedBackgroundColor: Color,
-    private val disabledSelectedContentColor: Color,
-) : SatsFilterChipColors {
-    @Composable
-    override fun backgroundColor(isSelected: Boolean, isEnabled: Boolean): State<Color> {
-        val targetColor = when {
-            isEnabled && isSelected -> selectedBackgroundColor
-            isEnabled && !isSelected -> Color.Transparent
-            !isEnabled && isSelected -> disabledSelectedBackgroundColor
-            else -> Color.Transparent
-        }
-
-        return animateColorAsState(targetColor, label = "background color")
-    }
-
-    @Composable
-    override fun contentColor(isSelected: Boolean, isEnabled: Boolean): State<Color> {
-        val targetColor = when {
-            isEnabled && isSelected -> selectedContentColor
-            isEnabled && !isSelected -> contentColor
-            !isEnabled && isSelected -> disabledSelectedContentColor
-            else -> disabledContentColor
-        }
-
-        return animateColorAsState(targetColor, label = "content color")
-    }
-
-    @Composable
-    override fun borderColor(isSelected: Boolean, isEnabled: Boolean): State<Color> {
-        val targetColor = when {
-            isEnabled && isSelected -> Color.Transparent
-            isEnabled && !isSelected -> borderColor
-            !isEnabled && isSelected -> Color.Transparent
-            else -> disabledBorderColor
-        }
-
-        return animateColorAsState(targetColor, label = "border color")
-    }
-}
-
-@Immutable
-private class DefaultSatsInputChipColors(
-    private val backgroundColor: Color,
-    private val contentColor: Color,
-) : SatsInputChipColors {
-    @Composable
-    override fun backgroundColor(): State<Color> {
-        return rememberUpdatedState(backgroundColor)
-    }
-
-    @Composable
-    override fun contentColor(): State<Color> {
-        return rememberUpdatedState(contentColor)
+        border = borderColor?.let { BorderStroke(1.dp, it) },
+    ) {
+        content()
     }
 }
 
@@ -272,24 +168,26 @@ private class DefaultSatsInputChipColors(
 @Composable
 private fun SatsFilterChipPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             Column {
                 Row(
                     Modifier.padding(SatsTheme.spacing.m),
                     horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
                 ) {
                     SatsFilterChip(
-                        text = "05-09",
+                        text = "Unselected Enabled",
                         isSelected = false,
                         isEnabled = true,
                         onClick = { },
+                        onClickLabel = null,
                     )
 
                     SatsFilterChip(
-                        text = "05-09",
+                        text = "Selected Enabled",
                         isSelected = true,
                         isEnabled = true,
                         onClick = { },
+                        onClickLabel = null,
                     )
                 }
 
@@ -298,17 +196,19 @@ private fun SatsFilterChipPreview() {
                     horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
                 ) {
                     SatsFilterChip(
-                        text = "05-09",
+                        text = "Unselected Disabled",
                         isSelected = false,
                         isEnabled = false,
                         onClick = { },
+                        onClickLabel = null,
                     )
 
                     SatsFilterChip(
-                        text = "05-09",
+                        text = "Selected Disabled",
                         isSelected = true,
                         isEnabled = false,
                         onClick = { },
+                        onClickLabel = null,
                     )
                 }
             }
@@ -320,19 +220,23 @@ private fun SatsFilterChipPreview() {
 @Composable
 private fun SatsInputChipPreview() {
     SatsTheme {
-        SatsSurface(Modifier.width(250.dp), color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(
+            Modifier.width(250.dp),
+            color = SatsTheme.colors2.backgrounds.primary.bg.default,
+            useMaterial3 = true,
+        ) {
             Column(
                 Modifier.padding(SatsTheme.spacing.m),
                 verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
             ) {
                 SatsInputChip(
                     text = "Oslo",
-                    action = { SatsInputChipClearButton(onClick = {}, onClickLabel = "Clear") },
+                    clearAction = SatsInputChipClearAction(onClick = {}, onClickLabel = "Clear"),
                 )
 
                 SatsInputChip(
                     text = "(4) Akersgata, Bislett, Storo, Nydalen",
-                    action = { SatsInputChipClearButton(onClick = {}, onClickLabel = "Clear") },
+                    clearAction = SatsInputChipClearAction(onClick = {}, onClickLabel = "Clear"),
                 )
             }
         }

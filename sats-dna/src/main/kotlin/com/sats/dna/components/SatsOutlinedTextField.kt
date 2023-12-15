@@ -87,7 +87,7 @@ fun M3SatsOutlinedTextField(
 @Composable
 private fun EnabledOutlinedTextFieldPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
             M3SatsOutlinedTextField(
                 value = "Text",
                 onValueChange = { },
@@ -101,7 +101,7 @@ private fun EnabledOutlinedTextFieldPreview() {
 @Composable
 private fun DisabledOutlinedTextFieldPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
             M3SatsOutlinedTextField(
                 value = "Text",
                 onValueChange = { },

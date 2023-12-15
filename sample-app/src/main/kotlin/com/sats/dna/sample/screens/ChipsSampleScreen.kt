@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsFilterChip
 import com.sats.dna.components.SatsInputChip
-import com.sats.dna.components.SatsInputChipClearButton
+import com.sats.dna.components.SatsInputChipClearAction
 import com.sats.dna.components.chip.SatsChip
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
@@ -48,6 +48,7 @@ private fun ChipsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
                     isSelected = isSelected,
                     isEnabled = true,
                     onClick = { isSelected = !isSelected },
+                    onClickLabel = null,
                 )
 
                 SatsFilterChip(
@@ -55,18 +56,19 @@ private fun ChipsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
                     isSelected = isSelected,
                     isEnabled = false,
                     onClick = { isSelected = !isSelected },
+                    onClickLabel = null,
                 )
             }
 
             Section("Input Chips") {
                 SatsInputChip(
                     text = "Oslo",
-                    action = { SatsInputChipClearButton(onClick = {}, onClickLabel = "Clear") },
+                    clearAction = SatsInputChipClearAction(onClick = {}, onClickLabel = "Clear"),
                 )
 
                 SatsInputChip(
                     text = "(4) Akersgata, Bislett, Storo, Nydalen",
-                    action = { SatsInputChipClearButton(onClick = {}, onClickLabel = "Clear") },
+                    clearAction = SatsInputChipClearAction(onClick = {}, onClickLabel = "Clear"),
                     Modifier.widthIn(max = 200.dp),
                 )
             }

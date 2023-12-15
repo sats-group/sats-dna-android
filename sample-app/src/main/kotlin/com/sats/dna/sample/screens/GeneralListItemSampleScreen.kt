@@ -9,8 +9,8 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.sats.dna.components.AdvancedTrailingContent
-import com.sats.dna.components.DefaultSatsGeneralListItem
 import com.sats.dna.components.SatsGeneralListItem
+import com.sats.dna.components.SatsGeneralListItemDefaults
 import com.sats.dna.components.SimpleTrailingContent
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
@@ -64,10 +64,10 @@ private fun GeneralListItemScreen(navigateUp: () -> Unit, modifier: Modifier = M
                 onClick = {},
                 title = "General List Item with non-default colors",
                 icon = SatsTheme.icons.info,
-                colors = DefaultSatsGeneralListItem(
-                    titleColor = SatsTheme.colors.cta.default,
-                    subtitleColor = SatsTheme.colors.cta.default,
-                    iconColor = SatsTheme.colors.cta.default,
+                colors = SatsGeneralListItemDefaults.generalListItemColors(
+                    titleColor = SatsTheme.colors2.buttons.action.default,
+                    subtitleColor = SatsTheme.colors2.buttons.action.default,
+                    iconColor = SatsTheme.colors2.buttons.action.default,
                 ),
             )
             SatsGeneralListItem(

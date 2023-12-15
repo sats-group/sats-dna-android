@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -16,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
+import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 
 object SatsShapes {
@@ -62,13 +62,13 @@ object SatsShapes {
 @Composable
 private fun Preview(@PreviewParameter(SatsShapePreviewProvider::class) shape: Shape) {
     SatsTheme {
-        Surface {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             Box(
                 Modifier
                     .size(256.dp)
                     .padding(SatsTheme.spacing.m)
                     .clip(shape)
-                    .background(SatsTheme.colors.primary.default),
+                    .background(SatsTheme.colors2.backgrounds.fixed.bg.default),
             )
         }
     }

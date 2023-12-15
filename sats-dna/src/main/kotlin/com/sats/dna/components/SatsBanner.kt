@@ -20,7 +20,7 @@ fun SatsBanner(
     title: String,
     modifier: Modifier = Modifier,
     action: @Composable (() -> Unit)? = null,
-    backgroundColor: Color = SatsTheme.colors.primary.default,
+    backgroundColor: Color = SatsTheme.colors2.backgrounds.fixed.bg.default,
     contentColor: Color = satsContentColorFor(backgroundColor),
 ) {
     SatsSurface(
@@ -47,7 +47,7 @@ fun SatsBanner(
 @Composable
 private fun SatsBannerPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsBanner(
                 modifier = Modifier.fillMaxWidth(),
                 title = "Will the real Slim Shady please stand up?",
@@ -60,7 +60,7 @@ private fun SatsBannerPreview() {
 @Composable
 private fun SatsBannerWithActionPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsBanner(
                 modifier = Modifier.fillMaxWidth(),
                 title = "Will the real Slim Shady please stand up?",

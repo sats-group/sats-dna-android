@@ -86,7 +86,7 @@ fun M3SatsTextField(
 @Composable
 private fun EnabledMaterial2TextFieldPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
             SatsTextField(
                 value = "Text",
                 onValueChange = { },
@@ -100,7 +100,7 @@ private fun EnabledMaterial2TextFieldPreview() {
 @Composable
 private fun DisabledMaterial2TextFieldPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
             SatsTextField(
                 value = "Text",
                 onValueChange = { },
@@ -115,7 +115,7 @@ private fun DisabledMaterial2TextFieldPreview() {
 @Composable
 private fun EnabledMaterial3TextFieldPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
             M3SatsTextField(
                 value = "Text",
                 onValueChange = { },
@@ -129,7 +129,7 @@ private fun EnabledMaterial3TextFieldPreview() {
 @Composable
 private fun DisabledMaterial3TextFieldPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
             M3SatsTextField(
                 value = "Text",
                 onValueChange = { },

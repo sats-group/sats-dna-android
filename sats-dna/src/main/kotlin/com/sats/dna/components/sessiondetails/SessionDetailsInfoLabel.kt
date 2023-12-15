@@ -7,9 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.Icon
 import androidx.compose.material.LocalContentColor
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
@@ -20,6 +18,8 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.components.PlaceholderBox
 import com.sats.dna.components.PlaceholderText
 import com.sats.dna.components.SatsSurface
+import com.sats.dna.internal.MaterialIcon
+import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
@@ -99,14 +99,14 @@ fun SessionDetailsInfoLabel(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         val contentColor = if (onClick == null) {
-            SatsTheme.colors.onBackground.primary
+            SatsTheme.colors2.backgrounds.primary.fg.default
         } else {
-            SatsTheme.colors.action.default
+            SatsTheme.colors2.buttons.action.default
         }
 
         CompositionLocalProvider(LocalContentColor provides contentColor) {
-            Icon(icon, contentDescription = null, Modifier.size(20.dp))
-            Text(text)
+            MaterialIcon(icon, contentDescription = null, Modifier.size(20.dp))
+            MaterialText(text)
         }
     }
 }

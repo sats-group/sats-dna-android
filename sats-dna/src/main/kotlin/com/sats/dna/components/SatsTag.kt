@@ -3,12 +3,11 @@ package com.sats.dna.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
@@ -19,15 +18,15 @@ fun SatsTag(
     color: SatsTagColor = SatsTagColor.Primary,
 ) {
     val backgroundColor = when (color) {
-        SatsTagColor.Primary -> SatsTheme.colors.primary.default
-        SatsTagColor.Secondary -> SatsTheme.colors.secondary.default
-        SatsTagColor.Featured -> SatsTheme.colors.cta.default
+        SatsTagColor.Primary -> SatsTheme.colors2.graphicalElements.tags.primary.bg
+        SatsTagColor.Secondary -> SatsTheme.colors2.graphicalElements.tags.secondary.bg
+        SatsTagColor.Featured -> SatsTheme.colors2.graphicalElements.tags.featured.bg
     }
 
     val contentColor = when (color) {
-        SatsTagColor.Primary -> SatsTheme.colors.onPrimary.default
-        SatsTagColor.Secondary -> SatsTheme.colors.onSecondary.default
-        SatsTagColor.Featured -> SatsTheme.colors.onCta.default
+        SatsTagColor.Primary -> SatsTheme.colors2.graphicalElements.tags.primary.fg
+        SatsTagColor.Secondary -> SatsTheme.colors2.graphicalElements.tags.secondary.fg
+        SatsTagColor.Featured -> SatsTheme.colors2.graphicalElements.tags.featured.fg
     }
 
     SatsTagLayout(text, backgroundColor = backgroundColor, contentColor = contentColor, modifier)
@@ -56,10 +55,17 @@ fun SatsRewardsTag(
     modifier: Modifier = Modifier,
 ) {
     val backgroundColor = when (level) {
-        SatsRewardsLevel.Blue -> SatsTheme.colors.rewards.blue
-        SatsRewardsLevel.Silver -> SatsTheme.colors.rewards.silver
-        SatsRewardsLevel.Gold -> SatsTheme.colors.rewards.gold
-        SatsRewardsLevel.Platinum -> SatsTheme.colors.rewards.platinum
+        SatsRewardsLevel.Blue -> SatsTheme.colors2.graphicalElements.rewards.blue.bg
+        SatsRewardsLevel.Silver -> SatsTheme.colors2.graphicalElements.rewards.silver.bg
+        SatsRewardsLevel.Gold -> SatsTheme.colors2.graphicalElements.rewards.gold.bg
+        SatsRewardsLevel.Platinum -> SatsTheme.colors2.graphicalElements.rewards.platinum.bg
+    }
+
+    val contentColor = when (level) {
+        SatsRewardsLevel.Blue -> SatsTheme.colors2.graphicalElements.rewards.blue.fg
+        SatsRewardsLevel.Silver -> SatsTheme.colors2.graphicalElements.rewards.silver.fg
+        SatsRewardsLevel.Gold -> SatsTheme.colors2.graphicalElements.rewards.gold.fg
+        SatsRewardsLevel.Platinum -> SatsTheme.colors2.graphicalElements.rewards.platinum.fg
     }
 
     val text = when (level) {
@@ -68,8 +74,6 @@ fun SatsRewardsTag(
         SatsRewardsLevel.Gold -> "GOLD"
         SatsRewardsLevel.Platinum -> "PLATINUM"
     }
-
-    val contentColor = SatsTheme.colors.onRewards.default
 
     SatsTagLayout(text, backgroundColor = backgroundColor, contentColor = contentColor, modifier)
 }
@@ -91,13 +95,13 @@ private fun SatsTagLayout(
     contentColor: Color,
     modifier: Modifier = Modifier,
 ) {
-    Surface(
+    SatsSurface(
         modifier,
         shape = SatsTheme.shapes.roundedCorners.extraSmall,
         color = backgroundColor,
         contentColor = contentColor,
     ) {
-        Text(
+        MaterialText(
             text.uppercase(),
             Modifier.padding(horizontal = SatsTheme.spacing.s, vertical = SatsTheme.spacing.xxs),
         )
@@ -108,7 +112,7 @@ private fun SatsTagLayout(
 @Composable
 private fun SatsTagPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
             Column(
                 Modifier.padding(SatsTheme.spacing.m),
                 verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
@@ -126,7 +130,7 @@ private fun SatsTagPreview() {
 @Composable
 private fun SatsRewardsTagPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.background.primary) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             Column(
                 Modifier.padding(SatsTheme.spacing.m),
                 verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),

@@ -34,7 +34,7 @@ private fun FriendsBookingStatusScreen(navigateUp: () -> Unit, modifier: Modifie
                 .padding(innerPadding)
                 .fillMaxSize()
                 .wrapContentSize()
-                .background(SatsTheme.colors.surface.primary),
+                .background(SatsTheme.colors2.surfaces.primary.bg.default),
         ) {
             friendsBookingStates.forEach { bookingState ->
                 FriendsBookingStatusListItem(
@@ -43,7 +43,7 @@ private fun FriendsBookingStatusScreen(navigateUp: () -> Unit, modifier: Modifie
                             painter = SatsTheme.icons.imagePlaceholder,
                             contentDescription = null,
                             modifier = Modifier.size(24.dp),
-                            tint = SatsTheme.colors.onSurface.primary,
+                            tint = SatsTheme.colors2.surfaces.primary.fg.default,
                         )
                     },
                     name = "Your best friend",

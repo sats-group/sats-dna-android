@@ -37,7 +37,7 @@ fun AnimatedCheckmark(modifier: Modifier = Modifier) {
         )
     }
 
-    val color = SatsTheme.colors.signal.success
+    val color = SatsTheme.colors2.graphicalElements.signal.success
 
     Canvas(modifier) {
         drawCircle(color, circleSweepAngle)
@@ -95,7 +95,7 @@ private const val strokeWidth = 2.73f
 @Composable
 private fun AnimatedCheckIconPreview() {
     SatsTheme {
-        SatsSurface {
+        SatsSurface(useMaterial3 = true) {
             AnimatedCheckmark(
                 modifier = Modifier
                     .size(80.dp)
