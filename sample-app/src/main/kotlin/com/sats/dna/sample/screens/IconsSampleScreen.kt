@@ -140,6 +140,7 @@ private val SatsIcons.allIcons: List<NamedIcon>
         NamedIcon("search", search),
         NamedIcon("send", send),
         NamedIcon("settings", settings),
+        NamedIcon("share", share),
         NamedIcon("showing", showing),
         NamedIcon("star", star),
         NamedIcon("starBorder", starBorder),

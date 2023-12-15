@@ -72,6 +72,7 @@ object SatsIcons {
     val search @Composable get() = painterResource(R.drawable.ic_search)
     val send @Composable get() = painterResource(R.drawable.ic_send)
     val settings @Composable get() = painterResource(R.drawable.ic_settings)
+    val share @Composable get() = painterResource(R.drawable.ic_share)
     val showing @Composable get() = painterResource(R.drawable.ic_showing)
     val star @Composable get() = painterResource(R.drawable.ic_star)
     val starBorder @Composable get() = painterResource(R.drawable.ic_star_border)
