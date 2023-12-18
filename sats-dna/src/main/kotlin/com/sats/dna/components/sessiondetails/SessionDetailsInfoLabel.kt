@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.LocalContentColor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
@@ -22,6 +21,8 @@ import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
+import androidx.compose.material.LocalContentColor as LocalContentColorM2
+import androidx.compose.material3.LocalContentColor as LocalContentColorM3
 
 /**
  * Layout composable for info labels in a session detail screen.
@@ -92,8 +93,7 @@ fun SessionDetailsInfoLabel(
                 .clickable { onClick() }
                 .padding(SatsTheme.spacing.xs)
         } else {
-            modifier
-                .padding(horizontal = SatsTheme.spacing.m)
+            modifier.padding(horizontal = SatsTheme.spacing.m, vertical = SatsTheme.spacing.xs)
         },
         horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
         verticalAlignment = Alignment.CenterVertically,
@@ -104,7 +104,10 @@ fun SessionDetailsInfoLabel(
             SatsTheme.colors2.buttons.action.default
         }
 
-        CompositionLocalProvider(LocalContentColor provides contentColor) {
+        CompositionLocalProvider(
+            LocalContentColorM2 provides contentColor,
+            LocalContentColorM3 provides contentColor,
+        ) {
             MaterialIcon(icon, contentDescription = null, Modifier.size(20.dp))
             MaterialText(text)
         }
