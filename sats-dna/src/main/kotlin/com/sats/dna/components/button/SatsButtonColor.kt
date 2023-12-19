@@ -25,14 +25,14 @@ internal fun SatsButtonColor.asMaterialButtonColors(isEnabled: Boolean): ButtonC
 internal val SatsButtonColor.borderColor: Color?
     @Composable get() = when (this) {
         SatsButtonColor.WaitingListSecondary -> SatsTheme.colors2.buttons.waitingListOutlined.default
-        SatsButtonColor.Secondary -> SatsTheme.colors2.buttons.primary.default.bg
+        SatsButtonColor.Secondary -> SatsTheme.colors2.buttons.secondary.default.bg
         else -> null
     }
 
 internal val SatsButtonColor.disabledBorderColor: Color?
     @Composable get() = when (this) {
         SatsButtonColor.WaitingListSecondary -> SatsTheme.colors2.buttons.waitingListOutlined.disabled
-        SatsButtonColor.Secondary -> SatsTheme.colors2.buttons.primary.disabled.bg
+        SatsButtonColor.Secondary -> SatsTheme.colors2.buttons.secondary.disabled.bg
         else -> null
     }
 
@@ -51,7 +51,7 @@ internal val SatsButtonColor.contentColor: Color
     @Composable get() = when (this) {
         SatsButtonColor.Primary -> SatsTheme.colors2.buttons.primary.default.fg
         SatsButtonColor.Cta -> SatsTheme.colors2.buttons.cta.default.fg
-        SatsButtonColor.Secondary -> SatsTheme.colors2.buttons.primary.default.fg
+        SatsButtonColor.Secondary -> SatsTheme.colors2.buttons.secondary.default.fg
         SatsButtonColor.Clean -> SatsTheme.colors2.buttons.clean.default.fg
         SatsButtonColor.WaitingList -> SatsTheme.colors2.buttons.waitingListFilled.default.fg
         SatsButtonColor.WaitingListSecondary -> SatsTheme.colors2.buttons.waitingListOutlined.default
