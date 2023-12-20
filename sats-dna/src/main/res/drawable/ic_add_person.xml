@@ -4,7 +4,7 @@
     android:viewportWidth="24"
     android:viewportHeight="24">
     <path
-        android:pathData="M12,12.818a4.091,4.091 0,0 1,-4.09 -4.09V7.09a4.091,4.091 0,0 1,8.181 0v1.636a4.091,4.091 0,0 1,-4.09 4.091zM12,16.09H7.91A4.909,4.909 0,0 0,3 21h18M18.545,12.818v4.91M16.09,15.273H21"
+        android:pathData="M12 12.818a4.091 4.091 0 0 1-4.09-4.09V7.09a4.091 4.091 0 0 1 8.181 0v1.636a4.091 4.091 0 0 1-4.09 4.091zm0 3.272H7.91A4.909 4.909 0 0 0 3 21h18m-2.455-8.182v4.91m-2.455-2.455H21"
         android:strokeWidth="1.8"
         android:strokeColor="#000000"
         android:strokeLineCap="square" />

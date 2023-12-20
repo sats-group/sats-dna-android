@@ -4,41 +4,22 @@
     android:viewportWidth="35"
     android:viewportHeight="35">
     <path
-        android:pathData="M17.258,17.615m-16.247,0a16.247,16.247 0,1 1,32.493 0a16.247,16.247 0,1 1,-32.493 0"
+        android:pathData="M1.011 17.615a16.247 16.247 0 1 1 32.493 0 16.247 16.247 0 1 1-32.493 0"
         android:strokeWidth="1.5"
         android:strokeColor="#000000" />
     <group>
-        <clip-path android:pathData="M5.078,8.228h24v24h-24z" />
+        <clip-path android:pathData="M5.078 8.228h24v24h-24z" />
         <path
-            android:pathData="M14.078,22.228L14.578,26.228L11.803,27.021C11.594,27.08 11.411,27.206 11.28,27.38C11.149,27.553 11.078,27.764 11.078,27.982V31.228"
+            android:pathData="M14.078 22.228l0.5 4-2.775 0.793c-0.209 0.059-0.392 0.185-0.523 0.359-0.131 0.173-0.202 0.384-0.202 0.602v3.246m9-9l-0.5 4 2.775 0.793c0.209 0.059 0.393 0.185 0.523 0.359 0.131 0.173 0.202 0.384 0.202 0.602v3.246"
             android:strokeWidth="1.5"
             android:strokeColor="#000000" />
         <path
-            android:pathData="M20.078,22.228L19.578,26.228L22.353,27.021C22.562,27.08 22.746,27.206 22.876,27.38C23.007,27.553 23.078,27.764 23.078,27.982V31.228"
-            android:strokeWidth="1.5"
-            android:strokeColor="#000000" />
-        <path
-            android:pathData="M23.078,15.227L20.078,22.228H14.078L11.078,15.227"
+            android:pathData="M23.078 15.227l-3 7.001h-6l-3-7.001"
             android:strokeWidth="1.5"
             android:strokeColor="#000000"
             android:strokeLineCap="square" />
         <path
-            android:pathData="M17.078,19.228C18.183,19.228 19.078,18.332 19.078,17.228C19.078,16.123 18.183,15.227 17.078,15.227C15.974,15.227 15.078,16.123 15.078,17.228C15.078,18.332 15.974,19.228 17.078,19.228Z"
-            android:strokeWidth="1.5"
-            android:strokeColor="#000000"
-            android:strokeLineCap="square" />
-        <path
-            android:pathData="M6.078,12.227H28.078"
-            android:strokeWidth="1.5"
-            android:strokeColor="#000000"
-            android:strokeLineCap="square" />
-        <path
-            android:pathData="M7.078,9.228V15.227"
-            android:strokeWidth="1.5"
-            android:strokeColor="#000000"
-            android:strokeLineCap="square" />
-        <path
-            android:pathData="M27.078,9.228V15.227"
+            android:pathData="M17.078 19.228c1.105 0 2-0.896 2-2 0-1.105-0.895-2.001-2-2.001-1.104 0-2 0.896-2 2.001 0 1.104 0.896 2 2 2zm-11-7.001h22m-21-2.999v5.999m20-5.999v5.999"
             android:strokeWidth="1.5"
             android:strokeColor="#000000"
             android:strokeLineCap="square" />
