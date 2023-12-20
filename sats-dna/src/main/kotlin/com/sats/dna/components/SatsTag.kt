@@ -36,19 +36,6 @@ enum class SatsTagColor {
     Primary, Secondary, Featured,
 }
 
-@Deprecated("Renamed to SatsTag", ReplaceWith("SatsTag(text, modifier, color)"))
-@Composable
-fun SatsLabel(
-    text: String,
-    modifier: Modifier = Modifier,
-    color: SatsLabelColor = SatsLabelColor.Primary,
-) {
-    SatsTag(text, modifier, color)
-}
-
-@Deprecated("Renamed to SatsTagColor", ReplaceWith("SatsTagColor"))
-typealias SatsLabelColor = SatsTagColor
-
 @Composable
 fun SatsRewardsTag(
     level: SatsRewardsLevel,
@@ -76,12 +63,6 @@ fun SatsRewardsTag(
     }
 
     SatsTagLayout(text, backgroundColor = backgroundColor, contentColor = contentColor, modifier)
-}
-
-@Deprecated("Renamed to SatsRewardsTag", ReplaceWith("SatsRewardsTag(level, modifier)"))
-@Composable
-fun SatsRewardsLabel(level: SatsRewardsLevel, modifier: Modifier = Modifier) {
-    SatsRewardsTag(level, modifier)
 }
 
 enum class SatsRewardsLevel {
