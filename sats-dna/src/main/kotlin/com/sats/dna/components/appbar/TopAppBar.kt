@@ -69,15 +69,15 @@ fun M3SatsTopAppBar(
     scrollBehavior: TopAppBarScrollBehavior? = null,
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
 ) {
-    val scrolledContainerColor = SatsTheme.colors2.surfaces.fixed.bg.default.copy(alpha = .08f)
-        .compositeOver(SatsTheme.colors2.surfaces.primary.bg.default)
+    val scrolledContainerColor = SatsTheme.colors2.surfaces.fixed.bg.default.copy(alpha = .2f)
+        .compositeOver(SatsTheme.colors2.backgrounds.primary.bg.default)
 
     // If we don't have a scroll behaviour, then we need to always separate the top app bar from the following
     // content, and using the same color as we would when the content was scrolled makes sense here.
     val containerColor = if (scrollBehavior == null) {
         scrolledContainerColor
     } else {
-        SatsTheme.colors2.surfaces.primary.bg.default
+        SatsTheme.colors2.backgrounds.primary.bg.default
     }
 
     M3TopAppBar(
