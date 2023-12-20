@@ -1,6 +1,8 @@
 package com.sats.dna.sample.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
@@ -17,6 +19,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsFilterChip
 import com.sats.dna.components.SatsSurface
@@ -24,6 +27,7 @@ import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.theme.SatsTheme
+import com.sats.dna.tooling.LightDarkPreview
 
 data object ButtonsSampleScreen : SampleScreen(
     name = "Buttons",
@@ -46,7 +50,6 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                 .fillMaxSize()
                 .padding(innerPadding)
                 .padding(vertical = SatsTheme.spacing.m),
-            verticalArrangement = Arrangement.Absolute.spacedBy(SatsTheme.spacing.m),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             listOf(
@@ -54,22 +57,38 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                 SatsButtonColor.Cta,
                 SatsButtonColor.Secondary,
                 SatsButtonColor.Clean,
+                SatsButtonColor.CleanSecondary,
                 SatsButtonColor.WaitingList,
+                SatsButtonColor.Action,
                 SatsButtonColor.Transparent,
             ).forEach { color ->
-                SatsButton(
-                    onClick = {},
-                    label = color.name,
-                    colors = color,
-                    isEnabled = controlPanelState.isEnabledToggled,
-                    isLoading = controlPanelState.isLoadingToggled,
-                    isLarge = controlPanelState.isLargeToggled,
-                    icon = if (controlPanelState.isIconEnabled) SatsTheme.icons.barbell else null,
-                )
+                val backgroundColor = if (color == SatsButtonColor.Clean || color == SatsButtonColor.CleanSecondary) {
+                    SatsTheme.colors2.backgrounds.fixed.bg.default
+                } else {
+                    Color.Transparent
+                }
+
+                Box(
+                    Modifier
+                        .fillMaxWidth()
+                        .background(backgroundColor)
+                        .padding(SatsTheme.spacing.m),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    SatsButton(
+                        onClick = {},
+                        label = color.name,
+                        colors = color,
+                        isEnabled = controlPanelState.isEnabledToggled,
+                        isLoading = controlPanelState.isLoadingToggled,
+                        isLarge = controlPanelState.isLargeToggled,
+                        icon = if (controlPanelState.isIconEnabled) SatsTheme.icons.barbell else null,
+                    )
+                }
             }
 
-            Column(verticalArrangement = Arrangement.Absolute.spacedBy(SatsTheme.spacing.s)) {
-                Row(horizontalArrangement = Arrangement.Absolute.spacedBy(SatsTheme.spacing.s)) {
+            Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
+                Row(horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
                     listOf(
                         SatsButtonColor.Primary,
                         SatsButtonColor.Cta,
@@ -87,7 +106,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                     }
                 }
 
-                Row(horizontalArrangement = Arrangement.Absolute.spacedBy(SatsTheme.spacing.s)) {
+                Row(horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
                     listOf(
                         SatsButtonColor.Clean,
                         SatsButtonColor.WaitingList,
@@ -125,7 +144,7 @@ private fun ControlPanel(state: ControlPanelState) {
             Modifier
                 .navigationBarsPadding()
                 .padding(SatsTheme.spacing.m),
-            horizontalArrangement = Arrangement.Absolute.spacedBy(SatsTheme.spacing.s),
+            horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
         ) {
             SatsFilterChip(
                 text = "Enabled",
@@ -156,6 +175,16 @@ private fun ControlPanel(state: ControlPanelState) {
                 onClick = { state.isIconEnabled = !state.isIconEnabled },
                 onClickLabel = null,
             )
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun Preview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            ButtonsScreen(navigateUp = {})
         }
     }
 }
