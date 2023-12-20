@@ -68,6 +68,8 @@ fun M3SatsScreen(
             modifier = modifier,
             topBar = topBar,
             bottomBar = bottomBar,
+            containerColor = SatsTheme.colors2.backgrounds.primary.bg.default,
+            contentColor = SatsTheme.colors2.backgrounds.primary.fg.default,
             snackbarHost = { snackbarHost(snackbarHostState) },
             floatingActionButton = floatingActionButton,
         ) { scaffoldContentPadding ->
