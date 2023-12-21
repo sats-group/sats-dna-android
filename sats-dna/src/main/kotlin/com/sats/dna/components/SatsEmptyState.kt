@@ -103,9 +103,26 @@ data class SatsEmptyStateAction(val action: () -> Unit, val label: String)
 
 @LightDarkPreview
 @Composable
-private fun SatsEmptyStatePreview() {
+private fun SatsEmptyStateM3Preview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            SatsEmptyState(
+                icon = SatsTheme.icons.barbell,
+                title = "You don't have friends",
+                body = "If you make friends, you can follow in their working out and stuff. " +
+                    "And they can follow whatever you're doing, as well!",
+                action = SatsEmptyStateAction(action = {}, "Make friends"),
+                modifier = Modifier.padding(SatsTheme.spacing.m),
+            )
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun SatsEmptyStateM2Preview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = false) {
             SatsEmptyState(
                 icon = SatsTheme.icons.barbell,
                 title = "You don't have friends",
