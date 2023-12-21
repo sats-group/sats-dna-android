@@ -64,33 +64,31 @@ fun SatsEmptyState(
     action: SatsEmptyStateAction?,
     modifier: Modifier = Modifier,
 ) {
-    CompositionLocalProvider(LocalUseMaterial3 provides true) {
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        MaterialIcon(icon, contentDescription = null, Modifier.size(18.dp))
+
         Column(
-            modifier = modifier,
-            verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
+            verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            MaterialIcon(icon, contentDescription = null, Modifier.size(18.dp))
+            MaterialText(title, textAlign = TextAlign.Center)
 
-            Column(
-                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                MaterialText(title, textAlign = TextAlign.Center)
-
-                if (body != null) {
-                    MaterialText(
-                        text = body,
-                        color = SatsTheme.colors2.surfaces.primary.fg.alternate,
-                        textAlign = TextAlign.Center,
-                        style = SatsTheme.typography.normal.small,
-                    )
-                }
+            if (body != null) {
+                MaterialText(
+                    text = body,
+                    color = SatsTheme.colors2.surfaces.primary.fg.alternate,
+                    textAlign = TextAlign.Center,
+                    style = SatsTheme.typography.normal.small,
+                )
             }
+        }
 
-            if (action != null) {
-                SatsButton(action.action, action.label)
-            }
+        if (action != null) {
+            SatsButton(action.action, action.label)
         }
     }
 }
@@ -105,9 +103,26 @@ data class SatsEmptyStateAction(val action: () -> Unit, val label: String)
 
 @LightDarkPreview
 @Composable
-private fun SatsEmptyStatePreview() {
+private fun SatsEmptyStateM3Preview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            SatsEmptyState(
+                icon = SatsTheme.icons.barbell,
+                title = "You don't have friends",
+                body = "If you make friends, you can follow in their working out and stuff. " +
+                    "And they can follow whatever you're doing, as well!",
+                action = SatsEmptyStateAction(action = {}, "Make friends"),
+                modifier = Modifier.padding(SatsTheme.spacing.m),
+            )
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun SatsEmptyStateM2Preview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = false) {
             SatsEmptyState(
                 icon = SatsTheme.icons.barbell,
                 title = "You don't have friends",
