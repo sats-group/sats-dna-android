@@ -64,33 +64,31 @@ fun SatsEmptyState(
     action: SatsEmptyStateAction?,
     modifier: Modifier = Modifier,
 ) {
-    CompositionLocalProvider(LocalUseMaterial3 provides true) {
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        MaterialIcon(icon, contentDescription = null, Modifier.size(18.dp))
+
         Column(
-            modifier = modifier,
-            verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
+            verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            MaterialIcon(icon, contentDescription = null, Modifier.size(18.dp))
+            MaterialText(title, textAlign = TextAlign.Center)
 
-            Column(
-                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                MaterialText(title, textAlign = TextAlign.Center)
-
-                if (body != null) {
-                    MaterialText(
-                        text = body,
-                        color = SatsTheme.colors2.surfaces.primary.fg.alternate,
-                        textAlign = TextAlign.Center,
-                        style = SatsTheme.typography.normal.small,
-                    )
-                }
+            if (body != null) {
+                MaterialText(
+                    text = body,
+                    color = SatsTheme.colors2.surfaces.primary.fg.alternate,
+                    textAlign = TextAlign.Center,
+                    style = SatsTheme.typography.normal.small,
+                )
             }
+        }
 
-            if (action != null) {
-                SatsButton(action.action, action.label)
-            }
+        if (action != null) {
+            SatsButton(action.action, action.label)
         }
     }
 }
