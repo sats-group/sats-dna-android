@@ -30,6 +30,7 @@ import com.sats.dna.sample.screens.EmptyStateSampleScreen
 import com.sats.dna.sample.screens.FriendsBookingStatusSampleScreen
 import com.sats.dna.sample.screens.GeneralListItemSampleScreen
 import com.sats.dna.sample.screens.IconsSampleScreen
+import com.sats.dna.sample.screens.JoinYourFriendsSampleScreen
 import com.sats.dna.sample.screens.PlaceholdersSampleScreen
 import com.sats.dna.sample.screens.ProgressBarsSampleScreen
 import com.sats.dna.sample.screens.RadioButtonsSampleScreen
@@ -79,6 +80,7 @@ internal fun HomeScreen(navController: NavController) {
             EmptyStateSampleScreen.HomeListItem(navController)
             FriendsBookingStatusSampleScreen.HomeListItem(navController)
             GeneralListItemSampleScreen.HomeListItem(navController)
+            JoinYourFriendsSampleScreen.HomeListItem(navController)
             PlaceholdersSampleScreen.HomeListItem(navController)
             ProgressBarsSampleScreen.HomeListItem(navController)
             RadioButtonsSampleScreen.HomeListItem(navController)
