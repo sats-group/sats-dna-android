@@ -45,6 +45,7 @@ import com.sats.dna.sample.screens.TopBarSampleScreen
 import com.sats.dna.sample.screens.TrafficLightsSampleScreen
 import com.sats.dna.sample.screens.TypographySampleScreen
 import com.sats.dna.sample.screens.UpcomingWorkoutListItemSampleScreen
+import com.sats.dna.sample.screens.YourMostBookedSampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -94,6 +95,7 @@ internal fun HomeScreen(navController: NavController) {
             TopBarSampleScreen.HomeListItem(navController)
             TrafficLightsSampleScreen.HomeListItem(navController)
             UpcomingWorkoutListItemSampleScreen.HomeListItem(navController)
+            YourMostBookedSampleScreen.HomeListItem(navController)
         }
     }
 }

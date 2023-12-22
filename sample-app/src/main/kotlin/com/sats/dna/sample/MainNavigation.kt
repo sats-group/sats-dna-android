@@ -37,6 +37,7 @@ import com.sats.dna.sample.screens.TopBarSampleScreen
 import com.sats.dna.sample.screens.TrafficLightsSampleScreen
 import com.sats.dna.sample.screens.TypographySampleScreen
 import com.sats.dna.sample.screens.UpcomingWorkoutListItemSampleScreen
+import com.sats.dna.sample.screens.YourMostBookedSampleScreen
 
 internal const val MainRoute = "sats-dna"
 
@@ -75,6 +76,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         TagsSampleScreen.navScreen(navController)
         TextFieldSampleScreen.navScreen(navController)
         TopBarSampleScreen.navScreen(navController)
+        YourMostBookedSampleScreen.navScreen(navController)
         TrafficLightsSampleScreen.navScreen(navController)
         UpcomingWorkoutListItemSampleScreen.navScreen(navController)
     }
