@@ -3,6 +3,7 @@ package com.sats.dna.components.appbar
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
@@ -13,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.compositeOver
 import com.google.accompanist.insets.ui.TopAppBar
+import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 import androidx.compose.material3.Icon as M3Icon
@@ -69,8 +71,11 @@ fun M3SatsTopAppBar(
     scrollBehavior: TopAppBarScrollBehavior? = null,
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
 ) {
-    val scrolledContainerColor = SatsTheme.colors2.surfaces.fixed.bg.default.copy(alpha = .2f)
-        .compositeOver(SatsTheme.colors2.backgrounds.primary.bg.default)
+    val scrolledContainerColor = if (SatsTheme.colors2.isLightMode) {
+        SatsTheme.colors2.surfaces.fixed.bg.default.copy(alpha = .05f)
+    } else {
+        SatsTheme.colors2.surfaces.primary.bg.default
+    }.compositeOver(SatsTheme.colors2.backgrounds.primary.bg.default)
 
     // If we don't have a scroll behaviour, then we need to always separate the top app bar from the following
     // content, and using the same color as we would when the content was scrolled makes sense here.
@@ -96,7 +101,7 @@ fun M3SatsTopAppBar(
 
 @LightDarkPreview
 @Composable
-private fun Preview() {
+private fun Material2Preview() {
     SatsTheme {
         SatsTopAppBar(
             navigationIcon = {
@@ -122,25 +127,28 @@ private fun Preview() {
 @OptIn(ExperimentalMaterial3Api::class)
 @LightDarkPreview
 @Composable
-private fun M3Preview() {
+private fun Material3Preview() {
     SatsTheme {
-        M3SatsTopAppBar(
-            navigationIcon = {
-                M3IconButton(onClick = {}) {
-                    M3Icon(SatsTheme.icons.back, contentDescription = null)
-                }
-            },
-            title = "Top App Bar",
-            actions = {
-                listOf(
-                    SatsTheme.icons.barbell,
-                    SatsTheme.icons.addPerson,
-                ).forEach { icon ->
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            M3SatsTopAppBar(
+                modifier = Modifier.padding(SatsTheme.spacing.m),
+                navigationIcon = {
                     M3IconButton(onClick = {}) {
-                        M3Icon(icon, contentDescription = null)
+                        M3Icon(SatsTheme.icons.back, contentDescription = null)
                     }
-                }
-            },
-        )
+                },
+                title = "Top App Bar",
+                actions = {
+                    listOf(
+                        SatsTheme.icons.barbell,
+                        SatsTheme.icons.addPerson,
+                    ).forEach { icon ->
+                        M3IconButton(onClick = {}) {
+                            M3Icon(icon, contentDescription = null)
+                        }
+                    }
+                },
+            )
+        }
     }
 }
