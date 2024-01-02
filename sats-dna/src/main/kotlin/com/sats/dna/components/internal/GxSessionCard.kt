@@ -7,8 +7,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import com.sats.dna.components.GxSessionImage
+import com.sats.dna.components.LocalUseMaterial3
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.theme.SatsTheme
@@ -22,36 +24,38 @@ internal fun GxSessionCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    SatsCard(modifier) {
-        Column(Modifier.clickable(onClick = onClick)) {
-            GxSessionImage(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(1f),
-                imageUrl = imageUrl,
-                contentDescription = null,
-            )
+    CompositionLocalProvider(LocalUseMaterial3 provides true) {
+        SatsCard(modifier) {
+            Column(Modifier.clickable(onClick = onClick)) {
+                GxSessionImage(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(1f),
+                    imageUrl = imageUrl,
+                    contentDescription = null,
+                )
 
-            Text(
-                text = title,
-                modifier = Modifier.padding(
-                    start = SatsTheme.spacing.m,
-                    end = SatsTheme.spacing.m,
-                    top = SatsTheme.spacing.m,
-                    bottom = SatsTheme.spacing.xs,
-                ),
-                style = SatsTheme.typography.medium.basic,
-            )
+                Text(
+                    text = title,
+                    modifier = Modifier.padding(
+                        start = SatsTheme.spacing.m,
+                        end = SatsTheme.spacing.m,
+                        top = SatsTheme.spacing.m,
+                        bottom = SatsTheme.spacing.xs,
+                    ),
+                    style = SatsTheme.typography.medium.basic,
+                )
 
-            Text(
-                text = subtitle,
-                modifier = Modifier.padding(
-                    bottom = SatsTheme.spacing.m,
-                    start = SatsTheme.spacing.m,
-                    end = SatsTheme.spacing.m,
-                ),
-                style = SatsTheme.typography.normal.small,
-            )
+                Text(
+                    text = subtitle,
+                    modifier = Modifier.padding(
+                        bottom = SatsTheme.spacing.m,
+                        start = SatsTheme.spacing.m,
+                        end = SatsTheme.spacing.m,
+                    ),
+                    style = SatsTheme.typography.normal.small,
+                )
+            }
         }
     }
 }
