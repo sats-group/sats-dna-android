@@ -402,5 +402,5 @@ internal val SatsDarkColors2 = SatsColors2(
         ),
     ),
 
-    isLightMode = true,
+    isLightMode = false,
 )
