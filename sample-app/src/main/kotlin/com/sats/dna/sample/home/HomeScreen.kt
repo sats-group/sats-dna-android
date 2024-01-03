@@ -41,7 +41,7 @@ import com.sats.dna.sample.screens.SurfaceSampleScreen
 import com.sats.dna.sample.screens.SwitchSampleScreen
 import com.sats.dna.sample.screens.TagsSampleScreen
 import com.sats.dna.sample.screens.TextFieldSampleScreen
-import com.sats.dna.sample.screens.TopBarSampleScreen
+import com.sats.dna.sample.screens.TopAppBarSampleScreen
 import com.sats.dna.sample.screens.TrafficLightsSampleScreen
 import com.sats.dna.sample.screens.TypographySampleScreen
 import com.sats.dna.sample.screens.UpcomingWorkoutListItemSampleScreen
@@ -92,7 +92,7 @@ internal fun HomeScreen(navController: NavController) {
             SwitchSampleScreen.HomeListItem(navController)
             TagsSampleScreen.HomeListItem(navController)
             TextFieldSampleScreen.HomeListItem(navController)
-            TopBarSampleScreen.HomeListItem(navController)
+            TopAppBarSampleScreen.HomeListItem(navController)
             TrafficLightsSampleScreen.HomeListItem(navController)
             UpcomingWorkoutListItemSampleScreen.HomeListItem(navController)
             YourMostBookedSampleScreen.HomeListItem(navController)
