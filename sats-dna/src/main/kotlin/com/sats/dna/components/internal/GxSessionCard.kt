@@ -2,8 +2,11 @@ package com.sats.dna.components.internal
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,8 +28,12 @@ internal fun GxSessionCard(
     modifier: Modifier = Modifier,
 ) {
     CompositionLocalProvider(LocalUseMaterial3 provides true) {
-        SatsCard(modifier) {
-            Column(Modifier.clickable(onClick = onClick)) {
+        SatsCard(modifier.height(IntrinsicSize.Min)) {
+            Column(
+                Modifier
+                    .fillMaxSize()
+                    .clickable(onClick = onClick),
+            ) {
                 GxSessionImage(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -37,22 +44,17 @@ internal fun GxSessionCard(
 
                 Text(
                     text = title,
-                    modifier = Modifier.padding(
-                        start = SatsTheme.spacing.m,
-                        end = SatsTheme.spacing.m,
-                        top = SatsTheme.spacing.m,
-                        bottom = SatsTheme.spacing.xs,
-                    ),
+                    modifier = Modifier
+                        .padding(horizontal = SatsTheme.spacing.m)
+                        .padding(top = SatsTheme.spacing.m, bottom = SatsTheme.spacing.xs),
                     style = SatsTheme.typography.medium.basic,
                 )
 
                 Text(
                     text = subtitle,
-                    modifier = Modifier.padding(
-                        bottom = SatsTheme.spacing.m,
-                        start = SatsTheme.spacing.m,
-                        end = SatsTheme.spacing.m,
-                    ),
+                    modifier = Modifier
+                        .padding(horizontal = SatsTheme.spacing.m)
+                        .padding(bottom = SatsTheme.spacing.m),
                     style = SatsTheme.typography.normal.small,
                 )
             }
