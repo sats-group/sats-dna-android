@@ -17,7 +17,7 @@ fun JoinYourFriendsCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Box(modifier) {
+    Box(modifier, propagateMinConstraints = true) {
         GxSessionCard(
             imageUrl = imageUrl,
             title = title,
