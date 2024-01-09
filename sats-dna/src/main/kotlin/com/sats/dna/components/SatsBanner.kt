@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import com.sats.dna.colors.satsContentColor2For
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
@@ -15,6 +16,42 @@ import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
+@Composable
+fun SatsBanner(
+    title: String,
+    modifier: Modifier = Modifier,
+    action: SatsBannerAction? = null,
+) {
+    SatsBanner(
+        title = title,
+        modifier = modifier,
+        action = action?.composable,
+    )
+}
+
+class SatsBannerAction(
+    val label: String,
+    val onClick: () -> Unit,
+    val icon: Painter? = null,
+    val isEnabled: Boolean = true,
+    val isLoading: Boolean = false,
+)
+
+private val SatsBannerAction.composable: @Composable () -> Unit
+    @Composable get() {
+        return {
+            SatsButton(
+                onClick = onClick,
+                label = label,
+                colors = SatsButtonColor.Clean,
+                isLoading = isLoading,
+                isEnabled = isEnabled,
+                icon = icon,
+            )
+        }
+    }
+
+@Deprecated("Use the SatsBanner that accepts a SatsBannerAction instead")
 @Composable
 fun SatsBanner(
     title: String,
@@ -64,7 +101,7 @@ private fun SatsBannerWithActionPreview() {
             SatsBanner(
                 modifier = Modifier.fillMaxWidth(),
                 title = "Will the real Slim Shady please stand up?",
-                action = { SatsButton(onClick = {}, "Stand up", colors = SatsButtonColor.Clean) },
+                action = SatsBannerAction("Stand up", onClick = {}),
             )
         }
     }
