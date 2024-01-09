@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.sats.dna.colors.satsContentColorFor
+import com.sats.dna.colors.satsContentColor2For
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.internal.MaterialText
@@ -21,7 +21,7 @@ fun SatsBanner(
     modifier: Modifier = Modifier,
     action: @Composable (() -> Unit)? = null,
     backgroundColor: Color = SatsTheme.colors2.backgrounds.fixed.bg.default,
-    contentColor: Color = satsContentColorFor(backgroundColor),
+    contentColor: Color = satsContentColor2For(backgroundColor),
 ) {
     SatsSurface(
         modifier = modifier,
