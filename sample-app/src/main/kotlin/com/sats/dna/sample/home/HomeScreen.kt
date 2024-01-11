@@ -6,11 +6,11 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
+import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.appbar.M3SatsTopAppBar
 import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.sample.screens.BannerSampleScreen
@@ -26,6 +26,7 @@ import com.sats.dna.sample.screens.CircularProgressIndicatorSampleScreen
 import com.sats.dna.sample.screens.Colors2SampleScreen
 import com.sats.dna.sample.screens.ColorsSampleScreen
 import com.sats.dna.sample.screens.CompletedWorkoutListItemSampleScreen
+import com.sats.dna.sample.screens.DividersSampleScreen
 import com.sats.dna.sample.screens.EmptyStateSampleScreen
 import com.sats.dna.sample.screens.FriendsBookingStatusSampleScreen
 import com.sats.dna.sample.screens.GeneralListItemSampleScreen
@@ -65,7 +66,7 @@ internal fun HomeScreen(navController: NavController) {
             IconsSampleScreen.HomeListItem(navController)
             TypographySampleScreen.HomeListItem(navController)
 
-            Divider(Modifier.padding(vertical = SatsTheme.spacing.s))
+            SatsHorizontalDivider(Modifier.padding(vertical = SatsTheme.spacing.s))
 
             BannerSampleScreen.HomeListItem(navController)
             BottomNavigationSampleScreen.HomeListItem(navController)
@@ -78,6 +79,7 @@ internal fun HomeScreen(navController: NavController) {
             ChipsSampleScreen.HomeListItem(navController)
             CircularProgressIndicatorSampleScreen.HomeListItem(navController)
             CompletedWorkoutListItemSampleScreen.HomeListItem(navController)
+            DividersSampleScreen.HomeListItem(navController)
             EmptyStateSampleScreen.HomeListItem(navController)
             FriendsBookingStatusSampleScreen.HomeListItem(navController)
             GeneralListItemSampleScreen.HomeListItem(navController)
