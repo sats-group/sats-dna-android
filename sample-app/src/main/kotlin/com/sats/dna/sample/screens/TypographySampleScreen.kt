@@ -1,22 +1,16 @@
 package com.sats.dna.sample.screens
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Divider
-import androidx.compose.material3.DividerDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.Text
@@ -28,6 +22,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import com.sats.dna.components.SatsHorizontalDivider
+import com.sats.dna.components.SatsVerticalDivider
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
@@ -62,7 +58,7 @@ private fun TypographyScreen(navigateUp: () -> Unit, modifier: Modifier = Modifi
                 TextSample2("Section", SatsTheme.typography.normal.section)
             }
 
-            Divider()
+            SatsHorizontalDivider()
 
             Section("MEDIUM") {
                 TextSample2("Headline 1", SatsTheme.typography.medium.headline1)
@@ -73,7 +69,7 @@ private fun TypographyScreen(navigateUp: () -> Unit, modifier: Modifier = Modifi
                 TextSample2("Small", SatsTheme.typography.medium.small)
             }
 
-            Divider()
+            SatsHorizontalDivider()
 
             Section("EMPHASIS") {
                 TextSample2("Headline 1", SatsTheme.typography.emphasis.headline1)
@@ -84,7 +80,7 @@ private fun TypographyScreen(navigateUp: () -> Unit, modifier: Modifier = Modifi
                 TextSample2("Small", SatsTheme.typography.emphasis.small)
             }
 
-            Divider()
+            SatsHorizontalDivider()
 
             Section("SATS HEADLINE – NORMAL") {
                 TextSample2("Headline 1", SatsTheme.typography.satsHeadlineNormal.headline1)
@@ -95,7 +91,7 @@ private fun TypographyScreen(navigateUp: () -> Unit, modifier: Modifier = Modifi
                 TextSample2("Small", SatsTheme.typography.satsHeadlineNormal.small)
             }
 
-            Divider()
+            SatsHorizontalDivider()
 
             Section("SATS HEADLINE – EMPHASIS") {
                 TextSample2("Headline 1", SatsTheme.typography.satsHeadlineEmphasis.headline1)
@@ -143,12 +139,7 @@ private fun TextSample2(text: String, style: TextStyle) {
 
         AnimatedVisibility(isExpanded) {
             Row(Modifier.height(IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
-                Box(
-                    Modifier
-                        .fillMaxHeight()
-                        .width(DividerDefaults.Thickness)
-                        .background(DividerDefaults.color),
-                )
+                SatsVerticalDivider()
 
                 Column {
                     Text("Weight: ${style.fontWeight?.weight}")

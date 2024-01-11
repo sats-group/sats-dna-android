@@ -21,7 +21,6 @@ import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.FontSizePreview
 import com.sats.dna.tooling.LightDarkPreview
-import androidx.compose.material3.Divider as Material3Divider
 
 /**
  * Displays a list item for a completed workout.
@@ -166,7 +165,7 @@ private fun Preview() {
                     isLiked = false,
                 )
 
-                Material3Divider()
+                SatsHorizontalDivider()
 
                 CompletedWorkoutListItem(
                     icon = { WorkoutTypeIcon(WorkoutType.OwnTraining, null, Modifier.size(34.dp)) },

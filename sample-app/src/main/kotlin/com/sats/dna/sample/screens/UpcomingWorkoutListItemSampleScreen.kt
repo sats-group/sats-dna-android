@@ -6,9 +6,9 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.upcomingworkouts.UpcomingWorkoutDaySection
@@ -38,7 +38,7 @@ private fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Modi
         ) {
             UpcomingWorkoutDaySection(day = "Thu, Jul 27, 2023") {
                 repeat(3) {
-                    if (it > 0) Divider()
+                    if (it > 0) SatsHorizontalDivider()
                     UpcomingWorkoutListItem(
                         name = "Pure Strength",
                         time = "11:00 AM",
@@ -59,7 +59,7 @@ private fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Modi
 
             UpcomingWorkoutDaySection(day = "Fri, Jul 28, 2023") {
                 repeat(3) {
-                    if (it > 0) Divider()
+                    if (it > 0) SatsHorizontalDivider()
                     UpcomingWorkoutListItem(
                         name = "Pure Strength",
                         time = "10:30 AM",
