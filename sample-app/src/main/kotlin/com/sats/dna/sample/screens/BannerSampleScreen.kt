@@ -9,8 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.sats.dna.components.SatsBanner
-import com.sats.dna.components.button.SatsButton
-import com.sats.dna.components.button.SatsButtonColor
+import com.sats.dna.components.SatsBannerAction
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
@@ -39,7 +38,7 @@ private fun BannerScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) 
             SatsBanner(
                 modifier = Modifier.fillMaxWidth(),
                 title = "Will the real Slim Shady please stand up?",
-                action = { SatsButton(onClick = {}, "Stand up", colors = SatsButtonColor.Clean) },
+                action = SatsBannerAction("Stand up", onClick = {}),
             )
         }
     }
