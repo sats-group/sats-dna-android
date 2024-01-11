@@ -7,9 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
-import com.sats.dna.colors.satsContentColor2For
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.internal.MaterialText
@@ -22,11 +20,23 @@ fun SatsBanner(
     modifier: Modifier = Modifier,
     action: SatsBannerAction? = null,
 ) {
-    SatsBanner(
-        title = title,
+    SatsSurface(
         modifier = modifier,
-        action = action?.composable,
-    )
+        color = SatsTheme.colors2.backgrounds.fixed.bg.default,
+    ) {
+        Row(
+            Modifier.padding(horizontal = SatsTheme.spacing.m, vertical = SatsTheme.spacing.xs),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
+        ) {
+            MaterialText(
+                text = title,
+                modifier = Modifier.weight(1f),
+            )
+
+            action?.composable?.invoke()
+        }
+    }
 }
 
 class SatsBannerAction(
@@ -50,35 +60,6 @@ private val SatsBannerAction.composable: @Composable () -> Unit
             )
         }
     }
-
-@Deprecated("Use the SatsBanner that accepts a SatsBannerAction instead")
-@Composable
-fun SatsBanner(
-    title: String,
-    modifier: Modifier = Modifier,
-    action: @Composable (() -> Unit)? = null,
-    backgroundColor: Color = SatsTheme.colors2.backgrounds.fixed.bg.default,
-    contentColor: Color = satsContentColor2For(backgroundColor),
-) {
-    SatsSurface(
-        modifier = modifier,
-        color = backgroundColor,
-        contentColor = contentColor,
-    ) {
-        Row(
-            Modifier.padding(horizontal = SatsTheme.spacing.m, vertical = SatsTheme.spacing.xs),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
-        ) {
-            MaterialText(
-                text = title,
-                modifier = Modifier.weight(1f),
-            )
-
-            action?.invoke()
-        }
-    }
-}
 
 @LightDarkPreview
 @Composable
