@@ -18,30 +18,19 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
-import androidx.compose.material.Card as M2Card
 
 @Composable
 fun SatsCard(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit,
 ) {
-    if (LocalUseMaterial3.current) {
-        SatsSurface(
-            modifier = modifier,
-            color = SatsTheme.colors2.surfaces.primary.bg.default,
-            shape = SatsTheme.shapes.roundedCorners.small,
-            elevation = 1.dp,
-            content = content,
-        )
-    } else {
-        M2Card(
-            modifier = modifier,
-            shape = SatsTheme.shapes.roundedCorners.small,
-            backgroundColor = SatsTheme.colors2.surfaces.primary.bg.default,
-            contentColor = SatsTheme.colors2.surfaces.primary.fg.default,
-            content = content,
-        )
-    }
+    SatsSurface(
+        modifier = modifier,
+        color = SatsTheme.colors2.surfaces.primary.bg.default,
+        shape = SatsTheme.shapes.roundedCorners.small,
+        elevation = 1.dp,
+        content = content,
+    )
 }
 
 @LightDarkPreview
