@@ -6,11 +6,9 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
@@ -24,11 +22,13 @@ import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
+import com.sats.dna.tooling.FontSizePreview
 import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
@@ -71,7 +71,9 @@ fun SatsButton(
         colors = buttonColors,
         contentPadding = buttonPadding(isLarge),
     ) {
-        Row(Modifier.height(24.dp), verticalAlignment = CenterVertically) {
+        // Note that a horizontal arrangement is not used for spacing items, as a space-aligned arrangement would
+        // still put space between the AnimatedContent and the text, even if the AnimatedContent is empty.
+        Row(verticalAlignment = CenterVertically) {
             AnimatedContent(iconContent, label = "Animated icon content") { iconContent ->
                 when (iconContent) {
                     is IconContent.Empty -> Unit
@@ -100,13 +102,7 @@ fun SatsButton(
                 }
             }
 
-            Text(
-                text = label,
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .wrapContentHeight(),
-                maxLines = 1,
-            )
+            Text(label, maxLines = 1)
         }
     }
 }
@@ -129,19 +125,38 @@ private fun buttonPadding(isLarge: Boolean): PaddingValues {
 
 @LightDarkPreview
 @Composable
-private fun Preview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
+private fun SatsButtonPreview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 SatsButton(onClick = {}, color.name, Modifier.padding(SatsTheme.spacing.s), color)
                 SatsButton(
                     onClick = {},
-                    "${color.name} disabled",
-                    Modifier.padding(SatsTheme.spacing.s),
-                    color,
+                    label = "${color.name} disabled",
+                    modifier = Modifier.padding(SatsTheme.spacing.s),
+                    colors = color,
                     isEnabled = false,
+                )
+            }
+        }
+    }
+}
+
+@FontSizePreview
+@Composable
+private fun SatsButtonFontScalePreview() {
+    SatsTheme {
+        SatsSurface(
+            modifier = Modifier.fillMaxWidth(),
+            color = SatsTheme.colors2.backgrounds.primary.bg.default,
+            useMaterial3 = true,
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                SatsButton(
+                    onClick = {},
+                    label = "${LocalConfiguration.current.fontScale}x",
+                    modifier = Modifier.padding(SatsTheme.spacing.s),
+                    colors = SatsButtonColor.Primary,
                 )
             }
         }
