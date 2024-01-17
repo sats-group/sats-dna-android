@@ -10,6 +10,7 @@ import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.VisualTransformation
+import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 import androidx.compose.material3.OutlinedTextField as M3OutlinedTextField
@@ -58,6 +59,7 @@ fun M3SatsOutlinedTextField(
     label: @Composable (() -> Unit)? = null,
     placeholder: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
+    supportingText: @Composable (() -> Unit)? = null,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -74,6 +76,7 @@ fun M3SatsOutlinedTextField(
         label = label,
         placeholder = placeholder,
         trailingIcon = trailingIcon,
+        supportingText = supportingText,
         visualTransformation = visualTransformation,
         keyboardOptions = keyboardOptions,
         keyboardActions = keyboardActions,
@@ -85,10 +88,10 @@ fun M3SatsOutlinedTextField(
 
 @LightDarkPreview
 @Composable
-private fun EnabledOutlinedTextFieldPreview() {
+private fun SatsOutlinedTextFieldEnabledPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
-            M3SatsOutlinedTextField(
+            SatsOutlinedTextField(
                 value = "Text",
                 onValueChange = { },
                 modifier = Modifier.padding(SatsTheme.spacing.m),
@@ -99,12 +102,43 @@ private fun EnabledOutlinedTextFieldPreview() {
 
 @LightDarkPreview
 @Composable
-private fun DisabledOutlinedTextFieldPreview() {
+private fun SatsOutlinedTextFieldDisabledPreview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
+            SatsOutlinedTextField(
+                value = "Text",
+                onValueChange = { },
+                enabled = false,
+                modifier = Modifier.padding(SatsTheme.spacing.m),
+            )
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun M3SatsOutlinedTextFieldEnabledPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
             M3SatsOutlinedTextField(
                 value = "Text",
                 onValueChange = { },
+                supportingText = { MaterialText("This is a hint text for the user.") },
+                modifier = Modifier.padding(SatsTheme.spacing.m),
+            )
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun M3SatsOutlinedTextFieldDisabledPreview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
+            M3SatsOutlinedTextField(
+                value = "Text",
+                onValueChange = { },
+                supportingText = { MaterialText("This is a hint text for the user.") },
                 enabled = false,
                 modifier = Modifier.padding(SatsTheme.spacing.m),
             )

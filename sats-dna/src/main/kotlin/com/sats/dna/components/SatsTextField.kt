@@ -10,6 +10,7 @@ import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
+import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 import androidx.compose.material3.TextField as Material3TextField
@@ -57,6 +58,7 @@ fun M3SatsTextField(
     enabled: Boolean = true,
     label: @Composable (() -> Unit)? = null,
     placeholder: @Composable (() -> Unit)? = null,
+    supportingText: @Composable (() -> Unit)? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions(),
     singleLine: Boolean = false,
@@ -72,6 +74,7 @@ fun M3SatsTextField(
         enabled = enabled,
         label = label,
         placeholder = placeholder,
+        supportingText = supportingText,
         keyboardOptions = keyboardOptions,
         keyboardActions = keyboardActions,
         singleLine = singleLine,
@@ -119,6 +122,7 @@ private fun EnabledMaterial3TextFieldPreview() {
             M3SatsTextField(
                 value = "Text",
                 onValueChange = { },
+                supportingText = { MaterialText("This is a hint text for the user.") },
                 modifier = Modifier.padding(SatsTheme.spacing.m),
             )
         }
@@ -133,6 +137,7 @@ private fun DisabledMaterial3TextFieldPreview() {
             M3SatsTextField(
                 value = "Text",
                 onValueChange = { },
+                supportingText = { MaterialText("This is a hint text for the user.") },
                 enabled = false,
                 modifier = Modifier.padding(SatsTheme.spacing.m),
             )
