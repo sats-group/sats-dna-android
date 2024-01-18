@@ -13,6 +13,7 @@ import com.sats.dna.components.SatsRewardsLevel
 import com.sats.dna.components.SatsRewardsTag
 import com.sats.dna.components.SatsTag
 import com.sats.dna.components.SatsTagColor
+import com.sats.dna.components.SatsTagPlaceholder
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
@@ -43,6 +44,10 @@ private fun TagsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
                 SatsRewardsLevel.entries.forEach { level ->
                     SatsRewardsTag(level)
                 }
+            }
+
+            Section("Tag Placeholder") {
+                SatsTagPlaceholder("Placeholder")
             }
         }
     }
