@@ -6,8 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ElevatedCard
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
@@ -20,34 +18,19 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
-import androidx.compose.material.Card as M2Card
 
 @Composable
 fun SatsCard(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit,
 ) {
-    if (LocalUseMaterial3.current) {
-        ElevatedCard(
-            modifier = modifier,
-            shape = SatsTheme.shapes.roundedCorners.small,
-            colors = CardDefaults.elevatedCardColors(
-                containerColor = SatsTheme.colors2.surfaces.primary.bg.default,
-                contentColor = SatsTheme.colors2.surfaces.primary.fg.default,
-            ),
-            elevation = CardDefaults.elevatedCardElevation(1.dp),
-        ) {
-            content()
-        }
-    } else {
-        M2Card(
-            modifier = modifier,
-            shape = SatsTheme.shapes.roundedCorners.small,
-            backgroundColor = SatsTheme.colors2.surfaces.primary.bg.default,
-            contentColor = SatsTheme.colors2.surfaces.primary.fg.default,
-            content = content,
-        )
-    }
+    SatsSurface(
+        modifier = modifier,
+        color = SatsTheme.colors2.surfaces.primary.bg.default,
+        shape = SatsTheme.shapes.roundedCorners.small,
+        elevation = 1.dp,
+        content = content,
+    )
 }
 
 @LightDarkPreview

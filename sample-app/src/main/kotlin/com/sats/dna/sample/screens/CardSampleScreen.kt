@@ -1,9 +1,9 @@
 package com.sats.dna.sample.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,6 +15,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
@@ -39,23 +41,23 @@ private fun SatsCardScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
         ) {
             SatsCard {
                 Column(Modifier.clickable { }) {
-                    Box(
-                        Modifier
+                    Image(
+                        painterResource(com.sats.dna.R.drawable.debug_img_placeholder),
+                        contentDescription = null,
+                        modifier = Modifier
                             .fillMaxWidth()
                             .aspectRatio(16f / 9)
                             .background(SatsTheme.colors2.surfaces.fixed.bg.default),
-                    ) {
-                        Text(
-                            text = "Image",
-                            modifier = Modifier.align(Alignment.Center),
-                            color = SatsTheme.colors2.surfaces.fixed.fg.default,
-                        )
-                    }
+                        contentScale = ContentScale.Crop,
+                    )
 
                     Column(Modifier.padding(SatsTheme.spacing.m), Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
-                        Text("Material 3 Card", style = SatsTheme.typography.medium.large)
+                        Text("SATS Card", style = SatsTheme.typography.medium.large)
 
-                        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+                        Text(
+                            "This is a SATS Card with an image, a title and a body text. It is not limited to these " +
+                                "fields, nor are any of them required; this is just one way it can be presented.",
+                        )
                     }
                 }
             }
