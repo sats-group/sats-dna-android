@@ -1,9 +1,13 @@
 package com.sats.dna.sample.screens
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.sats.dna.components.upcomingworkouts.Schedule
+import com.sats.dna.components.upcomingworkouts.SchedulePlaceholder
 import com.sats.dna.components.upcomingworkouts.ScheduledWorkout
 import com.sats.dna.components.upcomingworkouts.WaitingListStatus
 import com.sats.dna.theme.SatsTheme
@@ -51,13 +55,18 @@ private fun ScheduleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
             ),
         )
 
-        Schedule(
-            schedule,
-            onWorkoutClicked = {},
+        Column(
             Modifier
                 .padding(innerPadding)
                 .padding(SatsTheme.spacing.m),
-        )
+            verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
+        ) {
+            Schedule(schedule, onWorkoutClicked = {})
+
+            Divider()
+
+            SchedulePlaceholder()
+        }
     }
 }
 
