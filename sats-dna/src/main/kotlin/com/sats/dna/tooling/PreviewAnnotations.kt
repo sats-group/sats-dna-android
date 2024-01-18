@@ -9,5 +9,5 @@ annotation class LightDarkPreview
 
 @Preview("Small Font Size (0.75x)", group = "Font Sizes", fontScale = 0.75f)
 @Preview("Large Font Size (1.50x)", group = "Font Sizes", fontScale = 1.5f)
-@Preview("Huge Font Size (3.0x)", group = "Font Sizes", fontScale = 3f)
+@Preview("Huge Font Size (2.0x)", group = "Font Sizes", fontScale = 2f)
 annotation class FontSizePreview
