@@ -1,16 +1,17 @@
 package com.sats.dna.sample.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
@@ -48,6 +49,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
         Column(
             Modifier
                 .fillMaxSize()
+                .verticalScroll(rememberScrollState())
                 .padding(innerPadding)
                 .padding(vertical = SatsTheme.spacing.m),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -137,12 +139,12 @@ private class ControlPanelState {
 }
 
 @Composable
-@OptIn(ExperimentalLayoutApi::class)
 private fun ControlPanel(state: ControlPanelState) {
     SatsSurface(Modifier.fillMaxWidth(), elevation = 2.dp) {
-        FlowRow(
+        Row(
             Modifier
                 .navigationBarsPadding()
+                .horizontalScroll(rememberScrollState())
                 .padding(SatsTheme.spacing.m),
             horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
         ) {
