@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import com.sats.dna.components.PlaceholderText
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.internal.MaterialText
@@ -25,6 +26,54 @@ fun Schedule(
         val days = workouts.groupBy { it.day }
 
         ScheduledDays(days, onWorkoutClicked)
+    }
+}
+
+@Composable
+fun SchedulePlaceholder(modifier: Modifier = Modifier) {
+    SatsCard(modifier.fillMaxWidth()) {
+        Column(
+            Modifier.padding(top = cardInnerPadding, bottom = cardInnerPadding - clickableVerticalPadding),
+            spacedBy(SatsTheme.spacing.s - clickableVerticalPadding),
+        ) {
+            Column(verticalArrangement = spacedBy(SatsTheme.spacing.s - clickableVerticalPadding)) {
+                PlaceholderText(
+                    text = "Tomorrow",
+                    modifier = Modifier.padding(horizontal = cardInnerPadding),
+                    style = SatsTheme.typography.normal.small,
+                )
+
+                Column(verticalArrangement = spacedBy(SatsTheme.spacing.xs - clickableVerticalPadding)) {
+                    repeat(2) {
+                        Row(
+                            Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = cardInnerPadding - clickableHorizontalPadding)
+                                .clip(SatsTheme.shapes.roundedCorners.small)
+                                .padding(
+                                    vertical = clickableVerticalPadding,
+                                    horizontal = clickableHorizontalPadding,
+                                ),
+                            horizontalArrangement = spacedBy(SatsTheme.spacing.s),
+                        ) {
+                            Column(Modifier.weight(1f), verticalArrangement = spacedBy(SatsTheme.spacing.xxs)) {
+                                PlaceholderText("9:00 PM", style = SatsTheme.typography.medium.basic)
+
+                                PlaceholderText("45 min", style = SatsTheme.typography.normal.small)
+                            }
+
+                            Column(Modifier.weight(4f), verticalArrangement = spacedBy(SatsTheme.spacing.xxs)) {
+                                PlaceholderText("Yoga Flow", style = SatsTheme.typography.medium.basic)
+
+                                PlaceholderText("SATS Nydalen", style = SatsTheme.typography.normal.small)
+
+                                PlaceholderText("w/Andrew Nielsen", style = SatsTheme.typography.normal.small)
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -102,7 +151,7 @@ private fun SchedulePreview() {
             duration = "45 min",
             name = "Yoga Flow",
             location = "SATS Nydalen",
-            instructor = "w/ Andrew Nielsen",
+            instructor = "w/Andrew Nielsen",
             waitingListStatus = WaitingListStatus.SpotSecured("Spot secured!", "32 on waiting list"),
         ),
         ScheduledWorkout(
@@ -112,7 +161,7 @@ private fun SchedulePreview() {
             duration = "30 min",
             name = "Body Pump",
             location = "SATS Colosseum",
-            instructor = "w/ Magnus Owe",
+            instructor = "w/Magnus Owe",
             waitingListStatus = WaitingListStatus.OnWaitingList("Number 5 on the waiting list."),
         ),
         ScheduledWorkout(
@@ -122,17 +171,7 @@ private fun SchedulePreview() {
             duration = "120 min",
             name = "Cycling Marathon",
             location = "SATS Storo",
-            instructor = "w/ John Doe",
-            waitingListStatus = null,
-        ),
-        ScheduledWorkout(
-            id = "baz",
-            day = "Tomorrow",
-            time = "9:00 PM",
-            duration = "120 min",
-            name = "Super long long long long long workout name",
-            location = "SATS Storo",
-            instructor = "w/ John Doe",
+            instructor = "w/John Doe",
             waitingListStatus = null,
         ),
     )
@@ -140,6 +179,16 @@ private fun SchedulePreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             Schedule(schedule, onWorkoutClicked = {}, Modifier.padding(SatsTheme.spacing.m))
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun SchedulePlaceholderPreview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            SchedulePlaceholder(Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }
