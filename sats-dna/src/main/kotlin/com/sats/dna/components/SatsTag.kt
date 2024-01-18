@@ -70,6 +70,22 @@ enum class SatsRewardsLevel {
 }
 
 @Composable
+fun SatsTagPlaceholder(
+    text: String,
+    modifier: Modifier = Modifier,
+) {
+    PlaceholderBox(modifier, SatsTheme.shapes.roundedCorners.extraSmall) {
+        PlaceholderText(
+            text = text.uppercase(),
+            modifier = Modifier.padding(
+                horizontal = SatsTheme.spacing.s,
+                vertical = SatsTheme.spacing.xxs,
+            ),
+        )
+    }
+}
+
+@Composable
 private fun SatsTagLayout(
     text: String,
     backgroundColor: Color,
@@ -77,14 +93,17 @@ private fun SatsTagLayout(
     modifier: Modifier = Modifier,
 ) {
     SatsSurface(
-        modifier,
+        modifier = modifier,
         shape = SatsTheme.shapes.roundedCorners.extraSmall,
         color = backgroundColor,
         contentColor = contentColor,
     ) {
         MaterialText(
-            text.uppercase(),
-            Modifier.padding(horizontal = SatsTheme.spacing.s, vertical = SatsTheme.spacing.xxs),
+            text = text.uppercase(),
+            modifier = Modifier.padding(
+                horizontal = SatsTheme.spacing.s,
+                vertical = SatsTheme.spacing.xxs,
+            ),
         )
     }
 }
@@ -93,7 +112,7 @@ private fun SatsTagLayout(
 @Composable
 private fun SatsTagPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             Column(
                 Modifier.padding(SatsTheme.spacing.m),
                 verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
@@ -121,6 +140,16 @@ private fun SatsRewardsTagPreview() {
                     SatsRewardsTag(level)
                 }
             }
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun SatsTagPlaceholderPreview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            SatsTagPlaceholder("Tag Text", Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }
