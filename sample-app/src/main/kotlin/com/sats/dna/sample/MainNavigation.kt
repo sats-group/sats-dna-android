@@ -18,6 +18,7 @@ import com.sats.dna.sample.screens.CircularProgressIndicatorSampleScreen
 import com.sats.dna.sample.screens.Colors2SampleScreen
 import com.sats.dna.sample.screens.ColorsSampleScreen
 import com.sats.dna.sample.screens.CompletedWorkoutListItemSampleScreen
+import com.sats.dna.sample.screens.DividersSampleScreen
 import com.sats.dna.sample.screens.EmptyStateSampleScreen
 import com.sats.dna.sample.screens.FriendsBookingStatusSampleScreen
 import com.sats.dna.sample.screens.GeneralListItemSampleScreen
@@ -61,6 +62,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         ChipsSampleScreen.navScreen(navController)
         CircularProgressIndicatorSampleScreen.navScreen(navController)
         CompletedWorkoutListItemSampleScreen.navScreen(navController)
+        DividersSampleScreen.navScreen(navController)
         EmptyStateSampleScreen.navScreen(navController)
         FriendsBookingStatusSampleScreen.navScreen(navController)
         GeneralListItemSampleScreen.navScreen(navController)
@@ -76,9 +78,9 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         TagsSampleScreen.navScreen(navController)
         TextFieldSampleScreen.navScreen(navController)
         TopAppBarSampleScreen.navScreen(navController)
-        YourMostBookedSampleScreen.navScreen(navController)
         TrafficLightsSampleScreen.navScreen(navController)
         UpcomingWorkoutListItemSampleScreen.navScreen(navController)
+        YourMostBookedSampleScreen.navScreen(navController)
     }
 }
 

@@ -6,13 +6,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SatsSwitch
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
@@ -39,7 +39,7 @@ private fun SwitchScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) 
             LabeledSwitch("Disabled, unselected", enabled = false, selected = false)
             LabeledSwitch("Disabled, selected", enabled = false, selected = true)
 
-            Divider()
+            SatsHorizontalDivider()
 
             val (isSelected, onSelectChanged) = remember { mutableStateOf(false) }
 

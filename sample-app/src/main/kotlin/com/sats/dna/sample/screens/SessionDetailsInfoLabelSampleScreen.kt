@@ -5,9 +5,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material3.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.sessiondetails.SessionDetailsInfoLabel
 import com.sats.dna.components.sessiondetails.SessionDetailsInfoSection
 import com.sats.dna.components.sessiondetails.SessionDetailsInfoSectionPlaceholder
@@ -64,7 +64,7 @@ private fun SessionDetailsInfoLabelScreen(navigateUp: () -> Unit, modifier: Modi
                 },
             )
 
-            Divider()
+            SatsHorizontalDivider()
 
             SessionDetailsInfoSectionPlaceholder()
         }
