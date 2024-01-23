@@ -32,6 +32,8 @@ private fun ScheduleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                 location = "SATS Nydalen",
                 instructor = "w/ Andrew Nielsen",
                 waitingListStatus = WaitingListStatus.SpotSecured("Spot secured! 32 on the waiting list."),
+                workoutType = null,
+                workoutTypeColor = SatsTheme.colors2.graphicalElements.workouts.gx
             ),
             ScheduledWorkout(
                 id = "bar",
@@ -42,6 +44,8 @@ private fun ScheduleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                 location = "SATS Colosseum",
                 instructor = "w/ Magnus Owe",
                 waitingListStatus = WaitingListStatus.OnWaitingList("Number 5 on the waiting list."),
+                workoutType = null,
+                workoutTypeColor = SatsTheme.colors2.graphicalElements.workouts.pt
             ),
             ScheduledWorkout(
                 id = "baz",
@@ -52,6 +56,8 @@ private fun ScheduleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                 location = "SATS Storo",
                 instructor = "w/ John Doe",
                 waitingListStatus = null,
+                workoutType = null,
+                workoutTypeColor = SatsTheme.colors2.graphicalElements.workouts.gymfloor
             ),
         )
 

@@ -1,14 +1,18 @@
 package com.sats.dna.components.upcomingworkouts
 
+import androidx.compose.ui.graphics.Color
+
 data class ScheduledWorkout(
     val id: String,
     val day: String,
     val time: String,
     val duration: String,
     val name: String,
-    val location: String,
-    val instructor: String,
+    val workoutType: String?,
+    val location: String?,
+    val instructor: String?,
     val waitingListStatus: WaitingListStatus?,
+    val workoutTypeColor: Color? = null,
 )
 
 sealed interface WaitingListStatus {

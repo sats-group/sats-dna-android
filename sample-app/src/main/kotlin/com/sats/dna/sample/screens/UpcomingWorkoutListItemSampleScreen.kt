@@ -53,6 +53,9 @@ private fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Modi
                             )
                         },
                         onClick = {},
+                        waitingListStatus = WaitingListStatus.OnWaitingList("You are number 10 on the waiting list"),
+                        workoutTypeColor = SatsTheme.colors2.graphicalElements.workouts.gx,
+                        workoutType = null,
                     )
                 }
             }
@@ -75,6 +78,7 @@ private fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Modi
                             )
                         },
                         onClick = {},
+                        workoutType = "🏋️ Strength training",
                     )
                 }
             }

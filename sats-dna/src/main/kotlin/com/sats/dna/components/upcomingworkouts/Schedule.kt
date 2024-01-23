@@ -3,8 +3,10 @@ package com.sats.dna.components.upcomingworkouts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -14,6 +16,7 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
+import com.sats.dna.tooling.FontSizePreview
 import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
@@ -113,6 +116,7 @@ private fun ScheduledWorkouts(
             Row(
                 Modifier
                     .fillMaxWidth()
+                    .height(IntrinsicSize.Min)
                     .padding(horizontal = cardInnerPadding - clickableHorizontalPadding)
                     .clip(SatsTheme.shapes.roundedCorners.small)
                     .clickable { onWorkoutClicked(workout) }
@@ -122,6 +126,9 @@ private fun ScheduledWorkouts(
                     ),
                 horizontalArrangement = spacedBy(SatsTheme.spacing.s),
             ) {
+                workout.workoutTypeColor?.let {
+                    WorkoutTypeColorIndicator(it)
+                }
                 TimeAndDuration(
                     time = workout.time,
                     duration = workout.duration,
@@ -132,6 +139,7 @@ private fun ScheduledWorkouts(
                     name = workout.name,
                     location = workout.location,
                     instructor = workout.instructor,
+                    workoutType = workout.workoutType,
                     waitingListStatus = workout.waitingListStatus,
                     modifier = Modifier.weight(4f),
                 )
@@ -141,6 +149,7 @@ private fun ScheduledWorkouts(
 }
 
 @LightDarkPreview
+@FontSizePreview
 @Composable
 private fun SchedulePreview() {
     val schedule = listOf(
@@ -152,6 +161,8 @@ private fun SchedulePreview() {
             name = "Yoga Flow",
             location = "SATS Nydalen",
             instructor = "w/Andrew Nielsen",
+            workoutTypeColor = SatsTheme.colors2.graphicalElements.workouts.gx,
+            workoutType = null,
             waitingListStatus = WaitingListStatus.SpotSecured("Spot secured!", "32 on waiting list"),
         ),
         ScheduledWorkout(
@@ -162,6 +173,8 @@ private fun SchedulePreview() {
             name = "Body Pump",
             location = "SATS Colosseum",
             instructor = "w/Magnus Owe",
+            workoutTypeColor = SatsTheme.colors2.graphicalElements.workouts.gymfloor,
+            workoutType = null,
             waitingListStatus = WaitingListStatus.OnWaitingList("Number 5 on the waiting list."),
         ),
         ScheduledWorkout(
@@ -172,6 +185,7 @@ private fun SchedulePreview() {
             name = "Cycling Marathon",
             location = "SATS Storo",
             instructor = "w/John Doe",
+            workoutType = "Cycling",
             waitingListStatus = null,
         ),
     )
