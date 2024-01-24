@@ -16,8 +16,8 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.ui.Scaffold
 import com.sats.dna.components.LocalUseMaterial3
-import com.sats.dna.components.SatsSnackbar
-import com.sats.dna.components.SatsSnackbarAction
+import com.sats.dna.components.snackbar.SatsSnackbar
+import com.sats.dna.components.snackbar.SatsSnackbarAction
 import com.sats.dna.theme.SatsTheme
 import androidx.compose.material3.Scaffold as M3Scaffold
 import androidx.compose.material3.SnackbarHost as M3SnackbarHost

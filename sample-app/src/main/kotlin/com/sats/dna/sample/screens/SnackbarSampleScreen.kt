@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.sats.dna.components.SatsSnackbar
-import com.sats.dna.components.SatsSnackbarAction
+import com.sats.dna.components.snackbar.SatsSnackbar
+import com.sats.dna.components.snackbar.SatsSnackbarAction
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
