@@ -1,5 +1,8 @@
 package com.sats.dna.components.screen
 
+import androidx.compose.material3.Scaffold as M3Scaffold
+import androidx.compose.material3.SnackbarHost as M3SnackbarHost
+import androidx.compose.material3.SnackbarHostState as M3SnackbarHostState
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
@@ -20,9 +23,6 @@ import com.sats.dna.components.snackbar.SatsSnackbar
 import com.sats.dna.components.snackbar.SatsSnackbarAction
 import com.sats.dna.components.snackbar.SatsSnackbarVisuals
 import com.sats.dna.theme.SatsTheme
-import androidx.compose.material3.Scaffold as M3Scaffold
-import androidx.compose.material3.SnackbarHost as M3SnackbarHost
-import androidx.compose.material3.SnackbarHostState as M3SnackbarHostState
 
 @Composable
 fun SatsScreen(
@@ -57,9 +57,6 @@ fun M3SatsScreen(
     topBar: @Composable () -> Unit = {},
     bottomBar: @Composable () -> Unit = {},
     snackbarHostState: M3SnackbarHostState = remember { M3SnackbarHostState() },
-    snackbarHost: @Composable (M3SnackbarHostState) -> Unit = {
-        M3SatsSnackbarHost(it, Modifier.padding(SatsTheme.spacing.m))
-    },
     floatingActionButton: @Composable () -> Unit = {},
     contentPadding: PaddingValues = PaddingValues(0.dp),
     content: @Composable (contentPadding: PaddingValues) -> Unit,
@@ -71,7 +68,7 @@ fun M3SatsScreen(
             bottomBar = bottomBar,
             containerColor = SatsTheme.colors2.backgrounds.primary.bg.default,
             contentColor = SatsTheme.colors2.backgrounds.primary.fg.default,
-            snackbarHost = { snackbarHost(snackbarHostState) },
+            snackbarHost = { M3SatsSnackbarHost(snackbarHostState) },
             floatingActionButton = floatingActionButton,
         ) { scaffoldContentPadding ->
             val screenContentPadding = PaddingValues(
