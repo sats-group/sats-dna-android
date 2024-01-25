@@ -55,7 +55,7 @@ fun SatsSnackbar(
 /**
  * Sats snackbar to display short and non intrusive messages to a user.
  *
- * @param visuals The [SatsSnackBarVisuals] to be used for the snackbar.
+ * @param visuals The [SatsSnackbarVisuals] to be used for the snackbar.
  * @param modifier The modifier to be applied to this composable.
  *
  * @see [SatsSnackbarDefaults]
@@ -63,7 +63,7 @@ fun SatsSnackbar(
 
 @Composable
 fun SatsSnackbar(
-    visuals: SatsSnackBarVisuals,
+    visuals: SatsSnackbarVisuals,
     modifier: Modifier = Modifier,
 ) {
     Surface(

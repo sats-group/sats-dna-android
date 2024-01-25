@@ -18,6 +18,7 @@ import com.google.accompanist.insets.ui.Scaffold
 import com.sats.dna.components.LocalUseMaterial3
 import com.sats.dna.components.snackbar.SatsSnackbar
 import com.sats.dna.components.snackbar.SatsSnackbarAction
+import com.sats.dna.components.snackbar.SatsSnackbarVisuals
 import com.sats.dna.theme.SatsTheme
 import androidx.compose.material3.Scaffold as M3Scaffold
 import androidx.compose.material3.SnackbarHost as M3SnackbarHost
@@ -101,10 +102,16 @@ private fun SatsSnackbarHost(snackbarHostState: SnackbarHostState, modifier: Mod
 @Composable
 private fun M3SatsSnackbarHost(snackbarHostState: M3SnackbarHostState, modifier: Modifier = Modifier) {
     M3SnackbarHost(snackbarHostState, modifier) { snackbarData ->
-        val action = snackbarData.visuals.actionLabel?.let { label ->
-            SatsSnackbarAction(snackbarData::performAction, label)
+        when (val snackbarVisuals = snackbarData.visuals) {
+            is SatsSnackbarVisuals -> {
+                SatsSnackbar(visuals = snackbarVisuals)
+            }
+            else -> {
+                val action = snackbarData.visuals.actionLabel?.let { label ->
+                    SatsSnackbarAction(snackbarData::performAction, label)
+                }
+                SatsSnackbar(snackbarData.visuals.message, action)
+            }
         }
-
-        SatsSnackbar(snackbarData.visuals.message, action)
     }
 }

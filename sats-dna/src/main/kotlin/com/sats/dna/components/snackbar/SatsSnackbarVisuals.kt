@@ -10,7 +10,7 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
 
-class SatsSnackBarVisuals internal constructor(
+class SatsSnackbarVisuals internal constructor(
     val leadingIcon: @Composable () -> Unit,
     val title: String?,
     override val message: String,
@@ -54,8 +54,8 @@ object SatsSnackbarDefaults {
         dismissAction: SatsSnackbarAction? = null,
         duration: SnackbarDuration = SnackbarDuration.Short,
         theme: SatsSnackbarTheme = SatsSnackbarTheme.Info,
-    ): SatsSnackBarVisuals =
-        SatsSnackBarVisuals(
+    ): SatsSnackbarVisuals =
+        SatsSnackbarVisuals(
             action = action,
             duration = duration,
             message = message,
