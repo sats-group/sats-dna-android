@@ -1,5 +1,5 @@
 [versions]
-accompanist = "0.32.0"
+accompanist = "0.34.0"
 agp = "8.2.2"
 androidx-compose = "1.5.4"
 androidx-navigation = "2.7.6"
