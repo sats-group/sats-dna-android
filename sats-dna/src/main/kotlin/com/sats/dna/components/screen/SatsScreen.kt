@@ -1,8 +1,5 @@
 package com.sats.dna.components.screen
 
-import androidx.compose.material3.Scaffold as M3Scaffold
-import androidx.compose.material3.SnackbarHost as M3SnackbarHost
-import androidx.compose.material3.SnackbarHostState as M3SnackbarHostState
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
@@ -23,6 +20,9 @@ import com.sats.dna.components.snackbar.SatsSnackbar
 import com.sats.dna.components.snackbar.SatsSnackbarAction
 import com.sats.dna.components.snackbar.SatsSnackbarVisuals
 import com.sats.dna.theme.SatsTheme
+import androidx.compose.material3.Scaffold as M3Scaffold
+import androidx.compose.material3.SnackbarHost as M3SnackbarHost
+import androidx.compose.material3.SnackbarHostState as M3SnackbarHostState
 
 @Composable
 fun SatsScreen(

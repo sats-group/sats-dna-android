@@ -72,8 +72,8 @@ fun SatsSnackbar(
             .height(IntrinsicSize.Min),
         shape = SatsTheme.shapes.roundedCorners.small,
         shadowElevation = 6.dp,
-        color = visuals.backgroundColor,
-        contentColor = visuals.contentColor,
+        color = visuals.colors.backgroundColor,
+        contentColor = visuals.colors.containerColor,
     ) {
         Row(
             Modifier
@@ -92,7 +92,7 @@ fun SatsSnackbar(
                         Text(
                             text = it,
                             style = SatsTheme.typography.normal.basic,
-                            color = visuals.titleColor,
+                            color = visuals.colors.titleColor,
                         )
                     }
                     MaterialText(visuals.message, maxLines = 3, overflow = Ellipsis)

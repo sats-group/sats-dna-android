@@ -17,9 +17,7 @@ class SatsSnackbarVisuals internal constructor(
     val action: SatsSnackbarAction?,
     val dismissAction: SatsSnackbarAction?,
     override val duration: SnackbarDuration,
-    val backgroundColor: Color,
-    val contentColor: Color,
-    val titleColor: Color,
+    val colors: SatsSnackbarColors,
 ) : SnackbarVisuals {
 
     override val actionLabel: String? = action?.label
@@ -32,6 +30,12 @@ enum class SatsSnackbarTheme {
 }
 
 class SatsSnackbarAction(val action: () -> Unit, val label: String)
+
+class SatsSnackbarColors internal constructor(
+    val backgroundColor: Color,
+    val containerColor: Color,
+    val titleColor: Color,
+)
 
 object SatsSnackbarDefaults {
 
@@ -62,27 +66,22 @@ object SatsSnackbarDefaults {
             dismissAction = dismissAction,
             leadingIcon = { theme.LeadingIcon() },
             title = title,
-            backgroundColor = theme.getBackgroundColor(),
-            contentColor = theme.getForegroundColorForTheme(),
-            titleColor = theme.getTitleColorForTheme(),
+            colors = theme.getSnackBarColors(),
         )
 
     @Composable
-    private fun SatsSnackbarTheme.getBackgroundColor(): Color = when (this) {
-        SatsSnackbarTheme.Info -> SatsTheme.colors2.surfaces.primary.bg.default
-        SatsSnackbarTheme.Success -> SatsTheme.colors2.signalSurfaces.success.bg
-    }
+    fun SatsSnackbarTheme.getSnackBarColors(): SatsSnackbarColors = when (this) {
+        SatsSnackbarTheme.Info -> SatsSnackbarColors(
+            backgroundColor = SatsTheme.colors2.surfaces.primary.bg.default,
+            containerColor = SatsTheme.colors2.surfaces.primary.fg.default,
+            titleColor = SatsTheme.colors2.surfaces.primary.fg.alternate,
+        )
 
-    @Composable
-    private fun SatsSnackbarTheme.getForegroundColorForTheme(): Color = when (this) {
-        SatsSnackbarTheme.Info -> SatsTheme.colors2.surfaces.primary.fg.default
-        SatsSnackbarTheme.Success -> SatsTheme.colors2.signalSurfaces.success.fg.default
-    }
-
-    @Composable
-    private fun SatsSnackbarTheme.getTitleColorForTheme(): Color = when (this) {
-        SatsSnackbarTheme.Info -> SatsTheme.colors2.surfaces.primary.fg.alternate
-        SatsSnackbarTheme.Success -> SatsTheme.colors2.signalSurfaces.success.fg.alternate
+        SatsSnackbarTheme.Success -> SatsSnackbarColors(
+            backgroundColor = SatsTheme.colors2.signalSurfaces.success.bg,
+            containerColor = SatsTheme.colors2.signalSurfaces.success.fg.default,
+            titleColor = SatsTheme.colors2.signalSurfaces.success.fg.alternate,
+        )
     }
 
     @Composable
@@ -93,7 +92,7 @@ object SatsSnackbarDefaults {
 
         SatsSnackbarTheme.Success -> {
             Text(
-                text = "\uD83C\uDF89",
+                text = "🎉",
                 modifier = Modifier.clearAndSetSemantics {},
             )
         }
