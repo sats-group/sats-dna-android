@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,6 +28,7 @@ private fun SnackbarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
     ComponentScreen("Snackbar", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
+                .verticalScroll(rememberScrollState())
                 .padding(innerPadding)
                 .padding(SatsTheme.spacing.m)
                 .fillMaxSize()
@@ -41,28 +44,35 @@ private fun SnackbarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
             SatsSnackbar("Oops, that didn't work at all! You should probably talk to the manager.", action)
 
             SatsSnackbar(
-                "Oops, that didn't work at all! And this message is way too long for the entire text to be seen. " +
-                    "We might want to reconsider those texts.",
-                action,
+                message = "Oops, that didn't work at all! " +
+                    "And this message is way too long for the entire text to be seen. " +
+                    "We might want to reconsider those texts. Texts that span more than " +
+                    "three lines will be cut off, so don't do that.",
+                action = action,
             )
+
             SatsSnackbar(
                 visuals = SatsSnackbarDefaults.snackbarVisuals(
                     title = "Something went wrong.",
                     message = "Oops, that didn't work at all! " +
                         "And this message is way too long for the entire text to be seen. " +
-                        "We might want to reconsider those texts.",
+                        "We might want to reconsider those texts. Texts that span more than " +
+                        "three lines will be cut off, so don't do that.",
                     action = action,
                 ),
 
             )
+
             SatsSnackbar(
                 visuals = SatsSnackbarDefaults.snackbarVisuals(
-                    title = "Yay!",
-                    message = "You did so well on that workout. Book another one!",
+                    title = "Yay! Invitations have been sent!",
+                    message = "You can always add or remove friends later, or change other details.",
+                    action = null,
                     theme = SatsSnackbarTheme.Success,
                     dismissAction = SatsSnackbarAction({}, "close"),
                 ),
             )
+
             SatsSnackbar(
                 visuals = SatsSnackbarDefaults.snackbarVisuals(
                     message = "Workout created!",
