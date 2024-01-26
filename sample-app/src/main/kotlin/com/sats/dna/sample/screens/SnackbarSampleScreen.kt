@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.sats.dna.components.snackbar.SatsSnackbar
 import com.sats.dna.components.snackbar.SatsSnackbarAction
@@ -33,40 +32,28 @@ private fun SnackbarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                 .padding(SatsTheme.spacing.m)
                 .fillMaxSize()
                 .wrapContentSize(),
-            Arrangement.spacedBy(SatsTheme.spacing.m, Alignment.CenterVertically),
+            Arrangement.spacedBy(SatsTheme.spacing.m),
         ) {
-            val action = SatsSnackbarAction(action = {}, "Try again")
-
-            SatsSnackbar("That didn't work!", action = null)
-
-            SatsSnackbar("Oops, that didn't work at all! You should probably talk to the manager.", action = null)
-
-            SatsSnackbar("Oops, that didn't work at all! You should probably talk to the manager.", action)
+            SatsSnackbar(
+                message = "This text exists so that you can read it.",
+                action = null,
+            )
 
             SatsSnackbar(
-                message = "Oops, that didn't work at all! " +
-                    "And this message is way too long for the entire text to be seen. " +
-                    "We might want to reconsider those texts. Texts that span more than " +
-                    "three lines will be cut off, so don't do that.",
-                action = action,
+                message = "This text is yours to read. There's also an action that you can perform.",
+                action = SatsSnackbarAction(action = {}, "Try again"),
+            )
+
+            SatsSnackbar(
+                message = "Texts should not be too long, as they might not fit inside the snackbar. We cap all texts " +
+                    "at three lines, so if the text is longer than that, you won't be able to read it all.",
+                action = null,
             )
 
             SatsSnackbar(
                 visuals = SatsSnackbarDefaults.snackbarVisuals(
-                    title = "Something went wrong.",
-                    message = "Oops, that didn't work at all! " +
-                        "And this message is way too long for the entire text to be seen. " +
-                        "We might want to reconsider those texts. Texts that span more than " +
-                        "three lines will be cut off, so don't do that.",
-                    action = action,
-                ),
-
-            )
-
-            SatsSnackbar(
-                visuals = SatsSnackbarDefaults.snackbarVisuals(
-                    title = "Yay! Invitations have been sent!",
-                    message = "You can always add or remove friends later, or change other details.",
+                    title = "The operation was a success!",
+                    message = "You did something good, and so did we. We were also able to complete the thing.",
                     action = null,
                     theme = SatsSnackbarTheme.Success,
                     dismissAction = SatsSnackbarAction({}, "close"),
@@ -75,8 +62,12 @@ private fun SnackbarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
 
             SatsSnackbar(
                 visuals = SatsSnackbarDefaults.snackbarVisuals(
-                    message = "Workout created!",
-                    theme = SatsSnackbarTheme.Success,
+                    title = "Oh no, that's not great!",
+                    message = "It looks like whatever you were trying to do didn't happen according to plan. You may " +
+                        "want to try that again.",
+                    action = SatsSnackbarAction(action = {}, label = "Try again"),
+                    theme = SatsSnackbarTheme.Error,
+                    dismissAction = SatsSnackbarAction({}, "close"),
                 ),
             )
         }
