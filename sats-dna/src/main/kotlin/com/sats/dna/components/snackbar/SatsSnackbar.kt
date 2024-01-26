@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Alignment.Companion.Top
@@ -88,15 +87,16 @@ fun SatsSnackbar(
                 verticalAlignment = CenterVertically,
             ) {
                 Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
-                    visuals.title?.let {
-                        Text(
-                            text = it,
-                            style = SatsTheme.typography.normal.basic,
+                    visuals.title?.let { title ->
+                        MaterialText(
+                            text = title,
+                            style = SatsTheme.typography.emphasis.basic,
                             color = visuals.colors.titleColor,
                         )
                     }
+
                     MaterialText(
-                        visuals.message,
+                        text = visuals.message,
                         maxLines = 3,
                         overflow = Ellipsis,
                     )
