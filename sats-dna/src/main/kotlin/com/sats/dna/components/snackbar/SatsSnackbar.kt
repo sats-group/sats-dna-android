@@ -95,7 +95,11 @@ fun SatsSnackbar(
                             color = visuals.colors.titleColor,
                         )
                     }
-                    MaterialText(visuals.message, maxLines = 3, overflow = Ellipsis)
+                    MaterialText(
+                        visuals.message,
+                        maxLines = 3,
+                        overflow = Ellipsis,
+                    )
                 }
 
                 if (visuals.action != null) {
