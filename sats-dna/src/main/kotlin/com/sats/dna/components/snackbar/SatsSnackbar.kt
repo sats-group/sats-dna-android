@@ -7,9 +7,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
+import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
@@ -82,6 +83,7 @@ fun SatsSnackbar(
             verticalAlignment = if (visuals.title == null) CenterVertically else Top,
         ) {
             visuals.leadingIcon()
+
             Row(
                 horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
                 verticalAlignment = CenterVertically,
@@ -105,11 +107,15 @@ fun SatsSnackbar(
                 if (visuals.action != null) {
                     SatsButton(visuals.action.action, visuals.action.label, colors = SatsButtonColor.Transparent)
                 }
+
                 if (visuals.dismissAction != null) {
                     IconButton(
                         onClick = visuals.dismissAction.action,
+                        modifier = Modifier
+                            .align(Top)
+                            .offset(x = SatsTheme.spacing.m, y = -SatsTheme.spacing.m),
                     ) {
-                        Icon(
+                        MaterialIcon(
                             modifier = Modifier.size(20.dp),
                             painter = SatsTheme.icons.close,
                             contentDescription = visuals.dismissAction.label,
