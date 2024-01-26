@@ -8,8 +8,10 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.sats.dna.components.SatsSnackbar
-import com.sats.dna.components.SatsSnackbarAction
+import com.sats.dna.components.snackbar.SatsSnackbar
+import com.sats.dna.components.snackbar.SatsSnackbarAction
+import com.sats.dna.components.snackbar.SatsSnackbarDefaults
+import com.sats.dna.components.snackbar.SatsSnackbarTheme
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
@@ -42,6 +44,30 @@ private fun SnackbarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                 "Oops, that didn't work at all! And this message is way too long for the entire text to be seen. " +
                     "We might want to reconsider those texts.",
                 action,
+            )
+            SatsSnackbar(
+                visuals = SatsSnackbarDefaults.snackbarVisuals(
+                    title = "Something went wrong.",
+                    message = "Oops, that didn't work at all! " +
+                        "And this message is way too long for the entire text to be seen. " +
+                        "We might want to reconsider those texts.",
+                    action = action,
+                ),
+
+            )
+            SatsSnackbar(
+                visuals = SatsSnackbarDefaults.snackbarVisuals(
+                    title = "Yay!",
+                    message = "You did so well on that workout. Book another one!",
+                    theme = SatsSnackbarTheme.Success,
+                    dismissAction = SatsSnackbarAction({}, "close"),
+                ),
+            )
+            SatsSnackbar(
+                visuals = SatsSnackbarDefaults.snackbarVisuals(
+                    message = "Workout created!",
+                    theme = SatsSnackbarTheme.Success,
+                ),
             )
         }
     }

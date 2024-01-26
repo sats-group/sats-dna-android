@@ -16,8 +16,9 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.ui.Scaffold
 import com.sats.dna.components.LocalUseMaterial3
-import com.sats.dna.components.SatsSnackbar
-import com.sats.dna.components.SatsSnackbarAction
+import com.sats.dna.components.snackbar.SatsSnackbar
+import com.sats.dna.components.snackbar.SatsSnackbarAction
+import com.sats.dna.components.snackbar.SatsSnackbarVisuals
 import com.sats.dna.theme.SatsTheme
 import androidx.compose.material3.Scaffold as M3Scaffold
 import androidx.compose.material3.SnackbarHost as M3SnackbarHost
@@ -56,9 +57,6 @@ fun M3SatsScreen(
     topBar: @Composable () -> Unit = {},
     bottomBar: @Composable () -> Unit = {},
     snackbarHostState: M3SnackbarHostState = remember { M3SnackbarHostState() },
-    snackbarHost: @Composable (M3SnackbarHostState) -> Unit = {
-        M3SatsSnackbarHost(it, Modifier.padding(SatsTheme.spacing.m))
-    },
     floatingActionButton: @Composable () -> Unit = {},
     contentPadding: PaddingValues = PaddingValues(0.dp),
     content: @Composable (contentPadding: PaddingValues) -> Unit,
@@ -70,7 +68,7 @@ fun M3SatsScreen(
             bottomBar = bottomBar,
             containerColor = SatsTheme.colors2.backgrounds.primary.bg.default,
             contentColor = SatsTheme.colors2.backgrounds.primary.fg.default,
-            snackbarHost = { snackbarHost(snackbarHostState) },
+            snackbarHost = { M3SatsSnackbarHost(snackbarHostState) },
             floatingActionButton = floatingActionButton,
         ) { scaffoldContentPadding ->
             val screenContentPadding = PaddingValues(
@@ -101,10 +99,16 @@ private fun SatsSnackbarHost(snackbarHostState: SnackbarHostState, modifier: Mod
 @Composable
 private fun M3SatsSnackbarHost(snackbarHostState: M3SnackbarHostState, modifier: Modifier = Modifier) {
     M3SnackbarHost(snackbarHostState, modifier) { snackbarData ->
-        val action = snackbarData.visuals.actionLabel?.let { label ->
-            SatsSnackbarAction(snackbarData::performAction, label)
+        when (val snackbarVisuals = snackbarData.visuals) {
+            is SatsSnackbarVisuals -> {
+                SatsSnackbar(visuals = snackbarVisuals)
+            }
+            else -> {
+                val action = snackbarData.visuals.actionLabel?.let { label ->
+                    SatsSnackbarAction(snackbarData::performAction, label)
+                }
+                SatsSnackbar(snackbarData.visuals.message, action)
+            }
         }
-
-        SatsSnackbar(snackbarData.visuals.message, action)
     }
 }
