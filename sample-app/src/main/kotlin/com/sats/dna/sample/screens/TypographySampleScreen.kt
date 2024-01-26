@@ -1,5 +1,6 @@
 package com.sats.dna.sample.screens
 
+import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -48,58 +49,58 @@ private fun TypographyScreen(navigateUp: () -> Unit, modifier: Modifier = Modifi
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.l),
         ) {
             Section("NORMAL") {
-                TextSample2("Headline 1", SatsTheme.typography.normal.headline1)
-                TextSample2("Headline 2", SatsTheme.typography.normal.headline2)
-                TextSample2("Headline 3", SatsTheme.typography.normal.headline3)
-                TextSample2("Large", SatsTheme.typography.normal.large)
-                TextSample2("Basic", SatsTheme.typography.normal.basic)
-                TextSample2("Small", SatsTheme.typography.normal.small)
-                TextSample2("Button", SatsTheme.typography.normal.button)
-                TextSample2("Section", SatsTheme.typography.normal.section)
+                TextSample("Headline 1", SatsTheme.typography.normal.headline1)
+                TextSample("Headline 2", SatsTheme.typography.normal.headline2)
+                TextSample("Headline 3", SatsTheme.typography.normal.headline3)
+                TextSample("Large", SatsTheme.typography.normal.large)
+                TextSample("Basic", SatsTheme.typography.normal.basic)
+                TextSample("Small", SatsTheme.typography.normal.small)
+                TextSample("Button", SatsTheme.typography.normal.button)
+                TextSample("Section", SatsTheme.typography.normal.section)
             }
 
             SatsHorizontalDivider()
 
             Section("MEDIUM") {
-                TextSample2("Headline 1", SatsTheme.typography.medium.headline1)
-                TextSample2("Headline 2", SatsTheme.typography.medium.headline2)
-                TextSample2("Headline 3", SatsTheme.typography.medium.headline3)
-                TextSample2("Large", SatsTheme.typography.medium.large)
-                TextSample2("Basic", SatsTheme.typography.medium.basic)
-                TextSample2("Small", SatsTheme.typography.medium.small)
+                TextSample("Headline 1", SatsTheme.typography.medium.headline1)
+                TextSample("Headline 2", SatsTheme.typography.medium.headline2)
+                TextSample("Headline 3", SatsTheme.typography.medium.headline3)
+                TextSample("Large", SatsTheme.typography.medium.large)
+                TextSample("Basic", SatsTheme.typography.medium.basic)
+                TextSample("Small", SatsTheme.typography.medium.small)
             }
 
             SatsHorizontalDivider()
 
             Section("EMPHASIS") {
-                TextSample2("Headline 1", SatsTheme.typography.emphasis.headline1)
-                TextSample2("Headline 2", SatsTheme.typography.emphasis.headline2)
-                TextSample2("Headline 3", SatsTheme.typography.emphasis.headline3)
-                TextSample2("Large", SatsTheme.typography.emphasis.large)
-                TextSample2("Basic", SatsTheme.typography.emphasis.basic)
-                TextSample2("Small", SatsTheme.typography.emphasis.small)
+                TextSample("Headline 1", SatsTheme.typography.emphasis.headline1)
+                TextSample("Headline 2", SatsTheme.typography.emphasis.headline2)
+                TextSample("Headline 3", SatsTheme.typography.emphasis.headline3)
+                TextSample("Large", SatsTheme.typography.emphasis.large)
+                TextSample("Basic", SatsTheme.typography.emphasis.basic)
+                TextSample("Small", SatsTheme.typography.emphasis.small)
             }
 
             SatsHorizontalDivider()
 
             Section("SATS HEADLINE – NORMAL") {
-                TextSample2("Headline 1", SatsTheme.typography.satsHeadlineNormal.headline1)
-                TextSample2("Headline 2", SatsTheme.typography.satsHeadlineNormal.headline2)
-                TextSample2("Headline 3", SatsTheme.typography.satsHeadlineNormal.headline3)
-                TextSample2("Large", SatsTheme.typography.satsHeadlineNormal.large)
-                TextSample2("Basic", SatsTheme.typography.satsHeadlineNormal.basic)
-                TextSample2("Small", SatsTheme.typography.satsHeadlineNormal.small)
+                TextSample("Headline 1", SatsTheme.typography.satsHeadlineNormal.headline1)
+                TextSample("Headline 2", SatsTheme.typography.satsHeadlineNormal.headline2)
+                TextSample("Headline 3", SatsTheme.typography.satsHeadlineNormal.headline3)
+                TextSample("Large", SatsTheme.typography.satsHeadlineNormal.large)
+                TextSample("Basic", SatsTheme.typography.satsHeadlineNormal.basic)
+                TextSample("Small", SatsTheme.typography.satsHeadlineNormal.small)
             }
 
             SatsHorizontalDivider()
 
             Section("SATS HEADLINE – EMPHASIS") {
-                TextSample2("Headline 1", SatsTheme.typography.satsHeadlineEmphasis.headline1)
-                TextSample2("Headline 2", SatsTheme.typography.satsHeadlineEmphasis.headline2)
-                TextSample2("Headline 3", SatsTheme.typography.satsHeadlineEmphasis.headline3)
-                TextSample2("Large", SatsTheme.typography.satsHeadlineEmphasis.large)
-                TextSample2("Basic", SatsTheme.typography.satsHeadlineEmphasis.basic)
-                TextSample2("Small", SatsTheme.typography.satsHeadlineEmphasis.small)
+                TextSample("Headline 1", SatsTheme.typography.satsHeadlineEmphasis.headline1)
+                TextSample("Headline 2", SatsTheme.typography.satsHeadlineEmphasis.headline2)
+                TextSample("Headline 3", SatsTheme.typography.satsHeadlineEmphasis.headline3)
+                TextSample("Large", SatsTheme.typography.satsHeadlineEmphasis.large)
+                TextSample("Basic", SatsTheme.typography.satsHeadlineEmphasis.basic)
+                TextSample("Small", SatsTheme.typography.satsHeadlineEmphasis.small)
             }
         }
     }
@@ -108,7 +109,7 @@ private fun TypographyScreen(navigateUp: () -> Unit, modifier: Modifier = Modifi
 @Composable
 private fun Section(title: String, content: @Composable ColumnScope.() -> Unit) {
     Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m)) {
-        Text(title, style = SatsTheme.typography.emphasis.basic)
+        Text(title, style = SatsTheme.typography.satsHeadlineEmphasis.basic)
 
         Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
             content()
@@ -117,7 +118,7 @@ private fun Section(title: String, content: @Composable ColumnScope.() -> Unit) 
 }
 
 @Composable
-private fun TextSample2(text: String, style: TextStyle) {
+private fun TextSample(text: String, style: TextStyle) {
     Column {
         var isExpanded by rememberSaveable { mutableStateOf(false) }
 
@@ -126,13 +127,15 @@ private fun TextSample2(text: String, style: TextStyle) {
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Text(text, style = style)
+            Text(text, Modifier.weight(1f), style = style)
 
             IconToggleButton(checked = isExpanded, onCheckedChange = { isExpanded = it }) {
-                if (isExpanded) {
-                    Icon(SatsTheme.icons.arrowUp, contentDescription = null)
-                } else {
-                    Icon(SatsTheme.icons.arrowDown, contentDescription = null)
+                AnimatedContent(isExpanded, label = "expand-icon") {
+                    if (it) {
+                        Icon(SatsTheme.icons.arrowUp, contentDescription = null)
+                    } else {
+                        Icon(SatsTheme.icons.arrowDown, contentDescription = null)
+                    }
                 }
             }
         }
@@ -145,6 +148,7 @@ private fun TextSample2(text: String, style: TextStyle) {
                     Text("Weight: ${style.fontWeight?.weight}")
                     Text("Style: ${style.fontStyle}")
                     Text("Size: ${style.fontSize}")
+                    Text("Baseline shift: ${style.baselineShift?.multiplier ?: 0f}")
                 }
             }
         }
