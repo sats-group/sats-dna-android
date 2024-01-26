@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Alignment.Companion.Top
@@ -66,14 +65,14 @@ fun SatsSnackbar(
     visuals: SatsSnackbarVisuals,
     modifier: Modifier = Modifier,
 ) {
-    Surface(
+    SatsSurface(
         modifier = modifier
             .fillMaxWidth()
             .height(IntrinsicSize.Min),
         shape = SatsTheme.shapes.roundedCorners.small,
-        shadowElevation = 6.dp,
-        color = visuals.colors.backgroundColor,
-        contentColor = visuals.colors.containerColor,
+        elevation = 6.dp,
+        color = visuals.colors.containerColor,
+        contentColor = visuals.colors.contentColor,
     ) {
         Row(
             Modifier

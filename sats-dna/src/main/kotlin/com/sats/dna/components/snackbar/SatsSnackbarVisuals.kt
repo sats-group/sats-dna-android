@@ -32,8 +32,8 @@ enum class SatsSnackbarTheme {
 class SatsSnackbarAction(val action: () -> Unit, val label: String)
 
 class SatsSnackbarColors internal constructor(
-    val backgroundColor: Color,
     val containerColor: Color,
+    val contentColor: Color,
     val titleColor: Color,
 )
 
@@ -72,14 +72,14 @@ object SatsSnackbarDefaults {
     @Composable
     fun SatsSnackbarTheme.getSnackBarColors(): SatsSnackbarColors = when (this) {
         SatsSnackbarTheme.Info -> SatsSnackbarColors(
-            backgroundColor = SatsTheme.colors2.surfaces.primary.bg.default,
-            containerColor = SatsTheme.colors2.surfaces.primary.fg.default,
+            containerColor = SatsTheme.colors2.surfaces.primary.bg.default,
+            contentColor = SatsTheme.colors2.surfaces.primary.fg.default,
             titleColor = SatsTheme.colors2.surfaces.primary.fg.alternate,
         )
 
         SatsSnackbarTheme.Success -> SatsSnackbarColors(
-            backgroundColor = SatsTheme.colors2.signalSurfaces.success.bg,
-            containerColor = SatsTheme.colors2.signalSurfaces.success.fg.default,
+            containerColor = SatsTheme.colors2.signalSurfaces.success.bg,
+            contentColor = SatsTheme.colors2.signalSurfaces.success.fg.default,
             titleColor = SatsTheme.colors2.signalSurfaces.success.fg.alternate,
         )
     }
