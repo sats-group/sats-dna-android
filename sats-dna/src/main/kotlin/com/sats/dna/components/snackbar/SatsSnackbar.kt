@@ -87,7 +87,7 @@ fun SatsSnackbar(
                 horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
                 verticalAlignment = CenterVertically,
             ) {
-                Column(Modifier.weight(1f)) {
+                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
                     visuals.title?.let {
                         Text(
                             text = it,
