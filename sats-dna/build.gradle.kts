@@ -66,6 +66,8 @@ android {
             withSourcesJar()
         }
     }
+
+    lint.disable += "UsingMaterialAndMaterial3Libraries"
 }
 
 tasks.withType<KotlinCompile>().configureEach {
