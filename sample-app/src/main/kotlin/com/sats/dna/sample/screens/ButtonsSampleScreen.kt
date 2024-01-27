@@ -24,6 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsFilterChip
 import com.sats.dna.components.SatsSurface
+import com.sats.dna.components.button.SatsBellIconButton
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsIconButton
@@ -89,7 +90,10 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                 }
             }
 
-            Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
+            Column(
+                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
                 Row(horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
                     listOf(
                         SatsButtonColor.Primary,
@@ -124,6 +128,26 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                             isLarge = controlPanelState.isLargeToggled,
                         )
                     }
+                }
+
+                Row(horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
+                    SatsBellIconButton(
+                        onClick = {},
+                        onClickLabel = null,
+                        showCherry = false,
+                        isEnabled = controlPanelState.isEnabledToggled,
+                        isLoading = controlPanelState.isLoadingToggled,
+                        isLarge = controlPanelState.isLargeToggled,
+                    )
+
+                    SatsBellIconButton(
+                        onClick = {},
+                        onClickLabel = null,
+                        showCherry = true,
+                        isEnabled = controlPanelState.isEnabledToggled,
+                        isLoading = controlPanelState.isLoadingToggled,
+                        isLarge = controlPanelState.isLargeToggled,
+                    )
                 }
             }
         }
