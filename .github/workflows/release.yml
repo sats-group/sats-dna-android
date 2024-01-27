@@ -22,7 +22,7 @@ jobs:
           java-version: 19
 
       - name: Run tests
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: test
         env:
@@ -54,7 +54,7 @@ jobs:
           KEYSTORE_FILE_BASE64: ${{ secrets.PLAY_UPLOAD_KEYSTORE_FILE_BASE64 }}
 
       - name: Build library
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: :sats-dna:build
         env:
@@ -99,7 +99,7 @@ jobs:
           path: sats-dna/build/outputs/aar/
 
       - name: Publish to GitHub Packages
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: :sats-dna:publishReleasePublicationToGitHubPackagesRepository
         env:
@@ -142,7 +142,7 @@ jobs:
           KEYSTORE_FILE_BASE64: ${{ secrets.PLAY_UPLOAD_KEYSTORE_FILE_BASE64 }}
 
       - name: Generate App Bundle
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: :sample-app:bundleRelease
         env:
