@@ -60,6 +60,7 @@ object SatsIcons {
     val negRemove @Composable get() = painterResource(R.drawable.ic_neg_remove)
     val notifications @Composable get() = painterResource(R.drawable.ic_notifications)
     val personalTrainer @Composable get() = painterResource(R.drawable.ic_pt)
+    val play @Composable get() = painterResource(R.drawable.ic_play)
     val privacy @Composable get() = painterResource(R.drawable.ic_privacy)
     val privacyPolicy @Composable get() = painterResource(R.drawable.ic_privacy_policy)
     val profile @Composable get() = painterResource(R.drawable.ic_profile)
