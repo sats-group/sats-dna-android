@@ -57,6 +57,11 @@ fun M3SatsScreen(
     topBar: @Composable () -> Unit = {},
     bottomBar: @Composable () -> Unit = {},
     snackbarHostState: M3SnackbarHostState = remember { M3SnackbarHostState() },
+    snackbarPadding: PaddingValues = PaddingValues(
+        start = SatsTheme.spacing.m,
+        top = SatsTheme.spacing.m,
+        end = SatsTheme.spacing.m,
+    ),
     floatingActionButton: @Composable () -> Unit = {},
     contentPadding: PaddingValues = PaddingValues(0.dp),
     content: @Composable (contentPadding: PaddingValues) -> Unit,
@@ -68,7 +73,7 @@ fun M3SatsScreen(
             bottomBar = bottomBar,
             containerColor = SatsTheme.colors2.backgrounds.primary.bg.default,
             contentColor = SatsTheme.colors2.backgrounds.primary.fg.default,
-            snackbarHost = { M3SatsSnackbarHost(snackbarHostState) },
+            snackbarHost = { M3SatsSnackbarHost(snackbarHostState, Modifier.padding(snackbarPadding)) },
             floatingActionButton = floatingActionButton,
         ) { scaffoldContentPadding ->
             val screenContentPadding = PaddingValues(
@@ -103,6 +108,7 @@ private fun M3SatsSnackbarHost(snackbarHostState: M3SnackbarHostState, modifier:
             is SatsSnackbarVisuals -> {
                 SatsSnackbar(visuals = snackbarVisuals)
             }
+
             else -> {
                 val action = snackbarData.visuals.actionLabel?.let { label ->
                     SatsSnackbarAction(snackbarData::performAction, label)
