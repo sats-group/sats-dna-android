@@ -22,6 +22,7 @@ import com.sats.dna.sample.screens.DividersSampleScreen
 import com.sats.dna.sample.screens.EmptyStateSampleScreen
 import com.sats.dna.sample.screens.FriendsBookingStatusSampleScreen
 import com.sats.dna.sample.screens.GeneralListItemSampleScreen
+import com.sats.dna.sample.screens.GxFocusGraphSampleScreen
 import com.sats.dna.sample.screens.IconsSampleScreen
 import com.sats.dna.sample.screens.JoinYourFriendsSampleScreen
 import com.sats.dna.sample.screens.PlaceholdersSampleScreen
@@ -66,6 +67,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         EmptyStateSampleScreen.navScreen(navController)
         FriendsBookingStatusSampleScreen.navScreen(navController)
         GeneralListItemSampleScreen.navScreen(navController)
+        GxFocusGraphSampleScreen.navScreen(navController)
         JoinYourFriendsSampleScreen.navScreen(navController)
         PlaceholdersSampleScreen.navScreen(navController)
         ProgressBarsSampleScreen.navScreen(navController)
