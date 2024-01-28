@@ -59,11 +59,7 @@ fun M3SatsScreen(
     topBar: @Composable () -> Unit = {},
     bottomBar: @Composable () -> Unit = { Spacer(Modifier.navigationBarsPadding()) },
     snackbarHostState: M3SnackbarHostState = remember { M3SnackbarHostState() },
-    snackbarPadding: PaddingValues = PaddingValues(
-        start = SatsTheme.spacing.m,
-        top = SatsTheme.spacing.m,
-        end = SatsTheme.spacing.m,
-    ),
+    snackbarPadding: PaddingValues = PaddingValues(SatsTheme.spacing.m),
     floatingActionButton: @Composable () -> Unit = {},
     contentPadding: PaddingValues = PaddingValues(0.dp),
     content: @Composable (contentPadding: PaddingValues) -> Unit,
