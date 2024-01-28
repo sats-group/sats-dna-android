@@ -128,6 +128,7 @@ private val SatsIcons.allIcons: List<NamedIcon>
         NamedIcon("negRemove", negRemove),
         NamedIcon("notifications", notifications),
         NamedIcon("personalTrainer", personalTrainer),
+        NamedIcon("play", play),
         NamedIcon("privacy", privacy),
         NamedIcon("privacyPolicy", privacyPolicy),
         NamedIcon("profile", profile),
