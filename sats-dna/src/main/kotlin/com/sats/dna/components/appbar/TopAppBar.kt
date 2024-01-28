@@ -8,11 +8,13 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.compositeOver
+import androidx.compose.ui.text.style.BaselineShift
 import com.google.accompanist.insets.ui.TopAppBar
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
@@ -90,7 +92,12 @@ fun M3SatsTopAppBar(
             containerColor = containerColor,
             scrolledContainerColor = scrolledContainerColor,
         ),
-        title = title,
+        title = {
+            ProvideTextStyle(
+                value = SatsTheme.typography.normal.headline3.copy(baselineShift = BaselineShift.None),
+                content = title,
+            )
+        },
         modifier = modifier,
         navigationIcon = navigationIcon,
         actions = actions,
