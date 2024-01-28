@@ -1,8 +1,10 @@
 package com.sats.dna.components.screen
 
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.SnackbarHost
@@ -55,7 +57,7 @@ fun SatsScreen(
 fun M3SatsScreen(
     modifier: Modifier = Modifier,
     topBar: @Composable () -> Unit = {},
-    bottomBar: @Composable () -> Unit = {},
+    bottomBar: @Composable () -> Unit = { Spacer(Modifier.navigationBarsPadding()) },
     snackbarHostState: M3SnackbarHostState = remember { M3SnackbarHostState() },
     floatingActionButton: @Composable () -> Unit = {},
     contentPadding: PaddingValues = PaddingValues(0.dp),
@@ -103,6 +105,7 @@ private fun M3SatsSnackbarHost(snackbarHostState: M3SnackbarHostState, modifier:
             is SatsSnackbarVisuals -> {
                 SatsSnackbar(visuals = snackbarVisuals)
             }
+
             else -> {
                 val action = snackbarData.visuals.actionLabel?.let { label ->
                     SatsSnackbarAction(snackbarData::performAction, label)
