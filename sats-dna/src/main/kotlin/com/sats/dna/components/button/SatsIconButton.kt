@@ -33,6 +33,84 @@ fun SatsIconButton(
     isLoading: Boolean = false,
     isLarge: Boolean = false,
 ) {
+    SatsIconButton(
+        onClick = onClick,
+        icon = {
+            val isActuallyEnabled = isEnabled && !isLoading
+            val contentColor = animatedContentColor(isActuallyEnabled, colors)
+
+            MaterialIcon(icon, contentDescription = null, Modifier.size(24.dp), contentColor)
+        },
+        onClickLabel = onClickLabel,
+        modifier = modifier,
+        colors = colors,
+        isEnabled = isEnabled,
+        isLoading = isLoading,
+        isLarge = isLarge,
+    )
+}
+
+@Composable
+fun SatsBellIconButton(
+    onClick: () -> Unit,
+    onClickLabel: String?,
+    showCherry: Boolean,
+    modifier: Modifier = Modifier,
+    isEnabled: Boolean = true,
+    isLoading: Boolean = false,
+    isLarge: Boolean = false,
+) {
+    val colors = SatsButtonColor.Secondary
+
+    SatsIconButton(
+        onClick = onClick,
+        icon = {
+            val isActuallyEnabled = isEnabled && !isLoading
+            val contentColor = animatedContentColor(isActuallyEnabled, colors)
+
+            if (showCherry) {
+                MaterialIcon(
+                    painter = SatsTheme.icons.bellCherry,
+                    contentDescription = null,
+                    modifier = Modifier.size(24.dp),
+                    tint = contentColor,
+                )
+
+                MaterialIcon(
+                    painter = SatsTheme.icons.cherry,
+                    contentDescription = null,
+                    modifier = Modifier.size(24.dp),
+                    tint = SatsTheme.colors2.buttons.action.default,
+                )
+            } else {
+                MaterialIcon(
+                    painter = SatsTheme.icons.notifications,
+                    contentDescription = null,
+                    modifier = Modifier.size(24.dp),
+                    tint = contentColor,
+                )
+            }
+        },
+        onClickLabel = onClickLabel,
+        modifier = modifier,
+        colors = colors,
+        isEnabled = isEnabled,
+        isLoading = isLoading,
+        isLarge = isLarge,
+    )
+}
+
+@Composable
+private fun SatsIconButton(
+    onClick: () -> Unit,
+    icon: @Composable () -> Unit,
+    onClickLabel: String?,
+    modifier: Modifier = Modifier,
+    colors: SatsButtonColor = SatsButtonColor.Primary,
+    isEnabled: Boolean = true,
+    isLoading: Boolean = false,
+    isLarge: Boolean = false,
+) {
     val isActuallyEnabled = isEnabled && !isLoading
     val backgroundColor = animatedBackgroundColor(isEnabled, colors)
 
@@ -43,13 +121,15 @@ fun SatsIconButton(
             .clickable(isActuallyEnabled, onClickLabel, Role.Button, onClick),
         contentAlignment = Alignment.Center,
     ) {
-        val contentColor = animatedContentColor(isActuallyEnabled, colors)
-
         AnimatedContent(isLoading, Modifier.padding(animatedPadding(isLarge)), label = "Loading state") { isLoading ->
             if (isLoading) {
-                CircularProgressIndicator(Modifier.size(24.dp), contentColor, strokeWidth = 2.dp)
+                CircularProgressIndicator(
+                    modifier = Modifier.size(24.dp),
+                    color = colors.contentColor,
+                    strokeWidth = 2.dp,
+                )
             } else {
-                MaterialIcon(icon, contentDescription = null, Modifier.size(24.dp), contentColor)
+                icon()
             }
         }
     }
@@ -78,7 +158,7 @@ private fun animatedPadding(isLarge: Boolean) =
 
 @LightDarkPreview
 @Composable
-private fun Preview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
+private fun SatsIconButtonPreview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsIconButton(
@@ -87,6 +167,36 @@ private fun Preview(@PreviewParameter(SatsButtonColorProvider::class) color: Sat
                 onClickLabel = null,
                 modifier = Modifier.padding(SatsTheme.spacing.s),
                 colors = color,
+            )
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun SatsBellIconButtonNoCherryPreview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            SatsBellIconButton(
+                onClick = {},
+                onClickLabel = null,
+                showCherry = false,
+                modifier = Modifier.padding(SatsTheme.spacing.m),
+            )
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun SatsBellIconButtonWithCherryPreview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            SatsBellIconButton(
+                onClick = {},
+                onClickLabel = null,
+                showCherry = true,
+                modifier = Modifier.padding(SatsTheme.spacing.m),
             )
         }
     }

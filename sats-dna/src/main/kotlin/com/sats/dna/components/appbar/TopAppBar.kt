@@ -1,6 +1,8 @@
 package com.sats.dna.components.appbar
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
@@ -100,7 +102,11 @@ fun M3SatsTopAppBar(
         },
         modifier = modifier,
         navigationIcon = navigationIcon,
-        actions = actions,
+        actions = {
+            Row(horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
+                actions()
+            }
+        },
         scrollBehavior = scrollBehavior,
         windowInsets = windowInsets,
     )
