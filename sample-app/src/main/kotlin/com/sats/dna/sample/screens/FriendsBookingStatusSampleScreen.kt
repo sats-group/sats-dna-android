@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material.Icon
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -43,7 +43,6 @@ private fun FriendsBookingStatusScreen(navigateUp: () -> Unit, modifier: Modifie
                             painter = SatsTheme.icons.imagePlaceholder,
                             contentDescription = null,
                             modifier = Modifier.size(24.dp),
-                            tint = SatsTheme.colors2.surfaces.primary.fg.default,
                         )
                     },
                     name = "Your best friend",
