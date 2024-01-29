@@ -89,6 +89,11 @@ object TrailingContent {
             MaterialIcon(icon, null, tint = tint, modifier = Modifier.size(18.dp))
         }
     }
+
+    @Composable
+    fun Loading() {
+        SatsCircularProgressIndicator(Modifier.size(18.dp), strokeWidth = 2.dp)
+    }
 }
 
 interface SatsGeneralListItemColors {
@@ -210,6 +215,26 @@ private fun WithoutIconPreview() {
                 subtitle = "Subtitle",
                 trailingContent = { SimpleTrailingContent() },
             )
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun SatsGeneralListItemLoadingPreview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            SatsTheme {
+                SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
+                    SatsGeneralListItem(
+                        modifier = Modifier.fillMaxWidth(),
+                        onClick = {},
+                        title = "Title",
+                        subtitle = "Subtitle",
+                        trailingContent = { TrailingContent.Loading() },
+                    )
+                }
+            }
         }
     }
 }
