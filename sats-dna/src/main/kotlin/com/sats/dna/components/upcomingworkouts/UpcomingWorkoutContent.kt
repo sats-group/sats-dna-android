@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.internal.MaterialText
@@ -18,9 +17,17 @@ import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 internal fun WorkoutTypeColorIndicator(
-    color: Color,
+    workoutType: WorkoutType,
     modifier: Modifier = Modifier,
 ) {
+    val color = when (workoutType) {
+        WorkoutType.Pt -> SatsTheme.colors2.graphicalElements.workouts.pt
+        WorkoutType.Gx -> SatsTheme.colors2.graphicalElements.workouts.gx
+        WorkoutType.Treatment -> SatsTheme.colors2.graphicalElements.workouts.treatments
+        WorkoutType.Gymfloor -> SatsTheme.colors2.graphicalElements.workouts.gymfloor
+        WorkoutType.OwnTraining -> SatsTheme.colors2.graphicalElements.workouts.pt
+    }
+
     Box(
         modifier
             .fillMaxHeight()

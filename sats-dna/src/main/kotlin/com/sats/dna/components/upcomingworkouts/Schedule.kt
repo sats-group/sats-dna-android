@@ -126,7 +126,7 @@ private fun ScheduledWorkouts(
                     ),
                 horizontalArrangement = spacedBy(SatsTheme.spacing.s),
             ) {
-                workout.workoutTypeColor?.let {
+                workout.workoutType?.let {
                     WorkoutTypeColorIndicator(it)
                 }
                 TimeAndDuration(
@@ -139,7 +139,7 @@ private fun ScheduledWorkouts(
                     name = workout.name,
                     location = workout.location,
                     instructor = workout.instructor,
-                    workoutType = workout.workoutType,
+                    workoutType = workout.workoutTypeLabel,
                     waitingListStatus = workout.waitingListStatus,
                     modifier = Modifier.weight(4f),
                 )
@@ -161,8 +161,8 @@ private fun SchedulePreview() {
             name = "Yoga Flow",
             location = "SATS Nydalen",
             instructor = "w/Andrew Nielsen",
-            workoutTypeColor = SatsTheme.colors2.graphicalElements.workouts.gx,
-            workoutType = null,
+            workoutType = WorkoutType.Gx,
+            workoutTypeLabel = null,
             waitingListStatus = WaitingListStatus.SpotSecured("Spot secured!", "32 on waiting list"),
         ),
         UpcomingWorkout(
@@ -173,8 +173,8 @@ private fun SchedulePreview() {
             name = "Body Pump",
             location = "SATS Colosseum",
             instructor = "w/Magnus Owe",
-            workoutTypeColor = SatsTheme.colors2.graphicalElements.workouts.gymfloor,
-            workoutType = null,
+            workoutType = WorkoutType.Pt,
+            workoutTypeLabel = null,
             waitingListStatus = WaitingListStatus.OnWaitingList("Number 5 on the waiting list."),
         ),
         UpcomingWorkout(
@@ -185,7 +185,7 @@ private fun SchedulePreview() {
             name = "Cycling Marathon",
             location = "SATS Storo",
             instructor = "w/John Doe",
-            workoutType = "Cycling",
+            workoutTypeLabel = "Cycling",
             waitingListStatus = null,
         ),
     )

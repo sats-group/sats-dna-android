@@ -66,9 +66,9 @@ fun UpcomingWorkoutDaySection(
  * @param duration The duration of the workout.
  * @param onClick Callback to be invoked when this item is clicked.
  * @param instructor Information about the instructor for the workout.
- * @param workoutType What kind of workout it was, like cardio or strength training.
+ * @param workoutTypeLabel What kind of workout it was, like cardio or strength training.
  * @param modifier The modifier to apply to the list item.
- * @param workoutTypeColor Gives the component a color bar to the left of the content.
+ * @param workoutType If not null, gives the component a color bar to the left of the content.
  * To symbolize what type of workout it is.
  * @param button Optional slot for displaying a book/unbook button.
  * @param friendsAttending Optional slot for displaying friends that are also attending the workout. Typically a [UpcomingWorkoutAttendingFriendsLabel]
@@ -81,10 +81,10 @@ fun UpcomingWorkoutListItem(
     location: String?,
     instructor: String?,
     duration: String,
-    workoutType: String?,
+    workoutTypeLabel: String?,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    workoutTypeColor: Color? = null,
+    workoutType: WorkoutType? = null,
     button: @Composable (() -> Unit)? = null,
     friendsAttending: @Composable (ColumnScope.() -> Unit)? = null,
     waitingListStatus: WaitingListStatus? = null,
@@ -96,7 +96,7 @@ fun UpcomingWorkoutListItem(
             .padding(SatsTheme.spacing.m),
         horizontalArrangement = spacedBy(SatsTheme.spacing.s),
     ) {
-        workoutTypeColor?.let {
+        workoutType?.let {
             WorkoutTypeColorIndicator(it)
         }
         TimeAndDuration(
@@ -117,7 +117,7 @@ fun UpcomingWorkoutListItem(
                     location = location,
                     instructor = instructor,
                     waitingListStatus = waitingListStatus,
-                    workoutType = workoutType,
+                    workoutType = workoutTypeLabel,
                     modifier = Modifier.weight(1f),
                 )
 
@@ -197,8 +197,8 @@ private fun UpcomingWorkoutsListPreview() {
                                 friendsAttendingLabel = "2 friends are joining this workout!",
                             )
                         },
-                        workoutTypeColor = SatsTheme.colors2.graphicalElements.workouts.gymfloor,
-                        workoutType = null,
+                        workoutType = WorkoutType.Gx,
+                        workoutTypeLabel = null,
                         onClick = {},
                     )
                 }
