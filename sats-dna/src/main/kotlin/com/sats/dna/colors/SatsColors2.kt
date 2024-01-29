@@ -190,6 +190,7 @@ class SatsColors2(
 
     class GraphicalElements(
         val divider: Divider,
+        val border: Border,
         val skeleton: Color,
         val navBar: NavBar,
         val progressBar: ProgressBar,
@@ -207,6 +208,11 @@ class SatsColors2(
         class Divider(
             val default: Color,
             val alternate: Color,
+        )
+
+        class Border(
+            val default: Color,
+            val focused: Color,
         )
 
         class NavBar(

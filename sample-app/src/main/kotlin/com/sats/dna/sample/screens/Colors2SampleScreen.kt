@@ -268,6 +268,19 @@ private fun GraphicalElements() {
                 contentColor = null,
             )
         }
+        Section("Border", SectionLevel.Level2) {
+            val base = SatsTheme.colors2.graphicalElements.border
+
+            ColorSample(
+                backgroundColor = base.default named "Default",
+                contentColor = null,
+            )
+
+            ColorSample(
+                backgroundColor = base.focused named "Focused",
+                contentColor = null,
+            )
+        }
 
         Section("Skeleton", SectionLevel.Level2) {
             ColorSample(
