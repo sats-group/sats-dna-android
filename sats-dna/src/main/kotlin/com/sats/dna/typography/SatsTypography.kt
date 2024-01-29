@@ -3,7 +3,7 @@ package com.sats.dna.typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.BaselineShift
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import com.sats.fonts.headline.SatsHeadlineFont
 
@@ -69,12 +69,12 @@ private object NormalTextStylesApp : NormalTextStyles {
         fontStyle = FontStyle.Normal,
     )
 
-    override val headline1 = base.copy(fontSize = Sizes.headline1, baselineShift = BaselineShift(.32f))
-    override val headline2 = base.copy(fontSize = Sizes.headline2, baselineShift = BaselineShift(.51f))
-    override val headline3 = base.copy(fontSize = Sizes.headline3, baselineShift = BaselineShift(.51f))
-    override val large = base.copy(fontSize = Sizes.large, baselineShift = BaselineShift(.3f))
-    override val basic = base.copy(fontSize = Sizes.basic, baselineShift = BaselineShift(.3f))
-    override val small = base.copy(fontSize = Sizes.small, baselineShift = BaselineShift(.3f))
+    override val headline1 = base.copy(fontSize = Sizes.headline1, lineHeight = 1.32.em)
+    override val headline2 = base.copy(fontSize = Sizes.headline2, lineHeight = 1.51.em)
+    override val headline3 = base.copy(fontSize = Sizes.headline3, lineHeight = 1.51.em)
+    override val large = base.copy(fontSize = Sizes.large, lineHeight = 1.3.em)
+    override val basic = base.copy(fontSize = Sizes.basic, lineHeight = 1.3.em)
+    override val small = base.copy(fontSize = Sizes.small, lineHeight = 1.3.em)
     override val button = base.copy(fontSize = Sizes.button, fontWeight = FontWeight.SemiBold)
     override val section = base.copy(fontSize = Sizes.section, fontWeight = FontWeight.SemiBold)
 }
@@ -86,12 +86,12 @@ private object MediumTextStylesApp : MediumTextStyles {
         fontStyle = FontStyle.Normal,
     )
 
-    override val headline1 = base.copy(fontSize = Sizes.headline1, baselineShift = BaselineShift(.32f))
-    override val headline2 = base.copy(fontSize = Sizes.headline2, baselineShift = BaselineShift(.51f))
-    override val headline3 = base.copy(fontSize = Sizes.headline3, baselineShift = BaselineShift(.51f))
-    override val large = base.copy(fontSize = Sizes.large, baselineShift = BaselineShift(.3f))
-    override val basic = base.copy(fontSize = Sizes.basic, baselineShift = BaselineShift(.3f))
-    override val small = base.copy(fontSize = Sizes.small, baselineShift = BaselineShift(.3f))
+    override val headline1 = base.copy(fontSize = Sizes.headline1, lineHeight = 1.32.em)
+    override val headline2 = base.copy(fontSize = Sizes.headline2, lineHeight = 1.51.em)
+    override val headline3 = base.copy(fontSize = Sizes.headline3, lineHeight = 1.51.em)
+    override val large = base.copy(fontSize = Sizes.large, lineHeight = 1.3.em)
+    override val basic = base.copy(fontSize = Sizes.basic, lineHeight = 1.3.em)
+    override val small = base.copy(fontSize = Sizes.small, lineHeight = 1.3.em)
 }
 
 private object EmphasisTextStylesApp : EmphasisTextStyles {
@@ -101,12 +101,12 @@ private object EmphasisTextStylesApp : EmphasisTextStyles {
         fontStyle = FontStyle.Normal,
     )
 
-    override val headline1 = base.copy(fontSize = Sizes.headline1, baselineShift = BaselineShift(.32f))
-    override val headline2 = base.copy(fontSize = Sizes.headline2, baselineShift = BaselineShift(.51f))
-    override val headline3 = base.copy(fontSize = Sizes.headline3, baselineShift = BaselineShift(.51f))
-    override val large = base.copy(fontSize = Sizes.large, baselineShift = BaselineShift(.3f))
-    override val basic = base.copy(fontSize = Sizes.basic, baselineShift = BaselineShift(.3f))
-    override val small = base.copy(fontSize = Sizes.small, baselineShift = BaselineShift(.3f))
+    override val headline1 = base.copy(fontSize = Sizes.headline1, lineHeight = 1.32.em)
+    override val headline2 = base.copy(fontSize = Sizes.headline2, lineHeight = 1.51.em)
+    override val headline3 = base.copy(fontSize = Sizes.headline3, lineHeight = 1.51.em)
+    override val large = base.copy(fontSize = Sizes.large, lineHeight = 1.3.em)
+    override val basic = base.copy(fontSize = Sizes.basic, lineHeight = 1.3.em)
+    override val small = base.copy(fontSize = Sizes.small, lineHeight = 1.3.em)
 }
 
 private object SatsHeadlineNormalTextStylesApp : SatsHeadlineNormalTextStyles {
@@ -116,7 +116,7 @@ private object SatsHeadlineNormalTextStylesApp : SatsHeadlineNormalTextStyles {
         fontStyle = FontStyle.Italic,
     )
 
-    override val headline1 = base.copy(fontSize = Sizes.headline1, baselineShift = BaselineShift(.1f))
+    override val headline1 = base.copy(fontSize = Sizes.headline1, lineHeight = 1.1.em)
     override val headline2 = base.copy(fontSize = Sizes.headline2)
     override val headline3 = base.copy(fontSize = Sizes.headline3)
     override val large = base.copy(fontSize = Sizes.large)
@@ -131,7 +131,7 @@ private object SatsHeadlineEmphasisTextStylesApp : SatsHeadlineEmphasisTextStyle
         fontStyle = FontStyle.Italic,
     )
 
-    override val headline1 = base.copy(fontSize = Sizes.headline1, baselineShift = BaselineShift(.1f))
+    override val headline1 = base.copy(fontSize = Sizes.headline1, lineHeight = 1.1.em)
     override val headline2 = base.copy(fontSize = Sizes.headline2)
     override val headline3 = base.copy(fontSize = Sizes.headline3)
     override val large = base.copy(fontSize = Sizes.large)
