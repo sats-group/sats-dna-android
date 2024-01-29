@@ -37,7 +37,7 @@ fun SatsProteinBar(
     message: String,
     action: SatsProteinBarAction?,
     modifier: Modifier = Modifier,
-    theme: SatsProteinBarTheme = SatsProteinBarTheme.Info,
+    theme: SatsProteinBarTheme = SatsProteinBarTheme.Neutral,
 ) {
     SatsProteinBar(
         visuals = SatsProteinBarDefaults.visuals(
@@ -114,6 +114,8 @@ fun SatsProteinBar(
 private fun LeadingIcon(leadingIcon: SatsProteinBarLeadingIcon, modifier: Modifier = Modifier) {
     Box(modifier) {
         when (leadingIcon) {
+            is SatsProteinBarLeadingIcon.None -> Unit
+
             is SatsProteinBarLeadingIcon.Emoji -> {
                 MaterialText(leadingIcon.text, Modifier.clearAndSetSemantics { })
             }
@@ -169,6 +171,24 @@ private fun SatsProteinBarPreview() {
 
 @LightDarkPreview
 @Composable
+private fun SatsProteinBarInfoPreview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            val visuals = SatsProteinBarDefaults.visuals(
+                title = "This is the title of the Protein Bar",
+                message = "This text exists so that you can read it. Did you read it through all the way?",
+                action = null,
+                theme = SatsProteinBarTheme.Info,
+                dismissAction = SatsProteinBarAction({}, "close"),
+            )
+
+            SatsProteinBar(visuals, Modifier.padding(SatsTheme.spacing.m))
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
 private fun SatsProteinBarSuccessPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
@@ -177,6 +197,24 @@ private fun SatsProteinBarSuccessPreview() {
                 message = "You can always add or remove friends later, or change other details.",
                 action = null,
                 theme = SatsProteinBarTheme.Success,
+                dismissAction = SatsProteinBarAction({}, "close"),
+            )
+
+            SatsProteinBar(visuals, Modifier.padding(SatsTheme.spacing.m))
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun SatsProteinBarWarningPreview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            val visuals = SatsProteinBarDefaults.visuals(
+                title = "This is the title of the Protein Bar",
+                message = "This text exists so that you can read it. Did you read it through all the way?",
+                action = null,
+                theme = SatsProteinBarTheme.Warning,
                 dismissAction = SatsProteinBarAction({}, "close"),
             )
 

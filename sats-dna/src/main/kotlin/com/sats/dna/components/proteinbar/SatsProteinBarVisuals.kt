@@ -8,8 +8,9 @@ import androidx.compose.material3.SnackbarDuration as M3SnackbarDuration
 import androidx.compose.material3.SnackbarVisuals as M3SnackbarVisuals
 
 sealed interface SatsProteinBarLeadingIcon {
-    class Icon(val painter: Painter) : SatsProteinBarLeadingIcon
-    class Emoji(val text: String) : SatsProteinBarLeadingIcon
+    data object None : SatsProteinBarLeadingIcon
+    data class Icon(val painter: Painter) : SatsProteinBarLeadingIcon
+    data class Emoji(val text: String) : SatsProteinBarLeadingIcon
 }
 
 class SatsProteinBarVisuals internal constructor(
@@ -26,8 +27,10 @@ class SatsProteinBarVisuals internal constructor(
 }
 
 enum class SatsProteinBarTheme {
+    Neutral,
     Info,
     Success,
+    Warning,
     Error,
 }
 
@@ -72,16 +75,28 @@ object SatsProteinBarDefaults {
 
     @Composable
     private fun SatsProteinBarTheme.proteinBarColors(): SatsProteinBarColors = when (this) {
-        SatsProteinBarTheme.Info -> SatsProteinBarColors(
+        SatsProteinBarTheme.Neutral -> SatsProteinBarColors(
             containerColor = SatsTheme.colors2.surfaces.primary.bg.default,
             contentColor = SatsTheme.colors2.surfaces.primary.fg.default,
             titleColor = SatsTheme.colors2.surfaces.primary.fg.alternate,
+        )
+
+        SatsProteinBarTheme.Info -> SatsProteinBarColors(
+            containerColor = SatsTheme.colors2.signalSurfaces.information.bg,
+            contentColor = SatsTheme.colors2.signalSurfaces.information.fg.default,
+            titleColor = SatsTheme.colors2.signalSurfaces.information.fg.alternate,
         )
 
         SatsProteinBarTheme.Success -> SatsProteinBarColors(
             containerColor = SatsTheme.colors2.signalSurfaces.success.bg,
             contentColor = SatsTheme.colors2.signalSurfaces.success.fg.default,
             titleColor = SatsTheme.colors2.signalSurfaces.success.fg.alternate,
+        )
+
+        SatsProteinBarTheme.Warning -> SatsProteinBarColors(
+            containerColor = SatsTheme.colors2.signalSurfaces.warning.bg,
+            contentColor = SatsTheme.colors2.signalSurfaces.warning.fg.default,
+            titleColor = SatsTheme.colors2.signalSurfaces.warning.fg.alternate,
         )
 
         SatsProteinBarTheme.Error -> SatsProteinBarColors(
@@ -93,8 +108,10 @@ object SatsProteinBarDefaults {
 
     @Composable
     private fun SatsProteinBarTheme.leadingIcon(): SatsProteinBarLeadingIcon = when (this) {
+        SatsProteinBarTheme.Neutral -> SatsProteinBarLeadingIcon.None
         SatsProteinBarTheme.Info -> SatsProteinBarLeadingIcon.Icon(SatsTheme.icons.info)
         SatsProteinBarTheme.Success -> SatsProteinBarLeadingIcon.Emoji("🎉")
+        SatsProteinBarTheme.Warning -> SatsProteinBarLeadingIcon.Icon(SatsTheme.icons.warningSign)
         SatsProteinBarTheme.Error -> SatsProteinBarLeadingIcon.Icon(SatsTheme.icons.info)
     }
 }
