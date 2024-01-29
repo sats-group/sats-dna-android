@@ -185,6 +185,25 @@ private fun SuccessSnackbarPreview() {
     }
 }
 
+@LightDarkPreview
+@Composable
+private fun ErrorSnackbarPreview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            val snackbarVisuals = SatsSnackbarDefaults.snackbarVisuals(
+                title = "Oh no, that's not great!",
+                message = "It looks like whatever you were trying to do didn't happen according to plan. You may " +
+                    "want to try that again.",
+                action = SatsSnackbarAction(action = {}, label = "Try again"),
+                theme = SatsSnackbarTheme.Error,
+                dismissAction = SatsSnackbarAction({}, "close"),
+            )
+
+            SatsSnackbar(snackbarVisuals, Modifier.padding(SatsTheme.spacing.m))
+        }
+    }
+}
+
 @Preview
 @Composable
 private fun SnackbarWithActionPreview() {

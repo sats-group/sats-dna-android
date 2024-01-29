@@ -28,6 +28,7 @@ class SatsSnackbarVisuals internal constructor(
 enum class SatsSnackbarTheme {
     Info,
     Success,
+    Error,
 }
 
 class SatsSnackbarAction(val action: () -> Unit, val label: String)
@@ -82,11 +83,18 @@ object SatsSnackbarDefaults {
             contentColor = SatsTheme.colors2.signalSurfaces.success.fg.default,
             titleColor = SatsTheme.colors2.signalSurfaces.success.fg.alternate,
         )
+
+        SatsSnackbarTheme.Error -> SatsSnackbarColors(
+            containerColor = SatsTheme.colors2.signalSurfaces.error.bg,
+            contentColor = SatsTheme.colors2.signalSurfaces.error.fg.default,
+            titleColor = SatsTheme.colors2.signalSurfaces.error.fg.alternate,
+        )
     }
 
     @Composable
     private fun SatsSnackbarTheme.leadingIcon(): SatsSnackbarLeadingIcon = when (this) {
         SatsSnackbarTheme.Info -> SatsSnackbarLeadingIcon.Icon(SatsTheme.icons.info)
         SatsSnackbarTheme.Success -> SatsSnackbarLeadingIcon.Emoji("🎉")
+        SatsSnackbarTheme.Error -> SatsSnackbarLeadingIcon.Icon(SatsTheme.icons.info)
     }
 }
