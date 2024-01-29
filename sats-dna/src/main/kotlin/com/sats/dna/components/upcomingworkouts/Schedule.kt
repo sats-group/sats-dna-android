@@ -3,8 +3,10 @@ package com.sats.dna.components.upcomingworkouts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -14,12 +16,13 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
+import com.sats.dna.tooling.FontSizePreview
 import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun Schedule(
-    workouts: List<ScheduledWorkout>,
-    onWorkoutClicked: (workout: ScheduledWorkout) -> Unit,
+    workouts: List<UpcomingWorkout>,
+    onWorkoutClicked: (workout: UpcomingWorkout) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     SatsCard(modifier.fillMaxWidth()) {
@@ -79,8 +82,8 @@ fun SchedulePlaceholder(modifier: Modifier = Modifier) {
 
 @Composable
 private fun ScheduledDays(
-    days: Map<String, List<ScheduledWorkout>>,
-    onWorkoutClicked: (workout: ScheduledWorkout) -> Unit,
+    days: Map<String, List<UpcomingWorkout>>,
+    onWorkoutClicked: (workout: UpcomingWorkout) -> Unit,
 ) {
     Column(
         Modifier.padding(top = cardInnerPadding, bottom = cardInnerPadding - clickableVerticalPadding),
@@ -105,14 +108,15 @@ private fun ScheduledDays(
 
 @Composable
 private fun ScheduledWorkouts(
-    workouts: List<ScheduledWorkout>,
-    onWorkoutClicked: (workout: ScheduledWorkout) -> Unit,
+    workouts: List<UpcomingWorkout>,
+    onWorkoutClicked: (workout: UpcomingWorkout) -> Unit,
 ) {
     Column(verticalArrangement = spacedBy(SatsTheme.spacing.xs - clickableVerticalPadding)) {
         workouts.forEach { workout ->
             Row(
                 Modifier
                     .fillMaxWidth()
+                    .height(IntrinsicSize.Min)
                     .padding(horizontal = cardInnerPadding - clickableHorizontalPadding)
                     .clip(SatsTheme.shapes.roundedCorners.small)
                     .clickable { onWorkoutClicked(workout) }
@@ -122,6 +126,9 @@ private fun ScheduledWorkouts(
                     ),
                 horizontalArrangement = spacedBy(SatsTheme.spacing.s),
             ) {
+                workout.workoutType?.let {
+                    WorkoutTypeColorIndicator(it)
+                }
                 TimeAndDuration(
                     time = workout.time,
                     duration = workout.duration,
@@ -132,6 +139,7 @@ private fun ScheduledWorkouts(
                     name = workout.name,
                     location = workout.location,
                     instructor = workout.instructor,
+                    workoutType = workout.workoutTypeLabel,
                     waitingListStatus = workout.waitingListStatus,
                     modifier = Modifier.weight(4f),
                 )
@@ -141,10 +149,11 @@ private fun ScheduledWorkouts(
 }
 
 @LightDarkPreview
+@FontSizePreview
 @Composable
 private fun SchedulePreview() {
     val schedule = listOf(
-        ScheduledWorkout(
+        UpcomingWorkout(
             id = "foo",
             day = "Today",
             time = "9:00 PM",
@@ -152,9 +161,11 @@ private fun SchedulePreview() {
             name = "Yoga Flow",
             location = "SATS Nydalen",
             instructor = "w/Andrew Nielsen",
+            workoutType = WorkoutType.Gx,
+            workoutTypeLabel = null,
             waitingListStatus = WaitingListStatus.SpotSecured("Spot secured!", "32 on waiting list"),
         ),
-        ScheduledWorkout(
+        UpcomingWorkout(
             id = "bar",
             day = "Today",
             time = "5:30 PM",
@@ -162,9 +173,11 @@ private fun SchedulePreview() {
             name = "Body Pump",
             location = "SATS Colosseum",
             instructor = "w/Magnus Owe",
+            workoutType = WorkoutType.Pt,
+            workoutTypeLabel = null,
             waitingListStatus = WaitingListStatus.OnWaitingList("Number 5 on the waiting list."),
         ),
-        ScheduledWorkout(
+        UpcomingWorkout(
             id = "baz",
             day = "Tomorrow",
             time = "9:00 AM",
@@ -172,6 +185,7 @@ private fun SchedulePreview() {
             name = "Cycling Marathon",
             location = "SATS Storo",
             instructor = "w/John Doe",
+            workoutTypeLabel = "Cycling",
             waitingListStatus = null,
         ),
     )

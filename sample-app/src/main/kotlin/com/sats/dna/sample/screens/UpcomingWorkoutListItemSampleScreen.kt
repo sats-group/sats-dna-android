@@ -14,6 +14,7 @@ import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.upcomingworkouts.UpcomingWorkoutDaySection
 import com.sats.dna.components.upcomingworkouts.UpcomingWorkoutListItem
 import com.sats.dna.components.upcomingworkouts.WaitingListStatus
+import com.sats.dna.components.upcomingworkouts.WorkoutType
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
@@ -53,6 +54,9 @@ private fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Modi
                             )
                         },
                         onClick = {},
+                        waitingListStatus = WaitingListStatus.OnWaitingList("You are number 10 on the waiting list"),
+                        workoutType = WorkoutType.OwnTraining,
+                        workoutTypeLabel = null,
                     )
                 }
             }
@@ -75,6 +79,7 @@ private fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Modi
                             )
                         },
                         onClick = {},
+                        workoutTypeLabel = "🏋️ Strength training",
                     )
                 }
             }

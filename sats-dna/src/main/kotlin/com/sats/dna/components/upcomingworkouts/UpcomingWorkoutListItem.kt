@@ -6,9 +6,11 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -64,19 +66,25 @@ fun UpcomingWorkoutDaySection(
  * @param duration The duration of the workout.
  * @param onClick Callback to be invoked when this item is clicked.
  * @param instructor Information about the instructor for the workout.
+ * @param workoutTypeLabel What kind of workout it was, like cardio or strength training.
  * @param modifier The modifier to apply to the list item.
+ * @param workoutType If not null, gives the component a color bar to the left of the content.
+ * To symbolize what type of workout it is.
  * @param button Optional slot for displaying a book/unbook button.
  * @param friendsAttending Optional slot for displaying friends that are also attending the workout. Typically a [UpcomingWorkoutAttendingFriendsLabel]
+ * @param waitingListStatus What status the member has on the waiting list.
  * **/
 @Composable
 fun UpcomingWorkoutListItem(
     name: String,
     time: String,
-    location: String,
+    location: String?,
+    instructor: String?,
     duration: String,
-    instructor: String,
+    workoutTypeLabel: String?,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    workoutType: WorkoutType? = null,
     button: @Composable (() -> Unit)? = null,
     friendsAttending: @Composable (ColumnScope.() -> Unit)? = null,
     waitingListStatus: WaitingListStatus? = null,
@@ -84,9 +92,13 @@ fun UpcomingWorkoutListItem(
     Row(
         modifier
             .clickable(role = Role.Button) { onClick() }
+            .height(IntrinsicSize.Min)
             .padding(SatsTheme.spacing.m),
         horizontalArrangement = spacedBy(SatsTheme.spacing.s),
     ) {
+        workoutType?.let {
+            WorkoutTypeColorIndicator(it)
+        }
         TimeAndDuration(
             time = time,
             duration = duration,
@@ -105,6 +117,7 @@ fun UpcomingWorkoutListItem(
                     location = location,
                     instructor = instructor,
                     waitingListStatus = waitingListStatus,
+                    workoutType = workoutTypeLabel,
                     modifier = Modifier.weight(1f),
                 )
 
@@ -184,6 +197,8 @@ private fun UpcomingWorkoutsListPreview() {
                                 friendsAttendingLabel = "2 friends are joining this workout!",
                             )
                         },
+                        workoutType = WorkoutType.Gx,
+                        workoutTypeLabel = null,
                         onClick = {},
                     )
                 }

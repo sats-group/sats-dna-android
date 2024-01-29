@@ -1,14 +1,16 @@
 package com.sats.dna.components.upcomingworkouts
 
-data class ScheduledWorkout(
+data class UpcomingWorkout(
     val id: String,
     val day: String,
     val time: String,
     val duration: String,
     val name: String,
-    val location: String,
-    val instructor: String,
+    val workoutTypeLabel: String?,
+    val location: String?,
+    val instructor: String?,
     val waitingListStatus: WaitingListStatus?,
+    val workoutType: WorkoutType? = null,
 )
 
 sealed interface WaitingListStatus {
@@ -19,4 +21,12 @@ sealed interface WaitingListStatus {
         override val text: String,
         val waitingListText: String? = null,
     ) : WaitingListStatus
+}
+
+enum class WorkoutType {
+    Pt,
+    Gx,
+    Treatment,
+    Gymfloor,
+    OwnTraining,
 }

@@ -1,13 +1,41 @@
 package com.sats.dna.components.upcomingworkouts
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
+
+@Composable
+internal fun WorkoutTypeColorIndicator(
+    workoutType: WorkoutType,
+    modifier: Modifier = Modifier,
+) {
+    val color = when (workoutType) {
+        WorkoutType.Pt -> SatsTheme.colors2.graphicalElements.workouts.pt
+        WorkoutType.Gx -> SatsTheme.colors2.graphicalElements.workouts.gx
+        WorkoutType.Treatment -> SatsTheme.colors2.graphicalElements.workouts.treatments
+        WorkoutType.Gymfloor -> SatsTheme.colors2.graphicalElements.workouts.gymfloor
+        WorkoutType.OwnTraining -> SatsTheme.colors2.graphicalElements.workouts.pt
+    }
+
+    Box(
+        modifier
+            .fillMaxHeight()
+            .width(4.dp)
+            .clip(SatsTheme.shapes.roundedCorners.medium)
+            .background(color),
+    )
+}
 
 @Composable
 internal fun TimeAndDuration(
@@ -32,8 +60,9 @@ internal fun TimeAndDuration(
 @Composable
 internal fun WorkoutInfo(
     name: String,
-    location: String,
-    instructor: String,
+    location: String?,
+    instructor: String?,
+    workoutType: String?,
     modifier: Modifier = Modifier,
     waitingListStatus: WaitingListStatus? = null,
 ) {
@@ -43,17 +72,29 @@ internal fun WorkoutInfo(
             style = SatsTheme.typography.medium.basic,
         )
 
-        MaterialText(
-            text = location,
-            color = SatsTheme.colors2.backgrounds.primary.fg.alternate,
-            style = SatsTheme.typography.normal.small,
-        )
+        location?.let { location ->
+            MaterialText(
+                text = location,
+                style = SatsTheme.typography.normal.small,
+                color = SatsTheme.colors2.backgrounds.primary.fg.alternate,
+            )
+        }
 
-        MaterialText(
-            text = instructor,
-            style = SatsTheme.typography.normal.small,
-            color = SatsTheme.colors2.backgrounds.primary.fg.alternate,
-        )
+        instructor?.let { instructor ->
+            MaterialText(
+                text = instructor,
+                style = SatsTheme.typography.normal.small,
+                color = SatsTheme.colors2.backgrounds.primary.fg.alternate,
+            )
+        }
+
+        workoutType?.let { workoutType ->
+            MaterialText(
+                text = workoutType,
+                style = SatsTheme.typography.normal.small,
+                color = SatsTheme.colors2.backgrounds.primary.fg.alternate,
+            )
+        }
 
         waitingListStatus?.let { status ->
             WaitingListStatus(status)
@@ -109,6 +150,7 @@ private fun WorkoutInfoPreview() {
                 location = "SATS Nydalen",
                 instructor = "w/ Andrew Nielsen",
                 waitingListStatus = WaitingListStatus.SpotSecured("Spot secured! 32 on the waiting list."),
+                workoutType = null,
                 modifier = Modifier.padding(SatsTheme.spacing.m),
             )
         }
@@ -125,6 +167,7 @@ private fun WorkoutInfoOnWaitingListPreview() {
                 location = "SATS Nydalen",
                 instructor = "w/ Andrew Nielsen",
                 waitingListStatus = WaitingListStatus.OnWaitingList("You're number 5 on the waiting list."),
+                workoutType = "Strength training",
                 modifier = Modifier.padding(SatsTheme.spacing.m),
             )
         }
