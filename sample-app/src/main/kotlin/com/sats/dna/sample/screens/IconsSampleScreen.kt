@@ -149,6 +149,7 @@ private val SatsIcons.allIcons: List<NamedIcon>
         NamedIcon("treatments", treatments),
         NamedIcon("trophy", trophy),
         NamedIcon("vouchers", vouchers),
+        NamedIcon("warningSign", warningSign),
         NamedIcon("workoutGx", workoutGx),
         NamedIcon("workoutGymFloor", workoutGymFloor),
         NamedIcon("workoutOther", workoutOther),

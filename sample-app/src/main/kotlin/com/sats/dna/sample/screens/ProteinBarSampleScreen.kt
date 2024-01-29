@@ -52,10 +52,30 @@ private fun ProteinBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifi
 
             SatsProteinBar(
                 visuals = SatsProteinBarDefaults.visuals(
+                    title = "This is the title of the Protein Bar",
+                    message = "This text exists so that you can read it. Did you read it through all the way?",
+                    action = null,
+                    theme = SatsProteinBarTheme.Info,
+                    dismissAction = SatsProteinBarAction({}, "close"),
+                ),
+            )
+
+            SatsProteinBar(
+                visuals = SatsProteinBarDefaults.visuals(
                     title = "The operation was a success!",
                     message = "You did something good, and so did we. We were also able to complete the thing.",
                     action = null,
                     theme = SatsProteinBarTheme.Success,
+                    dismissAction = SatsProteinBarAction({}, "close"),
+                ),
+            )
+
+            SatsProteinBar(
+                visuals = SatsProteinBarDefaults.visuals(
+                    title = "This is the title of the Protein Bar",
+                    message = "This text exists so that you can read it. Did you read it through all the way?",
+                    action = null,
+                    theme = SatsProteinBarTheme.Warning,
                     dismissAction = SatsProteinBarAction({}, "close"),
                 ),
             )
