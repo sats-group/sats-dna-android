@@ -26,7 +26,7 @@ internal fun WorkoutTypeColorIndicator(
             .fillMaxHeight()
             .width(4.dp)
             .clip(SatsTheme.shapes.roundedCorners.medium)
-            .background(color)
+            .background(color),
     )
 }
 

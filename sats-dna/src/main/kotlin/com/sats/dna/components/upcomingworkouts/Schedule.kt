@@ -21,8 +21,8 @@ import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun Schedule(
-    workouts: List<ScheduledWorkout>,
-    onWorkoutClicked: (workout: ScheduledWorkout) -> Unit,
+    workouts: List<UpcomingWorkout>,
+    onWorkoutClicked: (workout: UpcomingWorkout) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     SatsCard(modifier.fillMaxWidth()) {
@@ -82,8 +82,8 @@ fun SchedulePlaceholder(modifier: Modifier = Modifier) {
 
 @Composable
 private fun ScheduledDays(
-    days: Map<String, List<ScheduledWorkout>>,
-    onWorkoutClicked: (workout: ScheduledWorkout) -> Unit,
+    days: Map<String, List<UpcomingWorkout>>,
+    onWorkoutClicked: (workout: UpcomingWorkout) -> Unit,
 ) {
     Column(
         Modifier.padding(top = cardInnerPadding, bottom = cardInnerPadding - clickableVerticalPadding),
@@ -108,8 +108,8 @@ private fun ScheduledDays(
 
 @Composable
 private fun ScheduledWorkouts(
-    workouts: List<ScheduledWorkout>,
-    onWorkoutClicked: (workout: ScheduledWorkout) -> Unit,
+    workouts: List<UpcomingWorkout>,
+    onWorkoutClicked: (workout: UpcomingWorkout) -> Unit,
 ) {
     Column(verticalArrangement = spacedBy(SatsTheme.spacing.xs - clickableVerticalPadding)) {
         workouts.forEach { workout ->
@@ -153,7 +153,7 @@ private fun ScheduledWorkouts(
 @Composable
 private fun SchedulePreview() {
     val schedule = listOf(
-        ScheduledWorkout(
+        UpcomingWorkout(
             id = "foo",
             day = "Today",
             time = "9:00 PM",
@@ -165,7 +165,7 @@ private fun SchedulePreview() {
             workoutType = null,
             waitingListStatus = WaitingListStatus.SpotSecured("Spot secured!", "32 on waiting list"),
         ),
-        ScheduledWorkout(
+        UpcomingWorkout(
             id = "bar",
             day = "Today",
             time = "5:30 PM",
@@ -177,7 +177,7 @@ private fun SchedulePreview() {
             workoutType = null,
             waitingListStatus = WaitingListStatus.OnWaitingList("Number 5 on the waiting list."),
         ),
-        ScheduledWorkout(
+        UpcomingWorkout(
             id = "baz",
             day = "Tomorrow",
             time = "9:00 AM",

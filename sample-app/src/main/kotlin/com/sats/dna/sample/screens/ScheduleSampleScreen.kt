@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.sats.dna.components.upcomingworkouts.Schedule
 import com.sats.dna.components.upcomingworkouts.SchedulePlaceholder
-import com.sats.dna.components.upcomingworkouts.ScheduledWorkout
+import com.sats.dna.components.upcomingworkouts.UpcomingWorkout
 import com.sats.dna.components.upcomingworkouts.WaitingListStatus
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
@@ -23,7 +23,7 @@ data object ScheduleSampleScreen : SampleScreen(
 private fun ScheduleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Schedule", navigateUp, modifier) { innerPadding ->
         val schedule = listOf(
-            ScheduledWorkout(
+            UpcomingWorkout(
                 id = "foo",
                 day = "Today",
                 time = "09:00",
@@ -33,9 +33,9 @@ private fun ScheduleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                 instructor = "w/ Andrew Nielsen",
                 waitingListStatus = WaitingListStatus.SpotSecured("Spot secured! 32 on the waiting list."),
                 workoutType = null,
-                workoutTypeColor = SatsTheme.colors2.graphicalElements.workouts.gx
+                workoutTypeColor = SatsTheme.colors2.graphicalElements.workouts.gx,
             ),
-            ScheduledWorkout(
+            UpcomingWorkout(
                 id = "bar",
                 day = "Today",
                 time = "17:30",
@@ -45,9 +45,9 @@ private fun ScheduleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                 instructor = "w/ Magnus Owe",
                 waitingListStatus = WaitingListStatus.OnWaitingList("Number 5 on the waiting list."),
                 workoutType = null,
-                workoutTypeColor = SatsTheme.colors2.graphicalElements.workouts.pt
+                workoutTypeColor = SatsTheme.colors2.graphicalElements.workouts.pt,
             ),
-            ScheduledWorkout(
+            UpcomingWorkout(
                 id = "baz",
                 day = "Tomorrow",
                 time = "09:00",
@@ -57,7 +57,7 @@ private fun ScheduleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                 instructor = "w/ John Doe",
                 waitingListStatus = null,
                 workoutType = null,
-                workoutTypeColor = SatsTheme.colors2.graphicalElements.workouts.gymfloor
+                workoutTypeColor = SatsTheme.colors2.graphicalElements.workouts.gymfloor,
             ),
         )
 

@@ -2,7 +2,7 @@ package com.sats.dna.components.upcomingworkouts
 
 import androidx.compose.ui.graphics.Color
 
-data class ScheduledWorkout(
+data class UpcomingWorkout(
     val id: String,
     val day: String,
     val time: String,
