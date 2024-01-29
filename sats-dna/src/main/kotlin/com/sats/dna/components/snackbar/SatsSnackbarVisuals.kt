@@ -2,16 +2,18 @@ package com.sats.dna.components.snackbar
 
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarVisuals
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.semantics.clearAndSetSemantics
-import com.sats.dna.internal.MaterialIcon
+import androidx.compose.ui.graphics.painter.Painter
 import com.sats.dna.theme.SatsTheme
 
+sealed interface SatsSnackbarLeadingIcon {
+    class Icon(val painter: Painter) : SatsSnackbarLeadingIcon
+    class Emoji(val text: String) : SatsSnackbarLeadingIcon
+}
+
 class SatsSnackbarVisuals internal constructor(
-    val leadingIcon: @Composable () -> Unit,
+    val leadingIcon: SatsSnackbarLeadingIcon,
     val title: String?,
     override val message: String,
     val action: SatsSnackbarAction?,
@@ -19,7 +21,6 @@ class SatsSnackbarVisuals internal constructor(
     override val duration: SnackbarDuration,
     val colors: SatsSnackbarColors,
 ) : SnackbarVisuals {
-
     override val actionLabel: String? = action?.label
     override val withDismissAction: Boolean = dismissAction != null
 }
@@ -32,13 +33,12 @@ enum class SatsSnackbarTheme {
 class SatsSnackbarAction(val action: () -> Unit, val label: String)
 
 class SatsSnackbarColors internal constructor(
-    val backgroundColor: Color,
     val containerColor: Color,
+    val contentColor: Color,
     val titleColor: Color,
 )
 
 object SatsSnackbarDefaults {
-
     /**
      * Creates snackbar visuals for a sats snackbar.
      *
@@ -49,7 +49,7 @@ object SatsSnackbarDefaults {
      * will become the content description for the dismiss icon.
      * @param duration How long the snackbar will be shown.
      * @param theme The snackbar theme, this will determine the snackbar colors and icon.
-     * **/
+     */
     @Composable
     fun snackbarVisuals(
         message: String,
@@ -64,7 +64,7 @@ object SatsSnackbarDefaults {
             duration = duration,
             message = message,
             dismissAction = dismissAction,
-            leadingIcon = { theme.LeadingIcon() },
+            leadingIcon = theme.leadingIcon(),
             title = title,
             colors = theme.getSnackBarColors(),
         )
@@ -72,29 +72,21 @@ object SatsSnackbarDefaults {
     @Composable
     fun SatsSnackbarTheme.getSnackBarColors(): SatsSnackbarColors = when (this) {
         SatsSnackbarTheme.Info -> SatsSnackbarColors(
-            backgroundColor = SatsTheme.colors2.surfaces.primary.bg.default,
-            containerColor = SatsTheme.colors2.surfaces.primary.fg.default,
+            containerColor = SatsTheme.colors2.surfaces.primary.bg.default,
+            contentColor = SatsTheme.colors2.surfaces.primary.fg.default,
             titleColor = SatsTheme.colors2.surfaces.primary.fg.alternate,
         )
 
         SatsSnackbarTheme.Success -> SatsSnackbarColors(
-            backgroundColor = SatsTheme.colors2.signalSurfaces.success.bg,
-            containerColor = SatsTheme.colors2.signalSurfaces.success.fg.default,
+            containerColor = SatsTheme.colors2.signalSurfaces.success.bg,
+            contentColor = SatsTheme.colors2.signalSurfaces.success.fg.default,
             titleColor = SatsTheme.colors2.signalSurfaces.success.fg.alternate,
         )
     }
 
     @Composable
-    private fun SatsSnackbarTheme.LeadingIcon() = when (this) {
-        SatsSnackbarTheme.Info -> {
-            MaterialIcon(SatsTheme.icons.info, contentDescription = null)
-        }
-
-        SatsSnackbarTheme.Success -> {
-            Text(
-                text = "🎉",
-                modifier = Modifier.clearAndSetSemantics {},
-            )
-        }
+    private fun SatsSnackbarTheme.leadingIcon(): SatsSnackbarLeadingIcon = when (this) {
+        SatsSnackbarTheme.Info -> SatsSnackbarLeadingIcon.Icon(SatsTheme.icons.info)
+        SatsSnackbarTheme.Success -> SatsSnackbarLeadingIcon.Emoji("🎉")
     }
 }
