@@ -1,4 +1,4 @@
-package com.sats.dna.components.snackbar
+package com.sats.dna.components.proteinbar
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -25,22 +25,22 @@ import com.sats.dna.tooling.FontSizePreview
 import com.sats.dna.tooling.LightDarkPreview
 
 /**
- * Sats snackbar to display short and non intrusive messages to a user.
+ * Protein Bar to display short and non intrusive messages to a user.
  *
- * @param message The message to be displayed in the snackbar.
- * @param action Optional action to be shown as a button in the snackbar.
+ * @param message The message to be displayed in the protein bar.
+ * @param action Optional action to be shown as a button in the protein bar.
  * @param modifier The modifier to be applied to this composable.
- * @param theme Theme for the snackbar, by default [SatsSnackbarTheme.Info].
+ * @param theme Theme for the protein bar, by default [SatsProteinBarTheme.Info].
  */
 @Composable
-fun SatsSnackbar(
+fun SatsProteinBar(
     message: String,
-    action: SatsSnackbarAction?,
+    action: SatsProteinBarAction?,
     modifier: Modifier = Modifier,
-    theme: SatsSnackbarTheme = SatsSnackbarTheme.Info,
+    theme: SatsProteinBarTheme = SatsProteinBarTheme.Info,
 ) {
-    SatsSnackbar(
-        visuals = SatsSnackbarDefaults.snackbarVisuals(
+    SatsProteinBar(
+        visuals = SatsProteinBarDefaults.visuals(
             message = message,
             action = action,
             theme = theme,
@@ -50,16 +50,16 @@ fun SatsSnackbar(
 }
 
 /**
- * Sats snackbar to display short and non intrusive messages to a user.
+ * Protein Bar to display short and non intrusive messages to a user.
  *
- * @param visuals The [SatsSnackbarVisuals] to be used for the snackbar.
+ * @param visuals The [SatsProteinBarVisuals] to be used for the protein bar.
  * @param modifier The modifier to be applied to this composable.
  *
- * @see [SatsSnackbarDefaults]
+ * @see [SatsProteinBarDefaults]
  */
 @Composable
-fun SatsSnackbar(
-    visuals: SatsSnackbarVisuals,
+fun SatsProteinBar(
+    visuals: SatsProteinBarVisuals,
     modifier: Modifier = Modifier,
 ) {
     SatsSurface(
@@ -111,14 +111,14 @@ fun SatsSnackbar(
 }
 
 @Composable
-private fun LeadingIcon(leadingIcon: SatsSnackbarLeadingIcon, modifier: Modifier = Modifier) {
+private fun LeadingIcon(leadingIcon: SatsProteinBarLeadingIcon, modifier: Modifier = Modifier) {
     Box(modifier) {
         when (leadingIcon) {
-            is SatsSnackbarLeadingIcon.Emoji -> {
+            is SatsProteinBarLeadingIcon.Emoji -> {
                 MaterialText(leadingIcon.text, Modifier.clearAndSetSemantics { })
             }
 
-            is SatsSnackbarLeadingIcon.Icon -> {
+            is SatsProteinBarLeadingIcon.Icon -> {
                 MaterialIcon(leadingIcon.painter, contentDescription = null, Modifier.size(18.dp))
             }
         }
@@ -126,7 +126,7 @@ private fun LeadingIcon(leadingIcon: SatsSnackbarLeadingIcon, modifier: Modifier
 }
 
 @Composable
-private fun TitleAndMessage(visuals: SatsSnackbarVisuals, modifier: Modifier = Modifier) {
+private fun TitleAndMessage(visuals: SatsProteinBarVisuals, modifier: Modifier = Modifier) {
     Column(modifier, verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
         if (visuals.title != null) {
             MaterialText(
@@ -145,7 +145,7 @@ private fun TitleAndMessage(visuals: SatsSnackbarVisuals, modifier: Modifier = M
 }
 
 @Composable
-private fun ActionButton(action: SatsSnackbarAction, modifier: Modifier = Modifier) {
+private fun ActionButton(action: SatsProteinBarAction, modifier: Modifier = Modifier) {
     SatsButton(
         onClick = action.action,
         label = action.label,
@@ -156,104 +156,104 @@ private fun ActionButton(action: SatsSnackbarAction, modifier: Modifier = Modifi
 
 @LightDarkPreview
 @Composable
-private fun RegularSnackbarPreview() {
+private fun SatsProteinBarPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             val message = "Something went wrong. You should probably try that one more time."
-            val action = SatsSnackbarAction(action = {}, "Try again")
+            val action = SatsProteinBarAction(action = {}, "Try again")
 
-            SatsSnackbar(message, action, Modifier.padding(SatsTheme.spacing.m))
+            SatsProteinBar(message, action, Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }
 
 @LightDarkPreview
 @Composable
-private fun SuccessSnackbarPreview() {
+private fun SatsProteinBarSuccessPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            val snackbarVisuals = SatsSnackbarDefaults.snackbarVisuals(
+            val visuals = SatsProteinBarDefaults.visuals(
                 title = "Yay! Invitations have been sent!",
                 message = "You can always add or remove friends later, or change other details.",
                 action = null,
-                theme = SatsSnackbarTheme.Success,
-                dismissAction = SatsSnackbarAction({}, "close"),
+                theme = SatsProteinBarTheme.Success,
+                dismissAction = SatsProteinBarAction({}, "close"),
             )
 
-            SatsSnackbar(snackbarVisuals, Modifier.padding(SatsTheme.spacing.m))
+            SatsProteinBar(visuals, Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }
 
 @LightDarkPreview
 @Composable
-private fun ErrorSnackbarPreview() {
+private fun SatsProteinBarErrorPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            val snackbarVisuals = SatsSnackbarDefaults.snackbarVisuals(
+            val visuals = SatsProteinBarDefaults.visuals(
                 title = "Oh no, that's not great!",
                 message = "It looks like whatever you were trying to do didn't happen according to plan. You may " +
                     "want to try that again.",
-                action = SatsSnackbarAction(action = {}, label = "Try again"),
-                theme = SatsSnackbarTheme.Error,
-                dismissAction = SatsSnackbarAction({}, "close"),
+                action = SatsProteinBarAction(action = {}, label = "Try again"),
+                theme = SatsProteinBarTheme.Error,
+                dismissAction = SatsProteinBarAction({}, "close"),
             )
 
-            SatsSnackbar(snackbarVisuals, Modifier.padding(SatsTheme.spacing.m))
+            SatsProteinBar(visuals, Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }
 
 @Preview
 @Composable
-private fun SnackbarWithActionPreview() {
+private fun SatsProteinBarWithActionPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            val snackbarVisuals = SatsSnackbarDefaults.snackbarVisuals(
+            val visuals = SatsProteinBarDefaults.visuals(
                 title = "Yay! Invitations have been sent!",
                 message = "You can always add or remove friends later, or change other details.",
-                action = SatsSnackbarAction(action = {}, label = "Try again"),
-                theme = SatsSnackbarTheme.Info,
+                action = SatsProteinBarAction(action = {}, label = "Try again"),
+                theme = SatsProteinBarTheme.Info,
                 dismissAction = null,
             )
 
-            SatsSnackbar(snackbarVisuals, Modifier.padding(SatsTheme.spacing.m))
+            SatsProteinBar(visuals, Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }
 
 @Preview
 @Composable
-private fun SnackbarWithDismissAndActionPreview() {
+private fun SatsProteinBarWithDismissAndActionPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            val snackbarVisuals = SatsSnackbarDefaults.snackbarVisuals(
+            val visuals = SatsProteinBarDefaults.visuals(
                 title = "Yay! Invitations have been sent!",
                 message = "You can always add or remove friends later, or change other details.",
-                action = SatsSnackbarAction(action = {}, label = "Try again"),
-                theme = SatsSnackbarTheme.Info,
-                dismissAction = SatsSnackbarAction({}, "close"),
+                action = SatsProteinBarAction(action = {}, label = "Try again"),
+                theme = SatsProteinBarTheme.Info,
+                dismissAction = SatsProteinBarAction({}, "close"),
             )
 
-            SatsSnackbar(snackbarVisuals, Modifier.padding(SatsTheme.spacing.m))
+            SatsProteinBar(visuals, Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }
 
 @FontSizePreview
 @Composable
-private fun SnackbarFontSizesPreview() {
+private fun SatsProteinBarFontSizesPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            val snackbarVisuals = SatsSnackbarDefaults.snackbarVisuals(
+            val visuals = SatsProteinBarDefaults.visuals(
                 title = "Yay! Invitations have been sent!",
                 message = "You can always add or remove friends later, or change other details.",
-                action = SatsSnackbarAction(action = {}, label = "Try again"),
-                theme = SatsSnackbarTheme.Info,
-                dismissAction = SatsSnackbarAction({}, "close"),
+                action = SatsProteinBarAction(action = {}, label = "Try again"),
+                theme = SatsProteinBarTheme.Info,
+                dismissAction = SatsProteinBarAction({}, "close"),
             )
 
-            SatsSnackbar(snackbarVisuals, Modifier.padding(SatsTheme.spacing.m))
+            SatsProteinBar(visuals, Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }

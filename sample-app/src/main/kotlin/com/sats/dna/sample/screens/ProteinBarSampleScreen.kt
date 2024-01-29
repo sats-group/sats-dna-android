@@ -9,22 +9,22 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.sats.dna.components.snackbar.SatsSnackbar
-import com.sats.dna.components.snackbar.SatsSnackbarAction
-import com.sats.dna.components.snackbar.SatsSnackbarDefaults
-import com.sats.dna.components.snackbar.SatsSnackbarTheme
+import com.sats.dna.components.proteinbar.SatsProteinBar
+import com.sats.dna.components.proteinbar.SatsProteinBarAction
+import com.sats.dna.components.proteinbar.SatsProteinBarDefaults
+import com.sats.dna.components.proteinbar.SatsProteinBarTheme
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
-data object SnackbarSampleScreen : SampleScreen(
-    name = "Snackbar",
-    route = "/components/snackbar",
-    screen = { SnackbarScreen(it::navigateUp) },
+data object ProteinBarSampleScreen : SampleScreen(
+    name = "Protein Bar",
+    route = "/components/protein-bar",
+    screen = { ProteinBarScreen(it::navigateUp) },
 )
 
 @Composable
-private fun SnackbarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Snackbar", navigateUp, modifier) { innerPadding ->
+private fun ProteinBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+    ComponentScreen("Protein Bar", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .verticalScroll(rememberScrollState())
@@ -34,40 +34,40 @@ private fun SnackbarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                 .wrapContentSize(),
             Arrangement.spacedBy(SatsTheme.spacing.m),
         ) {
-            SatsSnackbar(
+            SatsProteinBar(
                 message = "This text exists so that you can read it.",
                 action = null,
             )
 
-            SatsSnackbar(
+            SatsProteinBar(
                 message = "This text is yours to read. There's also an action that you can perform.",
-                action = SatsSnackbarAction(action = {}, "Try again"),
+                action = SatsProteinBarAction(action = {}, "Try again"),
             )
 
-            SatsSnackbar(
-                message = "Texts should not be too long, as they might not fit inside the snackbar. We cap all texts " +
-                    "at three lines, so if the text is longer than that, you won't be able to read it all.",
+            SatsProteinBar(
+                message = "Texts should not be too long, as they might not fit inside the protein bar. We cap all " +
+                    "texts at three lines, so if the text is longer than that, you won't be able to read it all.",
                 action = null,
             )
 
-            SatsSnackbar(
-                visuals = SatsSnackbarDefaults.snackbarVisuals(
+            SatsProteinBar(
+                visuals = SatsProteinBarDefaults.visuals(
                     title = "The operation was a success!",
                     message = "You did something good, and so did we. We were also able to complete the thing.",
                     action = null,
-                    theme = SatsSnackbarTheme.Success,
-                    dismissAction = SatsSnackbarAction({}, "close"),
+                    theme = SatsProteinBarTheme.Success,
+                    dismissAction = SatsProteinBarAction({}, "close"),
                 ),
             )
 
-            SatsSnackbar(
-                visuals = SatsSnackbarDefaults.snackbarVisuals(
+            SatsProteinBar(
+                visuals = SatsProteinBarDefaults.visuals(
                     title = "Oh no, that's not great!",
                     message = "It looks like whatever you were trying to do didn't happen according to plan. You may " +
                         "want to try that again.",
-                    action = SatsSnackbarAction(action = {}, label = "Try again"),
-                    theme = SatsSnackbarTheme.Error,
-                    dismissAction = SatsSnackbarAction({}, "close"),
+                    action = SatsProteinBarAction(action = {}, label = "Try again"),
+                    theme = SatsProteinBarTheme.Error,
+                    dismissAction = SatsProteinBarAction({}, "close"),
                 ),
             )
         }
@@ -76,8 +76,8 @@ private fun SnackbarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
 
 @LightDarkPreview
 @Composable
-private fun Preview() {
+private fun ProteinBarScreenPreview() {
     SatsTheme {
-        SnackbarScreen(navigateUp = {})
+        ProteinBarScreen(navigateUp = {})
     }
 }
