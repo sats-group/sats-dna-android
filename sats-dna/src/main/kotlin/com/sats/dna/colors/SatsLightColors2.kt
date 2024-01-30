@@ -122,6 +122,10 @@ internal val SatsLightColors2 = SatsColors2(
             default = SatsColorPrimitives.SatsLightGrey15,
             alternate = SatsColorPrimitives.BlackO20,
         ),
+        border = SatsColors2.GraphicalElements.Border(
+            default = SatsColorPrimitives.SatsLightGrey15,
+            focused = SatsColorPrimitives.SatsBlue40,
+        ),
         skeleton = SatsColorPrimitives.SatsLightGrey15,
         navBar = SatsColors2.GraphicalElements.NavBar(
             selected = SatsColorPrimitives.SatsBlue,
