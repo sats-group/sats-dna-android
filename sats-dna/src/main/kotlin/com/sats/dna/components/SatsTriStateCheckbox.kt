@@ -16,17 +16,21 @@ fun SatsTriStateCheckbox(
     onClick: (() -> Unit)?,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
+    colors: SatsCheckboxColors = SatsCheckboxColors.Default,
 ) {
     TriStateCheckbox(
         state = state,
         onClick = onClick,
         modifier = modifier,
         enabled = enabled,
-        colors = colors,
+        colors = when (colors) {
+            SatsCheckboxColors.Default -> defaultColors
+            SatsCheckboxColors.Fixed -> fixedColors
+        },
     )
 }
 
-private val colors
+private val defaultColors
     @Composable get() = CheckboxDefaults.colors(
         checkedColor = SatsTheme.colors2.graphicalElements.selector.selected.default,
         uncheckedColor = SatsTheme.colors2.graphicalElements.selector.unselected.default,
@@ -36,9 +40,19 @@ private val colors
         checkmarkColor = SatsTheme.colors2.graphicalElements.selector.indicator,
     )
 
+private val fixedColors
+    @Composable get() = CheckboxDefaults.colors(
+        checkedColor = SatsTheme.colors2.graphicalElements.selectorFixed.selected.default,
+        uncheckedColor = SatsTheme.colors2.graphicalElements.selectorFixed.unselected.default,
+        disabledCheckedColor = SatsTheme.colors2.graphicalElements.selectorFixed.selected.disabled,
+        disabledIndeterminateColor = SatsTheme.colors2.graphicalElements.selectorFixed.selected.disabled,
+        disabledUncheckedColor = SatsTheme.colors2.graphicalElements.selectorFixed.unselected.disabled,
+        checkmarkColor = SatsTheme.colors2.graphicalElements.selectorFixed.indicator,
+    )
+
 @LightDarkPreview
 @Composable
-private fun EnabledPreview(@PreviewParameter(ToggleableStatePreviewProvider::class) state: ToggleableState) {
+private fun EnabledDefaultPreview(@PreviewParameter(ToggleableStatePreviewProvider::class) state: ToggleableState) {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsTriStateCheckbox(state, onClick = null, enabled = true)
@@ -48,10 +62,30 @@ private fun EnabledPreview(@PreviewParameter(ToggleableStatePreviewProvider::cla
 
 @LightDarkPreview
 @Composable
-private fun DisabledPreview(@PreviewParameter(ToggleableStatePreviewProvider::class) state: ToggleableState) {
+private fun DisabledDefaultPreview(@PreviewParameter(ToggleableStatePreviewProvider::class) state: ToggleableState) {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsTriStateCheckbox(state, onClick = null, enabled = false)
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun EnabledFixedPreview(@PreviewParameter(ToggleableStatePreviewProvider::class) state: ToggleableState) {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.fixed.bg.default, useMaterial3 = true) {
+            SatsTriStateCheckbox(state, onClick = null, enabled = true, colors = SatsCheckboxColors.Fixed)
+        }
+    }
+}
+
+@LightDarkPreview
+@Composable
+private fun DisabledFixedPreview(@PreviewParameter(ToggleableStatePreviewProvider::class) state: ToggleableState) {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.fixed.bg.default, useMaterial3 = true) {
+            SatsTriStateCheckbox(state, onClick = null, enabled = false, colors = SatsCheckboxColors.Fixed)
         }
     }
 }
