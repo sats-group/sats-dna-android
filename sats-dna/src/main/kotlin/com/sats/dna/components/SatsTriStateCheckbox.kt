@@ -28,12 +28,12 @@ fun SatsTriStateCheckbox(
 
 private val colors
     @Composable get() = CheckboxDefaults.colors(
-        checkedColor = SatsTheme.colors2.graphicalElements.toggle.selected.default,
-        uncheckedColor = SatsTheme.colors2.graphicalElements.toggle.unselected.default,
-        disabledCheckedColor = SatsTheme.colors2.graphicalElements.toggle.selected.disabled,
-        disabledIndeterminateColor = SatsTheme.colors2.graphicalElements.toggle.selected.disabled,
-        disabledUncheckedColor = SatsTheme.colors2.graphicalElements.toggle.unselected.disabled,
-        checkmarkColor = SatsTheme.colors2.graphicalElements.toggle.interactiveElement,
+        checkedColor = SatsTheme.colors2.graphicalElements.selector.selected.default,
+        uncheckedColor = SatsTheme.colors2.graphicalElements.selector.unselected.default,
+        disabledCheckedColor = SatsTheme.colors2.graphicalElements.selector.selected.disabled,
+        disabledIndeterminateColor = SatsTheme.colors2.graphicalElements.selector.selected.disabled,
+        disabledUncheckedColor = SatsTheme.colors2.graphicalElements.selector.unselected.disabled,
+        checkmarkColor = SatsTheme.colors2.graphicalElements.selector.indicator,
     )
 
 @LightDarkPreview
