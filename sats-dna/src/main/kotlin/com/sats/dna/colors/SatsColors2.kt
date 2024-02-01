@@ -254,6 +254,7 @@ class SatsColors2(
         class Selector(
             val unselected: Unselected,
             val selected: Selected,
+            val indicator: Color,
         ) {
             class Unselected(
                 val default: Color,

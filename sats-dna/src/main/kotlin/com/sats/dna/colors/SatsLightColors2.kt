@@ -161,6 +161,7 @@ internal val SatsLightColors2 = SatsColors2(
                 default = SatsColorPrimitives.SatsCoral,
                 disabled = SatsColorPrimitives.SatsCoral40,
             ),
+            indicator = SatsColorPrimitives.White100,
         ),
         chips = SatsColors2.GraphicalElements.Chips(
             unselected = SatsColors2.GraphicalElements.Chips.Unselected(

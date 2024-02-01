@@ -160,6 +160,7 @@ internal val SatsDarkColors2 = SatsColors2(
                 default = SatsColorPrimitives.SatsCoral90,
                 disabled = SatsColorPrimitives.SatsCoral130,
             ),
+            indicator = SatsColorPrimitives.Black90,
         ),
         chips = SatsColors2.GraphicalElements.Chips(
             unselected = SatsColors2.GraphicalElements.Chips.Unselected(

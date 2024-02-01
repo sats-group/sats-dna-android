@@ -356,12 +356,12 @@ private fun GraphicalElements() {
 
             ColorSample(
                 backgroundColor = base.selected.default named "Selected Default",
-                contentColor = null,
+                contentColor = base.indicator named "Indicator",
             )
 
             ColorSample(
                 backgroundColor = base.selected.disabled named "Selected Disabled",
-                contentColor = null,
+                contentColor = base.indicator named "Indicator",
             )
         }
 
