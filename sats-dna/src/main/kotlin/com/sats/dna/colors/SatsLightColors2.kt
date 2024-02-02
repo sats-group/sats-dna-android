@@ -161,6 +161,18 @@ internal val SatsLightColors2 = SatsColors2(
                 default = SatsColorPrimitives.SatsCoral,
                 disabled = SatsColorPrimitives.SatsCoral40,
             ),
+            indicator = SatsColorPrimitives.White100,
+        ),
+        selectorFixed = SatsColors2.GraphicalElements.SelectorFixed(
+            unselected = SatsColors2.GraphicalElements.SelectorFixed.Unselected(
+                default = SatsColorPrimitives.White100,
+                disabled = SatsColorPrimitives.White50,
+            ),
+            selected = SatsColors2.GraphicalElements.SelectorFixed.Selected(
+                default = SatsColorPrimitives.SatsCoral90,
+                disabled = SatsColorPrimitives.SatsCoral130,
+            ),
+            indicator = SatsColorPrimitives.SatsBlue,
         ),
         chips = SatsColors2.GraphicalElements.Chips(
             unselected = SatsColors2.GraphicalElements.Chips.Unselected(

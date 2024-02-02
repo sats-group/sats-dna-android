@@ -196,6 +196,7 @@ class SatsColors2(
         val progressBar: ProgressBar,
         val graphs: Graphs,
         val selector: Selector,
+        val selectorFixed: SelectorFixed,
         val chips: Chips,
         val toggle: Toggle,
         val icons: Icons,
@@ -254,6 +255,23 @@ class SatsColors2(
         class Selector(
             val unselected: Unselected,
             val selected: Selected,
+            val indicator: Color,
+        ) {
+            class Unselected(
+                val default: Color,
+                val disabled: Color,
+            )
+
+            class Selected(
+                val default: Color,
+                val disabled: Color,
+            )
+        }
+
+        class SelectorFixed(
+            val unselected: Unselected,
+            val selected: Selected,
+            val indicator: Color,
         ) {
             class Unselected(
                 val default: Color,
