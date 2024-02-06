@@ -112,6 +112,6 @@ object SatsProteinBarDefaults {
         SatsProteinBarTheme.Info -> SatsProteinBarLeadingIcon.Icon(SatsTheme.icons.info)
         SatsProteinBarTheme.Success -> SatsProteinBarLeadingIcon.Emoji("🎉")
         SatsProteinBarTheme.Warning -> SatsProteinBarLeadingIcon.Icon(SatsTheme.icons.warningSign)
-        SatsProteinBarTheme.Error -> SatsProteinBarLeadingIcon.Icon(SatsTheme.icons.info)
+        SatsProteinBarTheme.Error -> SatsProteinBarLeadingIcon.Icon(SatsTheme.icons.error)
     }
 }

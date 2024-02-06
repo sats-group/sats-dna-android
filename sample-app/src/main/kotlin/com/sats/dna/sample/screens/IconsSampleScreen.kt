@@ -95,6 +95,7 @@ private val SatsIcons.allIcons: List<NamedIcon>
         NamedIcon("confirm", confirm),
         NamedIcon("delete", delete),
         NamedIcon("edit", edit),
+        NamedIcon("error", error),
         NamedIcon("filter", filter),
         NamedIcon("fistBump", fistBump),
         NamedIcon("fistBumpFilled", fistBumpFilled),

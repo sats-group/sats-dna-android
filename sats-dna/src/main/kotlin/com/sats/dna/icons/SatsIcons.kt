@@ -27,6 +27,7 @@ object SatsIcons {
     val confirm @Composable get() = painterResource(R.drawable.ic_confirm)
     val delete @Composable get() = painterResource(R.drawable.ic_delete)
     val edit @Composable get() = painterResource(R.drawable.ic_edit)
+    val error @Composable get() = painterResource(R.drawable.ic_error)
     val filter @Composable get() = painterResource(R.drawable.ic_filter)
     val fistBump @Composable get() = painterResource(R.drawable.ic_fist_bump)
     val fistBumpFilled @Composable get() = painterResource(R.drawable.ic_fist_bump_filled)
