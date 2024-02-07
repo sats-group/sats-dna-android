@@ -29,12 +29,18 @@ fun WorkoutTypeIcon(type: WorkoutType, contentDescription: String?, modifier: Mo
     }
 
     val color = when (type) {
-        WorkoutType.GroupExercise -> SatsTheme.colors2.graphicalElements.workouts.gx
-        WorkoutType.GymTraining -> SatsTheme.colors2.graphicalElements.workouts.gymfloor
-        WorkoutType.OnlineTraining -> SatsTheme.colors2.graphicalElements.workouts.ownTrainingOther
-        WorkoutType.OwnTraining -> SatsTheme.colors2.graphicalElements.workouts.ownTrainingOther
-        WorkoutType.PtAppointment -> SatsTheme.colors2.graphicalElements.workouts.pt
-        WorkoutType.Unknown -> SatsTheme.colors2.graphicalElements.workouts.ownTrainingOther
+        WorkoutType.GroupExercise ->
+            SatsTheme.colors2.graphicalElements.workouts.gx.bg
+        WorkoutType.GymTraining ->
+            SatsTheme.colors2.graphicalElements.workouts.gymfloor.bg
+        WorkoutType.OnlineTraining ->
+            SatsTheme.colors2.graphicalElements.workouts.ownTrainingOther.bg
+        WorkoutType.OwnTraining ->
+            SatsTheme.colors2.graphicalElements.workouts.ownTrainingOther.bg
+        WorkoutType.PtAppointment ->
+            SatsTheme.colors2.graphicalElements.workouts.pt.bg
+        WorkoutType.Unknown ->
+            SatsTheme.colors2.graphicalElements.workouts.ownTrainingOther.bg
     }
 
     Icon(icon, contentDescription, modifier, color)

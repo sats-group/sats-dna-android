@@ -70,6 +70,37 @@ enum class SatsRewardsLevel {
 }
 
 @Composable
+fun SatsWorkoutTag(
+    text: String,
+    color: SatsWorkoutTagColor,
+    modifier: Modifier = Modifier,
+) {
+    val backgroundColor = when (color) {
+        SatsWorkoutTagColor.Pt -> SatsTheme.colors2.graphicalElements.workouts.pt.bg
+        SatsWorkoutTagColor.Gx -> SatsTheme.colors2.graphicalElements.workouts.gx.bg
+        SatsWorkoutTagColor.Treatment -> SatsTheme.colors2.graphicalElements.workouts.treatments.bg
+        SatsWorkoutTagColor.Gymfloor -> SatsTheme.colors2.graphicalElements.workouts.gymfloor.bg
+        SatsWorkoutTagColor.OwnTrainingOther ->
+            SatsTheme.colors2.graphicalElements.workouts.ownTrainingOther.bg
+    }
+
+    val contentColor = when (color) {
+        SatsWorkoutTagColor.Pt -> SatsTheme.colors2.graphicalElements.workouts.pt.fg
+        SatsWorkoutTagColor.Gx -> SatsTheme.colors2.graphicalElements.workouts.gx.fg
+        SatsWorkoutTagColor.Treatment -> SatsTheme.colors2.graphicalElements.workouts.treatments.fg
+        SatsWorkoutTagColor.Gymfloor -> SatsTheme.colors2.graphicalElements.workouts.gymfloor.fg
+        SatsWorkoutTagColor.OwnTrainingOther ->
+            SatsTheme.colors2.graphicalElements.workouts.ownTrainingOther.fg
+    }
+
+    SatsTagLayout(text, backgroundColor = backgroundColor, contentColor = contentColor, modifier)
+}
+
+enum class SatsWorkoutTagColor {
+    Pt, Gx, Treatment, Gymfloor, OwnTrainingOther,
+}
+
+@Composable
 fun SatsTagPlaceholder(
     text: String,
     modifier: Modifier = Modifier,
