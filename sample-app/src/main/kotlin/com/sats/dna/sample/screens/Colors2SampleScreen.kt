@@ -752,6 +752,11 @@ private fun Surfaces() {
         )
 
         ColorSample(
+            backgroundColor = base.primary.bg.default named "Primary Default",
+            contentColor = base.primary.fg.featured named "Featured",
+        )
+
+        ColorSample(
             backgroundColor = base.primary.bg.hover named "Primary Hover",
             contentColor = base.primary.fg.default named "Primary Default",
         )
@@ -812,6 +817,11 @@ private fun Surfaces() {
         )
 
         ColorSample(
+            backgroundColor = base.secondary.bg.default named "Secondary Default",
+            contentColor = base.secondary.fg.featured named "Featured",
+        )
+
+        ColorSample(
             backgroundColor = base.secondary.bg.hover named "Secondary Hover",
             contentColor = base.secondary.fg.default named "Secondary Default",
         )
@@ -838,7 +848,7 @@ private fun Surfaces() {
 
         ColorSample(
             backgroundColor = base.fixed.bg.default named "Fixed Default",
-            contentColor = base.fixed.fg.disabled named "Fixed Disabled",
+            contentColor = base.fixed.fg.featured named "Fixed Featured",
         )
 
         ColorSample(

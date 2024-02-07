@@ -551,6 +551,7 @@ class SatsColors2(
                 val waitlist: Color,
                 val neutral: Color,
                 val information: Color,
+                val featured: Color,
             )
         }
 
@@ -574,6 +575,7 @@ class SatsColors2(
                 val waitlist: Color,
                 val neutral: Color,
                 val information: Color,
+                val featured: Color,
             )
         }
 
@@ -591,6 +593,7 @@ class SatsColors2(
                 val default: Color,
                 val alternate: Color,
                 val disabled: Color,
+                val featured: Color,
             )
         }
     }
