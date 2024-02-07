@@ -587,28 +587,28 @@ private fun GraphicalElements() {
             val base = SatsTheme.colors2.graphicalElements.workouts
 
             ColorSample(
-                backgroundColor = base.pt named "PT",
-                contentColor = null,
+                backgroundColor = base.pt.bg named "PT",
+                contentColor = base.pt.fg named "PT",
             )
 
             ColorSample(
-                backgroundColor = base.gx named "GX",
-                contentColor = null,
+                backgroundColor = base.gx.bg named "GX",
+                contentColor = base.gx.fg named "GX",
             )
 
             ColorSample(
-                backgroundColor = base.treatments named "Treatments",
-                contentColor = null,
+                backgroundColor = base.treatments.bg named "Treatments",
+                contentColor = base.treatments.fg named "Treatments",
             )
 
             ColorSample(
-                backgroundColor = base.gymfloor named "Gymfloor",
-                contentColor = null,
+                backgroundColor = base.gymfloor.bg named "Gymfloor",
+                contentColor = base.gymfloor.fg named "Gymfloor",
             )
 
             ColorSample(
-                backgroundColor = base.ownTrainingOther named "Own Training/Other",
-                contentColor = null,
+                backgroundColor = base.ownTrainingOther.bg named "Own Training/Other",
+                contentColor = base.ownTrainingOther.fg named "Own Training/Other",
             )
         }
     }

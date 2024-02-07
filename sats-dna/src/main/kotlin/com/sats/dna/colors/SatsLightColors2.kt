@@ -279,11 +279,26 @@ internal val SatsLightColors2 = SatsColors2(
             ),
         ),
         workouts = SatsColors2.GraphicalElements.Workouts(
-            pt = SatsColorPrimitives.UranianBlue100,
-            gx = SatsColorPrimitives.SalmonPink100,
-            treatments = SatsColorPrimitives.CaribbeanCurrent100,
-            gymfloor = SatsColorPrimitives.Tangerine100,
-            ownTrainingOther = SatsColorPrimitives.Celadon100,
+            pt = SatsColors2.GraphicalElements.Workouts.Pt(
+                fg = SatsColorPrimitives.BrightBlue160,
+                bg = SatsColorPrimitives.UranianBlue100,
+            ),
+            gx = SatsColors2.GraphicalElements.Workouts.Gx(
+                fg = SatsColorPrimitives.ChiliRed170,
+                bg = SatsColorPrimitives.SalmonPink100,
+            ),
+            treatments = SatsColors2.GraphicalElements.Workouts.Treatments(
+                fg = SatsColorPrimitives.SpringGreen10,
+                bg = SatsColorPrimitives.CaribbeanCurrent100,
+            ),
+            gymfloor = SatsColors2.GraphicalElements.Workouts.Gymfloor(
+                fg = SatsColorPrimitives.Gold170,
+                bg = SatsColorPrimitives.Tangerine100,
+            ),
+            ownTrainingOther = SatsColors2.GraphicalElements.Workouts.OwnTrainingOther(
+                fg = SatsColorPrimitives.SpringGreen170,
+                bg = SatsColorPrimitives.Celadon100,
+            ),
         ),
     ),
     backgrounds = SatsColors2.Backgrounds(

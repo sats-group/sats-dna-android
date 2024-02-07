@@ -21,11 +21,11 @@ internal fun WorkoutTypeColorIndicator(
     modifier: Modifier = Modifier,
 ) {
     val color = when (workoutType) {
-        WorkoutType.Pt -> SatsTheme.colors2.graphicalElements.workouts.pt
-        WorkoutType.Gx -> SatsTheme.colors2.graphicalElements.workouts.gx
-        WorkoutType.Treatment -> SatsTheme.colors2.graphicalElements.workouts.treatments
-        WorkoutType.Gymfloor -> SatsTheme.colors2.graphicalElements.workouts.gymfloor
-        WorkoutType.OwnTraining -> SatsTheme.colors2.graphicalElements.workouts.pt
+        WorkoutType.Pt -> SatsTheme.colors2.graphicalElements.workouts.pt.bg
+        WorkoutType.Gx -> SatsTheme.colors2.graphicalElements.workouts.gx.bg
+        WorkoutType.Treatment -> SatsTheme.colors2.graphicalElements.workouts.treatments.bg
+        WorkoutType.Gymfloor -> SatsTheme.colors2.graphicalElements.workouts.gymfloor.bg
+        WorkoutType.OwnTraining -> SatsTheme.colors2.graphicalElements.workouts.pt.bg
     }
 
     Box(

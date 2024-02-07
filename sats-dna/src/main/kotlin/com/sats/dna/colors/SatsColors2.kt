@@ -436,12 +436,37 @@ class SatsColors2(
         }
 
         class Workouts(
-            val pt: Color,
-            val gx: Color,
-            val treatments: Color,
-            val gymfloor: Color,
-            val ownTrainingOther: Color,
-        )
+            val pt: Pt,
+            val gx: Gx,
+            val treatments: Treatments,
+            val gymfloor: Gymfloor,
+            val ownTrainingOther: OwnTrainingOther,
+        ) {
+            class Pt(
+                val bg: Color,
+                val fg: Color,
+            )
+
+            class Gx(
+                val bg: Color,
+                val fg: Color,
+            )
+
+            class Treatments(
+                val bg: Color,
+                val fg: Color,
+            )
+
+            class Gymfloor(
+                val bg: Color,
+                val fg: Color,
+            )
+
+            class OwnTrainingOther(
+                val bg: Color,
+                val fg: Color,
+            )
+        }
     }
 
     class Backgrounds(
