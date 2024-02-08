@@ -356,6 +356,7 @@ internal val SatsLightColors2 = SatsColors2(
                 waitlist = SatsColorPrimitives.EgyptianPurple100,
                 neutral = SatsColorPrimitives.Black60,
                 information = SatsColorPrimitives.BrightBlue160,
+                featured = SatsColorPrimitives.SatsCoral120,
             ),
         ),
         secondary = SatsColors2.Surfaces.Secondary(
@@ -374,6 +375,7 @@ internal val SatsLightColors2 = SatsColors2(
                 waitlist = SatsColorPrimitives.EgyptianPurple100,
                 neutral = SatsColorPrimitives.Black60,
                 information = SatsColorPrimitives.BrightBlue160,
+                featured = SatsColorPrimitives.SatsCoral120,
             ),
         ),
         fixed = SatsColors2.Surfaces.Fixed(
@@ -386,6 +388,7 @@ internal val SatsLightColors2 = SatsColors2(
                 default = SatsColorPrimitives.White100,
                 alternate = SatsColorPrimitives.White85,
                 disabled = SatsColorPrimitives.White65,
+                featured = SatsColorPrimitives.SatsCoral120,
             ),
         ),
     ),
