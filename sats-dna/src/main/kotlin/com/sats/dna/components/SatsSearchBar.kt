@@ -28,14 +28,14 @@ import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
-fun M3SatsSearchBar(
+fun SatsSearchBar(
     query: String,
     onQueryChange: (query: String) -> Unit,
     onClearClicked: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
-    placeholder: @Composable (() -> Unit)? = null,
+    placeholder: String? = null,
     onUpClicked: (() -> Unit)? = null,
 ) {
     BasicTextField(
@@ -47,7 +47,11 @@ fun M3SatsSearchBar(
             DecorationBox(
                 value = query,
                 innerTextField = innerTextField,
-                placeholder = placeholder,
+                placeholder = {
+                    if (placeholder != null) {
+                        Text(placeholder, color = SatsTheme.colors2.surfaces.primary.fg.alternate)
+                    }
+                },
                 modifier = Modifier,
                 leadingIcon = {
                     if (onUpClicked != null) {
@@ -135,12 +139,12 @@ private fun Preview() {
     SatsTheme {
         var query by remember { mutableStateOf("") }
 
-        M3SatsSearchBar(
+        SatsSearchBar(
             query = query,
             onQueryChange = { query = it },
             onClearClicked = {},
             modifier = Modifier.padding(SatsTheme.spacing.m),
-            placeholder = { Text("Search …", color = SatsTheme.colors2.surfaces.primary.fg.alternate) },
+            placeholder = "Search …",
         )
     }
 }
@@ -151,12 +155,12 @@ private fun PreviewWithQuery() {
     SatsTheme {
         var query by remember { mutableStateOf("SATS Carl Berner") }
 
-        M3SatsSearchBar(
+        SatsSearchBar(
             query = query,
             onQueryChange = { query = it },
             onClearClicked = {},
             modifier = Modifier.padding(SatsTheme.spacing.m),
-            placeholder = { Text("Search …", color = SatsTheme.colors2.surfaces.primary.fg.alternate) },
+            placeholder = "Search …",
         )
     }
 }
@@ -167,12 +171,12 @@ private fun PreviewWithBackButton() {
     SatsTheme {
         var query by remember { mutableStateOf("") }
 
-        M3SatsSearchBar(
+        SatsSearchBar(
             query = query,
             onQueryChange = { query = it },
             onClearClicked = {},
             modifier = Modifier.padding(SatsTheme.spacing.m),
-            placeholder = { Text("Search …", color = SatsTheme.colors2.surfaces.primary.fg.alternate) },
+            placeholder = "Search …",
             onUpClicked = {},
         )
     }
