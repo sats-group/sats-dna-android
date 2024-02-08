@@ -38,6 +38,7 @@ import com.sats.dna.sample.screens.ProgressBarsSampleScreen
 import com.sats.dna.sample.screens.ProteinBarSampleScreen
 import com.sats.dna.sample.screens.RadioButtonsSampleScreen
 import com.sats.dna.sample.screens.ScheduleSampleScreen
+import com.sats.dna.sample.screens.SearchBarSampleScreen
 import com.sats.dna.sample.screens.SessionDetailsInfoLabelSampleScreen
 import com.sats.dna.sample.screens.SurfaceSampleScreen
 import com.sats.dna.sample.screens.SwitchSampleScreen
@@ -91,6 +92,7 @@ internal fun HomeScreen(navController: NavController) {
             ProteinBarSampleScreen.HomeListItem(navController)
             RadioButtonsSampleScreen.HomeListItem(navController)
             ScheduleSampleScreen.HomeListItem(navController)
+            SearchBarSampleScreen.HomeListItem(navController)
             SessionDetailsInfoLabelSampleScreen.HomeListItem(navController)
             SurfaceSampleScreen.HomeListItem(navController)
             SwitchSampleScreen.HomeListItem(navController)
