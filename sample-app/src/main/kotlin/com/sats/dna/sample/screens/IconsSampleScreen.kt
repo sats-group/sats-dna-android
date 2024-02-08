@@ -73,6 +73,7 @@ private data class NamedIcon(
 
 private val SatsIcons.allIcons: List<NamedIcon>
     @Composable get() = listOf(
+        NamedIcon("activity", activity),
         NamedIcon("add", add),
         NamedIcon("addPerson", addPerson),
         NamedIcon("addToCalendar", addToCalendar),
