@@ -5,6 +5,7 @@ import androidx.compose.ui.res.painterResource
 import com.sats.dna.R
 
 object SatsIcons {
+    val activity @Composable get() = painterResource(R.drawable.ic_activity)
     val add @Composable get() = painterResource(R.drawable.ic_add)
     val addPerson @Composable get() = painterResource(R.drawable.ic_add_person)
     val addToCalendar @Composable get() = painterResource(R.drawable.ic_add_to_calendar)
