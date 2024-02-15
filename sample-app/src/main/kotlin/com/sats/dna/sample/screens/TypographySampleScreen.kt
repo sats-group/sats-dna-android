@@ -148,11 +148,20 @@ private fun TextSample(text: String, style: TextStyle) {
                     Text("Weight: ${style.fontWeight?.weight}")
                     Text("Style: ${style.fontStyle}")
                     Text("Size: ${style.fontSize}")
-                    Text("Baseline shift: ${style.baselineShift?.multiplier ?: 0f}")
+                    Text("Line height: ${style.lineHeight}")
+
+                    SatsHorizontalDivider(Modifier.padding(vertical = SatsTheme.spacing.m))
+
+                    ParagraphSample(style)
                 }
             }
         }
     }
+}
+
+@Composable
+private fun ParagraphSample(style: TextStyle, modifier: Modifier = Modifier) {
+    Text("Lorem ipsum\ndolor sit amet.", modifier, style = style)
 }
 
 @LightDarkPreview
