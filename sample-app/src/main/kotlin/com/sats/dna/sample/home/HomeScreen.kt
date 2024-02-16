@@ -30,13 +30,13 @@ import com.sats.dna.sample.screens.DividersSampleScreen
 import com.sats.dna.sample.screens.EmptyStateSampleScreen
 import com.sats.dna.sample.screens.FriendsBookingStatusSampleScreen
 import com.sats.dna.sample.screens.GeneralListItemSampleScreen
-import com.sats.dna.sample.screens.GxFocusGraphSampleScreen
 import com.sats.dna.sample.screens.IconsSampleScreen
 import com.sats.dna.sample.screens.JoinYourFriendsSampleScreen
 import com.sats.dna.sample.screens.PlaceholdersSampleScreen
 import com.sats.dna.sample.screens.ProgressBarsSampleScreen
 import com.sats.dna.sample.screens.ProteinBarSampleScreen
 import com.sats.dna.sample.screens.RadioButtonsSampleScreen
+import com.sats.dna.sample.screens.ScaleBarSampleScreen
 import com.sats.dna.sample.screens.ScheduleSampleScreen
 import com.sats.dna.sample.screens.SearchBarSampleScreen
 import com.sats.dna.sample.screens.SessionDetailsInfoLabelSampleScreen
@@ -85,12 +85,12 @@ internal fun HomeScreen(navController: NavController) {
             EmptyStateSampleScreen.HomeListItem(navController)
             FriendsBookingStatusSampleScreen.HomeListItem(navController)
             GeneralListItemSampleScreen.HomeListItem(navController)
-            GxFocusGraphSampleScreen.HomeListItem(navController)
             JoinYourFriendsSampleScreen.HomeListItem(navController)
             PlaceholdersSampleScreen.HomeListItem(navController)
             ProgressBarsSampleScreen.HomeListItem(navController)
             ProteinBarSampleScreen.HomeListItem(navController)
             RadioButtonsSampleScreen.HomeListItem(navController)
+            ScaleBarSampleScreen.HomeListItem(navController)
             ScheduleSampleScreen.HomeListItem(navController)
             SearchBarSampleScreen.HomeListItem(navController)
             SessionDetailsInfoLabelSampleScreen.HomeListItem(navController)
