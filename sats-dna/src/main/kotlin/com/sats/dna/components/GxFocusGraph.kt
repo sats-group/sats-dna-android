@@ -29,7 +29,7 @@ fun GxFocusGraph(
 
         Row(
             Modifier
-                .height(6.dp)
+                .height(8.dp)
                 .clip(SatsTheme.shapes.circle),
             horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs),
         ) {
