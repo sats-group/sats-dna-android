@@ -18,7 +18,7 @@ import com.sats.dna.tooling.FontSizePreview
 import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
-fun GxFocusGraph(
+fun SatsScaleBar(
     label: String,
     difficultyLevel: Int,
     maxDifficulty: Int,
@@ -29,7 +29,7 @@ fun GxFocusGraph(
 
         Row(
             Modifier
-                .height(6.dp)
+                .height(8.dp)
                 .clip(SatsTheme.shapes.circle),
             horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs),
         ) {
@@ -57,10 +57,10 @@ fun GxFocusGraph(
 @LightDarkPreview
 @FontSizePreview
 @Composable
-private fun GxFocusGraphPreview() {
+private fun SatsScaleBarPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            GxFocusGraph(
+            SatsScaleBar(
                 label = "Choreography",
                 difficultyLevel = 3,
                 maxDifficulty = 4,
