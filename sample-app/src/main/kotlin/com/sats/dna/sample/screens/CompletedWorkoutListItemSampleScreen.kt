@@ -10,13 +10,13 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.CompletedWorkoutListItem
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.icons.WorkoutType
 import com.sats.dna.components.icons.WorkoutTypeIcon
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object CompletedWorkoutListItemSampleScreen : SampleScreen(
     name = "Completed Workout List Item",
@@ -57,7 +57,7 @@ private fun CompletedWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Mod
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview() {
     SatsTheme {

@@ -9,10 +9,10 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsEmptyStateAction
 import com.sats.dna.components.SatsEmptyStateCard
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object EmptyStateSampleScreen : SampleScreen(
     name = "Empty State",
@@ -68,7 +68,7 @@ private fun EmptyStateScreen(navigateUp: () -> Unit, modifier: Modifier = Modifi
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun EmptyStateScreenPreview() {
     SatsTheme {

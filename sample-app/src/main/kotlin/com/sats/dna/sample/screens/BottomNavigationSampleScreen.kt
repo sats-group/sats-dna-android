@@ -6,11 +6,11 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.navigation.SatsBottomNavigation
 import com.sats.dna.components.navigation.SatsBottomNavigationItem
 import com.sats.dna.components.navigation.rememberSatsBottomNavigationState
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object BottomNavigationSampleScreen : SampleScreen(
     name = "Bottom Navigation",
@@ -71,7 +71,7 @@ private fun rememberSampleBottomNavigationState() = rememberSatsBottomNavigation
     ),
 )
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview() {
     SatsTheme {

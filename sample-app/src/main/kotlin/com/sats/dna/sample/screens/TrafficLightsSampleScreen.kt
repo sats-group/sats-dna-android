@@ -13,11 +13,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.TrafficLight
 import com.sats.dna.components.TrafficLightColor
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object TrafficLightsSampleScreen : SampleScreen(
     name = "Traffic Lights",
@@ -53,7 +53,7 @@ private fun TrafficLightsScreen(navigateUp: () -> Unit, modifier: Modifier = Mod
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun TrafficLightsScreenPreview() {
     SatsTheme {

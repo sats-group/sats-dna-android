@@ -20,12 +20,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.TrailingContent.Icon
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun SatsSearchBar(
@@ -133,7 +133,7 @@ private fun DecorationBox(
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview() {
     SatsTheme {
@@ -149,7 +149,7 @@ private fun Preview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun PreviewWithQuery() {
     SatsTheme {
@@ -165,7 +165,7 @@ private fun PreviewWithQuery() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun PreviewWithBackButton() {
     SatsTheme {

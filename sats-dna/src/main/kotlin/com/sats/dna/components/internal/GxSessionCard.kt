@@ -12,12 +12,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.GxSessionImage
 import com.sats.dna.components.LocalUseMaterial3
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 internal fun GxSessionCard(
@@ -62,7 +62,7 @@ internal fun GxSessionCard(
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun GxSessionCardPreview() {
     SatsTheme {

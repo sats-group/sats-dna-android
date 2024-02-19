@@ -6,11 +6,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun SatsChip(label: String, modifier: Modifier = Modifier) {
@@ -29,7 +29,7 @@ fun SatsChip(label: String, modifier: Modifier = Modifier) {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview() {
     SatsTheme {

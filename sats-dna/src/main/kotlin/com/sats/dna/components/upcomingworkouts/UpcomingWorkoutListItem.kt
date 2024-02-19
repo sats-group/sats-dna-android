@@ -19,6 +19,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.tooling.preview.PreviewFontScale
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.PlaceholderBox
 import com.sats.dna.components.SatsSurface
@@ -26,8 +28,6 @@ import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.FontSizePreview
-import com.sats.dna.tooling.LightDarkPreview
 
 /**
  * A section for a day of upcoming workouts
@@ -157,8 +157,8 @@ fun UpcomingWorkoutAttendingFriendsLabel(
     }
 }
 
-@LightDarkPreview
-@FontSizePreview
+@PreviewLightDark
+@PreviewFontScale
 @Composable
 private fun UpcomingWorkoutsListPreview() {
     SatsTheme {

@@ -15,12 +15,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.state.ToggleableState
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsCheckbox
 import com.sats.dna.components.SatsCheckboxColors
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.SatsTriStateCheckbox
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object CheckboxSampleScreen : SampleScreen(
     name = "Checkbox",
@@ -115,7 +115,7 @@ private fun ToggleableState.next() = when (this) {
     ToggleableState.On -> ToggleableState.Off
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun CheckboxScreenPreview() {
     SatsTheme {

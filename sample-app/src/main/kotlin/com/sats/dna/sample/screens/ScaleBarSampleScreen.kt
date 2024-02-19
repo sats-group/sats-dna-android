@@ -7,10 +7,10 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsScaleBar
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object ScaleBarSampleScreen : SampleScreen(
     name = "Scale Bar",
@@ -40,7 +40,7 @@ private fun ScaleBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun ScaleBarScreenPreview() {
     SatsTheme {

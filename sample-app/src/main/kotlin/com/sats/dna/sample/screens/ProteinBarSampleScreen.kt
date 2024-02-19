@@ -9,12 +9,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.proteinbar.SatsProteinBar
 import com.sats.dna.components.proteinbar.SatsProteinBarAction
 import com.sats.dna.components.proteinbar.SatsProteinBarDefaults
 import com.sats.dna.components.proteinbar.SatsProteinBarTheme
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object ProteinBarSampleScreen : SampleScreen(
     name = "Protein Bar",
@@ -94,7 +94,7 @@ private fun ProteinBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifi
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun ProteinBarScreenPreview() {
     SatsTheme {

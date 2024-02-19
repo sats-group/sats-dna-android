@@ -3,12 +3,12 @@ package com.sats.dna.sample.screens
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.JoinYourFriendsCard
 import com.sats.dna.components.Pill
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.sample.internal.SampleProfilePicture
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object JoinYourFriendsSampleScreen : SampleScreen(
     name = "Join Your Friends",
@@ -32,7 +32,7 @@ private fun JoinYourFriendsSampleScreen(navigateUp: () -> Unit, modifier: Modifi
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun JoinYourFriendsSampleScreenPreview() {
     SatsTheme {

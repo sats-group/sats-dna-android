@@ -11,13 +11,13 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.R
 import com.sats.dna.components.LocalUseMaterial3
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun SatsCard(
@@ -33,7 +33,7 @@ fun SatsCard(
     )
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Material3Preview() {
     SatsTheme {
@@ -67,7 +67,7 @@ private fun Material3Preview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Material2Preview() {
     SatsTheme {

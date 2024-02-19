@@ -7,9 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun SatsTag(
@@ -139,7 +139,7 @@ private fun SatsTagLayout(
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsTagPreview() {
     SatsTheme {
@@ -157,7 +157,7 @@ private fun SatsTagPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsRewardsTagPreview() {
     SatsTheme {
@@ -175,7 +175,7 @@ private fun SatsRewardsTagPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsTagPlaceholderPreview() {
     SatsTheme {

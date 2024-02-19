@@ -12,10 +12,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.M3SatsOutlinedTextField
 import com.sats.dna.components.M3SatsTextField
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object TextFieldSampleScreen : SampleScreen(
     name = "Text Field",
@@ -99,7 +99,7 @@ private fun LabeledOutlinedTextField(
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview() {
     SatsTheme {

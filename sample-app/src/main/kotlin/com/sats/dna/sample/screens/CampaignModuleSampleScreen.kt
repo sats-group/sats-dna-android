@@ -8,9 +8,9 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsCampaignModule
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object CampaignModuleSampleScreen : SampleScreen(
     name = "Campaign Module",
@@ -55,7 +55,7 @@ private fun CampaignModulesScreen(navigateUp: () -> Unit, modifier: Modifier = M
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun CampaignModulesScreenPreview() {
     SatsTheme {

@@ -16,11 +16,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun SatsFilterChip(
@@ -164,7 +164,7 @@ private fun SatsChipLayout(
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsFilterChipPreview() {
     SatsTheme {
@@ -216,7 +216,7 @@ private fun SatsFilterChipPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsInputChipPreview() {
     SatsTheme {

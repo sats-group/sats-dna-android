@@ -5,10 +5,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.LocalUseMaterial3
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 import androidx.compose.material.Icon as Material2Icon
 import androidx.compose.material.LocalContentAlpha as Material2LocalContentAlpha
 import androidx.compose.material.LocalContentColor as Material2LocalContentColor
@@ -38,7 +38,7 @@ internal fun materialIconTint(): Color {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun M2Preview() {
     SatsTheme {
@@ -48,7 +48,7 @@ private fun M2Preview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun M3Preview() {
     SatsTheme {

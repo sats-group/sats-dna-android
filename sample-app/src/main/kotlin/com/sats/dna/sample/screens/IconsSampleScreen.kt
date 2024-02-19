@@ -17,11 +17,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.chip.SatsChip
 import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object IconsSampleScreen : SampleScreen(
     name = "Icons",
@@ -159,7 +159,7 @@ private val SatsIcons.allIcons: List<NamedIcon>
         NamedIcon("workoutPt", workoutPt),
     )
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview() {
     SatsTheme {

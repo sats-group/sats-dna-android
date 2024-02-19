@@ -3,10 +3,10 @@ package com.sats.dna.sample.screens
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.YourMostBookedCard
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object YourMostBookedSampleScreen : SampleScreen(
     name = "Your Most Booked",
@@ -29,7 +29,7 @@ private fun YourMostBookedSampleScreen(navigateUp: () -> Unit, modifier: Modifie
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun YourMostBookedSampleScreenPreview() {
     SatsTheme {

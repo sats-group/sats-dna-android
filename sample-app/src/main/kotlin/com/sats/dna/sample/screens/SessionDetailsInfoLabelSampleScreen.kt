@@ -7,12 +7,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.sessiondetails.SessionDetailsInfoLabel
 import com.sats.dna.components.sessiondetails.SessionDetailsInfoSection
 import com.sats.dna.components.sessiondetails.SessionDetailsInfoSectionPlaceholder
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object SessionDetailsInfoLabelSampleScreen : SampleScreen(
     name = "Session Details Info Label",
@@ -71,7 +71,7 @@ private fun SessionDetailsInfoLabelScreen(navigateUp: () -> Unit, modifier: Modi
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview() {
     SatsTheme {

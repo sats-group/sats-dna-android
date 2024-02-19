@@ -15,13 +15,13 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.LocalUseMaterial3
 import com.sats.dna.components.appbar.M3SatsTopAppBar
 import com.sats.dna.components.appbar.SatsLargeTopAppBar
 import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object TopAppBarSampleScreen : SampleScreen(
     name = "Top App Bar",
@@ -98,7 +98,7 @@ private fun Actions() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview() {
     SatsTheme {

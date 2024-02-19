@@ -12,10 +12,10 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import coil.compose.AsyncImage
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 import com.sats.dna.tooling.PreviewImagePlaceholder
 
 @Composable
@@ -66,7 +66,7 @@ private fun HeroImage(imageUrl: String) {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsCampaignModulePreview() {
     SatsTheme {
@@ -81,7 +81,7 @@ private fun SatsCampaignModulePreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsCampaignWithoutSubtitleModulePreview() {
     SatsTheme {

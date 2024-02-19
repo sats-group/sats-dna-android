@@ -7,8 +7,8 @@ import androidx.compose.material3.SwitchDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun SatsSwitch(
@@ -51,7 +51,7 @@ private val colors
         disabledUncheckedIconColor = SatsTheme.colors2.graphicalElements.toggle.unselected.disabled,
     )
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun EnabledSelectedPreview() {
     SatsTheme {
@@ -61,7 +61,7 @@ private fun EnabledSelectedPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun EnabledUnselectedPreview() {
     SatsTheme {
@@ -71,7 +71,7 @@ private fun EnabledUnselectedPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun DisabledSelectedPreview() {
     SatsTheme {
@@ -81,7 +81,7 @@ private fun DisabledSelectedPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun DisabledUnselectedPreview() {
     SatsTheme {

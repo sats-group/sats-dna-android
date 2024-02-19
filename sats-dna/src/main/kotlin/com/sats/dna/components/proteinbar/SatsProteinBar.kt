@@ -13,6 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewFontScale
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.button.SatsButton
@@ -21,8 +23,6 @@ import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.FontSizePreview
-import com.sats.dna.tooling.LightDarkPreview
 
 /**
  * Protein Bar to display short and non intrusive messages to a user.
@@ -156,7 +156,7 @@ private fun ActionButton(action: SatsProteinBarAction, modifier: Modifier = Modi
     )
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsProteinBarPreview() {
     SatsTheme {
@@ -169,7 +169,7 @@ private fun SatsProteinBarPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsProteinBarInfoPreview() {
     SatsTheme {
@@ -187,7 +187,7 @@ private fun SatsProteinBarInfoPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsProteinBarSuccessPreview() {
     SatsTheme {
@@ -205,7 +205,7 @@ private fun SatsProteinBarSuccessPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsProteinBarWarningPreview() {
     SatsTheme {
@@ -223,7 +223,7 @@ private fun SatsProteinBarWarningPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsProteinBarErrorPreview() {
     SatsTheme {
@@ -278,7 +278,7 @@ private fun SatsProteinBarWithDismissAndActionPreview() {
     }
 }
 
-@FontSizePreview
+@PreviewFontScale
 @Composable
 private fun SatsProteinBarFontSizesPreview() {
     SatsTheme {

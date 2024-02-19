@@ -8,11 +8,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.sats.dna.R
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun ProfileAvatarImage(
@@ -38,7 +38,7 @@ fun ProfileAvatarImagePlaceholder(modifier: Modifier = Modifier) {
     PlaceholderBox(modifier.clip(SatsTheme.shapes.circle))
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun ProfileAvatarImagePreview() {
     SatsTheme {
@@ -53,7 +53,7 @@ private fun ProfileAvatarImagePreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun ProfileAvatarImagePlaceholderPreview() {
     SatsTheme {

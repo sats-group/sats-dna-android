@@ -23,13 +23,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.tooling.preview.PreviewFontScale
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.FontSizePreview
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun SatsButton(
@@ -123,7 +123,7 @@ private fun buttonPadding(isLarge: Boolean): PaddingValues {
     return PaddingValues(horizontal = SatsTheme.spacing.m, vertical.value)
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsButtonPreview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
     SatsTheme {
@@ -142,7 +142,7 @@ private fun SatsButtonPreview(@PreviewParameter(SatsButtonColorProvider::class) 
     }
 }
 
-@FontSizePreview
+@PreviewFontScale
 @Composable
 private fun SatsButtonFontScalePreview() {
     SatsTheme {

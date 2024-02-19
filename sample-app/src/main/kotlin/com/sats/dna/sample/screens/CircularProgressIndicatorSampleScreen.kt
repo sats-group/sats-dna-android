@@ -9,10 +9,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsCircularProgressIndicator
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object CircularProgressIndicatorSampleScreen : SampleScreen(
     name = "Circular Progress Indicator",
@@ -46,7 +46,7 @@ private fun CircularProgressIndicatorScreen(navigateUp: () -> Unit, modifier: Mo
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview() {
     SatsTheme {

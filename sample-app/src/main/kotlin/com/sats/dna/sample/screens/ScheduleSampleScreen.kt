@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.upcomingworkouts.Schedule
 import com.sats.dna.components.upcomingworkouts.SchedulePlaceholder
@@ -12,7 +13,6 @@ import com.sats.dna.components.upcomingworkouts.UpcomingWorkout
 import com.sats.dna.components.upcomingworkouts.WaitingListStatus
 import com.sats.dna.components.upcomingworkouts.WorkoutType
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object ScheduleSampleScreen : SampleScreen(
     name = "Schedule",
@@ -77,7 +77,7 @@ private fun ScheduleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview() {
     SatsTheme {

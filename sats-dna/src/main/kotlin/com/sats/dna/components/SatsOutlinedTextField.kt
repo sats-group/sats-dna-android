@@ -8,9 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 import androidx.compose.material.ContentAlpha as M2ContentAlpha
 import androidx.compose.material.LocalContentAlpha as M2LocalContentAlpha
 import androidx.compose.material.LocalContentColor as M2LocalContentColor
@@ -238,7 +238,7 @@ object M3SatsOutlinedTextFieldDefaults {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsOutlinedTextFieldEnabledPreview() {
     SatsTheme {
@@ -252,7 +252,7 @@ private fun SatsOutlinedTextFieldEnabledPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsOutlinedTextFieldDisabledPreview() {
     SatsTheme {
@@ -267,7 +267,7 @@ private fun SatsOutlinedTextFieldDisabledPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun M3SatsOutlinedTextFieldEnabledPreview() {
     SatsTheme {
@@ -282,7 +282,7 @@ private fun M3SatsOutlinedTextFieldEnabledPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun M3SatsOutlinedTextFieldDisabledPreview() {
     SatsTheme {

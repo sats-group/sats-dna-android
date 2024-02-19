@@ -4,9 +4,9 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.internal.GxSessionCard
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun JoinYourFriendsCard(
@@ -31,7 +31,7 @@ fun JoinYourFriendsCard(
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun JoinYourFriendsCardPreview() {
     SatsTheme {

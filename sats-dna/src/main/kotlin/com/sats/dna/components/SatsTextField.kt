@@ -10,9 +10,9 @@ import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 import androidx.compose.material3.TextField as Material3TextField
 import androidx.compose.material3.TextFieldColors as M3TextFieldColors
 import androidx.compose.material3.TextFieldDefaults as M3TextFieldDefaults
@@ -85,7 +85,7 @@ fun M3SatsTextField(
     )
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun EnabledMaterial2TextFieldPreview() {
     SatsTheme {
@@ -99,7 +99,7 @@ private fun EnabledMaterial2TextFieldPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun DisabledMaterial2TextFieldPreview() {
     SatsTheme {
@@ -114,7 +114,7 @@ private fun DisabledMaterial2TextFieldPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun EnabledMaterial3TextFieldPreview() {
     SatsTheme {
@@ -129,7 +129,7 @@ private fun EnabledMaterial3TextFieldPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun DisabledMaterial3TextFieldPreview() {
     SatsTheme {
