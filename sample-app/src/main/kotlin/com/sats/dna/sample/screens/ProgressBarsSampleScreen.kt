@@ -13,8 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsCircularProgressIndicator
-import com.sats.dna.components.progressbar.LinearProgressBar
 import com.sats.dna.components.progressbar.SatsCircularSteppedProgressIndicator
+import com.sats.dna.components.progressbar.SatsLinearProgressBar
 import com.sats.dna.components.progressbar.SteppingProgress
 import com.sats.dna.components.progressbar.SteppingProgressGroup
 import com.sats.dna.theme.SatsTheme
@@ -38,12 +38,12 @@ private fun ProgressBarsScreen(navigateUp: () -> Unit, modifier: Modifier = Modi
         ) {
             Section("Linear Progress Bar") {
                 Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m)) {
-                    LinearProgressBar(0.00f, Modifier.fillMaxWidth())
-                    LinearProgressBar(0.25f, Modifier.fillMaxWidth())
-                    LinearProgressBar(0.50f, Modifier.fillMaxWidth())
-                    LinearProgressBar(0.75f, Modifier.fillMaxWidth())
-                    LinearProgressBar(1.00f, Modifier.fillMaxWidth())
-                    LinearProgressBar(1.00f, Modifier.fillMaxWidth())
+                    SatsLinearProgressBar(0.00f, Modifier.fillMaxWidth())
+                    SatsLinearProgressBar(0.25f, Modifier.fillMaxWidth())
+                    SatsLinearProgressBar(0.50f, Modifier.fillMaxWidth())
+                    SatsLinearProgressBar(0.75f, Modifier.fillMaxWidth())
+                    SatsLinearProgressBar(1.00f, Modifier.fillMaxWidth())
+                    SatsLinearProgressBar(1.00f, Modifier.fillMaxWidth())
                 }
             }
 
