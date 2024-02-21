@@ -38,16 +38,16 @@ import kotlinx.datetime.toJavaLocalTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
-data object FormTextFieldSampleScreen : SampleScreen(
-    name = "Form Text Field",
-    route = "/components/form-text-field",
-    screen = { FormTextFieldScreen(it::navigateUp) },
+data object FormInputFieldsSampleScreen : SampleScreen(
+    name = "Form Input Fields",
+    route = "/components/form-input-fields",
+    screen = { FormInputFieldsScreen(it::navigateUp) },
 )
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-internal fun FormTextFieldScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Form Text Field", navigateUp, modifier) { innerPadding ->
+internal fun FormInputFieldsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+    ComponentScreen("Form Input Fields", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .verticalScroll(rememberScrollState())
@@ -133,7 +133,7 @@ internal fun FormTextFieldScreen(navigateUp: () -> Unit, modifier: Modifier = Mo
 @Composable
 private fun FormTextFieldScreenPreview() {
     SatsTheme {
-        FormTextFieldScreen(navigateUp = {})
+        FormInputFieldsScreen(navigateUp = {})
     }
 }
 
