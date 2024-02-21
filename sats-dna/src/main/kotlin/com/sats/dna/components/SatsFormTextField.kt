@@ -45,9 +45,11 @@ fun SatsFormTextField(
     textFieldState: TextFieldState,
     modifier: Modifier = Modifier,
     hint: String? = null,
+    trailingText: String? = null,
     lineLimits: TextFieldLineLimits = TextFieldLineLimits.SingleLine,
 ) {
-    val textStyle = valueTextStyle(isSingleLine = lineLimits is TextFieldLineLimits.SingleLine)
+    val isSingleLine = lineLimits is TextFieldLineLimits.SingleLine
+    val textStyle = valueTextStyle(isSingleLine = isSingleLine)
 
     BasicTextField2(
         state = textFieldState,
@@ -57,11 +59,18 @@ fun SatsFormTextField(
         lineLimits = lineLimits,
         decorator = { innerTextField ->
             InputFieldContainer(
-                isMultiline = lineLimits is TextFieldLineLimits.MultiLine,
+                isSingleLine = isSingleLine,
                 label = label,
                 hint = hint,
-                content = innerTextField,
-            )
+            ) {
+                Row {
+                    innerTextField()
+
+                    if (isSingleLine && trailingText != null) {
+                        Text(" $trailingText", style = textStyle)
+                    }
+                }
+            }
         },
     )
 }
@@ -75,7 +84,7 @@ fun SatsFormInputField(
 ) {
     InputFieldContainer(
         modifier = modifier.sizeIn(minWidth = MinSize, minHeight = MinSize),
-        isMultiline = false,
+        isSingleLine = true,
         label = label,
         hint = hint,
     ) {
@@ -99,7 +108,7 @@ fun SatsFormDateTimeInputField(
 ) {
     InputFieldContainer(
         modifier = modifier.sizeIn(minWidth = MinSize, minHeight = MinSize),
-        isMultiline = false,
+        isSingleLine = true,
         label = label,
         hint = hint,
     ) {
@@ -133,25 +142,14 @@ private fun DateTimeBox(label: String, onClick: () -> Unit, modifier: Modifier =
 
 @Composable
 private fun InputFieldContainer(
-    isMultiline: Boolean,
+    isSingleLine: Boolean,
     label: String,
     hint: String?,
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit,
 ) {
     SatsSurface(modifier) {
-        if (isMultiline) {
-            Column(
-                Modifier.padding(
-                    vertical = SatsTheme.spacing.xs,
-                    horizontal = SatsTheme.spacing.m,
-                ),
-            ) {
-                LabelAndHint(label, hint)
-
-                content()
-            }
-        } else {
+        if (isSingleLine) {
             Row(
                 modifier = Modifier.padding(
                     vertical = SatsTheme.spacing.xs,
@@ -165,6 +163,17 @@ private fun InputFieldContainer(
                 Box(Modifier.padding(start = SatsTheme.spacing.m)) {
                     content()
                 }
+            }
+        } else {
+            Column(
+                Modifier.padding(
+                    vertical = SatsTheme.spacing.xs,
+                    horizontal = SatsTheme.spacing.m,
+                ),
+            ) {
+                LabelAndHint(label, hint)
+
+                content()
             }
         }
     }
@@ -205,9 +214,25 @@ private fun SatsFormTextFieldSingleLinePreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsFormTextField(
-                textFieldState = rememberTextFieldState("Lorem ipsum dolor sit amet"),
+                textFieldState = rememberTextFieldState("Lorem ipsum"),
                 label = "Sample Text",
                 hint = "(optional)",
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@PreviewLightDark
+@Composable
+private fun SatsFormTextFieldSingleLineTrailingPreview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            SatsFormTextField(
+                textFieldState = rememberTextFieldState("45"),
+                label = "Duration",
+                trailingText = "min",
                 modifier = Modifier.fillMaxWidth(),
             )
         }

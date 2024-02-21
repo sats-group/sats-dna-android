@@ -92,6 +92,7 @@ internal fun FormTextFieldScreen(navigateUp: () -> Unit, modifier: Modifier = Mo
                 SatsFormTextField(
                     label = "Duration",
                     textFieldState = rememberTextFieldState(),
+                    trailingText = "min",
                     modifier = Modifier.fillMaxWidth(),
                 )
 
