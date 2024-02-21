@@ -94,6 +94,11 @@ internal fun FormTextFieldScreen(navigateUp: () -> Unit, modifier: Modifier = Mo
                     textFieldState = rememberTextFieldState(),
                     trailingText = "min",
                     modifier = Modifier.fillMaxWidth(),
+                    inputTransformation = { _, valueWithChanges ->
+                        if (valueWithChanges.asCharSequence().any { !it.isDigit() }) {
+                            valueWithChanges.revertAllChanges()
+                        }
+                    },
                 )
 
                 SatsHorizontalDivider()

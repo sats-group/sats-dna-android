@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.text2.BasicTextField2
+import androidx.compose.foundation.text2.input.InputTransformation
 import androidx.compose.foundation.text2.input.TextFieldLineLimits
 import androidx.compose.foundation.text2.input.TextFieldState
 import androidx.compose.foundation.text2.input.rememberTextFieldState
@@ -45,6 +46,7 @@ fun SatsFormTextField(
     textFieldState: TextFieldState,
     modifier: Modifier = Modifier,
     hint: String? = null,
+    inputTransformation: InputTransformation? = null,
     trailingText: String? = null,
     lineLimits: TextFieldLineLimits = TextFieldLineLimits.SingleLine,
 ) {
@@ -57,6 +59,7 @@ fun SatsFormTextField(
         textStyle = textStyle,
         cursorBrush = SolidColor(textStyle.color),
         lineLimits = lineLimits,
+        inputTransformation = inputTransformation,
         decorator = { innerTextField ->
             InputFieldContainer(
                 isSingleLine = isSingleLine,
@@ -226,7 +229,7 @@ private fun SatsFormTextFieldSingleLinePreview() {
 @OptIn(ExperimentalFoundationApi::class)
 @PreviewLightDark
 @Composable
-private fun SatsFormTextFieldSingleLineTrailingPreview() {
+private fun SatsFormTextFieldSingleLineDurationPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsFormTextField(
@@ -234,6 +237,11 @@ private fun SatsFormTextFieldSingleLineTrailingPreview() {
                 label = "Duration",
                 trailingText = "min",
                 modifier = Modifier.fillMaxWidth(),
+                inputTransformation = { _, valueWithChanges ->
+                    if (valueWithChanges.asCharSequence().any { !it.isDigit() }) {
+                        valueWithChanges.revertAllChanges()
+                    }
+                },
             )
         }
     }
