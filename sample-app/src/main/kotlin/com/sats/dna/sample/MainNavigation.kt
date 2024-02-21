@@ -20,6 +20,7 @@ import com.sats.dna.sample.screens.ColorsSampleScreen
 import com.sats.dna.sample.screens.CompletedWorkoutListItemSampleScreen
 import com.sats.dna.sample.screens.DividersSampleScreen
 import com.sats.dna.sample.screens.EmptyStateSampleScreen
+import com.sats.dna.sample.screens.FormTextFieldSampleScreen
 import com.sats.dna.sample.screens.FriendsBookingStatusSampleScreen
 import com.sats.dna.sample.screens.GeneralListItemSampleScreen
 import com.sats.dna.sample.screens.IconsSampleScreen
@@ -66,6 +67,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         CompletedWorkoutListItemSampleScreen.navScreen(navController)
         DividersSampleScreen.navScreen(navController)
         EmptyStateSampleScreen.navScreen(navController)
+        FormTextFieldSampleScreen.navScreen(navController)
         FriendsBookingStatusSampleScreen.navScreen(navController)
         GeneralListItemSampleScreen.navScreen(navController)
         JoinYourFriendsSampleScreen.navScreen(navController)
