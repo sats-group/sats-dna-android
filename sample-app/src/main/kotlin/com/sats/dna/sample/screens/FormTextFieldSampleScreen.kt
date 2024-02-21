@@ -12,16 +12,28 @@ import androidx.compose.foundation.text2.input.rememberTextFieldState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import com.sats.dna.components.SatsFormDateTimeInputField
 import com.sats.dna.components.SatsFormInputField
 import com.sats.dna.components.SatsFormTextField
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.theme.SatsTheme
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.LocalTime
+import kotlinx.datetime.atTime
+import kotlinx.datetime.toJavaLocalDate
+import kotlinx.datetime.toJavaLocalTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 data object FormTextFieldSampleScreen : SampleScreen(
     name = "Form Text Field",
@@ -63,9 +75,15 @@ internal fun FormTextFieldScreen(navigateUp: () -> Unit, modifier: Modifier = Mo
             }
 
             Column {
-                SatsFormTextField(
-                    label = "Date & Time",
-                    textFieldState = rememberTextFieldState(),
+                val localDateTimeState by remember { mutableStateOf(LocalDateTimeState()) }
+
+                SatsFormDateTimeInputField(
+                    label = "Date & time",
+                    value = localDateTimeState.dateTime,
+                    onDateClicked = { localDateTimeState.changeDate() },
+                    onTimeClicked = { localDateTimeState.changeTime() },
+                    formatDate = { DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(it.toJavaLocalDate()) },
+                    formatTime = { DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT).format(it.toJavaLocalTime()) },
                     modifier = Modifier.fillMaxWidth(),
                 )
 
@@ -114,5 +132,45 @@ private enum class WorkoutType(val label: String) {
     fun toggle(): WorkoutType = when (this) {
         Strength -> Cardio
         Cardio -> Strength
+    }
+}
+
+@Stable
+private class LocalDateTimeState {
+    val dateTime: LocalDateTime by derivedStateOf {
+        currentDate.value.atTime(currentTime.value)
+    }
+
+    private var currentDate: Date by mutableStateOf(Date.Initial)
+    private var currentTime: Time by mutableStateOf(Time.Initial)
+
+    fun changeDate() {
+        currentDate = currentDate.toggle()
+    }
+
+    fun changeTime() {
+        currentTime = currentTime.toggle()
+    }
+
+    private enum class Date(val value: LocalDate) {
+        Initial(LocalDate(2020, 1, 1)),
+        Alternate(LocalDate(2024, 6, 15)),
+        ;
+
+        fun toggle(): Date = when (this) {
+            Initial -> Alternate
+            Alternate -> Initial
+        }
+    }
+
+    private enum class Time(val value: LocalTime) {
+        Initial(LocalTime(9, 0)),
+        Alternate(LocalTime(17, 30)),
+        ;
+
+        fun toggle(): Time = when (this) {
+            Initial -> Alternate
+            Alternate -> Initial
+        }
     }
 }

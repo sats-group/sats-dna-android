@@ -1,5 +1,7 @@
 package com.sats.dna.components
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -28,6 +30,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.theme.SatsTheme
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.LocalTime
+import kotlinx.datetime.toJavaLocalDate
+import kotlinx.datetime.toJavaLocalTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 @ExperimentalFoundationApi
 @Composable
@@ -73,6 +82,51 @@ fun SatsFormInputField(
         ProvideTextStyle(
             value = valueTextStyle(isSingleLine = true),
             content = content,
+        )
+    }
+}
+
+@Composable
+fun SatsFormDateTimeInputField(
+    label: String,
+    value: LocalDateTime,
+    formatDate: (LocalDate) -> String,
+    formatTime: (LocalTime) -> String,
+    onDateClicked: () -> Unit,
+    onTimeClicked: () -> Unit,
+    modifier: Modifier = Modifier,
+    hint: String? = null,
+) {
+    InputFieldContainer(
+        modifier = modifier.sizeIn(minWidth = MinSize, minHeight = MinSize),
+        isMultiline = false,
+        label = label,
+        hint = hint,
+    ) {
+        Row(horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
+            DateTimeBox(label = formatDate(value.date), onClick = onDateClicked)
+
+            DateTimeBox(label = formatTime(value.time), onClick = onTimeClicked)
+        }
+    }
+}
+
+@Composable
+private fun DateTimeBox(label: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
+    SatsSurface(
+        modifier = modifier,
+        color = SatsTheme.colors2.surfaces.secondary.bg.default,
+        shape = SatsTheme.shapes.roundedCorners.extraSmall,
+    ) {
+        Text(
+            text = label,
+            modifier = Modifier
+                .clickable(onClick = onClick)
+                .padding(
+                    horizontal = SatsTheme.spacing.xs,
+                    vertical = SatsTheme.spacing.xxs,
+                ),
+            color = SatsTheme.colors2.buttons.action.default,
         )
     }
 }
@@ -198,6 +252,27 @@ private fun SatsFormInputFieldPreview() {
             ) {
                 Text("$value")
             }
+        }
+    }
+}
+
+@RequiresApi(Build.VERSION_CODES.O)
+@PreviewLightDark
+@Composable
+private fun SatsFormDateTimeInputFieldPreview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            val selectedDateTime by remember { mutableStateOf(LocalDateTime(2020, 1, 1, 12, 0)) }
+
+            SatsFormDateTimeInputField(
+                label = "Date and time",
+                value = selectedDateTime,
+                onDateClicked = { },
+                onTimeClicked = { },
+                formatDate = { DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(it.toJavaLocalDate()) },
+                formatTime = { DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT).format(it.toJavaLocalTime()) },
+                modifier = Modifier.fillMaxWidth(),
+            )
         }
     }
 }
