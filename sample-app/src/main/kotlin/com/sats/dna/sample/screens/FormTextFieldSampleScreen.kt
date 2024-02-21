@@ -1,6 +1,7 @@
 package com.sats.dna.sample.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,9 +10,15 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text2.input.TextFieldLineLimits
 import androidx.compose.foundation.text2.input.rememberTextFieldState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import com.sats.dna.components.SatsFormInputField
 import com.sats.dna.components.SatsFormTextField
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.theme.SatsTheme
@@ -43,11 +50,16 @@ internal fun FormTextFieldScreen(navigateUp: () -> Unit, modifier: Modifier = Mo
 
                 SatsHorizontalDivider()
 
-                SatsFormTextField(
+                var workoutType by rememberSaveable { mutableStateOf(WorkoutType.Strength) }
+
+                SatsFormInputField(
                     label = "Workout type",
-                    textFieldState = rememberTextFieldState(),
-                    modifier = Modifier.fillMaxWidth(),
-                )
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { workoutType = workoutType.toggle() },
+                ) {
+                    Text(workoutType.label)
+                }
             }
 
             Column {
@@ -91,5 +103,16 @@ internal fun FormTextFieldScreen(navigateUp: () -> Unit, modifier: Modifier = Mo
 private fun FormTextFieldScreenPreview() {
     SatsTheme {
         FormTextFieldScreen(navigateUp = {})
+    }
+}
+
+private enum class WorkoutType(val label: String) {
+    Strength("🏋 Strength"),
+    Cardio("🏃 Cardio"),
+    ;
+
+    fun toggle(): WorkoutType = when (this) {
+        Strength -> Cardio
+        Cardio -> Strength
     }
 }
