@@ -11,11 +11,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
 import com.sats.dna.R
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun SatsChallengeBadge(
@@ -59,7 +59,7 @@ private fun ErrorFallback(contentDescription: String?, modifier: Modifier = Modi
     Image(painterResource(R.drawable.placeholder_challenges), contentDescription, modifier)
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview() {
     SatsTheme {
@@ -75,7 +75,7 @@ private fun Preview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun ProgressPreview() {
     SatsTheme {

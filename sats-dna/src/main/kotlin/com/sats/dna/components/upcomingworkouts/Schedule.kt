@@ -11,13 +11,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.tooling.preview.PreviewFontScale
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.PlaceholderText
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.FontSizePreview
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun Schedule(
@@ -148,8 +148,8 @@ private fun ScheduledWorkouts(
     }
 }
 
-@LightDarkPreview
-@FontSizePreview
+@PreviewLightDark
+@PreviewFontScale
 @Composable
 private fun SchedulePreview() {
     val schedule = listOf(
@@ -197,7 +197,7 @@ private fun SchedulePreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SchedulePlaceholderPreview() {
     SatsTheme {

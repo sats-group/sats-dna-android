@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewFontScale
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.button.LikeButton
 import com.sats.dna.components.icons.WorkoutType
@@ -19,8 +21,6 @@ import com.sats.dna.components.icons.WorkoutTypeIcon
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.FontSizePreview
-import com.sats.dna.tooling.LightDarkPreview
 
 /**
  * Displays a list item for a completed workout.
@@ -146,8 +146,8 @@ private fun WorkoutInfo(
     }
 }
 
-@LightDarkPreview
-@FontSizePreview
+@PreviewLightDark
+@PreviewFontScale
 @Composable
 private fun Preview() {
     SatsTheme {

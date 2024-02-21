@@ -23,10 +23,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SatsVerticalDivider
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object TypographySampleScreen : SampleScreen(
     name = "Typography",
@@ -164,7 +164,7 @@ private fun ParagraphSample(style: TextStyle, modifier: Modifier = Modifier) {
     Text("Lorem ipsum\ndolor sit amet.", modifier, style = style)
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview() {
     SatsTheme {

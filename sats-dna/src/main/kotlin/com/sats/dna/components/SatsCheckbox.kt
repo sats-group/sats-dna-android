@@ -8,10 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun SatsCheckbox(
@@ -77,7 +77,7 @@ private val fixedColors
         checkmarkColor = SatsTheme.colors2.graphicalElements.selectorFixed.indicator,
     )
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun BooleanEnabledCheckedPreview() {
     SatsTheme {
@@ -91,7 +91,7 @@ private fun BooleanEnabledCheckedPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun BooleanEnabledUncheckedPreview() {
     SatsTheme {
@@ -105,7 +105,7 @@ private fun BooleanEnabledUncheckedPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun BooleanDisabledCheckedPreview() {
     SatsTheme {
@@ -120,7 +120,7 @@ private fun BooleanDisabledCheckedPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun BooleanDisabledUncheckedPreview() {
     SatsTheme {
@@ -197,7 +197,7 @@ private fun BooleanDisabledUncheckedFixedColorsPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun TriStateEnabledDefaultPreview(
     @PreviewParameter(ToggleableStatePreviewProvider::class) state: ToggleableState,
@@ -214,7 +214,7 @@ private fun TriStateEnabledDefaultPreview(
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun TriStateDisabledDefaultPreview(
     @PreviewParameter(ToggleableStatePreviewProvider::class) state: ToggleableState,

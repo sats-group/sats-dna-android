@@ -19,10 +19,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.colors.SatsColors
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object ColorsSampleScreen : SampleScreen(
     name = "Colors",
@@ -240,7 +240,7 @@ private fun SatsColors.toListItems(): List<ListItem> {
     )
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun ColorsScreenPreview() {
     SatsTheme {

@@ -12,12 +12,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.SatsVerticalDivider
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object DividersSampleScreen : SampleScreen(
     name = "Dividers",
@@ -74,7 +74,7 @@ private fun Section(label: String, modifier: Modifier = Modifier, content: @Comp
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun DividersScreenPreview() {
     SatsTheme {

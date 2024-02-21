@@ -13,12 +13,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.internal.materialIconTint
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 /**
  * @param trailingContent trailing content of list item. Consider using [TrailingContent].
@@ -122,7 +122,7 @@ private class DefaultSatsGeneralListItem(
     override val iconColor: Color,
 ) : SatsGeneralListItemColors
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview() {
     SatsTheme {
@@ -137,7 +137,7 @@ private fun Preview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun WithSubtitle() {
     SatsTheme {
@@ -153,7 +153,7 @@ private fun WithSubtitle() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun WithTrailingContentPreview() {
     SatsTheme {
@@ -169,7 +169,7 @@ private fun WithTrailingContentPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun WithAdvancedTrailingContentPreview() {
     SatsTheme {
@@ -185,7 +185,7 @@ private fun WithAdvancedTrailingContentPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun WithNonDefaultColorsPreview() {
     SatsTheme {
@@ -203,7 +203,7 @@ private fun WithNonDefaultColorsPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun WithoutIconPreview() {
     SatsTheme {
@@ -219,7 +219,7 @@ private fun WithoutIconPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsGeneralListItemLoadingPreview() {
     SatsTheme {

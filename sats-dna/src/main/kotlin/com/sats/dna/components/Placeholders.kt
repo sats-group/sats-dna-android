@@ -27,11 +27,11 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.rememberTextMeasurer
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun PlaceholderBox(
@@ -95,7 +95,7 @@ private fun rememberTextSize(text: String, style: TextStyle): DpSize {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun PlaceholderBoxPreview() {
     SatsTheme {
@@ -116,7 +116,7 @@ private fun PlaceholderBoxPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun PlaceholderTextPreview() {
     SatsTheme {

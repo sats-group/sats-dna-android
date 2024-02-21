@@ -6,11 +6,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.icons.fistBump
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun LikeButton(
@@ -28,7 +28,7 @@ fun LikeButton(
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun LikedPreview() {
     val (isLiked, setIsLiked) = remember { mutableStateOf(true) }
@@ -40,7 +40,7 @@ private fun LikedPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun NotLikedPreview() {
     val (isLiked, setIsLiked) = remember { mutableStateOf(false) }

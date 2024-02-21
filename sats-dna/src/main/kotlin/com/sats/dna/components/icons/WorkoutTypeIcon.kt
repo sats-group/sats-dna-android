@@ -4,11 +4,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 /**
  * Displays an icon representing a workout type.
@@ -58,7 +58,7 @@ enum class WorkoutType {
     Unknown,
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview(@PreviewParameter(WorkoutTypePreviewProvider::class) workoutType: WorkoutType) {
     SatsTheme {

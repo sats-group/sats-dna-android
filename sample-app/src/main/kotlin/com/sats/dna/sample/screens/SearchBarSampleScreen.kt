@@ -13,10 +13,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsSearchBar
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object SearchBarSampleScreen : SampleScreen(
     name = "Search Bar",
@@ -64,7 +64,7 @@ private fun SearchBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = M
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SearchBarSampleScreenPreview() {
     SatsTheme {

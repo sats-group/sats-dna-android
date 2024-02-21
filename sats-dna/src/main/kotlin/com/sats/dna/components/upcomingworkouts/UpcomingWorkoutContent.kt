@@ -9,11 +9,11 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 internal fun WorkoutTypeColorIndicator(
@@ -126,7 +126,7 @@ private fun WaitingListStatus(status: WaitingListStatus) {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun TimeAndDurationPreview() {
     SatsTheme {
@@ -140,7 +140,7 @@ private fun TimeAndDurationPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun WorkoutInfoPreview() {
     SatsTheme {
@@ -157,7 +157,7 @@ private fun WorkoutInfoPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun WorkoutInfoOnWaitingListPreview() {
     SatsTheme {

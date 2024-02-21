@@ -8,11 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun SatsBanner(
@@ -61,7 +61,7 @@ private val SatsBannerAction.composable: @Composable () -> Unit
         }
     }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsBannerPreview() {
     SatsTheme {
@@ -74,7 +74,7 @@ private fun SatsBannerPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsBannerWithActionPreview() {
     SatsTheme {

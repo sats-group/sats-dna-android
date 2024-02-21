@@ -12,10 +12,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.tooling.preview.PreviewFontScale
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.FontSizePreview
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun SatsScaleBar(
@@ -54,8 +54,8 @@ fun SatsScaleBar(
     }
 }
 
-@LightDarkPreview
-@FontSizePreview
+@PreviewLightDark
+@PreviewFontScale
 @Composable
 private fun SatsScaleBarPreview() {
     SatsTheme {

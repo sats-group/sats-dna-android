@@ -3,9 +3,9 @@ package com.sats.dna.components
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.internal.GxSessionCard
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun YourMostBookedCard(
@@ -24,7 +24,7 @@ fun YourMostBookedCard(
     )
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun YourMostBookedCardPreview() {
     SatsTheme {

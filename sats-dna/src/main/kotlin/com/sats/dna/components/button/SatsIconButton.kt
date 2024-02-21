@@ -15,12 +15,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun SatsIconButton(
@@ -156,7 +156,7 @@ private fun animatedPadding(isLarge: Boolean) =
         label = "Padding",
     ).value
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsIconButtonPreview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
     SatsTheme {
@@ -172,7 +172,7 @@ private fun SatsIconButtonPreview(@PreviewParameter(SatsButtonColorProvider::cla
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsBellIconButtonNoCherryPreview() {
     SatsTheme {
@@ -187,7 +187,7 @@ private fun SatsBellIconButtonNoCherryPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsBellIconButtonWithCherryPreview() {
     SatsTheme {

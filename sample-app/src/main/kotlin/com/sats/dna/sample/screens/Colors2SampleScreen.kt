@@ -17,10 +17,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object Colors2SampleScreen : SampleScreen(
     name = "Colors2",
@@ -1016,7 +1016,7 @@ class NamedColor(val name: String, val color: Color) {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun ColorSamplePreview() {
     SatsTheme {
@@ -1032,7 +1032,7 @@ private fun ColorSamplePreview() {
 
 private infix fun Color.named(name: String) = NamedColor(name, this)
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Colors2ScreenPreview() {
     SatsTheme {

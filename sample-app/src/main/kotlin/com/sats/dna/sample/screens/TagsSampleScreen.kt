@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsRewardsLevel
 import com.sats.dna.components.SatsRewardsTag
 import com.sats.dna.components.SatsTag
@@ -19,7 +20,6 @@ import com.sats.dna.components.SatsTagPlaceholder
 import com.sats.dna.components.SatsWorkoutTag
 import com.sats.dna.components.SatsWorkoutTagColor
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object TagsSampleScreen : SampleScreen(
     name = "Tags",
@@ -81,7 +81,7 @@ private fun Section(title: String, content: @Composable ColumnScope.() -> Unit) 
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview() {
     SatsTheme {

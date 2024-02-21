@@ -13,9 +13,9 @@ import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.compositeOver
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -68,7 +68,7 @@ fun SatsLargeTopAppBar(
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Material3Preview() {
     SatsTheme {

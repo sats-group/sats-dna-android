@@ -4,8 +4,8 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun SatsRadioButton(
@@ -25,7 +25,7 @@ private val colors
         disabledUnselectedColor = SatsTheme.colors2.graphicalElements.selector.unselected.disabled,
     )
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun EnabledSelectedPreview() {
     SatsTheme {
@@ -35,7 +35,7 @@ private fun EnabledSelectedPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun EnabledUnselectedPreview() {
     SatsTheme {
@@ -45,7 +45,7 @@ private fun EnabledUnselectedPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun DisabledSelectedPreview() {
     SatsTheme {
@@ -55,7 +55,7 @@ private fun DisabledSelectedPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun DisabledUnselectedPreview() {
     SatsTheme {

@@ -8,6 +8,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
@@ -16,7 +17,6 @@ import com.sats.dna.components.upcomingworkouts.UpcomingWorkoutListItem
 import com.sats.dna.components.upcomingworkouts.WaitingListStatus
 import com.sats.dna.components.upcomingworkouts.WorkoutType
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object UpcomingWorkoutListItemSampleScreen : SampleScreen(
     name = "Upcoming Workout List Item",
@@ -87,7 +87,7 @@ private fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Modi
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview() {
     SatsTheme {

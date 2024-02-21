@@ -5,11 +5,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.R
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.materialIconTint
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 @Composable
 fun BrandLogo(
@@ -46,7 +46,7 @@ private fun Brand.fullNameIconPainter() = when (this) {
     Brand.Elixia -> painterResource(R.drawable.ic_elixia)
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun ElixiaLetterPreview() {
     SatsTheme {
@@ -60,7 +60,7 @@ private fun ElixiaLetterPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun ElixiaFullPreview() {
     SatsTheme {
@@ -75,7 +75,7 @@ private fun ElixiaFullPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsLetterPreview() {
     SatsTheme {
@@ -89,7 +89,7 @@ private fun SatsLetterPreview() {
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun SatsFullPreview() {
     SatsTheme {

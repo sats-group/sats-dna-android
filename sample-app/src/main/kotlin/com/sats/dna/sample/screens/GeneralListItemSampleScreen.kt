@@ -8,12 +8,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.AdvancedTrailingContent
 import com.sats.dna.components.SatsGeneralListItem
 import com.sats.dna.components.SatsGeneralListItemDefaults
 import com.sats.dna.components.SimpleTrailingContent
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data object GeneralListItemSampleScreen : SampleScreen(
     name = "General List Item",
@@ -81,7 +81,7 @@ private fun GeneralListItemScreen(navigateUp: () -> Unit, modifier: Modifier = M
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun Preview() {
     SatsTheme {

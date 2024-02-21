@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
@@ -23,7 +24,6 @@ import com.sats.dna.components.PlaceholderBox
 import com.sats.dna.components.PlaceholderText
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
-import com.sats.dna.tooling.LightDarkPreview
 
 data class FriendsBookingState(
     val status: FriendsBookingStatus,
@@ -117,7 +117,7 @@ fun FriendsBookingStatusListPlaceholder(
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun FriendsBookingListItemPreview(
     @PreviewParameter(FriendsBookingStatusPreviewProvider::class) bookingState: FriendsBookingState,
@@ -144,7 +144,7 @@ private fun FriendsBookingListItemPreview(
     }
 }
 
-@LightDarkPreview
+@PreviewLightDark
 @Composable
 private fun FriendsBookingListItemPlaceholderPreview() {
     SatsTheme {
