@@ -28,6 +28,7 @@ import com.sats.dna.components.SatsFormDateTimeInputField
 import com.sats.dna.components.SatsFormInputField
 import com.sats.dna.components.SatsFormTextField
 import com.sats.dna.components.SatsHorizontalDivider
+import com.sats.dna.components.SatsSwitch
 import com.sats.dna.theme.SatsTheme
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
@@ -56,12 +57,15 @@ internal fun FormInputFieldsScreen(navigateUp: () -> Unit, modifier: Modifier = 
                 .fillMaxWidth(),
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
         ) {
+            val (isFormEnabled, setIsFormEnabled) = rememberSaveable { mutableStateOf(true) }
+
             Column {
                 SatsFormTextField(
                     label = "Title",
                     textFieldState = rememberTextFieldState(),
                     modifier = Modifier.fillMaxWidth(),
                     keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Words),
+                    isEnabled = isFormEnabled,
                 )
 
                 SatsHorizontalDivider()
@@ -72,7 +76,11 @@ internal fun FormInputFieldsScreen(navigateUp: () -> Unit, modifier: Modifier = 
                     label = "Workout type",
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable { workoutType = workoutType.toggle() },
+                        .clickable(
+                            enabled = isFormEnabled,
+                            onClick = { workoutType = workoutType.toggle() },
+                        ),
+                    isEnabled = isFormEnabled,
                 ) {
                     Text(workoutType.label)
                 }
@@ -89,6 +97,7 @@ internal fun FormInputFieldsScreen(navigateUp: () -> Unit, modifier: Modifier = 
                     formatDate = { DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(it.toJavaLocalDate()) },
                     formatTime = { DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT).format(it.toJavaLocalTime()) },
                     modifier = Modifier.fillMaxWidth(),
+                    isEnabled = isFormEnabled,
                 )
 
                 SatsHorizontalDivider()
@@ -104,6 +113,7 @@ internal fun FormInputFieldsScreen(navigateUp: () -> Unit, modifier: Modifier = 
                             valueWithChanges.revertAllChanges()
                         }
                     },
+                    isEnabled = isFormEnabled,
                 )
 
                 SatsHorizontalDivider()
@@ -114,6 +124,7 @@ internal fun FormInputFieldsScreen(navigateUp: () -> Unit, modifier: Modifier = 
                     hint = "(optional)",
                     modifier = Modifier.fillMaxWidth(),
                     keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Words),
+                    isEnabled = isFormEnabled,
                 )
             }
 
@@ -124,7 +135,14 @@ internal fun FormInputFieldsScreen(navigateUp: () -> Unit, modifier: Modifier = 
                 lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 5, maxHeightInLines = 6),
                 modifier = Modifier.fillMaxWidth(),
                 keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Sentences),
+                isEnabled = isFormEnabled,
             )
+
+            SatsHorizontalDivider()
+
+            SatsFormInputField("Is form enabled", Modifier.fillMaxWidth()) {
+                SatsSwitch(isFormEnabled, setIsFormEnabled)
+            }
         }
     }
 }

@@ -53,9 +53,10 @@ fun SatsFormTextField(
     inputTransformation: InputTransformation? = null,
     trailingText: String? = null,
     lineLimits: TextFieldLineLimits = TextFieldLineLimits.SingleLine,
+    isEnabled: Boolean = true,
 ) {
     val isSingleLine = lineLimits is TextFieldLineLimits.SingleLine
-    val textStyle = valueTextStyle(isSingleLine = isSingleLine)
+    val textStyle = valueTextStyle(isSingleLine = isSingleLine, isEnabled = isEnabled)
 
     BasicTextField2(
         state = textFieldState,
@@ -66,6 +67,7 @@ fun SatsFormTextField(
         keyboardOptions = keyboardOptions,
         keyboardActions = keyboardActions,
         inputTransformation = inputTransformation,
+        enabled = isEnabled,
         decorator = { innerTextField ->
             InputFieldContainer(
                 isSingleLine = isSingleLine,
@@ -89,6 +91,7 @@ fun SatsFormInputField(
     label: String,
     modifier: Modifier = Modifier,
     hint: String? = null,
+    isEnabled: Boolean = true,
     content: @Composable () -> Unit,
 ) {
     InputFieldContainer(
@@ -98,7 +101,7 @@ fun SatsFormInputField(
         hint = hint,
     ) {
         ProvideTextStyle(
-            value = valueTextStyle(isSingleLine = true),
+            value = valueTextStyle(isSingleLine = true, isEnabled = isEnabled),
             content = content,
         )
     }
@@ -114,6 +117,7 @@ fun SatsFormDateTimeInputField(
     onTimeClicked: () -> Unit,
     modifier: Modifier = Modifier,
     hint: String? = null,
+    isEnabled: Boolean = true,
 ) {
     InputFieldContainer(
         modifier = modifier.sizeIn(minWidth = MinSize, minHeight = MinSize),
@@ -122,29 +126,39 @@ fun SatsFormDateTimeInputField(
         hint = hint,
     ) {
         Row(horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
-            DateTimeBox(label = formatDate(value.date), onClick = onDateClicked)
-
-            DateTimeBox(label = formatTime(value.time), onClick = onTimeClicked)
+            DateTimeBox(formatDate(value.date), onDateClicked, isEnabled = isEnabled)
+            DateTimeBox(formatTime(value.time), onTimeClicked, isEnabled = isEnabled)
         }
     }
 }
 
 @Composable
-private fun DateTimeBox(label: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
+private fun DateTimeBox(
+    label: String,
+    onClick: () -> Unit,
+    isEnabled: Boolean,
+    modifier: Modifier = Modifier,
+) {
     SatsSurface(
         modifier = modifier,
         color = SatsTheme.colors2.surfaces.secondary.bg.default,
         shape = SatsTheme.shapes.roundedCorners.extraSmall,
     ) {
+        val color = if (isEnabled) {
+            SatsTheme.colors2.buttons.action.default
+        } else {
+            SatsTheme.colors2.buttons.action.disabled
+        }
+
         Text(
             text = label,
             modifier = Modifier
-                .clickable(onClick = onClick)
+                .clickable(enabled = isEnabled, onClick = onClick)
                 .padding(
                     horizontal = SatsTheme.spacing.xs,
                     vertical = SatsTheme.spacing.xxs,
                 ),
-            color = SatsTheme.colors2.buttons.action.default,
+            color = color,
         )
     }
 }
@@ -207,9 +221,15 @@ private fun LabelAndHint(label: String, hint: String?) {
 }
 
 @Composable
-private fun valueTextStyle(isSingleLine: Boolean): TextStyle {
+private fun valueTextStyle(isSingleLine: Boolean, isEnabled: Boolean): TextStyle {
+    val color = if (isEnabled) {
+        SatsTheme.colors2.surfaces.primary.fg.alternate
+    } else {
+        SatsTheme.colors2.surfaces.primary.fg.disabled
+    }
+
     return SatsTheme.typography.normal.basic.copy(
-        color = SatsTheme.colors2.surfaces.primary.fg.alternate,
+        color = color,
         textAlign = if (isSingleLine) TextAlign.End else TextAlign.Start,
     )
 }
