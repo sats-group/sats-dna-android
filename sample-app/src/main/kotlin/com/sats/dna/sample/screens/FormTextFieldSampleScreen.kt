@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text2.input.TextFieldLineLimits
 import androidx.compose.foundation.text2.input.rememberTextFieldState
 import androidx.compose.foundation.verticalScroll
@@ -20,6 +21,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.KeyboardCapitalization
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsFormDateTimeInputField
 import com.sats.dna.components.SatsFormInputField
@@ -58,6 +61,7 @@ internal fun FormTextFieldScreen(navigateUp: () -> Unit, modifier: Modifier = Mo
                     label = "Title",
                     textFieldState = rememberTextFieldState(),
                     modifier = Modifier.fillMaxWidth(),
+                    keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Words),
                 )
 
                 SatsHorizontalDivider()
@@ -94,6 +98,7 @@ internal fun FormTextFieldScreen(navigateUp: () -> Unit, modifier: Modifier = Mo
                     textFieldState = rememberTextFieldState(),
                     trailingText = "min",
                     modifier = Modifier.fillMaxWidth(),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     inputTransformation = { _, valueWithChanges ->
                         if (valueWithChanges.asCharSequence().any { !it.isDigit() }) {
                             valueWithChanges.revertAllChanges()
@@ -108,6 +113,7 @@ internal fun FormTextFieldScreen(navigateUp: () -> Unit, modifier: Modifier = Mo
                     textFieldState = rememberTextFieldState(),
                     hint = "(optional)",
                     modifier = Modifier.fillMaxWidth(),
+                    keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Words),
                 )
             }
 
@@ -117,6 +123,7 @@ internal fun FormTextFieldScreen(navigateUp: () -> Unit, modifier: Modifier = Mo
                 hint = "(optional)",
                 lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 5, maxHeightInLines = 6),
                 modifier = Modifier.fillMaxWidth(),
+                keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Sentences),
             )
         }
     }

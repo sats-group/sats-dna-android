@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.sizeIn
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text2.BasicTextField2
 import androidx.compose.foundation.text2.input.InputTransformation
 import androidx.compose.foundation.text2.input.TextFieldLineLimits
@@ -46,6 +48,8 @@ fun SatsFormTextField(
     textFieldState: TextFieldState,
     modifier: Modifier = Modifier,
     hint: String? = null,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
     inputTransformation: InputTransformation? = null,
     trailingText: String? = null,
     lineLimits: TextFieldLineLimits = TextFieldLineLimits.SingleLine,
@@ -59,6 +63,8 @@ fun SatsFormTextField(
         textStyle = textStyle,
         cursorBrush = SolidColor(textStyle.color),
         lineLimits = lineLimits,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
         inputTransformation = inputTransformation,
         decorator = { innerTextField ->
             InputFieldContainer(
