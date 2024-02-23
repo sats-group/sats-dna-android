@@ -27,8 +27,8 @@ fun CardButton(
     onClick: () -> Unit,
     text: String,
     icon: Painter,
-    modifier: Modifier = Modifier,
     shape: Shape,
+    modifier: Modifier = Modifier,
     alignment: Alignment.Horizontal,
 ) {
     SatsSurface(modifier = modifier, shape = shape) {
