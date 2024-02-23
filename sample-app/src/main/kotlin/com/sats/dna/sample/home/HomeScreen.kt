@@ -22,7 +22,6 @@ import com.sats.dna.sample.screens.CardSampleScreen
 import com.sats.dna.sample.screens.ChallengeBadgeSampleScreen
 import com.sats.dna.sample.screens.CheckboxSampleScreen
 import com.sats.dna.sample.screens.ChipsSampleScreen
-import com.sats.dna.sample.screens.CircularProgressIndicatorSampleScreen
 import com.sats.dna.sample.screens.Colors2SampleScreen
 import com.sats.dna.sample.screens.ColorsSampleScreen
 import com.sats.dna.sample.screens.CompletedWorkoutListItemSampleScreen
@@ -79,7 +78,6 @@ internal fun HomeScreen(navController: NavController) {
             ChallengeBadgeSampleScreen.HomeListItem(navController)
             CheckboxSampleScreen.HomeListItem(navController)
             ChipsSampleScreen.HomeListItem(navController)
-            CircularProgressIndicatorSampleScreen.HomeListItem(navController)
             CompletedWorkoutListItemSampleScreen.HomeListItem(navController)
             DividersSampleScreen.HomeListItem(navController)
             EmptyStateSampleScreen.HomeListItem(navController)
