@@ -25,10 +25,15 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsFilterChip
 import com.sats.dna.components.SatsSurface
+import com.sats.dna.components.button.InCardCardButton
+import com.sats.dna.components.button.NavigationCardButton
 import com.sats.dna.components.button.SatsBellIconButton
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsIconButton
+import com.sats.dna.components.button.StandAloneCardButton
+import com.sats.dna.components.button.TwoOptionsInCardCardButton
+import com.sats.dna.components.button.TwoOptionsStandAloneCardButton
 import com.sats.dna.theme.SatsTheme
 
 data object ButtonsSampleScreen : SampleScreen(
@@ -149,6 +154,56 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         isLarge = controlPanelState.isLargeToggled,
                     )
                 }
+
+                NavigationCardButton(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = SatsTheme.spacing.m),
+                    onClick = {},
+                    text = "Give us feedback on the app",
+                )
+
+                StandAloneCardButton(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = SatsTheme.spacing.m),
+                    onClick = {},
+                    text = "Schedule",
+                    icon = SatsTheme.icons.calendar,
+                )
+
+                TwoOptionsStandAloneCardButton(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = SatsTheme.spacing.m),
+                    firstOptionOnClick = {},
+                    firstOptionText = "Add workout",
+                    firstOptionIcon = SatsTheme.icons.add,
+                    secondOptionOnClick = {},
+                    secondOptionText = "Schedule",
+                    secondOptionIcon = SatsTheme.icons.calendar,
+                )
+
+                InCardCardButton(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = SatsTheme.spacing.m),
+                    onClick = {},
+                    text = "Schedule",
+                    icon = SatsTheme.icons.calendar,
+                )
+
+                TwoOptionsInCardCardButton(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = SatsTheme.spacing.m),
+                    firstOptionOnClick = {},
+                    firstOptionText = "Add workout",
+                    firstOptionIcon = SatsTheme.icons.add,
+                    secondOptionOnClick = {},
+                    secondOptionText = "Schedule",
+                    secondOptionIcon = SatsTheme.icons.calendar,
+                )
             }
         }
     }
