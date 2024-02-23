@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.PreviewFontScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.PlaceholderText
 import com.sats.dna.components.SatsSurface
+import com.sats.dna.components.button.TwoOptionsInCardCardButton
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -24,11 +25,18 @@ fun Schedule(
     workouts: List<UpcomingWorkout>,
     onWorkoutClicked: (workout: UpcomingWorkout) -> Unit,
     modifier: Modifier = Modifier,
+    cardButton: @Composable (() -> Unit?)? = null,
 ) {
     SatsCard(modifier.fillMaxWidth()) {
-        val days = workouts.groupBy { it.day }
+        Column {
+            val days = workouts.groupBy { it.day }
 
-        ScheduledDays(days, onWorkoutClicked)
+            ScheduledDays(days, onWorkoutClicked)
+
+            cardButton?.let {
+                cardButton()
+            }
+        }
     }
 }
 
@@ -193,6 +201,69 @@ private fun SchedulePreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             Schedule(schedule, onWorkoutClicked = {}, Modifier.padding(SatsTheme.spacing.m))
+        }
+    }
+}
+
+@PreviewLightDark
+@PreviewFontScale
+@Composable
+private fun ScheduleWithCardButtonPreview() {
+    val schedule = listOf(
+        UpcomingWorkout(
+            id = "foo",
+            day = "Today",
+            time = "9:00 PM",
+            duration = "45 min",
+            name = "Yoga Flow",
+            location = "SATS Nydalen",
+            instructor = "w/Andrew Nielsen",
+            workoutType = WorkoutType.Gx,
+            workoutTypeLabel = null,
+            waitingListStatus = WaitingListStatus.SpotSecured("Spot secured!", "32 on waiting list"),
+        ),
+        UpcomingWorkout(
+            id = "bar",
+            day = "Today",
+            time = "5:30 PM",
+            duration = "30 min",
+            name = "Body Pump",
+            location = "SATS Colosseum",
+            instructor = "w/Magnus Owe",
+            workoutType = WorkoutType.Pt,
+            workoutTypeLabel = null,
+            waitingListStatus = WaitingListStatus.OnWaitingList("Number 5 on the waiting list."),
+        ),
+        UpcomingWorkout(
+            id = "baz",
+            day = "Tomorrow",
+            time = "9:00 AM",
+            duration = "120 min",
+            name = "Cycling Marathon",
+            location = "SATS Storo",
+            instructor = "w/John Doe",
+            workoutTypeLabel = "Cycling",
+            waitingListStatus = null,
+        ),
+    )
+
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+            Schedule(
+                workouts = schedule,
+                onWorkoutClicked = {},
+                modifier = Modifier.padding(SatsTheme.spacing.m),
+                cardButton = {
+                    TwoOptionsInCardCardButton(
+                        firstOptionOnClick = {},
+                        firstOptionText = "Book",
+                        firstOptionIcon = SatsTheme.icons.time,
+                        secondOptionOnClick = {},
+                        secondOptionText = "Schedule",
+                        secondOptionIcon = SatsTheme.icons.calendar,
+                    )
+                },
+            )
         }
     }
 }
