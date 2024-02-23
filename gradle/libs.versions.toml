@@ -14,6 +14,7 @@ kotlinter = { id = "org.jmailen.kotlinter", version = "3.16.0" }
 [libraries]
 accompanist-insetsUi = { module = "com.google.accompanist:accompanist-insets-ui", version.ref = "accompanist" }
 accompanist-systemUiController = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
+android-desugarJdkLibs = "com.android.tools:desugar_jdk_libs:2.0.4"
 androidx-activity-compose = "androidx.activity:activity-compose:1.8.2"
 androidx-compose-bom = "androidx.compose:compose-bom:2024.02.01"
 androidx-compose-foundation = { module = "androidx.compose.foundation:foundation" }
@@ -32,4 +33,5 @@ coil-compose = "io.coil-kt:coil-compose:2.5.0"
 google-material = "com.google.android.material:material:1.11.0"
 junit4 = "junit:junit:4.13.2"
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+kotlinx-datetime = "org.jetbrains.kotlinx:kotlinx-datetime:0.5.0"
 sats-fonts-headline = "com.sats.fonts:sats-headline-font:1.0.1"

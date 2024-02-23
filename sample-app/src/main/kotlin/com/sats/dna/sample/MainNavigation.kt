@@ -14,12 +14,12 @@ import com.sats.dna.sample.screens.CardSampleScreen
 import com.sats.dna.sample.screens.ChallengeBadgeSampleScreen
 import com.sats.dna.sample.screens.CheckboxSampleScreen
 import com.sats.dna.sample.screens.ChipsSampleScreen
-import com.sats.dna.sample.screens.CircularProgressIndicatorSampleScreen
 import com.sats.dna.sample.screens.Colors2SampleScreen
 import com.sats.dna.sample.screens.ColorsSampleScreen
 import com.sats.dna.sample.screens.CompletedWorkoutListItemSampleScreen
 import com.sats.dna.sample.screens.DividersSampleScreen
 import com.sats.dna.sample.screens.EmptyStateSampleScreen
+import com.sats.dna.sample.screens.FormInputFieldsSampleScreen
 import com.sats.dna.sample.screens.FriendsBookingStatusSampleScreen
 import com.sats.dna.sample.screens.GeneralListItemSampleScreen
 import com.sats.dna.sample.screens.IconsSampleScreen
@@ -62,10 +62,10 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         ChallengeBadgeSampleScreen.navScreen(navController)
         CheckboxSampleScreen.navScreen(navController)
         ChipsSampleScreen.navScreen(navController)
-        CircularProgressIndicatorSampleScreen.navScreen(navController)
         CompletedWorkoutListItemSampleScreen.navScreen(navController)
         DividersSampleScreen.navScreen(navController)
         EmptyStateSampleScreen.navScreen(navController)
+        FormInputFieldsSampleScreen.navScreen(navController)
         FriendsBookingStatusSampleScreen.navScreen(navController)
         GeneralListItemSampleScreen.navScreen(navController)
         JoinYourFriendsSampleScreen.navScreen(navController)

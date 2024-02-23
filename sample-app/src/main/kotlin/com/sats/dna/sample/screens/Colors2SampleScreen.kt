@@ -63,11 +63,6 @@ private fun Buttons() {
             )
 
             ColorSample(
-                backgroundColor = base.hover.bg named "Hover",
-                contentColor = base.default.fg named "Default",
-            )
-
-            ColorSample(
                 backgroundColor = base.disabled.bg named "Disabled",
                 contentColor = base.disabled.fg named "Disabled",
             )
@@ -78,11 +73,6 @@ private fun Buttons() {
 
             ColorSample(
                 backgroundColor = base.default.bg named "Default",
-                contentColor = base.default.fg named "Default",
-            )
-
-            ColorSample(
-                backgroundColor = base.hover.bg named "Hover",
                 contentColor = base.default.fg named "Default",
             )
 
@@ -101,11 +91,6 @@ private fun Buttons() {
             )
 
             ColorSample(
-                backgroundColor = base.hover.bg named "Hover",
-                contentColor = base.default.fg named "Default",
-            )
-
-            ColorSample(
                 backgroundColor = base.disabled.bg named "Disabled",
                 contentColor = base.disabled.fg named "Disabled",
             )
@@ -120,11 +105,6 @@ private fun Buttons() {
             )
 
             ColorSample(
-                backgroundColor = base.hover.bg named "Hover",
-                contentColor = base.default.fg named "Default",
-            )
-
-            ColorSample(
                 backgroundColor = base.disabled.bg named "Disabled",
                 contentColor = base.disabled.fg named "Disabled",
             )
@@ -135,11 +115,6 @@ private fun Buttons() {
 
             ColorSample(
                 backgroundColor = base.default.bg named "Default",
-                contentColor = base.default.fg named "Default",
-            )
-
-            ColorSample(
-                backgroundColor = base.hover.bg named "Hover",
                 contentColor = base.default.fg named "Default",
             )
 
@@ -177,11 +152,6 @@ private fun Buttons() {
             )
 
             ColorSample(
-                backgroundColor = base.hover.bg named "Hover",
-                contentColor = base.default.fg named "Default",
-            )
-
-            ColorSample(
                 backgroundColor = base.disabled.bg named "Disabled",
                 contentColor = base.disabled.fg named "Disabled",
             )
@@ -214,11 +184,6 @@ private fun Buttons() {
 
             ColorSample(
                 backgroundColor = base.default.bg named "Default",
-                contentColor = base.default.fg named "Default",
-            )
-
-            ColorSample(
-                backgroundColor = base.hover.bg named "Hover",
                 contentColor = base.default.fg named "Default",
             )
 
@@ -380,11 +345,6 @@ private fun GraphicalElements() {
 
             ColorSample(
                 backgroundColor = base.selected.default.bg named "Selected Default",
-                contentColor = base.selected.default.fg named "Selected Default",
-            )
-
-            ColorSample(
-                backgroundColor = base.selected.hover.bg named "Selected Hover",
                 contentColor = base.selected.default.fg named "Selected Default",
             )
 
@@ -635,11 +595,6 @@ private fun Backgrounds() {
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.hover named "Primary Hover",
-            contentColor = base.primary.fg.default named "Primary Default",
-        )
-
-        ColorSample(
             backgroundColor = base.primary.bg.selected named "Primary Selected",
             contentColor = base.primary.fg.default named "Primary Default",
         )
@@ -660,11 +615,6 @@ private fun Backgrounds() {
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.hover named "Secondary Hover",
-            contentColor = base.secondary.fg.default named "Secondary Default",
-        )
-
-        ColorSample(
             backgroundColor = base.secondary.bg.selected named "Secondary Selected",
             contentColor = base.secondary.fg.default named "Secondary Default",
         )
@@ -682,11 +632,6 @@ private fun Backgrounds() {
         ColorSample(
             backgroundColor = base.fixed.bg.default named "Fixed Default",
             contentColor = base.fixed.fg.disabled named "Fixed Disabled",
-        )
-
-        ColorSample(
-            backgroundColor = base.fixed.bg.hover named "Fixed Hover",
-            contentColor = base.fixed.fg.default named "Fixed Default",
         )
 
         ColorSample(
@@ -757,11 +702,6 @@ private fun Surfaces() {
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.hover named "Primary Hover",
-            contentColor = base.primary.fg.default named "Primary Default",
-        )
-
-        ColorSample(
             backgroundColor = base.primary.bg.selected named "Primary Selected",
             contentColor = base.primary.fg.default named "Primary Default",
         )
@@ -822,11 +762,6 @@ private fun Surfaces() {
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.hover named "Secondary Hover",
-            contentColor = base.secondary.fg.default named "Secondary Default",
-        )
-
-        ColorSample(
             backgroundColor = base.secondary.bg.selected named "Secondary Selected",
             contentColor = base.secondary.fg.default named "Secondary Default",
         )
@@ -849,11 +784,6 @@ private fun Surfaces() {
         ColorSample(
             backgroundColor = base.fixed.bg.default named "Fixed Default",
             contentColor = base.fixed.fg.featured named "Fixed Featured",
-        )
-
-        ColorSample(
-            backgroundColor = base.fixed.bg.hover named "Fixed Hover",
-            contentColor = base.fixed.fg.default named "Fixed Default",
         )
 
         ColorSample(

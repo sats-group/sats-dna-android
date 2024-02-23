@@ -24,7 +24,6 @@ class SatsColors2(
     ) {
         class Primary(
             val default: Default,
-            val hover: Hover,
             val disabled: Disabled,
         ) {
             class Default(
@@ -45,7 +44,6 @@ class SatsColors2(
 
         class Secondary(
             val default: Default,
-            val hover: Hover,
             val disabled: Disabled,
         ) {
             class Default(
@@ -66,7 +64,6 @@ class SatsColors2(
 
         class Clean(
             val default: Default,
-            val hover: Hover,
             val disabled: Disabled,
         ) {
             class Default(
@@ -87,7 +84,6 @@ class SatsColors2(
 
         class CleanSecondary(
             val default: Default,
-            val hover: Hover,
             val disabled: Disabled,
         ) {
             class Default(
@@ -108,7 +104,6 @@ class SatsColors2(
 
         class Cta(
             val default: Default,
-            val hover: Hover,
             val disabled: Disabled,
         ) {
             class Default(
@@ -129,13 +124,11 @@ class SatsColors2(
 
         class Action(
             val default: Color,
-            val hover: Color,
             val disabled: Color,
         )
 
         class WaitingListFilled(
             val default: Default,
-            val hover: Hover,
             val disabled: Disabled,
         ) {
             class Default(
@@ -156,13 +149,11 @@ class SatsColors2(
 
         class WaitingListOutlined(
             val default: Color,
-            val hover: Color,
             val disabled: Color,
         )
 
         class DeleteFilled(
             val default: Default,
-            val hover: Hover,
             val disabled: Disabled,
         ) {
             class Default(
@@ -183,7 +174,6 @@ class SatsColors2(
 
         class DeleteOutlined(
             val default: Color,
-            val hover: Color,
             val disabled: Color,
         )
     }
@@ -305,7 +295,6 @@ class SatsColors2(
 
             class Selected(
                 val default: Default,
-                val hover: Hover,
                 val disabled: Disabled,
             ) {
                 class Default(
@@ -480,7 +469,6 @@ class SatsColors2(
         ) {
             class Bg(
                 val default: Color,
-                val hover: Color,
                 val selected: Color,
             )
 
@@ -497,7 +485,6 @@ class SatsColors2(
         ) {
             class Bg(
                 val default: Color,
-                val hover: Color,
                 val selected: Color,
             )
 
@@ -514,7 +501,6 @@ class SatsColors2(
         ) {
             class Bg(
                 val default: Color,
-                val hover: Color,
                 val selected: Color,
             )
 
@@ -537,7 +523,6 @@ class SatsColors2(
         ) {
             class Bg(
                 val default: Color,
-                val hover: Color,
                 val selected: Color,
             )
 
@@ -561,7 +546,6 @@ class SatsColors2(
         ) {
             class Bg(
                 val default: Color,
-                val hover: Color,
                 val selected: Color,
             )
 
@@ -585,7 +569,6 @@ class SatsColors2(
         ) {
             class Bg(
                 val default: Color,
-                val hover: Color,
                 val selected: Color,
             )
 

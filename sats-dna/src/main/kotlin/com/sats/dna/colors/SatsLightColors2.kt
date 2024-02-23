@@ -8,10 +8,6 @@ internal val SatsLightColors2 = SatsColors2(
                 bg = SatsColorPrimitives.SatsBlue,
                 fg = SatsColorPrimitives.White100,
             ),
-            hover = SatsColors2.Buttons.Primary.Hover(
-                bg = SatsColorPrimitives.SatsBlueGrey80,
-                fg = SatsColorPrimitives.White100,
-            ),
             disabled = SatsColors2.Buttons.Primary.Disabled(
                 bg = SatsColorPrimitives.Black20,
                 fg = SatsColorPrimitives.Black60,
@@ -20,10 +16,6 @@ internal val SatsLightColors2 = SatsColors2(
         secondary = SatsColors2.Buttons.Secondary(
             default = SatsColors2.Buttons.Secondary.Default(
                 bg = SatsColorPrimitives.SatsBlue,
-                fg = SatsColorPrimitives.SatsBlue,
-            ),
-            hover = SatsColors2.Buttons.Secondary.Hover(
-                bg = SatsColorPrimitives.BrightBlue10,
                 fg = SatsColorPrimitives.SatsBlue,
             ),
             disabled = SatsColors2.Buttons.Secondary.Disabled(
@@ -36,10 +28,6 @@ internal val SatsLightColors2 = SatsColors2(
                 bg = SatsColorPrimitives.White100,
                 fg = SatsColorPrimitives.SatsBlue,
             ),
-            hover = SatsColors2.Buttons.Clean.Hover(
-                bg = SatsColorPrimitives.SatsBlue5,
-                fg = SatsColorPrimitives.SatsBlue,
-            ),
             disabled = SatsColors2.Buttons.Clean.Disabled(
                 bg = SatsColorPrimitives.White20,
                 fg = SatsColorPrimitives.Black60,
@@ -48,10 +36,6 @@ internal val SatsLightColors2 = SatsColors2(
         cleanSecondary = SatsColors2.Buttons.CleanSecondary(
             default = SatsColors2.Buttons.CleanSecondary.Default(
                 bg = SatsColorPrimitives.White15,
-                fg = SatsColorPrimitives.White100,
-            ),
-            hover = SatsColors2.Buttons.CleanSecondary.Hover(
-                bg = SatsColorPrimitives.White10,
                 fg = SatsColorPrimitives.White100,
             ),
             disabled = SatsColors2.Buttons.CleanSecondary.Disabled(
@@ -64,10 +48,6 @@ internal val SatsLightColors2 = SatsColors2(
                 bg = SatsColorPrimitives.SatsCoral120,
                 fg = SatsColorPrimitives.White100,
             ),
-            hover = SatsColors2.Buttons.Cta.Hover(
-                bg = SatsColorPrimitives.SatsCoral130,
-                fg = SatsColorPrimitives.White100,
-            ),
             disabled = SatsColors2.Buttons.Cta.Disabled(
                 bg = SatsColorPrimitives.Black20,
                 fg = SatsColorPrimitives.White60,
@@ -75,16 +55,11 @@ internal val SatsLightColors2 = SatsColors2(
         ),
         action = SatsColors2.Buttons.Action(
             default = SatsColorPrimitives.SatsCoral120,
-            hover = SatsColorPrimitives.SatsCoral130,
             disabled = SatsColorPrimitives.Black20,
         ),
         waitingListFilled = SatsColors2.Buttons.WaitingListFilled(
             default = SatsColors2.Buttons.WaitingListFilled.Default(
                 bg = SatsColorPrimitives.EgyptianPurple80,
-                fg = SatsColorPrimitives.White100,
-            ),
-            hover = SatsColors2.Buttons.WaitingListFilled.Hover(
-                bg = SatsColorPrimitives.EgyptianPurple100,
                 fg = SatsColorPrimitives.White100,
             ),
             disabled = SatsColors2.Buttons.WaitingListFilled.Disabled(
@@ -94,16 +69,11 @@ internal val SatsLightColors2 = SatsColors2(
         ),
         waitingListOutlined = SatsColors2.Buttons.WaitingListOutlined(
             default = SatsColorPrimitives.EgyptianPurple80,
-            hover = SatsColorPrimitives.EgyptianPurple100,
             disabled = SatsColorPrimitives.Black60,
         ),
         deleteFilled = SatsColors2.Buttons.DeleteFilled(
             default = SatsColors2.Buttons.DeleteFilled.Default(
                 bg = SatsColorPrimitives.ChiliRed100,
-                fg = SatsColorPrimitives.White100,
-            ),
-            hover = SatsColors2.Buttons.DeleteFilled.Hover(
-                bg = SatsColorPrimitives.ChiliRed120,
                 fg = SatsColorPrimitives.White100,
             ),
             disabled = SatsColors2.Buttons.DeleteFilled.Disabled(
@@ -113,7 +83,6 @@ internal val SatsLightColors2 = SatsColors2(
         ),
         deleteOutlined = SatsColors2.Buttons.DeleteOutlined(
             default = SatsColorPrimitives.ChiliRed100,
-            hover = SatsColorPrimitives.ChiliRed120,
             disabled = SatsColorPrimitives.Black60,
         ),
     ),
@@ -188,10 +157,6 @@ internal val SatsLightColors2 = SatsColors2(
             selected = SatsColors2.GraphicalElements.Chips.Selected(
                 default = SatsColors2.GraphicalElements.Chips.Selected.Default(
                     bg = SatsColorPrimitives.SatsBlue,
-                    fg = SatsColorPrimitives.White100,
-                ),
-                hover = SatsColors2.GraphicalElements.Chips.Selected.Hover(
-                    bg = SatsColorPrimitives.BrightBlue10,
                     fg = SatsColorPrimitives.White100,
                 ),
                 disabled = SatsColors2.GraphicalElements.Chips.Selected.Disabled(
@@ -305,7 +270,6 @@ internal val SatsLightColors2 = SatsColors2(
         primary = SatsColors2.Backgrounds.Primary(
             bg = SatsColors2.Backgrounds.Primary.Bg(
                 default = SatsColorPrimitives.Black3,
-                hover = SatsColorPrimitives.White100,
                 selected = SatsColorPrimitives.Black3,
             ),
             fg = SatsColors2.Backgrounds.Primary.Fg(
@@ -317,7 +281,6 @@ internal val SatsLightColors2 = SatsColors2(
         secondary = SatsColors2.Backgrounds.Secondary(
             bg = SatsColors2.Backgrounds.Secondary.Bg(
                 default = SatsColorPrimitives.White100,
-                hover = SatsColorPrimitives.SatsBlue5,
                 selected = SatsColorPrimitives.White100,
             ),
             fg = SatsColors2.Backgrounds.Secondary.Fg(
@@ -329,7 +292,6 @@ internal val SatsLightColors2 = SatsColors2(
         fixed = SatsColors2.Backgrounds.Fixed(
             bg = SatsColors2.Backgrounds.Fixed.Bg(
                 default = SatsColorPrimitives.SatsBlue,
-                hover = SatsColorPrimitives.SatsBlue90,
                 selected = SatsColorPrimitives.SatsBlueGrey80,
             ),
             fg = SatsColors2.Backgrounds.Fixed.Fg(
@@ -343,7 +305,6 @@ internal val SatsLightColors2 = SatsColors2(
         primary = SatsColors2.Surfaces.Primary(
             bg = SatsColors2.Surfaces.Primary.Bg(
                 default = SatsColorPrimitives.White100,
-                hover = SatsColorPrimitives.BrightBlue10,
                 selected = SatsColorPrimitives.BrightBlue20,
             ),
             fg = SatsColors2.Surfaces.Primary.Fg(
@@ -362,7 +323,6 @@ internal val SatsLightColors2 = SatsColors2(
         secondary = SatsColors2.Surfaces.Secondary(
             bg = SatsColors2.Surfaces.Secondary.Bg(
                 default = SatsColorPrimitives.Black5,
-                hover = SatsColorPrimitives.White100,
                 selected = SatsColorPrimitives.Black5,
             ),
             fg = SatsColors2.Surfaces.Secondary.Fg(
@@ -381,7 +341,6 @@ internal val SatsLightColors2 = SatsColors2(
         fixed = SatsColors2.Surfaces.Fixed(
             bg = SatsColors2.Surfaces.Fixed.Bg(
                 default = SatsColorPrimitives.SatsBlueGrey80,
-                hover = SatsColorPrimitives.SatsBlue90,
                 selected = SatsColorPrimitives.SatsBlueGrey80,
             ),
             fg = SatsColors2.Surfaces.Fixed.Fg(

@@ -18,8 +18,20 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.theme.SatsTheme
 
+@Deprecated(
+    message = "Renamed to SatsLinearProgressBar",
+    replaceWith = ReplaceWith(
+        "SatsLinearProgressBar(progress, modifier)",
+        "com.sats.dna.components.progressbar.SatsLinearProgressBar",
+    ),
+)
 @Composable
-fun LinearProgressBar(
+fun LinearProgressBar(progress: Float, modifier: Modifier = Modifier) {
+    SatsLinearProgressBar(progress, modifier)
+}
+
+@Composable
+fun SatsLinearProgressBar(
     progress: Float,
     modifier: Modifier = Modifier,
 ) {
@@ -71,10 +83,10 @@ private fun DrawScope.drawProgress(progress: Float, color: Color) {
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun SatsLinearProgressBarPreview() {
     SatsTheme {
         Surface {
-            LinearProgressBar(
+            SatsLinearProgressBar(
                 progress = 1 / 3f,
                 modifier = Modifier
                     .padding(SatsTheme.spacing.m)
