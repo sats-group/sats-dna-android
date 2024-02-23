@@ -29,6 +29,7 @@ import com.sats.dna.components.SatsFormInputField
 import com.sats.dna.components.SatsFormTextField
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SatsSwitch
+import com.sats.dna.components.card.SatsCard
 import com.sats.dna.theme.SatsTheme
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
@@ -53,95 +54,107 @@ internal fun FormInputFieldsScreen(navigateUp: () -> Unit, modifier: Modifier = 
             Modifier
                 .verticalScroll(rememberScrollState())
                 .padding(innerPadding)
-                .padding(vertical = SatsTheme.spacing.m)
+                .padding(SatsTheme.spacing.m)
                 .fillMaxWidth(),
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
         ) {
             val (isFormEnabled, setIsFormEnabled) = rememberSaveable { mutableStateOf(true) }
 
-            Column {
-                SatsFormTextField(
-                    label = "Title",
-                    textFieldState = rememberTextFieldState(),
-                    modifier = Modifier.fillMaxWidth(),
-                    keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Words),
-                    isEnabled = isFormEnabled,
-                )
+            SatsCard {
+                Column {
+                    SatsFormTextField(
+                        label = "Title",
+                        textFieldState = rememberTextFieldState(),
+                        modifier = Modifier.fillMaxWidth(),
+                        keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Words),
+                        isEnabled = isFormEnabled,
+                    )
 
-                SatsHorizontalDivider()
+                    SatsHorizontalDivider()
 
-                var workoutType by rememberSaveable { mutableStateOf(WorkoutType.Strength) }
+                    var workoutType by rememberSaveable { mutableStateOf(WorkoutType.Strength) }
 
-                SatsFormInputField(
-                    label = "Workout type",
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable(
-                            enabled = isFormEnabled,
-                            onClick = { workoutType = workoutType.toggle() },
-                        ),
-                    isEnabled = isFormEnabled,
-                ) {
-                    Text(workoutType.label)
+                    SatsFormInputField(
+                        label = "Workout type",
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable(
+                                enabled = isFormEnabled,
+                                onClick = { workoutType = workoutType.toggle() },
+                            ),
+                        isEnabled = isFormEnabled,
+                    ) {
+                        Text(workoutType.label)
+                    }
                 }
             }
 
-            Column {
-                val localDateTimeState by remember { mutableStateOf(LocalDateTimeState()) }
+            SatsCard {
+                Column {
+                    val localDateTimeState by remember { mutableStateOf(LocalDateTimeState()) }
 
-                SatsFormDateTimeInputField(
-                    label = "Date & time",
-                    value = localDateTimeState.dateTime,
-                    onDateClicked = { localDateTimeState.changeDate() },
-                    onTimeClicked = { localDateTimeState.changeTime() },
-                    formatDate = { DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(it.toJavaLocalDate()) },
-                    formatTime = { DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT).format(it.toJavaLocalTime()) },
-                    modifier = Modifier.fillMaxWidth(),
-                    isEnabled = isFormEnabled,
-                )
+                    SatsFormDateTimeInputField(
+                        label = "Date & time",
+                        value = localDateTimeState.dateTime,
+                        onDateClicked = { localDateTimeState.changeDate() },
+                        onTimeClicked = { localDateTimeState.changeTime() },
+                        formatDate = {
+                            DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(it.toJavaLocalDate())
+                        },
+                        formatTime = {
+                            DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT).format(it.toJavaLocalTime())
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        isEnabled = isFormEnabled,
+                    )
 
-                SatsHorizontalDivider()
+                    SatsHorizontalDivider()
 
+                    SatsFormTextField(
+                        label = "Duration",
+                        textFieldState = rememberTextFieldState(),
+                        trailingText = "min",
+                        modifier = Modifier.fillMaxWidth(),
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                        inputTransformation = { _, valueWithChanges ->
+                            if (valueWithChanges.asCharSequence().any { !it.isDigit() }) {
+                                valueWithChanges.revertAllChanges()
+                            }
+                        },
+                        isEnabled = isFormEnabled,
+                    )
+
+                    SatsHorizontalDivider()
+
+                    SatsFormTextField(
+                        label = "Club",
+                        textFieldState = rememberTextFieldState(),
+                        hint = "(optional)",
+                        modifier = Modifier.fillMaxWidth(),
+                        keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Words),
+                        isEnabled = isFormEnabled,
+                    )
+                }
+            }
+
+            SatsCard {
                 SatsFormTextField(
-                    label = "Duration",
-                    textFieldState = rememberTextFieldState(),
-                    trailingText = "min",
-                    modifier = Modifier.fillMaxWidth(),
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                    inputTransformation = { _, valueWithChanges ->
-                        if (valueWithChanges.asCharSequence().any { !it.isDigit() }) {
-                            valueWithChanges.revertAllChanges()
-                        }
-                    },
-                    isEnabled = isFormEnabled,
-                )
-
-                SatsHorizontalDivider()
-
-                SatsFormTextField(
-                    label = "Club",
+                    label = "Workout description",
                     textFieldState = rememberTextFieldState(),
                     hint = "(optional)",
+                    lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 5, maxHeightInLines = 6),
                     modifier = Modifier.fillMaxWidth(),
-                    keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Words),
+                    keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Sentences),
                     isEnabled = isFormEnabled,
                 )
             }
 
-            SatsFormTextField(
-                label = "Workout description",
-                textFieldState = rememberTextFieldState(),
-                hint = "(optional)",
-                lineLimits = TextFieldLineLimits.MultiLine(minHeightInLines = 5, maxHeightInLines = 6),
-                modifier = Modifier.fillMaxWidth(),
-                keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Sentences),
-                isEnabled = isFormEnabled,
-            )
-
             SatsHorizontalDivider()
 
-            SatsFormInputField("Is form enabled", Modifier.fillMaxWidth()) {
-                SatsSwitch(isFormEnabled, setIsFormEnabled)
+            SatsCard {
+                SatsFormInputField("Is form enabled", Modifier.fillMaxWidth()) {
+                    SatsSwitch(isFormEnabled, setIsFormEnabled)
+                }
             }
         }
     }

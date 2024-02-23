@@ -193,7 +193,7 @@ private fun InputFieldContainer(
                     vertical = SatsTheme.spacing.xs,
                     horizontal = SatsTheme.spacing.m,
                 ),
-                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs)
+                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
             ) {
                 LabelAndHint(label, hint)
 
