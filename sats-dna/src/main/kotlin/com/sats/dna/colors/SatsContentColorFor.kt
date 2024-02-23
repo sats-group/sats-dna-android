@@ -53,14 +53,6 @@ fun satsContentColor2For(backgroundColor: Color): Color {
         buttons.waitingListFilled.default.bg -> buttons.waitingListFilled.default.fg
         buttons.deleteFilled.default.bg -> buttons.deleteFilled.default.fg
 
-        buttons.primary.hover.bg -> buttons.primary.hover.fg
-        buttons.secondary.hover.bg -> buttons.secondary.hover.fg
-        buttons.clean.hover.bg -> buttons.clean.hover.fg
-        buttons.cleanSecondary.hover.bg -> buttons.cleanSecondary.hover.fg
-        buttons.cta.hover.bg -> buttons.cta.hover.fg
-        buttons.waitingListFilled.hover.bg -> buttons.waitingListFilled.hover.fg
-        buttons.deleteFilled.hover.bg -> buttons.deleteFilled.hover.fg
-
         buttons.primary.disabled.bg -> buttons.primary.disabled.fg
         buttons.secondary.disabled.bg -> buttons.secondary.disabled.fg
         buttons.clean.disabled.bg -> buttons.clean.disabled.fg
@@ -70,7 +62,6 @@ fun satsContentColor2For(backgroundColor: Color): Color {
         buttons.deleteFilled.disabled.bg -> buttons.deleteFilled.disabled.fg
 
         graphicalElements.chips.selected.default.bg -> graphicalElements.chips.selected.default.fg
-        graphicalElements.chips.selected.hover.bg -> graphicalElements.chips.selected.hover.fg
         graphicalElements.chips.selected.disabled.bg -> graphicalElements.chips.selected.disabled.fg
         graphicalElements.chips.unselected.default.bg -> graphicalElements.chips.unselected.default.fg
         graphicalElements.chips.unselected.disabled.bg -> graphicalElements.chips.unselected.disabled.fg
@@ -85,27 +76,21 @@ fun satsContentColor2For(backgroundColor: Color): Color {
         graphicalElements.rewards.platinum.bg -> graphicalElements.rewards.platinum.bg
 
         backgrounds.primary.bg.default -> backgrounds.primary.fg.default
-        backgrounds.primary.bg.hover -> backgrounds.primary.fg.default
         backgrounds.primary.bg.selected -> backgrounds.primary.fg.default
 
         backgrounds.secondary.bg.default -> backgrounds.secondary.fg.default
-        backgrounds.secondary.bg.hover -> backgrounds.secondary.fg.default
         backgrounds.secondary.bg.selected -> backgrounds.secondary.fg.default
 
         backgrounds.fixed.bg.default -> backgrounds.fixed.fg.default
-        backgrounds.fixed.bg.hover -> backgrounds.fixed.fg.default
         backgrounds.fixed.bg.selected -> backgrounds.fixed.fg.default
 
         surfaces.primary.bg.default -> surfaces.primary.fg.default
-        surfaces.primary.bg.hover -> surfaces.primary.fg.default
         surfaces.primary.bg.selected -> surfaces.primary.fg.default
 
         surfaces.secondary.bg.default -> surfaces.secondary.fg.default
-        surfaces.secondary.bg.hover -> surfaces.secondary.fg.default
         surfaces.secondary.bg.selected -> surfaces.secondary.fg.default
 
         surfaces.fixed.bg.default -> surfaces.fixed.fg.default
-        surfaces.fixed.bg.hover -> surfaces.fixed.fg.default
         surfaces.fixed.bg.selected -> surfaces.fixed.fg.default
 
         signalSurfaces.success.bg -> signalSurfaces.success.fg.default
