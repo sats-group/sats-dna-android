@@ -138,6 +138,7 @@ fun InCardCardButton(
         Column {
             SatsHorizontalDivider()
             CardButton(
+                modifier = Modifier.fillMaxWidth(),
                 onClick = onClick,
                 text = text,
                 icon = icon,
