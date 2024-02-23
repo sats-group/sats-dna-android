@@ -55,6 +55,8 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+
+        isCoreLibraryDesugaringEnabled = true
     }
 
     composeOptions {
@@ -71,6 +73,7 @@ tasks.withType<KotlinCompile>().configureEach {
 }
 
 dependencies {
+    coreLibraryDesugaring(libs.android.desugarJdkLibs)
     debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.accompanist.insetsUi)
     implementation(libs.androidx.activity.compose)

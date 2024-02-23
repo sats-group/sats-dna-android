@@ -79,6 +79,7 @@ tasks.withType<KotlinCompile>().configureEach {
 dependencies {
     api(libs.androidx.compose.material)
     api(libs.androidx.compose.material3)
+    api(libs.kotlinx.datetime)
     debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.accompanist.insetsUi)
     implementation(libs.androidx.compose.foundation)

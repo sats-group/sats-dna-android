@@ -27,6 +27,7 @@ import com.sats.dna.sample.screens.ColorsSampleScreen
 import com.sats.dna.sample.screens.CompletedWorkoutListItemSampleScreen
 import com.sats.dna.sample.screens.DividersSampleScreen
 import com.sats.dna.sample.screens.EmptyStateSampleScreen
+import com.sats.dna.sample.screens.FormInputFieldsSampleScreen
 import com.sats.dna.sample.screens.FriendsBookingStatusSampleScreen
 import com.sats.dna.sample.screens.GeneralListItemSampleScreen
 import com.sats.dna.sample.screens.IconsSampleScreen
@@ -81,6 +82,7 @@ internal fun HomeScreen(navController: NavController) {
             CompletedWorkoutListItemSampleScreen.HomeListItem(navController)
             DividersSampleScreen.HomeListItem(navController)
             EmptyStateSampleScreen.HomeListItem(navController)
+            FormInputFieldsSampleScreen.HomeListItem(navController)
             FriendsBookingStatusSampleScreen.HomeListItem(navController)
             GeneralListItemSampleScreen.HomeListItem(navController)
             JoinYourFriendsSampleScreen.HomeListItem(navController)
