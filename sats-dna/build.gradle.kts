@@ -88,6 +88,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.ui.util)
     implementation(libs.coil.compose)
+    implementation(libs.kotlinx.serialization.json) // required for kotlinx.datetime R8 rules
     implementation(libs.sats.fonts.headline)
     implementation(platform(libs.androidx.compose.bom))
 }
