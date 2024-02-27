@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -14,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.tooling.preview.PreviewFontScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SatsSurface
@@ -162,9 +164,13 @@ fun TwoOptionsInCardCardButton(
     SatsSurface(modifier) {
         Column(Modifier.height(IntrinsicSize.Min)) {
             SatsHorizontalDivider()
-            Row(horizontalArrangement = Arrangement.SpaceAround) {
+            Row(
+                Modifier.height(IntrinsicSize.Min),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceAround,
+            ) {
                 CardButton(
-                    modifier = Modifier.weight(1f),
+                    modifier = Modifier.weight(1f).fillMaxHeight(),
                     onClick = firstOptionOnClick,
                     text = firstOptionText,
                     icon = firstOptionIcon,
@@ -173,7 +179,7 @@ fun TwoOptionsInCardCardButton(
                 )
                 SatsVerticalDivider()
                 CardButton(
-                    modifier = Modifier.weight(1f),
+                    modifier = Modifier.weight(1f).fillMaxHeight(),
                     onClick = secondOptionOnClick,
                     text = secondOptionText,
                     icon = secondOptionIcon,
@@ -235,6 +241,7 @@ private fun OneOptionInCardCardButtonPreview() {
     }
 }
 
+@PreviewFontScale
 @PreviewLightDark
 @Composable
 private fun TwoOptionInCardCardButtonPreview() {
@@ -242,8 +249,8 @@ private fun TwoOptionInCardCardButtonPreview() {
         TwoOptionsInCardCardButton(
             modifier = Modifier.fillMaxWidth(),
             firstOptionOnClick = {},
-            firstOptionText = "Add workout",
-            firstOptionIcon = SatsTheme.icons.add,
+            firstOptionText = "Book",
+            firstOptionIcon = SatsTheme.icons.time,
             secondOptionOnClick = {},
             secondOptionText = "Schedule",
             secondOptionIcon = SatsTheme.icons.calendar,
