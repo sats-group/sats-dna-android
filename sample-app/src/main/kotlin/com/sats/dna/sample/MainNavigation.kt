@@ -11,6 +11,7 @@ import com.sats.dna.sample.screens.BrandLogoSampleScreen
 import com.sats.dna.sample.screens.ButtonsSampleScreen
 import com.sats.dna.sample.screens.CampaignModuleSampleScreen
 import com.sats.dna.sample.screens.CardSampleScreen
+import com.sats.dna.sample.screens.ChallengeBackgroundSampleScreen
 import com.sats.dna.sample.screens.ChallengeBadgeSampleScreen
 import com.sats.dna.sample.screens.CheckboxSampleScreen
 import com.sats.dna.sample.screens.ChipsSampleScreen
@@ -59,6 +60,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         ButtonsSampleScreen.navScreen(navController)
         CampaignModuleSampleScreen.navScreen(navController)
         CardSampleScreen.navScreen(navController)
+        ChallengeBackgroundSampleScreen.navScreen(navController)
         ChallengeBadgeSampleScreen.navScreen(navController)
         CheckboxSampleScreen.navScreen(navController)
         ChipsSampleScreen.navScreen(navController)
