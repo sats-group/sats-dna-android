@@ -175,7 +175,7 @@ private fun UpcomingWorkoutsListPreview() {
                             SatsButton(
                                 onClick = { },
                                 label = "Unbook",
-                                colors = SatsButtonColor.Transparent,
+                                colors = SatsButtonColor.Action,
                             )
                         },
                         friendsAttending = {

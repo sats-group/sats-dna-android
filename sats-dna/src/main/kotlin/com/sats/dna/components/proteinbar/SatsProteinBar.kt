@@ -152,7 +152,7 @@ private fun ActionButton(action: SatsProteinBarAction, modifier: Modifier = Modi
         onClick = action.action,
         label = action.label,
         modifier = modifier,
-        colors = SatsButtonColor.Transparent,
+        colors = SatsButtonColor.Action,
     )
 }
 

@@ -16,7 +16,6 @@ enum class SatsButtonColor {
     WaitingList,
     WaitingListSecondary,
     Action,
-    Transparent,
 }
 
 @Composable
@@ -56,7 +55,6 @@ internal val SatsButtonColor.backgroundColor: Color
         SatsButtonColor.WaitingList -> SatsTheme.colors2.buttons.waitingListFilled.default.bg
         SatsButtonColor.WaitingListSecondary -> Color.Transparent
         SatsButtonColor.Action -> Color.Transparent
-        SatsButtonColor.Transparent -> Color.Transparent
     }
 
 internal val SatsButtonColor.contentColor: Color
@@ -68,8 +66,7 @@ internal val SatsButtonColor.contentColor: Color
         SatsButtonColor.CleanSecondary -> SatsTheme.colors2.buttons.cleanSecondary.default.fg
         SatsButtonColor.WaitingList -> SatsTheme.colors2.buttons.waitingListFilled.default.fg
         SatsButtonColor.WaitingListSecondary -> SatsTheme.colors2.buttons.waitingListOutlined.default
-        SatsButtonColor.Action -> SatsTheme.colors.action.default
-        SatsButtonColor.Transparent -> SatsTheme.colors2.buttons.action.default
+        SatsButtonColor.Action -> SatsTheme.colors2.buttons.action.default
     }
 
 internal val SatsButtonColor.disabledBackgroundColor: Color
@@ -82,7 +79,6 @@ internal val SatsButtonColor.disabledBackgroundColor: Color
         SatsButtonColor.WaitingList -> SatsTheme.colors2.buttons.waitingListFilled.disabled.bg
         SatsButtonColor.WaitingListSecondary -> Color.Transparent
         SatsButtonColor.Action -> Color.Transparent
-        SatsButtonColor.Transparent -> Color.Transparent
     }
 
 internal val SatsButtonColor.disabledContentColor: Color
@@ -94,6 +90,5 @@ internal val SatsButtonColor.disabledContentColor: Color
         SatsButtonColor.CleanSecondary -> SatsTheme.colors2.buttons.cleanSecondary.disabled.fg
         SatsButtonColor.WaitingList -> SatsTheme.colors2.buttons.waitingListFilled.disabled.fg
         SatsButtonColor.WaitingListSecondary -> SatsTheme.colors2.buttons.waitingListOutlined.disabled
-        SatsButtonColor.Action -> SatsTheme.colors.action.disabled
-        SatsButtonColor.Transparent -> SatsTheme.colors2.buttons.action.disabled
+        SatsButtonColor.Action -> SatsTheme.colors2.buttons.action.disabled
     }
