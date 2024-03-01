@@ -68,7 +68,6 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                 SatsButtonColor.CleanSecondary,
                 SatsButtonColor.WaitingList,
                 SatsButtonColor.Action,
-                SatsButtonColor.Transparent,
             ).forEach { color ->
                 val backgroundColor = if (color == SatsButtonColor.Clean || color == SatsButtonColor.CleanSecondary) {
                     SatsTheme.colors2.backgrounds.fixed.bg.default
@@ -121,7 +120,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                     listOf(
                         SatsButtonColor.Clean,
                         SatsButtonColor.WaitingList,
-                        SatsButtonColor.Transparent,
+                        SatsButtonColor.Action,
                     ).forEach { color ->
                         SatsIconButton(
                             onClick = {},

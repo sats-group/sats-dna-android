@@ -50,7 +50,7 @@ private fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Modi
                             SatsButton(
                                 onClick = { },
                                 label = "Unbook",
-                                colors = SatsButtonColor.Transparent,
+                                colors = SatsButtonColor.Action,
                             )
                         },
                         onClick = {},
@@ -75,7 +75,7 @@ private fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Modi
                             SatsButton(
                                 onClick = { },
                                 label = "Unbook",
-                                colors = SatsButtonColor.Transparent,
+                                colors = SatsButtonColor.Action,
                             )
                         },
                         onClick = {},

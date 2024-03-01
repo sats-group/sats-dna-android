@@ -73,7 +73,7 @@ private fun CardHeader(title: String, action: SatsTitledCardAction?, modifier: M
                         onClick = action.action,
                         icon = SatsTheme.icons.arrowRight,
                         onClickLabel = action.contentDescription,
-                        colors = SatsButtonColor.Transparent,
+                        colors = SatsButtonColor.Action,
                     )
                 }
             }
