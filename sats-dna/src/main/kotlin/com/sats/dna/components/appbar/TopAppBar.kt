@@ -1,16 +1,16 @@
 package com.sats.dna.components.appbar
 
-import androidx.compose.material3.Icon as M3Icon
-import androidx.compose.material3.IconButton as M3IconButton
-import androidx.compose.material3.Text as M3Text
-import androidx.compose.material3.TopAppBar as M3TopAppBar
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.ProvideTextStyle
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
@@ -23,7 +23,7 @@ import com.sats.dna.theme.SatsTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun M3SatsTopAppBar(
+fun SatsTopAppBar(
     title: String,
     modifier: Modifier = Modifier,
     navigationIcon: @Composable () -> Unit = {},
@@ -31,8 +31,8 @@ fun M3SatsTopAppBar(
     scrollBehavior: TopAppBarScrollBehavior? = null,
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
 ) {
-    M3SatsTopAppBar(
-        title = { M3Text(title) },
+    SatsTopAppBar(
+        title = { Text(title) },
         modifier = modifier,
         navigationIcon = navigationIcon,
         actions = actions,
@@ -43,7 +43,7 @@ fun M3SatsTopAppBar(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun M3SatsTopAppBar(
+fun SatsTopAppBar(
     title: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     navigationIcon: @Composable () -> Unit = {},
@@ -65,7 +65,7 @@ fun M3SatsTopAppBar(
         SatsTheme.colors2.backgrounds.primary.bg.default
     }
 
-    M3TopAppBar(
+    TopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = containerColor,
             scrolledContainerColor = scrolledContainerColor,
@@ -91,14 +91,14 @@ fun M3SatsTopAppBar(
 @OptIn(ExperimentalMaterial3Api::class)
 @PreviewLightDark
 @Composable
-private fun Material3Preview() {
+private fun SatsTopAppBarPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            M3SatsTopAppBar(
+            SatsTopAppBar(
                 modifier = Modifier.padding(SatsTheme.spacing.m),
                 navigationIcon = {
-                    M3IconButton(onClick = {}) {
-                        M3Icon(SatsTheme.icons.back, contentDescription = null)
+                    IconButton(onClick = {}) {
+                        Icon(SatsTheme.icons.back, contentDescription = null)
                     }
                 },
                 title = "Top App Bar",
@@ -107,8 +107,8 @@ private fun Material3Preview() {
                         SatsTheme.icons.barbell,
                         SatsTheme.icons.addPerson,
                     ).forEach { icon ->
-                        M3IconButton(onClick = {}) {
-                            M3Icon(icon, contentDescription = null)
+                        IconButton(onClick = {}) {
+                            Icon(icon, contentDescription = null)
                         }
                     }
                 },

@@ -18,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.LocalUseMaterial3
-import com.sats.dna.components.appbar.M3SatsTopAppBar
 import com.sats.dna.components.appbar.SatsLargeTopAppBar
 import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.theme.SatsTheme
@@ -52,7 +51,7 @@ private fun TopAppBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifie
             }
 
             Section("Material 3 Regular") {
-                M3SatsTopAppBar(
+                SatsTopAppBar(
                     title = "M3 Top App Bar",
                     navigationIcon = { UpIconButton() },
                     actions = { Actions() },
