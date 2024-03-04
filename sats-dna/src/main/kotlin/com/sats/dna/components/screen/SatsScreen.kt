@@ -22,7 +22,7 @@ import com.sats.dna.components.proteinbar.SatsProteinBarVisuals
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun M3SatsScreen(
+fun SatsScreen(
     modifier: Modifier = Modifier,
     topBar: @Composable () -> Unit = {},
     bottomBar: @Composable () -> Unit = { Spacer(Modifier.navigationBarsPadding()) },
@@ -39,7 +39,7 @@ fun M3SatsScreen(
             bottomBar = bottomBar,
             containerColor = SatsTheme.colors2.backgrounds.primary.bg.default,
             contentColor = SatsTheme.colors2.backgrounds.primary.fg.default,
-            snackbarHost = { M3SatsProteinBarHost(proteinBarHostState, Modifier.padding(proteinBarPadding)) },
+            snackbarHost = { SatsProteinBarHost(proteinBarHostState, Modifier.padding(proteinBarPadding)) },
             floatingActionButton = floatingActionButton,
         ) { scaffoldContentPadding ->
             val screenContentPadding = PaddingValues(
@@ -57,7 +57,7 @@ fun M3SatsScreen(
 }
 
 @Composable
-private fun M3SatsProteinBarHost(snackbarHostState: SnackbarHostState, modifier: Modifier = Modifier) {
+private fun SatsProteinBarHost(snackbarHostState: SnackbarHostState, modifier: Modifier = Modifier) {
     SnackbarHost(snackbarHostState, modifier) { snackbarData ->
         when (val visuals = snackbarData.visuals) {
             is SatsProteinBarVisuals -> {

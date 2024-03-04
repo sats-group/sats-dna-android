@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.appbar.SatsTopAppBar
-import com.sats.dna.components.screen.M3SatsScreen
+import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.sample.screens.BannerSampleScreen
 import com.sats.dna.sample.screens.BottomNavigationSampleScreen
 import com.sats.dna.sample.screens.BrandLogoSampleScreen
@@ -55,7 +55,7 @@ import com.sats.dna.theme.SatsTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun HomeScreen(navController: NavController) {
-    M3SatsScreen(
+    SatsScreen(
         topBar = { SatsTopAppBar("SATS DNA Sample App") },
         bottomBar = { Box(Modifier.navigationBarsPadding()) },
     ) { innerPadding ->
