@@ -15,7 +15,7 @@ import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun M3SatsTextField(
+fun SatsTextField(
     value: String,
     onValueChange: (newValue: String) -> Unit,
     modifier: Modifier = Modifier,
@@ -51,10 +51,10 @@ fun M3SatsTextField(
 
 @PreviewLightDark
 @Composable
-private fun EnabledMaterial3TextFieldPreview() {
+private fun SatsTextFieldEnabledPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
-            M3SatsTextField(
+            SatsTextField(
                 value = "Text",
                 onValueChange = { },
                 supportingText = { MaterialText("This is a hint text for the user.") },
@@ -66,10 +66,10 @@ private fun EnabledMaterial3TextFieldPreview() {
 
 @PreviewLightDark
 @Composable
-private fun DisabledMaterial3TextFieldPreview() {
+private fun SatsTextFieldDisabledPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
-            M3SatsTextField(
+            SatsTextField(
                 value = "Text",
                 onValueChange = { },
                 supportingText = { MaterialText("This is a hint text for the user.") },

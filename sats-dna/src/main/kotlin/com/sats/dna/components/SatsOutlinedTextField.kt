@@ -16,7 +16,7 @@ import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun M3SatsOutlinedTextField(
+fun SatsOutlinedTextField(
     value: String,
     onValueChange: (newValue: String) -> Unit,
     modifier: Modifier = Modifier,
@@ -31,7 +31,7 @@ fun M3SatsOutlinedTextField(
     singleLine: Boolean = false,
     maxLines: Int = if (singleLine) 1 else Int.MAX_VALUE,
     minLines: Int = 1,
-    colors: TextFieldColors = M3SatsOutlinedTextFieldDefaults.colors(),
+    colors: TextFieldColors = SatsOutlinedTextFieldDefaults.colors(),
 ) {
     OutlinedTextField(
         value = value,
@@ -51,7 +51,7 @@ fun M3SatsOutlinedTextField(
     )
 }
 
-object M3SatsOutlinedTextFieldDefaults {
+object SatsOutlinedTextFieldDefaults {
     @Composable
     fun colors(
         focusedTextColor: Color = Color.Unspecified,
@@ -148,10 +148,10 @@ object M3SatsOutlinedTextFieldDefaults {
 
 @PreviewLightDark
 @Composable
-private fun M3SatsOutlinedTextFieldEnabledPreview() {
+private fun SatsOutlinedTextFieldEnabledPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
-            M3SatsOutlinedTextField(
+            SatsOutlinedTextField(
                 value = "Text",
                 onValueChange = { },
                 supportingText = { MaterialText("This is a hint text for the user.") },
@@ -163,10 +163,10 @@ private fun M3SatsOutlinedTextFieldEnabledPreview() {
 
 @PreviewLightDark
 @Composable
-private fun M3SatsOutlinedTextFieldDisabledPreview() {
+private fun SatsOutlinedTextFieldDisabledPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
-            M3SatsOutlinedTextField(
+            SatsOutlinedTextField(
                 value = "Text",
                 onValueChange = { },
                 supportingText = { MaterialText("This is a hint text for the user.") },

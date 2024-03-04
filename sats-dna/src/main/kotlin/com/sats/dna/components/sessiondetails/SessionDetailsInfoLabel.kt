@@ -1,7 +1,5 @@
 package com.sats.dna.components.sessiondetails
 
-import androidx.compose.material.LocalContentColor as M2LocalContentColor
-import androidx.compose.material3.LocalContentColor as M3LocalContentColor
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -23,6 +21,8 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
+import androidx.compose.material.LocalContentColor as M2LocalContentColor
+import androidx.compose.material3.LocalContentColor as M3LocalContentColor
 
 /**
  * Layout composable for info labels in a session detail screen.
