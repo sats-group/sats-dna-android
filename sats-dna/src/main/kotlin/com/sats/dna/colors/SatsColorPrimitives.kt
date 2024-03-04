@@ -3,12 +3,14 @@ package com.sats.dna.colors
 import androidx.compose.ui.graphics.Color
 
 internal object SatsColorPrimitives {
+    val SatsBlue110 = Color(0xFF06101A)
     val SatsBlue = Color(0xFF0D2134)
     val SatsBlue90 = Color(0xFF253748)
     val SatsBlueGrey80 = Color(0xFF404D5B)
     val SatsBlue70 = Color(0xFF566471)
     val SatsBlue40 = Color(0xFF9EA6AE)
     val SatsBlue20 = Color(0xFFCFD3D6)
+    val SatsBlue10 = Color(0xFFE7E9EB)
     val SatsLightGrey15 = Color(0xFFDCDEE0)
     val SatsBlue5 = Color(0xFFF3F4F5)
 
@@ -18,6 +20,7 @@ internal object SatsColorPrimitives {
     val SatsCoral120 = Color(0xFFC84229)
     val SatsCoral = Color(0xFFFA5333)
     val SatsCoral90 = Color(0xFFFB6447)
+    val SatsCoral60 = Color(0xFFFC9885)
     val SatsCoral40 = Color(0xFFFDBAAD)
     val SatsCoral10 = Color(0xFFFFEEEB)
     val SatsCoral5 = Color(0xFFFFF6F5)
@@ -37,6 +40,7 @@ internal object SatsColorPrimitives {
     val White5 = Color(0x0DFFFFFF)
 
     val Black = Color(0xFF000000)
+    val Black95 = Color(0xFF0D0D0D)
     val Black90 = Color(0xFF1A1A1A)
     val Black85 = Color(0xFF262626)
     val Black80 = Color(0xFF333333)
@@ -60,6 +64,7 @@ internal object SatsColorPrimitives {
     val SpringGreen120 = Color(0xFF076646)
     val SpringGreen100 = Color(0xFF097F58)
     val SpringGreen80 = Color(0xFF3A9979)
+    val SpringGreen60 = Color(0xFF6BB29B)
     val SpringGreen30 = Color(0xFF6BB29B)
     val SpringGreen10 = Color(0xFFE6F2EE)
 
@@ -69,6 +74,7 @@ internal object SatsColorPrimitives {
     val Gold110 = Color(0xFFCCA442)
     val Gold100 = Color(0xFFE2B74A)
     val Gold80 = Color(0xFFE7C46D)
+    val Gold60 = Color(0xFFECD290)
     val Gold30 = Color(0xFFECD290)
     val Gold10 = Color(0xFFF8F3E8)
 
@@ -83,6 +89,7 @@ internal object SatsColorPrimitives {
     val EgyptianPurple100 = Color(0xFF37378B)
     val EgyptianPurple80 = Color(0xFF5F5FA2)
     val EgyptianPurple60 = Color(0xFF8787B9)
+    val EgyptianPurple40 = Color(0xFFAFAFD1)
     val EgyptianPurple10 = Color(0xFFEBEBF3)
 
     val BrightBlue170 = Color(0xFF0B2335)
@@ -108,4 +115,7 @@ internal object SatsColorPrimitives {
 
     val CaribbeanCurrent100 = Color(0xFF065D63)
     val CaribbeanCurrent70 = Color(0xFF4E7E81)
+
+    val TropicalIndigo100 = Color(0xFFA670FF)
+    val TropicalIndigo70 = Color(0xFFD6BDFF)
 }
