@@ -27,6 +27,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
@@ -144,10 +145,10 @@ private fun DateTimeBox(
         color = SatsTheme.colors2.surfaces.secondary.bg.default,
         shape = SatsTheme.shapes.roundedCorners.extraSmall,
     ) {
-        val color = if (isEnabled) {
-            SatsTheme.colors2.buttons.action.default
+        val color: Color = if (isEnabled) {
+            SatsTheme.colors2.buttons.action.default.fg
         } else {
-            SatsTheme.colors2.buttons.action.disabled
+            SatsTheme.colors2.buttons.action.disabled.fg
         }
 
         Text(

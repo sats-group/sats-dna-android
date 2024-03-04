@@ -52,7 +52,7 @@ fun SatsTopAppBar(
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
 ) {
     val scrolledContainerColor = if (SatsTheme.colors2.isLightMode) {
-        SatsTheme.colors2.surfaces.fixed.bg.default.copy(alpha = .05f)
+        SatsTheme.colors2.surfaces.fixed.primary.bg.default.copy(alpha = .05f)
     } else {
         SatsTheme.colors2.surfaces.primary.bg.default
     }.compositeOver(SatsTheme.colors2.backgrounds.primary.bg.default)

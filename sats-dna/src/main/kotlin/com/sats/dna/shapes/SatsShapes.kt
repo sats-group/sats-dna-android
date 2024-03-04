@@ -68,7 +68,7 @@ private fun Preview(@PreviewParameter(SatsShapePreviewProvider::class) shape: Sh
                     .size(256.dp)
                     .padding(SatsTheme.spacing.m)
                     .clip(shape)
-                    .background(SatsTheme.colors2.backgrounds.fixed.bg.default),
+                    .background(SatsTheme.colors2.backgrounds.fixed.primary.bg.default),
             )
         }
     }

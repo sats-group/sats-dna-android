@@ -33,19 +33,19 @@ fun SatsSwitch(
 
 private val colors
     @Composable get() = SwitchDefaults.colors(
-        checkedThumbColor = SatsTheme.colors2.graphicalElements.toggle.interactiveElement,
+        checkedThumbColor = SatsTheme.colors2.graphicalElements.toggle.handle,
         checkedTrackColor = SatsTheme.colors2.graphicalElements.toggle.selected.default,
         checkedBorderColor = Color.Transparent,
         checkedIconColor = SatsTheme.colors2.graphicalElements.toggle.selected.default,
-        uncheckedThumbColor = SatsTheme.colors2.graphicalElements.toggle.interactiveElement,
+        uncheckedThumbColor = SatsTheme.colors2.graphicalElements.toggle.handle,
         uncheckedTrackColor = SatsTheme.colors2.graphicalElements.toggle.unselected.default,
         uncheckedBorderColor = Color.Transparent,
         uncheckedIconColor = SatsTheme.colors2.graphicalElements.toggle.unselected.default,
-        disabledCheckedThumbColor = SatsTheme.colors2.graphicalElements.toggle.interactiveElement,
+        disabledCheckedThumbColor = SatsTheme.colors2.graphicalElements.toggle.handle,
         disabledCheckedTrackColor = SatsTheme.colors2.graphicalElements.toggle.selected.disabled,
         disabledCheckedBorderColor = Color.Transparent,
         disabledCheckedIconColor = SatsTheme.colors2.graphicalElements.toggle.selected.disabled,
-        disabledUncheckedThumbColor = SatsTheme.colors2.graphicalElements.toggle.interactiveElement,
+        disabledUncheckedThumbColor = SatsTheme.colors2.graphicalElements.toggle.handle,
         disabledUncheckedTrackColor = SatsTheme.colors2.graphicalElements.toggle.unselected.disabled,
         disabledUncheckedBorderColor = Color.Transparent,
         disabledUncheckedIconColor = SatsTheme.colors2.graphicalElements.toggle.unselected.disabled,

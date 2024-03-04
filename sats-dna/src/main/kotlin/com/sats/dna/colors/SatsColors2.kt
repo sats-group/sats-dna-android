@@ -15,23 +15,16 @@ class SatsColors2(
         val secondary: Secondary,
         val clean: Clean,
         val cleanSecondary: CleanSecondary,
-        val cta: Cta,
         val action: Action,
         val waitingListFilled: WaitingListFilled,
-        val waitingListOutlined: WaitingListOutlined,
-        val deleteFilled: DeleteFilled,
-        val deleteOutlined: DeleteOutlined,
+        val waitingListSecondary: WaitingListSecondary,
+        val destructive: Destructive,
     ) {
         class Primary(
             val default: Default,
             val disabled: Disabled,
         ) {
             class Default(
-                val bg: Color,
-                val fg: Color,
-            )
-
-            class Hover(
                 val bg: Color,
                 val fg: Color,
             )
@@ -47,19 +40,18 @@ class SatsColors2(
             val disabled: Disabled,
         ) {
             class Default(
-                val bg: Color,
+                val outline: Color,
                 val fg: Color,
-            )
-
-            class Hover(
-                val bg: Color,
-                val fg: Color,
-            )
+            ) {
+                val bg: Color = Color.Transparent
+            }
 
             class Disabled(
-                val bg: Color,
+                val outline: Color,
                 val fg: Color,
-            )
+            ) {
+                val bg: Color = Color.Transparent
+            }
         }
 
         class Clean(
@@ -67,11 +59,6 @@ class SatsColors2(
             val disabled: Disabled,
         ) {
             class Default(
-                val bg: Color,
-                val fg: Color,
-            )
-
-            class Hover(
                 val bg: Color,
                 val fg: Color,
             )
@@ -88,44 +75,33 @@ class SatsColors2(
         ) {
             class Default(
                 val bg: Color,
-                val fg: Color,
-            )
-
-            class Hover(
-                val bg: Color,
+                val outline: Color,
                 val fg: Color,
             )
 
             class Disabled(
                 val bg: Color,
-                val fg: Color,
-            )
-        }
-
-        class Cta(
-            val default: Default,
-            val disabled: Disabled,
-        ) {
-            class Default(
-                val bg: Color,
-                val fg: Color,
-            )
-
-            class Hover(
-                val bg: Color,
-                val fg: Color,
-            )
-
-            class Disabled(
-                val bg: Color,
+                val outline: Color,
                 val fg: Color,
             )
         }
 
         class Action(
-            val default: Color,
-            val disabled: Color,
-        )
+            val default: Default,
+            val disabled: Disabled,
+        ) {
+            class Default(
+                val fg: Color,
+            ) {
+                val bg = Color.Transparent
+            }
+
+            class Disabled(
+                val fg: Color,
+            ) {
+                val bg = Color.Transparent
+            }
+        }
 
         class WaitingListFilled(
             val default: Default,
@@ -136,54 +112,79 @@ class SatsColors2(
                 val fg: Color,
             )
 
-            class Hover(
-                val bg: Color,
-                val fg: Color,
-            )
-
             class Disabled(
                 val bg: Color,
                 val fg: Color,
             )
         }
 
-        class WaitingListOutlined(
-            val default: Color,
-            val disabled: Color,
-        )
-
-        class DeleteFilled(
+        class WaitingListSecondary(
             val default: Default,
             val disabled: Disabled,
         ) {
             class Default(
-                val bg: Color,
+                val outline: Color,
                 val fg: Color,
-            )
-
-            class Hover(
-                val bg: Color,
-                val fg: Color,
-            )
+            ) {
+                val bg = Color.Transparent
+            }
 
             class Disabled(
-                val bg: Color,
+                val outline: Color,
                 val fg: Color,
-            )
+            ) {
+                val bg = Color.Transparent
+            }
         }
 
-        class DeleteOutlined(
-            val default: Color,
-            val disabled: Color,
-        )
+        class Destructive(
+            val default: Default,
+            val alternate: Alternate,
+        ) {
+            class Default(
+                val default: Default,
+                val disabled: Disabled,
+            ) {
+                class Default(
+                    val bg: Color,
+                    val fg: Color,
+                )
+
+                class Disabled(
+                    val bg: Color,
+                    val fg: Color,
+                )
+            }
+
+            class Alternate(
+                val default: Default,
+                val disabled: Disabled,
+            ) {
+                class Default(
+                    val fg: Color,
+                ) {
+                    val outline: Color = fg
+                    val bg: Color = Color.Transparent
+                }
+
+                class Disabled(
+                    val fg: Color,
+                ) {
+                    val bg: Color = Color.Transparent
+                    val outline: Color = fg
+                }
+            }
+        }
     }
 
     class GraphicalElements(
         val divider: Divider,
         val border: Border,
+        val signalBorder: SignalBorder,
         val skeleton: Color,
         val navBar: NavBar,
         val progressBar: ProgressBar,
+        val fixedProgressBar: FixedProgressBar,
         val graphs: Graphs,
         val selector: Selector,
         val selectorFixed: SelectorFixed,
@@ -206,6 +207,16 @@ class SatsColors2(
             val focused: Color,
         )
 
+        class SignalBorder(
+            val success: Color,
+            val warning: Color,
+            val error: Color,
+            val waitingList: Color,
+            val neutral: Color,
+            val information: Color,
+            val featured: Color,
+        )
+
         class NavBar(
             val selected: Color,
             val notSelected: Color,
@@ -213,6 +224,13 @@ class SatsColors2(
 
         class ProgressBar(
             val indicator: Color,
+            val indicatorAlternate: Color,
+            val bg: Color,
+        )
+
+        class FixedProgressBar(
+            val indicator: Color,
+            val indicatorAlternate: Color,
             val bg: Color,
         )
 
@@ -316,7 +334,7 @@ class SatsColors2(
 
         class Toggle(
             val unselected: Unselected,
-            val interactiveElement: Color,
+            val handle: Color,
             val selected: Selected,
         ) {
             class Unselected(
@@ -429,7 +447,8 @@ class SatsColors2(
             val gx: Gx,
             val treatments: Treatments,
             val gymfloor: Gymfloor,
-            val ownTrainingOther: OwnTrainingOther,
+            val other: Other,
+            val bootcamp: Bootcamp,
         ) {
             class Pt(
                 val bg: Color,
@@ -451,7 +470,12 @@ class SatsColors2(
                 val fg: Color,
             )
 
-            class OwnTrainingOther(
+            class Other(
+                val bg: Color,
+                val fg: Color,
+            )
+
+            class Bootcamp(
                 val bg: Color,
                 val fg: Color,
             )
@@ -496,19 +520,40 @@ class SatsColors2(
         }
 
         class Fixed(
-            val bg: Bg,
-            val fg: Fg,
+            val primary: Primary,
+            val secondary: Secondary,
         ) {
-            class Bg(
-                val default: Color,
-                val selected: Color,
-            )
+            class Primary(
+                val bg: Bg,
+                val fg: Fg,
+            ) {
+                class Bg(
+                    val default: Color,
+                    val selected: Color,
+                )
 
-            class Fg(
-                val default: Color,
-                val alternate: Color,
-                val disabled: Color,
-            )
+                class Fg(
+                    val default: Color,
+                    val alternate: Color,
+                    val disabled: Color,
+                )
+            }
+
+            class Secondary(
+                val bg: Bg,
+                val fg: Fg,
+            ) {
+                class Bg(
+                    val default: Color,
+                    val selected: Color,
+                )
+
+                class Fg(
+                    val default: Color,
+                    val alternate: Color,
+                    val disabled: Color,
+                )
+            }
         }
     }
 
@@ -524,6 +569,7 @@ class SatsColors2(
             class Bg(
                 val default: Color,
                 val selected: Color,
+                val disabled: Color,
             )
 
             class Fg(
@@ -564,20 +610,54 @@ class SatsColors2(
         }
 
         class Fixed(
-            val bg: Bg,
-            val fg: Fg,
+            val primary: Primary,
+            val secondary: Secondary,
         ) {
-            class Bg(
-                val default: Color,
-                val selected: Color,
-            )
+            class Primary(
+                val bg: Bg,
+                val fg: Fg,
+            ) {
+                class Bg(
+                    val default: Color,
+                    val selected: Color,
+                )
 
-            class Fg(
-                val default: Color,
-                val alternate: Color,
-                val disabled: Color,
-                val featured: Color,
-            )
+                class Fg(
+                    val default: Color,
+                    val alternate: Color,
+                    val disabled: Color,
+                    val success: Color,
+                    val warning: Color,
+                    val error: Color,
+                    val waitlist: Color,
+                    val neutral: Color,
+                    val information: Color,
+                    val featured: Color,
+                )
+            }
+
+            class Secondary(
+                val bg: Bg,
+                val fg: Fg,
+            ) {
+                class Bg(
+                    val default: Color,
+                    val selected: Color,
+                )
+
+                class Fg(
+                    val default: Color,
+                    val alternate: Color,
+                    val disabled: Color,
+                    val success: Color,
+                    val warning: Color,
+                    val error: Color,
+                    val waitlist: Color,
+                    val neutral: Color,
+                    val information: Color,
+                    val featured: Color,
+                )
+            }
         }
     }
 
@@ -585,9 +665,10 @@ class SatsColors2(
         val success: Success,
         val warning: Warning,
         val error: Error,
-        val waitlist: Waitlist,
+        val waitingList: WaitingList,
         val neutral: Neutral,
         val information: Information,
+        val featured: Featured,
     ) {
         class Success(
             val bg: Color,
@@ -619,7 +700,7 @@ class SatsColors2(
             )
         }
 
-        class Waitlist(
+        class WaitingList(
             val bg: Color,
             val fg: Fg,
         ) {
@@ -640,6 +721,16 @@ class SatsColors2(
         }
 
         class Information(
+            val bg: Color,
+            val fg: Fg,
+        ) {
+            class Fg(
+                val default: Color,
+                val alternate: Color,
+            )
+        }
+
+        class Featured(
             val bg: Color,
             val fg: Fg,
         ) {

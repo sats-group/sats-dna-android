@@ -44,8 +44,8 @@ fun CardButton(
                     horizontal = SatsTheme.spacing.m,
                 ),
         ) {
-            MaterialIcon(icon, null, tint = SatsTheme.colors2.buttons.action.default)
-            Text(text, color = SatsTheme.colors2.buttons.action.default)
+            MaterialIcon(icon, null, tint = SatsTheme.colors2.buttons.action.default.fg)
+            Text(text, color = SatsTheme.colors2.buttons.action.default.fg)
         }
     }
 }
@@ -67,8 +67,8 @@ fun NavigationCardButton(
                     horizontal = SatsTheme.spacing.m,
                 ),
         ) {
-            Text(text, color = SatsTheme.colors2.buttons.action.default)
-            MaterialIcon(SatsTheme.icons.arrowRight, null, tint = SatsTheme.colors2.buttons.action.default)
+            Text(text, color = SatsTheme.colors2.buttons.action.default.fg)
+            MaterialIcon(SatsTheme.icons.arrowRight, null, tint = SatsTheme.colors2.buttons.action.default.fg)
         }
     }
 }
@@ -170,7 +170,9 @@ fun TwoOptionsInCardCardButton(
                 horizontalArrangement = Arrangement.SpaceAround,
             ) {
                 CardButton(
-                    modifier = Modifier.weight(1f).fillMaxHeight(),
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight(),
                     onClick = firstOptionOnClick,
                     text = firstOptionText,
                     icon = firstOptionIcon,
@@ -179,7 +181,9 @@ fun TwoOptionsInCardCardButton(
                 )
                 SatsVerticalDivider()
                 CardButton(
-                    modifier = Modifier.weight(1f).fillMaxHeight(),
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight(),
                     onClick = secondOptionOnClick,
                     text = secondOptionText,
                     icon = secondOptionIcon,

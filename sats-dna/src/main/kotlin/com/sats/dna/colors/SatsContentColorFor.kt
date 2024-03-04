@@ -46,20 +46,20 @@ fun satsContentColor2For(backgroundColor: Color): Color {
 
     return when (backgroundColor) {
         buttons.primary.default.bg -> buttons.primary.default.fg
-        buttons.secondary.default.bg -> buttons.secondary.default.fg
+        buttons.secondary.default.outline -> buttons.secondary.default.fg
         buttons.clean.default.bg -> buttons.clean.default.fg
         buttons.cleanSecondary.default.bg -> buttons.cleanSecondary.default.fg
-        buttons.cta.default.bg -> buttons.cta.default.fg
         buttons.waitingListFilled.default.bg -> buttons.waitingListFilled.default.fg
-        buttons.deleteFilled.default.bg -> buttons.deleteFilled.default.fg
+        buttons.destructive.default.default.bg -> buttons.destructive.default.default.fg
+        buttons.destructive.default.disabled.bg -> buttons.destructive.default.disabled.fg
+        buttons.destructive.alternate.default.bg -> buttons.destructive.alternate.default.fg
+        buttons.destructive.alternate.disabled.bg -> buttons.destructive.alternate.disabled.fg
 
         buttons.primary.disabled.bg -> buttons.primary.disabled.fg
-        buttons.secondary.disabled.bg -> buttons.secondary.disabled.fg
+        buttons.secondary.disabled.outline -> buttons.secondary.disabled.fg
         buttons.clean.disabled.bg -> buttons.clean.disabled.fg
         buttons.cleanSecondary.disabled.bg -> buttons.cleanSecondary.disabled.fg
-        buttons.cta.disabled.bg -> buttons.cta.disabled.fg
         buttons.waitingListFilled.disabled.bg -> buttons.waitingListFilled.disabled.fg
-        buttons.deleteFilled.disabled.bg -> buttons.deleteFilled.disabled.fg
 
         graphicalElements.chips.selected.default.bg -> graphicalElements.chips.selected.default.fg
         graphicalElements.chips.selected.disabled.bg -> graphicalElements.chips.selected.disabled.fg
@@ -81,8 +81,10 @@ fun satsContentColor2For(backgroundColor: Color): Color {
         backgrounds.secondary.bg.default -> backgrounds.secondary.fg.default
         backgrounds.secondary.bg.selected -> backgrounds.secondary.fg.default
 
-        backgrounds.fixed.bg.default -> backgrounds.fixed.fg.default
-        backgrounds.fixed.bg.selected -> backgrounds.fixed.fg.default
+        backgrounds.fixed.primary.bg.default -> backgrounds.fixed.primary.fg.default
+        backgrounds.fixed.primary.bg.selected -> backgrounds.fixed.primary.fg.default
+        backgrounds.fixed.secondary.bg.default -> backgrounds.fixed.secondary.fg.default
+        backgrounds.fixed.secondary.bg.selected -> backgrounds.fixed.secondary.fg.default
 
         surfaces.primary.bg.default -> surfaces.primary.fg.default
         surfaces.primary.bg.selected -> surfaces.primary.fg.default
@@ -90,13 +92,15 @@ fun satsContentColor2For(backgroundColor: Color): Color {
         surfaces.secondary.bg.default -> surfaces.secondary.fg.default
         surfaces.secondary.bg.selected -> surfaces.secondary.fg.default
 
-        surfaces.fixed.bg.default -> surfaces.fixed.fg.default
-        surfaces.fixed.bg.selected -> surfaces.fixed.fg.default
+        surfaces.fixed.primary.bg.default -> surfaces.fixed.primary.fg.default
+        surfaces.fixed.primary.bg.selected -> surfaces.fixed.primary.fg.default
+        surfaces.fixed.secondary.bg.default -> surfaces.fixed.secondary.fg.default
+        surfaces.fixed.secondary.bg.selected -> surfaces.fixed.secondary.fg.default
 
         signalSurfaces.success.bg -> signalSurfaces.success.fg.default
         signalSurfaces.warning.bg -> signalSurfaces.warning.fg.default
         signalSurfaces.error.bg -> signalSurfaces.error.fg.default
-        signalSurfaces.waitlist.bg -> signalSurfaces.waitlist.fg.default
+        signalSurfaces.waitingList.bg -> signalSurfaces.waitingList.fg.default
         signalSurfaces.neutral.bg -> signalSurfaces.neutral.fg.default
         signalSurfaces.information.bg -> signalSurfaces.information.fg.default
 

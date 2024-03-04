@@ -25,7 +25,7 @@ internal fun WorkoutTypeColorIndicator(
         WorkoutType.Gx -> SatsTheme.colors2.graphicalElements.workouts.gx.bg
         WorkoutType.Treatment -> SatsTheme.colors2.graphicalElements.workouts.treatments.bg
         WorkoutType.Gymfloor -> SatsTheme.colors2.graphicalElements.workouts.gymfloor.bg
-        WorkoutType.OwnTraining -> SatsTheme.colors2.graphicalElements.workouts.ownTrainingOther.bg
+        WorkoutType.OwnTraining -> SatsTheme.colors2.graphicalElements.workouts.other.bg
     }
 
     Box(

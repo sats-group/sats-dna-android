@@ -14,7 +14,7 @@ import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun ChallengeBackground(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
-    SatsSurface(modifier, color = SatsTheme.colors2.backgrounds.fixed.bg.default, useMaterial3 = true) {
+    SatsSurface(modifier, color = SatsTheme.colors2.backgrounds.fixed.primary.bg.default, useMaterial3 = true) {
         Box {
             Image(
                 painter = painterResource(R.drawable.challenge_background_top),

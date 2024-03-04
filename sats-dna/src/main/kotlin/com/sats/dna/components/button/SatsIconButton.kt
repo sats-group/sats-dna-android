@@ -80,7 +80,7 @@ fun SatsBellIconButton(
                     painter = SatsTheme.icons.cherry,
                     contentDescription = null,
                     modifier = Modifier.size(24.dp),
-                    tint = SatsTheme.colors2.buttons.action.default,
+                    tint = SatsTheme.colors2.buttons.action.default.fg,
                 )
             } else {
                 MaterialIcon(
