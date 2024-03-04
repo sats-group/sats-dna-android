@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import com.sats.dna.components.LocalUseMaterial3
+import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.components.SatsGxSessionImage
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.card.SatsCard

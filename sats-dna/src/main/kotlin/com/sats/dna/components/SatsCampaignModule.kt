@@ -14,6 +14,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import coil.compose.AsyncImage
+import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.PreviewImagePlaceholder

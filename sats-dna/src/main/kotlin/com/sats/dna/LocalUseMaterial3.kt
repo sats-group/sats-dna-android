@@ -1,4 +1,4 @@
-package com.sats.dna.components
+package com.sats.dna
 
 import androidx.compose.runtime.compositionLocalOf
 

@@ -15,7 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.dp
-import com.sats.dna.components.LocalUseMaterial3
+import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.components.proteinbar.SatsProteinBar
 import com.sats.dna.components.proteinbar.SatsProteinBarAction
 import com.sats.dna.components.proteinbar.SatsProteinBarVisuals
