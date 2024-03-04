@@ -14,7 +14,6 @@ import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.sample.screens.BannerSampleScreen
-import com.sats.dna.sample.screens.BottomNavigationSampleScreen
 import com.sats.dna.sample.screens.BrandLogoSampleScreen
 import com.sats.dna.sample.screens.ButtonsSampleScreen
 import com.sats.dna.sample.screens.CampaignModuleSampleScreen
@@ -72,7 +71,6 @@ internal fun HomeScreen(navController: NavController) {
             SatsHorizontalDivider(Modifier.padding(vertical = SatsTheme.spacing.s))
 
             BannerSampleScreen.HomeListItem(navController)
-            BottomNavigationSampleScreen.HomeListItem(navController)
             BrandLogoSampleScreen.HomeListItem(navController)
             ButtonsSampleScreen.HomeListItem(navController)
             CampaignModuleSampleScreen.HomeListItem(navController)
