@@ -25,15 +25,15 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsFilterChip
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.components.button.InCardCardButton
-import com.sats.dna.components.button.NavigationCardButton
 import com.sats.dna.components.button.SatsBellIconButton
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsIconButton
-import com.sats.dna.components.button.StandAloneCardButton
-import com.sats.dna.components.button.TwoOptionsInCardCardButton
-import com.sats.dna.components.button.TwoOptionsStandAloneCardButton
+import com.sats.dna.components.button.SatsInCardCardButton
+import com.sats.dna.components.button.SatsNavigationCardButton
+import com.sats.dna.components.button.SatsStandAloneCardButton
+import com.sats.dna.components.button.SatsTwoOptionsInCardCardButton
+import com.sats.dna.components.button.SatsTwoOptionsStandAloneCardButton
 import com.sats.dna.theme.SatsTheme
 
 data object ButtonsSampleScreen : SampleScreen(
@@ -152,7 +152,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                     )
                 }
 
-                NavigationCardButton(
+                SatsNavigationCardButton(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = SatsTheme.spacing.m),
@@ -160,7 +160,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                     text = "Give us feedback on the app",
                 )
 
-                StandAloneCardButton(
+                SatsStandAloneCardButton(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = SatsTheme.spacing.m),
@@ -169,7 +169,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                     icon = SatsTheme.icons.calendar,
                 )
 
-                TwoOptionsStandAloneCardButton(
+                SatsTwoOptionsStandAloneCardButton(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = SatsTheme.spacing.m),
@@ -181,7 +181,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                     secondOptionIcon = SatsTheme.icons.calendar,
                 )
 
-                InCardCardButton(
+                SatsInCardCardButton(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = SatsTheme.spacing.m),
@@ -190,7 +190,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                     icon = SatsTheme.icons.calendar,
                 )
 
-                TwoOptionsInCardCardButton(
+                SatsTwoOptionsInCardCardButton(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = SatsTheme.spacing.m),

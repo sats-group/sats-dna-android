@@ -8,8 +8,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import com.sats.dna.components.Brand
-import com.sats.dna.components.BrandLogo
+import com.sats.dna.components.SatsBrandLogo
+import com.sats.dna.components.SatsBrandLogoBrand
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.theme.SatsTheme
 
@@ -30,26 +30,26 @@ private fun BrandLogoScreen(navigateUp: () -> Unit, modifier: Modifier = Modifie
             verticalArrangement = Arrangement.Absolute.spacedBy(SatsTheme.spacing.xl, Alignment.CenterVertically),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            BrandLogo(
-                brand = Brand.Elixia,
+            SatsBrandLogo(
+                brand = SatsBrandLogoBrand.Elixia,
                 contentDescription = null,
             )
 
-            BrandLogo(
-                brand = Brand.Elixia,
+            SatsBrandLogo(
+                brand = SatsBrandLogoBrand.Elixia,
                 contentDescription = null,
                 isFullName = true,
             )
 
             SatsHorizontalDivider()
 
-            BrandLogo(
-                brand = Brand.Sats,
+            SatsBrandLogo(
+                brand = SatsBrandLogoBrand.Sats,
                 contentDescription = null,
             )
 
-            BrandLogo(
-                brand = Brand.Sats,
+            SatsBrandLogo(
+                brand = SatsBrandLogoBrand.Sats,
                 contentDescription = null,
                 isFullName = true,
             )

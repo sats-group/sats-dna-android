@@ -1,6 +1,6 @@
 package com.sats.dna.components.upcomingworkouts
 
-data class UpcomingWorkout(
+data class SatsUpcomingWorkout(
     val id: String,
     val day: String,
     val time: String,
@@ -9,21 +9,22 @@ data class UpcomingWorkout(
     val workoutTypeLabel: String?,
     val location: String?,
     val instructor: String?,
-    val waitingListStatus: WaitingListStatus?,
-    val workoutType: WorkoutType? = null,
+    val waitingListStatus: SatsWaitingListStatus?,
+    val workoutType: SatsWorkoutType? = null,
 )
 
-sealed interface WaitingListStatus {
+sealed interface SatsWaitingListStatus {
     val text: String
 
-    data class OnWaitingList(override val text: String) : WaitingListStatus
+    data class OnWaitingList(override val text: String) : SatsWaitingListStatus
+
     data class SpotSecured(
         override val text: String,
         val waitingListText: String? = null,
-    ) : WaitingListStatus
+    ) : SatsWaitingListStatus
 }
 
-enum class WorkoutType {
+enum class SatsWorkoutType {
     Pt,
     Gx,
     Treatment,

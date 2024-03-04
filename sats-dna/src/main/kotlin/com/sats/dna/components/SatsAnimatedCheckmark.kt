@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun AnimatedCheckmark(modifier: Modifier = Modifier) {
+fun SatsAnimatedCheckmark(modifier: Modifier = Modifier) {
     val circleSweepAngle = remember { Animatable(0f) }
     val tickProgress = remember { Animatable(0f) }
 
@@ -93,10 +93,10 @@ private const val strokeWidth = 2.73f
 
 @PreviewLightDark
 @Composable
-private fun AnimatedCheckIconPreview() {
+private fun SatsAnimatedCheckIconPreview() {
     SatsTheme {
         SatsSurface(useMaterial3 = true) {
-            AnimatedCheckmark(
+            SatsAnimatedCheckmark(
                 modifier = Modifier
                     .size(80.dp)
                     .padding(SatsTheme.spacing.m),

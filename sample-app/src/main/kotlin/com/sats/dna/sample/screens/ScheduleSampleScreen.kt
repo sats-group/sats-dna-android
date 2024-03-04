@@ -7,11 +7,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsHorizontalDivider
-import com.sats.dna.components.upcomingworkouts.Schedule
-import com.sats.dna.components.upcomingworkouts.SchedulePlaceholder
-import com.sats.dna.components.upcomingworkouts.UpcomingWorkout
-import com.sats.dna.components.upcomingworkouts.WaitingListStatus
-import com.sats.dna.components.upcomingworkouts.WorkoutType
+import com.sats.dna.components.upcomingworkouts.SatsSchedule
+import com.sats.dna.components.upcomingworkouts.SatsSchedulePlaceholder
+import com.sats.dna.components.upcomingworkouts.SatsUpcomingWorkout
+import com.sats.dna.components.upcomingworkouts.SatsWaitingListStatus
+import com.sats.dna.components.upcomingworkouts.SatsWorkoutType
 import com.sats.dna.theme.SatsTheme
 
 data object ScheduleSampleScreen : SampleScreen(
@@ -24,7 +24,7 @@ data object ScheduleSampleScreen : SampleScreen(
 private fun ScheduleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Schedule", navigateUp, modifier) { innerPadding ->
         val schedule = listOf(
-            UpcomingWorkout(
+            SatsUpcomingWorkout(
                 id = "foo",
                 day = "Today",
                 time = "09:00",
@@ -32,11 +32,11 @@ private fun ScheduleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                 name = "Yoga Flow",
                 location = "SATS Nydalen",
                 instructor = "w/ Andrew Nielsen",
-                waitingListStatus = WaitingListStatus.SpotSecured("Spot secured! 32 on the waiting list."),
+                waitingListStatus = SatsWaitingListStatus.SpotSecured("Spot secured! 32 on the waiting list."),
                 workoutTypeLabel = null,
-                workoutType = WorkoutType.Gx,
+                workoutType = SatsWorkoutType.Gx,
             ),
-            UpcomingWorkout(
+            SatsUpcomingWorkout(
                 id = "bar",
                 day = "Today",
                 time = "17:30",
@@ -44,11 +44,11 @@ private fun ScheduleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                 name = "Body Pump",
                 location = "SATS Colosseum",
                 instructor = "w/ Magnus Owe",
-                waitingListStatus = WaitingListStatus.OnWaitingList("Number 5 on the waiting list."),
+                waitingListStatus = SatsWaitingListStatus.OnWaitingList("Number 5 on the waiting list."),
                 workoutTypeLabel = null,
-                workoutType = WorkoutType.Pt,
+                workoutType = SatsWorkoutType.Pt,
             ),
-            UpcomingWorkout(
+            SatsUpcomingWorkout(
                 id = "baz",
                 day = "Tomorrow",
                 time = "09:00",
@@ -58,7 +58,7 @@ private fun ScheduleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                 instructor = "w/ John Doe",
                 waitingListStatus = null,
                 workoutTypeLabel = null,
-                workoutType = WorkoutType.Gymfloor,
+                workoutType = SatsWorkoutType.Gymfloor,
             ),
         )
 
@@ -68,11 +68,11 @@ private fun ScheduleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                 .padding(SatsTheme.spacing.m),
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
         ) {
-            Schedule(schedule, onWorkoutClicked = {})
+            SatsSchedule(schedule, onWorkoutClicked = {})
 
             SatsHorizontalDivider()
 
-            SchedulePlaceholder()
+            SatsSchedulePlaceholder()
         }
     }
 }

@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun TrafficLight(color: TrafficLightColor, modifier: Modifier = Modifier) {
+fun SatsTrafficLight(color: TrafficLightColor, modifier: Modifier = Modifier) {
     val defaultColor = when (color) {
         TrafficLightColor.Green -> SatsTheme.colors2.graphicalElements.indicators.positive.default
         TrafficLightColor.Yellow -> SatsTheme.colors2.graphicalElements.indicators.attention.default
@@ -58,7 +58,7 @@ enum class TrafficLightColor {
 
 @PreviewLightDark
 @Composable
-private fun TrafficLightPreview() {
+private fun SatsTrafficLightPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             Column(
@@ -78,7 +78,7 @@ private fun TrafficLightPreview() {
                         Arrangement.spacedBy(SatsTheme.spacing.m),
                         Alignment.CenterVertically,
                     ) {
-                        TrafficLight(color, Modifier.size(32.dp))
+                        SatsTrafficLight(color, Modifier.size(32.dp))
 
                         Text(color.toString())
                     }

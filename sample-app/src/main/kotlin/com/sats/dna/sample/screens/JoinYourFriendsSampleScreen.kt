@@ -4,8 +4,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import com.sats.dna.components.JoinYourFriendsCard
-import com.sats.dna.components.Pill
+import com.sats.dna.components.SatsJoinYourFriendsCard
+import com.sats.dna.components.SatsPill
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.sample.internal.SampleProfilePicture
 import com.sats.dna.theme.SatsTheme
@@ -19,8 +19,8 @@ data object JoinYourFriendsSampleScreen : SampleScreen(
 @Composable
 private fun JoinYourFriendsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Join Your Friends", navigateUp, modifier) { innerPadding ->
-        JoinYourFriendsCard(
-            pill = { Pill(label = "Susanne", image = { SampleProfilePicture() }) },
+        SatsJoinYourFriendsCard(
+            pill = { SatsPill(label = "Susanne", image = { SampleProfilePicture() }) },
             imageUrl = null,
             title = "Indoor Running",
             subtitle = "Today – 20:30",

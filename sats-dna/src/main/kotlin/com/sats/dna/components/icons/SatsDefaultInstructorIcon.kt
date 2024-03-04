@@ -18,17 +18,17 @@ import com.sats.dna.theme.SatsTheme
  * Displays a default image representing the type of an instructor.
  * Meant to be used when the instructor doesn't have a specific profile image.
  *
- * @param instructorType The type of the instructor.
+ * @param type The type of the instructor.
  * @param modifier The modifier to apply to the instructor icon.
  */
 @Composable
-fun DefaultInstructorIcon(
-    instructorType: InstructorType,
+fun SatsDefaultInstructorIcon(
+    type: SatsDefaultInstructorIconType,
     modifier: Modifier = Modifier,
 ) {
-    val placeholderText = when (instructorType) {
-        InstructorType.Gx -> "IN"
-        InstructorType.Pt -> "PT"
+    val placeholderText = when (type) {
+        SatsDefaultInstructorIconType.Gx -> "IN"
+        SatsDefaultInstructorIconType.Pt -> "PT"
     }
 
     Box(
@@ -50,26 +50,26 @@ fun DefaultInstructorIcon(
  * Enum class representing the type of an instructor.
  * Either "Pt" for Personal Trainer or "Gx" for Group Exercise Instructor.
  */
-enum class InstructorType {
+enum class SatsDefaultInstructorIconType {
     Pt, Gx,
 }
 
 @PreviewLightDark
 @Composable
-private fun GxPreview() {
+private fun SatsDefaultInstructorIconGxPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            DefaultInstructorIcon(InstructorType.Gx, Modifier.padding(SatsTheme.spacing.m))
+            SatsDefaultInstructorIcon(SatsDefaultInstructorIconType.Gx, Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }
 
 @PreviewLightDark
 @Composable
-private fun PtPreview() {
+private fun SatsDefaultInstructorIconPtPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            DefaultInstructorIcon(InstructorType.Pt, Modifier.padding(SatsTheme.spacing.m))
+            SatsDefaultInstructorIcon(SatsDefaultInstructorIconType.Pt, Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }

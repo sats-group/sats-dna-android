@@ -11,7 +11,7 @@ import com.sats.dna.R
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun GxSessionImage(
+fun SatsGxSessionImage(
     imageUrl: String?,
     modifier: Modifier = Modifier,
     contentDescription: String? = null,
@@ -28,10 +28,10 @@ fun GxSessionImage(
 
 @PreviewLightDark
 @Composable
-private fun GxSessionImagePreview() {
+private fun SatsGxSessionImagePreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            GxSessionImage(imageUrl = null, Modifier.padding(SatsTheme.spacing.m))
+            SatsGxSessionImage(imageUrl = null, Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }

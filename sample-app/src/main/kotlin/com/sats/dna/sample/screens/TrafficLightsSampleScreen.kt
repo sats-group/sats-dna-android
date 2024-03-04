@@ -15,7 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.sats.dna.components.TrafficLight
+import com.sats.dna.components.SatsTrafficLight
 import com.sats.dna.components.TrafficLightColor
 import com.sats.dna.theme.SatsTheme
 
@@ -44,7 +44,7 @@ private fun TrafficLightsScreen(navigateUp: () -> Unit, modifier: Modifier = Mod
                     Arrangement.spacedBy(SatsTheme.spacing.m),
                     Alignment.CenterVertically,
                 ) {
-                    TrafficLight(color, Modifier.size(32.dp))
+                    SatsTrafficLight(color, Modifier.size(32.dp))
 
                     Text(color.toString())
                 }

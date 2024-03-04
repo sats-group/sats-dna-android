@@ -13,17 +13,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.PreviewFontScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import com.sats.dna.components.PlaceholderText
+import com.sats.dna.components.SatsPlaceholderText
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.components.button.TwoOptionsInCardCardButton
+import com.sats.dna.components.button.SatsTwoOptionsInCardCardButton
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun Schedule(
-    workouts: List<UpcomingWorkout>,
-    onWorkoutClicked: (workout: UpcomingWorkout) -> Unit,
+fun SatsSchedule(
+    workouts: List<SatsUpcomingWorkout>,
+    onWorkoutClicked: (workout: SatsUpcomingWorkout) -> Unit,
     modifier: Modifier = Modifier,
     cardButton: @Composable (() -> Unit?)? = null,
 ) {
@@ -41,14 +41,14 @@ fun Schedule(
 }
 
 @Composable
-fun SchedulePlaceholder(modifier: Modifier = Modifier) {
+fun SatsSchedulePlaceholder(modifier: Modifier = Modifier) {
     SatsCard(modifier.fillMaxWidth()) {
         Column(
             Modifier.padding(top = cardInnerPadding, bottom = cardInnerPadding - clickableVerticalPadding),
             spacedBy(SatsTheme.spacing.s - clickableVerticalPadding),
         ) {
             Column(verticalArrangement = spacedBy(SatsTheme.spacing.s - clickableVerticalPadding)) {
-                PlaceholderText(
+                SatsPlaceholderText(
                     text = "Tomorrow",
                     modifier = Modifier.padding(horizontal = cardInnerPadding),
                     style = SatsTheme.typography.normal.small,
@@ -68,17 +68,17 @@ fun SchedulePlaceholder(modifier: Modifier = Modifier) {
                             horizontalArrangement = spacedBy(SatsTheme.spacing.s),
                         ) {
                             Column(Modifier.weight(1f), verticalArrangement = spacedBy(SatsTheme.spacing.xxs)) {
-                                PlaceholderText("9:00 PM", style = SatsTheme.typography.medium.basic)
+                                SatsPlaceholderText("9:00 PM", style = SatsTheme.typography.medium.basic)
 
-                                PlaceholderText("45 min", style = SatsTheme.typography.normal.small)
+                                SatsPlaceholderText("45 min", style = SatsTheme.typography.normal.small)
                             }
 
                             Column(Modifier.weight(4f), verticalArrangement = spacedBy(SatsTheme.spacing.xxs)) {
-                                PlaceholderText("Yoga Flow", style = SatsTheme.typography.medium.basic)
+                                SatsPlaceholderText("Yoga Flow", style = SatsTheme.typography.medium.basic)
 
-                                PlaceholderText("SATS Nydalen", style = SatsTheme.typography.normal.small)
+                                SatsPlaceholderText("SATS Nydalen", style = SatsTheme.typography.normal.small)
 
-                                PlaceholderText("w/Andrew Nielsen", style = SatsTheme.typography.normal.small)
+                                SatsPlaceholderText("w/Andrew Nielsen", style = SatsTheme.typography.normal.small)
                             }
                         }
                     }
@@ -90,8 +90,8 @@ fun SchedulePlaceholder(modifier: Modifier = Modifier) {
 
 @Composable
 private fun ScheduledDays(
-    days: Map<String, List<UpcomingWorkout>>,
-    onWorkoutClicked: (workout: UpcomingWorkout) -> Unit,
+    days: Map<String, List<SatsUpcomingWorkout>>,
+    onWorkoutClicked: (workout: SatsUpcomingWorkout) -> Unit,
 ) {
     Column(
         Modifier.padding(top = cardInnerPadding, bottom = cardInnerPadding - clickableVerticalPadding),
@@ -116,8 +116,8 @@ private fun ScheduledDays(
 
 @Composable
 private fun ScheduledWorkouts(
-    workouts: List<UpcomingWorkout>,
-    onWorkoutClicked: (workout: UpcomingWorkout) -> Unit,
+    workouts: List<SatsUpcomingWorkout>,
+    onWorkoutClicked: (workout: SatsUpcomingWorkout) -> Unit,
 ) {
     Column(verticalArrangement = spacedBy(SatsTheme.spacing.xs - clickableVerticalPadding)) {
         workouts.forEach { workout ->
@@ -135,7 +135,7 @@ private fun ScheduledWorkouts(
                 horizontalArrangement = spacedBy(SatsTheme.spacing.s),
             ) {
                 workout.workoutType?.let {
-                    WorkoutTypeColorIndicator(it)
+                    SatsWorkoutTypeColorIndicator(it)
                 }
                 TimeAndDuration(
                     time = workout.time,
@@ -159,9 +159,9 @@ private fun ScheduledWorkouts(
 @PreviewLightDark
 @PreviewFontScale
 @Composable
-private fun SchedulePreview() {
+private fun SatsSchedulePreview() {
     val schedule = listOf(
-        UpcomingWorkout(
+        SatsUpcomingWorkout(
             id = "foo",
             day = "Today",
             time = "9:00 PM",
@@ -169,11 +169,11 @@ private fun SchedulePreview() {
             name = "Yoga Flow",
             location = "SATS Nydalen",
             instructor = "w/Andrew Nielsen",
-            workoutType = WorkoutType.Gx,
+            workoutType = SatsWorkoutType.Gx,
             workoutTypeLabel = null,
-            waitingListStatus = WaitingListStatus.SpotSecured("Spot secured!", "32 on waiting list"),
+            waitingListStatus = SatsWaitingListStatus.SpotSecured("Spot secured!", "32 on waiting list"),
         ),
-        UpcomingWorkout(
+        SatsUpcomingWorkout(
             id = "bar",
             day = "Today",
             time = "5:30 PM",
@@ -181,11 +181,11 @@ private fun SchedulePreview() {
             name = "Body Pump",
             location = "SATS Colosseum",
             instructor = "w/Magnus Owe",
-            workoutType = WorkoutType.Pt,
+            workoutType = SatsWorkoutType.Pt,
             workoutTypeLabel = null,
-            waitingListStatus = WaitingListStatus.OnWaitingList("Number 5 on the waiting list."),
+            waitingListStatus = SatsWaitingListStatus.OnWaitingList("Number 5 on the waiting list."),
         ),
-        UpcomingWorkout(
+        SatsUpcomingWorkout(
             id = "baz",
             day = "Tomorrow",
             time = "9:00 AM",
@@ -200,7 +200,7 @@ private fun SchedulePreview() {
 
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            Schedule(schedule, onWorkoutClicked = {}, Modifier.padding(SatsTheme.spacing.m))
+            SatsSchedule(schedule, onWorkoutClicked = {}, Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }
@@ -208,9 +208,9 @@ private fun SchedulePreview() {
 @PreviewLightDark
 @PreviewFontScale
 @Composable
-private fun ScheduleWithCardButtonPreview() {
+private fun SatsScheduleWithCardButtonPreview() {
     val schedule = listOf(
-        UpcomingWorkout(
+        SatsUpcomingWorkout(
             id = "foo",
             day = "Today",
             time = "9:00 PM",
@@ -218,11 +218,11 @@ private fun ScheduleWithCardButtonPreview() {
             name = "Yoga Flow",
             location = "SATS Nydalen",
             instructor = "w/Andrew Nielsen",
-            workoutType = WorkoutType.Gx,
+            workoutType = SatsWorkoutType.Gx,
             workoutTypeLabel = null,
-            waitingListStatus = WaitingListStatus.SpotSecured("Spot secured!", "32 on waiting list"),
+            waitingListStatus = SatsWaitingListStatus.SpotSecured("Spot secured!", "32 on waiting list"),
         ),
-        UpcomingWorkout(
+        SatsUpcomingWorkout(
             id = "bar",
             day = "Today",
             time = "5:30 PM",
@@ -230,11 +230,11 @@ private fun ScheduleWithCardButtonPreview() {
             name = "Body Pump",
             location = "SATS Colosseum",
             instructor = "w/Magnus Owe",
-            workoutType = WorkoutType.Pt,
+            workoutType = SatsWorkoutType.Pt,
             workoutTypeLabel = null,
-            waitingListStatus = WaitingListStatus.OnWaitingList("Number 5 on the waiting list."),
+            waitingListStatus = SatsWaitingListStatus.OnWaitingList("Number 5 on the waiting list."),
         ),
-        UpcomingWorkout(
+        SatsUpcomingWorkout(
             id = "baz",
             day = "Tomorrow",
             time = "9:00 AM",
@@ -249,12 +249,12 @@ private fun ScheduleWithCardButtonPreview() {
 
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            Schedule(
+            SatsSchedule(
                 workouts = schedule,
                 onWorkoutClicked = {},
                 modifier = Modifier.padding(SatsTheme.spacing.m),
                 cardButton = {
-                    TwoOptionsInCardCardButton(
+                    SatsTwoOptionsInCardCardButton(
                         firstOptionOnClick = {},
                         firstOptionText = "Book",
                         firstOptionIcon = SatsTheme.icons.time,
@@ -270,10 +270,10 @@ private fun ScheduleWithCardButtonPreview() {
 
 @PreviewLightDark
 @Composable
-private fun SchedulePlaceholderPreview() {
+private fun SatsSchedulePlaceholderPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            SchedulePlaceholder(Modifier.padding(SatsTheme.spacing.m))
+            SatsSchedulePlaceholder(Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }

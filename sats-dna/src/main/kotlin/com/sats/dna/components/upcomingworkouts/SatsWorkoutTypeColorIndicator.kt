@@ -16,16 +16,16 @@ import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-internal fun WorkoutTypeColorIndicator(
-    workoutType: WorkoutType,
+internal fun SatsWorkoutTypeColorIndicator(
+    workoutType: SatsWorkoutType,
     modifier: Modifier = Modifier,
 ) {
     val color = when (workoutType) {
-        WorkoutType.Pt -> SatsTheme.colors2.graphicalElements.workouts.pt.bg
-        WorkoutType.Gx -> SatsTheme.colors2.graphicalElements.workouts.gx.bg
-        WorkoutType.Treatment -> SatsTheme.colors2.graphicalElements.workouts.treatments.bg
-        WorkoutType.Gymfloor -> SatsTheme.colors2.graphicalElements.workouts.gymfloor.bg
-        WorkoutType.OwnTraining -> SatsTheme.colors2.graphicalElements.workouts.other.bg
+        SatsWorkoutType.Pt -> SatsTheme.colors2.graphicalElements.workouts.pt.bg
+        SatsWorkoutType.Gx -> SatsTheme.colors2.graphicalElements.workouts.gx.bg
+        SatsWorkoutType.Treatment -> SatsTheme.colors2.graphicalElements.workouts.treatments.bg
+        SatsWorkoutType.Gymfloor -> SatsTheme.colors2.graphicalElements.workouts.gymfloor.bg
+        SatsWorkoutType.OwnTraining -> SatsTheme.colors2.graphicalElements.workouts.other.bg
     }
 
     Box(
@@ -64,7 +64,7 @@ internal fun WorkoutInfo(
     instructor: String?,
     workoutType: String?,
     modifier: Modifier = Modifier,
-    waitingListStatus: WaitingListStatus? = null,
+    waitingListStatus: SatsWaitingListStatus? = null,
 ) {
     Column(modifier) {
         MaterialText(
@@ -103,10 +103,10 @@ internal fun WorkoutInfo(
 }
 
 @Composable
-private fun WaitingListStatus(status: WaitingListStatus) {
+private fun WaitingListStatus(status: SatsWaitingListStatus) {
     val color = when (status) {
-        is WaitingListStatus.OnWaitingList -> SatsTheme.colors2.surfaces.primary.fg.waitlist
-        is WaitingListStatus.SpotSecured -> SatsTheme.colors2.surfaces.primary.fg.success
+        is SatsWaitingListStatus.OnWaitingList -> SatsTheme.colors2.surfaces.primary.fg.waitlist
+        is SatsWaitingListStatus.SpotSecured -> SatsTheme.colors2.surfaces.primary.fg.success
     }
 
     MaterialText(
@@ -115,7 +115,7 @@ private fun WaitingListStatus(status: WaitingListStatus) {
         style = SatsTheme.typography.normal.small,
     )
 
-    if (status is WaitingListStatus.SpotSecured) {
+    if (status is SatsWaitingListStatus.SpotSecured) {
         status.waitingListText?.let {
             MaterialText(
                 text = status.waitingListText,
@@ -149,7 +149,7 @@ private fun WorkoutInfoPreview() {
                 name = "Yoga Flow",
                 location = "SATS Nydalen",
                 instructor = "w/ Andrew Nielsen",
-                waitingListStatus = WaitingListStatus.SpotSecured("Spot secured! 32 on the waiting list."),
+                waitingListStatus = SatsWaitingListStatus.SpotSecured("Spot secured! 32 on the waiting list."),
                 workoutType = null,
                 modifier = Modifier.padding(SatsTheme.spacing.m),
             )
@@ -166,7 +166,7 @@ private fun WorkoutInfoOnWaitingListPreview() {
                 name = "Yoga Flow",
                 location = "SATS Nydalen",
                 instructor = "w/ Andrew Nielsen",
-                waitingListStatus = WaitingListStatus.OnWaitingList("You're number 5 on the waiting list."),
+                waitingListStatus = SatsWaitingListStatus.OnWaitingList("You're number 5 on the waiting list."),
                 workoutType = "Strength training",
                 modifier = Modifier.padding(SatsTheme.spacing.m),
             )

@@ -12,10 +12,10 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
-import com.sats.dna.components.upcomingworkouts.UpcomingWorkoutDaySection
-import com.sats.dna.components.upcomingworkouts.UpcomingWorkoutListItem
-import com.sats.dna.components.upcomingworkouts.WaitingListStatus
-import com.sats.dna.components.upcomingworkouts.WorkoutType
+import com.sats.dna.components.upcomingworkouts.SatsUpcomingWorkoutDaySection
+import com.sats.dna.components.upcomingworkouts.SatsUpcomingWorkoutListItem
+import com.sats.dna.components.upcomingworkouts.SatsWaitingListStatus
+import com.sats.dna.components.upcomingworkouts.SatsWorkoutType
 import com.sats.dna.theme.SatsTheme
 
 data object UpcomingWorkoutListItemSampleScreen : SampleScreen(
@@ -37,10 +37,10 @@ private fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Modi
                 .verticalScroll(rememberScrollState())
                 .padding(innerPadding),
         ) {
-            UpcomingWorkoutDaySection(day = "Thu, Jul 27, 2023") {
+            SatsUpcomingWorkoutDaySection(day = "Thu, Jul 27, 2023") {
                 repeat(3) {
                     if (it > 0) SatsHorizontalDivider()
-                    UpcomingWorkoutListItem(
+                    SatsUpcomingWorkoutListItem(
                         name = "Pure Strength",
                         time = "11:00 AM",
                         location = "SATS Storo",
@@ -54,23 +54,27 @@ private fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Modi
                             )
                         },
                         onClick = {},
-                        waitingListStatus = WaitingListStatus.OnWaitingList("You are number 10 on the waiting list"),
-                        workoutType = WorkoutType.OwnTraining,
+                        waitingListStatus = SatsWaitingListStatus.OnWaitingList(
+                            "You are number 10 on the waiting list",
+                        ),
+                        workoutType = SatsWorkoutType.OwnTraining,
                         workoutTypeLabel = null,
                     )
                 }
             }
 
-            UpcomingWorkoutDaySection(day = "Fri, Jul 28, 2023") {
+            SatsUpcomingWorkoutDaySection(day = "Fri, Jul 28, 2023") {
                 repeat(3) {
                     if (it > 0) SatsHorizontalDivider()
-                    UpcomingWorkoutListItem(
+                    SatsUpcomingWorkoutListItem(
                         name = "Pure Strength",
                         time = "10:30 AM",
                         location = "SATS Storo",
                         duration = "45 min",
                         instructor = "Kristin Hagen",
-                        waitingListStatus = WaitingListStatus.OnWaitingList("You are number 10 on the waiting list"),
+                        waitingListStatus = SatsWaitingListStatus.OnWaitingList(
+                            "You are number 10 on the waiting list",
+                        ),
                         button = {
                             SatsButton(
                                 onClick = { },

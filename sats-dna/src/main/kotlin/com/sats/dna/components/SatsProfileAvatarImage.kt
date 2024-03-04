@@ -15,7 +15,7 @@ import com.sats.dna.R
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun ProfileAvatarImage(
+fun SatsProfileAvatarImage(
     imageUrl: String?,
     modifier: Modifier = Modifier,
     contentDescription: String? = null,
@@ -34,16 +34,16 @@ fun ProfileAvatarImage(
 }
 
 @Composable
-fun ProfileAvatarImagePlaceholder(modifier: Modifier = Modifier) {
-    PlaceholderBox(modifier.clip(SatsTheme.shapes.circle))
+fun SatsProfileAvatarImagePlaceholder(modifier: Modifier = Modifier) {
+    SatsPlaceholderBox(modifier.clip(SatsTheme.shapes.circle))
 }
 
 @PreviewLightDark
 @Composable
-private fun ProfileAvatarImagePreview() {
+private fun SatsProfileAvatarImagePreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            ProfileAvatarImage(
+            SatsProfileAvatarImage(
                 imageUrl = null,
                 Modifier
                     .padding(SatsTheme.spacing.m)
@@ -55,10 +55,10 @@ private fun ProfileAvatarImagePreview() {
 
 @PreviewLightDark
 @Composable
-private fun ProfileAvatarImagePlaceholderPreview() {
+private fun SatsProfileAvatarImagePlaceholderPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            ProfileAvatarImagePlaceholder(
+            SatsProfileAvatarImagePlaceholder(
                 Modifier
                     .padding(SatsTheme.spacing.m)
                     .size(56.dp),

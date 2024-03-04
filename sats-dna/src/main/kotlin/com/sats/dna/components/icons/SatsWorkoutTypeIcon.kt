@@ -18,33 +18,33 @@ import com.sats.dna.theme.SatsTheme
  * @param modifier The modifier to apply to the icon.
  */
 @Composable
-fun WorkoutTypeIcon(type: WorkoutType, contentDescription: String?, modifier: Modifier = Modifier) {
+fun SatsWorkoutTypeIcon(type: SatsWorkoutTypeIconType, contentDescription: String?, modifier: Modifier = Modifier) {
     val icon = when (type) {
-        WorkoutType.GroupExercise -> SatsTheme.icons.workoutGx
-        WorkoutType.GymTraining -> SatsTheme.icons.workoutGymFloor
-        WorkoutType.OnlineTraining -> SatsTheme.icons.workoutOther
-        WorkoutType.OwnTraining -> SatsTheme.icons.workoutOther
-        WorkoutType.PtAppointment -> SatsTheme.icons.workoutPt
-        WorkoutType.Unknown -> SatsTheme.icons.workoutOther
+        SatsWorkoutTypeIconType.GroupExercise -> SatsTheme.icons.workoutGx
+        SatsWorkoutTypeIconType.GymTraining -> SatsTheme.icons.workoutGymFloor
+        SatsWorkoutTypeIconType.OnlineTraining -> SatsTheme.icons.workoutOther
+        SatsWorkoutTypeIconType.OwnTraining -> SatsTheme.icons.workoutOther
+        SatsWorkoutTypeIconType.PtAppointment -> SatsTheme.icons.workoutPt
+        SatsWorkoutTypeIconType.Unknown -> SatsTheme.icons.workoutOther
     }
 
     val color = when (type) {
-        WorkoutType.GroupExercise ->
+        SatsWorkoutTypeIconType.GroupExercise ->
             SatsTheme.colors2.graphicalElements.workouts.gx.bg
 
-        WorkoutType.GymTraining ->
+        SatsWorkoutTypeIconType.GymTraining ->
             SatsTheme.colors2.graphicalElements.workouts.gymfloor.bg
 
-        WorkoutType.OnlineTraining ->
+        SatsWorkoutTypeIconType.OnlineTraining ->
             SatsTheme.colors2.graphicalElements.workouts.other.bg
 
-        WorkoutType.OwnTraining ->
+        SatsWorkoutTypeIconType.OwnTraining ->
             SatsTheme.colors2.graphicalElements.workouts.other.bg
 
-        WorkoutType.PtAppointment ->
+        SatsWorkoutTypeIconType.PtAppointment ->
             SatsTheme.colors2.graphicalElements.workouts.pt.bg
 
-        WorkoutType.Unknown ->
+        SatsWorkoutTypeIconType.Unknown ->
             SatsTheme.colors2.graphicalElements.workouts.other.bg
     }
 
@@ -54,7 +54,7 @@ fun WorkoutTypeIcon(type: WorkoutType, contentDescription: String?, modifier: Mo
 /**
  * An enum representing the different types of workouts.
  */
-enum class WorkoutType {
+enum class SatsWorkoutTypeIconType {
     GroupExercise,
     GymTraining,
     OnlineTraining,
@@ -65,14 +65,16 @@ enum class WorkoutType {
 
 @PreviewLightDark
 @Composable
-private fun Preview(@PreviewParameter(WorkoutTypePreviewProvider::class) workoutType: WorkoutType) {
+private fun SatsWorkoutTypeIconPreview(
+    @PreviewParameter(WorkoutTypePreviewProvider::class) workoutType: SatsWorkoutTypeIconType,
+) {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            WorkoutTypeIcon(workoutType, contentDescription = null, Modifier.padding(SatsTheme.spacing.m))
+            SatsWorkoutTypeIcon(workoutType, contentDescription = null, Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }
 
-private class WorkoutTypePreviewProvider : PreviewParameterProvider<WorkoutType> {
-    override val values = WorkoutType.entries.asSequence()
+private class WorkoutTypePreviewProvider : PreviewParameterProvider<SatsWorkoutTypeIconType> {
+    override val values = SatsWorkoutTypeIconType.entries.asSequence()
 }

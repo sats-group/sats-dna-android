@@ -1,5 +1,6 @@
 package com.sats.dna.components
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -8,28 +9,35 @@ import com.sats.dna.components.internal.GxSessionCard
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun YourMostBookedCard(
+fun SatsJoinYourFriendsCard(
+    pill: @Composable () -> Unit,
     imageUrl: String?,
     title: String,
     subtitle: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    GxSessionCard(
-        imageUrl = imageUrl,
-        title = title,
-        subtitle = subtitle,
-        onClick = onClick,
-        modifier = modifier,
-    )
+    Box(modifier, propagateMinConstraints = true) {
+        GxSessionCard(
+            imageUrl = imageUrl,
+            title = title,
+            subtitle = subtitle,
+            onClick = onClick,
+        )
+
+        Box(Modifier.padding(SatsTheme.spacing.xs)) {
+            pill()
+        }
+    }
 }
 
 @PreviewLightDark
 @Composable
-private fun YourMostBookedCardPreview() {
+private fun SatsJoinYourFriendsCardPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            YourMostBookedCard(
+            SatsJoinYourFriendsCard(
+                pill = { SatsPill(label = "Susanne", image = { SatsProfileAvatarImage(imageUrl = null) }) },
                 imageUrl = null,
                 title = "Indoor Running",
                 subtitle = "Today – 20:30",
