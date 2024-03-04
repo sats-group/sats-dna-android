@@ -15,8 +15,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.sats.dna.components.PlaceholderBox
-import com.sats.dna.components.PlaceholderText
+import com.sats.dna.components.SatsPlaceholderBox
+import com.sats.dna.components.SatsPlaceholderText
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
@@ -26,7 +26,7 @@ import androidx.compose.material3.LocalContentColor as M3LocalContentColor
 
 /**
  * Layout composable for info labels in a session detail screen.
- * Use the [SessionDetailsInfoLabel] to populate the slots in this component.
+ * Use the [SatsSessionDetailsInfoLabel] to populate the slots in this component.
  *
  * @param [durationLabel] Top left label that should describe the duration of the session.
  * @param [dateLabel] Top right label that should describe the date of the session.
@@ -34,7 +34,7 @@ import androidx.compose.material3.LocalContentColor as M3LocalContentColor
  *
  * **/
 @Composable
-fun SessionDetailsInfoSection(
+fun SatsSessionDetailsInfoSection(
     durationLabel: @Composable () -> Unit,
     dateLabel: @Composable () -> Unit,
     locationLabel: @Composable () -> Unit,
@@ -79,7 +79,7 @@ fun SessionDetailsInfoSection(
  *
  * **/
 @Composable
-fun SessionDetailsInfoLabel(
+fun SatsSessionDetailsInfoLabel(
     icon: Painter,
     text: String,
     modifier: Modifier = Modifier,
@@ -123,7 +123,7 @@ fun SessionDetailsInfoSectionPlaceholder(
     showWorkoutTypeLabel: Boolean = true,
     showGxNameLabel: Boolean = true,
 ) {
-    SessionDetailsInfoSection(
+    SatsSessionDetailsInfoSection(
         modifier = modifier,
         durationLabel = {
             if (showDurationLabel) {
@@ -160,44 +160,44 @@ fun SessionDetailsInfoLabelPlaceholder(text: String, modifier: Modifier = Modifi
         horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        PlaceholderBox(Modifier.size(20.dp), SatsTheme.shapes.circle)
-        PlaceholderText(text)
+        SatsPlaceholderBox(Modifier.size(20.dp), SatsTheme.shapes.circle)
+        SatsPlaceholderText(text)
     }
 }
 
 @PreviewLightDark
 @Composable
-private fun SessionDetailsInfoSectionPreview() {
+private fun SatsSessionDetailsInfoSectionPreview() {
     SatsTheme {
         SatsSurface {
-            SessionDetailsInfoSection(
+            SatsSessionDetailsInfoSection(
                 durationLabel = {
-                    SessionDetailsInfoLabel(
+                    SatsSessionDetailsInfoLabel(
                         icon = SatsTheme.icons.time,
                         text = "60 min",
                     )
                 },
                 dateLabel = {
-                    SessionDetailsInfoLabel(
+                    SatsSessionDetailsInfoLabel(
                         icon = SatsTheme.icons.calendar,
                         text = "Sat, Dec 2 2:30 PM",
                     )
                 },
                 locationLabel = {
-                    SessionDetailsInfoLabel(
+                    SatsSessionDetailsInfoLabel(
                         icon = SatsTheme.icons.location,
                         text = "SATS Bergen LHG",
                         onClick = {},
                     )
                 },
                 workoutTypeLabel = {
-                    SessionDetailsInfoLabel(
+                    SatsSessionDetailsInfoLabel(
                         icon = SatsTheme.icons.workoutGx,
                         text = "Strength Training",
                     )
                 },
                 gxNameLabel = {
-                    SessionDetailsInfoLabel(
+                    SatsSessionDetailsInfoLabel(
                         icon = SatsTheme.icons.workoutPt,
                         text = "Pure Strength",
                     )
@@ -219,10 +219,10 @@ private fun SessionDetailsInfoSectionPlaceholderPreview() {
 
 @PreviewLightDark
 @Composable
-private fun SessionDetailsInfoLabelPlaceholderPreview() {
+private fun SatsSessionDetailsInfoSectionPlaceholderPreview() {
     SatsTheme {
         SatsSurface {
-            SessionDetailsInfoSection(
+            SatsSessionDetailsInfoSection(
                 durationLabel = { SessionDetailsInfoLabelPlaceholder("60 min") },
                 dateLabel = { SessionDetailsInfoLabelPlaceholder("Sat, Dec 2 2:30 PM") },
                 locationLabel = { SessionDetailsInfoLabelPlaceholder("SATS Bergen LHG") },

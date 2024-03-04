@@ -25,7 +25,7 @@ import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun CardButton(
+fun SatsCardButton(
     onClick: () -> Unit,
     text: String,
     icon: Painter,
@@ -51,7 +51,7 @@ fun CardButton(
 }
 
 @Composable
-fun NavigationCardButton(
+fun SatsNavigationCardButton(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -74,7 +74,7 @@ fun NavigationCardButton(
 }
 
 @Composable
-fun StandAloneCardButton(
+fun SatsStandAloneCardButton(
     onClick: () -> Unit,
     text: String,
     icon: Painter,
@@ -84,7 +84,7 @@ fun StandAloneCardButton(
     SatsCard(
         modifier = modifier,
     ) {
-        CardButton(
+        SatsCardButton(
             onClick = onClick,
             text = text,
             icon = icon,
@@ -95,7 +95,7 @@ fun StandAloneCardButton(
 }
 
 @Composable
-fun TwoOptionsStandAloneCardButton(
+fun SatsTwoOptionsStandAloneCardButton(
     firstOptionOnClick: () -> Unit,
     firstOptionText: String,
     firstOptionIcon: Painter,
@@ -109,14 +109,14 @@ fun TwoOptionsStandAloneCardButton(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs),
     ) {
-        StandAloneCardButton(
+        SatsStandAloneCardButton(
             modifier = Modifier.weight(1f),
             onClick = firstOptionOnClick,
             text = firstOptionText,
             icon = firstOptionIcon,
             alignment = Alignment.CenterHorizontally,
         )
-        StandAloneCardButton(
+        SatsStandAloneCardButton(
             modifier = Modifier.weight(1f),
             onClick = secondOptionOnClick,
             text = secondOptionText,
@@ -127,7 +127,7 @@ fun TwoOptionsStandAloneCardButton(
 }
 
 @Composable
-fun InCardCardButton(
+fun SatsInCardCardButton(
     onClick: () -> Unit,
     text: String,
     icon: Painter,
@@ -139,7 +139,7 @@ fun InCardCardButton(
     ) {
         Column {
             SatsHorizontalDivider()
-            CardButton(
+            SatsCardButton(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = onClick,
                 text = text,
@@ -152,7 +152,7 @@ fun InCardCardButton(
 }
 
 @Composable
-fun TwoOptionsInCardCardButton(
+fun SatsTwoOptionsInCardCardButton(
     firstOptionOnClick: () -> Unit,
     firstOptionText: String,
     firstOptionIcon: Painter,
@@ -169,7 +169,7 @@ fun TwoOptionsInCardCardButton(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceAround,
             ) {
-                CardButton(
+                SatsCardButton(
                     modifier = Modifier
                         .weight(1f)
                         .fillMaxHeight(),
@@ -180,7 +180,7 @@ fun TwoOptionsInCardCardButton(
                     alignment = Alignment.CenterHorizontally,
                 )
                 SatsVerticalDivider()
-                CardButton(
+                SatsCardButton(
                     modifier = Modifier
                         .weight(1f)
                         .fillMaxHeight(),
@@ -197,17 +197,17 @@ fun TwoOptionsInCardCardButton(
 
 @PreviewLightDark
 @Composable
-private fun NavigationCardButtonPreview() {
+private fun SatsNavigationCardButtonPreview() {
     SatsTheme {
-        NavigationCardButton(modifier = Modifier.fillMaxWidth(), onClick = {}, text = "Give us feedback on the app")
+        SatsNavigationCardButton(modifier = Modifier.fillMaxWidth(), onClick = {}, text = "Give us feedback on the app")
     }
 }
 
 @PreviewLightDark
 @Composable
-private fun OneOptionStandAloneCardButtonPreview() {
+private fun SatsStandAloneCardButtonPreview() {
     SatsTheme {
-        StandAloneCardButton(
+        SatsStandAloneCardButton(
             modifier = Modifier.fillMaxWidth(),
             onClick = {},
             text = "Schedule",
@@ -218,9 +218,9 @@ private fun OneOptionStandAloneCardButtonPreview() {
 
 @PreviewLightDark
 @Composable
-private fun TwoOptionsStandAloneCardButtonPreview() {
+private fun SatsTwoOptionsStandAloneCardButtonPreview() {
     SatsTheme {
-        TwoOptionsStandAloneCardButton(
+        SatsTwoOptionsStandAloneCardButton(
             modifier = Modifier.fillMaxWidth(),
             firstOptionOnClick = {},
             firstOptionText = "Add workout",
@@ -234,9 +234,9 @@ private fun TwoOptionsStandAloneCardButtonPreview() {
 
 @PreviewLightDark
 @Composable
-private fun OneOptionInCardCardButtonPreview() {
+private fun SatsInCardCardButtonPreview() {
     SatsTheme {
-        InCardCardButton(
+        SatsInCardCardButton(
             modifier = Modifier.fillMaxWidth(),
             onClick = {},
             text = "Schedule",
@@ -248,9 +248,9 @@ private fun OneOptionInCardCardButtonPreview() {
 @PreviewFontScale
 @PreviewLightDark
 @Composable
-private fun TwoOptionInCardCardButtonPreview() {
+private fun SatsTwoOptionsInCardCardButtonPreview() {
     SatsTheme {
-        TwoOptionsInCardCardButton(
+        SatsTwoOptionsInCardCardButton(
             modifier = Modifier.fillMaxWidth(),
             firstOptionOnClick = {},
             firstOptionText = "Book",

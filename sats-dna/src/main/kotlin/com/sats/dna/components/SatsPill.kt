@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun Pill(
+fun SatsPill(
     label: String,
     image: @Composable BoxScope.() -> Unit,
     modifier: Modifier = Modifier,
@@ -50,10 +50,14 @@ fun Pill(
 
 @PreviewLightDark
 @Composable
-private fun PillPreview() {
+private fun SatsPillPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            Pill("Susanne", image = { ProfileAvatarImage(imageUrl = null) }, Modifier.padding(SatsTheme.spacing.m))
+            SatsPill(
+                label = "Susanne",
+                image = { SatsProfileAvatarImage(imageUrl = null) },
+                modifier = Modifier.padding(SatsTheme.spacing.m),
+            )
         }
     }
 }

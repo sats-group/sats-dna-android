@@ -34,7 +34,7 @@ import androidx.compose.ui.unit.toSize
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun PlaceholderBox(
+fun SatsPlaceholderBox(
     modifier: Modifier = Modifier,
     shape: Shape = SatsTheme.shapes.roundedCorners.small,
     content: @Composable BoxScope.() -> Unit = {},
@@ -48,7 +48,7 @@ fun PlaceholderBox(
 }
 
 @Composable
-fun PlaceholderText(
+fun SatsPlaceholderText(
     text: String,
     modifier: Modifier = Modifier,
     style: TextStyle = SatsTheme.typography.normal.basic,
@@ -61,7 +61,7 @@ fun PlaceholderText(
 }
 
 @Composable
-fun PlaceholderParagraph(
+fun SatsPlaceholderParagraph(
     modifier: Modifier = Modifier,
     lines: Int = 5,
     style: TextStyle = SatsTheme.typography.normal.basic,
@@ -81,7 +81,7 @@ fun PlaceholderParagraph(
         repeat(lines) { lineNumber ->
             val line = texts[lineNumber % texts.count()]
 
-            PlaceholderText(line, style = style)
+            SatsPlaceholderText(line, style = style)
         }
     }
 }
@@ -97,20 +97,20 @@ private fun rememberTextSize(text: String, style: TextStyle): DpSize {
 
 @PreviewLightDark
 @Composable
-private fun PlaceholderBoxPreview() {
+private fun SatsPlaceholderBoxPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             Column(Modifier.padding(SatsTheme.spacing.m), spacedBy(SatsTheme.spacing.m)) {
-                PlaceholderBox(
+                SatsPlaceholderBox(
                     Modifier
                         .fillMaxWidth()
                         .height(48.dp),
                     RectangleShape,
                 )
 
-                PlaceholderBox(Modifier.size(50.dp), CircleShape)
+                SatsPlaceholderBox(Modifier.size(50.dp), CircleShape)
 
-                PlaceholderBox(Modifier.size(100.dp, 40.dp))
+                SatsPlaceholderBox(Modifier.size(100.dp, 40.dp))
             }
         }
     }
@@ -122,9 +122,9 @@ private fun PlaceholderTextPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             Column(Modifier.padding(SatsTheme.spacing.m), spacedBy(SatsTheme.spacing.m)) {
-                PlaceholderText("Some Heading", style = SatsTheme.typography.emphasis.headline2)
+                SatsPlaceholderText("Some Heading", style = SatsTheme.typography.emphasis.headline2)
 
-                PlaceholderParagraph()
+                SatsPlaceholderParagraph()
             }
         }
     }

@@ -105,8 +105,8 @@ fun SatsTagPlaceholder(
     text: String,
     modifier: Modifier = Modifier,
 ) {
-    PlaceholderBox(modifier, SatsTheme.shapes.roundedCorners.extraSmall) {
-        PlaceholderText(
+    SatsPlaceholderBox(modifier, SatsTheme.shapes.roundedCorners.extraSmall) {
+        SatsPlaceholderText(
             text = text.uppercase(),
             modifier = Modifier.padding(
                 horizontal = SatsTheme.spacing.s,

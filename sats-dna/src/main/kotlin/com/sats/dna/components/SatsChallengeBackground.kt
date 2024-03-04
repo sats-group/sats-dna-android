@@ -13,7 +13,7 @@ import com.sats.dna.R
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun ChallengeBackground(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
+fun SatsChallengeBackground(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
     SatsSurface(modifier, color = SatsTheme.colors2.backgrounds.fixed.primary.bg.default, useMaterial3 = true) {
         Box {
             Image(
@@ -31,9 +31,9 @@ fun ChallengeBackground(modifier: Modifier = Modifier, content: @Composable () -
 @Preview
 @Preview(device = "spec:id=reference_tablet,shape=Normal,width=1280,height=800,unit=dp,dpi=240")
 @Composable
-private fun ChallengeBackgroundPreview() {
+private fun SatsChallengeBackgroundPreview() {
     SatsTheme {
-        ChallengeBackground(Modifier.fillMaxSize()) {
+        SatsChallengeBackground(Modifier.fillMaxSize()) {
         }
     }
 }

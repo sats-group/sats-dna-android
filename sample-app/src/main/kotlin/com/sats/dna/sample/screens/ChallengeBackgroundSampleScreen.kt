@@ -21,7 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import com.sats.dna.components.ChallengeBackground
+import com.sats.dna.components.SatsChallengeBackground
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.theme.SatsTheme
@@ -74,7 +74,7 @@ private fun ChallengeBackgroundScreen(navigateUp: () -> Unit, modifier: Modifier
         },
         bottomBar = { Box(Modifier.navigationBarsPadding()) },
     ) {
-        ChallengeBackground(Modifier.fillMaxSize()) {
+        SatsChallengeBackground(Modifier.fillMaxSize()) {
         }
     }
 }

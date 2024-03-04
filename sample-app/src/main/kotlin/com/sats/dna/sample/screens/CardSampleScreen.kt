@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsTitledCard
 import com.sats.dna.components.SatsTitledCardAction
-import com.sats.dna.components.button.TwoOptionsInCardCardButton
+import com.sats.dna.components.button.SatsTwoOptionsInCardCardButton
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.theme.SatsTheme
 
@@ -90,8 +90,10 @@ private fun SatsCardScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                             .wrapContentSize(),
                     )
 
-                    TwoOptionsInCardCardButton(
-                        modifier = Modifier.fillMaxHeight().wrapContentHeight(Alignment.Bottom),
+                    SatsTwoOptionsInCardCardButton(
+                        modifier = Modifier
+                            .fillMaxHeight()
+                            .wrapContentHeight(Alignment.Bottom),
                         firstOptionOnClick = { },
                         firstOptionText = "Add workout",
                         firstOptionIcon = SatsTheme.icons.add,

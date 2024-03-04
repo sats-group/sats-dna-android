@@ -12,8 +12,8 @@ import com.sats.dna.internal.materialIconTint
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun BrandLogo(
-    brand: Brand,
+fun SatsBrandLogo(
+    brand: SatsBrandLogoBrand,
     contentDescription: String?,
     modifier: Modifier = Modifier,
     isFullName: Boolean = false,
@@ -29,30 +29,30 @@ fun BrandLogo(
     )
 }
 
-enum class Brand {
+enum class SatsBrandLogoBrand {
     Sats,
     Elixia,
 }
 
 @Composable
-private fun Brand.letterIconPainter() = when (this) {
-    Brand.Sats -> painterResource(R.drawable.ic_letter_s)
-    Brand.Elixia -> painterResource(R.drawable.ic_letter_e)
+private fun SatsBrandLogoBrand.letterIconPainter() = when (this) {
+    SatsBrandLogoBrand.Sats -> painterResource(R.drawable.ic_letter_s)
+    SatsBrandLogoBrand.Elixia -> painterResource(R.drawable.ic_letter_e)
 }
 
 @Composable
-private fun Brand.fullNameIconPainter() = when (this) {
-    Brand.Sats -> painterResource(R.drawable.ic_sats)
-    Brand.Elixia -> painterResource(R.drawable.ic_elixia)
+private fun SatsBrandLogoBrand.fullNameIconPainter() = when (this) {
+    SatsBrandLogoBrand.Sats -> painterResource(R.drawable.ic_sats)
+    SatsBrandLogoBrand.Elixia -> painterResource(R.drawable.ic_elixia)
 }
 
 @PreviewLightDark
 @Composable
-private fun ElixiaLetterPreview() {
+private fun SatsBrandLogoElixiaLetterPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            BrandLogo(
-                brand = Brand.Elixia,
+            SatsBrandLogo(
+                brand = SatsBrandLogoBrand.Elixia,
                 contentDescription = null,
                 modifier = Modifier.padding(SatsTheme.spacing.m),
             )
@@ -62,11 +62,11 @@ private fun ElixiaLetterPreview() {
 
 @PreviewLightDark
 @Composable
-private fun ElixiaFullPreview() {
+private fun SatsBrandLogoElixiaFullPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            BrandLogo(
-                brand = Brand.Elixia,
+            SatsBrandLogo(
+                brand = SatsBrandLogoBrand.Elixia,
                 contentDescription = null,
                 isFullName = true,
                 modifier = Modifier.padding(SatsTheme.spacing.m),
@@ -77,11 +77,11 @@ private fun ElixiaFullPreview() {
 
 @PreviewLightDark
 @Composable
-private fun SatsLetterPreview() {
+private fun SatsBrandLogoSatsLetterPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            BrandLogo(
-                brand = Brand.Sats,
+            SatsBrandLogo(
+                brand = SatsBrandLogoBrand.Sats,
                 contentDescription = null,
                 modifier = Modifier.padding(SatsTheme.spacing.m),
             )
@@ -91,11 +91,11 @@ private fun SatsLetterPreview() {
 
 @PreviewLightDark
 @Composable
-private fun SatsFullPreview() {
+private fun SatsBrandLogoSatsFullPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            BrandLogo(
-                brand = Brand.Sats,
+            SatsBrandLogo(
+                brand = SatsBrandLogoBrand.Sats,
                 contentDescription = null,
                 isFullName = true,
                 modifier = Modifier.padding(SatsTheme.spacing.m),

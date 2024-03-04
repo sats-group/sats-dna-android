@@ -9,8 +9,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsHorizontalDivider
-import com.sats.dna.components.sessiondetails.SessionDetailsInfoLabel
-import com.sats.dna.components.sessiondetails.SessionDetailsInfoSection
+import com.sats.dna.components.sessiondetails.SatsSessionDetailsInfoLabel
+import com.sats.dna.components.sessiondetails.SatsSessionDetailsInfoSection
 import com.sats.dna.components.sessiondetails.SessionDetailsInfoSectionPlaceholder
 import com.sats.dna.theme.SatsTheme
 
@@ -30,34 +30,34 @@ private fun SessionDetailsInfoLabelScreen(navigateUp: () -> Unit, modifier: Modi
                 .wrapContentSize(),
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
         ) {
-            SessionDetailsInfoSection(
+            SatsSessionDetailsInfoSection(
                 durationLabel = {
-                    SessionDetailsInfoLabel(
+                    SatsSessionDetailsInfoLabel(
                         icon = SatsTheme.icons.time,
                         text = "60 min",
                     )
                 },
                 dateLabel = {
-                    SessionDetailsInfoLabel(
+                    SatsSessionDetailsInfoLabel(
                         icon = SatsTheme.icons.calendar,
                         text = "Sat, Dec 2 2:30 PM",
                     )
                 },
                 locationLabel = {
-                    SessionDetailsInfoLabel(
+                    SatsSessionDetailsInfoLabel(
                         icon = SatsTheme.icons.location,
                         text = "SATS Bergen LHG",
                         onClick = {},
                     )
                 },
                 workoutTypeLabel = {
-                    SessionDetailsInfoLabel(
+                    SatsSessionDetailsInfoLabel(
                         icon = SatsTheme.icons.workoutGx,
                         text = "Strength Training",
                     )
                 },
                 gxNameLabel = {
-                    SessionDetailsInfoLabel(
+                    SatsSessionDetailsInfoLabel(
                         icon = SatsTheme.icons.workoutPt,
                         text = "Pure Strength",
                     )

@@ -22,7 +22,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.PreviewFontScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.sats.dna.components.PlaceholderBox
+import com.sats.dna.components.SatsPlaceholderBox
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
@@ -33,11 +33,11 @@ import com.sats.dna.theme.SatsTheme
  * A section for a day of upcoming workouts
  *
  * @param day A formatted day that will be displayed as the title of the section.
- * @param content The list of the containing workouts for this day. Consider using [UpcomingWorkoutListItem].
+ * @param content The list of the containing workouts for this day. Consider using [SatsUpcomingWorkoutListItem].
  * @param modifier The modifier to apply to the section.
  **/
 @Composable
-fun UpcomingWorkoutDaySection(
+fun SatsUpcomingWorkoutDaySection(
     day: String,
     modifier: Modifier = Modifier,
     content: @Composable ColumnScope.() -> Unit,
@@ -71,11 +71,11 @@ fun UpcomingWorkoutDaySection(
  * @param workoutType If not null, gives the component a color bar to the left of the content.
  * To symbolize what type of workout it is.
  * @param button Optional slot for displaying a book/unbook button.
- * @param friendsAttending Optional slot for displaying friends that are also attending the workout. Typically a [UpcomingWorkoutAttendingFriendsLabel]
+ * @param friendsAttending Optional slot for displaying friends that are also attending the workout. Typically a [SatsUpcomingWorkoutAttendingFriendsLabel]
  * @param waitingListStatus What status the member has on the waiting list.
  * **/
 @Composable
-fun UpcomingWorkoutListItem(
+fun SatsUpcomingWorkoutListItem(
     name: String,
     time: String,
     location: String?,
@@ -84,10 +84,10 @@ fun UpcomingWorkoutListItem(
     workoutTypeLabel: String?,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    workoutType: WorkoutType? = null,
+    workoutType: SatsWorkoutType? = null,
     button: @Composable (() -> Unit)? = null,
     friendsAttending: @Composable (ColumnScope.() -> Unit)? = null,
-    waitingListStatus: WaitingListStatus? = null,
+    waitingListStatus: SatsWaitingListStatus? = null,
 ) {
     Row(
         modifier
@@ -97,7 +97,7 @@ fun UpcomingWorkoutListItem(
         horizontalArrangement = spacedBy(SatsTheme.spacing.s),
     ) {
         workoutType?.let {
-            WorkoutTypeColorIndicator(it)
+            SatsWorkoutTypeColorIndicator(it)
         }
         TimeAndDuration(
             time = time,
@@ -139,7 +139,7 @@ fun UpcomingWorkoutListItem(
  * **/
 
 @Composable
-fun UpcomingWorkoutAttendingFriendsLabel(
+fun SatsUpcomingWorkoutAttendingFriendsLabel(
     memberImages: @Composable RowScope.() -> Unit,
     friendsAttendingLabel: String,
     modifier: Modifier = Modifier,
@@ -160,12 +160,12 @@ fun UpcomingWorkoutAttendingFriendsLabel(
 @PreviewLightDark
 @PreviewFontScale
 @Composable
-private fun UpcomingWorkoutsListPreview() {
+private fun SatsUpcomingWorkoutsListPreview() {
     SatsTheme {
         SatsSurface(useMaterial3 = true) {
             Column {
-                UpcomingWorkoutDaySection(day = "Thu, Jul 27 2023") {
-                    UpcomingWorkoutListItem(
+                SatsUpcomingWorkoutDaySection(day = "Thu, Jul 27 2023") {
+                    SatsUpcomingWorkoutListItem(
                         name = "Pure Strength",
                         time = "11:00 AM",
                         location = "SATS Storo",
@@ -179,15 +179,15 @@ private fun UpcomingWorkoutsListPreview() {
                             )
                         },
                         friendsAttending = {
-                            UpcomingWorkoutAttendingFriendsLabel(
+                            SatsUpcomingWorkoutAttendingFriendsLabel(
                                 memberImages = {
-                                    PlaceholderBox(
+                                    SatsPlaceholderBox(
                                         Modifier
                                             .size(24.dp)
                                             .border(BorderStroke(1.dp, Color.White), CircleShape),
                                         shape = SatsTheme.shapes.circle,
                                     )
-                                    PlaceholderBox(
+                                    SatsPlaceholderBox(
                                         Modifier
                                             .size(24.dp)
                                             .border(BorderStroke(1.dp, Color.White), CircleShape),
@@ -197,7 +197,7 @@ private fun UpcomingWorkoutsListPreview() {
                                 friendsAttendingLabel = "2 friends are joining this workout!",
                             )
                         },
-                        workoutType = WorkoutType.Gx,
+                        workoutType = SatsWorkoutType.Gx,
                         workoutTypeLabel = null,
                         onClick = {},
                     )

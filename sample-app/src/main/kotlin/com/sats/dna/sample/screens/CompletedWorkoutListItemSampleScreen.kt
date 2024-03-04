@@ -12,10 +12,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.sats.dna.components.CompletedWorkoutListItem
+import com.sats.dna.components.SatsCompletedWorkoutListItem
 import com.sats.dna.components.SatsHorizontalDivider
-import com.sats.dna.components.icons.WorkoutType
-import com.sats.dna.components.icons.WorkoutTypeIcon
+import com.sats.dna.components.icons.SatsWorkoutTypeIcon
+import com.sats.dna.components.icons.SatsWorkoutTypeIconType
 import com.sats.dna.theme.SatsTheme
 
 data object CompletedWorkoutListItemSampleScreen : SampleScreen(
@@ -40,8 +40,8 @@ private fun CompletedWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Mod
             repeat(10) {
                 if (it > 0) SatsHorizontalDivider()
 
-                CompletedWorkoutListItem(
-                    icon = { WorkoutTypeIcon(WorkoutType.OwnTraining, null, Modifier.size(34.dp)) },
+                SatsCompletedWorkoutListItem(
+                    icon = { SatsWorkoutTypeIcon(SatsWorkoutTypeIconType.OwnTraining, null, Modifier.size(34.dp)) },
                     timestamp = "Jul 18, 2023, 06:18",
                     title = "Gym training",
                     location = "at Colosseum",

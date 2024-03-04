@@ -92,7 +92,7 @@ private fun SatsTitledCardWithoutActionPreview() {
                 title = "Lorem ipsum",
                 modifier = Modifier.padding(SatsTheme.spacing.m),
             ) {
-                PlaceholderParagraph(
+                SatsPlaceholderParagraph(
                     modifier = Modifier.padding(it),
                     lines = 5,
                 )
@@ -111,7 +111,7 @@ private fun SatsTitledCardWithChevronActionPreview() {
                 action = SatsTitledCardAction.Chevron(action = {}, contentDescription = null),
                 modifier = Modifier.padding(SatsTheme.spacing.m),
             ) {
-                PlaceholderParagraph(
+                SatsPlaceholderParagraph(
                     modifier = Modifier.padding(it),
                     lines = 5,
                 )

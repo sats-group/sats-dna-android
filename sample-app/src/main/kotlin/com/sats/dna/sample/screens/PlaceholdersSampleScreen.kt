@@ -13,9 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.sats.dna.components.PlaceholderBox
-import com.sats.dna.components.PlaceholderParagraph
-import com.sats.dna.components.PlaceholderText
+import com.sats.dna.components.SatsPlaceholderBox
+import com.sats.dna.components.SatsPlaceholderParagraph
+import com.sats.dna.components.SatsPlaceholderText
 import com.sats.dna.theme.SatsTheme
 
 data object PlaceholdersSampleScreen : SampleScreen(
@@ -28,7 +28,7 @@ data object PlaceholdersSampleScreen : SampleScreen(
 private fun PlaceholderScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Placeholders", navigateUp, modifier) { innerPadding ->
         Column(Modifier.padding(innerPadding)) {
-            PlaceholderBox(
+            SatsPlaceholderBox(
                 Modifier
                     .aspectRatio(16f / 9)
                     .fillMaxWidth(),
@@ -43,15 +43,15 @@ private fun PlaceholderScreen(navigateUp: () -> Unit, modifier: Modifier = Modif
                     horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    PlaceholderBox(Modifier.size(50.dp), SatsTheme.shapes.circle)
+                    SatsPlaceholderBox(Modifier.size(50.dp), SatsTheme.shapes.circle)
 
                     Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
-                        PlaceholderText("Austin Powers", style = SatsTheme.typography.medium.basic)
-                        PlaceholderText("International Man of Mystery", style = SatsTheme.typography.normal.small)
+                        SatsPlaceholderText("Austin Powers", style = SatsTheme.typography.medium.basic)
+                        SatsPlaceholderText("International Man of Mystery", style = SatsTheme.typography.normal.small)
                     }
                 }
 
-                PlaceholderParagraph(lines = 10)
+                SatsPlaceholderParagraph(lines = 10)
             }
         }
     }

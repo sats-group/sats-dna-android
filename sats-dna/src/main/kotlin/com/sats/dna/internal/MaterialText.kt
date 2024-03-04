@@ -7,7 +7,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import com.sats.dna.components.LocalUseMaterial3
+import com.sats.dna.LocalUseMaterial3
 import androidx.compose.material.Text as Material2Text
 import androidx.compose.material3.Text as Material3Text
 

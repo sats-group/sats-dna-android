@@ -13,7 +13,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.sessiondetails.FriendsBookingState
 import com.sats.dna.components.sessiondetails.FriendsBookingStatus
-import com.sats.dna.components.sessiondetails.FriendsBookingStatusListItem
+import com.sats.dna.components.sessiondetails.SatsFriendsBookingStatusListItem
 import com.sats.dna.theme.SatsTheme
 
 data object FriendsBookingStatusSampleScreen : SampleScreen(
@@ -37,7 +37,7 @@ private fun FriendsBookingStatusScreen(navigateUp: () -> Unit, modifier: Modifie
                 .background(SatsTheme.colors2.surfaces.primary.bg.default),
         ) {
             friendsBookingStates.forEach { bookingState ->
-                FriendsBookingStatusListItem(
+                SatsFriendsBookingStatusListItem(
                     image = {
                         Icon(
                             painter = SatsTheme.icons.imagePlaceholder,

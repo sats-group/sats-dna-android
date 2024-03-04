@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,25 +19,10 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
-import com.sats.dna.components.PlaceholderBox
-import com.sats.dna.components.PlaceholderText
+import com.sats.dna.components.SatsPlaceholderBox
+import com.sats.dna.components.SatsPlaceholderText
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
-
-data class FriendsBookingState(
-    val status: FriendsBookingStatus,
-    val statusText: String,
-)
-
-enum class FriendsBookingStatus {
-    Booked,
-    Pending,
-    WaitingList,
-    Declined,
-    Owner,
-    Invited,
-    Removed,
-}
 
 /**
  * List Item for invited Friends booking statuses in a session detail page.
@@ -52,7 +36,7 @@ enum class FriendsBookingStatus {
  * @param [contextMenu] Optional context menu to be added at the end of the list item.
  * **/
 @Composable
-fun FriendsBookingStatusListItem(
+fun SatsFriendsBookingStatusListItem(
     image: @Composable () -> Unit,
     name: String,
     bookingState: FriendsBookingState,
@@ -86,8 +70,23 @@ fun FriendsBookingStatusListItem(
     }
 }
 
+data class FriendsBookingState(
+    val status: FriendsBookingStatus,
+    val statusText: String,
+)
+
+enum class FriendsBookingStatus {
+    Booked,
+    Pending,
+    WaitingList,
+    Declined,
+    Owner,
+    Invited,
+    Removed,
+}
+
 @Composable
-fun FriendsBookingStatusListPlaceholder(
+fun SatsFriendsBookingStatusListPlaceholder(
     modifier: Modifier = Modifier,
     count: Int = 1,
 ) {
@@ -97,21 +96,19 @@ fun FriendsBookingStatusListPlaceholder(
                 modifier = Modifier.padding(SatsTheme.spacing.m),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                PlaceholderBox(
+                SatsPlaceholderBox(
                     shape = SatsTheme.shapes.circle,
-                ) {
-                    Icon(
-                        modifier = Modifier.size(24.dp),
-                        contentDescription = null,
-                        painter = SatsTheme.icons.profile,
-                    )
-                }
-                PlaceholderText(
+                    modifier = Modifier.size(24.dp),
+                )
+
+                SatsPlaceholderText(
                     modifier = Modifier.padding(start = SatsTheme.spacing.m),
                     text = "Guro Olsen Ørbech",
                 )
+
                 Spacer(Modifier.weight(1f))
-                PlaceholderText(text = "Pending")
+
+                SatsPlaceholderText("Pending")
             }
         }
     }
@@ -119,13 +116,13 @@ fun FriendsBookingStatusListPlaceholder(
 
 @PreviewLightDark
 @Composable
-private fun FriendsBookingListItemPreview(
+private fun SatsFriendsBookingStatusListItemPreview(
     @PreviewParameter(FriendsBookingStatusPreviewProvider::class) bookingState: FriendsBookingState,
 ) {
     SatsTheme {
         SatsSurface {
             Column {
-                FriendsBookingStatusListItem(
+                SatsFriendsBookingStatusListItem(
                     image = {
                         Box(
                             modifier = Modifier
@@ -146,10 +143,10 @@ private fun FriendsBookingListItemPreview(
 
 @PreviewLightDark
 @Composable
-private fun FriendsBookingListItemPlaceholderPreview() {
+private fun SatsFriendsBookingStatusListPlaceholderPreview() {
     SatsTheme {
         SatsSurface {
-            FriendsBookingStatusListPlaceholder(count = 3)
+            SatsFriendsBookingStatusListPlaceholder(count = 3)
         }
     }
 }

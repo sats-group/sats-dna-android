@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.components.YourMostBookedCard
+import com.sats.dna.components.SatsYourMostBookedCard
 import com.sats.dna.theme.SatsTheme
 
 data object YourMostBookedSampleScreen : SampleScreen(
@@ -17,7 +17,7 @@ data object YourMostBookedSampleScreen : SampleScreen(
 @Composable
 private fun YourMostBookedSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Your Most Booked", navigateUp, modifier) { innerPadding ->
-        YourMostBookedCard(
+        SatsYourMostBookedCard(
             imageUrl = null,
             title = "Indoor Running",
             subtitle = "Solli",

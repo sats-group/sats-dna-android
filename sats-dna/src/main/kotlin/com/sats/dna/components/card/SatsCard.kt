@@ -13,8 +13,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.R
-import com.sats.dna.components.LocalUseMaterial3
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme

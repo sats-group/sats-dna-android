@@ -15,9 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewFontScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.sats.dna.components.button.LikeButton
-import com.sats.dna.components.icons.WorkoutType
-import com.sats.dna.components.icons.WorkoutTypeIcon
+import com.sats.dna.components.button.SatsLikeButton
+import com.sats.dna.components.icons.SatsWorkoutTypeIcon
+import com.sats.dna.components.icons.SatsWorkoutTypeIconType
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -25,7 +25,7 @@ import com.sats.dna.theme.SatsTheme
 /**
  * Displays a list item for a completed workout.
  *
- * @param icon An icon to be displayed on the left gutter of the item, typically a [WorkoutTypeIcon]
+ * @param icon An icon to be displayed on the left gutter of the item, typically a [SatsWorkoutTypeIcon]
  * @param timestamp A formatted date/time for when the workout started.
  * @param title The title of the workout.
  * @param location Where the workout took place, e.g. at which gym.
@@ -34,7 +34,7 @@ import com.sats.dna.theme.SatsTheme
  * @param modifier The modifier to apply to the list item.
  */
 @Composable
-fun CompletedWorkoutListItem(
+fun SatsCompletedWorkoutListItem(
     icon: @Composable () -> Unit,
     timestamp: String,
     title: String,
@@ -115,7 +115,7 @@ private fun SocialRow(
                 MaterialText(normalizedNumberOfComments, color = SatsTheme.colors2.backgrounds.secondary.fg.default)
             }
 
-            LikeButton(isLiked = isLiked, onSaidAwesomeClicked)
+            SatsLikeButton(isLiked = isLiked, onSaidAwesomeClicked)
         }
     }
 }
@@ -149,11 +149,11 @@ private fun WorkoutInfo(
 @PreviewLightDark
 @PreviewFontScale
 @Composable
-private fun CompletedWorkoutListItemPreview() {
+private fun SatsCompletedWorkoutListItemPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            CompletedWorkoutListItem(
-                icon = { WorkoutTypeIcon(WorkoutType.OwnTraining, null, Modifier.size(34.dp)) },
+            SatsCompletedWorkoutListItem(
+                icon = { SatsWorkoutTypeIcon(SatsWorkoutTypeIconType.OwnTraining, null, Modifier.size(34.dp)) },
                 timestamp = "Jul 18, 2023, 06:18",
                 title = "Gym training (M3)",
                 location = "at Colosseum",

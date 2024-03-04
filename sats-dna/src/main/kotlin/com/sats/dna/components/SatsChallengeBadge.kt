@@ -51,7 +51,7 @@ fun SatsChallengeBadge(
 
 @Composable
 private fun LoadingPlaceholder(modifier: Modifier = Modifier) {
-    PlaceholderBox(modifier)
+    SatsPlaceholderBox(modifier)
 }
 
 @Composable
@@ -61,7 +61,7 @@ private fun ErrorFallback(contentDescription: String?, modifier: Modifier = Modi
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun SatsChallengeBadgePreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
             SatsChallengeBadge(
@@ -77,7 +77,7 @@ private fun Preview() {
 
 @PreviewLightDark
 @Composable
-private fun ProgressPreview() {
+private fun SatsChallengeBadgeProgressPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
             SatsChallengeBadge(

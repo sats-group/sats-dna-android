@@ -13,7 +13,7 @@ import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun LikeButton(
+fun SatsLikeButton(
     isLiked: Boolean,
     onLikedChange: (isLiked: Boolean) -> Unit,
     modifier: Modifier = Modifier,
@@ -30,24 +30,24 @@ fun LikeButton(
 
 @PreviewLightDark
 @Composable
-private fun LikedPreview() {
+private fun SatsLikeButtonLikedPreview() {
     val (isLiked, setIsLiked) = remember { mutableStateOf(true) }
 
     SatsTheme {
         SatsSurface {
-            LikeButton(isLiked, setIsLiked, Modifier.padding(SatsTheme.spacing.m))
+            SatsLikeButton(isLiked, setIsLiked, Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }
 
 @PreviewLightDark
 @Composable
-private fun NotLikedPreview() {
+private fun SatsLikeButtonNotLikedPreview() {
     val (isLiked, setIsLiked) = remember { mutableStateOf(false) }
 
     SatsTheme {
         SatsSurface {
-            LikeButton(isLiked, setIsLiked, Modifier.padding(SatsTheme.spacing.m))
+            SatsLikeButton(isLiked, setIsLiked, Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }

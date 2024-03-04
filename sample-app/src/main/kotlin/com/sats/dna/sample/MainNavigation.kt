@@ -6,7 +6,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import com.sats.dna.sample.home.HomeScreen
 import com.sats.dna.sample.screens.BannerSampleScreen
-import com.sats.dna.sample.screens.BottomNavigationSampleScreen
 import com.sats.dna.sample.screens.BrandLogoSampleScreen
 import com.sats.dna.sample.screens.ButtonsSampleScreen
 import com.sats.dna.sample.screens.CampaignModuleSampleScreen
@@ -55,7 +54,6 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         TypographySampleScreen.navScreen(navController)
 
         BannerSampleScreen.navScreen(navController)
-        BottomNavigationSampleScreen.navScreen(navController)
         BrandLogoSampleScreen.navScreen(navController)
         ButtonsSampleScreen.navScreen(navController)
         CampaignModuleSampleScreen.navScreen(navController)
