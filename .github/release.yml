@@ -1,0 +1,28 @@
+changelog:
+  exclude:
+    labels:
+      - devops
+      - release
+
+  categories:
+    - title: Dependency Updates
+      authors:
+        - renovatebot
+      labels:
+        - dependencies
+
+    - title: Bug Fixes
+      labels:
+        - bugfix
+
+    - title: Breaking Changes
+      labels:
+        - breaking
+
+    - title: New Features
+      labels:
+        - enhancement
+
+    - title: Other Changes
+      labels:
+        - "*"
