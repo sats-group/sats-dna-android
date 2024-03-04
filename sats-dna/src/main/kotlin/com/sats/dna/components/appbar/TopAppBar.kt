@@ -1,14 +1,14 @@
 package com.sats.dna.components.appbar
 
+import androidx.compose.material3.Icon as M3Icon
+import androidx.compose.material3.IconButton as M3IconButton
+import androidx.compose.material3.Text as M3Text
+import androidx.compose.material3.TopAppBar as M3TopAppBar
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.TopAppBarDefaults
@@ -18,32 +18,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import com.google.accompanist.insets.ui.TopAppBar
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
-import androidx.compose.material3.Icon as M3Icon
-import androidx.compose.material3.IconButton as M3IconButton
-import androidx.compose.material3.Text as M3Text
-import androidx.compose.material3.TopAppBar as M3TopAppBar
-
-@Composable
-fun SatsTopAppBar(
-    title: @Composable () -> Unit,
-    modifier: Modifier = Modifier,
-    navigationIcon: @Composable (() -> Unit)? = null,
-    actions: @Composable RowScope.() -> Unit = {},
-    contentPadding: PaddingValues = PaddingValues(),
-) {
-    TopAppBar(
-        backgroundColor = SatsTheme.colors2.surfaces.primary.bg.default,
-        contentPadding = contentPadding,
-        contentColor = SatsTheme.colors2.surfaces.primary.fg.default,
-        title = title,
-        modifier = modifier,
-        navigationIcon = navigationIcon,
-        actions = actions,
-    )
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -110,31 +86,6 @@ fun M3SatsTopAppBar(
         scrollBehavior = scrollBehavior,
         windowInsets = windowInsets,
     )
-}
-
-@PreviewLightDark
-@Composable
-private fun Material2Preview() {
-    SatsTheme {
-        SatsTopAppBar(
-            navigationIcon = {
-                IconButton(onClick = {}) {
-                    Icon(SatsTheme.icons.back, contentDescription = null)
-                }
-            },
-            title = { Text("Top App Bar") },
-            actions = {
-                listOf(
-                    SatsTheme.icons.barbell,
-                    SatsTheme.icons.addPerson,
-                ).forEach { icon ->
-                    IconButton(onClick = {}) {
-                        Icon(icon, contentDescription = null)
-                    }
-                }
-            },
-        )
-    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
