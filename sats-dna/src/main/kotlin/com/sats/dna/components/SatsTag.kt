@@ -81,7 +81,7 @@ fun SatsWorkoutTag(
         SatsWorkoutTagColor.Treatment -> SatsTheme.colors2.graphicalElements.workouts.treatments.bg
         SatsWorkoutTagColor.Gymfloor -> SatsTheme.colors2.graphicalElements.workouts.gymfloor.bg
         SatsWorkoutTagColor.OwnTrainingOther ->
-            SatsTheme.colors2.graphicalElements.workouts.ownTrainingOther.bg
+            SatsTheme.colors2.graphicalElements.workouts.other.bg
     }
 
     val contentColor = when (color) {
@@ -90,7 +90,7 @@ fun SatsWorkoutTag(
         SatsWorkoutTagColor.Treatment -> SatsTheme.colors2.graphicalElements.workouts.treatments.fg
         SatsWorkoutTagColor.Gymfloor -> SatsTheme.colors2.graphicalElements.workouts.gymfloor.fg
         SatsWorkoutTagColor.OwnTrainingOther ->
-            SatsTheme.colors2.graphicalElements.workouts.ownTrainingOther.fg
+            SatsTheme.colors2.graphicalElements.workouts.other.fg
     }
 
     SatsTagLayout(text, backgroundColor = backgroundColor, contentColor = contentColor, modifier)

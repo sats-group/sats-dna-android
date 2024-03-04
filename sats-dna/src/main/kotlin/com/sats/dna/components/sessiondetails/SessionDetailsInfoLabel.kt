@@ -101,7 +101,7 @@ fun SessionDetailsInfoLabel(
         val contentColor = if (onClick == null) {
             SatsTheme.colors2.backgrounds.primary.fg.default
         } else {
-            SatsTheme.colors2.buttons.action.default
+            SatsTheme.colors2.buttons.action.default.fg
         }
 
         CompositionLocalProvider(

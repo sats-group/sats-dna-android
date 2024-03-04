@@ -60,7 +60,7 @@ private fun CheckboxScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
 @Composable
 private fun Section(label: String, isFixedBackground: Boolean = false, content: @Composable () -> Unit) {
     val color = if (isFixedBackground) {
-        SatsTheme.colors2.backgrounds.fixed.bg.default
+        SatsTheme.colors2.backgrounds.fixed.primary.bg.default
     } else {
         SatsTheme.colors2.surfaces.primary.bg.default
     }

@@ -65,9 +65,9 @@ private fun GeneralListItemScreen(navigateUp: () -> Unit, modifier: Modifier = M
                 title = "General List Item with non-default colors",
                 icon = SatsTheme.icons.info,
                 colors = SatsGeneralListItemDefaults.generalListItemColors(
-                    titleColor = SatsTheme.colors2.buttons.action.default,
-                    subtitleColor = SatsTheme.colors2.buttons.action.default,
-                    iconColor = SatsTheme.colors2.buttons.action.default,
+                    titleColor = SatsTheme.colors2.buttons.action.default.fg,
+                    subtitleColor = SatsTheme.colors2.buttons.action.default.fg,
+                    iconColor = SatsTheme.colors2.buttons.action.default.fg,
                 ),
             )
             SatsGeneralListItem(

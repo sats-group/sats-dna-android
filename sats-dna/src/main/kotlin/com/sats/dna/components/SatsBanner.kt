@@ -22,7 +22,7 @@ fun SatsBanner(
 ) {
     SatsSurface(
         modifier = modifier,
-        color = SatsTheme.colors2.backgrounds.fixed.bg.default,
+        color = SatsTheme.colors2.backgrounds.fixed.primary.bg.default,
     ) {
         Row(
             Modifier.padding(horizontal = SatsTheme.spacing.m, vertical = SatsTheme.spacing.xs),

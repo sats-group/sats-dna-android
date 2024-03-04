@@ -22,7 +22,7 @@ fun LikeButton(
     IconToggleButton(isLiked, onLikedChange, modifier, isEnabled) {
         MaterialIcon(
             SatsTheme.icons.fistBump(isLiked),
-            tint = SatsTheme.colors2.buttons.action.default,
+            tint = SatsTheme.colors2.buttons.action.default.fg,
             contentDescription = null,
         )
     }

@@ -110,7 +110,7 @@ private fun SocialRow(
                 MaterialIcon(
                     SatsTheme.icons.comment,
                     contentDescription = null,
-                    tint = SatsTheme.colors2.buttons.action.default,
+                    tint = SatsTheme.colors2.buttons.action.default.fg,
                 )
                 MaterialText(normalizedNumberOfComments, color = SatsTheme.colors2.backgrounds.secondary.fg.default)
             }
