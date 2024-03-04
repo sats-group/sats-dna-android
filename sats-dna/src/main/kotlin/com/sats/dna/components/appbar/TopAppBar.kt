@@ -1,16 +1,16 @@
 package com.sats.dna.components.appbar
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.ProvideTextStyle
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
@@ -18,36 +18,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import com.google.accompanist.insets.ui.TopAppBar
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
-import androidx.compose.material3.Icon as M3Icon
-import androidx.compose.material3.IconButton as M3IconButton
-import androidx.compose.material3.Text as M3Text
-import androidx.compose.material3.TopAppBar as M3TopAppBar
-
-@Composable
-fun SatsTopAppBar(
-    title: @Composable () -> Unit,
-    modifier: Modifier = Modifier,
-    navigationIcon: @Composable (() -> Unit)? = null,
-    actions: @Composable RowScope.() -> Unit = {},
-    contentPadding: PaddingValues = PaddingValues(),
-) {
-    TopAppBar(
-        backgroundColor = SatsTheme.colors2.surfaces.primary.bg.default,
-        contentPadding = contentPadding,
-        contentColor = SatsTheme.colors2.surfaces.primary.fg.default,
-        title = title,
-        modifier = modifier,
-        navigationIcon = navigationIcon,
-        actions = actions,
-    )
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun M3SatsTopAppBar(
+fun SatsTopAppBar(
     title: String,
     modifier: Modifier = Modifier,
     navigationIcon: @Composable () -> Unit = {},
@@ -55,8 +31,8 @@ fun M3SatsTopAppBar(
     scrollBehavior: TopAppBarScrollBehavior? = null,
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
 ) {
-    M3SatsTopAppBar(
-        title = { M3Text(title) },
+    SatsTopAppBar(
+        title = { Text(title) },
         modifier = modifier,
         navigationIcon = navigationIcon,
         actions = actions,
@@ -67,7 +43,7 @@ fun M3SatsTopAppBar(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun M3SatsTopAppBar(
+fun SatsTopAppBar(
     title: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     navigationIcon: @Composable () -> Unit = {},
@@ -89,7 +65,7 @@ fun M3SatsTopAppBar(
         SatsTheme.colors2.backgrounds.primary.bg.default
     }
 
-    M3TopAppBar(
+    TopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = containerColor,
             scrolledContainerColor = scrolledContainerColor,
@@ -112,42 +88,17 @@ fun M3SatsTopAppBar(
     )
 }
 
-@PreviewLightDark
-@Composable
-private fun Material2Preview() {
-    SatsTheme {
-        SatsTopAppBar(
-            navigationIcon = {
-                IconButton(onClick = {}) {
-                    Icon(SatsTheme.icons.back, contentDescription = null)
-                }
-            },
-            title = { Text("Top App Bar") },
-            actions = {
-                listOf(
-                    SatsTheme.icons.barbell,
-                    SatsTheme.icons.addPerson,
-                ).forEach { icon ->
-                    IconButton(onClick = {}) {
-                        Icon(icon, contentDescription = null)
-                    }
-                }
-            },
-        )
-    }
-}
-
 @OptIn(ExperimentalMaterial3Api::class)
 @PreviewLightDark
 @Composable
-private fun Material3Preview() {
+private fun SatsTopAppBarPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            M3SatsTopAppBar(
+            SatsTopAppBar(
                 modifier = Modifier.padding(SatsTheme.spacing.m),
                 navigationIcon = {
-                    M3IconButton(onClick = {}) {
-                        M3Icon(SatsTheme.icons.back, contentDescription = null)
+                    IconButton(onClick = {}) {
+                        Icon(SatsTheme.icons.back, contentDescription = null)
                     }
                 },
                 title = "Top App Bar",
@@ -156,8 +107,8 @@ private fun Material3Preview() {
                         SatsTheme.icons.barbell,
                         SatsTheme.icons.addPerson,
                     ).forEach { icon ->
-                        M3IconButton(onClick = {}) {
-                            M3Icon(icon, contentDescription = null)
+                        IconButton(onClick = {}) {
+                            Icon(icon, contentDescription = null)
                         }
                     }
                 },

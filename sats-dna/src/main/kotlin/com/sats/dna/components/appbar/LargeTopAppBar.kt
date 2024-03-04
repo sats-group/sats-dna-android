@@ -70,7 +70,7 @@ fun SatsLargeTopAppBar(
 @OptIn(ExperimentalMaterial3Api::class)
 @PreviewLightDark
 @Composable
-private fun Material3Preview() {
+private fun SatsLargeTopAppBarPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsLargeTopAppBar(

@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.sats.dna.components.appbar.M3SatsTopAppBar
+import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.screen.M3SatsScreen
 import com.sats.dna.theme.SatsTheme
 
@@ -57,7 +57,7 @@ internal fun ComponentScreen(
     M3SatsScreen(
         modifier = modifier,
         topBar = {
-            M3SatsTopAppBar(
+            SatsTopAppBar(
                 navigationIcon = {
                     IconButton(navigateUp) {
                         Icon(SatsTheme.icons.back, contentDescription = null)
