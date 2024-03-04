@@ -21,8 +21,8 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
-import androidx.compose.material.LocalContentColor as LocalContentColorM2
-import androidx.compose.material3.LocalContentColor as LocalContentColorM3
+import androidx.compose.material.LocalContentColor as M2LocalContentColor
+import androidx.compose.material3.LocalContentColor as M3LocalContentColor
 
 /**
  * Layout composable for info labels in a session detail screen.
@@ -105,8 +105,8 @@ fun SessionDetailsInfoLabel(
         }
 
         CompositionLocalProvider(
-            LocalContentColorM2 provides contentColor,
-            LocalContentColorM3 provides contentColor,
+            M2LocalContentColor provides contentColor,
+            M3LocalContentColor provides contentColor,
         ) {
             MaterialIcon(icon, contentDescription = null, Modifier.size(20.dp))
             MaterialText(text)

@@ -13,8 +13,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import com.sats.dna.components.M3SatsOutlinedTextField
-import com.sats.dna.components.M3SatsTextField
+import com.sats.dna.components.SatsOutlinedTextField
+import com.sats.dna.components.SatsTextField
 import com.sats.dna.theme.SatsTheme
 
 data object TextFieldSampleScreen : SampleScreen(
@@ -74,7 +74,7 @@ private fun LabeledTextField(
     onValueChange: (newValue: String) -> Unit,
     enabled: Boolean = true,
 ) {
-    M3SatsTextField(
+    SatsTextField(
         value = value,
         onValueChange = onValueChange,
         enabled = enabled,
@@ -90,7 +90,7 @@ private fun LabeledOutlinedTextField(
     enabled: Boolean = true,
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs)) {
-        M3SatsOutlinedTextField(
+        SatsOutlinedTextField(
             value = value,
             onValueChange = onValueChange,
             enabled = enabled,

@@ -4,6 +4,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.TextSelectionColors
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.TextFieldColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -11,104 +14,9 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
-import androidx.compose.material.ContentAlpha as M2ContentAlpha
-import androidx.compose.material.LocalContentAlpha as M2LocalContentAlpha
-import androidx.compose.material.LocalContentColor as M2LocalContentColor
-import androidx.compose.material.MaterialTheme as M2MaterialTheme
-import androidx.compose.material.OutlinedTextField as M2OutlinedTextField
-import androidx.compose.material.TextFieldColors as M2TextFieldColors
-import androidx.compose.material.TextFieldDefaults as M2TextFieldDefaults
-import androidx.compose.material3.OutlinedTextField as M3OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults as M3OutlinedTextFieldDefaults
-import androidx.compose.material3.TextFieldColors as M3TextFieldColors
 
 @Composable
 fun SatsOutlinedTextField(
-    value: String,
-    onValueChange: (newValue: String) -> Unit,
-    modifier: Modifier = Modifier,
-    enabled: Boolean = true,
-    label: @Composable (() -> Unit)? = null,
-    placeholder: @Composable (() -> Unit)? = null,
-    trailingIcon: @Composable (() -> Unit)? = null,
-    visualTransformation: VisualTransformation = VisualTransformation.None,
-    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
-    keyboardActions: KeyboardActions = KeyboardActions.Default,
-    singleLine: Boolean = false,
-    maxLines: Int = if (singleLine) 1 else Int.MAX_VALUE,
-    minLines: Int = 1,
-    colors: M2TextFieldColors = SatsOutlinedTextFieldDefaults.colors(),
-) {
-    M2OutlinedTextField(
-        value = value,
-        onValueChange = onValueChange,
-        modifier = modifier,
-        enabled = enabled,
-        label = label,
-        placeholder = placeholder,
-        trailingIcon = trailingIcon,
-        visualTransformation = visualTransformation,
-        keyboardOptions = keyboardOptions,
-        keyboardActions = keyboardActions,
-        maxLines = maxLines,
-        minLines = minLines,
-        colors = colors,
-    )
-}
-
-object SatsOutlinedTextFieldDefaults {
-    @Composable
-    fun colors(
-        textColor: Color = M2LocalContentColor.current.copy(M2LocalContentAlpha.current),
-        disabledTextColor: Color = textColor.copy(M2ContentAlpha.disabled),
-        backgroundColor: Color = Color.Transparent,
-        cursorColor: Color = M2MaterialTheme.colors.primary,
-        errorCursorColor: Color = M2MaterialTheme.colors.error,
-        focusedBorderColor: Color = SatsTheme.colors2.graphicalElements.border.focused,
-        unfocusedBorderColor: Color = SatsTheme.colors2.graphicalElements.border.default,
-        disabledBorderColor: Color = SatsTheme.colors2.graphicalElements.border.default,
-        errorBorderColor: Color = SatsTheme.colors2.graphicalElements.signal.error,
-        leadingIconColor: Color = M2MaterialTheme.colors.onSurface.copy(alpha = M2TextFieldDefaults.IconOpacity),
-        disabledLeadingIconColor: Color = leadingIconColor.copy(alpha = M2ContentAlpha.disabled),
-        errorLeadingIconColor: Color = leadingIconColor,
-        trailingIconColor: Color = M2MaterialTheme.colors.onSurface.copy(alpha = M2TextFieldDefaults.IconOpacity),
-        disabledTrailingIconColor: Color = trailingIconColor.copy(alpha = M2ContentAlpha.disabled),
-        errorTrailingIconColor: Color = M2MaterialTheme.colors.error,
-        focusedLabelColor: Color = M2MaterialTheme.colors.primary.copy(alpha = M2ContentAlpha.high),
-        unfocusedLabelColor: Color = M2MaterialTheme.colors.onSurface.copy(M2ContentAlpha.medium),
-        disabledLabelColor: Color = unfocusedLabelColor.copy(M2ContentAlpha.disabled),
-        errorLabelColor: Color = M2MaterialTheme.colors.error,
-        placeholderColor: Color = M2MaterialTheme.colors.onSurface.copy(M2ContentAlpha.medium),
-        disabledPlaceholderColor: Color = placeholderColor.copy(M2ContentAlpha.disabled),
-    ): M2TextFieldColors {
-        return M2TextFieldDefaults.outlinedTextFieldColors(
-            textColor = textColor,
-            disabledTextColor = disabledTextColor,
-            backgroundColor = backgroundColor,
-            cursorColor = cursorColor,
-            errorCursorColor = errorCursorColor,
-            focusedBorderColor = focusedBorderColor,
-            unfocusedBorderColor = unfocusedBorderColor,
-            disabledBorderColor = disabledBorderColor,
-            errorBorderColor = errorBorderColor,
-            leadingIconColor = leadingIconColor,
-            disabledLeadingIconColor = disabledLeadingIconColor,
-            errorLeadingIconColor = errorLeadingIconColor,
-            trailingIconColor = trailingIconColor,
-            disabledTrailingIconColor = disabledTrailingIconColor,
-            errorTrailingIconColor = errorTrailingIconColor,
-            focusedLabelColor = focusedLabelColor,
-            unfocusedLabelColor = unfocusedLabelColor,
-            disabledLabelColor = disabledLabelColor,
-            errorLabelColor = errorLabelColor,
-            placeholderColor = placeholderColor,
-            disabledPlaceholderColor = disabledPlaceholderColor,
-        )
-    }
-}
-
-@Composable
-fun M3SatsOutlinedTextField(
     value: String,
     onValueChange: (newValue: String) -> Unit,
     modifier: Modifier = Modifier,
@@ -123,9 +31,9 @@ fun M3SatsOutlinedTextField(
     singleLine: Boolean = false,
     maxLines: Int = if (singleLine) 1 else Int.MAX_VALUE,
     minLines: Int = 1,
-    colors: M3TextFieldColors = M3SatsOutlinedTextFieldDefaults.colors(),
+    colors: TextFieldColors = SatsOutlinedTextFieldDefaults.colors(),
 ) {
-    M3OutlinedTextField(
+    OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
         modifier = modifier,
@@ -143,7 +51,7 @@ fun M3SatsOutlinedTextField(
     )
 }
 
-object M3SatsOutlinedTextFieldDefaults {
+object SatsOutlinedTextFieldDefaults {
     @Composable
     fun colors(
         focusedTextColor: Color = Color.Unspecified,
@@ -189,8 +97,8 @@ object M3SatsOutlinedTextFieldDefaults {
         unfocusedSuffixColor: Color = Color.Unspecified,
         disabledSuffixColor: Color = Color.Unspecified,
         errorSuffixColor: Color = Color.Unspecified,
-    ): M3TextFieldColors {
-        return M3OutlinedTextFieldDefaults.colors(
+    ): TextFieldColors {
+        return OutlinedTextFieldDefaults.colors(
             focusedTextColor = focusedTextColor,
             unfocusedTextColor = unfocusedTextColor,
             disabledTextColor = disabledTextColor,
@@ -246,6 +154,7 @@ private fun SatsOutlinedTextFieldEnabledPreview() {
             SatsOutlinedTextField(
                 value = "Text",
                 onValueChange = { },
+                supportingText = { MaterialText("This is a hint text for the user.") },
                 modifier = Modifier.padding(SatsTheme.spacing.m),
             )
         }
@@ -258,36 +167,6 @@ private fun SatsOutlinedTextFieldDisabledPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
             SatsOutlinedTextField(
-                value = "Text",
-                onValueChange = { },
-                enabled = false,
-                modifier = Modifier.padding(SatsTheme.spacing.m),
-            )
-        }
-    }
-}
-
-@PreviewLightDark
-@Composable
-private fun M3SatsOutlinedTextFieldEnabledPreview() {
-    SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
-            M3SatsOutlinedTextField(
-                value = "Text",
-                onValueChange = { },
-                supportingText = { MaterialText("This is a hint text for the user.") },
-                modifier = Modifier.padding(SatsTheme.spacing.m),
-            )
-        }
-    }
-}
-
-@PreviewLightDark
-@Composable
-private fun M3SatsOutlinedTextFieldDisabledPreview() {
-    SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
-            M3SatsOutlinedTextField(
                 value = "Text",
                 onValueChange = { },
                 supportingText = { MaterialText("This is a hint text for the user.") },
