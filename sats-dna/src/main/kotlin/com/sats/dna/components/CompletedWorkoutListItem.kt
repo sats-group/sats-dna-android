@@ -149,36 +149,20 @@ private fun WorkoutInfo(
 @PreviewLightDark
 @PreviewFontScale
 @Composable
-private fun Preview() {
+private fun CompletedWorkoutListItemPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            Column {
-                CompletedWorkoutListItem(
-                    icon = { WorkoutTypeIcon(WorkoutType.OwnTraining, null, Modifier.size(34.dp)) },
-                    timestamp = "Jul 18, 2023, 06:18",
-                    title = "Gym training (M2)",
-                    location = "at Colosseum",
-                    numberOfComments = 123,
-                    numberOfReactionsLabel = null,
-                    onCompletedWorkoutClicked = {},
-                    onSaidAwesomeClicked = {},
-                    isLiked = false,
-                )
-
-                SatsHorizontalDivider()
-
-                CompletedWorkoutListItem(
-                    icon = { WorkoutTypeIcon(WorkoutType.OwnTraining, null, Modifier.size(34.dp)) },
-                    timestamp = "Jul 18, 2023, 06:18",
-                    title = "Gym training (M3)",
-                    location = "at Colosseum",
-                    numberOfComments = 10,
-                    numberOfReactionsLabel = "15 people",
-                    onCompletedWorkoutClicked = {},
-                    onSaidAwesomeClicked = {},
-                    isLiked = false,
-                )
-            }
+            CompletedWorkoutListItem(
+                icon = { WorkoutTypeIcon(WorkoutType.OwnTraining, null, Modifier.size(34.dp)) },
+                timestamp = "Jul 18, 2023, 06:18",
+                title = "Gym training (M3)",
+                location = "at Colosseum",
+                numberOfComments = 10,
+                numberOfReactionsLabel = "15 people",
+                onCompletedWorkoutClicked = {},
+                onSaidAwesomeClicked = {},
+                isLiked = false,
+            )
         }
     }
 }
