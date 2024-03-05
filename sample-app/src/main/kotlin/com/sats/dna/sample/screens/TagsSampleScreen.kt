@@ -17,6 +17,8 @@ import com.sats.dna.components.SatsRewardsTag
 import com.sats.dna.components.SatsTag
 import com.sats.dna.components.SatsTagColor
 import com.sats.dna.components.SatsTagPlaceholder
+import com.sats.dna.components.SatsTagShape
+import com.sats.dna.components.SatsTagSize
 import com.sats.dna.components.SatsWorkoutTag
 import com.sats.dna.components.SatsWorkoutTagColor
 import com.sats.dna.theme.SatsTheme
@@ -39,9 +41,14 @@ private fun TagsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxl),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Section("Filter Tags") {
+            Section("Tags") {
                 SatsTagColor.entries.forEach { color ->
-                    SatsTag("$color", color = color)
+                    SatsTag("$color SMALL", color = color)
+                    SatsTag("$color BASIC", color = color, size = SatsTagSize.Basic)
+                    SatsTag("$color LEFT SMALL", color = color, shape = SatsTagShape.Left)
+                    SatsTag("$color RIGHT SMALL", color = color, shape = SatsTagShape.Right)
+                    SatsTag("$color LEFT BASIC", color = color, shape = SatsTagShape.Left, size = SatsTagSize.Basic)
+                    SatsTag("$color RIGHT BASIC", color = color, shape = SatsTagShape.Right, size = SatsTagSize.Basic)
                 }
             }
 

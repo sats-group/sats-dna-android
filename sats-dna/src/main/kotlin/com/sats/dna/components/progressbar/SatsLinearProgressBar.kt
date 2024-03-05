@@ -29,7 +29,7 @@ fun SatsLinearProgressBar(
     Canvas(
         modifier
             .progressSemantics(progress)
-            .height(8.dp)
+            .height(4.dp)
             .focusable(),
     ) {
         // Remove extra padding added by the rounded line cap
