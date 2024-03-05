@@ -26,10 +26,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
+import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.R
-import com.sats.dna.components.ChallengeBackground
-import com.sats.dna.components.LocalUseMaterial3
-import com.sats.dna.components.PlaceholderBox
+import com.sats.dna.components.SatsChallengeBackground
+import com.sats.dna.components.SatsPlaceholderBox
 import com.sats.dna.components.SatsTag
 import com.sats.dna.components.SatsTagColor
 import com.sats.dna.components.SatsTagShape
@@ -125,7 +125,7 @@ private fun ChallengeCardLayout(
     bottomContent: @Composable (() -> Unit?)? = null,
 ) {
     CompositionLocalProvider(LocalUseMaterial3 provides true) {
-        ChallengeBackground(isEnabled = isEnabled, modifier = modifier.height(IntrinsicSize.Min)) {
+        SatsChallengeBackground(isEnabled = isEnabled, modifier = modifier.height(IntrinsicSize.Min)) {
             Column(
                 Modifier
                     .fillMaxSize()
@@ -326,7 +326,7 @@ private fun ChallengeCardProgress(progress: Float, progressText: String, modifie
 
 @Composable
 private fun LoadingPlaceholder(modifier: Modifier = Modifier) {
-    PlaceholderBox(modifier)
+    SatsPlaceholderBox(modifier)
 }
 
 @Composable
