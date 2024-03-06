@@ -17,9 +17,9 @@ import androidx.compose.ui.tooling.preview.PreviewFontScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.components.button.SatsButton
+import com.sats.dna.components.button.SatsButton2
 import com.sats.dna.components.button.SatsButtonColor
-import com.sats.dna.components.button.SatsIconButton
+import com.sats.dna.components.button.SatsIconButton2
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -88,12 +88,12 @@ fun SatsProteinBar(
                 }
 
                 if (visuals.dismissAction != null) {
-                    SatsIconButton(
+                    SatsIconButton2(
                         onClick = visuals.dismissAction.action,
                         icon = SatsTheme.icons.close,
                         onClickLabel = visuals.dismissAction.label,
                         modifier = Modifier.align(Alignment.Top),
-                        colors = SatsButtonColor.Secondary,
+                        colors = SatsButtonColor.Action,
                     )
                 }
             }
@@ -148,7 +148,7 @@ private fun TitleAndMessage(visuals: SatsProteinBarVisuals, modifier: Modifier =
 
 @Composable
 private fun ActionButton(action: SatsProteinBarAction, modifier: Modifier = Modifier) {
-    SatsButton(
+    SatsButton2(
         onClick = action.action,
         label = action.label,
         modifier = modifier,

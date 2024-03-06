@@ -24,7 +24,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsPlaceholderBox
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.components.button.SatsButton
+import com.sats.dna.components.button.SatsButton2
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -172,7 +172,7 @@ private fun SatsUpcomingWorkoutsListPreview() {
                         duration = "45 min",
                         instructor = "Kristin Hagen",
                         button = {
-                            SatsButton(
+                            SatsButton2(
                                 onClick = { },
                                 label = "Unbook",
                                 colors = SatsButtonColor.Action,
