@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 
+@Deprecated("Replace with SatsButton2")
 @Composable
 fun SatsButton(
     onClick: () -> Unit,
