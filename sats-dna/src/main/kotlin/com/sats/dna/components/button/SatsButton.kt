@@ -14,19 +14,14 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.PreviewFontScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
-import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
@@ -46,19 +41,13 @@ fun SatsButton(
     val buttonColors = colors.asMaterialButtonColors(isActuallyEnabled)
 
     val iconContent = when {
-        isLoading -> IconContent.Loading
-        icon != null -> IconContent.Icon(icon)
-        else -> IconContent.Empty
+        isLoading -> SatsButtonIconContent.Loading
+        icon != null -> SatsButtonIconContent.Icon(icon)
+        else -> SatsButtonIconContent.Empty
     }
 
-    val border = if (isActuallyEnabled) {
-        colors.borderColor?.let {
-            BorderStroke(1.dp, it)
-        }
-    } else {
-        colors.disabledBorderColor?.let {
-            BorderStroke(1.dp, it)
-        }
+    val border = colors.animatedBorderColor(isActuallyEnabled)?.let {
+        BorderStroke(1.dp, it)
     }
 
     Button(
@@ -76,9 +65,9 @@ fun SatsButton(
         Row(verticalAlignment = CenterVertically) {
             AnimatedContent(iconContent, label = "Animated icon content") { iconContent ->
                 when (iconContent) {
-                    is IconContent.Empty -> Unit
+                    is SatsButtonIconContent.Empty -> Unit
 
-                    is IconContent.Icon -> {
+                    is SatsButtonIconContent.Icon -> {
                         Icon(
                             painter = iconContent.painter,
                             contentDescription = null,
@@ -88,8 +77,8 @@ fun SatsButton(
                         )
                     }
 
-                    is IconContent.Loading -> {
-                        val color by colors.contentColor(isActuallyEnabled)
+                    is SatsButtonIconContent.Loading -> {
+                        val color = colors.animatedContentColor(isActuallyEnabled)
 
                         CircularProgressIndicator(
                             Modifier
@@ -105,12 +94,6 @@ fun SatsButton(
             Text(label, maxLines = 1)
         }
     }
-}
-
-private sealed interface IconContent {
-    data class Icon(val painter: Painter) : IconContent
-    data object Loading : IconContent
-    data object Empty : IconContent
 }
 
 @Composable
@@ -167,13 +150,4 @@ private fun SatsButtonFontScalePreview() {
             }
         }
     }
-}
-
-internal class SatsButtonColorProvider : PreviewParameterProvider<SatsButtonColor> {
-    override val values = SatsButtonColor.entries.asSequence()
-}
-
-@Composable
-private fun SatsButtonColor.contentColor(enabled: Boolean): State<Color> {
-    return rememberUpdatedState(if (enabled) contentColor else disabledContentColor)
 }

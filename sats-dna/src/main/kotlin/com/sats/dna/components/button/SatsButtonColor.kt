@@ -18,6 +18,33 @@ enum class SatsButtonColor {
 }
 
 @Composable
+internal fun SatsButtonColor.animatedContainerColor(enabled: Boolean): Color {
+    return animateColorAsState(
+        if (enabled) backgroundColor else disabledBackgroundColor,
+        label = "Container color",
+    ).value
+}
+
+@Composable
+internal fun SatsButtonColor.animatedBorderColor(enabled: Boolean): Color? {
+    val borderColor = borderColor ?: return null
+    val disabledBorderColor = disabledBorderColor ?: return null
+
+    return animateColorAsState(
+        if (enabled) borderColor else disabledBorderColor,
+        label = "Content color",
+    ).value
+}
+
+@Composable
+internal fun SatsButtonColor.animatedContentColor(enabled: Boolean): Color {
+    return animateColorAsState(
+        if (enabled) contentColor else disabledContentColor,
+        label = "Content color",
+    ).value
+}
+
+@Composable
 internal fun SatsButtonColor.asMaterialButtonColors(isEnabled: Boolean): ButtonColors {
     val background = if (isEnabled) backgroundColor else disabledBackgroundColor
     val content = if (isEnabled) contentColor else disabledContentColor
@@ -30,21 +57,21 @@ internal fun SatsButtonColor.asMaterialButtonColors(isEnabled: Boolean): ButtonC
     )
 }
 
-internal val SatsButtonColor.borderColor: Color?
+private val SatsButtonColor.borderColor: Color?
     @Composable get() = when (this) {
         SatsButtonColor.WaitingListSecondary -> SatsTheme.colors2.buttons.waitingListSecondary.default.outline
         SatsButtonColor.Secondary -> SatsTheme.colors2.buttons.secondary.default.outline
         else -> null
     }
 
-internal val SatsButtonColor.disabledBorderColor: Color?
+private val SatsButtonColor.disabledBorderColor: Color?
     @Composable get() = when (this) {
         SatsButtonColor.WaitingListSecondary -> SatsTheme.colors2.buttons.waitingListSecondary.disabled.outline
         SatsButtonColor.Secondary -> SatsTheme.colors2.buttons.secondary.disabled.outline
         else -> null
     }
 
-internal val SatsButtonColor.backgroundColor: Color
+private val SatsButtonColor.backgroundColor: Color
     @Composable get() = when (this) {
         SatsButtonColor.Primary -> SatsTheme.colors2.buttons.primary.default.bg
         SatsButtonColor.Secondary -> SatsTheme.colors2.buttons.secondary.default.bg
@@ -66,7 +93,7 @@ internal val SatsButtonColor.contentColor: Color
         SatsButtonColor.Action -> SatsTheme.colors2.buttons.action.default.fg
     }
 
-internal val SatsButtonColor.disabledBackgroundColor: Color
+private val SatsButtonColor.disabledBackgroundColor: Color
     @Composable get() = when (this) {
         SatsButtonColor.Primary -> SatsTheme.colors2.buttons.primary.disabled.bg
         SatsButtonColor.Secondary -> SatsTheme.colors2.buttons.secondary.disabled.bg
@@ -77,7 +104,7 @@ internal val SatsButtonColor.disabledBackgroundColor: Color
         SatsButtonColor.Action -> SatsTheme.colors2.buttons.action.disabled.bg
     }
 
-internal val SatsButtonColor.disabledContentColor: Color
+private val SatsButtonColor.disabledContentColor: Color
     @Composable get() = when (this) {
         SatsButtonColor.Primary -> SatsTheme.colors2.buttons.primary.disabled.fg
         SatsButtonColor.Secondary -> SatsTheme.colors2.buttons.secondary.disabled.fg

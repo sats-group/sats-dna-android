@@ -1,7 +1,6 @@
 package com.sats.dna.components.button
 
 import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -37,7 +36,7 @@ fun SatsIconButton(
         onClick = onClick,
         icon = {
             val isActuallyEnabled = isEnabled && !isLoading
-            val contentColor = animatedContentColor(isActuallyEnabled, colors)
+            val contentColor = colors.animatedContentColor(isActuallyEnabled)
 
             MaterialIcon(icon, contentDescription = null, Modifier.size(24.dp), contentColor)
         },
@@ -66,7 +65,7 @@ fun SatsBellIconButton(
         onClick = onClick,
         icon = {
             val isActuallyEnabled = isEnabled && !isLoading
-            val contentColor = animatedContentColor(isActuallyEnabled, colors)
+            val contentColor = colors.animatedContentColor(isActuallyEnabled)
 
             if (showCherry) {
                 MaterialIcon(
@@ -112,7 +111,7 @@ private fun SatsIconButton(
     isLarge: Boolean = false,
 ) {
     val isActuallyEnabled = isEnabled && !isLoading
-    val backgroundColor = animatedBackgroundColor(isEnabled, colors)
+    val backgroundColor = colors.animatedContainerColor(isEnabled)
 
     Box(
         modifier = modifier
@@ -134,20 +133,6 @@ private fun SatsIconButton(
         }
     }
 }
-
-@Composable
-private fun animatedBackgroundColor(isEnabled: Boolean, colors: SatsButtonColor) =
-    animateColorAsState(
-        if (isEnabled) colors.backgroundColor else colors.disabledBackgroundColor,
-        label = "Color",
-    ).value
-
-@Composable
-private fun animatedContentColor(isEnabled: Boolean, colors: SatsButtonColor) =
-    animateColorAsState(
-        if (isEnabled) colors.contentColor else colors.disabledContentColor,
-        label = "Color",
-    ).value
 
 @Composable
 private fun animatedPadding(isLarge: Boolean) =
