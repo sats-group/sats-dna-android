@@ -22,8 +22,14 @@ interface NormalTextStyles {
     val large: TextStyle
     val basic: TextStyle
     val small: TextStyle
-    val button: TextStyle
+    val buttonLarge: TextStyle
+    val buttonBasic: TextStyle
+    val buttonSmall: TextStyle
     val section: TextStyle
+
+    @Deprecated("Renamed to buttonBasic", ReplaceWith("buttonBasic"))
+    val button: TextStyle
+        get() = buttonBasic
 }
 
 interface MediumTextStyles {
@@ -75,7 +81,9 @@ private object NormalTextStylesApp : NormalTextStyles {
     override val large = base.copy(fontSize = Sizes.large, lineHeight = 1.3.em)
     override val basic = base.copy(fontSize = Sizes.basic, lineHeight = 1.3.em)
     override val small = base.copy(fontSize = Sizes.small, lineHeight = 1.3.em)
-    override val button = base.copy(fontSize = Sizes.button, fontWeight = FontWeight.SemiBold)
+    override val buttonLarge = base.copy(fontSize = Sizes.buttonLarge, fontWeight = FontWeight.SemiBold)
+    override val buttonBasic = base.copy(fontSize = Sizes.buttonBasic, fontWeight = FontWeight.SemiBold)
+    override val buttonSmall = base.copy(fontSize = Sizes.buttonSmall, fontWeight = FontWeight.SemiBold)
     override val section = base.copy(fontSize = Sizes.section, fontWeight = FontWeight.SemiBold)
 }
 
@@ -146,6 +154,8 @@ private object Sizes {
     val large = 16.sp
     val basic = 14.sp
     val small = 12.sp
-    val button = 14.sp
+    val buttonLarge = 14.sp
+    val buttonBasic = 14.sp
+    val buttonSmall = 12.sp
     val section = 16.sp
 }

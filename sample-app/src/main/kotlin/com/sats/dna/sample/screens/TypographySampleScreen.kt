@@ -55,7 +55,9 @@ private fun TypographyScreen(navigateUp: () -> Unit, modifier: Modifier = Modifi
                 TextSample("Large", SatsTheme.typography.normal.large)
                 TextSample("Basic", SatsTheme.typography.normal.basic)
                 TextSample("Small", SatsTheme.typography.normal.small)
-                TextSample("Button", SatsTheme.typography.normal.button)
+                TextSample("Button Large", SatsTheme.typography.normal.buttonLarge)
+                TextSample("Button Basicn", SatsTheme.typography.normal.buttonBasic)
+                TextSample("Button Small", SatsTheme.typography.normal.buttonSmall)
                 TextSample("Section", SatsTheme.typography.normal.section)
             }
 
