@@ -6,8 +6,6 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -19,6 +17,7 @@ import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsSurface
+import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.theme.SatsTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -96,20 +95,11 @@ private fun SatsTopAppBarPreview() {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsTopAppBar(
                 modifier = Modifier.padding(SatsTheme.spacing.m),
-                navigationIcon = {
-                    IconButton(onClick = {}) {
-                        Icon(SatsTheme.icons.back, contentDescription = null)
-                    }
-                },
+                navigationIcon = { SatsTopAppBarIconButton(onClick = {}, SatsTheme.icons.back, onClickLabel = null) },
                 title = "Top App Bar",
                 actions = {
-                    listOf(
-                        SatsTheme.icons.barbell,
-                        SatsTheme.icons.addPerson,
-                    ).forEach { icon ->
-                        IconButton(onClick = {}) {
-                            Icon(icon, contentDescription = null)
-                        }
+                    listOf(SatsTheme.icons.barbell, SatsTheme.icons.addPerson).forEach { icon ->
+                        SatsTopAppBarIconButton(onClick = {}, icon, onClickLabel = null)
                     }
                 },
             )

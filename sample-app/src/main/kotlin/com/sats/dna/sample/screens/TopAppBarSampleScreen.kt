@@ -8,8 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -20,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.components.appbar.SatsLargeTopAppBar
 import com.sats.dna.components.appbar.SatsTopAppBar
+import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.theme.SatsTheme
 
 data object TopAppBarSampleScreen : SampleScreen(
@@ -83,23 +82,19 @@ private fun Section(label: String, content: @Composable () -> Unit) {
 
 @Composable
 private fun UpIconButton() {
-    IconButton(onClick = {}) {
-        Icon(SatsTheme.icons.back, contentDescription = null)
-    }
+    SatsTopAppBarIconButton(onClick = {}, SatsTheme.icons.back, onClickLabel = null)
 }
 
 @Composable
 private fun Actions() {
     listOf(SatsTheme.icons.barbell, SatsTheme.icons.addPerson).forEach { icon ->
-        IconButton(onClick = {}) {
-            Icon(icon, contentDescription = null)
-        }
+        SatsTopAppBarIconButton(onClick = {}, icon, onClickLabel = null)
     }
 }
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun TopAppBarScreenPreview() {
     SatsTheme {
         TopAppBarScreen(navigateUp = {})
     }
