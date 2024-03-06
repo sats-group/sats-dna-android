@@ -21,6 +21,7 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
 
+@Deprecated("Replace with either SatsIconButton2 or SatsTopAppBarIconButton")
 @Composable
 fun SatsIconButton(
     onClick: () -> Unit,
@@ -49,6 +50,7 @@ fun SatsIconButton(
     )
 }
 
+@Deprecated("Replace with SatsBellIconButton2")
 @Composable
 fun SatsBellIconButton(
     onClick: () -> Unit,
