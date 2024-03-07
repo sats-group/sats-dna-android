@@ -70,7 +70,12 @@ fun SatsEmptyState(
         verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        MaterialIcon(icon, contentDescription = null, Modifier.size(36.dp))
+        MaterialIcon(
+            painter = icon,
+            contentDescription = null,
+            modifier = Modifier.size(36.dp),
+            tint = SatsTheme.colors2.surfaces.primary.fg.alternate,
+        )
 
         Column(
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
