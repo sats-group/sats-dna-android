@@ -42,7 +42,7 @@ import com.sats.dna.theme.SatsTheme
 @Composable
 fun ChallengeCard(challengeCardState: ChallengeCardState, modifier: Modifier = Modifier) {
     when (challengeCardState) {
-        is ChallengeCardState.AvailableChallengeCard -> {
+        is ChallengeCardState.Available -> {
             AvailableChallengeCard(
                 imageUrl = challengeCardState.imageUrl,
                 title = challengeCardState.title,
@@ -55,7 +55,7 @@ fun ChallengeCard(challengeCardState: ChallengeCardState, modifier: Modifier = M
             )
         }
 
-        is ChallengeCardState.JoinedChallengeCard -> {
+        is ChallengeCardState.Joined -> {
             JoinedChallengeCard(
                 imageUrl = challengeCardState.imageUrl,
                 title = challengeCardState.title,
@@ -67,7 +67,7 @@ fun ChallengeCard(challengeCardState: ChallengeCardState, modifier: Modifier = M
             )
         }
 
-        is ChallengeCardState.DisabledChallengeCard -> {
+        is ChallengeCardState.Disabled -> {
             DisabledChallengeCard(
                 imageUrl = challengeCardState.imageUrl,
                 title = challengeCardState.title,
@@ -81,7 +81,7 @@ fun ChallengeCard(challengeCardState: ChallengeCardState, modifier: Modifier = M
 }
 
 sealed interface ChallengeCardState {
-    class AvailableChallengeCard(
+    class Available(
         val imageUrl: String?,
         val title: String,
         val subtitle: String,
@@ -92,7 +92,7 @@ sealed interface ChallengeCardState {
         val modifier: Modifier = Modifier,
     ) : ChallengeCardState
 
-    class JoinedChallengeCard(
+    class Joined(
         val imageUrl: String?,
         val title: String,
         val tagText: String,
@@ -102,7 +102,7 @@ sealed interface ChallengeCardState {
         val modifier: Modifier = Modifier,
     ) : ChallengeCardState
 
-    class DisabledChallengeCard(
+    class Disabled(
         val imageUrl: String?,
         val title: String,
         val statusText: String,
@@ -339,7 +339,7 @@ private fun ErrorFallback(contentDescription: String?, modifier: Modifier = Modi
 private fun JoinChallengeCardPreview() {
     SatsTheme {
         ChallengeCard(
-            ChallengeCardState.AvailableChallengeCard(
+            ChallengeCardState.Available(
                 imageUrl = null,
                 title = "STREAK WEEK",
                 subtitle = "Workout for 7 consecutive days",
@@ -360,7 +360,7 @@ private fun JoinChallengeCardPreview() {
 private fun JoinedChallengeCardPreview() {
     SatsTheme {
         ChallengeCard(
-            ChallengeCardState.JoinedChallengeCard(
+            ChallengeCardState.Joined(
                 imageUrl = null,
                 title = "STREAK WEEK",
                 tagText = "23 days left!",
@@ -380,7 +380,7 @@ private fun JoinedChallengeCardPreview() {
 private fun DisabledChallengeCardPreview() {
     SatsTheme {
         ChallengeCard(
-            ChallengeCardState.DisabledChallengeCard(
+            ChallengeCardState.Disabled(
                 imageUrl = null,
                 title = "STREAK WEEK",
                 statusText = "Not completed",

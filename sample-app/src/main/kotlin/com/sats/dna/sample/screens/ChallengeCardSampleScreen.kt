@@ -36,7 +36,7 @@ private fun ChallengeCardScreen(navigateUp: () -> Unit, modifier: Modifier = Mod
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             ChallengeCard(
-                ChallengeCardState.AvailableChallengeCard(
+                ChallengeCardState.Available(
                     imageUrl = null,
                     title = "STREAK WEEK",
                     subtitle = "Workout for 7 consecutive days",
@@ -51,7 +51,7 @@ private fun ChallengeCardScreen(navigateUp: () -> Unit, modifier: Modifier = Mod
             )
 
             ChallengeCard(
-                ChallengeCardState.JoinedChallengeCard(
+                ChallengeCardState.Joined(
                     imageUrl = null,
                     title = "STREAK WEEK",
                     tagText = "23 days left!",
@@ -65,7 +65,7 @@ private fun ChallengeCardScreen(navigateUp: () -> Unit, modifier: Modifier = Mod
             )
 
             ChallengeCard(
-                ChallengeCardState.DisabledChallengeCard(
+                ChallengeCardState.Disabled(
                     imageUrl = null,
                     title = "STREAK WEEK",
                     statusText = "Not completed",
