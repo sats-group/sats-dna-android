@@ -6,27 +6,45 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.sats.dna.GreyScaleModifier
 import com.sats.dna.R
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun SatsChallengeBackground(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
-    SatsSurface(modifier, color = SatsTheme.colors2.backgrounds.fixed.primary.bg.default, useMaterial3 = true) {
+fun SatsChallengeBackground(modifier: Modifier = Modifier, isEnabled: Boolean = true, content: @Composable () -> Unit) {
+    SatsSurface(
+        modifier = if (!isEnabled) {
+            modifier.greyScale()
+        } else {
+            modifier
+        },
+        color = SatsTheme.colors2.backgrounds.fixed.primary.bg.default,
+        useMaterial3 = true,
+    ) {
         Box {
             Image(
                 painter = painterResource(R.drawable.challenge_background_top),
                 contentDescription = null,
                 modifier = Modifier.fillMaxWidth(),
                 contentScale = ContentScale.FillBounds,
+                colorFilter = if (!isEnabled) {
+                    ColorFilter.colorMatrix(ColorMatrix().apply { setToSaturation(0f) })
+                } else {
+                    null
+                },
             )
 
             content()
         }
     }
 }
+
+fun Modifier.greyScale() = this.then(GreyScaleModifier())
 
 @Preview
 @Preview(device = "spec:id=reference_tablet,shape=Normal,width=1280,height=800,unit=dp,dpi=240")
