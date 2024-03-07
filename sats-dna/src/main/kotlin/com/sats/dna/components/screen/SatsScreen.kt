@@ -7,8 +7,10 @@ import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarVisuals
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
@@ -21,12 +23,16 @@ import com.sats.dna.components.proteinbar.SatsProteinBarAction
 import com.sats.dna.components.proteinbar.SatsProteinBarVisuals
 import com.sats.dna.theme.SatsTheme
 
+typealias ProteinBarDuration = SnackbarDuration
+typealias ProteinBarHostState = SnackbarHostState
+typealias ProteinBarVisuals = SnackbarVisuals
+
 @Composable
 fun SatsScreen(
     modifier: Modifier = Modifier,
     topBar: @Composable () -> Unit = {},
     bottomBar: @Composable () -> Unit = { Spacer(Modifier.navigationBarsPadding()) },
-    proteinBarHostState: SnackbarHostState = remember { SnackbarHostState() },
+    proteinBarHostState: ProteinBarHostState = remember { ProteinBarHostState() },
     proteinBarPadding: PaddingValues = PaddingValues(SatsTheme.spacing.m),
     floatingActionButton: @Composable () -> Unit = {},
     contentPadding: PaddingValues = PaddingValues(0.dp),
@@ -57,8 +63,8 @@ fun SatsScreen(
 }
 
 @Composable
-private fun SatsProteinBarHost(snackbarHostState: SnackbarHostState, modifier: Modifier = Modifier) {
-    SnackbarHost(snackbarHostState, modifier) { snackbarData ->
+private fun SatsProteinBarHost(proteinBarHostState: ProteinBarHostState, modifier: Modifier = Modifier) {
+    SnackbarHost(proteinBarHostState, modifier) { snackbarData ->
         when (val visuals = snackbarData.visuals) {
             is SatsProteinBarVisuals -> {
                 SatsProteinBar(visuals)

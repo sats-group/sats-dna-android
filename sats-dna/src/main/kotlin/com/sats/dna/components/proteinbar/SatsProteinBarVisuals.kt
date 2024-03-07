@@ -3,9 +3,9 @@ package com.sats.dna.components.proteinbar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import com.sats.dna.components.screen.ProteinBarDuration
+import com.sats.dna.components.screen.ProteinBarVisuals
 import com.sats.dna.theme.SatsTheme
-import androidx.compose.material3.SnackbarDuration as M3SnackbarDuration
-import androidx.compose.material3.SnackbarVisuals as M3SnackbarVisuals
 
 sealed interface SatsProteinBarLeadingIcon {
     data object None : SatsProteinBarLeadingIcon
@@ -19,9 +19,9 @@ class SatsProteinBarVisuals internal constructor(
     override val message: String,
     val action: SatsProteinBarAction?,
     val dismissAction: SatsProteinBarAction?,
-    override val duration: M3SnackbarDuration,
+    override val duration: ProteinBarDuration,
     val colors: SatsProteinBarColors,
-) : M3SnackbarVisuals {
+) : ProteinBarVisuals {
     override val actionLabel: String? = action?.label
     override val withDismissAction: Boolean = dismissAction != null
 }
@@ -60,7 +60,7 @@ object SatsProteinBarDefaults {
         action: SatsProteinBarAction? = null,
         title: String? = null,
         dismissAction: SatsProteinBarAction? = null,
-        duration: M3SnackbarDuration = M3SnackbarDuration.Short,
+        duration: ProteinBarDuration = ProteinBarDuration.Short,
         theme: SatsProteinBarTheme = SatsProteinBarTheme.Info,
     ): SatsProteinBarVisuals =
         SatsProteinBarVisuals(
