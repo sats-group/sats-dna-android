@@ -12,11 +12,16 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,10 +30,11 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsFilterChip
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.components.button.SatsBellIconButton
-import com.sats.dna.components.button.SatsButton
+import com.sats.dna.components.button.SatsBellIconButton2
+import com.sats.dna.components.button.SatsButton2
 import com.sats.dna.components.button.SatsButtonColor
-import com.sats.dna.components.button.SatsIconButton
+import com.sats.dna.components.button.SatsButtonSize
+import com.sats.dna.components.button.SatsIconButton2
 import com.sats.dna.components.button.SatsInCardCardButton
 import com.sats.dna.components.button.SatsNavigationCardButton
 import com.sats.dna.components.button.SatsStandAloneCardButton
@@ -81,13 +87,13 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         .padding(SatsTheme.spacing.m),
                     contentAlignment = Alignment.Center,
                 ) {
-                    SatsButton(
+                    SatsButton2(
                         onClick = {},
                         label = color.name,
                         colors = color,
+                        size = controlPanelState.size,
                         isEnabled = controlPanelState.isEnabledToggled,
                         isLoading = controlPanelState.isLoadingToggled,
-                        isLarge = controlPanelState.isLargeToggled,
                         icon = if (controlPanelState.isIconEnabled) SatsTheme.icons.barbell else null,
                     )
                 }
@@ -102,14 +108,14 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         SatsButtonColor.Primary,
                         SatsButtonColor.Secondary,
                     ).forEach { color ->
-                        SatsIconButton(
+                        SatsIconButton2(
                             onClick = {},
                             icon = SatsTheme.icons.barbell,
                             onClickLabel = null,
                             colors = color,
                             isEnabled = controlPanelState.isEnabledToggled,
                             isLoading = controlPanelState.isLoadingToggled,
-                            isLarge = controlPanelState.isLargeToggled,
+                            size = controlPanelState.size,
                         )
                     }
                 }
@@ -120,35 +126,31 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         SatsButtonColor.WaitingList,
                         SatsButtonColor.Action,
                     ).forEach { color ->
-                        SatsIconButton(
+                        SatsIconButton2(
                             onClick = {},
                             icon = SatsTheme.icons.barbell,
                             onClickLabel = null,
                             colors = color,
                             isEnabled = controlPanelState.isEnabledToggled,
                             isLoading = controlPanelState.isLoadingToggled,
-                            isLarge = controlPanelState.isLargeToggled,
+                            size = controlPanelState.size,
                         )
                     }
                 }
 
                 Row(horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
-                    SatsBellIconButton(
+                    SatsBellIconButton2(
                         onClick = {},
                         onClickLabel = null,
                         showCherry = false,
                         isEnabled = controlPanelState.isEnabledToggled,
-                        isLoading = controlPanelState.isLoadingToggled,
-                        isLarge = controlPanelState.isLargeToggled,
                     )
 
-                    SatsBellIconButton(
+                    SatsBellIconButton2(
                         onClick = {},
                         onClickLabel = null,
                         showCherry = true,
                         isEnabled = controlPanelState.isEnabledToggled,
-                        isLoading = controlPanelState.isLoadingToggled,
-                        isLarge = controlPanelState.isLargeToggled,
                     )
                 }
 
@@ -210,7 +212,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
 private class ControlPanelState {
     var isEnabledToggled by mutableStateOf(true)
     var isLoadingToggled by mutableStateOf(false)
-    var isLargeToggled by mutableStateOf(false)
+    var size by mutableStateOf(SatsButtonSize.Basic)
     var isIconEnabled by mutableStateOf(false)
 }
 
@@ -239,12 +241,57 @@ private fun ControlPanel(state: ControlPanelState) {
                 onClickLabel = null,
             )
 
-            SatsFilterChip(
-                text = "Large",
-                isSelected = state.isLargeToggled,
-                onClick = { state.isLargeToggled = !state.isLargeToggled },
-                onClickLabel = null,
-            )
+            Box {
+                var isMenuOpen: Boolean by rememberSaveable { mutableStateOf(false) }
+
+                SatsFilterChip(
+                    text = "Size: ${state.size.name}",
+                    isSelected = false,
+                    onClick = { isMenuOpen = true },
+                    onClickLabel = null,
+                )
+
+                DropdownMenu(expanded = isMenuOpen, onDismissRequest = { isMenuOpen = false }) {
+                    DropdownMenuItem(
+                        leadingIcon = {
+                            if (state.size == SatsButtonSize.Small) {
+                                Icon(painter = SatsTheme.icons.check, contentDescription = null)
+                            }
+                        },
+                        text = { Text("Small") },
+                        onClick = {
+                            state.size = SatsButtonSize.Small
+                            isMenuOpen = false
+                        },
+                    )
+
+                    DropdownMenuItem(
+                        leadingIcon = {
+                            if (state.size == SatsButtonSize.Basic) {
+                                Icon(painter = SatsTheme.icons.check, contentDescription = null)
+                            }
+                        },
+                        text = { Text("Basic") },
+                        onClick = {
+                            state.size = SatsButtonSize.Basic
+                            isMenuOpen = false
+                        },
+                    )
+
+                    DropdownMenuItem(
+                        leadingIcon = {
+                            if (state.size == SatsButtonSize.Large) {
+                                Icon(painter = SatsTheme.icons.check, contentDescription = null)
+                            }
+                        },
+                        text = { Text("Large") },
+                        onClick = {
+                            state.size = SatsButtonSize.Large
+                            isMenuOpen = false
+                        },
+                    )
+                }
+            }
 
             SatsFilterChip(
                 text = "Icon",
@@ -259,7 +306,7 @@ private fun ControlPanel(state: ControlPanelState) {
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun ButtonsScreenPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             ButtonsScreen(navigateUp = {})

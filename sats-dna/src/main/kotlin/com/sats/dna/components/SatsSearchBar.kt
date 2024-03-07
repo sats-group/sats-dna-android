@@ -10,6 +10,7 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Text
+import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -24,7 +25,8 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.TrailingContent.Icon
 import com.sats.dna.components.button.SatsButtonColor
-import com.sats.dna.components.button.SatsIconButton
+import com.sats.dna.components.button.SatsIconButton2
+import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -55,11 +57,10 @@ fun SatsSearchBar(
                 modifier = Modifier,
                 leadingIcon = {
                     if (onUpClicked != null) {
-                        SatsIconButton(
+                        SatsTopAppBarIconButton(
                             onClick = { onUpClicked() },
                             icon = SatsTheme.icons.back,
                             onClickLabel = null,
-                            colors = SatsButtonColor.Secondary,
                         )
                     } else {
                         Box(modifier = Modifier.size(40.dp), contentAlignment = Alignment.Center) {
@@ -71,13 +72,15 @@ fun SatsSearchBar(
                     }
                 },
                 trailingIcon = {
-                    if (query.isNotBlank()) {
-                        SatsIconButton(
-                            onClick = { onClearClicked() },
-                            icon = SatsTheme.icons.close,
-                            onClickLabel = null,
-                            colors = SatsButtonColor.Secondary,
-                        )
+                    Box(Modifier.minimumInteractiveComponentSize()) {
+                        if (query.isNotBlank()) {
+                            SatsIconButton2(
+                                onClick = { onClearClicked() },
+                                icon = SatsTheme.icons.close,
+                                onClickLabel = null,
+                                colors = SatsButtonColor.Action,
+                            )
+                        }
                     }
                 },
             )
