@@ -251,6 +251,25 @@ private fun GraphicalElements() {
                 backgroundColor = base.bg named "base.bg",
                 contentColor = base.indicator named "base.indicator",
             )
+
+            ColorSample(
+                backgroundColor = base.bg named "base.bg",
+                contentColor = base.indicatorAlternate named "base.indicatorAlternate",
+            )
+        }
+
+        Section("Fixed Progress Bar", SectionLevel.Level2, base = "graphicalElements.fixedProgressBar") {
+            val base = SatsTheme.colors2.graphicalElements.fixedProgressBar
+
+            ColorSample(
+                backgroundColor = base.bg named "base.bg",
+                contentColor = base.indicator named "base.indicator",
+            )
+
+            ColorSample(
+                backgroundColor = base.bg named "base.bg",
+                contentColor = base.indicatorAlternate named "base.indicatorAlternate",
+            )
         }
 
         Section("Graphs", SectionLevel.Level2, base = "graphicalElements.graphs") {
