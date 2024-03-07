@@ -1,6 +1,5 @@
 package com.sats.dna.components.card
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,16 +19,12 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import coil.compose.SubcomposeAsyncImage
 import com.sats.dna.LocalUseMaterial3
-import com.sats.dna.R
 import com.sats.dna.components.SatsChallengeBackground
-import com.sats.dna.components.SatsPlaceholderBox
+import com.sats.dna.components.SatsChallengeBadge
 import com.sats.dna.components.SatsTag
 import com.sats.dna.components.SatsTagColor
 import com.sats.dna.components.SatsTagShape
@@ -40,40 +35,40 @@ import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun ChallengeCard(challengeCardState: ChallengeCardState, modifier: Modifier = Modifier) {
-    when (challengeCardState) {
+fun ChallengeCard(state: ChallengeCardState, modifier: Modifier = Modifier) {
+    when (state) {
         is ChallengeCardState.Available -> {
             AvailableChallengeCard(
-                imageUrl = challengeCardState.imageUrl,
-                title = challengeCardState.title,
-                subtitle = challengeCardState.subtitle,
-                tagText = challengeCardState.tagText,
-                buttonText = challengeCardState.buttonText,
-                onCardClick = challengeCardState.onCardClick,
-                onJoinClick = challengeCardState.onJoinClick,
+                imageUrl = state.imageUrl,
+                title = state.title,
+                subtitle = state.subtitle,
+                tagText = state.tagText,
+                buttonText = state.buttonText,
+                onCardClick = state.onCardClick,
+                onJoinClick = state.onJoinClick,
                 modifier = modifier,
             )
         }
 
         is ChallengeCardState.Joined -> {
             JoinedChallengeCard(
-                imageUrl = challengeCardState.imageUrl,
-                title = challengeCardState.title,
-                tagText = challengeCardState.tagText,
-                progress = challengeCardState.progress,
-                statusText = challengeCardState.statusText,
-                onCardClick = challengeCardState.onCardClick,
+                imageUrl = state.imageUrl,
+                title = state.title,
+                tagText = state.tagText,
+                progress = state.progress,
+                statusText = state.statusText,
+                onCardClick = state.onCardClick,
                 modifier = modifier,
             )
         }
 
         is ChallengeCardState.Disabled -> {
             DisabledChallengeCard(
-                imageUrl = challengeCardState.imageUrl,
-                title = challengeCardState.title,
-                statusText = challengeCardState.statusText,
-                onCardClick = challengeCardState.onCardClick,
-                onDeleteClick = challengeCardState.onDeleteClick,
+                imageUrl = state.imageUrl,
+                title = state.title,
+                statusText = state.statusText,
+                onCardClick = state.onCardClick,
+                onDeleteClick = state.onDeleteClick,
                 modifier = modifier,
             )
         }
@@ -157,17 +152,14 @@ private fun ChallengeCardLayout(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs, Alignment.CenterVertically),
                 ) {
-                    SubcomposeAsyncImage(
+                    SatsChallengeBadge(
                         modifier = Modifier
                             .padding(top = SatsTheme.spacing.m, bottom = SatsTheme.spacing.xxs)
                             .size(75.dp)
                             .aspectRatio(1f)
                             .clip(SatsTheme.shapes.circle),
-                        model = imageUrl,
+                        imageUrl = imageUrl,
                         contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                        loading = { LoadingPlaceholder(Modifier.fillMaxSize()) },
-                        error = { ErrorFallback(contentDescription, Modifier.fillMaxSize()) },
                     )
 
                     Text(
@@ -199,7 +191,7 @@ private fun ChallengeCardLayout(
 }
 
 @Composable
-fun AvailableChallengeCard(
+private fun AvailableChallengeCard(
     imageUrl: String?,
     title: String,
     subtitle: String,
@@ -234,7 +226,7 @@ fun AvailableChallengeCard(
 }
 
 @Composable
-fun JoinedChallengeCard(
+private fun JoinedChallengeCard(
     imageUrl: String?,
     title: String,
     tagText: String,
@@ -269,7 +261,7 @@ fun JoinedChallengeCard(
 }
 
 @Composable
-fun DisabledChallengeCard(
+private fun DisabledChallengeCard(
     imageUrl: String?,
     title: String,
     statusText: String,
@@ -322,16 +314,6 @@ private fun ChallengeCardProgress(progress: Float, progressText: String, modifie
             textAlign = TextAlign.Center,
         )
     }
-}
-
-@Composable
-private fun LoadingPlaceholder(modifier: Modifier = Modifier) {
-    SatsPlaceholderBox(modifier)
-}
-
-@Composable
-private fun ErrorFallback(contentDescription: String?, modifier: Modifier = Modifier) {
-    Image(painterResource(R.drawable.placeholder_challenges), contentDescription, modifier)
 }
 
 @PreviewLightDark

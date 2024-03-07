@@ -6,16 +6,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.DrawModifier
-import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ColorMatrix
-import androidx.compose.ui.graphics.Paint
-import androidx.compose.ui.graphics.drawscope.ContentDrawScope
-import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.sats.dna.GreyScaleModifier
 import com.sats.dna.R
 import com.sats.dna.theme.SatsTheme
 
@@ -44,21 +40,6 @@ fun SatsChallengeBackground(modifier: Modifier = Modifier, isEnabled: Boolean = 
             )
 
             content()
-        }
-    }
-}
-
-class GreyScaleModifier : DrawModifier {
-    override fun ContentDrawScope.draw() {
-        val saturationMatrix = ColorMatrix().apply { setToSaturation(0f) }
-        val paint = Paint().apply {
-            colorFilter = ColorFilter.colorMatrix(saturationMatrix)
-        }
-
-        drawIntoCanvas {
-            it.saveLayer(Rect(0f, 0f, size.width, size.height), paint)
-            drawContent()
-            it.restore()
         }
     }
 }
