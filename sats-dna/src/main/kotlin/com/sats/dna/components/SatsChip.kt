@@ -63,7 +63,7 @@ fun SatsFilterChip(
             true -> Color.Transparent
 
             false -> when (isEnabled) {
-                true -> SatsTheme.colors2.graphicalElements.chips.unselected.default.fg
+                true -> SatsTheme.colors2.graphicalElements.chips.unselected.default.bg
                 false -> SatsTheme.colors2.graphicalElements.chips.unselected.disabled.fg
             }
         },
