@@ -138,6 +138,7 @@ private val SatsIcons.allIcons: List<NamedIcon>
         NamedIcon("questionMark", questionMark),
         NamedIcon("refresh", refresh),
         NamedIcon("remove", remove),
+        NamedIcon("removeFromCalendar", removeFromCalendar),
         NamedIcon("rewardsElixia", rewardsElixia),
         NamedIcon("rewardsSats", rewardsSats),
         NamedIcon("search", search),
