@@ -124,7 +124,7 @@ internal val SatsLightColors2 = SatsColors2(
         fixedProgressBar = SatsColors2.GraphicalElements.FixedProgressBar(
             indicator = SatsColorPrimitives.SatsCoral90,
             indicatorAlternate = SatsColorPrimitives.BrightBlue110,
-            bg = SatsColorPrimitives.White20,
+            bg = SatsColorPrimitives.White40,
         ),
         graphs = SatsColors2.GraphicalElements.Graphs(
             bar = SatsColors2.GraphicalElements.Graphs.Bar(
