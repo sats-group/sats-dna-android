@@ -127,7 +127,13 @@ private fun buttonPadding(isLarge: Boolean): PaddingValues {
 @Composable
 private fun SatsButtonPreview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        val backgroundColor = when (color) {
+            SatsButtonColor.Clean -> SatsTheme.colors2.backgrounds.fixed.primary.bg.default
+            SatsButtonColor.CleanSecondary -> SatsTheme.colors2.backgrounds.fixed.primary.bg.default
+            else -> SatsTheme.colors2.backgrounds.primary.bg.default
+        }
+
+        SatsSurface(color = backgroundColor, useMaterial3 = true) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 SatsButton(onClick = {}, color.name, Modifier.padding(SatsTheme.spacing.s), color)
                 SatsButton(
