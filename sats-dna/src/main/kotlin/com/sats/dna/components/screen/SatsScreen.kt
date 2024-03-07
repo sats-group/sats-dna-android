@@ -21,12 +21,14 @@ import com.sats.dna.components.proteinbar.SatsProteinBarAction
 import com.sats.dna.components.proteinbar.SatsProteinBarVisuals
 import com.sats.dna.theme.SatsTheme
 
+typealias ProteinBarHostState = SnackbarHostState
+
 @Composable
 fun SatsScreen(
     modifier: Modifier = Modifier,
     topBar: @Composable () -> Unit = {},
     bottomBar: @Composable () -> Unit = { Spacer(Modifier.navigationBarsPadding()) },
-    proteinBarHostState: SnackbarHostState = remember { SnackbarHostState() },
+    proteinBarHostState: ProteinBarHostState = remember { ProteinBarHostState() },
     proteinBarPadding: PaddingValues = PaddingValues(SatsTheme.spacing.m),
     floatingActionButton: @Composable () -> Unit = {},
     contentPadding: PaddingValues = PaddingValues(0.dp),
@@ -57,8 +59,8 @@ fun SatsScreen(
 }
 
 @Composable
-private fun SatsProteinBarHost(snackbarHostState: SnackbarHostState, modifier: Modifier = Modifier) {
-    SnackbarHost(snackbarHostState, modifier) { snackbarData ->
+private fun SatsProteinBarHost(proteinBarHostState: ProteinBarHostState, modifier: Modifier = Modifier) {
+    SnackbarHost(proteinBarHostState, modifier) { snackbarData ->
         when (val visuals = snackbarData.visuals) {
             is SatsProteinBarVisuals -> {
                 SatsProteinBar(visuals)
