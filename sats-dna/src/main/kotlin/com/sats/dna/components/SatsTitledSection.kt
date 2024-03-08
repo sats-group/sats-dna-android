@@ -22,7 +22,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.button.SatsButtonColor
-import com.sats.dna.components.button.SatsIconButton2
+import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -75,7 +75,7 @@ private fun SectionHeader(
 
 @Composable
 private fun ChevronAction(action: SatsTitledSectionAction.Chevron) {
-    SatsIconButton2(
+    SatsIconButton(
         onClick = action.onClick,
         icon = SatsTheme.icons.arrowRight,
         onClickLabel = action.onClickLabel,
