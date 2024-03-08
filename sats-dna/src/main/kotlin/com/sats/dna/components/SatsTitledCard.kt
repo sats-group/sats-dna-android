@@ -14,7 +14,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.colors.SatsColorPrimitives
 import com.sats.dna.components.button.SatsButtonColor
-import com.sats.dna.components.button.SatsIconButton
+import com.sats.dna.components.button.SatsIconButton2
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -69,7 +69,7 @@ private fun CardHeader(title: String, action: SatsTitledCardAction?, modifier: M
         if (action != null) {
             when (action) {
                 is SatsTitledCardAction.Chevron -> {
-                    SatsIconButton(
+                    SatsIconButton2(
                         onClick = action.action,
                         icon = SatsTheme.icons.arrowRight,
                         onClickLabel = action.contentDescription,
