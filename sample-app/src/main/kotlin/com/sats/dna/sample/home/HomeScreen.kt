@@ -13,6 +13,7 @@ import androidx.navigation.NavController
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.screen.SatsScreen
+import com.sats.dna.sample.screens.BadgeSampleScreen
 import com.sats.dna.sample.screens.BannerSampleScreen
 import com.sats.dna.sample.screens.BrandLogoSampleScreen
 import com.sats.dna.sample.screens.ButtonsSampleScreen
@@ -71,6 +72,7 @@ internal fun HomeScreen(navController: NavController) {
 
             SatsHorizontalDivider(Modifier.padding(vertical = SatsTheme.spacing.s))
 
+            BadgeSampleScreen.HomeListItem(navController)
             BannerSampleScreen.HomeListItem(navController)
             BrandLogoSampleScreen.HomeListItem(navController)
             ButtonsSampleScreen.HomeListItem(navController)

@@ -5,6 +5,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import com.sats.dna.sample.home.HomeScreen
+import com.sats.dna.sample.screens.BadgeSampleScreen
 import com.sats.dna.sample.screens.BannerSampleScreen
 import com.sats.dna.sample.screens.BrandLogoSampleScreen
 import com.sats.dna.sample.screens.ButtonsSampleScreen
@@ -54,6 +55,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         IconsSampleScreen.navScreen(navController)
         TypographySampleScreen.navScreen(navController)
 
+        BadgeSampleScreen.navScreen(navController)
         BannerSampleScreen.navScreen(navController)
         BrandLogoSampleScreen.navScreen(navController)
         ButtonsSampleScreen.navScreen(navController)

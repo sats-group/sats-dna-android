@@ -514,6 +514,44 @@ private fun GraphicalElements() {
             )
         }
 
+        Section("Badge", SectionLevel.Level2, base = "graphicalElements.badge") {
+            val base = SatsTheme.colors2.graphicalElements.badge
+
+            ColorSample(
+                backgroundColor = base.primary.bg named "base.primary.bg",
+                contentColor = base.primary.fg named "base.primary.fg",
+            )
+
+            ColorSample(
+                backgroundColor = base.secondary.bg named "base.secondary.bg",
+                contentColor = base.secondary.fg named "base.secondary.fg",
+            )
+
+            ColorSample(
+                backgroundColor = base.tertiary.bg named "base.tertiary.bg",
+                contentColor = base.tertiary.fg named "base.tertiary.fg",
+            )
+        }
+
+        Section("Fixed Badge", SectionLevel.Level2, base = "graphicalElements.fixedBadge") {
+            val base = SatsTheme.colors2.graphicalElements.fixedBadge
+
+            ColorSample(
+                backgroundColor = base.primary.bg named "base.primary.bg",
+                contentColor = base.primary.fg named "base.primary.fg",
+            )
+
+            ColorSample(
+                backgroundColor = base.secondary.bg named "base.secondary.bg",
+                contentColor = base.secondary.fg named "base.secondary.fg",
+            )
+
+            ColorSample(
+                backgroundColor = base.tertiary.bg named "base.tertiary.bg",
+                contentColor = base.tertiary.fg named "base.tertiary.fg",
+            )
+        }
+
         Section("Rewards", SectionLevel.Level2, base = "graphicalElements.rewards") {
             val base = SatsTheme.colors2.graphicalElements.rewards
 

@@ -247,6 +247,34 @@ internal val SatsLightColors2 = SatsColors2(
                 fg = SatsColorPrimitives.White100,
             ),
         ),
+        badge = SatsColors2.GraphicalElements.Badge(
+            primary = SatsColors2.GraphicalElements.Badge.Primary(
+                bg = SatsColorPrimitives.SatsCoral120,
+                fg = SatsColorPrimitives.White100,
+            ),
+            secondary = SatsColors2.GraphicalElements.Badge.Secondary(
+                bg = SatsColorPrimitives.SatsBlue,
+                fg = SatsColorPrimitives.White100,
+            ),
+            tertiary = SatsColors2.GraphicalElements.Badge.Tertiary(
+                bg = SatsColorPrimitives.SatsBlue5,
+                fg = SatsColorPrimitives.SatsBlue,
+            ),
+        ),
+        fixedBadge = SatsColors2.GraphicalElements.FixedBadge(
+            primary = SatsColors2.GraphicalElements.FixedBadge.Primary(
+                bg = SatsColorPrimitives.SatsCoral120,
+                fg = SatsColorPrimitives.White100,
+            ),
+            secondary = SatsColors2.GraphicalElements.FixedBadge.Secondary(
+                bg = SatsColorPrimitives.BrightBlue10,
+                fg = SatsColorPrimitives.SatsBlue,
+            ),
+            tertiary = SatsColors2.GraphicalElements.FixedBadge.Tertiary(
+                bg = SatsColorPrimitives.SatsBlueGrey80,
+                fg = SatsColorPrimitives.White100,
+            ),
+        ),
         rewards = SatsColors2.GraphicalElements.Rewards(
             blue = SatsColors2.GraphicalElements.Rewards.Blue(
                 bg = SatsColorPrimitives.SatsBlue,
