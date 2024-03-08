@@ -70,6 +70,7 @@ object SatsIcons {
     val questionMark @Composable get() = painterResource(R.drawable.ic_question_mark)
     val refresh @Composable get() = painterResource(R.drawable.ic_refresh)
     val remove @Composable get() = painterResource(R.drawable.ic_remove)
+    val removeFromCalendar @Composable get() = painterResource(R.drawable.ic_remove_from_calendar)
     val rewardsElixia @Composable get() = painterResource(R.drawable.ic_rewards_elixia)
     val rewardsSats @Composable get() = painterResource(R.drawable.ic_rewards_sats)
     val search @Composable get() = painterResource(R.drawable.ic_search)
