@@ -194,6 +194,8 @@ class SatsColors2(
         val indicators: Indicators,
         val signal: Signal,
         val tags: Tags,
+        val badge: Badge,
+        val fixedBadge: FixedBadge,
         val rewards: Rewards,
         val workouts: Workouts,
     ) {
@@ -410,6 +412,48 @@ class SatsColors2(
             )
 
             class Featured(
+                val bg: Color,
+                val fg: Color,
+            )
+        }
+
+        class Badge(
+            val primary: Primary,
+            val secondary: Secondary,
+            val tertiary: Tertiary,
+        ) {
+            class Primary(
+                val bg: Color,
+                val fg: Color,
+            )
+
+            class Secondary(
+                val bg: Color,
+                val fg: Color,
+            )
+
+            class Tertiary(
+                val bg: Color,
+                val fg: Color,
+            )
+        }
+
+        class FixedBadge(
+            val primary: Primary,
+            val secondary: Secondary,
+            val tertiary: Tertiary,
+        ) {
+            class Primary(
+                val bg: Color,
+                val fg: Color,
+            )
+
+            class Secondary(
+                val bg: Color,
+                val fg: Color,
+            )
+
+            class Tertiary(
                 val bg: Color,
                 val fg: Color,
             )
