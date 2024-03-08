@@ -14,7 +14,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.LocalUseMaterial3
-import com.sats.dna.components.button.SatsButton2
+import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
@@ -94,7 +94,7 @@ fun SatsEmptyState(
         }
 
         if (action != null) {
-            SatsButton2(action.action, action.label)
+            SatsButton(action.action, action.label)
         }
     }
 }

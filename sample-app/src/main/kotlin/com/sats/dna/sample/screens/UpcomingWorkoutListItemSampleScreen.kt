@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsHorizontalDivider
-import com.sats.dna.components.button.SatsButton2
+import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.upcomingworkouts.SatsUpcomingWorkoutDaySection
 import com.sats.dna.components.upcomingworkouts.SatsUpcomingWorkoutListItem
@@ -47,7 +47,7 @@ private fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Modi
                         duration = "45 min",
                         instructor = "Kristin Hagen",
                         button = {
-                            SatsButton2(
+                            SatsButton(
                                 onClick = { },
                                 label = "Unbook",
                                 colors = SatsButtonColor.Action,
@@ -76,7 +76,7 @@ private fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Modi
                             "You are number 10 on the waiting list",
                         ),
                         button = {
-                            SatsButton2(
+                            SatsButton(
                                 onClick = { },
                                 label = "Unbook",
                                 colors = SatsButtonColor.Action,

@@ -45,7 +45,7 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun SatsButton2(
+fun SatsButton(
     onClick: () -> Unit,
     label: String,
     modifier: Modifier = Modifier,
@@ -207,8 +207,8 @@ private fun SatsButtonPreview(@PreviewParameter(SatsButtonColorProvider::class) 
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                SatsButton2(onClick = {}, color.name, Modifier.padding(SatsTheme.spacing.s), color)
-                SatsButton2(
+                SatsButton(onClick = {}, color.name, Modifier.padding(SatsTheme.spacing.s), color)
+                SatsButton(
                     onClick = {},
                     label = "${color.name} disabled",
                     modifier = Modifier.padding(SatsTheme.spacing.s),
@@ -230,7 +230,7 @@ private fun SatsButtonFontScalePreview() {
             useMaterial3 = true,
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                SatsButton2(
+                SatsButton(
                     onClick = {},
                     label = "${LocalConfiguration.current.fontScale}x",
                     modifier = Modifier.padding(SatsTheme.spacing.s),

@@ -25,7 +25,7 @@ import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun SatsIconButton2(
+fun SatsIconButton(
     onClick: () -> Unit,
     icon: Painter,
     onClickLabel: String?,
@@ -112,7 +112,7 @@ fun SatsTopAppBarIconButton(
 }
 
 @Composable
-fun SatsBellIconButton2(
+fun SatsBellIconButton(
     onClick: () -> Unit,
     onClickLabel: String?,
     showCherry: Boolean,
@@ -230,7 +230,7 @@ private fun SatsTopAppBarIconButton(
 private fun SatsIconButtonPreview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            SatsIconButton2(
+            SatsIconButton(
                 onClick = {},
                 icon = SatsTheme.icons.barbell,
                 onClickLabel = null,
@@ -261,7 +261,7 @@ private fun SatsTopAppBarIconButtonPreview() {
 private fun SatsBellIconButtonNoCherryPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            SatsBellIconButton2(
+            SatsBellIconButton(
                 onClick = {},
                 onClickLabel = null,
                 showCherry = false,
@@ -276,7 +276,7 @@ private fun SatsBellIconButtonNoCherryPreview() {
 private fun SatsBellIconButtonWithCherryPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            SatsBellIconButton2(
+            SatsBellIconButton(
                 onClick = {},
                 onClickLabel = null,
                 showCherry = true,
