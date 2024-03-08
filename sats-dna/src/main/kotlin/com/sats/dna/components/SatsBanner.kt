@@ -9,7 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import com.sats.dna.components.button.SatsButton2
+import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -50,7 +50,7 @@ class SatsBannerAction(
 private val SatsBannerAction.composable: @Composable () -> Unit
     @Composable get() {
         return {
-            SatsButton2(
+            SatsButton(
                 onClick = onClick,
                 label = label,
                 colors = SatsButtonColor.Clean,

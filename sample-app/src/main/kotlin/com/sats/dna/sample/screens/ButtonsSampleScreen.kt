@@ -30,11 +30,11 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsFilterChip
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.components.button.SatsBellIconButton2
-import com.sats.dna.components.button.SatsButton2
+import com.sats.dna.components.button.SatsBellIconButton
+import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsButtonSize
-import com.sats.dna.components.button.SatsIconButton2
+import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.components.button.SatsInCardCardButton
 import com.sats.dna.components.button.SatsNavigationCardButton
 import com.sats.dna.components.button.SatsStandAloneCardButton
@@ -87,7 +87,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         .padding(SatsTheme.spacing.m),
                     contentAlignment = Alignment.Center,
                 ) {
-                    SatsButton2(
+                    SatsButton(
                         onClick = {},
                         label = color.name,
                         colors = color,
@@ -108,7 +108,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         SatsButtonColor.Primary,
                         SatsButtonColor.Secondary,
                     ).forEach { color ->
-                        SatsIconButton2(
+                        SatsIconButton(
                             onClick = {},
                             icon = SatsTheme.icons.barbell,
                             onClickLabel = null,
@@ -126,7 +126,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         SatsButtonColor.WaitingList,
                         SatsButtonColor.Action,
                     ).forEach { color ->
-                        SatsIconButton2(
+                        SatsIconButton(
                             onClick = {},
                             icon = SatsTheme.icons.barbell,
                             onClickLabel = null,
@@ -139,14 +139,14 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                 }
 
                 Row(horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
-                    SatsBellIconButton2(
+                    SatsBellIconButton(
                         onClick = {},
                         onClickLabel = null,
                         showCherry = false,
                         isEnabled = controlPanelState.isEnabledToggled,
                     )
 
-                    SatsBellIconButton2(
+                    SatsBellIconButton(
                         onClick = {},
                         onClickLabel = null,
                         showCherry = true,

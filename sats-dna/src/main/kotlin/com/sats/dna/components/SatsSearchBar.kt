@@ -25,7 +25,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.TrailingContent.Icon
 import com.sats.dna.components.button.SatsButtonColor
-import com.sats.dna.components.button.SatsIconButton2
+import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.theme.SatsTheme
 
@@ -74,7 +74,7 @@ fun SatsSearchBar(
                 trailingIcon = {
                     Box(Modifier.minimumInteractiveComponentSize()) {
                         if (query.isNotBlank()) {
-                            SatsIconButton2(
+                            SatsIconButton(
                                 onClick = { onClearClicked() },
                                 icon = SatsTheme.icons.close,
                                 onClickLabel = null,

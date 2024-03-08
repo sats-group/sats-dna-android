@@ -28,7 +28,7 @@ import com.sats.dna.components.SatsChallengeBadge
 import com.sats.dna.components.SatsTag
 import com.sats.dna.components.SatsTagColor
 import com.sats.dna.components.SatsTagShape
-import com.sats.dna.components.button.SatsButton2
+import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsButtonSize
 import com.sats.dna.components.progressbar.SatsLinearProgressBar
@@ -216,7 +216,7 @@ private fun AvailableChallengeCard(
             )
         },
         bottomContent = {
-            SatsButton2(
+            SatsButton(
                 onClick = onJoinClick,
                 label = buttonText,
                 modifier = Modifier.padding(bottom = SatsTheme.spacing.m),
@@ -258,7 +258,6 @@ private fun JoinedChallengeCard(
                     .padding(bottom = SatsTheme.spacing.m),
             )
         },
-
     )
 }
 
