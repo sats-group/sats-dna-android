@@ -88,6 +88,9 @@ object SatsTopAppBarDefaults {
         } else {
             SatsTheme.colors2.surfaces.primary.bg.default
         }.compositeOver(SatsTheme.colors2.backgrounds.primary.bg.default)
+
+    val contentColor
+        @Composable get() = SatsTheme.colors2.surfaces.primary.fg.default
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
