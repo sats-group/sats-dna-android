@@ -194,6 +194,20 @@ class SatsFancyTopAppBarNestedScrollConnection internal constructor() : NestedSc
     override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset {
         val delta = available.y
 
+        if (delta > 0) return Offset.Zero
+
+        return consumeScroll(delta)
+    }
+
+    override fun onPostScroll(consumed: Offset, available: Offset, source: NestedScrollSource): Offset {
+        val delta = available.y
+
+        if (delta < 0) return Offset.Zero
+
+        return consumeScroll(delta)
+    }
+
+    private fun consumeScroll(delta: Float): Offset {
         val previousHeight = currentHeightPx
         val nextHeight = previousHeight + delta
         currentHeightPx = nextHeight.coerceIn(collapsedHeightPx, expandedHeightPx)
