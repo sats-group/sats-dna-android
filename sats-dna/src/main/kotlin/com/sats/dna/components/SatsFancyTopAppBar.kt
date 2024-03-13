@@ -195,20 +195,26 @@ class SatsFancyTopAppBarNestedScrollConnection internal constructor() : NestedSc
         return Offset(x = 0f, y = consumed)
     }
 
-    suspend fun collapse() {
-        withContext(Dispatchers.Main) {
-            Animatable(currentHeightPx).also {
-                it.animateTo(collapsedHeightPx, ExpandCollapseAnimationSpec) {
-                    currentHeightPx = it.value
-                }
-            }
+    suspend fun collapse(animate: Boolean = true) {
+        if (!animate) {
+            currentHeightPx = collapsedHeightPx
+        } else {
+            animateCurrentHeight(collapsedHeightPx)
         }
     }
 
-    suspend fun expand() {
+    suspend fun expand(animate: Boolean = true) {
+        if (!animate) {
+            currentHeightPx = expandedHeightPx
+        } else {
+            animateCurrentHeight(expandedHeightPx)
+        }
+    }
+
+    private suspend fun animateCurrentHeight(newValue: Float) {
         withContext(Dispatchers.Main) {
             Animatable(currentHeightPx).also {
-                it.animateTo(expandedHeightPx, ExpandCollapseAnimationSpec) {
+                it.animateTo(newValue, ExpandCollapseAnimationSpec) {
                     currentHeightPx = it.value
                 }
             }
@@ -335,7 +341,7 @@ private fun SatsFancyTopAppBarExpandedPreview() {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             val coroutineScope = rememberCoroutineScope()
             val scrollConnection = rememberSatsFancyTopAppBarNestedScrollConnection()
-                .also { coroutineScope.launch { it.expand() } }
+                .also { coroutineScope.launch { it.expand(animate = false) } }
 
             SatsFancyTopAppBar(
                 imageUrl = "https://picsum.photos/1920/1080",
@@ -376,7 +382,7 @@ private fun SatsFancyTopAppBarCollapsedPreview() {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             val coroutineScope = rememberCoroutineScope()
             val scrollConnection = rememberSatsFancyTopAppBarNestedScrollConnection()
-                .also { coroutineScope.launch { it.collapse() } }
+                .also { coroutineScope.launch { it.collapse(animate = false) } }
 
             SatsFancyTopAppBar(
                 imageUrl = "https://picsum.photos/1920/1080",
