@@ -234,6 +234,8 @@ class SatsFancyTopAppBarNestedScrollConnection internal constructor() : NestedSc
     }
 
     private suspend fun animateCurrentHeight(newValue: Float) {
+        if (currentHeightPx == newValue) return
+
         withContext(Dispatchers.Main) {
             Animatable(currentHeightPx).also {
                 it.animateTo(newValue, ExpandCollapseAnimationSpec) {
