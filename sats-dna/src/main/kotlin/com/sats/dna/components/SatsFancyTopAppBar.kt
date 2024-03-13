@@ -21,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.mapSaver
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -69,14 +70,18 @@ fun SatsFancyTopAppBar(
         1f
     }
 
-    val expandedContentColor = SatsTheme.colors2.backgrounds.fixed.primary.fg.default
-    val collapsedContentColor = SatsTheme.colors2.surfaces.primary.fg.default
-    val contentColor = lerp(collapsedContentColor, expandedContentColor, expandPercent)
+    val contentColor = lerp(
+        start = SatsTheme.colors2.surfaces.primary.fg.default,
+        stop = SatsTheme.colors2.backgrounds.fixed.primary.fg.default,
+        fraction = expandPercent,
+    )
 
     CompositionLocalProvider(LocalContentColor provides contentColor) {
         val topBarPadding = WindowInsets.statusBars.getTop(LocalDensity.current)
         val spaceBetweenHeaderIconsAndText = SatsTheme.spacing.xs
         val collapsedTextHorizontalPadding = SatsTheme.spacing.m
+
+        var isStateInitializedWithSize by rememberSaveable { mutableStateOf(false) }
 
         Layout(
             modifier = modifier,
@@ -101,7 +106,10 @@ fun SatsFancyTopAppBar(
             val actualHeight = lerp(collapsedHeight, expandedHeight, expandPercent).roundToInt()
 
             // Ensure the scroll connection knows the correct min and max sizes
-            scrollConnection?.initialize(collapsedHeight, expandedHeight)
+            if (!isStateInitializedWithSize) {
+                scrollConnection?.initialize(collapsedHeight, expandedHeight)
+                isStateInitializedWithSize = true
+            }
 
             // Measure image
             val imagePlaceable = imageMeasurable.measure(constraints.copy(maxHeight = actualHeight))
@@ -164,10 +172,8 @@ fun SatsFancyTopAppBar(
 }
 
 class SatsFancyTopAppBarNestedScrollConnection internal constructor() : NestedScrollConnection {
-    // TODO: Reset these to set when we know the actual values.
-    private var isInitialized = true
-    internal var collapsedHeightPx: Float = 264.0f
-    internal var expandedHeightPx: Float = 828.0f
+    internal var collapsedHeightPx: Float = 0f
+    internal var expandedHeightPx: Float = 1f
 
     internal var currentHeightPx: Float by mutableFloatStateOf(expandedHeightPx)
 
@@ -210,15 +216,9 @@ class SatsFancyTopAppBarNestedScrollConnection internal constructor() : NestedSc
     }
 
     internal fun initialize(collapsedHeight: Float, expandedHeight: Float) {
-        if (isInitialized) return
-
-        println("Initializing($collapsedHeight, $expandedHeight)")
-
         collapsedHeightPx = collapsedHeight
         expandedHeightPx = expandedHeight
         currentHeightPx = expandedHeight
-
-        isInitialized = true
     }
 
     internal companion object {
