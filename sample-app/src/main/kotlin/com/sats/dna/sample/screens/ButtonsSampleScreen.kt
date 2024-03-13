@@ -34,6 +34,7 @@ import com.sats.dna.components.button.SatsBellIconButton
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsButtonSize
+import com.sats.dna.components.button.SatsDismissButton
 import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.components.button.SatsInCardCardButton
 import com.sats.dna.components.button.SatsNavigationCardButton
@@ -137,6 +138,14 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         )
                     }
                 }
+
+                SatsDismissButton(
+                    dismissLabel = "Dismiss",
+                    onDismissClicked = { },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = SatsTheme.spacing.m),
+                )
 
                 Row(horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
                     SatsBellIconButton(
