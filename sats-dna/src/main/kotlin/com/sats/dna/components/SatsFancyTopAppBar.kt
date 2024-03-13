@@ -1,5 +1,7 @@
 package com.sats.dna.components
 
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -19,6 +21,7 @@ import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -35,6 +38,7 @@ import androidx.compose.ui.input.nestedscroll.NestedScrollSource
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
@@ -48,6 +52,7 @@ import coil.compose.AsyncImage
 import com.sats.dna.R
 import com.sats.dna.components.appbar.SatsTopAppBarDefaults
 import com.sats.dna.components.button.SatsTopAppBarIconButton
+import com.sats.dna.internal.findActivity
 import com.sats.dna.theme.SatsTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -75,6 +80,8 @@ fun SatsFancyTopAppBar(
         stop = SatsTheme.colors2.backgrounds.fixed.primary.fg.default,
         fraction = expandPercent,
     )
+
+    EnsureStatusBarContrast(expandPercent)
 
     CompositionLocalProvider(LocalContentColor provides contentColor) {
         val topBarPadding = WindowInsets.statusBars.getTop(LocalDensity.current)
@@ -329,6 +336,25 @@ private fun CollapsedHeaderText(
         overflow = TextOverflow.Ellipsis,
         color = SatsTopAppBarDefaults.contentColor.copy(alpha = alpha),
     )
+}
+
+@Composable
+private fun EnsureStatusBarContrast(expandPercent: Float) {
+    val activity = LocalContext.current.findActivity()
+
+    DisposableEffect(activity, expandPercent) {
+        activity?.enableEdgeToEdge(
+            statusBarStyle = if (expandPercent > .25f) {
+                SystemBarStyle.dark(android.graphics.Color.TRANSPARENT)
+            } else {
+                SystemBarStyle.auto(android.graphics.Color.TRANSPARENT, android.graphics.Color.TRANSPARENT)
+            },
+        )
+
+        onDispose {
+            activity?.enableEdgeToEdge()
+        }
+    }
 }
 
 private val AppBarCollapsedHeight = 64.dp
