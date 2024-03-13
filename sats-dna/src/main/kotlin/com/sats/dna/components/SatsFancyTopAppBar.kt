@@ -69,6 +69,25 @@ fun SatsFancyTopAppBar(
     actions: @Composable RowScope.() -> Unit = {},
     scrollConnection: SatsFancyTopAppBarNestedScrollConnection? = null,
 ) {
+    SatsFancyTopAppBar(
+        image = { HeaderImage(imageUrl, expandPercent = it) },
+        title = title,
+        modifier = modifier,
+        navigationIcon = navigationIcon,
+        actions = actions,
+        scrollConnection = scrollConnection,
+    )
+}
+
+@Composable
+fun SatsFancyTopAppBar(
+    image: @Composable (expandPercent: Float) -> Unit,
+    title: String,
+    modifier: Modifier = Modifier,
+    navigationIcon: @Composable () -> Unit = {},
+    actions: @Composable RowScope.() -> Unit = {},
+    scrollConnection: SatsFancyTopAppBarNestedScrollConnection? = null,
+) {
     val expandPercent = if (scrollConnection != null) {
         (scrollConnection.currentHeightPx - scrollConnection.collapsedHeightPx) /
             (scrollConnection.expandedHeightPx - scrollConnection.collapsedHeightPx)
@@ -94,7 +113,7 @@ fun SatsFancyTopAppBar(
         Layout(
             modifier = modifier,
             contents = listOf(
-                { HeaderImage(imageUrl, expandPercent) },
+                { Header(expandPercent) { image(expandPercent) } },
                 { Box { navigationIcon() } },
                 { Row(content = actions) },
                 { ExpandedHeaderText(title, expandPercent, Modifier.padding(horizontal = SatsTheme.spacing.xxl)) },
@@ -290,7 +309,7 @@ private fun HeaderImage(
     expandPercent: Float,
     modifier: Modifier = Modifier,
 ) {
-    Box(modifier) {
+    Header(expandPercent, modifier) {
         if (LocalInspectionMode.current) {
             Image(
                 modifier = Modifier.fillMaxSize(),
@@ -306,6 +325,17 @@ private fun HeaderImage(
                 contentScale = ContentScale.Crop,
             )
         }
+    }
+}
+
+@Composable
+private fun Header(
+    expandPercent: Float,
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit,
+) {
+    Box(modifier) {
+        content()
 
         HeaderImageShade(expandPercent, Modifier.fillMaxSize())
     }
