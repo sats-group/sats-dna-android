@@ -277,12 +277,14 @@ private fun HeaderImage(
     Box(modifier) {
         if (LocalInspectionMode.current) {
             Image(
+                modifier = Modifier.fillMaxSize(),
                 painter = painterResource(R.drawable.placeholder_gx),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
             )
         } else {
             AsyncImage(
+                modifier = Modifier.fillMaxSize(),
                 model = imageUrl,
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
