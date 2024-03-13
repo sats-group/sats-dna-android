@@ -54,6 +54,7 @@ import com.sats.dna.components.appbar.SatsTopAppBarDefaults
 import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.internal.findActivity
 import com.sats.dna.theme.SatsTheme
+import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -408,7 +409,7 @@ private fun SatsFancyTopAppBarCollapsedPreview() {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             val coroutineScope = rememberCoroutineScope()
             val scrollConnection = rememberSatsFancyTopAppBarNestedScrollConnection()
-                .also { coroutineScope.launch { it.collapse(animate = false) } }
+                .also { coroutineScope.launch(start = CoroutineStart.UNDISPATCHED) { it.collapse(animate = false) } }
 
             SatsFancyTopAppBar(
                 imageUrl = "https://picsum.photos/1920/1080",
