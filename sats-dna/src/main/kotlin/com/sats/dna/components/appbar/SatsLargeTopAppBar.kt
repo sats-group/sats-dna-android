@@ -10,7 +10,6 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.button.SatsTopAppBarIconButton
@@ -46,16 +45,10 @@ fun SatsLargeTopAppBar(
     actions: @Composable RowScope.() -> Unit = {},
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
 ) {
-    val scrolledContainerColor = if (SatsTheme.colors2.isLightMode) {
-        SatsTheme.colors2.surfaces.fixed.primary.bg.default.copy(alpha = .05f)
-    } else {
-        SatsTheme.colors2.surfaces.primary.bg.default
-    }.compositeOver(SatsTheme.colors2.backgrounds.primary.bg.default)
-
     LargeTopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = SatsTheme.colors2.backgrounds.primary.bg.default,
-            scrolledContainerColor = scrolledContainerColor,
+            scrolledContainerColor = SatsTopAppBarDefaults.containerColor,
         ),
         title = title,
         modifier = modifier,

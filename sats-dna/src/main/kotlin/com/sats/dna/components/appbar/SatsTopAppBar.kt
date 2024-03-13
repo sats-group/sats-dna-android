@@ -50,16 +50,10 @@ fun SatsTopAppBar(
     scrollBehavior: TopAppBarScrollBehavior? = null,
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
 ) {
-    val scrolledContainerColor = if (SatsTheme.colors2.isLightMode) {
-        SatsTheme.colors2.surfaces.fixed.primary.bg.default.copy(alpha = .05f)
-    } else {
-        SatsTheme.colors2.surfaces.primary.bg.default
-    }.compositeOver(SatsTheme.colors2.backgrounds.primary.bg.default)
-
     // If we don't have a scroll behaviour, then we need to always separate the top app bar from the following
     // content, and using the same color as we would when the content was scrolled makes sense here.
     val containerColor = if (scrollBehavior == null) {
-        scrolledContainerColor
+        SatsTopAppBarDefaults.containerColor
     } else {
         SatsTheme.colors2.backgrounds.primary.bg.default
     }
@@ -67,7 +61,7 @@ fun SatsTopAppBar(
     TopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = containerColor,
-            scrolledContainerColor = scrolledContainerColor,
+            scrolledContainerColor = SatsTopAppBarDefaults.containerColor,
         ),
         title = {
             ProvideTextStyle(
@@ -85,6 +79,15 @@ fun SatsTopAppBar(
         scrollBehavior = scrollBehavior,
         windowInsets = windowInsets,
     )
+}
+
+object SatsTopAppBarDefaults {
+    val containerColor
+        @Composable get() = if (SatsTheme.colors2.isLightMode) {
+            SatsTheme.colors2.surfaces.fixed.primary.bg.default.copy(alpha = .05f)
+        } else {
+            SatsTheme.colors2.surfaces.primary.bg.default
+        }.compositeOver(SatsTheme.colors2.backgrounds.primary.bg.default)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
