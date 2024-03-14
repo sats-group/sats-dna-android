@@ -13,11 +13,11 @@ import androidx.navigation.NavController
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.screen.SatsScreen
+import com.sats.dna.sample.screens.ArticleCardSampleScreen
 import com.sats.dna.sample.screens.BadgeSampleScreen
 import com.sats.dna.sample.screens.BannerSampleScreen
 import com.sats.dna.sample.screens.BrandLogoSampleScreen
 import com.sats.dna.sample.screens.ButtonsSampleScreen
-import com.sats.dna.sample.screens.CampaignModuleSampleScreen
 import com.sats.dna.sample.screens.CardSampleScreen
 import com.sats.dna.sample.screens.ChallengeBackgroundSampleScreen
 import com.sats.dna.sample.screens.ChallengeBadgeSampleScreen
@@ -73,11 +73,11 @@ internal fun HomeScreen(navController: NavController) {
 
             SatsHorizontalDivider(Modifier.padding(vertical = SatsTheme.spacing.s))
 
+            ArticleCardSampleScreen.HomeListItem(navController)
             BadgeSampleScreen.HomeListItem(navController)
             BannerSampleScreen.HomeListItem(navController)
             BrandLogoSampleScreen.HomeListItem(navController)
             ButtonsSampleScreen.HomeListItem(navController)
-            CampaignModuleSampleScreen.HomeListItem(navController)
             CardSampleScreen.HomeListItem(navController)
             ChallengeBackgroundSampleScreen.HomeListItem(navController)
             ChallengeBadgeSampleScreen.HomeListItem(navController)

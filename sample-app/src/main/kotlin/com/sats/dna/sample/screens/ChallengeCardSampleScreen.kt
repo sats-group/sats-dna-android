@@ -83,7 +83,7 @@ private fun ChallengeCardScreen(navigateUp: () -> Unit, modifier: Modifier = Mod
 
 @PreviewLightDark
 @Composable
-private fun CampaignModulesScreenPreview() {
+private fun ChallengeCardSampleScreenPreview() {
     SatsTheme {
         ChallengeCardScreen(navigateUp = {})
     }

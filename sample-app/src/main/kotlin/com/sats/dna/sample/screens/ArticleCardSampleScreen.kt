@@ -9,18 +9,21 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import com.sats.dna.components.SatsCampaignModule
+import com.sats.dna.components.SatsTag
+import com.sats.dna.components.SatsTagColor
+import com.sats.dna.components.button.SatsDismissButton
+import com.sats.dna.components.card.SatsArticleCard
 import com.sats.dna.theme.SatsTheme
 
-data object CampaignModuleSampleScreen : SampleScreen(
-    name = "Campaign Module",
-    route = "/components/campaign-modules",
-    screen = { CampaignModulesScreen(it::navigateUp) },
+data object ArticleCardSampleScreen : SampleScreen(
+    name = "Article Card",
+    route = "/components/article-card",
+    screen = { ArticleCardScreen(it::navigateUp) },
 )
 
 @Composable
-private fun CampaignModulesScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Campaign Modules", navigateUp, modifier) { innerPadding ->
+private fun ArticleCardScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+    ComponentScreen("Article Card", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .fillMaxSize()
@@ -29,7 +32,7 @@ private fun CampaignModulesScreen(navigateUp: () -> Unit, modifier: Modifier = M
                 .padding(SatsTheme.spacing.m),
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
         ) {
-            SatsCampaignModule(
+            SatsArticleCard(
                 imageUrl = "https://picsum.photos/id/10/1920/1080.webp",
                 title = "Happy Training Day",
                 subtitle = "Today is a day to learn, grow, and challenge yourself. " +
@@ -38,14 +41,16 @@ private fun CampaignModulesScreen(navigateUp: () -> Unit, modifier: Modifier = M
                 onClick = {},
             )
 
-            SatsCampaignModule(
-                imageUrl = "https://picsum.photos/id/30/1920/1080.webp",
-                title = "Happy Training Day",
-                subtitle = "Today is a day to learn, grow, and challenge yourself.",
+            SatsArticleCard(
+                imageUrl = "https://picsum.photos/1920/1080",
+                title = "Plan your workout ",
+                subtitle = "Now you can plan workouts ahead of time. Try it out and schedule your first workout today. There is a maximum number of char...",
                 onClick = {},
+                tag = { SatsTag(text = "New feature", color = SatsTagColor.Featured) },
+                dismissButton = { SatsDismissButton(dismissLabel = "Dismiss", onDismissClicked = { }) },
             )
 
-            SatsCampaignModule(
+            SatsArticleCard(
                 imageUrl = "https://picsum.photos/id/30/1920/1080.webp",
                 title = "Happy Training Day",
                 subtitle = null,
@@ -57,8 +62,8 @@ private fun CampaignModulesScreen(navigateUp: () -> Unit, modifier: Modifier = M
 
 @PreviewLightDark
 @Composable
-private fun CampaignModulesScreenPreview() {
+private fun ArticleCardScreenPreview() {
     SatsTheme {
-        CampaignModulesScreen(navigateUp = {})
+        ArticleCardScreen(navigateUp = {})
     }
 }
