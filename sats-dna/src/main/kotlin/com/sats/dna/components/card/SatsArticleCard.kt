@@ -40,14 +40,14 @@ fun SatsArticleCard(
                 Box {
                     HeroImage(imageUrl)
                     Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(start = SatsTheme.spacing.s),
+                        modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        tag?.let {
-                            tag()
+                        Box(Modifier.padding(SatsTheme.spacing.s), contentAlignment = Alignment.TopStart) {
+                            tag?.let {
+                                tag()
+                            }
                         }
                         dismissButton?.let {
                             dismissButton()
@@ -101,6 +101,22 @@ private fun SatsArticleCardPreview() {
                 "It's a day to step outside of your comfort zone and try new things. " +
                 "It's a day to invest in yourself and your future.",
             onClick = {},
+        )
+    }
+}
+
+@PreviewLightDark
+@Composable
+private fun SatsArticleCardWithTagPreview() {
+    SatsTheme {
+        SatsArticleCard(
+            imageUrl = "https://picsum.photos/1920/1080",
+            title = "Plan your workout ",
+            subtitle = "Now you can plan workouts ahead of time. " +
+                "Try it out and schedule your first workout today. " +
+                "There is a maximum number of char...",
+            onClick = {},
+            tag = { SatsTag(text = "New feature", color = SatsTagColor.Featured) },
         )
     }
 }

@@ -53,6 +53,16 @@ private fun ArticleCardScreen(navigateUp: () -> Unit, modifier: Modifier = Modif
             )
 
             SatsArticleCard(
+                imageUrl = "https://picsum.photos/1920/1080",
+                title = "Plan your workout ",
+                subtitle = "Now you can plan workouts ahead of time. " +
+                    "Try it out and schedule your first workout today. " +
+                    "There is a maximum number of char...",
+                onClick = {},
+                tag = { SatsTag(text = "New feature", color = SatsTagColor.Featured) },
+            )
+
+            SatsArticleCard(
                 imageUrl = "https://picsum.photos/id/30/1920/1080.webp",
                 title = "Happy Training Day",
                 subtitle = null,
