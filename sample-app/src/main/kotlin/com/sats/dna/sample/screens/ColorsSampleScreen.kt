@@ -119,40 +119,14 @@ private fun SatsColors.toListItems(): List<ListItem> {
         ColorItem("clean.default", clean.default),
         ColorItem("clean.disabled", clean.disabled),
 
-        HeaderItem("On Clean"),
-
-        ColorItem("onClean.default", onClean.default),
-        ColorItem("onClean.disabled", onClean.disabled),
-
-        HeaderItem("Clean Secondary"),
-
-        ColorItem("cleanSecondary.default", cleanSecondary.default),
-        ColorItem("cleanSecondary.disabled", cleanSecondary.disabled),
-
-        HeaderItem("On Clean Secondary"),
-
-        ColorItem("onCleanSecondary.default", onCleanSecondary.default),
-        ColorItem("onCleanSecondary.disabled", onCleanSecondary.disabled),
-
         HeaderItem("CTA"),
         ColorItem("cta.default", cta.default),
         ColorItem("cta.disabled", cta.disabled),
         ColorItem("cta.nonText", cta.nonText),
 
-        HeaderItem("On CTA"),
-        ColorItem("onCta.default", onCta.default),
-        ColorItem("onCta.disabled", onCta.disabled),
-        ColorItem("onCta.nonText", onCta.nonText),
-
         HeaderItem("Action"),
         ColorItem("action.default", action.default),
         ColorItem("action.disabled", action.disabled),
-
-        HeaderItem("Selection"),
-        ColorItem("selection", selection),
-
-        HeaderItem("Navigation"),
-        ColorItem("navigation.primary", navigation),
 
         HeaderItem("Signal"),
         ColorItem("signal.success", signal.success),
@@ -224,19 +198,6 @@ private fun SatsColors.toListItems(): List<ListItem> {
         ColorItem("waitingList.primary", waitingList.primary),
         ColorItem("waitingList.text", waitingList.text),
         ColorItem("waitingList.disabled", waitingList.disabled),
-
-        HeaderItem("On Waiting List"),
-        ColorItem("onWaitingList.primary", onWaitingList.primary),
-        ColorItem("onWaitingList.disabled", onWaitingList.disabled),
-
-        HeaderItem("Rewards"),
-        ColorItem("rewards.blue", rewards.blue),
-        ColorItem("rewards.silver", rewards.silver),
-        ColorItem("rewards.gold", rewards.gold),
-        ColorItem("rewards.platinum", rewards.platinum),
-
-        HeaderItem("On Rewards"),
-        ColorItem("onRewards.primary", onRewards.default),
     )
 }
 
