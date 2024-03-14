@@ -7,6 +7,9 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.draggable
+import androidx.compose.foundation.gestures.rememberDraggableState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -47,6 +50,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Constraints
+import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.lerp
 import coil.compose.AsyncImage
@@ -108,8 +112,22 @@ fun SatsFancyTopAppBar(
 
         var isStateInitializedWithSize by rememberSaveable { mutableStateOf(false) }
 
+        val draggableModifier = if (scrollConnection != null) {
+            Modifier.draggable(
+                orientation = Orientation.Vertical,
+                state = rememberDraggableState { delta ->
+                    scrollConnection.consumeScroll(delta)
+                },
+                onDragStopped = { velocity ->
+                    scrollConnection.settle()
+                },
+            )
+        } else {
+            Modifier
+        }
+
         Layout(
-            modifier = modifier,
+            modifier = modifier then draggableModifier,
             contents = listOf(
                 { Header(expandPercent) { image(it) } },
                 { Box { navigationIcon() } },
@@ -220,6 +238,12 @@ class SatsFancyTopAppBarNestedScrollConnection internal constructor() : NestedSc
         return consumeScroll(delta)
     }
 
+    override suspend fun onPostFling(consumed: Velocity, available: Velocity): Velocity {
+        settle()
+
+        return Velocity.Zero
+    }
+
     override fun onPostScroll(consumed: Offset, available: Offset, source: NestedScrollSource): Offset {
         val delta = available.y
 
@@ -228,7 +252,7 @@ class SatsFancyTopAppBarNestedScrollConnection internal constructor() : NestedSc
         return consumeScroll(delta)
     }
 
-    private fun consumeScroll(delta: Float): Offset {
+    internal fun consumeScroll(delta: Float): Offset {
         val previousHeight = currentHeightPx
         val nextHeight = previousHeight + delta
         currentHeightPx = nextHeight.coerceIn(collapsedHeightPx, expandedHeightPx)
@@ -251,6 +275,16 @@ class SatsFancyTopAppBarNestedScrollConnection internal constructor() : NestedSc
             currentHeightPx = expandedHeightPx
         } else {
             animateCurrentHeight(expandedHeightPx)
+        }
+    }
+
+    internal suspend fun settle(animate: Boolean = true) {
+        val percent = expandPercent
+
+        if (percent > .5f) {
+            expand(animate)
+        } else {
+            collapse(animate)
         }
     }
 
