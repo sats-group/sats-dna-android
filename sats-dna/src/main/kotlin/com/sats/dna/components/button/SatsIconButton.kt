@@ -95,6 +95,7 @@ fun SatsTopAppBarIconButton(
     onClickLabel: String?,
     modifier: Modifier = Modifier,
     isEnabled: Boolean = true,
+    tint: Color = SatsButtonColor.Secondary.animatedContentColor(isEnabled),
 ) {
     SatsTopAppBarIconButton(
         onClick = onClick,
@@ -106,7 +107,7 @@ fun SatsTopAppBarIconButton(
             painter = icon,
             contentDescription = null,
             modifier = Modifier.size(22.dp),
-            tint = SatsButtonColor.Secondary.animatedContentColor(isEnabled),
+            tint = tint,
         )
     }
 }
