@@ -118,7 +118,7 @@ private fun ChallengeCardLayout(
     isEnabled: Boolean = true,
     subtitle: String? = null,
     tag: @Composable (() -> Unit?)? = null,
-    deleteButton: @Composable (() -> Unit?)? = null,
+    dismissButton: @Composable (() -> Unit?)? = null,
     bottomContent: @Composable (() -> Unit?)? = null,
 ) {
     CompositionLocalProvider(LocalUseMaterial3 provides true) {
@@ -141,13 +141,13 @@ private fun ChallengeCardLayout(
                     }
                 }
 
-                deleteButton?.let {
+                dismissButton?.let {
                     Box(
                         Modifier
                             .fillMaxWidth(),
                         contentAlignment = Alignment.TopEnd,
                     ) {
-                        deleteButton()
+                        dismissButton()
                     }
                 }
                 Column(
@@ -278,11 +278,10 @@ private fun DisabledChallengeCard(
         title = title,
         onCardClick = onCardClick,
         isEnabled = false,
-        deleteButton = {
+        dismissButton = {
             SatsDismissButton(
                 onDismissClicked = onDismissClicked,
                 dismissLabel = dismissLabel,
-                modifier = Modifier.padding(SatsTheme.spacing.xs),
             )
         },
         bottomContent = {

@@ -48,7 +48,14 @@ fun SatsDismissButton(
         modifier = modifier
             .semantics { role = Role.Button }
             .heightIn(min = minContentHeight(size))
-            .wrapContentWidth(),
+            .wrapContentWidth()
+            .padding(
+                horizontal = if (isCloseClicked) {
+                    SatsTheme.spacing.s
+                } else {
+                    0.dp
+                },
+            ),
         shape = SatsTheme.shapes.roundedCorners.small,
         interactionSource = remember { MutableInteractionSource() },
         color = color.animatedContainerColor(enabled = true),
@@ -99,17 +106,7 @@ fun SatsDismissButton(
 
 @PreviewLightDark
 @Composable
-private fun SatsDismissButtonClosePreview() {
-    SatsTheme {
-        SatsSurface {
-            SatsDismissButton("Dismiss", {}, Modifier.padding(SatsTheme.spacing.m))
-        }
-    }
-}
-
-@PreviewLightDark
-@Composable
-private fun SatsDismissButtonDismissPreview() {
+private fun SatsDismissButtonPreview() {
     SatsTheme {
         SatsSurface {
             SatsDismissButton("Dismiss", {}, Modifier.padding(SatsTheme.spacing.m))
