@@ -138,7 +138,7 @@ private fun DecorationBox(
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun GeneralListItemPreview() {
     SatsTheme {
         var query by remember { mutableStateOf("") }
 

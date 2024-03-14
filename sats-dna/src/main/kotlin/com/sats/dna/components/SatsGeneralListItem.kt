@@ -34,34 +34,32 @@ fun SatsGeneralListItem(
     colors: SatsGeneralListItemColors = SatsGeneralListItemDefaults.generalListItemColors(),
     isEnabled: Boolean = true,
 ) {
-    SatsSurface(modifier) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
-            modifier = Modifier
-                .clickable(onClick = onClick, enabled = isEnabled)
-                .padding(
-                    vertical = SatsTheme.spacing.s,
-                    horizontal = SatsTheme.spacing.m,
-                ),
-        ) {
-            icon?.let {
-                MaterialIcon(
-                    it,
-                    null,
-                    tint = colors.iconColor,
-                    modifier = Modifier.size(18.dp),
-                )
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
+        modifier = modifier
+            .clickable(onClick = onClick, enabled = isEnabled)
+            .padding(
+                vertical = SatsTheme.spacing.s,
+                horizontal = SatsTheme.spacing.m,
+            ),
+    ) {
+        icon?.let {
+            MaterialIcon(
+                it,
+                null,
+                tint = colors.iconColor,
+                modifier = Modifier.size(18.dp),
+            )
+        }
+        Column(Modifier.weight(1f)) {
+            MaterialText(title, color = colors.titleColor)
+            subtitle?.let {
+                MaterialText(it, color = colors.subtitleColor)
             }
-            Column(Modifier.weight(1f)) {
-                MaterialText(title, color = colors.titleColor)
-                subtitle?.let {
-                    MaterialText(it, color = colors.subtitleColor)
-                }
-            }
-            trailingContent?.let {
-                it()
-            }
+        }
+        trailingContent?.let {
+            it()
         }
     }
 }
@@ -124,7 +122,7 @@ private class DefaultSatsGeneralListItem(
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun GeneralListItemPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsGeneralListItem(
@@ -139,7 +137,7 @@ private fun Preview() {
 
 @PreviewLightDark
 @Composable
-private fun WithSubtitle() {
+private fun GeneralListItemWithSubtitlePreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsGeneralListItem(
