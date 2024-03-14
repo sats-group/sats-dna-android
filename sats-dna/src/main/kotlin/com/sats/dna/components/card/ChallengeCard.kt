@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -31,8 +30,8 @@ import com.sats.dna.components.SatsTagShape
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsButtonSize
+import com.sats.dna.components.button.SatsDismissButton
 import com.sats.dna.components.progressbar.SatsLinearProgressBar
-import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -69,7 +68,8 @@ fun ChallengeCard(state: ChallengeCardState, modifier: Modifier = Modifier) {
                 title = state.title,
                 statusText = state.statusText,
                 onCardClick = state.onCardClick,
-                onDeleteClick = state.onDeleteClick,
+                onDismissClicked = state.onDismissClicked,
+                dismissLabel = state.dismissLabel,
                 modifier = modifier,
             )
         }
@@ -102,8 +102,9 @@ sealed interface ChallengeCardState {
         val imageUrl: String?,
         val title: String,
         val statusText: String,
+        val dismissLabel: String,
         val onCardClick: () -> Unit,
-        val onDeleteClick: () -> Unit,
+        val onDismissClicked: () -> Unit,
         val modifier: Modifier = Modifier,
     ) : ChallengeCardState
 }
@@ -266,8 +267,9 @@ private fun DisabledChallengeCard(
     imageUrl: String?,
     title: String,
     statusText: String,
+    dismissLabel: String,
     onCardClick: () -> Unit,
-    onDeleteClick: () -> Unit,
+    onDismissClicked: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     ChallengeCardLayout(
@@ -277,13 +279,11 @@ private fun DisabledChallengeCard(
         onCardClick = onCardClick,
         isEnabled = false,
         deleteButton = {
-            IconButton(onClick = onDeleteClick) {
-                MaterialIcon(
-                    painter = SatsTheme.icons.delete,
-                    contentDescription = null,
-                    tint = SatsTheme.colors2.graphicalElements.icons.fixed,
-                )
-            }
+            SatsDismissButton(
+                onDismissClicked = onDismissClicked,
+                dismissLabel = dismissLabel,
+                modifier = Modifier.padding(SatsTheme.spacing.xs),
+            )
         },
         bottomContent = {
             Text(
@@ -345,7 +345,7 @@ private fun JoinedChallengeCardPreview() {
         ChallengeCard(
             ChallengeCardState.Joined(
                 imageUrl = null,
-                title = "STREAK WEEK",
+                title = "STREAK WEEK STREAK WEEK STREAK WEEK",
                 tagText = "23 days left!",
                 progress = 0.14f,
                 statusText = "1 out of 7 workouts",
@@ -367,8 +367,9 @@ private fun DisabledChallengeCardPreview() {
                 imageUrl = null,
                 title = "STREAK WEEK",
                 statusText = "Not completed",
+                dismissLabel = "Dismiss",
                 onCardClick = {},
-                onDeleteClick = {},
+                onDismissClicked = {},
             ),
             modifier = Modifier
                 .height(255.dp)

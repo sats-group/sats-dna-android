@@ -69,8 +69,9 @@ private fun ChallengeCardScreen(navigateUp: () -> Unit, modifier: Modifier = Mod
                     imageUrl = null,
                     title = "STREAK WEEK",
                     statusText = "Not completed",
+                    dismissLabel = "Dismiss",
                     onCardClick = {},
-                    onDeleteClick = {},
+                    onDismissClicked = {},
                 ),
                 modifier = Modifier
                     .height(255.dp)
