@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -41,14 +42,16 @@ fun SatsArticleCard(
                     HeroImage(imageUrl)
                     Row(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        Box(Modifier.padding(SatsTheme.spacing.s), contentAlignment = Alignment.TopStart) {
-                            tag?.let {
+                        tag?.let {
+                            Box(Modifier.padding(SatsTheme.spacing.s)) {
                                 tag()
                             }
                         }
+
+                        Spacer(Modifier.weight(1f))
+
                         dismissButton?.let {
                             dismissButton()
                         }
@@ -133,6 +136,22 @@ private fun SatsArticleCardWithTagAndDismissButtonPreview() {
                 "There is a maximum number of char...",
             onClick = {},
             tag = { SatsTag(text = "New feature", color = SatsTagColor.Featured) },
+            dismissButton = { SatsDismissButton(dismissLabel = "Dismiss", onDismissClicked = { }) },
+        )
+    }
+}
+
+@PreviewLightDark
+@Composable
+private fun SatsArticleCardWithNoTagAndDismissButtonPreview() {
+    SatsTheme {
+        SatsArticleCard(
+            imageUrl = "https://picsum.photos/1920/1080",
+            title = "Plan your workout ",
+            subtitle = "Now you can plan workouts ahead of time. " +
+                "Try it out and schedule your first workout today. " +
+                "There is a maximum number of char...",
+            onClick = {},
             dismissButton = { SatsDismissButton(dismissLabel = "Dismiss", onDismissClicked = { }) },
         )
     }
