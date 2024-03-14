@@ -46,7 +46,7 @@ fun SatsCircularProgressIndicator(
 
 @PreviewLightDark
 @Composable
-private fun Preview(@PreviewParameter(ProgressPreviewProvider::class) progress: Float) {
+private fun SatsCircularProgressIndicatorPreview(@PreviewParameter(ProgressPreviewProvider::class) progress: Float) {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
             SatsCircularProgressIndicator(progress, Modifier.padding(SatsTheme.spacing.m))

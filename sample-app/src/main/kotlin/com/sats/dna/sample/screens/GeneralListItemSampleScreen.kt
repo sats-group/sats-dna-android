@@ -2,17 +2,24 @@ package com.sats.dna.sample.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.AdvancedTrailingContent
 import com.sats.dna.components.SatsGeneralListItem
 import com.sats.dna.components.SatsGeneralListItemDefaults
+import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SimpleTrailingContent
+import com.sats.dna.components.card.SatsCard
 import com.sats.dna.theme.SatsTheme
 
 data object GeneralListItemSampleScreen : SampleScreen(
@@ -27,17 +34,54 @@ private fun GeneralListItemScreen(navigateUp: () -> Unit, modifier: Modifier = M
         Column(
             Modifier
                 .padding(innerPadding)
-                .padding(SatsTheme.spacing.m)
+                .padding(top = SatsTheme.spacing.m)
                 .fillMaxSize()
-                .wrapContentSize(),
-            Arrangement.spacedBy(SatsTheme.spacing.m),
+                .verticalScroll(rememberScrollState()),
         ) {
+            Text(
+                modifier = Modifier.padding(horizontal = SatsTheme.spacing.m),
+                text = "In list",
+                style = SatsTheme.typography.medium.small,
+            )
+            listItems().forEach {
+                SatsHorizontalDivider()
+                it()
+            }
+            Spacer(Modifier.height(SatsTheme.spacing.m))
+
+            Text(
+                modifier = Modifier.padding(horizontal = SatsTheme.spacing.m),
+                text = "In cards",
+                style = SatsTheme.typography.medium.small,
+            )
+            SatsHorizontalDivider()
+            Column(
+                Modifier.padding(SatsTheme.spacing.m),
+                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
+            ) {
+                listItems().forEach {
+                    SatsCard {
+                        it()
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun listItems(): List<@Composable () -> Unit> {
+    return listOf(
+        {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "General List Item",
                 icon = SatsTheme.icons.info,
             )
+        },
+        {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -45,6 +89,8 @@ private fun GeneralListItemScreen(navigateUp: () -> Unit, modifier: Modifier = M
                 subtitle = "Subtitle",
                 icon = SatsTheme.icons.info,
             )
+        },
+        {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -52,6 +98,8 @@ private fun GeneralListItemScreen(navigateUp: () -> Unit, modifier: Modifier = M
                 icon = SatsTheme.icons.info,
                 trailingContent = { SimpleTrailingContent() },
             )
+        },
+        {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -59,6 +107,8 @@ private fun GeneralListItemScreen(navigateUp: () -> Unit, modifier: Modifier = M
                 icon = SatsTheme.icons.info,
                 trailingContent = { AdvancedTrailingContent() },
             )
+        },
+        {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -70,6 +120,8 @@ private fun GeneralListItemScreen(navigateUp: () -> Unit, modifier: Modifier = M
                     iconColor = SatsTheme.colors2.buttons.action.default.fg,
                 ),
             )
+        },
+        {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -77,13 +129,13 @@ private fun GeneralListItemScreen(navigateUp: () -> Unit, modifier: Modifier = M
                 subtitle = "Subtitle",
                 trailingContent = { SimpleTrailingContent() },
             )
-        }
-    }
+        },
+    )
 }
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun GeneralListItemScreenPreview() {
     SatsTheme {
         GeneralListItemScreen(navigateUp = {})
     }
