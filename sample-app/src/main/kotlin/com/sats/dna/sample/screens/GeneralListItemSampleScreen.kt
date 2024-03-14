@@ -57,7 +57,7 @@ private fun GeneralListItemScreen(navigateUp: () -> Unit, modifier: Modifier = M
             SatsHorizontalDivider()
             Column(
                 Modifier.padding(SatsTheme.spacing.m),
-                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)
+                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
             ) {
                 listItems().forEach {
                     SatsCard {
@@ -71,7 +71,7 @@ private fun GeneralListItemScreen(navigateUp: () -> Unit, modifier: Modifier = M
 
 @Preview
 @Composable
-private fun listItems(): List<@Composable () -> Unit>  {
+private fun listItems(): List<@Composable () -> Unit> {
     return listOf(
         {
             SatsGeneralListItem(
@@ -135,7 +135,7 @@ private fun listItems(): List<@Composable () -> Unit>  {
 
 @PreviewLightDark
 @Composable
-private fun SampleScreenPreview() {
+private fun GeneralListItemScreenPreview() {
     SatsTheme {
         GeneralListItemScreen(navigateUp = {})
     }

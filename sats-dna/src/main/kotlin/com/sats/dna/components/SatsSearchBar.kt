@@ -138,7 +138,7 @@ private fun DecorationBox(
 
 @PreviewLightDark
 @Composable
-private fun GeneralListItemPreview() {
+private fun SatsSearchBarPreview() {
     SatsTheme {
         var query by remember { mutableStateOf("") }
 
@@ -154,7 +154,7 @@ private fun GeneralListItemPreview() {
 
 @PreviewLightDark
 @Composable
-private fun PreviewWithQuery() {
+private fun WithQueryPreview() {
     SatsTheme {
         var query by remember { mutableStateOf("SATS Carl Berner") }
 
@@ -170,7 +170,7 @@ private fun PreviewWithQuery() {
 
 @PreviewLightDark
 @Composable
-private fun PreviewWithBackButton() {
+private fun WithBackButtonPreview() {
     SatsTheme {
         var query by remember { mutableStateOf("") }
 
