@@ -142,9 +142,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                 SatsDismissButton(
                     dismissLabel = "Dismiss",
                     onDismissClicked = { },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = SatsTheme.spacing.m),
+                    size = controlPanelState.size,
                 )
 
                 Row(horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
