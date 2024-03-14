@@ -84,6 +84,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.coil.compose)
     implementation(libs.google.material)
     implementation(libs.kotlin.reflect)
     implementation(platform(libs.androidx.compose.bom))

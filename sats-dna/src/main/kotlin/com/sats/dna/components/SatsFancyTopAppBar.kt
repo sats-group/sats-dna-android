@@ -22,6 +22,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -69,12 +70,28 @@ fun SatsFancyTopAppBar(
     actions: @Composable RowScope.() -> Unit = {},
     scrollConnection: SatsFancyTopAppBarNestedScrollConnection? = null,
 ) {
-    val expandPercent = if (scrollConnection != null) {
-        (scrollConnection.currentHeightPx - scrollConnection.collapsedHeightPx) /
-            (scrollConnection.expandedHeightPx - scrollConnection.collapsedHeightPx)
-    } else {
-        1f
-    }
+    val expandPercent = scrollConnection?.expandPercent ?: 1f
+
+    SatsFancyTopAppBar(
+        image = { HeaderImage(imageUrl, expandPercent) },
+        title = title,
+        modifier = modifier,
+        navigationIcon = navigationIcon,
+        actions = actions,
+        scrollConnection = scrollConnection,
+    )
+}
+
+@Composable
+fun SatsFancyTopAppBar(
+    image: @Composable (shade: @Composable () -> Unit) -> Unit,
+    title: String,
+    modifier: Modifier = Modifier,
+    navigationIcon: @Composable () -> Unit = {},
+    actions: @Composable RowScope.() -> Unit = {},
+    scrollConnection: SatsFancyTopAppBarNestedScrollConnection? = null,
+) {
+    val expandPercent = scrollConnection?.expandPercent ?: 1f
 
     val contentColor = lerp(
         start = SatsTheme.colors2.surfaces.primary.fg.default,
@@ -94,7 +111,7 @@ fun SatsFancyTopAppBar(
         Layout(
             modifier = modifier,
             contents = listOf(
-                { HeaderImage(imageUrl, expandPercent) },
+                { Header(expandPercent) { image(it) } },
                 { Box { navigationIcon() } },
                 { Row(content = actions) },
                 { ExpandedHeaderText(title, expandPercent, Modifier.padding(horizontal = SatsTheme.spacing.xxl)) },
@@ -184,6 +201,10 @@ class SatsFancyTopAppBarNestedScrollConnection internal constructor() : NestedSc
     internal var expandedHeightPx: Float = 1f
 
     internal var currentHeightPx: Float by mutableFloatStateOf(expandedHeightPx)
+
+    val expandPercent by derivedStateOf {
+        (currentHeightPx - collapsedHeightPx) / (expandedHeightPx - collapsedHeightPx)
+    }
 
     private constructor(collapsedHeightPx: Float, expandedHeightPx: Float, currentHeightPx: Float) : this() {
         this.collapsedHeightPx = collapsedHeightPx
@@ -290,7 +311,7 @@ private fun HeaderImage(
     expandPercent: Float,
     modifier: Modifier = Modifier,
 ) {
-    Box(modifier) {
+    Header(expandPercent, modifier) { shade ->
         if (LocalInspectionMode.current) {
             Image(
                 modifier = Modifier.fillMaxSize(),
@@ -307,7 +328,20 @@ private fun HeaderImage(
             )
         }
 
-        HeaderImageShade(expandPercent, Modifier.fillMaxSize())
+        shade()
+    }
+}
+
+@Composable
+private fun Header(
+    expandPercent: Float,
+    modifier: Modifier = Modifier,
+    content: @Composable (shade: @Composable () -> Unit) -> Unit,
+) {
+    Box(modifier) {
+        content {
+            HeaderImageShade(expandPercent, Modifier.fillMaxSize())
+        }
     }
 }
 
