@@ -71,6 +71,7 @@ fun satsContentColor2For(backgroundColor: Color): Color {
         signalSurfaces.waitingList.bg -> signalSurfaces.waitingList.fg.default
         signalSurfaces.neutral.bg -> signalSurfaces.neutral.fg.default
         signalSurfaces.information.bg -> signalSurfaces.information.fg.default
+        signalSurfaces.featured.bg -> signalSurfaces.featured.fg.default
 
         else -> Color.Unspecified
     }
