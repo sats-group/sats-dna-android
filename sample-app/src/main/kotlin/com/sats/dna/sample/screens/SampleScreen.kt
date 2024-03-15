@@ -8,8 +8,10 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -53,8 +55,10 @@ internal fun ComponentScreen(
     bottomBar: @Composable () -> Unit = { Box(Modifier.navigationBarsPadding()) },
     content: @Composable (innerPadding: PaddingValues) -> Unit,
 ) {
+    val topAppBarScrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
+
     SatsScreen(
-        modifier = modifier,
+        modifier = modifier.nestedScroll(topAppBarScrollBehavior.nestedScrollConnection),
         topBar = {
             SatsTopAppBar(
                 navigationIcon = {
@@ -65,6 +69,7 @@ internal fun ComponentScreen(
                     )
                 },
                 title = title,
+                scrollBehavior = topAppBarScrollBehavior,
             )
         },
         bottomBar = bottomBar,

@@ -7,8 +7,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.navigation.NavController
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.appbar.SatsTopAppBar
@@ -57,9 +59,12 @@ import com.sats.dna.theme.SatsTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun HomeScreen(navController: NavController) {
+internal fun HomeScreen(navController: NavController, modifier: Modifier = Modifier) {
+    val topAppBarScrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
+
     SatsScreen(
-        topBar = { SatsTopAppBar("SATS DNA Sample App") },
+        modifier = modifier.nestedScroll(topAppBarScrollBehavior.nestedScrollConnection),
+        topBar = { SatsTopAppBar("SATS DNA Sample App", scrollBehavior = topAppBarScrollBehavior) },
         bottomBar = { Box(Modifier.navigationBarsPadding()) },
     ) { innerPadding ->
         Column(
