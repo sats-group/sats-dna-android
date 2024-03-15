@@ -24,11 +24,6 @@ internal val SatsDarkColors = SatsColors(
         disabled = Color(0xFF353535),
         nonText = Color(0xFFFD7459),
     ),
-    onCta = SatsColors.OnCta(
-        default = Color(0xFFFFFFFF),
-        disabled = Color(0x99FFFFFF),
-        nonText = Color(0xFFFFFFFF),
-    ),
     action = SatsColors.Action(
         default = Color(0xFF549BDE),
         disabled = Color(0xFF272729),
@@ -37,19 +32,6 @@ internal val SatsDarkColors = SatsColors(
         default = Color(0xFFFFFFFF),
         disabled = Color(0x80FFFFFF),
     ),
-    onClean = SatsColors.OnClean(
-        default = Color(0xFF0E2133),
-        disabled = Color(0xFF9FA6AD),
-    ),
-    cleanSecondary = SatsColors.CleanSecondary(
-        default = Color(0x26FFFFFF),
-        disabled = Color(0x0DFFFFFF),
-    ),
-    onCleanSecondary = SatsColors.OnCleanSecondary(
-        default = Color(0xFFFFFFFF),
-        disabled = Color(0x99FFFFFF),
-    ),
-    navigation = Color(0xFF549BDE),
     signalBackground = SatsColors.SignalBackground(
         success = Color(0xFF424846),
         warning = Color(0xFF484641),
@@ -124,31 +106,7 @@ internal val SatsDarkColors = SatsColors(
         disabled = Color(0xFF686DB9),
     ),
 
-    onWaitingList = SatsColors.OnWaitingList(
-        primary = Color(0xFFFFFFFF),
-        disabled = Color(0xADFFFFFF),
-    ),
-
-    selection = Color(0xFF9EC3FF),
     onSignal = Color(0xFFFFFFFF),
-
-    rewards = SatsColors.Rewards(
-        blue = Color(0xFF3D8DC7),
-        silver = Color(0xFFCAD1D8),
-        gold = Color(0xFFD4A852),
-        platinum = Color(0xFF929AA1),
-    ),
-
-    onRewards = SatsColors.OnRewards(
-        default = Color(0xFF0E2133),
-    ),
-
-    workout = SatsColors.Workout(
-        pt = Color(0xFF6FC2FF),
-        gx = Color(0xFFEE90F0),
-        gymFloor = Color(0xFFFFE86F),
-        other = Color(0xFF56C09D),
-    ),
 
     isLightMode = false,
 )
