@@ -489,7 +489,7 @@ internal val SatsDarkColors2 = SatsColors2(
             ),
         ),
         featured = SatsColors2.SignalSurfaces.Featured(
-            bg = SatsColorPrimitives.BrightBlue160,
+            bg = SatsColorPrimitives.SatsCoral190,
             fg = SatsColors2.SignalSurfaces.Featured.Fg(
                 default = SatsColorPrimitives.White100,
                 alternate = SatsColorPrimitives.SatsCoral90,
