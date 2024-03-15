@@ -77,7 +77,7 @@ fun SatsPlaceholderParagraph(
         "Maecenas venenatis fermentum ullamcorper.",
     )
 
-    Column(modifier, spacedBy(SatsTheme.spacing.xs)) {
+    Column(modifier, spacedBy(SatsTheme.spacing.xxs)) {
         repeat(lines) { lineNumber ->
             val line = texts[lineNumber % texts.count()]
 
