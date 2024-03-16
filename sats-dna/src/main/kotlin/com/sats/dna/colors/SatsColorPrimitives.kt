@@ -4,6 +4,7 @@ import androidx.compose.ui.graphics.Color
 
 internal object SatsColorPrimitives {
     val SatsBlue110 = Color(0xFF06101A)
+    val SatsBlue105 = Color(0xFF0A1826)
     val SatsBlue100 = Color(0xFF0D2134)
     @Deprecated("Renamed to SatsBlue100", ReplaceWith("SatsColorPrimitives.SatsBlue100"))
     val SatsBlue = SatsBlue100
@@ -55,6 +56,7 @@ internal object SatsColorPrimitives {
     val Black50 = Color(0xFF808080)
     val Black40 = Color(0xFF999999)
     val Black20 = Color(0xFFCCCCCC)
+    val Black10 = Color(0xFFE5E5E5)
     val Black5 = Color(0xFFF2F2F2)
     val Black3 = Color(0xFFF7F7F7)
     val BlackO20 = Color(0x33000000)
