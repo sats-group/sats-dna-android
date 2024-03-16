@@ -1,93 +1,105 @@
 package com.sats.dna.colors
 
+import androidx.compose.ui.graphics.Color
+
 internal val SatsDarkColors2 = SatsColors2(
     buttons = SatsColors2.Buttons(
         primary = SatsColors2.Buttons.Primary(
-            default = SatsColors2.Buttons.Primary.Default(
+            default = ColorSet(
                 bg = SatsColorPrimitives.BrightBlue110,
                 fg = SatsColorPrimitives.White100,
             ),
-            disabled = SatsColors2.Buttons.Primary.Disabled(
+            disabled = ColorSet(
                 bg = SatsColorPrimitives.BrightBlue160,
                 fg = SatsColorPrimitives.Black50,
             ),
         ),
         secondary = SatsColors2.Buttons.Secondary(
-            default = SatsColors2.Buttons.Secondary.Default(
+            default = OutlinedColorSet(
+                bg = Color.Transparent,
                 outline = SatsColorPrimitives.BrightBlue110,
                 fg = SatsColorPrimitives.White100,
             ),
-            disabled = SatsColors2.Buttons.Secondary.Disabled(
+            disabled = OutlinedColorSet(
+                bg = Color.Transparent,
                 outline = SatsColorPrimitives.Black80,
                 fg = SatsColorPrimitives.Black50,
             ),
         ),
         clean = SatsColors2.Buttons.Clean(
-            default = SatsColors2.Buttons.Clean.Default(
+            default = ColorSet(
                 bg = SatsColorPrimitives.White100,
                 fg = SatsColorPrimitives.SatsBlue,
             ),
-            disabled = SatsColors2.Buttons.Clean.Disabled(
+            disabled = ColorSet(
                 bg = SatsColorPrimitives.White10,
                 fg = SatsColorPrimitives.White50,
             ),
         ),
         cleanSecondary = SatsColors2.Buttons.CleanSecondary(
-            default = SatsColors2.Buttons.CleanSecondary.Default(
+            default = OutlinedColorSet(
                 bg = SatsColorPrimitives.White15,
                 outline = SatsColorPrimitives.White100,
                 fg = SatsColorPrimitives.White100,
             ),
-            disabled = SatsColors2.Buttons.CleanSecondary.Disabled(
+            disabled = OutlinedColorSet(
                 bg = SatsColorPrimitives.White5,
                 outline = SatsColorPrimitives.White40,
                 fg = SatsColorPrimitives.White70,
             ),
         ),
         action = SatsColors2.Buttons.Action(
-            default = SatsColors2.Buttons.Action.Default(
+            default = ColorSet(
+                bg = Color.Transparent,
                 fg = SatsColorPrimitives.SatsCoral,
             ),
-            disabled = SatsColors2.Buttons.Action.Disabled(
+            disabled = ColorSet(
+                bg = Color.Transparent,
                 fg = SatsColorPrimitives.Black50,
             ),
         ),
         waitingListFilled = SatsColors2.Buttons.WaitingListFilled(
-            default = SatsColors2.Buttons.WaitingListFilled.Default(
+            default = ColorSet(
                 bg = SatsColorPrimitives.EgyptianPurple80,
                 fg = SatsColorPrimitives.White100,
             ),
-            disabled = SatsColors2.Buttons.WaitingListFilled.Disabled(
+            disabled = ColorSet(
                 bg = SatsColorPrimitives.Black80,
                 fg = SatsColorPrimitives.Black50,
             ),
         ),
         waitingListSecondary = SatsColors2.Buttons.WaitingListSecondary(
-            default = SatsColors2.Buttons.WaitingListSecondary.Default(
+            default = OutlinedColorSet(
+                bg = Color.Transparent,
                 outline = SatsColorPrimitives.EgyptianPurple80,
                 fg = SatsColorPrimitives.EgyptianPurple80,
             ),
-            disabled = SatsColors2.Buttons.WaitingListSecondary.Disabled(
+            disabled = OutlinedColorSet(
+                bg = Color.Transparent,
                 outline = SatsColorPrimitives.Black80,
                 fg = SatsColorPrimitives.Black50,
             ),
         ),
         destructive = SatsColors2.Buttons.Destructive(
             default = SatsColors2.Buttons.Destructive.Default(
-                default = SatsColors2.Buttons.Destructive.Default.Default(
+                default = ColorSet(
                     bg = SatsColorPrimitives.ChiliRed80,
                     fg = SatsColorPrimitives.White100,
                 ),
-                disabled = SatsColors2.Buttons.Destructive.Default.Disabled(
+                disabled = ColorSet(
                     bg = SatsColorPrimitives.Black80,
                     fg = SatsColorPrimitives.Black50,
                 ),
             ),
             alternate = SatsColors2.Buttons.Destructive.Alternate(
-                default = SatsColors2.Buttons.Destructive.Alternate.Default(
+                default = OutlinedColorSet(
+                    bg = Color.Transparent,
+                    outline = SatsColorPrimitives.ChiliRed80,
                     fg = SatsColorPrimitives.ChiliRed80,
                 ),
-                disabled = SatsColors2.Buttons.Destructive.Alternate.Disabled(
+                disabled = OutlinedColorSet(
+                    bg = Color.Transparent,
+                    outline = SatsColorPrimitives.Black50,
                     fg = SatsColorPrimitives.Black50,
                 ),
             ),
@@ -116,15 +128,25 @@ internal val SatsDarkColors2 = SatsColors2(
             selected = SatsColorPrimitives.White100,
             notSelected = SatsColorPrimitives.White100,
         ),
-        progressBar = SatsColors2.GraphicalElements.ProgressBar(
-            indicator = SatsColorPrimitives.SatsCoral90,
-            indicatorAlternate = SatsColorPrimitives.BrightBlue110,
-            bg = SatsColorPrimitives.Black70,
+        progressBar2 = SatsColors2.GraphicalElements.ProgressBar2(
+            default = ColorSet(
+                bg = SatsColorPrimitives.Black70,
+                fg = SatsColorPrimitives.SatsCoral90,
+            ),
+            alternate = ColorSet(
+                bg = SatsColorPrimitives.Black70,
+                fg = SatsColorPrimitives.BrightBlue110,
+            ),
         ),
-        fixedProgressBar = SatsColors2.GraphicalElements.FixedProgressBar(
-            indicator = SatsColorPrimitives.SatsCoral90,
-            indicatorAlternate = SatsColorPrimitives.BrightBlue110,
-            bg = SatsColorPrimitives.White40,
+        fixedProgressBar2 = SatsColors2.GraphicalElements.FixedProgressBar2(
+            default = ColorSet(
+                bg = SatsColorPrimitives.White40,
+                fg = SatsColorPrimitives.SatsCoral90,
+            ),
+            alternate = ColorSet(
+                bg = SatsColorPrimitives.White40,
+                fg = SatsColorPrimitives.BrightBlue110,
+            ),
         ),
         graphs = SatsColors2.GraphicalElements.Graphs(
             bar = SatsColors2.GraphicalElements.Graphs.Bar(
@@ -167,21 +189,21 @@ internal val SatsDarkColors2 = SatsColors2(
         ),
         chips = SatsColors2.GraphicalElements.Chips(
             unselected = SatsColors2.GraphicalElements.Chips.Unselected(
-                default = SatsColors2.GraphicalElements.Chips.Unselected.Default(
+                default = ColorSet(
                     bg = SatsColorPrimitives.White85,
                     fg = SatsColorPrimitives.BrightBlue110,
                 ),
-                disabled = SatsColors2.GraphicalElements.Chips.Unselected.Disabled(
+                disabled = ColorSet(
                     bg = SatsColorPrimitives.White10,
                     fg = SatsColorPrimitives.White20,
                 ),
             ),
             selected = SatsColors2.GraphicalElements.Chips.Selected(
-                default = SatsColors2.GraphicalElements.Chips.Selected.Default(
+                default = ColorSet(
                     bg = SatsColorPrimitives.BrightBlue110,
                     fg = SatsColorPrimitives.White100,
                 ),
-                disabled = SatsColors2.GraphicalElements.Chips.Selected.Disabled(
+                disabled = ColorSet(
                     bg = SatsColorPrimitives.Black80,
                     fg = SatsColorPrimitives.White60,
                 ),
@@ -234,265 +256,350 @@ internal val SatsDarkColors2 = SatsColors2(
             waitingList = SatsColorPrimitives.EgyptianPurple80,
         ),
         tags = SatsColors2.GraphicalElements.Tags(
-            primary = SatsColors2.GraphicalElements.Tags.Primary(
+            primary = ColorSet(
                 bg = SatsColorPrimitives.BrightBlue110,
                 fg = SatsColorPrimitives.White100,
             ),
-            secondary = SatsColors2.GraphicalElements.Tags.Secondary(
+            secondary = ColorSet(
                 bg = SatsColorPrimitives.Black80,
                 fg = SatsColorPrimitives.White100,
             ),
-            featured = SatsColors2.GraphicalElements.Tags.Featured(
+            featured = ColorSet(
                 bg = SatsColorPrimitives.SatsCoral90,
                 fg = SatsColorPrimitives.SatsBlue,
             ),
         ),
         badge = SatsColors2.GraphicalElements.Badge(
-            primary = SatsColors2.GraphicalElements.Badge.Primary(
+            primary = ColorSet(
                 bg = SatsColorPrimitives.SatsCoral90,
                 fg = SatsColorPrimitives.SatsBlue,
             ),
-            secondary = SatsColors2.GraphicalElements.Badge.Secondary(
+            secondary = ColorSet(
                 bg = SatsColorPrimitives.BrightBlue110,
                 fg = SatsColorPrimitives.White100,
             ),
-            tertiary = SatsColors2.GraphicalElements.Badge.Tertiary(
+            tertiary = ColorSet(
                 bg = SatsColorPrimitives.Black80,
                 fg = SatsColorPrimitives.White100,
             ),
         ),
         fixedBadge = SatsColors2.GraphicalElements.FixedBadge(
-            primary = SatsColors2.GraphicalElements.FixedBadge.Primary(
+            primary = ColorSet(
                 bg = SatsColorPrimitives.SatsCoral120,
                 fg = SatsColorPrimitives.White100,
             ),
-            secondary = SatsColors2.GraphicalElements.FixedBadge.Secondary(
+            secondary = ColorSet(
                 bg = SatsColorPrimitives.BrightBlue10,
                 fg = SatsColorPrimitives.SatsBlue,
             ),
-            tertiary = SatsColors2.GraphicalElements.FixedBadge.Tertiary(
+            tertiary = ColorSet(
                 bg = SatsColorPrimitives.SatsBlueGrey80,
                 fg = SatsColorPrimitives.White100,
             ),
         ),
         rewards = SatsColors2.GraphicalElements.Rewards(
-            blue = SatsColors2.GraphicalElements.Rewards.Blue(
+            blue = ColorSet(
                 bg = SatsColorPrimitives.BrightBlue100,
                 fg = SatsColorPrimitives.SatsBlue,
             ),
-            silver = SatsColors2.GraphicalElements.Rewards.Silver(
+            silver = ColorSet(
                 bg = SatsColorPrimitives.SatsBlue20,
                 fg = SatsColorPrimitives.SatsBlue,
             ),
-            gold = SatsColors2.GraphicalElements.Rewards.Gold(
+            gold = ColorSet(
                 bg = SatsColorPrimitives.Gold110,
                 fg = SatsColorPrimitives.SatsBlue,
             ),
-            platinum = SatsColors2.GraphicalElements.Rewards.Platinum(
+            platinum = ColorSet(
                 bg = SatsColorPrimitives.SatsBlue40,
                 fg = SatsColorPrimitives.SatsBlue,
             ),
         ),
         workouts = SatsColors2.GraphicalElements.Workouts(
-            pt = SatsColors2.GraphicalElements.Workouts.Pt(
+            pt = ColorSet(
                 bg = SatsColorPrimitives.UranianBlue70,
                 fg = SatsColorPrimitives.BrightBlue160,
             ),
-            gx = SatsColors2.GraphicalElements.Workouts.Gx(
+            gx = ColorSet(
                 bg = SatsColorPrimitives.SalmonPink70,
                 fg = SatsColorPrimitives.ChiliRed170,
             ),
-            treatments = SatsColors2.GraphicalElements.Workouts.Treatments(
+            treatments = ColorSet(
                 bg = SatsColorPrimitives.CaribbeanCurrent70,
                 fg = SatsColorPrimitives.SpringGreen10,
             ),
-            gymfloor = SatsColors2.GraphicalElements.Workouts.Gymfloor(
+            gymfloor = ColorSet(
                 bg = SatsColorPrimitives.Tangerine70,
                 fg = SatsColorPrimitives.Gold170,
             ),
-            other = SatsColors2.GraphicalElements.Workouts.Other(
+            other = ColorSet(
                 bg = SatsColorPrimitives.Celadon70,
                 fg = SatsColorPrimitives.SpringGreen170,
             ),
-            bootcamp = SatsColors2.GraphicalElements.Workouts.Bootcamp(
+            bootcamp = ColorSet(
                 bg = SatsColorPrimitives.TropicalIndigo70,
                 fg = SatsColorPrimitives.EgyptianPurple160,
             ),
         ),
     ),
-    backgrounds = SatsColors2.Backgrounds(
-        primary = SatsColors2.Backgrounds.Primary(
-            bg = SatsColors2.Backgrounds.Primary.Bg(
-                default = SatsColorPrimitives.Black,
-                selected = SatsColorPrimitives.Black,
+    backgrounds2 = SatsColors2.Backgrounds2(
+        primary = SatsColors2.Backgrounds2.Primary(
+            default = BackgroundColorSet(
+                bg = SatsColorPrimitives.Black,
+                fgDefault = SatsColorPrimitives.White100,
+                fgAlternate = SatsColorPrimitives.Black20,
+                fgDisabled = SatsColorPrimitives.Black50,
             ),
-            fg = SatsColors2.Backgrounds.Primary.Fg(
-                default = SatsColorPrimitives.White100,
-                alternate = SatsColorPrimitives.Black20,
-                disabled = SatsColorPrimitives.Black50,
-            ),
-        ),
-        secondary = SatsColors2.Backgrounds.Secondary(
-            bg = SatsColors2.Backgrounds.Secondary.Bg(
-                default = SatsColorPrimitives.Black90,
-                selected = SatsColorPrimitives.Black90,
-            ),
-            fg = SatsColors2.Backgrounds.Secondary.Fg(
-                default = SatsColorPrimitives.White100,
-                alternate = SatsColorPrimitives.Black20,
-                disabled = SatsColorPrimitives.Black50,
+            selected = BackgroundColorSet(
+                bg = SatsColorPrimitives.Black,
+                fgDefault = SatsColorPrimitives.White100,
+                fgAlternate = SatsColorPrimitives.Black20,
+                fgDisabled = SatsColorPrimitives.Black50,
             ),
         ),
-        fixed = SatsColors2.Backgrounds.Fixed(
-            primary = SatsColors2.Backgrounds.Fixed.Primary(
-                bg = SatsColors2.Backgrounds.Fixed.Primary.Bg(
-                    default = SatsColorPrimitives.SatsBlue110,
-                    selected = SatsColorPrimitives.SatsBlue90,
-                ),
-                fg = SatsColors2.Backgrounds.Fixed.Primary.Fg(
-                    default = SatsColorPrimitives.White100,
-                    alternate = SatsColorPrimitives.White60,
-                    disabled = SatsColorPrimitives.White40,
-                ),
+        secondary = SatsColors2.Backgrounds2.Secondary(
+            default = BackgroundColorSet(
+                bg = SatsColorPrimitives.Black90,
+                fgDefault = SatsColorPrimitives.White100,
+                fgAlternate = SatsColorPrimitives.Black20,
+                fgDisabled = SatsColorPrimitives.Black50,
             ),
-            secondary = SatsColors2.Backgrounds.Fixed.Secondary(
-                bg = SatsColors2.Backgrounds.Fixed.Secondary.Bg(
-                    default = SatsColorPrimitives.SatsBlue,
-                    selected = SatsColorPrimitives.SatsBlueGrey80,
-                ),
-                fg = SatsColors2.Backgrounds.Fixed.Secondary.Fg(
-                    default = SatsColorPrimitives.White100,
-                    alternate = SatsColorPrimitives.White60,
-                    disabled = SatsColorPrimitives.White40,
-                ),
+            selected = BackgroundColorSet(
+                bg = SatsColorPrimitives.Black90,
+                fgDefault = SatsColorPrimitives.White100,
+                fgAlternate = SatsColorPrimitives.Black20,
+                fgDisabled = SatsColorPrimitives.Black50,
             ),
         ),
-    ),
-    surfaces = SatsColors2.Surfaces(
-        primary = SatsColors2.Surfaces.Primary(
-            bg = SatsColors2.Surfaces.Primary.Bg(
-                default = SatsColorPrimitives.Black85,
-                selected = SatsColorPrimitives.BrightBlue160,
-                disabled = SatsColorPrimitives.Black95,
-            ),
-            fg = SatsColors2.Surfaces.Primary.Fg(
-                default = SatsColorPrimitives.White100,
-                alternate = SatsColorPrimitives.Black20,
-                disabled = SatsColorPrimitives.Black50,
-                success = SatsColorPrimitives.SpringGreen80,
-                warning = SatsColorPrimitives.Gold80,
-                error = SatsColorPrimitives.Cardinal60,
-                waitlist = SatsColorPrimitives.EgyptianPurple60,
-                neutral = SatsColorPrimitives.Black40,
-                information = SatsColorPrimitives.BrightBlue60,
-                featured = SatsColorPrimitives.SatsCoral90,
-            ),
-        ),
-        secondary = SatsColors2.Surfaces.Secondary(
-            bg = SatsColors2.Surfaces.Secondary.Bg(
-                default = SatsColorPrimitives.Black90,
-                selected = SatsColorPrimitives.Black90,
-            ),
-            fg = SatsColors2.Surfaces.Secondary.Fg(
-                default = SatsColorPrimitives.White100,
-                alternate = SatsColorPrimitives.Black20,
-                disabled = SatsColorPrimitives.Black50,
-                success = SatsColorPrimitives.SpringGreen80,
-                warning = SatsColorPrimitives.Gold80,
-                error = SatsColorPrimitives.Cardinal60,
-                waitlist = SatsColorPrimitives.EgyptianPurple60,
-                neutral = SatsColorPrimitives.Black40,
-                information = SatsColorPrimitives.BrightBlue60,
-                featured = SatsColorPrimitives.SatsCoral90,
-            ),
-        ),
-        fixed = SatsColors2.Surfaces.Fixed(
-            primary = SatsColors2.Surfaces.Fixed.Primary(
-                bg = SatsColors2.Surfaces.Fixed.Primary.Bg(
-                    default = SatsColorPrimitives.SatsBlue,
-                    selected = SatsColorPrimitives.SatsBlueGrey80,
+        fixed = SatsColors2.Backgrounds2.Fixed(
+            primary = SatsColors2.Backgrounds2.Fixed.Primary(
+                default = BackgroundColorSet(
+                    bg = SatsColorPrimitives.SatsBlue110,
+                    fgDefault = SatsColorPrimitives.White100,
+                    fgAlternate = SatsColorPrimitives.White60,
+                    fgDisabled = SatsColorPrimitives.White40,
                 ),
-                fg = SatsColors2.Surfaces.Fixed.Primary.Fg(
-                    default = SatsColorPrimitives.White100,
-                    alternate = SatsColorPrimitives.White65,
-                    disabled = SatsColorPrimitives.White40,
-                    success = SatsColorPrimitives.SpringGreen60,
-                    warning = SatsColorPrimitives.Gold60,
-                    error = SatsColorPrimitives.Cardinal60,
-                    waitlist = SatsColorPrimitives.EgyptianPurple40,
-                    neutral = SatsColorPrimitives.White60,
-                    information = SatsColorPrimitives.BrightBlue60,
-                    featured = SatsColorPrimitives.SatsCoral60,
+                selected = BackgroundColorSet(
+                    bg = SatsColorPrimitives.SatsBlue90,
+                    fgDefault = SatsColorPrimitives.White100,
+                    fgAlternate = SatsColorPrimitives.White60,
+                    fgDisabled = SatsColorPrimitives.White40,
                 ),
             ),
-            secondary = SatsColors2.Surfaces.Fixed.Secondary(
-                bg = SatsColors2.Surfaces.Fixed.Secondary.Bg(
-                    default = SatsColorPrimitives.SatsBlueGrey80,
-                    selected = SatsColorPrimitives.SatsBlueGrey80,
+            secondary = SatsColors2.Backgrounds2.Fixed.Secondary(
+                default = BackgroundColorSet(
+                    bg = SatsColorPrimitives.SatsBlue,
+                    fgDefault = SatsColorPrimitives.White100,
+                    fgAlternate = SatsColorPrimitives.White60,
+                    fgDisabled = SatsColorPrimitives.White40,
                 ),
-                fg = SatsColors2.Surfaces.Fixed.Secondary.Fg(
-                    default = SatsColorPrimitives.White100,
-                    alternate = SatsColorPrimitives.White65,
-                    disabled = SatsColorPrimitives.White40,
-                    success = SatsColorPrimitives.SpringGreen60,
-                    warning = SatsColorPrimitives.Gold60,
-                    error = SatsColorPrimitives.Cardinal60,
-                    waitlist = SatsColorPrimitives.EgyptianPurple40,
-                    neutral = SatsColorPrimitives.White60,
-                    information = SatsColorPrimitives.BrightBlue60,
-                    featured = SatsColorPrimitives.SatsCoral60,
+                selected = BackgroundColorSet(
+                    bg = SatsColorPrimitives.SatsBlueGrey80,
+                    fgDefault = SatsColorPrimitives.White100,
+                    fgAlternate = SatsColorPrimitives.White60,
+                    fgDisabled = SatsColorPrimitives.White40,
                 ),
             ),
         ),
     ),
-    signalSurfaces = SatsColors2.SignalSurfaces(
-        success = SatsColors2.SignalSurfaces.Success(
-            bg = SatsColorPrimitives.SpringGreen170,
-            fg = SatsColors2.SignalSurfaces.Success.Fg(
-                default = SatsColorPrimitives.White100,
-                alternate = SatsColorPrimitives.SpringGreen80,
+    surfaces2 = SatsColors2.Surfaces2(
+        primary = SatsColors2.Surfaces2.Primary(
+            default = SurfaceColorSet(
+                bg = SatsColorPrimitives.Black85,
+                fgDefault = SatsColorPrimitives.White100,
+                fgAlternate = SatsColorPrimitives.Black20,
+                fgDisabled = SatsColorPrimitives.Black50,
+                fgSuccess = SatsColorPrimitives.SpringGreen80,
+                fgWarning = SatsColorPrimitives.Gold80,
+                fgError = SatsColorPrimitives.Cardinal60,
+                fgWaitingList = SatsColorPrimitives.EgyptianPurple60,
+                fgNeutral = SatsColorPrimitives.Black40,
+                fgInformation = SatsColorPrimitives.BrightBlue60,
+                fgFeatured = SatsColorPrimitives.SatsCoral90,
+            ),
+            selected = SurfaceColorSet(
+                bg = SatsColorPrimitives.BrightBlue160,
+                fgDefault = SatsColorPrimitives.White100,
+                fgAlternate = SatsColorPrimitives.Black20,
+                fgDisabled = SatsColorPrimitives.Black50,
+                fgSuccess = SatsColorPrimitives.SpringGreen80,
+                fgWarning = SatsColorPrimitives.Gold80,
+                fgError = SatsColorPrimitives.Cardinal60,
+                fgWaitingList = SatsColorPrimitives.EgyptianPurple60,
+                fgNeutral = SatsColorPrimitives.Black40,
+                fgInformation = SatsColorPrimitives.BrightBlue60,
+                fgFeatured = SatsColorPrimitives.SatsCoral90,
+            ),
+            disabled = SurfaceColorSet(
+                bg = SatsColorPrimitives.Black95,
+                fgDefault = SatsColorPrimitives.White100,
+                fgAlternate = SatsColorPrimitives.Black20,
+                fgDisabled = SatsColorPrimitives.Black50,
+                fgSuccess = SatsColorPrimitives.SpringGreen80,
+                fgWarning = SatsColorPrimitives.Gold80,
+                fgError = SatsColorPrimitives.Cardinal60,
+                fgWaitingList = SatsColorPrimitives.EgyptianPurple60,
+                fgNeutral = SatsColorPrimitives.Black40,
+                fgInformation = SatsColorPrimitives.BrightBlue60,
+                fgFeatured = SatsColorPrimitives.SatsCoral90,
             ),
         ),
-        warning = SatsColors2.SignalSurfaces.Warning(
-            bg = SatsColorPrimitives.Gold170,
-            fg = SatsColors2.SignalSurfaces.Warning.Fg(
-                default = SatsColorPrimitives.White100,
-                alternate = SatsColorPrimitives.Gold80,
+        secondary = SatsColors2.Surfaces2.Secondary(
+            default = SurfaceColorSet(
+                bg = SatsColorPrimitives.Black90,
+                fgDefault = SatsColorPrimitives.White100,
+                fgAlternate = SatsColorPrimitives.Black20,
+                fgDisabled = SatsColorPrimitives.Black50,
+                fgSuccess = SatsColorPrimitives.SpringGreen80,
+                fgWarning = SatsColorPrimitives.Gold80,
+                fgError = SatsColorPrimitives.Cardinal60,
+                fgWaitingList = SatsColorPrimitives.EgyptianPurple60,
+                fgNeutral = SatsColorPrimitives.Black40,
+                fgInformation = SatsColorPrimitives.BrightBlue60,
+                fgFeatured = SatsColorPrimitives.SatsCoral90,
+            ),
+            selected = SurfaceColorSet(
+                bg = SatsColorPrimitives.Black90,
+                fgDefault = SatsColorPrimitives.White100,
+                fgAlternate = SatsColorPrimitives.Black20,
+                fgDisabled = SatsColorPrimitives.Black50,
+                fgSuccess = SatsColorPrimitives.SpringGreen80,
+                fgWarning = SatsColorPrimitives.Gold80,
+                fgError = SatsColorPrimitives.Cardinal60,
+                fgWaitingList = SatsColorPrimitives.EgyptianPurple60,
+                fgNeutral = SatsColorPrimitives.Black40,
+                fgInformation = SatsColorPrimitives.BrightBlue60,
+                fgFeatured = SatsColorPrimitives.SatsCoral90,
             ),
         ),
-        error = SatsColors2.SignalSurfaces.Error(
-            bg = SatsColorPrimitives.Cardinal170,
-            fg = SatsColors2.SignalSurfaces.Error.Fg(
-                default = SatsColorPrimitives.White100,
-                alternate = SatsColorPrimitives.Cardinal60,
+        fixed = SatsColors2.Surfaces2.Fixed(
+            primary = SatsColors2.Surfaces2.Fixed.Primary(
+                default = SurfaceColorSet(
+                    bg = SatsColorPrimitives.SatsBlue,
+                    fgDefault = SatsColorPrimitives.White100,
+                    fgAlternate = SatsColorPrimitives.White65,
+                    fgDisabled = SatsColorPrimitives.White40,
+                    fgSuccess = SatsColorPrimitives.SpringGreen60,
+                    fgWarning = SatsColorPrimitives.Gold60,
+                    fgError = SatsColorPrimitives.Cardinal60,
+                    fgWaitingList = SatsColorPrimitives.EgyptianPurple40,
+                    fgNeutral = SatsColorPrimitives.White60,
+                    fgInformation = SatsColorPrimitives.BrightBlue60,
+                    fgFeatured = SatsColorPrimitives.SatsCoral60,
+                ),
+                selected = SurfaceColorSet(
+                    bg = SatsColorPrimitives.SatsBlueGrey80,
+                    fgDefault = SatsColorPrimitives.White100,
+                    fgAlternate = SatsColorPrimitives.White65,
+                    fgDisabled = SatsColorPrimitives.White40,
+                    fgSuccess = SatsColorPrimitives.SpringGreen60,
+                    fgWarning = SatsColorPrimitives.Gold60,
+                    fgError = SatsColorPrimitives.Cardinal60,
+                    fgWaitingList = SatsColorPrimitives.EgyptianPurple40,
+                    fgNeutral = SatsColorPrimitives.White60,
+                    fgInformation = SatsColorPrimitives.BrightBlue60,
+                    fgFeatured = SatsColorPrimitives.SatsCoral60,
+                ),
+            ),
+            secondary = SatsColors2.Surfaces2.Fixed.Secondary(
+                default = SurfaceColorSet(
+                    bg = SatsColorPrimitives.SatsBlueGrey80,
+                    fgDefault = SatsColorPrimitives.White100,
+                    fgAlternate = SatsColorPrimitives.White65,
+                    fgDisabled = SatsColorPrimitives.White40,
+                    fgSuccess = SatsColorPrimitives.SpringGreen60,
+                    fgWarning = SatsColorPrimitives.Gold60,
+                    fgError = SatsColorPrimitives.Cardinal60,
+                    fgWaitingList = SatsColorPrimitives.EgyptianPurple40,
+                    fgNeutral = SatsColorPrimitives.White60,
+                    fgInformation = SatsColorPrimitives.BrightBlue60,
+                    fgFeatured = SatsColorPrimitives.SatsCoral60,
+                ),
+                selected = SurfaceColorSet(
+                    bg = SatsColorPrimitives.SatsBlueGrey80,
+                    fgDefault = SatsColorPrimitives.White100,
+                    fgAlternate = SatsColorPrimitives.White65,
+                    fgDisabled = SatsColorPrimitives.White40,
+                    fgSuccess = SatsColorPrimitives.SpringGreen60,
+                    fgWarning = SatsColorPrimitives.Gold60,
+                    fgError = SatsColorPrimitives.Cardinal60,
+                    fgWaitingList = SatsColorPrimitives.EgyptianPurple40,
+                    fgNeutral = SatsColorPrimitives.White60,
+                    fgInformation = SatsColorPrimitives.BrightBlue60,
+                    fgFeatured = SatsColorPrimitives.SatsCoral60,
+                ),
             ),
         ),
-        waitingList = SatsColors2.SignalSurfaces.WaitingList(
-            bg = SatsColorPrimitives.EgyptianPurple160,
-            fg = SatsColors2.SignalSurfaces.WaitingList.Fg(
-                default = SatsColorPrimitives.White100,
-                alternate = SatsColorPrimitives.EgyptianPurple60,
+    ),
+    signalSurfaces2 = SatsColors2.SignalSurfaces2(
+        success = SatsColors2.SignalSurfaces2.Success(
+            default = ColorSet(
+                bg = SatsColorPrimitives.SpringGreen170,
+                fg = SatsColorPrimitives.White100,
+            ),
+            alternate = ColorSet(
+                bg = SatsColorPrimitives.SpringGreen170,
+                fg = SatsColorPrimitives.SpringGreen80,
             ),
         ),
-        neutral = SatsColors2.SignalSurfaces.Neutral(
-            bg = SatsColorPrimitives.Black90,
-            fg = SatsColors2.SignalSurfaces.Neutral.Fg(
-                default = SatsColorPrimitives.White100,
-                alternate = SatsColorPrimitives.Black40,
+        warning = SatsColors2.SignalSurfaces2.Warning(
+            default = ColorSet(
+                bg = SatsColorPrimitives.Gold170,
+                fg = SatsColorPrimitives.White100,
+            ),
+            alternate = ColorSet(
+                bg = SatsColorPrimitives.Gold170,
+                fg = SatsColorPrimitives.Gold80,
             ),
         ),
-        information = SatsColors2.SignalSurfaces.Information(
-            bg = SatsColorPrimitives.BrightBlue160,
-            fg = SatsColors2.SignalSurfaces.Information.Fg(
-                default = SatsColorPrimitives.White100,
-                alternate = SatsColorPrimitives.BrightBlue60,
+        error = SatsColors2.SignalSurfaces2.Error(
+            default = ColorSet(
+                bg = SatsColorPrimitives.Cardinal170,
+                fg = SatsColorPrimitives.White100,
+            ),
+            alternate = ColorSet(
+                bg = SatsColorPrimitives.Cardinal170,
+                fg = SatsColorPrimitives.Cardinal60,
             ),
         ),
-        featured = SatsColors2.SignalSurfaces.Featured(
-            bg = SatsColorPrimitives.SatsCoral190,
-            fg = SatsColors2.SignalSurfaces.Featured.Fg(
-                default = SatsColorPrimitives.White100,
-                alternate = SatsColorPrimitives.SatsCoral90,
+        waitingList = SatsColors2.SignalSurfaces2.WaitingList(
+            default = ColorSet(
+                bg = SatsColorPrimitives.EgyptianPurple160,
+                fg = SatsColorPrimitives.White100,
+            ),
+            alternate = ColorSet(
+                bg = SatsColorPrimitives.EgyptianPurple160,
+                fg = SatsColorPrimitives.EgyptianPurple60,
+            ),
+        ),
+        neutral = SatsColors2.SignalSurfaces2.Neutral(
+            default = ColorSet(
+                bg = SatsColorPrimitives.Black90,
+                fg = SatsColorPrimitives.White100,
+            ),
+            alternate = ColorSet(
+                bg = SatsColorPrimitives.Black90,
+                fg = SatsColorPrimitives.Black40,
+            ),
+        ),
+        information = SatsColors2.SignalSurfaces2.Information(
+            default = ColorSet(
+                bg = SatsColorPrimitives.BrightBlue160,
+                fg = SatsColorPrimitives.White100,
+            ),
+            alternate = ColorSet(
+                bg = SatsColorPrimitives.BrightBlue160,
+                fg = SatsColorPrimitives.BrightBlue60,
+            ),
+        ),
+        featured = SatsColors2.SignalSurfaces2.Featured(
+            default = ColorSet(
+                bg = SatsColorPrimitives.SatsCoral190,
+                fg = SatsColorPrimitives.White100,
+            ),
+            alternate = ColorSet(
+                bg = SatsColorPrimitives.SatsCoral190,
+                fg = SatsColorPrimitives.SatsCoral90,
             ),
         ),
     ),
