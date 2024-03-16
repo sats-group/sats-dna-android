@@ -52,7 +52,7 @@ internal fun TimeAndDuration(
         MaterialText(
             text = duration,
             style = SatsTheme.typography.normal.small,
-            color = SatsTheme.colors2.backgrounds.primary.fg.alternate,
+            color = SatsTheme.colors2.backgrounds2.primary.default.fgAlternate,
         )
     }
 }
@@ -76,7 +76,7 @@ internal fun WorkoutInfo(
             MaterialText(
                 text = location,
                 style = SatsTheme.typography.normal.small,
-                color = SatsTheme.colors2.backgrounds.primary.fg.alternate,
+                color = SatsTheme.colors2.backgrounds2.primary.default.fgAlternate,
             )
         }
 
@@ -84,7 +84,7 @@ internal fun WorkoutInfo(
             MaterialText(
                 text = instructor,
                 style = SatsTheme.typography.normal.small,
-                color = SatsTheme.colors2.backgrounds.primary.fg.alternate,
+                color = SatsTheme.colors2.backgrounds2.primary.default.fgAlternate,
             )
         }
 
@@ -92,7 +92,7 @@ internal fun WorkoutInfo(
             MaterialText(
                 text = workoutType,
                 style = SatsTheme.typography.normal.small,
-                color = SatsTheme.colors2.backgrounds.primary.fg.alternate,
+                color = SatsTheme.colors2.backgrounds2.primary.default.fgAlternate,
             )
         }
 
@@ -105,8 +105,8 @@ internal fun WorkoutInfo(
 @Composable
 private fun WaitingListStatus(status: SatsWaitingListStatus) {
     val color = when (status) {
-        is SatsWaitingListStatus.OnWaitingList -> SatsTheme.colors2.surfaces.primary.fg.waitlist
-        is SatsWaitingListStatus.SpotSecured -> SatsTheme.colors2.surfaces.primary.fg.success
+        is SatsWaitingListStatus.OnWaitingList -> SatsTheme.colors2.surfaces2.primary.default.fgWaitingList
+        is SatsWaitingListStatus.SpotSecured -> SatsTheme.colors2.surfaces2.primary.default.fgSuccess
     }
 
     MaterialText(
@@ -119,7 +119,7 @@ private fun WaitingListStatus(status: SatsWaitingListStatus) {
         status.waitingListText?.let {
             MaterialText(
                 text = status.waitingListText,
-                color = SatsTheme.colors2.surfaces.primary.fg.waitlist,
+                color = SatsTheme.colors2.surfaces2.primary.default.fgWaitingList,
                 style = SatsTheme.typography.normal.small,
             )
         }
@@ -130,7 +130,10 @@ private fun WaitingListStatus(status: SatsWaitingListStatus) {
 @Composable
 private fun TimeAndDurationPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             TimeAndDuration(
                 time = "9:00 PM",
                 duration = "45 min",
@@ -144,7 +147,10 @@ private fun TimeAndDurationPreview() {
 @Composable
 private fun WorkoutInfoPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             WorkoutInfo(
                 name = "Yoga Flow",
                 location = "SATS Nydalen",
@@ -161,7 +167,10 @@ private fun WorkoutInfoPreview() {
 @Composable
 private fun WorkoutInfoOnWaitingListPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             WorkoutInfo(
                 name = "Yoga Flow",
                 location = "SATS Nydalen",

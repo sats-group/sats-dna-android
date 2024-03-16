@@ -90,10 +90,10 @@ private fun SocialRow(
                 MaterialIcon(
                     SatsTheme.icons.fistBump,
                     contentDescription = null,
-                    tint = SatsTheme.colors2.backgrounds.secondary.fg.default,
+                    tint = SatsTheme.colors2.backgrounds2.secondary.default.fg,
                 )
 
-                MaterialText(numberOfReactionsLabel, color = SatsTheme.colors2.backgrounds.secondary.fg.default)
+                MaterialText(numberOfReactionsLabel, color = SatsTheme.colors2.backgrounds2.secondary.default.fg)
             }
         }
 
@@ -112,7 +112,7 @@ private fun SocialRow(
                     contentDescription = null,
                     tint = SatsTheme.colors2.buttons.action.default.fg,
                 )
-                MaterialText(normalizedNumberOfComments, color = SatsTheme.colors2.backgrounds.secondary.fg.default)
+                MaterialText(normalizedNumberOfComments, color = SatsTheme.colors2.backgrounds2.secondary.default.fg)
             }
 
             SatsLikeButton(isLiked = isLiked, onSaidAwesomeClicked)
@@ -130,7 +130,7 @@ private fun WorkoutInfo(
     Column(modifier) {
         MaterialText(
             timestamp,
-            color = SatsTheme.colors2.backgrounds.secondary.fg.default,
+            color = SatsTheme.colors2.backgrounds2.secondary.default.fg,
             style = SatsTheme.typography.normal.small,
         )
 
@@ -139,7 +139,7 @@ private fun WorkoutInfo(
         if (subtitle != null) {
             MaterialText(
                 subtitle,
-                color = SatsTheme.colors2.backgrounds.secondary.fg.default,
+                color = SatsTheme.colors2.backgrounds2.secondary.default.fg,
                 style = SatsTheme.typography.normal.small,
             )
         }
@@ -151,9 +151,18 @@ private fun WorkoutInfo(
 @Composable
 private fun SatsCompletedWorkoutListItemPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsCompletedWorkoutListItem(
-                icon = { SatsWorkoutTypeIcon(SatsWorkoutTypeIconType.OwnTraining, null, Modifier.size(34.dp)) },
+                icon = {
+                    SatsWorkoutTypeIcon(
+                        SatsWorkoutTypeIconType.OwnTraining,
+                        null,
+                        Modifier.size(34.dp),
+                    )
+                },
                 timestamp = "Jul 18, 2023, 06:18",
                 title = "Gym training (M3)",
                 location = "at Colosseum",

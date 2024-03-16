@@ -58,8 +58,14 @@ enum class SatsDefaultInstructorIconType {
 @Composable
 private fun SatsDefaultInstructorIconGxPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            SatsDefaultInstructorIcon(SatsDefaultInstructorIconType.Gx, Modifier.padding(SatsTheme.spacing.m))
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
+            SatsDefaultInstructorIcon(
+                SatsDefaultInstructorIconType.Gx,
+                Modifier.padding(SatsTheme.spacing.m),
+            )
         }
     }
 }
@@ -68,8 +74,14 @@ private fun SatsDefaultInstructorIconGxPreview() {
 @Composable
 private fun SatsDefaultInstructorIconPtPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            SatsDefaultInstructorIcon(SatsDefaultInstructorIconType.Pt, Modifier.padding(SatsTheme.spacing.m))
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
+            SatsDefaultInstructorIcon(
+                SatsDefaultInstructorIconType.Pt,
+                Modifier.padding(SatsTheme.spacing.m),
+            )
         }
     }
 }

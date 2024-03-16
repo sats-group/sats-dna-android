@@ -120,7 +120,10 @@ fun SatsButton(
 @Composable
 private fun SatsButtonPreview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 SatsButton(onClick = {}, color.name, Modifier.padding(SatsTheme.spacing.s), color)
                 SatsButton(
@@ -141,7 +144,7 @@ private fun SatsButtonFontScalePreview() {
     SatsTheme {
         SatsSurface(
             modifier = Modifier.fillMaxWidth(),
-            color = SatsTheme.colors2.backgrounds.primary.bg.default,
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
             useMaterial3 = true,
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {

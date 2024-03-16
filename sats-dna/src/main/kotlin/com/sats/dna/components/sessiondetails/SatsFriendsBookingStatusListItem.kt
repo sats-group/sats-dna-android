@@ -57,11 +57,25 @@ fun SatsFriendsBookingStatusListItem(
 
         Spacer(Modifier.weight(1f))
         val textColor = when (bookingState.status) {
-            FriendsBookingStatus.Owner -> SatsTheme.colors.primary.default
-            FriendsBookingStatus.Invited, FriendsBookingStatus.Booked -> SatsTheme.colors2.surfaces.primary.fg.success
-            FriendsBookingStatus.Pending -> SatsTheme.colors2.surfaces.primary.fg.warning
-            FriendsBookingStatus.Declined, FriendsBookingStatus.Removed -> SatsTheme.colors2.surfaces.primary.fg.error
-            FriendsBookingStatus.WaitingList -> SatsTheme.colors2.surfaces.primary.fg.waitlist
+            FriendsBookingStatus.Owner -> {
+                SatsTheme.colors.primary.default
+            }
+
+            FriendsBookingStatus.Invited, FriendsBookingStatus.Booked -> {
+                SatsTheme.colors2.surfaces2.primary.default.fgSuccess
+            }
+
+            FriendsBookingStatus.Pending -> {
+                SatsTheme.colors2.surfaces2.primary.default.fgWarning
+            }
+
+            FriendsBookingStatus.Declined, FriendsBookingStatus.Removed -> {
+                SatsTheme.colors2.surfaces2.primary.default.fgError
+            }
+
+            FriendsBookingStatus.WaitingList -> {
+                SatsTheme.colors2.surfaces2.primary.default.fgWaitingList
+            }
         }
         Text(bookingState.statusText, color = textColor)
         if (contextMenu != null) {

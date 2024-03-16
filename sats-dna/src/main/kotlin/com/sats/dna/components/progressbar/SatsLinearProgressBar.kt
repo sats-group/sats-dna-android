@@ -23,8 +23,8 @@ fun SatsLinearProgressBar(
     progress: Float,
     modifier: Modifier = Modifier,
 ) {
-    val foregroundColor = SatsTheme.colors2.graphicalElements.progressBar.indicator
-    val backgroundColor = SatsTheme.colors2.graphicalElements.progressBar.bg
+    val foregroundColor = SatsTheme.colors2.graphicalElements.progressBar2.default.fg
+    val backgroundColor = SatsTheme.colors2.graphicalElements.progressBar2.default.bg
 
     Canvas(
         modifier

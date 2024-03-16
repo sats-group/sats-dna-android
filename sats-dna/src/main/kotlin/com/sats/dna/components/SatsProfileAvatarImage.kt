@@ -42,7 +42,10 @@ fun SatsProfileAvatarImagePlaceholder(modifier: Modifier = Modifier) {
 @Composable
 private fun SatsProfileAvatarImagePreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsProfileAvatarImage(
                 imageUrl = null,
                 Modifier
@@ -57,7 +60,10 @@ private fun SatsProfileAvatarImagePreview() {
 @Composable
 private fun SatsProfileAvatarImagePlaceholderPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsProfileAvatarImagePlaceholder(
                 Modifier
                     .padding(SatsTheme.spacing.m)

@@ -45,9 +45,14 @@ fun SatsScreen(
             modifier = modifier,
             topBar = topBar,
             bottomBar = bottomBar,
-            containerColor = SatsTheme.colors2.backgrounds.primary.bg.default,
-            contentColor = SatsTheme.colors2.backgrounds.primary.fg.default,
-            snackbarHost = { SatsProteinBarHost(proteinBarHostState, Modifier.padding(proteinBarPadding)) },
+            containerColor = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            contentColor = SatsTheme.colors2.backgrounds2.primary.default.fg,
+            snackbarHost = {
+                SatsProteinBarHost(
+                    proteinBarHostState,
+                    Modifier.padding(proteinBarPadding),
+                )
+            },
             floatingActionButton = floatingActionButton,
         ) { scaffoldContentPadding ->
             val screenContentPadding = PaddingValues(

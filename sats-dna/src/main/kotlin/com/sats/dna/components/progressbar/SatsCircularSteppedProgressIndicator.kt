@@ -135,7 +135,7 @@ private fun CompletedCheckMark(modifier: Modifier = Modifier) {
         modifier
             .clip(SatsTheme.shapes.circle)
             .aspectRatio(1f)
-            .background(SatsTheme.colors2.graphicalElements.progressBar.indicator),
+            .background(SatsTheme.colors2.graphicalElements.progressBar2.default.fg),
         contentAlignment = Alignment.Center,
     ) {
         Icon(
@@ -153,7 +153,7 @@ private fun CompletedCheckMark(modifier: Modifier = Modifier) {
 @Composable
 private fun SatsCircularSteppingProgressIndicatorPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
             SatsCircularSteppedProgressIndicator(
                 progress = SteppingProgress(
                     groups = listOf(

@@ -55,7 +55,7 @@ fun SatsTopAppBar(
     val containerColor = if (scrollBehavior == null) {
         SatsTopAppBarDefaults.containerColor
     } else {
-        SatsTheme.colors2.backgrounds.primary.bg.default
+        SatsTheme.colors2.backgrounds2.primary.default.bg
     }
 
     TopAppBar(
@@ -84,13 +84,13 @@ fun SatsTopAppBar(
 object SatsTopAppBarDefaults {
     val containerColor
         @Composable get() = if (SatsTheme.colors2.isLightMode) {
-            SatsTheme.colors2.surfaces.fixed.primary.bg.default.copy(alpha = .05f)
+            SatsTheme.colors2.surfaces2.fixed.primary.default.bg.copy(alpha = .05f)
         } else {
-            SatsTheme.colors2.surfaces.primary.bg.default
-        }.compositeOver(SatsTheme.colors2.backgrounds.primary.bg.default)
+            SatsTheme.colors2.surfaces2.primary.default.bg
+        }.compositeOver(SatsTheme.colors2.backgrounds2.primary.default.bg)
 
     val contentColor
-        @Composable get() = SatsTheme.colors2.surfaces.primary.fg.default
+        @Composable get() = SatsTheme.colors2.surfaces2.primary.default.fg
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -98,10 +98,19 @@ object SatsTopAppBarDefaults {
 @Composable
 private fun SatsTopAppBarPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsTopAppBar(
                 modifier = Modifier.padding(SatsTheme.spacing.m),
-                navigationIcon = { SatsTopAppBarIconButton(onClick = {}, SatsTheme.icons.back, onClickLabel = null) },
+                navigationIcon = {
+                    SatsTopAppBarIconButton(
+                        onClick = {},
+                        SatsTheme.icons.back,
+                        onClickLabel = null,
+                    )
+                },
                 title = "Top App Bar",
                 actions = {
                     listOf(SatsTheme.icons.barbell, SatsTheme.icons.addPerson).forEach { icon ->

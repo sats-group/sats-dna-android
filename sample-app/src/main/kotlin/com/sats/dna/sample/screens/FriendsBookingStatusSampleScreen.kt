@@ -34,7 +34,7 @@ private fun FriendsBookingStatusScreen(navigateUp: () -> Unit, modifier: Modifie
                 .padding(innerPadding)
                 .fillMaxSize()
                 .wrapContentSize()
-                .background(SatsTheme.colors2.surfaces.primary.bg.default),
+                .background(SatsTheme.colors2.surfaces2.primary.default.bg),
         ) {
             friendsBookingStates.forEach { bookingState ->
                 SatsFriendsBookingStatusListItem(

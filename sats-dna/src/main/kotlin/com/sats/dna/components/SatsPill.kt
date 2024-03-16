@@ -23,7 +23,7 @@ fun SatsPill(
 ) {
     SatsSurface(
         modifier = modifier,
-        color = SatsTheme.colors2.surfaces.primary.bg.default,
+        color = SatsTheme.colors2.surfaces2.primary.default.bg,
         shape = SatsTheme.shapes.circle,
         useMaterial3 = true,
     ) {
@@ -37,10 +37,13 @@ fun SatsPill(
             )
 
             Text(
-                modifier = Modifier.padding(start = SatsTheme.spacing.xs, end = SatsTheme.spacing.s),
+                modifier = Modifier.padding(
+                    start = SatsTheme.spacing.xs,
+                    end = SatsTheme.spacing.s,
+                ),
                 text = label,
                 style = SatsTheme.typography.normal.small,
-                color = SatsTheme.colors2.surfaces.primary.fg.alternate,
+                color = SatsTheme.colors2.surfaces2.primary.default.fgAlternate,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
             )
@@ -52,7 +55,10 @@ fun SatsPill(
 @Composable
 private fun SatsPillPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsPill(
                 label = "Susanne",
                 image = { SatsProfileAvatarImage(imageUrl = null) },

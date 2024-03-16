@@ -8,9 +8,9 @@ import com.sats.dna.theme.SatsTheme
 fun satsContentColor2For(backgroundColor: Color): Color {
     val buttons = SatsTheme.colors2.buttons
     val graphicalElements = SatsTheme.colors2.graphicalElements
-    val backgrounds = SatsTheme.colors2.backgrounds
-    val surfaces = SatsTheme.colors2.surfaces
-    val signalSurfaces = SatsTheme.colors2.signalSurfaces
+    val backgrounds = SatsTheme.colors2.backgrounds2
+    val surfaces = SatsTheme.colors2.surfaces2
+    val signalSurfaces = SatsTheme.colors2.signalSurfaces2
 
     return when (backgroundColor) {
         buttons.primary.default.bg -> buttons.primary.default.fg
@@ -43,35 +43,35 @@ fun satsContentColor2For(backgroundColor: Color): Color {
         graphicalElements.rewards.gold.bg -> graphicalElements.rewards.gold.bg
         graphicalElements.rewards.platinum.bg -> graphicalElements.rewards.platinum.bg
 
-        backgrounds.primary.bg.default -> backgrounds.primary.fg.default
-        backgrounds.primary.bg.selected -> backgrounds.primary.fg.default
+        backgrounds.primary.default.bg -> backgrounds.primary.default.fg
+        backgrounds.primary.selected.bg -> backgrounds.primary.default.fg
 
-        backgrounds.secondary.bg.default -> backgrounds.secondary.fg.default
-        backgrounds.secondary.bg.selected -> backgrounds.secondary.fg.default
+        backgrounds.secondary.default.bg -> backgrounds.secondary.default.fg
+        backgrounds.secondary.selected.bg -> backgrounds.secondary.default.fg
 
-        backgrounds.fixed.primary.bg.default -> backgrounds.fixed.primary.fg.default
-        backgrounds.fixed.primary.bg.selected -> backgrounds.fixed.primary.fg.default
-        backgrounds.fixed.secondary.bg.default -> backgrounds.fixed.secondary.fg.default
-        backgrounds.fixed.secondary.bg.selected -> backgrounds.fixed.secondary.fg.default
+        backgrounds.fixed.primary.default.bg -> backgrounds.fixed.primary.default.fg
+        backgrounds.fixed.primary.selected.bg -> backgrounds.fixed.primary.default.fg
+        backgrounds.fixed.secondary.default.bg -> backgrounds.fixed.secondary.default.fg
+        backgrounds.fixed.secondary.selected.bg -> backgrounds.fixed.secondary.default.fg
 
-        surfaces.primary.bg.default -> surfaces.primary.fg.default
-        surfaces.primary.bg.selected -> surfaces.primary.fg.default
+        surfaces.primary.default.bg -> surfaces.primary.default.fg
+        surfaces.primary.selected.bg -> surfaces.primary.default.fg
 
-        surfaces.secondary.bg.default -> surfaces.secondary.fg.default
-        surfaces.secondary.bg.selected -> surfaces.secondary.fg.default
+        surfaces.secondary.default.bg -> surfaces.secondary.default.fg
+        surfaces.secondary.selected.bg -> surfaces.secondary.default.fg
 
-        surfaces.fixed.primary.bg.default -> surfaces.fixed.primary.fg.default
-        surfaces.fixed.primary.bg.selected -> surfaces.fixed.primary.fg.default
-        surfaces.fixed.secondary.bg.default -> surfaces.fixed.secondary.fg.default
-        surfaces.fixed.secondary.bg.selected -> surfaces.fixed.secondary.fg.default
+        surfaces.fixed.primary.default.bg -> surfaces.fixed.primary.default.fg
+        surfaces.fixed.primary.selected.bg -> surfaces.fixed.primary.default.fg
+        surfaces.fixed.secondary.default.bg -> surfaces.fixed.secondary.default.fg
+        surfaces.fixed.secondary.selected.bg -> surfaces.fixed.secondary.default.fg
 
-        signalSurfaces.success.bg -> signalSurfaces.success.fg.default
-        signalSurfaces.warning.bg -> signalSurfaces.warning.fg.default
-        signalSurfaces.error.bg -> signalSurfaces.error.fg.default
-        signalSurfaces.waitingList.bg -> signalSurfaces.waitingList.fg.default
-        signalSurfaces.neutral.bg -> signalSurfaces.neutral.fg.default
-        signalSurfaces.information.bg -> signalSurfaces.information.fg.default
-        signalSurfaces.featured.bg -> signalSurfaces.featured.fg.default
+        signalSurfaces.success.default.bg -> signalSurfaces.success.default.fg
+        signalSurfaces.warning.default.bg -> signalSurfaces.warning.default.fg
+        signalSurfaces.error.default.bg -> signalSurfaces.error.default.fg
+        signalSurfaces.waitingList.default.bg -> signalSurfaces.waitingList.default.fg
+        signalSurfaces.neutral.default.bg -> signalSurfaces.neutral.default.fg
+        signalSurfaces.information.default.bg -> signalSurfaces.information.default.fg
+        signalSurfaces.featured.default.bg -> signalSurfaces.featured.default.fg
 
         else -> Color.Unspecified
     }

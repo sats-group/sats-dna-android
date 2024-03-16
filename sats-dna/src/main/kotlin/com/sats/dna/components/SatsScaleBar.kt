@@ -37,7 +37,7 @@ fun SatsScaleBar(
                 Box(
                     Modifier
                         .weight(1f)
-                        .background(SatsTheme.colors2.graphicalElements.progressBar.indicator)
+                        .background(SatsTheme.colors2.graphicalElements.progressBar2.default.fg)
                         .fillMaxHeight(),
                 )
             }
@@ -46,7 +46,7 @@ fun SatsScaleBar(
                 Box(
                     Modifier
                         .weight(1f)
-                        .background(SatsTheme.colors2.graphicalElements.progressBar.bg)
+                        .background(SatsTheme.colors2.graphicalElements.progressBar2.default.bg)
                         .fillMaxHeight(),
                 )
             }
@@ -59,7 +59,7 @@ fun SatsScaleBar(
 @Composable
 private fun SatsScaleBarPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
             SatsScaleBar(
                 label = "Choreography",
                 difficultyLevel = 3,
