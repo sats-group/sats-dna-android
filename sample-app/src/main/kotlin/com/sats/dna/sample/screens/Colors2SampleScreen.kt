@@ -245,30 +245,30 @@ private fun GraphicalElements() {
         }
 
         Section("Progress Bar", SectionLevel.Level2, base = "graphicalElements.progressBar") {
-            val base = SatsTheme.colors2.graphicalElements.progressBar
+            val base = SatsTheme.colors2.graphicalElements.progressBar2
 
             ColorSample(
-                backgroundColor = base.bg named "base.bg",
-                contentColor = base.indicator named "base.indicator",
+                backgroundColor = base.default.bg named "base.default.bg",
+                contentColor = base.default.fg named "base.default.fg",
             )
 
             ColorSample(
-                backgroundColor = base.bg named "base.bg",
-                contentColor = base.indicatorAlternate named "base.indicatorAlternate",
+                backgroundColor = base.default.bg named "base.default.bg",
+                contentColor = base.alternate.fg named "base.alternate.fg",
             )
         }
 
         Section("Fixed Progress Bar", SectionLevel.Level2, base = "graphicalElements.fixedProgressBar") {
-            val base = SatsTheme.colors2.graphicalElements.fixedProgressBar
+            val base = SatsTheme.colors2.graphicalElements.fixedProgressBar2
 
             ColorSample(
-                backgroundColor = base.bg named "base.bg",
-                contentColor = base.indicator named "base.indicator",
+                backgroundColor = base.default.bg named "base.default.bg",
+                contentColor = base.default.fg named "base.default.fg",
             )
 
             ColorSample(
-                backgroundColor = base.bg named "base.bg",
-                contentColor = base.indicatorAlternate named "base.indicatorAlternate",
+                backgroundColor = base.default.bg named "base.default.bg",
+                contentColor = base.alternate.fg named "base.alternate.fg",
             )
         }
 
@@ -610,46 +610,46 @@ private fun GraphicalElements() {
 @Composable
 private fun Backgrounds() {
     Section("Backgrounds", SectionLevel.Level1, base = "backgrounds") {
-        val base = SatsTheme.colors2.backgrounds
+        val base = SatsTheme.colors2.backgrounds2
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.default named "base.primary.fg.default",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fg named "base.primary.default.fg",
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.alternate named "base.primary.fg.alternate",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fgAlternate named "base.primary.default.fgAlternate",
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.disabled named "base.primary.fg.disabled",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fgDisabled named "base.primary.default.fgDisabled",
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.selected named "base.primary.bg.selected",
-            contentColor = base.primary.fg.default named "base.primary.fg.default",
+            backgroundColor = base.primary.selected.bg named "base.primary.selected.bg",
+            contentColor = base.primary.default.fg named "base.primary.default.fg",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.default named "base.secondary.fg.default",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fg named "base.secondary.default.fg",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.alternate named "base.secondary.fg.alternate",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fgAlternate named "base.secondary.default.fgAlternate",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.disabled named "base.secondary.fg.disabled",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fgDisabled named "base.secondary.default.fgDisabled",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.selected named "base.secondary.bg.selected",
-            contentColor = base.secondary.fg.default named "base.secondary.fg.default",
+            backgroundColor = base.secondary.selected.bg named "base.secondary.selected.bg",
+            contentColor = base.secondary.default.fg named "base.secondary.default.fg",
         )
     }
 }
@@ -657,26 +657,26 @@ private fun Backgrounds() {
 @Composable
 private fun FixedBackgrounds() {
     Section("Fixed Backgrounds", SectionLevel.Level1, base = "backgrounds.fixed") {
-        val base = SatsTheme.colors2.backgrounds.fixed
+        val base = SatsTheme.colors2.backgrounds2.fixed
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.default named "base.primary.fg.default",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fg named "base.primary.default.fg",
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.alternate named "base.primary.fg.alternate",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fgAlternate named "base.primary.default.fgAlternate",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.default named "base.secondary.fg.default",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fg named "base.secondary.default.fg",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.alternate named "base.secondary.fg.alternate",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fgAlternate named "base.secondary.default.fgAlternate",
         )
     }
 }
@@ -684,126 +684,126 @@ private fun FixedBackgrounds() {
 @Composable
 private fun Surfaces() {
     Section("Surfaces", SectionLevel.Level1, base = "surfaces") {
-        val base = SatsTheme.colors2.surfaces
+        val base = SatsTheme.colors2.surfaces2
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.default named "base.primary.fg.default",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fg named "base.primary.default.fg",
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.alternate named "base.primary.fg.alternate",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fgAlternate named "base.primary.default.fgAlternate",
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.disabled named "base.primary.fg.disabled",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fgDisabled named "base.primary.default.fgDisabled",
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.disabled named "base.primary.fg.disabled",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fgDisabled named "base.primary.default.fgDisabled",
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.success named "base.primary.fg.success",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fgSuccess named "base.primary.default.fgSuccess",
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.warning named "base.primary.fg.warning",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fgWarning named "base.primary.default.fgWarning",
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.error named "base.primary.fg.error",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fgError named "base.primary.default.fgError",
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.waitlist named "base.primary.fg.waitlist",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fgWaitingList named "base.primary.default.fgWaitingList",
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.neutral named "base.primary.fg.neutral",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fgNeutral named "base.primary.default.fgNeutral",
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.information named "base.primary.fg.information",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fgInformation named "base.primary.default.fgInformation",
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.featured named "base.primary.fg.featured",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fgFeatured named "base.primary.default.fgFeatured",
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.selected named "base.primary.bg.selected",
-            contentColor = base.primary.fg.default named "base.primary.fg.default",
+            backgroundColor = base.primary.selected.bg named "base.primary.selected.bg",
+            contentColor = base.primary.default.fg named "base.primary.default.fg",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.default named "base.secondary.fg.default",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fg named "base.secondary.default.fg",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.alternate named "base.secondary.fg.alternate",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fgAlternate named "base.secondary.default.fgAlternate",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.disabled named "base.secondary.fg.disabled",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fgDisabled named "base.secondary.default.fgDisabled",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.disabled named "base.secondary.fg.disabled",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fgDisabled named "base.secondary.default.fgDisabled",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.success named "base.secondary.fg.success",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fgSuccess named "base.secondary.default.fgSuccess",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.warning named "base.secondary.fg.warning",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fgWarning named "base.secondary.default.fgWarning",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.error named "base.secondary.fg.error",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fgError named "base.secondary.default.fgError",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.waitlist named "base.secondary.fg.waitlist",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fgWaitingList named "base.secondary.default.fgWaitingList",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.neutral named "base.secondary.fg.neutral",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fgNeutral named "base.secondary.default.fgNeutral",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.information named "base.secondary.fg.information",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fgInformation named "base.secondary.default.fgInformation",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.featured named "base.secondary.fg.featured",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fgFeatured named "base.secondary.default.fgFeatured",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.selected named "base.secondary.bg.selected",
-            contentColor = base.secondary.fg.default named "base.secondary.fg.default",
+            backgroundColor = base.secondary.selected.bg named "base.secondary.selected.bg",
+            contentColor = base.secondary.default.fg named "base.secondary.default.fg",
         )
     }
 }
@@ -811,26 +811,26 @@ private fun Surfaces() {
 @Composable
 private fun FixedSurfaces() {
     Section("Fixed Surfaces", SectionLevel.Level1, base = "surfaces.fixed") {
-        val base = SatsTheme.colors2.surfaces.fixed
+        val base = SatsTheme.colors2.surfaces2.fixed
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.default named "base.primary.fg.default",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fg named "base.primary.default.fg",
         )
 
         ColorSample(
-            backgroundColor = base.primary.bg.default named "base.primary.bg.default",
-            contentColor = base.primary.fg.alternate named "base.primary.fg.alternate",
+            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
+            contentColor = base.primary.default.fgAlternate named "base.primary.default.fgAlternate",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.default named "base.secondary.fg.default",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fg named "base.secondary.default.fg",
         )
 
         ColorSample(
-            backgroundColor = base.secondary.bg.default named "base.secondary.bg.default",
-            contentColor = base.secondary.fg.alternate named "base.secondary.fg.alternate",
+            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
+            contentColor = base.secondary.default.fgAlternate named "base.secondary.default.fgAlternate",
         )
     }
 }
@@ -838,61 +838,61 @@ private fun FixedSurfaces() {
 @Composable
 private fun SignalSurfaces() {
     Section("Signal Surface", SectionLevel.Level1, base = "signalSurfaces") {
-        val base = SatsTheme.colors2.signalSurfaces
+        val base = SatsTheme.colors2.signalSurfaces2
 
         ColorSample(
-            backgroundColor = base.success.bg named "base.success.bg",
-            contentColor = base.success.fg.default named "base.success.fg.default",
+            backgroundColor = base.success.default.bg named "base.success.default.bg",
+            contentColor = base.success.default.fg named "base.success.default.fg",
         )
 
         ColorSample(
-            backgroundColor = base.warning.bg named "base.warning.bg",
-            contentColor = base.warning.fg.default named "base.warning.fg.default",
+            backgroundColor = base.warning.default.bg named "base.warning.default.bg",
+            contentColor = base.warning.default.fg named "base.warning.default.fg",
         )
 
         ColorSample(
-            backgroundColor = base.warning.bg named "base.warning.bg",
-            contentColor = base.warning.fg.alternate named "base.warning.fg.alternate",
+            backgroundColor = base.warning.default.bg named "base.warning.default.bg",
+            contentColor = base.warning.alternate.fg named "base.warning.alternate.fg",
         )
 
         ColorSample(
-            backgroundColor = base.error.bg named "base.error.bg",
-            contentColor = base.error.fg.default named "base.error.fg.default",
+            backgroundColor = base.error.default.bg named "base.error.default.bg",
+            contentColor = base.error.default.fg named "base.error.default.fg",
         )
 
         ColorSample(
-            backgroundColor = base.error.bg named "base.error.bg",
-            contentColor = base.error.fg.alternate named "base.error.fg.alternate",
+            backgroundColor = base.error.default.bg named "base.error.default.bg",
+            contentColor = base.error.alternate.fg named "base.error.alternate.fg",
         )
 
         ColorSample(
-            backgroundColor = base.waitingList.bg named "base.waitingList.bg",
-            contentColor = base.waitingList.fg.default named "base.waitingList.fg.default",
+            backgroundColor = base.waitingList.default.bg named "base.waitingList.default.bg",
+            contentColor = base.waitingList.default.fg named "base.waitingList.default.fg",
         )
 
         ColorSample(
-            backgroundColor = base.waitingList.bg named "base.waitingList.bg",
-            contentColor = base.waitingList.fg.alternate named "base.waitingList.fg.alternate",
+            backgroundColor = base.waitingList.default.bg named "base.waitingList.default.bg",
+            contentColor = base.waitingList.alternate.fg named "base.waitingList.alternate.fg",
         )
 
         ColorSample(
-            backgroundColor = base.neutral.bg named "base.neutral.bg",
-            contentColor = base.neutral.fg.default named "base.neutral.fg.default",
+            backgroundColor = base.neutral.default.bg named "base.neutral.default.bg",
+            contentColor = base.neutral.default.fg named "base.neutral.default.fg",
         )
 
         ColorSample(
-            backgroundColor = base.neutral.bg named "base.neutral.bg",
-            contentColor = base.neutral.fg.alternate named "base.neutral.fg.alternate",
+            backgroundColor = base.neutral.default.bg named "base.neutral.default.bg",
+            contentColor = base.neutral.alternate.fg named "base.neutral.alternate.fg",
         )
 
         ColorSample(
-            backgroundColor = base.information.bg named "base.information.bg",
-            contentColor = base.information.fg.default named "base.information.fg.default",
+            backgroundColor = base.information.default.bg named "base.information.default.bg",
+            contentColor = base.information.default.fg named "base.information.default.fg",
         )
 
         ColorSample(
-            backgroundColor = base.information.bg named "base.information.bg",
-            contentColor = base.information.fg.alternate named "base.information.fg.alternate",
+            backgroundColor = base.information.default.bg named "base.information.default.bg",
+            contentColor = base.information.alternate.fg named "base.information.alternate.fg",
         )
     }
 }
@@ -977,7 +977,7 @@ private fun ColorNameAndHex(backgroundColor: NamedColor, modifier: Modifier = Mo
 
         Text(
             backgroundColor.toHexString(),
-            color = SatsTheme.colors2.surfaces.primary.fg.alternate,
+            color = SatsTheme.colors2.surfaces2.primary.default.fgAlternate,
         )
     }
 }
@@ -997,7 +997,7 @@ class NamedColor(val name: String, val color: Color) {
 @Composable
 private fun ColorSamplePreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
             ColorSample(
                 backgroundColor = Color.Green named "Color.Green",
                 contentColor = Color.Red named "Color.Red",
