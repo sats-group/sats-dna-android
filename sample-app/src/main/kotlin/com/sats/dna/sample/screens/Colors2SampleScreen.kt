@@ -145,7 +145,7 @@ private fun Buttons() {
         }
 
         Section("Waiting List Secondary Button", SectionLevel.Level2, base = "buttons.waitingListSecondary") {
-            val base = SatsTheme.colors2.buttons.waitingListSecondary
+            val base = SatsTheme.colors2.buttons.waitingListOutlined
 
             ColorSample(
                 backgroundColor = base.default.bg named "base.default.bg",
@@ -175,7 +175,7 @@ private fun Buttons() {
         }
 
         Section("Destructive Button Alternate", SectionLevel.Level2, base = "buttons.destructive.alternate") {
-            val base = SatsTheme.colors2.buttons.destructive.alternate
+            val base = SatsTheme.colors2.buttons.destructive.outlined
 
             ColorSample(
                 backgroundColor = base.default.bg named "base.default.bg",

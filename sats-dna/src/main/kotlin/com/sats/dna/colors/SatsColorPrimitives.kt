@@ -6,8 +6,6 @@ internal object SatsColorPrimitives {
     val SatsBlue110 = Color(0xFF06101A)
     val SatsBlue105 = Color(0xFF0A1826)
     val SatsBlue100 = Color(0xFF0D2134)
-    @Deprecated("Renamed to SatsBlue100", ReplaceWith("SatsColorPrimitives.SatsBlue100"))
-    val SatsBlue = SatsBlue100
     val SatsBlue90 = Color(0xFF253748)
     val SatsBlue70 = Color(0xFF566471)
     val SatsBlue40 = Color(0xFF9EA6AE)
@@ -23,8 +21,6 @@ internal object SatsColorPrimitives {
     val SatsCoral130 = Color(0xFFAF3A24)
     val SatsCoral120 = Color(0xFFC84229)
     val SatsCoral100 = Color(0xFFFA5333)
-    @Deprecated("Renamed to SatsCoral100", ReplaceWith("SatsColorPrimitives.SatsCoral100"))
-    val SatsCoral = SatsCoral100
     val SatsCoral90 = Color(0xFFFB6447)
     val SatsCoral60 = Color(0xFFFC9885)
     val SatsCoral40 = Color(0xFFFDBAAD)

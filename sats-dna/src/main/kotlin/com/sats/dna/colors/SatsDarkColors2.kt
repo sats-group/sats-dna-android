@@ -6,18 +6,18 @@ internal val SatsDarkColors2 = SatsColors2(
     buttons = SatsColors2.Buttons(
         primary = SatsColors2.Buttons.Primary(
             default = ColorSet(
-                bg = SatsColorPrimitives.BrightBlue110,
-                fg = SatsColorPrimitives.White100,
+                bg = SatsColorPrimitives.White100,
+                fg = SatsColorPrimitives.SatsBlue100,
             ),
             disabled = ColorSet(
-                bg = SatsColorPrimitives.BrightBlue160,
-                fg = SatsColorPrimitives.Black50,
+                bg = SatsColorPrimitives.White10,
+                fg = SatsColorPrimitives.SatsBlue100,
             ),
         ),
         secondary = SatsColors2.Buttons.Secondary(
             default = OutlinedColorSet(
                 bg = Color.Transparent,
-                outline = SatsColorPrimitives.BrightBlue110,
+                outline = SatsColorPrimitives.White100,
                 fg = SatsColorPrimitives.White100,
             ),
             disabled = OutlinedColorSet(
@@ -29,7 +29,7 @@ internal val SatsDarkColors2 = SatsColors2(
         clean = SatsColors2.Buttons.Clean(
             default = ColorSet(
                 bg = SatsColorPrimitives.White100,
-                fg = SatsColorPrimitives.SatsBlue,
+                fg = SatsColorPrimitives.SatsBlue100,
             ),
             disabled = ColorSet(
                 bg = SatsColorPrimitives.White10,
@@ -51,7 +51,7 @@ internal val SatsDarkColors2 = SatsColors2(
         action = SatsColors2.Buttons.Action(
             default = ColorSet(
                 bg = Color.Transparent,
-                fg = SatsColorPrimitives.SatsCoral,
+                fg = SatsColorPrimitives.SatsCoral100,
             ),
             disabled = ColorSet(
                 bg = Color.Transparent,
@@ -68,7 +68,7 @@ internal val SatsDarkColors2 = SatsColors2(
                 fg = SatsColorPrimitives.Black50,
             ),
         ),
-        waitingListSecondary = SatsColors2.Buttons.WaitingListSecondary(
+        waitingListOutlined = SatsColors2.Buttons.WaitingListOutlined(
             default = OutlinedColorSet(
                 bg = Color.Transparent,
                 outline = SatsColorPrimitives.EgyptianPurple80,
@@ -76,7 +76,7 @@ internal val SatsDarkColors2 = SatsColors2(
             ),
             disabled = OutlinedColorSet(
                 bg = Color.Transparent,
-                outline = SatsColorPrimitives.Black80,
+                outline = SatsColorPrimitives.Black50,
                 fg = SatsColorPrimitives.Black50,
             ),
         ),
@@ -91,7 +91,7 @@ internal val SatsDarkColors2 = SatsColors2(
                     fg = SatsColorPrimitives.Black50,
                 ),
             ),
-            alternate = SatsColors2.Buttons.Destructive.Alternate(
+            outlined = SatsColors2.Buttons.Destructive.Outlined(
                 default = OutlinedColorSet(
                     bg = Color.Transparent,
                     outline = SatsColorPrimitives.ChiliRed80,
@@ -135,7 +135,7 @@ internal val SatsDarkColors2 = SatsColors2(
             ),
             alternate = ColorSet(
                 bg = SatsColorPrimitives.Black70,
-                fg = SatsColorPrimitives.BrightBlue110,
+                fg = SatsColorPrimitives.SatsBlue10,
             ),
         ),
         fixedProgressBar2 = SatsColors2.GraphicalElements.FixedProgressBar2(
@@ -145,7 +145,7 @@ internal val SatsDarkColors2 = SatsColors2(
             ),
             alternate = ColorSet(
                 bg = SatsColorPrimitives.White40,
-                fg = SatsColorPrimitives.BrightBlue110,
+                fg = SatsColorPrimitives.SatsBlue10,
             ),
         ),
         graphs = SatsColors2.GraphicalElements.Graphs(
@@ -185,13 +185,13 @@ internal val SatsDarkColors2 = SatsColors2(
                 default = SatsColorPrimitives.SatsCoral90,
                 disabled = SatsColorPrimitives.SatsCoral130,
             ),
-            indicator = SatsColorPrimitives.SatsBlue,
+            indicator = SatsColorPrimitives.SatsBlue100,
         ),
         chips = SatsColors2.GraphicalElements.Chips(
             unselected = SatsColors2.GraphicalElements.Chips.Unselected(
                 default = ColorSet(
                     bg = SatsColorPrimitives.White85,
-                    fg = SatsColorPrimitives.BrightBlue110,
+                    fg = SatsColorPrimitives.White100,
                 ),
                 disabled = ColorSet(
                     bg = SatsColorPrimitives.White10,
@@ -200,8 +200,8 @@ internal val SatsDarkColors2 = SatsColors2(
             ),
             selected = SatsColors2.GraphicalElements.Chips.Selected(
                 default = ColorSet(
-                    bg = SatsColorPrimitives.BrightBlue110,
-                    fg = SatsColorPrimitives.White100,
+                    bg = SatsColorPrimitives.White100,
+                    fg = SatsColorPrimitives.SatsBlue100,
                 ),
                 disabled = ColorSet(
                     bg = SatsColorPrimitives.Black80,
@@ -257,8 +257,8 @@ internal val SatsDarkColors2 = SatsColors2(
         ),
         tags = SatsColors2.GraphicalElements.Tags(
             primary = ColorSet(
-                bg = SatsColorPrimitives.BrightBlue110,
-                fg = SatsColorPrimitives.White100,
+                bg = SatsColorPrimitives.SatsBlue10,
+                fg = SatsColorPrimitives.SatsBlue100,
             ),
             secondary = ColorSet(
                 bg = SatsColorPrimitives.Black80,
@@ -266,17 +266,17 @@ internal val SatsDarkColors2 = SatsColors2(
             ),
             featured = ColorSet(
                 bg = SatsColorPrimitives.SatsCoral90,
-                fg = SatsColorPrimitives.SatsBlue,
+                fg = SatsColorPrimitives.SatsBlue100,
             ),
         ),
         badge = SatsColors2.GraphicalElements.Badge(
             primary = ColorSet(
                 bg = SatsColorPrimitives.SatsCoral90,
-                fg = SatsColorPrimitives.SatsBlue,
+                fg = SatsColorPrimitives.SatsBlue100,
             ),
             secondary = ColorSet(
-                bg = SatsColorPrimitives.BrightBlue110,
-                fg = SatsColorPrimitives.White100,
+                bg = SatsColorPrimitives.SatsBlue10,
+                fg = SatsColorPrimitives.SatsBlue100,
             ),
             tertiary = ColorSet(
                 bg = SatsColorPrimitives.Black80,
@@ -290,7 +290,7 @@ internal val SatsDarkColors2 = SatsColors2(
             ),
             secondary = ColorSet(
                 bg = SatsColorPrimitives.BrightBlue10,
-                fg = SatsColorPrimitives.SatsBlue,
+                fg = SatsColorPrimitives.SatsBlue100,
             ),
             tertiary = ColorSet(
                 bg = SatsColorPrimitives.SatsBlueGrey80,
@@ -300,19 +300,19 @@ internal val SatsDarkColors2 = SatsColors2(
         rewards = SatsColors2.GraphicalElements.Rewards(
             blue = ColorSet(
                 bg = SatsColorPrimitives.BrightBlue100,
-                fg = SatsColorPrimitives.SatsBlue,
+                fg = SatsColorPrimitives.SatsBlue100,
             ),
             silver = ColorSet(
                 bg = SatsColorPrimitives.SatsBlue20,
-                fg = SatsColorPrimitives.SatsBlue,
+                fg = SatsColorPrimitives.SatsBlue100,
             ),
             gold = ColorSet(
                 bg = SatsColorPrimitives.Gold110,
-                fg = SatsColorPrimitives.SatsBlue,
+                fg = SatsColorPrimitives.SatsBlue100,
             ),
             platinum = ColorSet(
                 bg = SatsColorPrimitives.SatsBlue40,
-                fg = SatsColorPrimitives.SatsBlue,
+                fg = SatsColorPrimitives.SatsBlue100,
             ),
         ),
         workouts = SatsColors2.GraphicalElements.Workouts(
@@ -374,7 +374,7 @@ internal val SatsDarkColors2 = SatsColors2(
         fixed = SatsColors2.Backgrounds2.Fixed(
             primary = SatsColors2.Backgrounds2.Fixed.Primary(
                 default = BackgroundColorSet(
-                    bg = SatsColorPrimitives.SatsBlue110,
+                    bg = SatsColorPrimitives.SatsBlue105,
                     fgDefault = SatsColorPrimitives.White100,
                     fgAlternate = SatsColorPrimitives.White60,
                     fgDisabled = SatsColorPrimitives.White40,
@@ -388,7 +388,7 @@ internal val SatsDarkColors2 = SatsColors2(
             ),
             secondary = SatsColors2.Backgrounds2.Fixed.Secondary(
                 default = BackgroundColorSet(
-                    bg = SatsColorPrimitives.SatsBlue,
+                    bg = SatsColorPrimitives.SatsBlue100,
                     fgDefault = SatsColorPrimitives.White100,
                     fgAlternate = SatsColorPrimitives.White60,
                     fgDisabled = SatsColorPrimitives.White40,
@@ -475,7 +475,7 @@ internal val SatsDarkColors2 = SatsColors2(
         fixed = SatsColors2.Surfaces2.Fixed(
             primary = SatsColors2.Surfaces2.Fixed.Primary(
                 default = SurfaceColorSet(
-                    bg = SatsColorPrimitives.SatsBlue,
+                    bg = SatsColorPrimitives.SatsBlue100,
                     fgDefault = SatsColorPrimitives.White100,
                     fgAlternate = SatsColorPrimitives.White65,
                     fgDisabled = SatsColorPrimitives.White40,

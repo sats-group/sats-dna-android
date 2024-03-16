@@ -63,7 +63,7 @@ private fun CardHeader(title: String, action: SatsTitledCardAction?, modifier: M
         MaterialText(
             text = title,
             style = SatsTheme.typography.satsHeadlineEmphasis.large,
-            color = SatsColorPrimitives.SatsCoral,
+            color = SatsColorPrimitives.SatsCoral100,
         )
 
         if (action != null) {

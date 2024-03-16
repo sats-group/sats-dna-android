@@ -26,7 +26,7 @@ class SatsColors2(
         val cleanSecondary: CleanSecondary,
         val action: Action,
         val waitingListFilled: WaitingListFilled,
-        val waitingListSecondary: WaitingListSecondary,
+        val waitingListOutlined: WaitingListOutlined,
         val destructive: Destructive,
     ) {
         class Primary(
@@ -59,21 +59,21 @@ class SatsColors2(
             val disabled: ColorSet,
         )
 
-        class WaitingListSecondary(
+        class WaitingListOutlined(
             val default: OutlinedColorSet,
             val disabled: OutlinedColorSet,
         )
 
         class Destructive(
             val default: Default,
-            val alternate: Alternate,
+            val outlined: Outlined,
         ) {
             class Default(
                 val default: ColorSet,
                 val disabled: ColorSet,
             )
 
-            class Alternate(
+            class Outlined(
                 val default: OutlinedColorSet,
                 val disabled: OutlinedColorSet,
             )
