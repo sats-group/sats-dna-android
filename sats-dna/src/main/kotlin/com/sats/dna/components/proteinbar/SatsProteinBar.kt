@@ -160,7 +160,10 @@ private fun ActionButton(action: SatsProteinBarAction, modifier: Modifier = Modi
 @Composable
 private fun SatsProteinBarPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             val message = "Something went wrong. You should probably try that one more time."
             val action = SatsProteinBarAction(action = {}, "Try again")
 
@@ -173,7 +176,10 @@ private fun SatsProteinBarPreview() {
 @Composable
 private fun SatsProteinBarInfoPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             val visuals = SatsProteinBarDefaults.visuals(
                 title = "This is the title of the Protein Bar",
                 message = "This text exists so that you can read it. Did you read it through all the way?",
@@ -191,7 +197,10 @@ private fun SatsProteinBarInfoPreview() {
 @Composable
 private fun SatsProteinBarSuccessPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             val visuals = SatsProteinBarDefaults.visuals(
                 title = "Yay! Invitations have been sent!",
                 message = "You can always add or remove friends later, or change other details.",
@@ -209,7 +218,10 @@ private fun SatsProteinBarSuccessPreview() {
 @Composable
 private fun SatsProteinBarWarningPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             val visuals = SatsProteinBarDefaults.visuals(
                 title = "This is the title of the Protein Bar",
                 message = "This text exists so that you can read it. Did you read it through all the way?",
@@ -227,7 +239,10 @@ private fun SatsProteinBarWarningPreview() {
 @Composable
 private fun SatsProteinBarErrorPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             val visuals = SatsProteinBarDefaults.visuals(
                 title = "Oh no, that's not great!",
                 message = "It looks like whatever you were trying to do didn't happen according to plan. You may " +
@@ -246,7 +261,10 @@ private fun SatsProteinBarErrorPreview() {
 @Composable
 private fun SatsProteinBarWithActionPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             val visuals = SatsProteinBarDefaults.visuals(
                 title = "Yay! Invitations have been sent!",
                 message = "You can always add or remove friends later, or change other details.",
@@ -264,7 +282,10 @@ private fun SatsProteinBarWithActionPreview() {
 @Composable
 private fun SatsProteinBarWithDismissAndActionPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             val visuals = SatsProteinBarDefaults.visuals(
                 title = "Yay! Invitations have been sent!",
                 message = "You can always add or remove friends later, or change other details.",
@@ -282,7 +303,10 @@ private fun SatsProteinBarWithDismissAndActionPreview() {
 @Composable
 private fun SatsProteinBarFontSizesPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             val visuals = SatsProteinBarDefaults.visuals(
                 title = "Yay! Invitations have been sent!",
                 message = "You can always add or remove friends later, or change other details.",

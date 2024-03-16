@@ -1,4 +1,3 @@
-
 package com.sats.dna.components.chip
 
 import androidx.compose.foundation.layout.padding
@@ -34,7 +33,10 @@ fun SatsChip(label: String, modifier: Modifier = Modifier) {
 @Composable
 private fun SatsChipPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsChip("Chip Text", Modifier.padding(SatsTheme.spacing.m))
         }
     }
@@ -44,7 +46,10 @@ private fun SatsChipPreview() {
 @Composable
 private fun SatsChipTruncatedPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsChip(
                 "A very long chip text",
                 Modifier

@@ -77,12 +77,15 @@ private fun SatsHorizontalDividerPreview() {
     SatsTheme {
         SatsSurface(
             Modifier.size(200.dp),
-            color = SatsTheme.colors2.backgrounds.primary.bg.default,
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
             useMaterial3 = true,
         ) {
             Column(
                 modifier = Modifier.padding(vertical = SatsTheme.spacing.m),
-                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m, Alignment.CenterVertically),
+                verticalArrangement = Arrangement.spacedBy(
+                    SatsTheme.spacing.m,
+                    Alignment.CenterVertically,
+                ),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 SatsHorizontalDivider()
@@ -99,12 +102,15 @@ private fun SatsVerticalDividerPreview() {
     SatsTheme {
         SatsSurface(
             Modifier.size(200.dp),
-            color = SatsTheme.colors2.backgrounds.primary.bg.default,
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
             useMaterial3 = true,
         ) {
             Row(
                 modifier = Modifier.padding(horizontal = SatsTheme.spacing.m),
-                horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m, Alignment.CenterHorizontally),
+                horizontalArrangement = Arrangement.spacedBy(
+                    SatsTheme.spacing.m,
+                    Alignment.CenterHorizontally,
+                ),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 SatsVerticalDivider()

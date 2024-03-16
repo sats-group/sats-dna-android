@@ -230,7 +230,10 @@ private fun SatsTopAppBarIconButton(
 @Composable
 private fun SatsIconButtonPreview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsIconButton(
                 onClick = {},
                 icon = SatsTheme.icons.barbell,
@@ -246,7 +249,10 @@ private fun SatsIconButtonPreview(@PreviewParameter(SatsButtonColorProvider::cla
 @Composable
 private fun SatsTopAppBarIconButtonPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsTopAppBarIconButton(
                 onClick = {},
                 icon = SatsTheme.icons.back,
@@ -261,7 +267,10 @@ private fun SatsTopAppBarIconButtonPreview() {
 @Composable
 private fun SatsBellIconButtonNoCherryPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsBellIconButton(
                 onClick = {},
                 onClickLabel = null,
@@ -276,7 +285,10 @@ private fun SatsBellIconButtonNoCherryPreview() {
 @Composable
 private fun SatsBellIconButtonWithCherryPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsBellIconButton(
                 onClick = {},
                 onClickLabel = null,

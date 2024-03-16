@@ -5,11 +5,20 @@ import androidx.compose.ui.graphics.Color
 class SatsColors2(
     val buttons: Buttons,
     val graphicalElements: GraphicalElements,
-    val backgrounds: Backgrounds,
-    val surfaces: Surfaces,
-    val signalSurfaces: SignalSurfaces,
+    val backgrounds2: Backgrounds2,
+    val surfaces2: Surfaces2,
+    val signalSurfaces2: SignalSurfaces2,
     val isLightMode: Boolean,
 ) {
+    @Deprecated("Use backgrounds2")
+    val backgrounds = Backgrounds(backgrounds2)
+
+    @Deprecated("Use backgrounds2")
+    val surfaces = Surfaces(surfaces2)
+
+    @Deprecated("Use signalSurfaces2")
+    val signalSurfaces = SignalSurfaces(signalSurfaces2)
+
     class Buttons(
         val primary: Primary,
         val secondary: Secondary,
@@ -21,159 +30,53 @@ class SatsColors2(
         val destructive: Destructive,
     ) {
         class Primary(
-            val default: Default,
-            val disabled: Disabled,
-        ) {
-            class Default(
-                val bg: Color,
-                val fg: Color,
-            )
-
-            class Disabled(
-                val bg: Color,
-                val fg: Color,
-            )
-        }
+            val default: ColorSet,
+            val disabled: ColorSet,
+        )
 
         class Secondary(
-            val default: Default,
-            val disabled: Disabled,
-        ) {
-            class Default(
-                val outline: Color,
-                val fg: Color,
-            ) {
-                val bg: Color = Color.Transparent
-            }
-
-            class Disabled(
-                val outline: Color,
-                val fg: Color,
-            ) {
-                val bg: Color = Color.Transparent
-            }
-        }
+            val default: OutlinedColorSet,
+            val disabled: OutlinedColorSet,
+        )
 
         class Clean(
-            val default: Default,
-            val disabled: Disabled,
-        ) {
-            class Default(
-                val bg: Color,
-                val fg: Color,
-            )
-
-            class Disabled(
-                val bg: Color,
-                val fg: Color,
-            )
-        }
+            val default: ColorSet,
+            val disabled: ColorSet,
+        )
 
         class CleanSecondary(
-            val default: Default,
-            val disabled: Disabled,
-        ) {
-            class Default(
-                val bg: Color,
-                val outline: Color,
-                val fg: Color,
-            )
-
-            class Disabled(
-                val bg: Color,
-                val outline: Color,
-                val fg: Color,
-            )
-        }
+            val default: OutlinedColorSet,
+            val disabled: OutlinedColorSet,
+        )
 
         class Action(
-            val default: Default,
-            val disabled: Disabled,
-        ) {
-            class Default(
-                val fg: Color,
-            ) {
-                val bg = Color.Transparent
-            }
-
-            class Disabled(
-                val fg: Color,
-            ) {
-                val bg = Color.Transparent
-            }
-        }
+            val default: ColorSet,
+            val disabled: ColorSet,
+        )
 
         class WaitingListFilled(
-            val default: Default,
-            val disabled: Disabled,
-        ) {
-            class Default(
-                val bg: Color,
-                val fg: Color,
-            )
-
-            class Disabled(
-                val bg: Color,
-                val fg: Color,
-            )
-        }
+            val default: ColorSet,
+            val disabled: ColorSet,
+        )
 
         class WaitingListSecondary(
-            val default: Default,
-            val disabled: Disabled,
-        ) {
-            class Default(
-                val outline: Color,
-                val fg: Color,
-            ) {
-                val bg = Color.Transparent
-            }
-
-            class Disabled(
-                val outline: Color,
-                val fg: Color,
-            ) {
-                val bg = Color.Transparent
-            }
-        }
+            val default: OutlinedColorSet,
+            val disabled: OutlinedColorSet,
+        )
 
         class Destructive(
             val default: Default,
             val alternate: Alternate,
         ) {
             class Default(
-                val default: Default,
-                val disabled: Disabled,
-            ) {
-                class Default(
-                    val bg: Color,
-                    val fg: Color,
-                )
-
-                class Disabled(
-                    val bg: Color,
-                    val fg: Color,
-                )
-            }
+                val default: ColorSet,
+                val disabled: ColorSet,
+            )
 
             class Alternate(
-                val default: Default,
-                val disabled: Disabled,
-            ) {
-                class Default(
-                    val fg: Color,
-                ) {
-                    val outline: Color = fg
-                    val bg: Color = Color.Transparent
-                }
-
-                class Disabled(
-                    val fg: Color,
-                ) {
-                    val bg: Color = Color.Transparent
-                    val outline: Color = fg
-                }
-            }
+                val default: OutlinedColorSet,
+                val disabled: OutlinedColorSet,
+            )
         }
     }
 
@@ -183,8 +86,8 @@ class SatsColors2(
         val signalBorder: SignalBorder,
         val skeleton: Color,
         val navBar: NavBar,
-        val progressBar: ProgressBar,
-        val fixedProgressBar: FixedProgressBar,
+        val progressBar2: ProgressBar2,
+        val fixedProgressBar2: FixedProgressBar2,
         val graphs: Graphs,
         val selector: Selector,
         val selectorFixed: SelectorFixed,
@@ -199,6 +102,12 @@ class SatsColors2(
         val rewards: Rewards,
         val workouts: Workouts,
     ) {
+        @Deprecated("Replace with progressBar2")
+        val progressBar = ProgressBar(progressBar2)
+
+        @Deprecated("Replace with fixedProgressBar2")
+        val fixedProgressBar = FixedProgressBar(fixedProgressBar2)
+
         class Divider(
             val default: Color,
             val alternate: Color,
@@ -224,16 +133,36 @@ class SatsColors2(
             val notSelected: Color,
         )
 
-        class ProgressBar(
-            val indicator: Color,
-            val indicatorAlternate: Color,
-            val bg: Color,
+        class ProgressBar(progressBar2: ProgressBar2) {
+            @Deprecated("", ReplaceWith("SatsTheme.colors2.graphicalElements.progressBar2.default.fg"))
+            val indicator: Color = progressBar2.default.fg
+
+            @Deprecated("", ReplaceWith("SatsTheme.colors2.graphicalElements.progressBar2.alternate.fg"))
+            val indicatorAlternate: Color = progressBar2.alternate.fg
+
+            @Deprecated("", ReplaceWith("SatsTheme.colors2.graphicalElements.progressBar2.default.bg"))
+            val bg: Color = progressBar2.default.bg
+        }
+
+        class ProgressBar2(
+            val default: ColorSet,
+            val alternate: ColorSet,
         )
 
-        class FixedProgressBar(
-            val indicator: Color,
-            val indicatorAlternate: Color,
-            val bg: Color,
+        class FixedProgressBar(fixedProgressBar2: FixedProgressBar2) {
+            @Deprecated("", ReplaceWith("SatsTheme.colors2.graphicalElements.fixedProgressBar2.default.fg"))
+            val indicator: Color = fixedProgressBar2.default.fg
+
+            @Deprecated("", ReplaceWith("SatsTheme.colors2.graphicalElements.fixedProgressBar2.alternate.fg"))
+            val indicatorAlternate: Color = fixedProgressBar2.alternate.fg
+
+            @Deprecated("", ReplaceWith("SatsTheme.colors2.graphicalElements.fixedProgressBar2.default.bg"))
+            val bg: Color = fixedProgressBar2.default.bg
+        }
+
+        class FixedProgressBar2(
+            val default: ColorSet,
+            val alternate: ColorSet,
         )
 
         class Graphs(
@@ -299,39 +228,14 @@ class SatsColors2(
             val selected: Selected,
         ) {
             class Unselected(
-                val default: Default,
-                val disabled: Disabled,
-            ) {
-                class Default(
-                    val bg: Color,
-                    val fg: Color,
-                )
-
-                class Disabled(
-                    val bg: Color,
-                    val fg: Color,
-                )
-            }
+                val default: ColorSet,
+                val disabled: ColorSet,
+            )
 
             class Selected(
-                val default: Default,
-                val disabled: Disabled,
-            ) {
-                class Default(
-                    val bg: Color,
-                    val fg: Color,
-                )
-
-                class Hover(
-                    val bg: Color,
-                    val fg: Color,
-                )
-
-                class Disabled(
-                    val bg: Color,
-                    val fg: Color,
-                )
-            }
+                val default: ColorSet,
+                val disabled: ColorSet,
+            )
         }
 
         class Toggle(
@@ -397,315 +301,520 @@ class SatsColors2(
         )
 
         class Tags(
-            val primary: Primary,
-            val secondary: Secondary,
-            val featured: Featured,
-        ) {
-            class Primary(
-                val bg: Color,
-                val fg: Color,
-            )
-
-            class Secondary(
-                val bg: Color,
-                val fg: Color,
-            )
-
-            class Featured(
-                val bg: Color,
-                val fg: Color,
-            )
-        }
+            val primary: ColorSet,
+            val secondary: ColorSet,
+            val featured: ColorSet,
+        )
 
         class Badge(
-            val primary: Primary,
-            val secondary: Secondary,
-            val tertiary: Tertiary,
-        ) {
-            class Primary(
-                val bg: Color,
-                val fg: Color,
-            )
-
-            class Secondary(
-                val bg: Color,
-                val fg: Color,
-            )
-
-            class Tertiary(
-                val bg: Color,
-                val fg: Color,
-            )
-        }
+            val primary: ColorSet,
+            val secondary: ColorSet,
+            val tertiary: ColorSet,
+        )
 
         class FixedBadge(
-            val primary: Primary,
-            val secondary: Secondary,
-            val tertiary: Tertiary,
-        ) {
-            class Primary(
-                val bg: Color,
-                val fg: Color,
-            )
-
-            class Secondary(
-                val bg: Color,
-                val fg: Color,
-            )
-
-            class Tertiary(
-                val bg: Color,
-                val fg: Color,
-            )
-        }
+            val primary: ColorSet,
+            val secondary: ColorSet,
+            val tertiary: ColorSet,
+        )
 
         class Rewards(
-            val blue: Blue,
-            val silver: Silver,
-            val gold: Gold,
-            val platinum: Platinum,
-        ) {
-            class Blue(
-                val bg: Color,
-                val fg: Color,
-            )
-
-            class Silver(
-                val bg: Color,
-                val fg: Color,
-            )
-
-            class Gold(
-                val bg: Color,
-                val fg: Color,
-            )
-
-            class Platinum(
-                val bg: Color,
-                val fg: Color,
-            )
-        }
+            val blue: ColorSet,
+            val silver: ColorSet,
+            val gold: ColorSet,
+            val platinum: ColorSet,
+        )
 
         class Workouts(
-            val pt: Pt,
-            val gx: Gx,
-            val treatments: Treatments,
-            val gymfloor: Gymfloor,
-            val other: Other,
-            val bootcamp: Bootcamp,
-        ) {
-            class Pt(
-                val bg: Color,
-                val fg: Color,
-            )
+            val pt: ColorSet,
+            val gx: ColorSet,
+            val treatments: ColorSet,
+            val gymfloor: ColorSet,
+            val other: ColorSet,
+            val bootcamp: ColorSet,
+        )
+    }
 
-            class Gx(
-                val bg: Color,
-                val fg: Color,
-            )
+    class Backgrounds(backgrounds2: Backgrounds2) {
+        val primary = Primary(backgrounds2)
+        val secondary = Secondary(backgrounds2)
+        val fixed = Fixed(backgrounds2)
 
-            class Treatments(
-                val bg: Color,
-                val fg: Color,
-            )
+        class Primary(backgrounds2: Backgrounds2) {
+            val bg = Bg(backgrounds2)
+            val fg = Fg(backgrounds2)
 
-            class Gymfloor(
-                val bg: Color,
-                val fg: Color,
-            )
+            class Bg(backgrounds2: Backgrounds2) {
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.primary.default.bg"))
+                val default: Color = backgrounds2.primary.default.bg
 
-            class Other(
-                val bg: Color,
-                val fg: Color,
-            )
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.primary.selected.bg"))
+                val selected: Color = backgrounds2.primary.selected.bg
+            }
 
-            class Bootcamp(
-                val bg: Color,
-                val fg: Color,
-            )
+            class Fg(backgrounds2: Backgrounds2) {
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.primary.default.fg"))
+                val default: Color = backgrounds2.primary.default.fg
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.primary.default.fgAlternate"))
+                val alternate: Color = backgrounds2.primary.default.fgAlternate
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.primary.default.fgDisabled"))
+                val disabled: Color = backgrounds2.primary.default.fgDisabled
+            }
+        }
+
+        class Secondary(backgrounds2: Backgrounds2) {
+            val bg = Bg(backgrounds2)
+            val fg = Fg(backgrounds2)
+
+            class Bg(backgrounds2: Backgrounds2) {
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.secondary.default.bg"))
+                val default: Color = backgrounds2.secondary.default.bg
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.secondary.selected.bg"))
+                val selected: Color = backgrounds2.secondary.selected.bg
+            }
+
+            class Fg(backgrounds2: Backgrounds2) {
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.secondary.default.fg"))
+                val default: Color = backgrounds2.secondary.default.fg
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.secondary.default.fgAlternate"))
+                val alternate: Color = backgrounds2.secondary.default.fgAlternate
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.secondary.default.fgDisabled"))
+                val disabled: Color = backgrounds2.secondary.default.fgDisabled
+            }
+        }
+
+        class Fixed(backgrounds2: Backgrounds2) {
+            val primary = Primary(backgrounds2)
+            val secondary = Secondary(backgrounds2)
+
+            class Primary(backgrounds2: Backgrounds2) {
+                val bg = Bg(backgrounds2)
+                val fg = Fg(backgrounds2)
+
+                class Bg(backgrounds2: Backgrounds2) {
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.fixed.primary.default.bg"))
+                    val default: Color = backgrounds2.fixed.primary.default.bg
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.fixed.primary.selected.bg"))
+                    val selected: Color = backgrounds2.fixed.primary.selected.bg
+                }
+
+                class Fg(backgrounds2: Backgrounds2) {
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.fixed.primary.default.fg"))
+                    val default: Color = backgrounds2.fixed.primary.default.fg
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.fixed.primary.default.fgAlternate"))
+                    val alternate: Color = backgrounds2.fixed.primary.default.fgAlternate
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.fixed.primary.default.fgDisabled"))
+                    val disabled: Color = backgrounds2.fixed.primary.default.fgDisabled
+                }
+            }
+
+            class Secondary(backgrounds2: Backgrounds2) {
+                val bg = Bg(backgrounds2)
+                val fg = Fg(backgrounds2)
+
+                class Bg(backgrounds2: Backgrounds2) {
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.fixed.secondary.default.bg"))
+                    val default: Color = backgrounds2.fixed.secondary.default.bg
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.fixed.secondary.selected.bg"))
+                    val selected: Color = backgrounds2.fixed.secondary.selected.bg
+                }
+
+                class Fg(backgrounds2: Backgrounds2) {
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.fixed.secondary.default.fg"))
+                    val default: Color = backgrounds2.fixed.secondary.default.fg
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.fixed.secondary.default.fgAlternate"))
+                    val alternate: Color = backgrounds2.fixed.secondary.default.fgAlternate
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.backgrounds2.fixed.secondary.default.fgDisabled"))
+                    val disabled: Color = backgrounds2.fixed.secondary.default.fgDisabled
+                }
+            }
         }
     }
 
-    class Backgrounds(
+    class Backgrounds2(
         val primary: Primary,
         val secondary: Secondary,
         val fixed: Fixed,
     ) {
         class Primary(
-            val bg: Bg,
-            val fg: Fg,
-        ) {
-            class Bg(
-                val default: Color,
-                val selected: Color,
-            )
-
-            class Fg(
-                val default: Color,
-                val alternate: Color,
-                val disabled: Color,
-            )
-        }
+            val default: BackgroundColorSet,
+            val selected: BackgroundColorSet,
+        )
 
         class Secondary(
-            val bg: Bg,
-            val fg: Fg,
-        ) {
-            class Bg(
-                val default: Color,
-                val selected: Color,
-            )
-
-            class Fg(
-                val default: Color,
-                val alternate: Color,
-                val disabled: Color,
-            )
-        }
+            val default: BackgroundColorSet,
+            val selected: BackgroundColorSet,
+        )
 
         class Fixed(
             val primary: Primary,
             val secondary: Secondary,
         ) {
             class Primary(
-                val bg: Bg,
-                val fg: Fg,
-            ) {
-                class Bg(
-                    val default: Color,
-                    val selected: Color,
-                )
-
-                class Fg(
-                    val default: Color,
-                    val alternate: Color,
-                    val disabled: Color,
-                )
-            }
+                val default: BackgroundColorSet,
+                val selected: BackgroundColorSet,
+            )
 
             class Secondary(
-                val bg: Bg,
-                val fg: Fg,
-            ) {
-                class Bg(
-                    val default: Color,
-                    val selected: Color,
-                )
+                val default: BackgroundColorSet,
+                val selected: BackgroundColorSet,
+            )
+        }
+    }
 
-                class Fg(
-                    val default: Color,
-                    val alternate: Color,
-                    val disabled: Color,
-                )
+    class Surfaces(surfaces2: Surfaces2) {
+        val primary = Primary(surfaces2)
+        val secondary = Secondary(surfaces2)
+        val fixed = Fixed(surfaces2)
+
+        class Primary(surfaces2: Surfaces2) {
+            val bg = Bg(surfaces2)
+            val fg = Fg(surfaces2)
+
+            class Bg(surfaces2: Surfaces2) {
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.primary.default.bg"))
+                val default: Color = surfaces2.primary.default.bg
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.primary.selected.bg"))
+                val selected: Color = surfaces2.primary.selected.bg
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.primary.disabled.bg"))
+                val disabled: Color = surfaces2.primary.disabled.bg
+            }
+
+            class Fg(surfaces2: Surfaces2) {
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.primary.default.fg"))
+                val default: Color = surfaces2.primary.default.fg
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.primary.default.fgAlternate"))
+                val alternate: Color = surfaces2.primary.default.fgAlternate
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.primary.default.fgDisabled"))
+                val disabled: Color = surfaces2.primary.default.fgDisabled
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.primary.default.fgSuccess"))
+                val success: Color = surfaces2.primary.default.fgSuccess
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.primary.default.fgWarning"))
+                val warning: Color = surfaces2.primary.default.fgWarning
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.primary.default.fgError"))
+                val error: Color = surfaces2.primary.default.fgError
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.primary.default.fgWaitingList"))
+                val waitlist: Color = surfaces2.primary.default.fgWaitingList
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.primary.default.fgNeutral"))
+                val neutral: Color = surfaces2.primary.default.fgNeutral
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.primary.default.fgInformation"))
+                val information: Color = surfaces2.primary.default.fgInformation
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.primary.default.fgFeatured"))
+                val featured: Color = surfaces2.primary.default.fgFeatured
+            }
+        }
+
+        class Secondary(surfaces2: Surfaces2) {
+            val bg = Bg(surfaces2)
+            val fg = Fg(surfaces2)
+
+            class Bg(surfaces2: Surfaces2) {
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.secondary.default.bg"))
+                val default: Color = surfaces2.secondary.default.bg
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.secondary.selected.bg"))
+                val selected: Color = surfaces2.secondary.selected.bg
+            }
+
+            class Fg(surfaces2: Surfaces2) {
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.secondary.default.fg"))
+                val default: Color = surfaces2.secondary.default.fg
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.secondary.default.fgAlternate"))
+                val alternate: Color = surfaces2.secondary.default.fgAlternate
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.secondary.default.fgDisabled"))
+                val disabled: Color = surfaces2.secondary.default.fgDisabled
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.secondary.default.fgSuccess"))
+                val success: Color = surfaces2.secondary.default.fgSuccess
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.secondary.default.fgWarning"))
+                val warning: Color = surfaces2.secondary.default.fgWarning
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.secondary.default.fgError"))
+                val error: Color = surfaces2.secondary.default.fgError
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.secondary.default.fgWaitingList"))
+                val waitlist: Color = surfaces2.secondary.default.fgWaitingList
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.secondary.default.fgNeutral"))
+                val neutral: Color = surfaces2.secondary.default.fgNeutral
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.secondary.default.fgInformation"))
+                val information: Color = surfaces2.secondary.default.fgInformation
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.secondary.default.fgFeatured"))
+                val featured: Color = surfaces2.secondary.default.fgFeatured
+            }
+        }
+
+        class Fixed(surfaces2: Surfaces2) {
+            val primary = Primary(surfaces2)
+            val secondary = Secondary(surfaces2)
+
+            class Primary(surfaces2: Surfaces2) {
+                val bg = Bg(surfaces2)
+                val fg = Fg(surfaces2)
+
+                class Bg(surfaces2: Surfaces2) {
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.primary.default.bg"))
+                    val default: Color = surfaces2.fixed.primary.default.bg
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.primary.selected.bg"))
+                    val selected: Color = surfaces2.fixed.primary.selected.bg
+                }
+
+                class Fg(surfaces2: Surfaces2) {
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.primary.default.fg"))
+                    val default: Color = surfaces2.fixed.primary.default.fg
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.primary.default.fgAlternate"))
+                    val alternate: Color = surfaces2.fixed.primary.default.fgAlternate
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.primary.default.fgDisabled"))
+                    val disabled: Color = surfaces2.fixed.primary.default.fgDisabled
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.primary.default.fgSuccess"))
+                    val success: Color = surfaces2.fixed.primary.default.fgSuccess
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.primary.default.fgWarning"))
+                    val warning: Color = surfaces2.fixed.primary.default.fgWarning
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.primary.default.fgError"))
+                    val error: Color = surfaces2.fixed.primary.default.fgError
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.primary.default.fgWaitingList"))
+                    val waitlist: Color = surfaces2.fixed.primary.default.fgWaitingList
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.primary.default.fgNeutral"))
+                    val neutral: Color = surfaces2.fixed.primary.default.fgNeutral
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.primary.default.fgInformation"))
+                    val information: Color = surfaces2.fixed.primary.default.fgInformation
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.primary.default.fgFeatured"))
+                    val featured: Color = surfaces2.fixed.primary.default.fgFeatured
+                }
+            }
+
+            class Secondary(surfaces2: Surfaces2) {
+                val bg = Bg(surfaces2)
+                val fg = Fg(surfaces2)
+
+                class Bg(surfaces2: Surfaces2) {
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.secondary.default.bg"))
+                    val default: Color = surfaces2.fixed.secondary.default.bg
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.secondary.selected.bg"))
+                    val selected: Color = surfaces2.fixed.secondary.selected.bg
+                }
+
+                class Fg(surfaces2: Surfaces2) {
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.secondary.default.fg"))
+                    val default: Color = surfaces2.fixed.secondary.default.fg
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.secondary.default.fgAlternate"))
+                    val alternate: Color = surfaces2.fixed.secondary.default.fgAlternate
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.secondary.default.fgDisabled"))
+                    val disabled: Color = surfaces2.fixed.secondary.default.fgDisabled
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.secondary.default.fgSuccess"))
+                    val success: Color = surfaces2.fixed.secondary.default.fgSuccess
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.secondary.default.fgWarning"))
+                    val warning: Color = surfaces2.fixed.secondary.default.fgWarning
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.secondary.default.fgError"))
+                    val error: Color = surfaces2.fixed.secondary.default.fgError
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.secondary.default.fgWaitingList"))
+                    val waitlist: Color = surfaces2.fixed.secondary.default.fgWaitingList
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.secondary.default.fgNeutral"))
+                    val neutral: Color = surfaces2.fixed.secondary.default.fgNeutral
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.secondary.default.fgInformation"))
+                    val information: Color = surfaces2.fixed.secondary.default.fgInformation
+
+                    @Deprecated("", ReplaceWith("SatsTheme.colors2.surfaces2.fixed.secondary.default.fgFeatured"))
+                    val featured: Color = surfaces2.fixed.secondary.default.fgFeatured
+                }
             }
         }
     }
 
-    class Surfaces(
+    class Surfaces2(
         val primary: Primary,
         val secondary: Secondary,
         val fixed: Fixed,
     ) {
         class Primary(
-            val bg: Bg,
-            val fg: Fg,
-        ) {
-            class Bg(
-                val default: Color,
-                val selected: Color,
-                val disabled: Color,
-            )
-
-            class Fg(
-                val default: Color,
-                val alternate: Color,
-                val disabled: Color,
-                val success: Color,
-                val warning: Color,
-                val error: Color,
-                val waitlist: Color,
-                val neutral: Color,
-                val information: Color,
-                val featured: Color,
-            )
-        }
+            val default: SurfaceColorSet,
+            val selected: SurfaceColorSet,
+            val disabled: SurfaceColorSet,
+        )
 
         class Secondary(
-            val bg: Bg,
-            val fg: Fg,
-        ) {
-            class Bg(
-                val default: Color,
-                val selected: Color,
-            )
-
-            class Fg(
-                val default: Color,
-                val alternate: Color,
-                val disabled: Color,
-                val success: Color,
-                val warning: Color,
-                val error: Color,
-                val waitlist: Color,
-                val neutral: Color,
-                val information: Color,
-                val featured: Color,
-            )
-        }
+            val default: SurfaceColorSet,
+            val selected: SurfaceColorSet,
+        )
 
         class Fixed(
             val primary: Primary,
             val secondary: Secondary,
         ) {
             class Primary(
-                val bg: Bg,
-                val fg: Fg,
-            ) {
-                class Bg(
-                    val default: Color,
-                    val selected: Color,
-                )
-
-                class Fg(
-                    val default: Color,
-                    val alternate: Color,
-                    val disabled: Color,
-                    val success: Color,
-                    val warning: Color,
-                    val error: Color,
-                    val waitlist: Color,
-                    val neutral: Color,
-                    val information: Color,
-                    val featured: Color,
-                )
-            }
+                val default: SurfaceColorSet,
+                val selected: SurfaceColorSet,
+            )
 
             class Secondary(
-                val bg: Bg,
-                val fg: Fg,
-            ) {
-                class Bg(
-                    val default: Color,
-                    val selected: Color,
-                )
+                val default: SurfaceColorSet,
+                val selected: SurfaceColorSet,
+            )
+        }
+    }
 
-                class Fg(
-                    val default: Color,
-                    val alternate: Color,
-                    val disabled: Color,
-                    val success: Color,
-                    val warning: Color,
-                    val error: Color,
-                    val waitlist: Color,
-                    val neutral: Color,
-                    val information: Color,
-                    val featured: Color,
-                )
+    class SignalSurfaces(signalSurfaces2: SignalSurfaces2) {
+        val success = Success(signalSurfaces2)
+        val warning = Warning(signalSurfaces2)
+        val error = Error(signalSurfaces2)
+        val waitingList = WaitingList(signalSurfaces2)
+        val neutral = Neutral(signalSurfaces2)
+        val information = Information(signalSurfaces2)
+        val featured = Featured(signalSurfaces2)
+
+        class Success(signalSurfaces2: SignalSurfaces2) {
+            @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.success.default.bg"))
+            val bg: Color = signalSurfaces2.success.default.bg
+
+            val fg = Fg(signalSurfaces2)
+
+            class Fg(signalSurfaces2: SignalSurfaces2) {
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.success.default.fg"))
+                val default: Color = signalSurfaces2.success.default.fg
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.success.alternate.fg"))
+                val alternate: Color = signalSurfaces2.success.alternate.fg
+            }
+        }
+
+        class Warning(signalSurfaces2: SignalSurfaces2) {
+            @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.warning.default.bg"))
+            val bg: Color = signalSurfaces2.warning.default.bg
+
+            val fg = Fg(signalSurfaces2)
+
+            class Fg(signalSurfaces2: SignalSurfaces2) {
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.warning.default.fg"))
+                val default: Color = signalSurfaces2.warning.default.fg
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.warning.alternate.fg"))
+                val alternate: Color = signalSurfaces2.warning.alternate.fg
+            }
+        }
+
+        class Error(signalSurfaces2: SignalSurfaces2) {
+            @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.error.default.bg"))
+            val bg: Color = signalSurfaces2.error.default.bg
+
+            val fg = Fg(signalSurfaces2)
+
+            class Fg(signalSurfaces2: SignalSurfaces2) {
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.error.default.fg"))
+                val default: Color = signalSurfaces2.error.default.fg
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.error.alternate.fg"))
+                val alternate: Color = signalSurfaces2.error.alternate.fg
+            }
+        }
+
+        class WaitingList(signalSurfaces2: SignalSurfaces2) {
+            @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.waitingList.default.bg"))
+            val bg: Color = signalSurfaces2.waitingList.default.bg
+
+            val fg = Fg(signalSurfaces2)
+
+            class Fg(signalSurfaces2: SignalSurfaces2) {
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.waitingList.default.fg"))
+                val default: Color = signalSurfaces2.waitingList.default.fg
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.waitingList.alternate.fg"))
+                val alternate: Color = signalSurfaces2.waitingList.alternate.fg
+            }
+        }
+
+        class Neutral(signalSurfaces2: SignalSurfaces2) {
+            @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.neutral.default.bg"))
+            val bg: Color = signalSurfaces2.neutral.default.bg
+
+            val fg = Fg(signalSurfaces2)
+
+            class Fg(signalSurfaces2: SignalSurfaces2) {
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.neutral.default.fg"))
+                val default: Color = signalSurfaces2.neutral.default.fg
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.neutral.alternate.fg"))
+                val alternate: Color = signalSurfaces2.neutral.alternate.fg
+            }
+        }
+
+        class Information(signalSurfaces2: SignalSurfaces2) {
+            @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.information.default.bg"))
+            val bg: Color = signalSurfaces2.information.default.bg
+
+            val fg = Fg(signalSurfaces2)
+
+            class Fg(signalSurfaces2: SignalSurfaces2) {
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.information.default.fg"))
+                val default: Color = signalSurfaces2.information.default.fg
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.information.alternate.fg"))
+                val alternate: Color = signalSurfaces2.information.alternate.fg
+            }
+        }
+
+        class Featured(signalSurfaces2: SignalSurfaces2) {
+            @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.featured.default.bg"))
+            val bg: Color = signalSurfaces2.featured.default.bg
+
+            val fg = Fg(signalSurfaces2)
+
+            class Fg(signalSurfaces2: SignalSurfaces2) {
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.featured.default.fg"))
+                val default: Color = signalSurfaces2.featured.default.fg
+
+                @Deprecated("", ReplaceWith("SatsTheme.colors2.signalSurfaces2.featured.alternate.fg"))
+                val alternate: Color = signalSurfaces2.featured.alternate.fg
             }
         }
     }
 
-    class SignalSurfaces(
+    class SignalSurfaces2(
         val success: Success,
         val warning: Warning,
         val error: Error,
@@ -715,73 +824,134 @@ class SatsColors2(
         val featured: Featured,
     ) {
         class Success(
-            val bg: Color,
-            val fg: Fg,
-        ) {
-            class Fg(
-                val default: Color,
-                val alternate: Color,
-            )
-        }
+            val default: ColorSet,
+            val alternate: ColorSet,
+        )
 
         class Warning(
-            val bg: Color,
-            val fg: Fg,
-        ) {
-            class Fg(
-                val default: Color,
-                val alternate: Color,
-            )
-        }
+            val default: ColorSet,
+            val alternate: ColorSet,
+        )
 
         class Error(
-            val bg: Color,
-            val fg: Fg,
-        ) {
-            class Fg(
-                val default: Color,
-                val alternate: Color,
-            )
-        }
+            val default: ColorSet,
+            val alternate: ColorSet,
+        )
 
         class WaitingList(
-            val bg: Color,
-            val fg: Fg,
-        ) {
-            class Fg(
-                val default: Color,
-                val alternate: Color,
-            )
-        }
+            val default: ColorSet,
+            val alternate: ColorSet,
+        )
 
         class Neutral(
-            val bg: Color,
-            val fg: Fg,
-        ) {
-            class Fg(
-                val default: Color,
-                val alternate: Color,
-            )
-        }
+            val default: ColorSet,
+            val alternate: ColorSet,
+        )
 
         class Information(
-            val bg: Color,
-            val fg: Fg,
-        ) {
-            class Fg(
-                val default: Color,
-                val alternate: Color,
-            )
-        }
+            val default: ColorSet,
+            val alternate: ColorSet,
+        )
 
         class Featured(
-            val bg: Color,
-            val fg: Fg,
-        ) {
-            class Fg(
-                val default: Color,
-                val alternate: Color,
-            )
-        }
+            val default: ColorSet,
+            val alternate: ColorSet,
+        )
+    }
+}
+
+interface ColorSet {
+    val bg: Color
+    val fg: Color
+}
+
+internal fun ColorSet(
+    bg: Color,
+    fg: Color,
+): ColorSet {
+    return object : ColorSet {
+        override val bg = bg
+        override val fg = fg
+    }
+}
+
+interface OutlinedColorSet : ColorSet {
+    override val bg: Color
+    override val fg: Color
+    val outline: Color
+}
+
+internal fun OutlinedColorSet(
+    bg: Color,
+    fg: Color,
+    outline: Color,
+): OutlinedColorSet {
+    return object : OutlinedColorSet {
+        override val bg = bg
+        override val fg = fg
+        override val outline = outline
+    }
+}
+
+interface BackgroundColorSet : ColorSet {
+    override val bg: Color
+    override val fg: Color
+    val fgAlternate: Color
+    val fgDisabled: Color
+}
+
+internal fun BackgroundColorSet(
+    bg: Color,
+    fgDefault: Color,
+    fgAlternate: Color,
+    fgDisabled: Color,
+): BackgroundColorSet {
+    return object : BackgroundColorSet {
+        override val bg = bg
+        override val fg = fgDefault
+        override val fgAlternate = fgAlternate
+        override val fgDisabled = fgDisabled
+    }
+}
+
+interface SurfaceColorSet : ColorSet {
+    override val bg: Color
+    override val fg: Color
+    val fgAlternate: Color
+    val fgDisabled: Color
+    val fgSuccess: Color
+    val fgWarning: Color
+    val fgError: Color
+    val fgWaitingList: Color
+    val fgNeutral: Color
+    val fgInformation: Color
+    val fgFeatured: Color
+}
+
+internal fun SurfaceColorSet(
+    bg: Color,
+    fgDefault: Color,
+    fgAlternate: Color,
+    fgDisabled: Color,
+    fgSuccess: Color,
+    fgWarning: Color,
+    fgError: Color,
+    fgWaitingList: Color,
+    fgNeutral: Color,
+    fgInformation: Color,
+    fgFeatured: Color,
+): SurfaceColorSet {
+    return object : SurfaceColorSet {
+        override val bg = bg
+        override val fg = fgDefault
+        override val fgAlternate = fgAlternate
+        override val fgDisabled = fgDisabled
+        override val fgSuccess = fgSuccess
+        override val fgWarning = fgWarning
+        override val fgError = fgError
+        override val fgWaitingList = fgWaitingList
+        override val fgNeutral = fgNeutral
+        override val fgInformation = fgInformation
+        override val fgFeatured = fgFeatured
     }
 }

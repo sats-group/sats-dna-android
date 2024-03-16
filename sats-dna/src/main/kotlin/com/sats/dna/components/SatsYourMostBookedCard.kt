@@ -28,7 +28,10 @@ fun SatsYourMostBookedCard(
 @Composable
 private fun SatsYourMostBookedCardPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsYourMostBookedCard(
                 imageUrl = null,
                 title = "Indoor Running",

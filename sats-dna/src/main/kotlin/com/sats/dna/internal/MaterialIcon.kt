@@ -42,8 +42,15 @@ internal fun materialIconTint(): Color {
 @Composable
 private fun MaterialIconM2Preview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = false) {
-            MaterialIcon(SatsTheme.icons.barbell, contentDescription = null, Modifier.padding(SatsTheme.spacing.m))
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = false,
+        ) {
+            MaterialIcon(
+                SatsTheme.icons.barbell,
+                contentDescription = null,
+                Modifier.padding(SatsTheme.spacing.m),
+            )
         }
     }
 }
@@ -52,8 +59,15 @@ private fun MaterialIconM2Preview() {
 @Composable
 private fun MaterialIconM3Preview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
-            MaterialIcon(SatsTheme.icons.barbell, contentDescription = null, Modifier.padding(SatsTheme.spacing.m))
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
+            MaterialIcon(
+                SatsTheme.icons.barbell,
+                contentDescription = null,
+                Modifier.padding(SatsTheme.spacing.m),
+            )
         }
     }
 }

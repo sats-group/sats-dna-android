@@ -46,6 +46,7 @@ fun SatsTag(
             topStart = CornerSize(0.dp),
             bottomStart = CornerSize(0.dp),
         )
+
         SatsTagShape.Right -> SatsTheme.shapes.roundedCorners.extraSmall.copy(
             topEnd = CornerSize(0.dp),
             bottomEnd = CornerSize(0.dp),
@@ -210,7 +211,7 @@ private fun SatsTagLayout(
 @Composable
 private fun SmallSatsTagPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
             Column(
                 Modifier.padding(SatsTheme.spacing.m),
                 verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
@@ -228,7 +229,7 @@ private fun SmallSatsTagPreview() {
 @Composable
 private fun BasicSatsTagPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
             Column(
                 Modifier.padding(SatsTheme.spacing.m),
                 verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
@@ -246,7 +247,7 @@ private fun BasicSatsTagPreview() {
 @Composable
 private fun SmallLeftAlignedSatsTagPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
             Column(
                 Modifier.padding(SatsTheme.spacing.m),
                 verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
@@ -264,7 +265,7 @@ private fun SmallLeftAlignedSatsTagPreview() {
 @Composable
 private fun BasicLeftAlignedSatsTagPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
             Column(
                 Modifier.padding(SatsTheme.spacing.m),
                 verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
@@ -282,7 +283,7 @@ private fun BasicLeftAlignedSatsTagPreview() {
 @Composable
 private fun SmallRightAlignedSatsTagPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
             Column(
                 Modifier.padding(SatsTheme.spacing.m),
                 verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
@@ -300,7 +301,7 @@ private fun SmallRightAlignedSatsTagPreview() {
 @Composable
 private fun BasicRightAlignedSatsTagPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
             Column(
                 Modifier.padding(SatsTheme.spacing.m),
                 verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
@@ -318,7 +319,7 @@ private fun BasicRightAlignedSatsTagPreview() {
 @Composable
 private fun SatsRewardsTagPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
             Column(
                 Modifier.padding(SatsTheme.spacing.m),
                 verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
@@ -336,7 +337,7 @@ private fun SatsRewardsTagPreview() {
 @Composable
 private fun SatsTagPlaceholderPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
             SatsTagPlaceholder("Tag Text", Modifier.padding(SatsTheme.spacing.m))
         }
     }

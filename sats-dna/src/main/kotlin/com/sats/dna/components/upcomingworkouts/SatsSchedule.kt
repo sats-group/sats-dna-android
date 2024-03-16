@@ -102,7 +102,7 @@ private fun ScheduledDays(
                 MaterialText(
                     text = dayName,
                     modifier = Modifier.padding(horizontal = cardInnerPadding),
-                    color = SatsTheme.colors2.surfaces.primary.fg.alternate,
+                    color = SatsTheme.colors2.surfaces2.primary.default.fgAlternate,
                     style = SatsTheme.typography.normal.small,
                 )
 
@@ -199,7 +199,10 @@ private fun SatsSchedulePreview() {
     )
 
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsSchedule(schedule, onWorkoutClicked = {}, Modifier.padding(SatsTheme.spacing.m))
         }
     }
@@ -248,7 +251,10 @@ private fun SatsScheduleWithCardButtonPreview() {
     )
 
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsSchedule(
                 workouts = schedule,
                 onWorkoutClicked = {},
@@ -272,7 +278,10 @@ private fun SatsScheduleWithCardButtonPreview() {
 @Composable
 private fun SatsSchedulePlaceholderPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsSchedulePlaceholder(Modifier.padding(SatsTheme.spacing.m))
         }
     }

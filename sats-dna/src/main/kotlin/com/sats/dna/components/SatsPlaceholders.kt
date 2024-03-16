@@ -99,7 +99,7 @@ private fun rememberTextSize(text: String, style: TextStyle): DpSize {
 @Composable
 private fun SatsPlaceholderBoxPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
             Column(Modifier.padding(SatsTheme.spacing.m), spacedBy(SatsTheme.spacing.m)) {
                 SatsPlaceholderBox(
                     Modifier
@@ -120,7 +120,7 @@ private fun SatsPlaceholderBoxPreview() {
 @Composable
 private fun PlaceholderTextPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
             Column(Modifier.padding(SatsTheme.spacing.m), spacedBy(SatsTheme.spacing.m)) {
                 SatsPlaceholderText("Some Heading", style = SatsTheme.typography.emphasis.headline2)
 

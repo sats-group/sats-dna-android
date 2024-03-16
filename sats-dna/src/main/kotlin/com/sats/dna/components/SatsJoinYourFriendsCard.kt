@@ -35,9 +35,17 @@ fun SatsJoinYourFriendsCard(
 @Composable
 private fun SatsJoinYourFriendsCardPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsJoinYourFriendsCard(
-                pill = { SatsPill(label = "Susanne", image = { SatsProfileAvatarImage(imageUrl = null) }) },
+                pill = {
+                    SatsPill(
+                        label = "Susanne",
+                        image = { SatsProfileAvatarImage(imageUrl = null) },
+                    )
+                },
                 imageUrl = null,
                 title = "Indoor Running",
                 subtitle = "Today – 20:30",

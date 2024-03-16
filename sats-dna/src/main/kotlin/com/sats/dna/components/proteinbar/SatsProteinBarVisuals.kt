@@ -76,33 +76,33 @@ object SatsProteinBarDefaults {
     @Composable
     private fun SatsProteinBarTheme.proteinBarColors(): SatsProteinBarColors = when (this) {
         SatsProteinBarTheme.Neutral -> SatsProteinBarColors(
-            containerColor = SatsTheme.colors2.surfaces.primary.bg.default,
-            contentColor = SatsTheme.colors2.surfaces.primary.fg.default,
-            titleColor = SatsTheme.colors2.surfaces.primary.fg.alternate,
+            containerColor = SatsTheme.colors2.surfaces2.primary.default.bg,
+            contentColor = SatsTheme.colors2.surfaces2.primary.default.fg,
+            titleColor = SatsTheme.colors2.surfaces2.primary.default.fgAlternate,
         )
 
         SatsProteinBarTheme.Info -> SatsProteinBarColors(
-            containerColor = SatsTheme.colors2.signalSurfaces.information.bg,
-            contentColor = SatsTheme.colors2.signalSurfaces.information.fg.default,
-            titleColor = SatsTheme.colors2.signalSurfaces.information.fg.alternate,
+            containerColor = SatsTheme.colors2.signalSurfaces2.information.default.bg,
+            contentColor = SatsTheme.colors2.signalSurfaces2.information.default.fg,
+            titleColor = SatsTheme.colors2.signalSurfaces2.information.alternate.fg,
         )
 
         SatsProteinBarTheme.Success -> SatsProteinBarColors(
-            containerColor = SatsTheme.colors2.signalSurfaces.success.bg,
-            contentColor = SatsTheme.colors2.signalSurfaces.success.fg.default,
-            titleColor = SatsTheme.colors2.signalSurfaces.success.fg.alternate,
+            containerColor = SatsTheme.colors2.signalSurfaces2.success.default.bg,
+            contentColor = SatsTheme.colors2.signalSurfaces2.success.default.fg,
+            titleColor = SatsTheme.colors2.signalSurfaces2.success.alternate.fg,
         )
 
         SatsProteinBarTheme.Warning -> SatsProteinBarColors(
-            containerColor = SatsTheme.colors2.signalSurfaces.warning.bg,
-            contentColor = SatsTheme.colors2.signalSurfaces.warning.fg.default,
-            titleColor = SatsTheme.colors2.signalSurfaces.warning.fg.alternate,
+            containerColor = SatsTheme.colors2.signalSurfaces2.warning.default.bg,
+            contentColor = SatsTheme.colors2.signalSurfaces2.warning.default.fg,
+            titleColor = SatsTheme.colors2.signalSurfaces2.warning.alternate.fg,
         )
 
         SatsProteinBarTheme.Error -> SatsProteinBarColors(
-            containerColor = SatsTheme.colors2.signalSurfaces.error.bg,
-            contentColor = SatsTheme.colors2.signalSurfaces.error.fg.default,
-            titleColor = SatsTheme.colors2.signalSurfaces.error.fg.alternate,
+            containerColor = SatsTheme.colors2.signalSurfaces2.error.default.bg,
+            contentColor = SatsTheme.colors2.signalSurfaces2.error.default.fg,
+            titleColor = SatsTheme.colors2.signalSurfaces2.error.alternate.fg,
         )
     }
 

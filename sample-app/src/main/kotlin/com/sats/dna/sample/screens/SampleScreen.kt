@@ -40,7 +40,7 @@ sealed class SampleScreen(
     fun HomeListItem(navController: NavController) {
         ListItem(
             headlineContent = { Text(name) },
-            colors = ListItemDefaults.colors(containerColor = SatsTheme.colors2.backgrounds.primary.bg.default),
+            colors = ListItemDefaults.colors(containerColor = SatsTheme.colors2.backgrounds2.primary.default.bg),
             modifier = Modifier.clickable { navigate(navController) },
         )
     }

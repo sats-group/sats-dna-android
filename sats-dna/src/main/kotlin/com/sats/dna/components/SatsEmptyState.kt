@@ -74,7 +74,7 @@ fun SatsEmptyState(
             painter = icon,
             contentDescription = null,
             modifier = Modifier.size(36.dp),
-            tint = SatsTheme.colors2.surfaces.primary.fg.alternate,
+            tint = SatsTheme.colors2.surfaces2.primary.default.fgAlternate,
         )
 
         Column(
@@ -86,7 +86,7 @@ fun SatsEmptyState(
             if (body != null) {
                 MaterialText(
                     text = body,
-                    color = SatsTheme.colors2.surfaces.primary.fg.alternate,
+                    color = SatsTheme.colors2.surfaces2.primary.default.fgAlternate,
                     textAlign = TextAlign.Center,
                     style = SatsTheme.typography.normal.small,
                 )
@@ -111,7 +111,10 @@ data class SatsEmptyStateAction(val action: () -> Unit, val label: String)
 @Composable
 private fun SatsEmptyStateM3Preview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsEmptyState(
                 icon = SatsTheme.icons.barbell,
                 title = "You don't have friends",
@@ -128,7 +131,10 @@ private fun SatsEmptyStateM3Preview() {
 @Composable
 private fun SatsEmptyStateM2Preview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = false) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = false,
+        ) {
             SatsEmptyState(
                 icon = SatsTheme.icons.barbell,
                 title = "You don't have friends",
@@ -145,7 +151,10 @@ private fun SatsEmptyStateM2Preview() {
 @Composable
 private fun SatsEmptyStateCardPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default, useMaterial3 = true) {
+        SatsSurface(
+            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            useMaterial3 = true,
+        ) {
             SatsEmptyStateCard(
                 icon = SatsTheme.icons.barbell,
                 title = "You don't have friends",

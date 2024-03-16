@@ -53,7 +53,7 @@ fun SatsTextField(
 @Composable
 private fun SatsTextFieldEnabledPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg) {
             SatsTextField(
                 value = "Text",
                 onValueChange = { },
@@ -68,7 +68,7 @@ private fun SatsTextFieldEnabledPreview() {
 @Composable
 private fun SatsTextFieldDisabledPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.bg.default) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg) {
             SatsTextField(
                 value = "Text",
                 onValueChange = { },
