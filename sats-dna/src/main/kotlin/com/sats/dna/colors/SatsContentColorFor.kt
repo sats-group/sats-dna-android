@@ -20,8 +20,8 @@ fun satsContentColor2For(backgroundColor: Color): Color {
         buttons.waitingListFilled.default.bg -> buttons.waitingListFilled.default.fg
         buttons.destructive.default.default.bg -> buttons.destructive.default.default.fg
         buttons.destructive.default.disabled.bg -> buttons.destructive.default.disabled.fg
-        buttons.destructive.alternate.default.bg -> buttons.destructive.alternate.default.fg
-        buttons.destructive.alternate.disabled.bg -> buttons.destructive.alternate.disabled.fg
+        buttons.destructive.outlined.default.bg -> buttons.destructive.outlined.default.fg
+        buttons.destructive.outlined.disabled.bg -> buttons.destructive.outlined.disabled.fg
 
         buttons.primary.disabled.bg -> buttons.primary.disabled.fg
         buttons.secondary.disabled.outline -> buttons.secondary.disabled.fg

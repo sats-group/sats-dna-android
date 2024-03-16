@@ -4,21 +4,23 @@ import androidx.compose.ui.graphics.Color
 
 internal object SatsColorPrimitives {
     val SatsBlue110 = Color(0xFF06101A)
-    val SatsBlue = Color(0xFF0D2134)
+    val SatsBlue105 = Color(0xFF0A1826)
+    val SatsBlue100 = Color(0xFF0D2134)
     val SatsBlue90 = Color(0xFF253748)
-    val SatsBlueGrey80 = Color(0xFF404D5B)
     val SatsBlue70 = Color(0xFF566471)
     val SatsBlue40 = Color(0xFF9EA6AE)
     val SatsBlue20 = Color(0xFFCFD3D6)
     val SatsBlue10 = Color(0xFFE7E9EB)
-    val SatsLightGrey15 = Color(0xFFDCDEE0)
     val SatsBlue5 = Color(0xFFF3F4F5)
+
+    val SatsBlueGrey80 = Color(0xFF404D5B)
+    val SatsLightGrey15 = Color(0xFFDCDEE0)
 
     val SatsCoral190 = Color(0xFF32110A)
     val SatsCoral170 = Color(0xFF4B190F)
     val SatsCoral130 = Color(0xFFAF3A24)
     val SatsCoral120 = Color(0xFFC84229)
-    val SatsCoral = Color(0xFFFA5333)
+    val SatsCoral100 = Color(0xFFFA5333)
     val SatsCoral90 = Color(0xFFFB6447)
     val SatsCoral60 = Color(0xFFFC9885)
     val SatsCoral40 = Color(0xFFFDBAAD)
@@ -39,7 +41,8 @@ internal object SatsColorPrimitives {
     val White10 = Color(0x1AFFFFFF)
     val White5 = Color(0x0DFFFFFF)
 
-    val Black = Color(0xFF000000)
+    val Black100 = Color(0xFF000000)
+    val Black = Black100
     val Black95 = Color(0xFF0D0D0D)
     val Black90 = Color(0xFF1A1A1A)
     val Black85 = Color(0xFF262626)
@@ -49,6 +52,7 @@ internal object SatsColorPrimitives {
     val Black50 = Color(0xFF808080)
     val Black40 = Color(0xFF999999)
     val Black20 = Color(0xFFCCCCCC)
+    val Black10 = Color(0xFFE5E5E5)
     val Black5 = Color(0xFFF2F2F2)
     val Black3 = Color(0xFFF7F7F7)
     val BlackO20 = Color(0x33000000)
