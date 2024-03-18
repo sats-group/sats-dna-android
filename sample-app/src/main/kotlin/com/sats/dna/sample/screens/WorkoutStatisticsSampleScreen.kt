@@ -51,61 +51,61 @@ private fun WorkoutStatisticsScreen(
                 )
                 SatsHorizontalDivider()
             }
-                SatsWorkoutGraphCard(
-                    workoutWeeks = listOf(
-                        GraphWeek(
-                            year = "2023",
-                            numberOfTrainingEvents = 2,
-                            weekNumber = 19,
-                        ),
-                        GraphWeek(
-                            year = "2023",
-                            numberOfTrainingEvents = 2,
-                            weekNumber = 20,
-                        ),
-                        GraphWeek(
-                            year = "2023",
-                            numberOfTrainingEvents = 5,
-                            weekNumber = 21,
-                        ),
-                        GraphWeek(
-                            year = "2023",
-                            numberOfTrainingEvents = 4,
-                            weekNumber = 22,
-                        ),
-                        GraphWeek(
-                            year = "2023",
-                            numberOfTrainingEvents = 1,
-                            weekNumber = 23,
-                        ),
-                        GraphWeek(
-                            year = "2023",
-                            numberOfTrainingEvents = 4,
-                            weekNumber = 24,
-                        ),
-                        GraphWeek(
-                            year = "2023",
-                            numberOfTrainingEvents = 5,
-                            weekNumber = 25,
-                        ),
-                        GraphWeek(
-                            year = "2023",
-                            numberOfTrainingEvents = 2,
-                            weekNumber = 26,
-                        ),
-                        GraphWeek(
-                            year = "2023",
-                            numberOfTrainingEvents = 2,
-                            weekNumber = 27,
-                        ),
-                        GraphWeek(
-                            year = "2023",
-                            numberOfTrainingEvents = 3,
-                            weekNumber = 28,
-                        ),
+            SatsWorkoutGraphCard(
+                workoutWeeks = listOf(
+                    GraphWeek(
+                        year = "2023",
+                        numberOfTrainingEvents = 2,
+                        weekNumber = 19,
                     ),
-                    highestTrainingStreak = 5,
-                )
+                    GraphWeek(
+                        year = "2023",
+                        numberOfTrainingEvents = 2,
+                        weekNumber = 20,
+                    ),
+                    GraphWeek(
+                        year = "2023",
+                        numberOfTrainingEvents = 5,
+                        weekNumber = 21,
+                    ),
+                    GraphWeek(
+                        year = "2023",
+                        numberOfTrainingEvents = 4,
+                        weekNumber = 22,
+                    ),
+                    GraphWeek(
+                        year = "2023",
+                        numberOfTrainingEvents = 1,
+                        weekNumber = 23,
+                    ),
+                    GraphWeek(
+                        year = "2023",
+                        numberOfTrainingEvents = 4,
+                        weekNumber = 24,
+                    ),
+                    GraphWeek(
+                        year = "2023",
+                        numberOfTrainingEvents = 5,
+                        weekNumber = 25,
+                    ),
+                    GraphWeek(
+                        year = "2023",
+                        numberOfTrainingEvents = 2,
+                        weekNumber = 26,
+                    ),
+                    GraphWeek(
+                        year = "2023",
+                        numberOfTrainingEvents = 2,
+                        weekNumber = 27,
+                    ),
+                    GraphWeek(
+                        year = "2023",
+                        numberOfTrainingEvents = 3,
+                        weekNumber = 28,
+                    ),
+                ),
+                highestTrainingStreak = 5,
+            )
             SatsCard {
                 SatsWorkoutGraphCardPlaceholder()
             }

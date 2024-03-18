@@ -123,7 +123,7 @@ fun SatsEmptyWorkoutGraphCard(
     ) {
         Row(
             modifier = Modifier
-                .padding(start = 20.dp, top = SatsTheme.spacing.xl, bottom = SatsTheme.spacing.xl)
+                .padding(start = SatsTheme.spacing.m, top = SatsTheme.spacing.xl, bottom = SatsTheme.spacing.xl)
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Start,
@@ -136,7 +136,7 @@ fun SatsEmptyWorkoutGraphCard(
 
             Text(
                 modifier = Modifier
-                    .padding(start = 20.dp),
+                    .padding(start = SatsTheme.spacing.s, end = SatsTheme.spacing.m),
                 color = SatsTheme.colors.onSurface.secondary,
                 text = description,
                 style = SatsTheme.typography.normal.small,
