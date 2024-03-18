@@ -32,7 +32,7 @@ import com.sats.dna.components.card.SatsCard
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun Graph(
+fun SatsWorkoutGraph(
     workoutWeeks: List<GraphWeek>,
     highestTrainingStreak: Int,
 ) {
@@ -81,7 +81,7 @@ fun Graph(
 }
 
 @Composable
-fun WorkoutGraphPlaceholder(modifier: Modifier = Modifier) {
+fun SatsWorkoutGraphPlaceholder(modifier: Modifier = Modifier) {
     SatsCard(modifier) {
         Column(
             Modifier.padding(SatsTheme.spacing.m),
@@ -110,7 +110,7 @@ fun WorkoutGraphPlaceholder(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun EmptyGraph(
+fun SatsEmptyWorkoutGraph(
     description: String,
 ) {
     SatsCard(
@@ -187,7 +187,7 @@ private fun WorkoutGraphPreview() {
             color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
-            Graph(
+            SatsWorkoutGraph(
                 workoutWeeks = listOf(
                     GraphWeek(
                         year = "2023",
@@ -249,7 +249,7 @@ private fun WorkoutGraphPlaceholderPreview() {
             color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
-            WorkoutGraphPlaceholder(Modifier.padding(SatsTheme.spacing.m))
+            SatsWorkoutGraphPlaceholder(Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }
@@ -263,7 +263,7 @@ private fun EmptyGraphPreview() {
             useMaterial3 = true,
         ) {
             SatsCard {
-                EmptyGraph(description = "When you start working out, you will see your statistics here.")
+                SatsEmptyWorkoutGraph(description = "When you start working out, you will see your statistics here.")
             }
         }
     }
