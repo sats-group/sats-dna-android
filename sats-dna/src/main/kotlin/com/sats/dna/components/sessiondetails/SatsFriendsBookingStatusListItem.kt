@@ -62,19 +62,19 @@ fun SatsFriendsBookingStatusListItem(
             }
 
             FriendsBookingStatus.Invited, FriendsBookingStatus.Booked -> {
-                SatsTheme.colors2.surfaces2.primary.default.fgSuccess
+                SatsTheme.colors2.surfaces.primary.default.fgSuccess
             }
 
             FriendsBookingStatus.Pending -> {
-                SatsTheme.colors2.surfaces2.primary.default.fgWarning
+                SatsTheme.colors2.surfaces.primary.default.fgWarning
             }
 
             FriendsBookingStatus.Declined, FriendsBookingStatus.Removed -> {
-                SatsTheme.colors2.surfaces2.primary.default.fgError
+                SatsTheme.colors2.surfaces.primary.default.fgError
             }
 
             FriendsBookingStatus.WaitingList -> {
-                SatsTheme.colors2.surfaces2.primary.default.fgWaitingList
+                SatsTheme.colors2.surfaces.primary.default.fgWaitingList
             }
         }
         Text(bookingState.statusText, color = textColor)

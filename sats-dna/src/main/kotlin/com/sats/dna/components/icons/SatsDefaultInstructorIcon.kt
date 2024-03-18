@@ -59,7 +59,7 @@ enum class SatsDefaultInstructorIconType {
 private fun SatsDefaultInstructorIconGxPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsDefaultInstructorIcon(
@@ -75,7 +75,7 @@ private fun SatsDefaultInstructorIconGxPreview() {
 private fun SatsDefaultInstructorIconPtPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsDefaultInstructorIcon(

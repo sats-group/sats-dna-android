@@ -45,8 +45,8 @@ fun SatsScreen(
             modifier = modifier,
             topBar = topBar,
             bottomBar = bottomBar,
-            containerColor = SatsTheme.colors2.backgrounds2.primary.default.bg,
-            contentColor = SatsTheme.colors2.backgrounds2.primary.default.fg,
+            containerColor = SatsTheme.colors2.backgrounds.primary.default.bg,
+            contentColor = SatsTheme.colors2.backgrounds.primary.default.fg,
             snackbarHost = {
                 SatsProteinBarHost(
                     proteinBarHostState,

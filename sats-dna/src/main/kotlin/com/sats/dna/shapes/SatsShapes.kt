@@ -63,7 +63,7 @@ object SatsShapes {
 private fun Preview(@PreviewParameter(SatsShapePreviewProvider::class) shape: Shape) {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             Box(
@@ -71,7 +71,7 @@ private fun Preview(@PreviewParameter(SatsShapePreviewProvider::class) shape: Sh
                     .size(256.dp)
                     .padding(SatsTheme.spacing.m)
                     .clip(shape)
-                    .background(SatsTheme.colors2.backgrounds2.fixed.primary.default.bg),
+                    .background(SatsTheme.colors2.backgrounds.fixed.primary.default.bg),
             )
         }
     }

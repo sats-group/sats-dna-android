@@ -22,7 +22,7 @@ fun SatsBanner(
 ) {
     SatsSurface(
         modifier = modifier,
-        color = SatsTheme.colors2.backgrounds2.fixed.primary.default.bg,
+        color = SatsTheme.colors2.backgrounds.fixed.primary.default.bg,
     ) {
         Row(
             Modifier.padding(horizontal = SatsTheme.spacing.m, vertical = SatsTheme.spacing.xs),
@@ -66,7 +66,7 @@ private val SatsBannerAction.composable: @Composable () -> Unit
 private fun SatsBannerPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBanner(
@@ -82,7 +82,7 @@ private fun SatsBannerPreview() {
 private fun SatsBannerWithActionPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBanner(

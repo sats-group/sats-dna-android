@@ -150,7 +150,7 @@ object SatsOutlinedTextFieldDefaults {
 @Composable
 private fun SatsOutlinedTextFieldEnabledPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg) {
             SatsOutlinedTextField(
                 value = "Text",
                 onValueChange = { },
@@ -165,7 +165,7 @@ private fun SatsOutlinedTextFieldEnabledPreview() {
 @Composable
 private fun SatsOutlinedTextFieldDisabledPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg) {
             SatsOutlinedTextField(
                 value = "Text",
                 onValueChange = { },

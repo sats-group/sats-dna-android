@@ -74,7 +74,7 @@ fun SatsEmptyState(
             painter = icon,
             contentDescription = null,
             modifier = Modifier.size(36.dp),
-            tint = SatsTheme.colors2.surfaces2.primary.default.fgAlternate,
+            tint = SatsTheme.colors2.surfaces.primary.default.fgAlternate,
         )
 
         Column(
@@ -86,7 +86,7 @@ fun SatsEmptyState(
             if (body != null) {
                 MaterialText(
                     text = body,
-                    color = SatsTheme.colors2.surfaces2.primary.default.fgAlternate,
+                    color = SatsTheme.colors2.surfaces.primary.default.fgAlternate,
                     textAlign = TextAlign.Center,
                     style = SatsTheme.typography.normal.small,
                 )
@@ -112,7 +112,7 @@ data class SatsEmptyStateAction(val action: () -> Unit, val label: String)
 private fun SatsEmptyStateM3Preview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsEmptyState(
@@ -132,7 +132,7 @@ private fun SatsEmptyStateM3Preview() {
 private fun SatsEmptyStateM2Preview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = false,
         ) {
             SatsEmptyState(
@@ -152,7 +152,7 @@ private fun SatsEmptyStateM2Preview() {
 private fun SatsEmptyStateCardPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsEmptyStateCard(

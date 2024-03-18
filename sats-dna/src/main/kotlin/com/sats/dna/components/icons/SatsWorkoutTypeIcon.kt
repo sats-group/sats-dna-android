@@ -70,7 +70,7 @@ private fun SatsWorkoutTypeIconPreview(
 ) {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsWorkoutTypeIcon(

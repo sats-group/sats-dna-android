@@ -90,10 +90,10 @@ private fun SocialRow(
                 MaterialIcon(
                     SatsTheme.icons.fistBump,
                     contentDescription = null,
-                    tint = SatsTheme.colors2.backgrounds2.secondary.default.fg,
+                    tint = SatsTheme.colors2.backgrounds.secondary.default.fg,
                 )
 
-                MaterialText(numberOfReactionsLabel, color = SatsTheme.colors2.backgrounds2.secondary.default.fg)
+                MaterialText(numberOfReactionsLabel, color = SatsTheme.colors2.backgrounds.secondary.default.fg)
             }
         }
 
@@ -112,7 +112,7 @@ private fun SocialRow(
                     contentDescription = null,
                     tint = SatsTheme.colors2.buttons.action.default.fg,
                 )
-                MaterialText(normalizedNumberOfComments, color = SatsTheme.colors2.backgrounds2.secondary.default.fg)
+                MaterialText(normalizedNumberOfComments, color = SatsTheme.colors2.backgrounds.secondary.default.fg)
             }
 
             SatsLikeButton(isLiked = isLiked, onSaidAwesomeClicked)
@@ -130,7 +130,7 @@ private fun WorkoutInfo(
     Column(modifier) {
         MaterialText(
             timestamp,
-            color = SatsTheme.colors2.backgrounds2.secondary.default.fg,
+            color = SatsTheme.colors2.backgrounds.secondary.default.fg,
             style = SatsTheme.typography.normal.small,
         )
 
@@ -139,7 +139,7 @@ private fun WorkoutInfo(
         if (subtitle != null) {
             MaterialText(
                 subtitle,
-                color = SatsTheme.colors2.backgrounds2.secondary.default.fg,
+                color = SatsTheme.colors2.backgrounds.secondary.default.fg,
                 style = SatsTheme.typography.normal.small,
             )
         }
@@ -152,7 +152,7 @@ private fun WorkoutInfo(
 private fun SatsCompletedWorkoutListItemPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsCompletedWorkoutListItem(
