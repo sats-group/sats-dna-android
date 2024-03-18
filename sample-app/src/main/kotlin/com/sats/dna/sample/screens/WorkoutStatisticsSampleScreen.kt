@@ -11,12 +11,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.card.SatsCard
-import com.sats.dna.statistics.SatsEmptyWorkoutGraph
-import com.sats.dna.statistics.SatsWorkoutGraph
-import com.sats.dna.statistics.GraphWeek
-import com.sats.dna.statistics.SatsWorkoutStatisticsCard
-import com.sats.dna.statistics.SatsWorkoutStatisticsCardItem
-import com.sats.dna.statistics.SatsWorkoutStatisticsCardPlaceholder
+import com.sats.dna.components.statistics.GraphWeek
+import com.sats.dna.components.statistics.SatsEmptyWorkoutGraphCard
+import com.sats.dna.components.statistics.SatsWorkoutGraphCard
+import com.sats.dna.components.statistics.SatsWorkoutGraphCardPlaceholder
+import com.sats.dna.components.statistics.SatsWorkoutStatisticsCard
+import com.sats.dna.components.statistics.SatsWorkoutStatisticsCardItem
+import com.sats.dna.components.statistics.SatsWorkoutStatisticsCardPlaceholder
 import com.sats.dna.theme.SatsTheme
 
 data object WorkoutStatisticsSampleScreen : SampleScreen(
@@ -50,8 +51,7 @@ private fun WorkoutStatisticsScreen(
                 )
                 SatsHorizontalDivider()
             }
-            SatsCard {
-                SatsWorkoutGraph(
+                SatsWorkoutGraphCard(
                     workoutWeeks = listOf(
                         GraphWeek(
                             year = "2023",
@@ -106,12 +106,15 @@ private fun WorkoutStatisticsScreen(
                     ),
                     highestTrainingStreak = 5,
                 )
+            SatsCard {
+                SatsWorkoutGraphCardPlaceholder()
             }
             SatsCard {
-                SatsEmptyWorkoutGraph(
+                SatsEmptyWorkoutGraphCard(
                     description = "When you start working out, you will see your statistics here",
                 )
             }
+
             Column {
                 Text(
                     modifier = Modifier.padding(horizontal = SatsTheme.spacing.m),

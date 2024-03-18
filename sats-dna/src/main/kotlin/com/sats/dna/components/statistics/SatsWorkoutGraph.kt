@@ -32,46 +32,49 @@ import com.sats.dna.components.card.SatsCard
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun SatsWorkoutGraph(
+fun SatsWorkoutGraphCard(
     workoutWeeks: List<GraphWeek>,
     highestTrainingStreak: Int,
+    modifier: Modifier = Modifier,
 ) {
     val lazyListState = rememberLazyListState(initialFirstVisibleItemIndex = workoutWeeks.count() - 1)
     val firstVisibleWeek = remember { derivedStateOf { lazyListState.firstVisibleItemIndex } }
 
-    Box(Modifier.height(IntrinsicSize.Min)) {
-        Column {
-            Text(
-                text = workoutWeeks[firstVisibleWeek.value].year,
-                style = SatsTheme.typography.normal.small,
-                modifier = Modifier.padding(start = SatsTheme.spacing.m, top = SatsTheme.spacing.m),
-            )
-            LazyRow(
-                horizontalArrangement = Arrangement.spacedBy(14.dp),
-                verticalAlignment = Alignment.Bottom,
-                state = lazyListState,
-                contentPadding = PaddingValues(SatsTheme.spacing.m),
-                modifier = Modifier.height((10 * highestTrainingStreak + 190).dp),
-            ) {
-                items(workoutWeeks) { workouts ->
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        TrainingGraphCylinder(
-                            workouts = workouts,
-                            cylinderHeight = 10 * highestTrainingStreak + 110,
-                        )
-
-                        Box(
-                            modifier = Modifier
-                                .padding(top = SatsTheme.spacing.xs)
-                                .size(28.dp)
-                                .clip(SatsTheme.shapes.circle),
-                        ) {
-                            Text(
-                                text = workouts.weekNumber.toString(),
-                                style = SatsTheme.typography.normal.basic,
-                                textAlign = TextAlign.Center,
-                                modifier = Modifier.align(Alignment.Center),
+    SatsCard(modifier) {
+        Box(Modifier.height(IntrinsicSize.Min)) {
+            Column {
+                Text(
+                    text = workoutWeeks[firstVisibleWeek.value].year,
+                    style = SatsTheme.typography.normal.small,
+                    modifier = Modifier.padding(start = SatsTheme.spacing.m, top = SatsTheme.spacing.m),
+                )
+                LazyRow(
+                    horizontalArrangement = Arrangement.spacedBy(14.dp),
+                    verticalAlignment = Alignment.Bottom,
+                    state = lazyListState,
+                    contentPadding = PaddingValues(SatsTheme.spacing.m),
+                    modifier = Modifier.height((10 * highestTrainingStreak + 190).dp),
+                ) {
+                    items(workoutWeeks) { workouts ->
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                            TrainingGraphCylinder(
+                                workouts = workouts,
+                                cylinderHeight = 10 * highestTrainingStreak + 110,
                             )
+
+                            Box(
+                                modifier = Modifier
+                                    .padding(top = SatsTheme.spacing.xs)
+                                    .size(28.dp)
+                                    .clip(SatsTheme.shapes.circle),
+                            ) {
+                                Text(
+                                    text = workouts.weekNumber.toString(),
+                                    style = SatsTheme.typography.normal.basic,
+                                    textAlign = TextAlign.Center,
+                                    modifier = Modifier.align(Alignment.Center),
+                                )
+                            }
                         }
                     }
                 }
@@ -81,7 +84,7 @@ fun SatsWorkoutGraph(
 }
 
 @Composable
-fun SatsWorkoutGraphPlaceholder(modifier: Modifier = Modifier) {
+fun SatsWorkoutGraphCardPlaceholder(modifier: Modifier = Modifier) {
     SatsCard(modifier) {
         Column(
             Modifier.padding(SatsTheme.spacing.m),
@@ -110,11 +113,12 @@ fun SatsWorkoutGraphPlaceholder(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun SatsEmptyWorkoutGraph(
+fun SatsEmptyWorkoutGraphCard(
     description: String,
+    modifier: Modifier = Modifier,
 ) {
     SatsCard(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth(),
     ) {
         Row(
@@ -187,7 +191,7 @@ private fun WorkoutGraphPreview() {
             color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
-            SatsWorkoutGraph(
+            SatsWorkoutGraphCard(
                 workoutWeeks = listOf(
                     GraphWeek(
                         year = "2023",
@@ -249,7 +253,7 @@ private fun WorkoutGraphPlaceholderPreview() {
             color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
-            SatsWorkoutGraphPlaceholder(Modifier.padding(SatsTheme.spacing.m))
+            SatsWorkoutGraphCardPlaceholder(Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }
@@ -263,7 +267,9 @@ private fun EmptyGraphPreview() {
             useMaterial3 = true,
         ) {
             SatsCard {
-                SatsEmptyWorkoutGraph(description = "When you start working out, you will see your statistics here.")
+                SatsEmptyWorkoutGraphCard(
+                    description = "When you start working out, you will see your statistics here.",
+                )
             }
         }
     }
