@@ -5,13 +5,18 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.statistics.SatsEmptyWorkoutGraph
 import com.sats.dna.statistics.SatsWorkoutGraph
 import com.sats.dna.statistics.GraphWeek
+import com.sats.dna.statistics.SatsWorkoutStatisticsCard
+import com.sats.dna.statistics.SatsWorkoutStatisticsCardItem
+import com.sats.dna.statistics.SatsWorkoutStatisticsCardPlaceholder
 import com.sats.dna.theme.SatsTheme
 
 data object WorkoutStatisticsSampleScreen : SampleScreen(
@@ -33,10 +38,18 @@ private fun WorkoutStatisticsScreen(
         Column(
             Modifier
                 .padding(it)
-                .padding(SatsTheme.spacing.m)
-                .verticalScroll(rememberScrollState()),
+                .verticalScroll(rememberScrollState())
+                .padding(SatsTheme.spacing.m),
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
         ) {
+            Column {
+                Text(
+                    modifier = Modifier.padding(horizontal = SatsTheme.spacing.m),
+                    text = "Graph",
+                    style = SatsTheme.typography.medium.small,
+                )
+                SatsHorizontalDivider()
+            }
             SatsCard {
                 SatsWorkoutGraph(
                     workoutWeeks = listOf(
@@ -96,9 +109,28 @@ private fun WorkoutStatisticsScreen(
             }
             SatsCard {
                 SatsEmptyWorkoutGraph(
-                    description = "When you start working out, you will see your statistics here"
+                    description = "When you start working out, you will see your statistics here",
                 )
             }
+            Column {
+                Text(
+                    modifier = Modifier.padding(horizontal = SatsTheme.spacing.m),
+                    text = "Statistics Card",
+                    style = SatsTheme.typography.medium.small,
+                )
+                SatsHorizontalDivider()
+            }
+            SatsWorkoutStatisticsCard(
+                leftItem = SatsWorkoutStatisticsCardItem(
+                    label = "Last 12 months",
+                    count = 40,
+                ),
+                rightItem = SatsWorkoutStatisticsCardItem(
+                    label = "Last 30 days",
+                    count = 50,
+                ),
+            )
+            SatsWorkoutStatisticsCardPlaceholder()
         }
     }
 }

@@ -65,20 +65,18 @@ private fun WorkoutStatisticsSection(
 @Composable
 fun SatsWorkoutStatisticsCardPlaceholder(modifier: Modifier = Modifier) {
     SatsCard(modifier) {
-        SatsCard(Modifier.padding(SatsTheme.spacing.m)) {
-            Row(Modifier.padding(SatsTheme.spacing.m)) {
-                WorkoutStatisticsSectionPlaceholder(
-                    modifier = Modifier.weight(1f),
-                    label = "Last 12 months",
-                    value = "40",
-                )
+        Row(Modifier.padding(SatsTheme.spacing.m)) {
+            WorkoutStatisticsSectionPlaceholder(
+                modifier = Modifier.weight(1f),
+                label = "Last 12 months",
+                value = "40",
+            )
 
-                WorkoutStatisticsSectionPlaceholder(
-                    modifier = Modifier.weight(1f),
-                    label = "Last 30 days",
-                    value = "50",
-                )
-            }
+            WorkoutStatisticsSectionPlaceholder(
+                modifier = Modifier.weight(1f),
+                label = "Last 30 days",
+                value = "50",
+            )
         }
     }
 }
@@ -106,7 +104,6 @@ private fun WorkoutStatisticsSectionPlaceholder(
     }
 }
 
-
 class SatsWorkoutStatisticsCardItem private constructor(
     val label: String,
     val count: String,
@@ -114,7 +111,6 @@ class SatsWorkoutStatisticsCardItem private constructor(
     constructor(label: String, count: Int) : this(label, "$count")
     constructor(label: String, count: Double) : this(label, "$count")
 }
-
 
 @PreviewLightDark
 @Preview("2x font size", fontScale = 2f)
