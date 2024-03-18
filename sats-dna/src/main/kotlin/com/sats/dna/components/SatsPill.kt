@@ -23,7 +23,7 @@ fun SatsPill(
 ) {
     SatsSurface(
         modifier = modifier,
-        color = SatsTheme.colors2.surfaces2.primary.default.bg,
+        color = SatsTheme.colors2.surfaces.primary.default.bg,
         shape = SatsTheme.shapes.circle,
         useMaterial3 = true,
     ) {
@@ -43,7 +43,7 @@ fun SatsPill(
                 ),
                 text = label,
                 style = SatsTheme.typography.normal.small,
-                color = SatsTheme.colors2.surfaces2.primary.default.fgAlternate,
+                color = SatsTheme.colors2.surfaces.primary.default.fgAlternate,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
             )
@@ -56,7 +56,7 @@ fun SatsPill(
 private fun SatsPillPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsPill(

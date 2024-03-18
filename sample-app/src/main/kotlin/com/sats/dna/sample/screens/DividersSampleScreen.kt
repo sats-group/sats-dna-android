@@ -78,7 +78,7 @@ private fun Section(label: String, modifier: Modifier = Modifier, content: @Comp
 @Composable
 private fun DividersScreenPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
             DividersScreen(navigateUp = {})
         }
     }

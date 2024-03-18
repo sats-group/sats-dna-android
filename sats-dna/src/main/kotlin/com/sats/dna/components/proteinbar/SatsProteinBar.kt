@@ -161,7 +161,7 @@ private fun ActionButton(action: SatsProteinBarAction, modifier: Modifier = Modi
 private fun SatsProteinBarPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             val message = "Something went wrong. You should probably try that one more time."
@@ -177,7 +177,7 @@ private fun SatsProteinBarPreview() {
 private fun SatsProteinBarInfoPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             val visuals = SatsProteinBarDefaults.visuals(
@@ -198,7 +198,7 @@ private fun SatsProteinBarInfoPreview() {
 private fun SatsProteinBarSuccessPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             val visuals = SatsProteinBarDefaults.visuals(
@@ -219,7 +219,7 @@ private fun SatsProteinBarSuccessPreview() {
 private fun SatsProteinBarWarningPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             val visuals = SatsProteinBarDefaults.visuals(
@@ -240,7 +240,7 @@ private fun SatsProteinBarWarningPreview() {
 private fun SatsProteinBarErrorPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             val visuals = SatsProteinBarDefaults.visuals(
@@ -262,7 +262,7 @@ private fun SatsProteinBarErrorPreview() {
 private fun SatsProteinBarWithActionPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             val visuals = SatsProteinBarDefaults.visuals(
@@ -283,7 +283,7 @@ private fun SatsProteinBarWithActionPreview() {
 private fun SatsProteinBarWithDismissAndActionPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             val visuals = SatsProteinBarDefaults.visuals(
@@ -304,7 +304,7 @@ private fun SatsProteinBarWithDismissAndActionPreview() {
 private fun SatsProteinBarFontSizesPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             val visuals = SatsProteinBarDefaults.visuals(

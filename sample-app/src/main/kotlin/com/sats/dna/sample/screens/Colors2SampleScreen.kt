@@ -245,7 +245,7 @@ private fun GraphicalElements() {
         }
 
         Section("Progress Bar", SectionLevel.Level2, base = "graphicalElements.progressBar") {
-            val base = SatsTheme.colors2.graphicalElements.progressBar2
+            val base = SatsTheme.colors2.graphicalElements.progressBar
 
             ColorSample(
                 backgroundColor = base.default.bg named "base.default.bg",
@@ -259,7 +259,7 @@ private fun GraphicalElements() {
         }
 
         Section("Fixed Progress Bar", SectionLevel.Level2, base = "graphicalElements.fixedProgressBar") {
-            val base = SatsTheme.colors2.graphicalElements.fixedProgressBar2
+            val base = SatsTheme.colors2.graphicalElements.fixedProgressBar
 
             ColorSample(
                 backgroundColor = base.default.bg named "base.default.bg",
@@ -610,7 +610,7 @@ private fun GraphicalElements() {
 @Composable
 private fun Backgrounds() {
     Section("Backgrounds", SectionLevel.Level1, base = "backgrounds") {
-        val base = SatsTheme.colors2.backgrounds2
+        val base = SatsTheme.colors2.backgrounds
 
         ColorSample(
             backgroundColor = base.primary.default.bg named "base.primary.default.bg",
@@ -657,7 +657,7 @@ private fun Backgrounds() {
 @Composable
 private fun FixedBackgrounds() {
     Section("Fixed Backgrounds", SectionLevel.Level1, base = "backgrounds.fixed") {
-        val base = SatsTheme.colors2.backgrounds2.fixed
+        val base = SatsTheme.colors2.backgrounds.fixed
 
         ColorSample(
             backgroundColor = base.primary.default.bg named "base.primary.default.bg",
@@ -684,7 +684,7 @@ private fun FixedBackgrounds() {
 @Composable
 private fun Surfaces() {
     Section("Surfaces", SectionLevel.Level1, base = "surfaces") {
-        val base = SatsTheme.colors2.surfaces2
+        val base = SatsTheme.colors2.surfaces
 
         ColorSample(
             backgroundColor = base.primary.default.bg named "base.primary.default.bg",
@@ -811,7 +811,7 @@ private fun Surfaces() {
 @Composable
 private fun FixedSurfaces() {
     Section("Fixed Surfaces", SectionLevel.Level1, base = "surfaces.fixed") {
-        val base = SatsTheme.colors2.surfaces2.fixed
+        val base = SatsTheme.colors2.surfaces.fixed
 
         ColorSample(
             backgroundColor = base.primary.default.bg named "base.primary.default.bg",
@@ -838,7 +838,7 @@ private fun FixedSurfaces() {
 @Composable
 private fun SignalSurfaces() {
     Section("Signal Surface", SectionLevel.Level1, base = "signalSurfaces") {
-        val base = SatsTheme.colors2.signalSurfaces2
+        val base = SatsTheme.colors2.signalSurfaces
 
         ColorSample(
             backgroundColor = base.success.default.bg named "base.success.default.bg",
@@ -977,7 +977,7 @@ private fun ColorNameAndHex(backgroundColor: NamedColor, modifier: Modifier = Mo
 
         Text(
             backgroundColor.toHexString(),
-            color = SatsTheme.colors2.surfaces2.primary.default.fgAlternate,
+            color = SatsTheme.colors2.surfaces.primary.default.fgAlternate,
         )
     }
 }
@@ -997,7 +997,7 @@ class NamedColor(val name: String, val color: Color) {
 @Composable
 private fun ColorSamplePreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
             ColorSample(
                 backgroundColor = Color.Green named "Color.Green",
                 contentColor = Color.Red named "Color.Red",

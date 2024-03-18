@@ -88,7 +88,7 @@ private val CardHeaderHeight = 48.dp
 private fun SatsTitledCardWithoutActionPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsTitledCard(
@@ -109,7 +109,7 @@ private fun SatsTitledCardWithoutActionPreview() {
 private fun SatsTitledCardWithChevronActionPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsTitledCard(

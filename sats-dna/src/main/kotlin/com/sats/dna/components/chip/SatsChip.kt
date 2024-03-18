@@ -34,7 +34,7 @@ fun SatsChip(label: String, modifier: Modifier = Modifier) {
 private fun SatsChipPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsChip("Chip Text", Modifier.padding(SatsTheme.spacing.m))
@@ -47,7 +47,7 @@ private fun SatsChipPreview() {
 private fun SatsChipTruncatedPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsChip(

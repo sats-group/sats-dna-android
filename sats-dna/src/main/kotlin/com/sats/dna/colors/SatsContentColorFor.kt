@@ -8,9 +8,9 @@ import com.sats.dna.theme.SatsTheme
 fun satsContentColor2For(backgroundColor: Color): Color {
     val buttons = SatsTheme.colors2.buttons
     val graphicalElements = SatsTheme.colors2.graphicalElements
-    val backgrounds = SatsTheme.colors2.backgrounds2
-    val surfaces = SatsTheme.colors2.surfaces2
-    val signalSurfaces = SatsTheme.colors2.signalSurfaces2
+    val backgrounds = SatsTheme.colors2.backgrounds
+    val surfaces = SatsTheme.colors2.surfaces
+    val signalSurfaces = SatsTheme.colors2.signalSurfaces
 
     return when (backgroundColor) {
         buttons.primary.default.bg -> buttons.primary.default.fg

@@ -97,7 +97,7 @@ private val SatsBadgeHierarchy.fixedContentColor: Color
 private fun SatsBadgePrimaryPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBadge(
@@ -114,7 +114,7 @@ private fun SatsBadgePrimaryPreview() {
 private fun SatsBadgeSecondaryPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBadge(
@@ -131,7 +131,7 @@ private fun SatsBadgeSecondaryPreview() {
 private fun SatsBadgeTertiaryPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBadge(
@@ -147,7 +147,7 @@ private fun SatsBadgeTertiaryPreview() {
 @Composable
 private fun SatsFixedBadgePrimaryPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds2.fixed.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.fixed.primary.default.bg, useMaterial3 = true) {
             SatsFixedBadge("5", Modifier.padding(SatsTheme.spacing.m), hierarchy = SatsBadgeHierarchy.Primary)
         }
     }
@@ -157,7 +157,7 @@ private fun SatsFixedBadgePrimaryPreview() {
 @Composable
 private fun SatsFixedBadgeSecondaryPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds2.fixed.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.fixed.primary.default.bg, useMaterial3 = true) {
             SatsFixedBadge("5", Modifier.padding(SatsTheme.spacing.m), hierarchy = SatsBadgeHierarchy.Secondary)
         }
     }
@@ -167,7 +167,7 @@ private fun SatsFixedBadgeSecondaryPreview() {
 @Composable
 private fun SatsFixedBadgeTertiaryPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds2.fixed.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.fixed.primary.default.bg, useMaterial3 = true) {
             SatsFixedBadge("5", Modifier.padding(SatsTheme.spacing.m), hierarchy = SatsBadgeHierarchy.Tertiary)
         }
     }
@@ -178,7 +178,7 @@ private fun SatsFixedBadgeTertiaryPreview() {
 private fun SatsBadgeFontScalePreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBadge("5", Modifier.padding(SatsTheme.spacing.m))

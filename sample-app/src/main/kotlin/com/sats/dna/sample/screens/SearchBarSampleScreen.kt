@@ -69,7 +69,7 @@ private fun SearchBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = M
 private fun SearchBarSampleScreenPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SearchBarSampleScreen(navigateUp = {})

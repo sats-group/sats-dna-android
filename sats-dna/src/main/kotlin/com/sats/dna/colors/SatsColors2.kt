@@ -5,20 +5,11 @@ import androidx.compose.ui.graphics.Color
 class SatsColors2(
     val buttons: Buttons,
     val graphicalElements: GraphicalElements,
-    val backgrounds2: Backgrounds2,
-    val surfaces2: Surfaces2,
-    val signalSurfaces2: SignalSurfaces2,
+    val backgrounds: Backgrounds2,
+    val surfaces: Surfaces2,
+    val signalSurfaces: SignalSurfaces2,
     val isLightMode: Boolean,
 ) {
-    @Deprecated("Use backgrounds2")
-    val backgrounds = Backgrounds(backgrounds2)
-
-    @Deprecated("Use backgrounds2")
-    val surfaces = Surfaces(surfaces2)
-
-    @Deprecated("Use signalSurfaces2")
-    val signalSurfaces = SignalSurfaces(signalSurfaces2)
-
     class Buttons(
         val primary: Primary,
         val secondary: Secondary,
@@ -86,8 +77,8 @@ class SatsColors2(
         val signalBorder: SignalBorder,
         val skeleton: Color,
         val navBar: NavBar,
-        val progressBar2: ProgressBar2,
-        val fixedProgressBar2: FixedProgressBar2,
+        val progressBar: ProgressBar2,
+        val fixedProgressBar: FixedProgressBar2,
         val graphs: Graphs,
         val selector: Selector,
         val selectorFixed: SelectorFixed,
@@ -102,12 +93,6 @@ class SatsColors2(
         val rewards: Rewards,
         val workouts: Workouts,
     ) {
-        @Deprecated("Replace with progressBar2")
-        val progressBar = ProgressBar(progressBar2)
-
-        @Deprecated("Replace with fixedProgressBar2")
-        val fixedProgressBar = FixedProgressBar(fixedProgressBar2)
-
         class Divider(
             val default: Color,
             val alternate: Color,

@@ -45,7 +45,7 @@ private fun ScaleBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
 private fun ScaleBarScreenPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             ScaleBarScreen(navigateUp = {})

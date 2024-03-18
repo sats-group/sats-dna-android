@@ -231,7 +231,7 @@ private fun SatsTopAppBarIconButton(
 private fun SatsIconButtonPreview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsIconButton(
@@ -250,7 +250,7 @@ private fun SatsIconButtonPreview(@PreviewParameter(SatsButtonColorProvider::cla
 private fun SatsTopAppBarIconButtonPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsTopAppBarIconButton(
@@ -268,7 +268,7 @@ private fun SatsTopAppBarIconButtonPreview() {
 private fun SatsBellIconButtonNoCherryPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBellIconButton(
@@ -286,7 +286,7 @@ private fun SatsBellIconButtonNoCherryPreview() {
 private fun SatsBellIconButtonWithCherryPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBellIconButton(

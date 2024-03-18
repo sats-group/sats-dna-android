@@ -98,8 +98,8 @@ fun SatsFancyTopAppBar(
     val expandPercent = scrollConnection?.expandPercent ?: 1f
 
     val contentColor = lerp(
-        start = SatsTheme.colors2.surfaces2.primary.default.fg,
-        stop = SatsTheme.colors2.backgrounds2.fixed.primary.default.fg,
+        start = SatsTheme.colors2.surfaces.primary.default.fg,
+        stop = SatsTheme.colors2.backgrounds.fixed.primary.default.fg,
         fraction = expandPercent,
     )
 
@@ -451,7 +451,7 @@ private const val AppBarExpandedAspectRatio = 1920f / 1080
 @Composable
 private fun SatsFancyTopAppBarExpandedPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
             val coroutineScope = rememberCoroutineScope()
             val scrollConnection = rememberSatsFancyTopAppBarNestedScrollConnection()
                 .also { coroutineScope.launch { it.expand(animate = false) } }
@@ -492,7 +492,7 @@ private fun SatsFancyTopAppBarExpandedPreview() {
 @Composable
 private fun SatsFancyTopAppBarCollapsedPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
             val coroutineScope = rememberCoroutineScope()
             val scrollConnection = rememberSatsFancyTopAppBarNestedScrollConnection()
                 .also { coroutineScope.launch(start = CoroutineStart.UNDISPATCHED) { it.collapse(animate = false) } }
@@ -533,7 +533,7 @@ private fun SatsFancyTopAppBarCollapsedPreview() {
 @Composable
 private fun SatsFancyTopAppBarTestPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds2.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
             val scrollConnection = rememberSatsFancyTopAppBarNestedScrollConnection()
 
             Column(Modifier.nestedScroll(scrollConnection)) {

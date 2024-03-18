@@ -43,7 +43,7 @@ internal fun materialIconTint(): Color {
 private fun MaterialIconM2Preview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = false,
         ) {
             MaterialIcon(
@@ -60,7 +60,7 @@ private fun MaterialIconM2Preview() {
 private fun MaterialIconM3Preview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds2.primary.default.bg,
+            color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             MaterialIcon(
