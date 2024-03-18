@@ -5,9 +5,9 @@ import androidx.compose.ui.graphics.Color
 class SatsColors2(
     val buttons: Buttons,
     val graphicalElements: GraphicalElements,
-    val backgrounds: Backgrounds2,
-    val surfaces: Surfaces2,
-    val signalSurfaces: SignalSurfaces2,
+    val backgrounds: Backgrounds,
+    val surfaces: Surfaces,
+    val signalSurfaces: SignalSurfaces,
     val isLightMode: Boolean,
 ) {
     class Buttons(
@@ -77,8 +77,8 @@ class SatsColors2(
         val signalBorder: SignalBorder,
         val skeleton: Color,
         val navBar: NavBar,
-        val progressBar: ProgressBar2,
-        val fixedProgressBar: FixedProgressBar2,
+        val progressBar: ProgressBar,
+        val fixedProgressBar: FixedProgressBar,
         val graphs: Graphs,
         val selector: Selector,
         val selectorFixed: SelectorFixed,
@@ -118,12 +118,12 @@ class SatsColors2(
             val notSelected: Color,
         )
 
-        class ProgressBar2(
+        class ProgressBar(
             val default: ColorSet,
             val alternate: ColorSet,
         )
 
-        class FixedProgressBar2(
+        class FixedProgressBar(
             val default: ColorSet,
             val alternate: ColorSet,
         )
@@ -298,7 +298,7 @@ class SatsColors2(
         )
     }
 
-    class Backgrounds2(
+    class Backgrounds(
         val primary: Primary,
         val secondary: Secondary,
         val fixed: Fixed,
@@ -329,7 +329,7 @@ class SatsColors2(
         }
     }
 
-    class Surfaces2(
+    class Surfaces(
         val primary: Primary,
         val secondary: Secondary,
         val fixed: Fixed,
@@ -361,7 +361,7 @@ class SatsColors2(
         }
     }
 
-    class SignalSurfaces2(
+    class SignalSurfaces(
         val success: Success,
         val warning: Warning,
         val error: Error,
