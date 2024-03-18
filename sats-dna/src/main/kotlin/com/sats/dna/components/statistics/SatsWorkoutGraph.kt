@@ -1,4 +1,4 @@
-package com.sats.dna.statistics
+package com.sats.dna.components.statistics
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
