@@ -33,7 +33,7 @@ import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun SatsWorkoutGraphCard(
-    workoutWeeks: List<GraphWeek>,
+    workoutWeeks: List<SatsWorkoutGraphCardWeek>,
     highestTrainingStreak: Int,
     modifier: Modifier = Modifier,
 ) {
@@ -147,7 +147,7 @@ fun SatsEmptyWorkoutGraphCard(
 
 @Composable
 private fun TrainingGraphCylinder(
-    workouts: GraphWeek,
+    workouts: SatsWorkoutGraphCardWeek,
     cylinderHeight: Int,
 ) {
     val backgroundColor = SatsTheme.colors.background.primary
@@ -177,7 +177,7 @@ private fun TrainingGraphCylinder(
     }
 }
 
-data class GraphWeek(
+data class SatsWorkoutGraphCardWeek(
     val year: String,
     val numberOfTrainingEvents: Int,
     val weekNumber: Int,
@@ -193,47 +193,47 @@ private fun WorkoutGraphPreview() {
         ) {
             SatsWorkoutGraphCard(
                 workoutWeeks = listOf(
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 2,
                         weekNumber = 21,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 5,
                         weekNumber = 21,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 4,
                         weekNumber = 22,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 1,
                         weekNumber = 23,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 4,
                         weekNumber = 24,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 5,
                         weekNumber = 25,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 2,
                         weekNumber = 26,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 2,
                         weekNumber = 27,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 3,
                         weekNumber = 28,

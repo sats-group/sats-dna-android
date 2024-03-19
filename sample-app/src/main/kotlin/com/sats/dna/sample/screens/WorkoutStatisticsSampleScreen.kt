@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.card.SatsCard
-import com.sats.dna.components.statistics.GraphWeek
+import com.sats.dna.components.statistics.SatsWorkoutGraphCardWeek
 import com.sats.dna.components.statistics.SatsEmptyWorkoutGraphCard
 import com.sats.dna.components.statistics.SatsWorkoutGraphCard
 import com.sats.dna.components.statistics.SatsWorkoutGraphCardPlaceholder
@@ -53,52 +53,52 @@ private fun WorkoutStatisticsScreen(
             }
             SatsWorkoutGraphCard(
                 workoutWeeks = listOf(
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 2,
                         weekNumber = 19,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 2,
                         weekNumber = 20,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 5,
                         weekNumber = 21,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 4,
                         weekNumber = 22,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 1,
                         weekNumber = 23,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 4,
                         weekNumber = 24,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 5,
                         weekNumber = 25,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 2,
                         weekNumber = 26,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 2,
                         weekNumber = 27,
                     ),
-                    GraphWeek(
+                    SatsWorkoutGraphCardWeek(
                         year = "2023",
                         numberOfTrainingEvents = 3,
                         weekNumber = 28,
