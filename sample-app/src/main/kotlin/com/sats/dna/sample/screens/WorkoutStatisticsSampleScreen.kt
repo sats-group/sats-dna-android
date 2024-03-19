@@ -11,10 +11,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.card.SatsCard
-import com.sats.dna.components.statistics.SatsWorkoutGraphCardWeek
 import com.sats.dna.components.statistics.SatsEmptyWorkoutGraphCard
 import com.sats.dna.components.statistics.SatsWorkoutGraphCard
 import com.sats.dna.components.statistics.SatsWorkoutGraphCardPlaceholder
+import com.sats.dna.components.statistics.SatsWorkoutGraphCardWeek
 import com.sats.dna.components.statistics.SatsWorkoutStatisticsCard
 import com.sats.dna.components.statistics.SatsWorkoutStatisticsCardItem
 import com.sats.dna.components.statistics.SatsWorkoutStatisticsCardPlaceholder

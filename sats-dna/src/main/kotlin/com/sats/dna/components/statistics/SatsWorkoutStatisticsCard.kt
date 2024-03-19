@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewFontScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsPlaceholderText
 import com.sats.dna.components.SatsSurface
@@ -137,7 +138,7 @@ private fun WorkoutStatisticsCardPreview() {
 }
 
 @PreviewLightDark
-@Preview("2x font size", fontScale = 2f)
+@PreviewFontScale
 @Composable
 private fun StatisticsPlaceholderPreview() {
     SatsTheme {
