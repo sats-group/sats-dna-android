@@ -54,6 +54,7 @@ import com.sats.dna.sample.screens.TopAppBarSampleScreen
 import com.sats.dna.sample.screens.TrafficLightsSampleScreen
 import com.sats.dna.sample.screens.TypographySampleScreen
 import com.sats.dna.sample.screens.UpcomingWorkoutListItemSampleScreen
+import com.sats.dna.sample.screens.WorkoutStatisticsSampleScreen
 import com.sats.dna.sample.screens.YourMostBookedSampleScreen
 import com.sats.dna.theme.SatsTheme
 
@@ -114,6 +115,7 @@ internal fun HomeScreen(navController: NavController, modifier: Modifier = Modif
             TopAppBarSampleScreen.HomeListItem(navController)
             TrafficLightsSampleScreen.HomeListItem(navController)
             UpcomingWorkoutListItemSampleScreen.HomeListItem(navController)
+            WorkoutStatisticsSampleScreen.HomeListItem(navController)
             YourMostBookedSampleScreen.HomeListItem(navController)
         }
     }
