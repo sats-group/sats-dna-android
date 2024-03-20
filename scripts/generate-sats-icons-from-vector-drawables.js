@@ -16,7 +16,7 @@ function generateSatsIconsObject(filenames) {
     ].sort().join('\n') + '\n\n';
 
     const propertiesDeclaration = filenames.map(filename => {
-        const propertyName = camelize(filename);
+        const propertyName = fixNameIfNeeded(camelize(filename));
         const resName = filename.replace(".xml", "");
         const indent = '    '
 
@@ -40,6 +40,14 @@ function camelize(str) {
         .replace("ic_", "")
         .replace(".xml", "")
         .replace(/_([a-z]+)/g, (_, match) => match[0].toUpperCase() + match.substring(1));
+}
+
+function fixNameIfNeeded(str) {
+    if (str === "class") {
+        return "classFilled"
+    }
+
+    return str;
 }
 
 readAndroidVectorDrawables()
