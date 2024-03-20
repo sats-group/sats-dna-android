@@ -1,7 +1,7 @@
 const fs = require('fs').promises;
 
 function readAndroidVectorDrawables() {
-    return fs.readdir('./android-vector-drawables')
+    return fs.readdir('gen/android-vector-drawables')
         .then(filenames => filenames.filter(filename => filename.match(/ic_.+\.xml/)));
 }
 
@@ -32,7 +32,7 @@ function generateSatsIconsObject(filenames) {
 }
 
 function saveToFile(kotlinCode) {
-    return fs.writeFile('SatsIcons.kt', kotlinCode)
+    return fs.writeFile('gen/SatsIcons.kt', kotlinCode)
 }
 
 function camelize(str) {

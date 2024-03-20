@@ -61,7 +61,7 @@ function fetchLinksToSvgIcons(components) {
 }
 
 function downloadIcons(componentsWithUrls) {
-    const outputDir = "downloaded-figma-icons";
+    const outputDir = "gen/downloaded-figma-icons";
 
     fs.mkdir(outputDir, () => {
         let count = 0;

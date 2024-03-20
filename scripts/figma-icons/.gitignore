@@ -1,5 +1,3 @@
 .env
-SatsIcons.kt
-android-vector-drawables/
-downloaded-figma-icons/
+gen/
 node_modules/
