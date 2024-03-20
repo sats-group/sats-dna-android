@@ -5,7 +5,7 @@ const path = require('path');
 const generatedResourcesDir = path.resolve('./android-vector-drawables/');
 const generatedSatsIconsKtPath = path.resolve('./SatsIcons.kt');
 
-const dnaPath = path.resolve('../sats-dna/src/main/');
+const dnaPath = path.resolve('../../sats-dna/src/main/');
 const outputResourcesDir = `${dnaPath}/res/drawable/`;
 const outputSatsIconsKtPath = `${dnaPath}/kotlin/com/sats/dna/icons/SatsIcons.kt`;
 
