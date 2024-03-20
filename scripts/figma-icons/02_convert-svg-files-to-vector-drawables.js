@@ -3,7 +3,7 @@ const fs = require('fs').promises;
 const path = require('path');
 
 function getSvgFiles() {
-    let directory = './downloaded-figma-icons/';
+    let directory = 'gen/downloaded-figma-icons/';
 
     return fs.readdir(directory)
         .then(filenames => filenames.map(filename => path.resolve(directory, filename)))
@@ -37,7 +37,7 @@ function convertSvgFilesToVectorDrawables(files) {
 }
 
 function saveVectorDrawables(files) {
-    let outputDirectory = './android-vector-drawables/';
+    let outputDirectory = 'gen/android-vector-drawables/';
 
     return fs.access(outputDirectory, fs.constants.F_OK)
         .catch(err => fs.mkdir(outputDirectory))
@@ -52,6 +52,8 @@ function saveVectorDrawables(files) {
         .then(files => files.map(file => fs.writeFile(file.vdFilePath, file.vdContent)));
 }
 
-getSvgFiles()
-    .then(convertSvgFilesToVectorDrawables)
-    .then(saveVectorDrawables);
+module.exports = () => {
+    return getSvgFiles()
+        .then(convertSvgFilesToVectorDrawables)
+        .then(saveVectorDrawables);
+}

@@ -1,11 +1,10 @@
 const fs = require('fs').promises;
-const renameOverwrite = require('rename-overwrite');
 const path = require('path');
 
-const generatedResourcesDir = path.resolve('./android-vector-drawables/');
-const generatedSatsIconsKtPath = path.resolve('./SatsIcons.kt');
+const generatedResourcesDir = path.resolve('gen/android-vector-drawables/');
+const generatedSatsIconsKtPath = path.resolve('gen/SatsIcons.kt');
 
-const dnaPath = path.resolve('../sats-dna/src/main/');
+const dnaPath = path.resolve('../../sats-dna/src/main/');
 const outputResourcesDir = `${dnaPath}/res/drawable/`;
 const outputSatsIconsKtPath = `${dnaPath}/kotlin/com/sats/dna/icons/SatsIcons.kt`;
 
@@ -26,5 +25,7 @@ function moveSatsIconsKtToDna() {
     return fs.copyFile(generatedSatsIconsKtPath, outputSatsIconsKtPath);
 }
 
-moveResourcesToDna()
-    .then(moveSatsIconsKtToDna);
+module.exports = () => {
+    return moveResourcesToDna()
+        .then(moveSatsIconsKtToDna);
+}

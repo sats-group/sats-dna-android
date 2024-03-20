@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const fs = require("fs");
+const fs = require("fs").promises;
 
 const accessToken = process.env.FIGMA_ACCESS_TOKEN
 
@@ -61,19 +61,19 @@ function fetchLinksToSvgIcons(components) {
 }
 
 function downloadIcons(componentsWithUrls) {
-    const outputDir = "downloaded-figma-icons";
+    const outputDir = "gen/downloaded-figma-icons";
 
-    fs.mkdir(outputDir, () => {
-        let count = 0;
+    return fs.mkdir(outputDir, {recursive: true})
+        .then(() => {
+            return componentsWithUrls.map((component) => {
+                const filename = `${outputDir}/${component.name}.svg`;
 
-        componentsWithUrls.forEach((component) => {
-            const filename = `${outputDir}/${component.name}.svg`;
-
-            fetch(component.url)
-                .then(res => res.text())
-                .then(bytes => fs.writeFileSync(filename, bytes));
-        });
-    });
+                return fetch(component.url)
+                    .then(res => res.text())
+                    .then(text => fs.writeFile(filename, text));
+            });
+        })
+        .then(promises => Promise.all(promises));
 }
 
 function fetchFigma(url) {
@@ -89,8 +89,10 @@ function fetchFigma(url) {
         });
 }
 
-fetchFigmaComponentsResponseFromApi()
-    .then(extractComponentsFromResponse)
-    .then(normalizeComponentNames)
-    .then(fetchLinksToSvgIcons)
-    .then(downloadIcons);
+module.exports = () => {
+    return fetchFigmaComponentsResponseFromApi()
+        .then(extractComponentsFromResponse)
+        .then(normalizeComponentNames)
+        .then(fetchLinksToSvgIcons)
+        .then(downloadIcons);
+}
