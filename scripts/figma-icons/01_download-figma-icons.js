@@ -89,8 +89,10 @@ function fetchFigma(url) {
         });
 }
 
-fetchFigmaComponentsResponseFromApi()
-    .then(extractComponentsFromResponse)
-    .then(normalizeComponentNames)
-    .then(fetchLinksToSvgIcons)
-    .then(downloadIcons);
+module.exports = () => {
+    return fetchFigmaComponentsResponseFromApi()
+        .then(extractComponentsFromResponse)
+        .then(normalizeComponentNames)
+        .then(fetchLinksToSvgIcons)
+        .then(downloadIcons);
+}

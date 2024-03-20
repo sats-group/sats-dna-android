@@ -52,6 +52,8 @@ function saveVectorDrawables(files) {
         .then(files => files.map(file => fs.writeFile(file.vdFilePath, file.vdContent)));
 }
 
-getSvgFiles()
-    .then(convertSvgFilesToVectorDrawables)
-    .then(saveVectorDrawables);
+module.exports = () => {
+    return getSvgFiles()
+        .then(convertSvgFilesToVectorDrawables)
+        .then(saveVectorDrawables);
+}

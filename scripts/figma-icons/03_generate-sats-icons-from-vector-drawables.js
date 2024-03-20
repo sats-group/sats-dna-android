@@ -50,7 +50,9 @@ function fixNameIfNeeded(str) {
     return str;
 }
 
-readAndroidVectorDrawables()
-    .then(generateSatsIconsObject)
-    .then(saveToFile)
-    .then(console.log);
+module.exports = () => {
+    return readAndroidVectorDrawables()
+        .then(generateSatsIconsObject)
+        .then(saveToFile);
+
+}

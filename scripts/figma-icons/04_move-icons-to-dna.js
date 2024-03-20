@@ -25,5 +25,7 @@ function moveSatsIconsKtToDna() {
     return fs.copyFile(generatedSatsIconsKtPath, outputSatsIconsKtPath);
 }
 
-moveResourcesToDna()
-    .then(moveSatsIconsKtToDna);
+module.exports = () => {
+    return moveResourcesToDna()
+        .then(moveSatsIconsKtToDna);
+}
