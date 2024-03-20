@@ -1,5 +1,4 @@
 const fs = require('fs').promises;
-const renameOverwrite = require('rename-overwrite');
 const path = require('path');
 
 const generatedResourcesDir = path.resolve('gen/android-vector-drawables/');
