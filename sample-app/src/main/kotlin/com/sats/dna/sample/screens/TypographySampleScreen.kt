@@ -26,6 +26,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SatsVerticalDivider
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
 
 data object TypographySampleScreen : SampleScreen(
@@ -134,9 +135,9 @@ private fun TextSample(text: String, style: TextStyle) {
             IconToggleButton(checked = isExpanded, onCheckedChange = { isExpanded = it }) {
                 AnimatedContent(isExpanded, label = "expand-icon") {
                     if (it) {
-                        Icon(SatsTheme.icons.arrowUp, contentDescription = null)
+                        Icon(SatsIcons.arrowUp, contentDescription = null)
                     } else {
-                        Icon(SatsTheme.icons.arrowDown, contentDescription = null)
+                        Icon(SatsIcons.arrowDown, contentDescription = null)
                     }
                 }
             }

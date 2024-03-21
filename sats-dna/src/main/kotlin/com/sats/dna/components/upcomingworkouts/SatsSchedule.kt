@@ -17,6 +17,7 @@ import com.sats.dna.components.SatsPlaceholderText
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.button.SatsTwoOptionsInCardCardButton
 import com.sats.dna.components.card.SatsCard
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
@@ -263,10 +264,10 @@ private fun SatsScheduleWithCardButtonPreview() {
                     SatsTwoOptionsInCardCardButton(
                         firstOptionOnClick = {},
                         firstOptionText = "Book",
-                        firstOptionIcon = SatsTheme.icons.time,
+                        firstOptionIcon = SatsIcons.time,
                         secondOptionOnClick = {},
                         secondOptionText = "Schedule",
-                        secondOptionIcon = SatsTheme.icons.calendar,
+                        secondOptionIcon = SatsIcons.calendar,
                     )
                 },
             )

@@ -41,6 +41,7 @@ import com.sats.dna.components.button.SatsNavigationCardButton
 import com.sats.dna.components.button.SatsStandAloneCardButton
 import com.sats.dna.components.button.SatsTwoOptionsInCardCardButton
 import com.sats.dna.components.button.SatsTwoOptionsStandAloneCardButton
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
 
 data object ButtonsSampleScreen : SampleScreen(
@@ -95,7 +96,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         size = controlPanelState.size,
                         isEnabled = controlPanelState.isEnabledToggled,
                         isLoading = controlPanelState.isLoadingToggled,
-                        icon = if (controlPanelState.isIconEnabled) SatsTheme.icons.barbell else null,
+                        icon = if (controlPanelState.isIconEnabled) SatsIcons.barbell else null,
                     )
                 }
             }
@@ -111,7 +112,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                     ).forEach { color ->
                         SatsIconButton(
                             onClick = {},
-                            icon = SatsTheme.icons.barbell,
+                            icon = SatsIcons.barbell,
                             onClickLabel = null,
                             colors = color,
                             isEnabled = controlPanelState.isEnabledToggled,
@@ -129,7 +130,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                     ).forEach { color ->
                         SatsIconButton(
                             onClick = {},
-                            icon = SatsTheme.icons.barbell,
+                            icon = SatsIcons.barbell,
                             onClickLabel = null,
                             colors = color,
                             isEnabled = controlPanelState.isEnabledToggled,
@@ -175,7 +176,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         .padding(horizontal = SatsTheme.spacing.m),
                     onClick = {},
                     text = "Schedule",
-                    icon = SatsTheme.icons.calendar,
+                    icon = SatsIcons.calendar,
                 )
 
                 SatsTwoOptionsStandAloneCardButton(
@@ -184,10 +185,10 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         .padding(horizontal = SatsTheme.spacing.m),
                     firstOptionOnClick = {},
                     firstOptionText = "Add workout",
-                    firstOptionIcon = SatsTheme.icons.add,
+                    firstOptionIcon = SatsIcons.add,
                     secondOptionOnClick = {},
                     secondOptionText = "Schedule",
-                    secondOptionIcon = SatsTheme.icons.calendar,
+                    secondOptionIcon = SatsIcons.calendar,
                 )
 
                 SatsInCardCardButton(
@@ -196,7 +197,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         .padding(horizontal = SatsTheme.spacing.m),
                     onClick = {},
                     text = "Schedule",
-                    icon = SatsTheme.icons.calendar,
+                    icon = SatsIcons.calendar,
                 )
 
                 SatsTwoOptionsInCardCardButton(
@@ -205,10 +206,10 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         .padding(horizontal = SatsTheme.spacing.m),
                     firstOptionOnClick = {},
                     firstOptionText = "Add workout",
-                    firstOptionIcon = SatsTheme.icons.add,
+                    firstOptionIcon = SatsIcons.add,
                     secondOptionOnClick = {},
                     secondOptionText = "Schedule",
-                    secondOptionIcon = SatsTheme.icons.calendar,
+                    secondOptionIcon = SatsIcons.calendar,
                 )
             }
         }
@@ -262,7 +263,7 @@ private fun ControlPanel(state: ControlPanelState) {
                     DropdownMenuItem(
                         leadingIcon = {
                             if (state.size == SatsButtonSize.Small) {
-                                Icon(painter = SatsTheme.icons.check, contentDescription = null)
+                                Icon(imageVector = SatsIcons.check, contentDescription = null)
                             }
                         },
                         text = { Text("Small") },
@@ -275,7 +276,7 @@ private fun ControlPanel(state: ControlPanelState) {
                     DropdownMenuItem(
                         leadingIcon = {
                             if (state.size == SatsButtonSize.Basic) {
-                                Icon(painter = SatsTheme.icons.check, contentDescription = null)
+                                Icon(imageVector = SatsIcons.check, contentDescription = null)
                             }
                         },
                         text = { Text("Basic") },
@@ -288,7 +289,7 @@ private fun ControlPanel(state: ControlPanelState) {
                     DropdownMenuItem(
                         leadingIcon = {
                             if (state.size == SatsButtonSize.Large) {
-                                Icon(painter = SatsTheme.icons.check, contentDescription = null)
+                                Icon(imageVector = SatsIcons.check, contentDescription = null)
                             }
                         },
                         text = { Text("Large") },

@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
@@ -42,7 +42,7 @@ fun SatsBanner(
 class SatsBannerAction(
     val label: String,
     val onClick: () -> Unit,
-    val icon: Painter? = null,
+    val icon: ImageVector? = null,
     val isEnabled: Boolean = true,
     val isLoading: Boolean = false,
 )

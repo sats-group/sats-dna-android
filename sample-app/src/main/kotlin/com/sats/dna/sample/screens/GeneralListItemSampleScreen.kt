@@ -20,6 +20,7 @@ import com.sats.dna.components.SatsGeneralListItemDefaults
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SimpleTrailingContent
 import com.sats.dna.components.card.SatsCard
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
 
 data object GeneralListItemSampleScreen : SampleScreen(
@@ -78,7 +79,7 @@ private fun listItems(): List<@Composable () -> Unit> {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "General List Item",
-                icon = SatsTheme.icons.info,
+                icon = SatsIcons.info,
             )
         },
         {
@@ -87,7 +88,7 @@ private fun listItems(): List<@Composable () -> Unit> {
                 onClick = {},
                 title = "General List Item with subtitle",
                 subtitle = "Subtitle",
-                icon = SatsTheme.icons.info,
+                icon = SatsIcons.info,
             )
         },
         {
@@ -95,7 +96,7 @@ private fun listItems(): List<@Composable () -> Unit> {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "General List Item with trailing content",
-                icon = SatsTheme.icons.info,
+                icon = SatsIcons.info,
                 trailingContent = { SimpleTrailingContent() },
             )
         },
@@ -104,7 +105,7 @@ private fun listItems(): List<@Composable () -> Unit> {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "General List Item with advanced trailing content",
-                icon = SatsTheme.icons.info,
+                icon = SatsIcons.info,
                 trailingContent = { AdvancedTrailingContent() },
             )
         },
@@ -113,7 +114,7 @@ private fun listItems(): List<@Composable () -> Unit> {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "General List Item with non-default colors",
-                icon = SatsTheme.icons.info,
+                icon = SatsIcons.info,
                 colors = SatsGeneralListItemDefaults.generalListItemColors(
                     titleColor = SatsTheme.colors2.buttons.action.default.fg,
                     subtitleColor = SatsTheme.colors2.buttons.action.default.fg,

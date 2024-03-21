@@ -6,11 +6,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import com.sats.dna.components.SatsProfileAvatarImage
 import com.sats.dna.components.sessiondetails.FriendsBookingState
 import com.sats.dna.components.sessiondetails.FriendsBookingStatus
 import com.sats.dna.components.sessiondetails.SatsFriendsBookingStatusListItem
@@ -38,13 +38,7 @@ private fun FriendsBookingStatusScreen(navigateUp: () -> Unit, modifier: Modifie
         ) {
             friendsBookingStates.forEach { bookingState ->
                 SatsFriendsBookingStatusListItem(
-                    image = {
-                        Icon(
-                            painter = SatsTheme.icons.imagePlaceholder,
-                            contentDescription = null,
-                            modifier = Modifier.size(24.dp),
-                        )
-                    },
+                    image = { SatsProfileAvatarImage(imageUrl = null, Modifier.size(24.dp)) },
                     name = "Your best friend",
                     bookingState = bookingState,
                     onClick = { },

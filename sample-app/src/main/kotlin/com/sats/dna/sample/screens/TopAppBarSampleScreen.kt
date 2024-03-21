@@ -19,6 +19,7 @@ import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.components.appbar.SatsLargeTopAppBar
 import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.button.SatsTopAppBarIconButton
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
 
 data object TopAppBarSampleScreen : SampleScreen(
@@ -82,12 +83,12 @@ private fun Section(label: String, content: @Composable () -> Unit) {
 
 @Composable
 private fun UpIconButton() {
-    SatsTopAppBarIconButton(onClick = {}, SatsTheme.icons.back, onClickLabel = null)
+    SatsTopAppBarIconButton(onClick = {}, SatsIcons.back, onClickLabel = null)
 }
 
 @Composable
 private fun Actions() {
-    listOf(SatsTheme.icons.barbell, SatsTheme.icons.addPerson).forEach { icon ->
+    listOf(SatsIcons.barbell, SatsIcons.addPerson).forEach { icon ->
         SatsTopAppBarIconButton(onClick = {}, icon, onClickLabel = null)
     }
 }

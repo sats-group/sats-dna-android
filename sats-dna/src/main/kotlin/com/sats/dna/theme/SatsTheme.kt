@@ -13,7 +13,6 @@ import com.sats.dna.colors.SatsDarkColors
 import com.sats.dna.colors.SatsDarkColors2
 import com.sats.dna.colors.SatsLightColors
 import com.sats.dna.colors.SatsLightColors2
-import com.sats.dna.icons.SatsIcons
 import com.sats.dna.shapes.SatsShapes
 import com.sats.dna.spacing.SatsSpacing
 import com.sats.dna.typography.InterFont
@@ -67,9 +66,6 @@ object SatsTheme {
 
     val shapes: SatsShapes
         @Composable get() = LocalSatsShapes.current
-
-    val icons: SatsIcons
-        @Composable get() = LocalSatsIcons.current
 }
 
 internal val LocalSatsColors = staticCompositionLocalOf { SatsLightColors }
@@ -77,7 +73,6 @@ internal val LocalSatsColors2 = staticCompositionLocalOf { SatsLightColors2 }
 internal val LocalSatsTypography = staticCompositionLocalOf { SatsTypography }
 internal val LocalSatsSpacing = staticCompositionLocalOf { SatsSpacing }
 internal val LocalSatsShapes = staticCompositionLocalOf { SatsShapes }
-internal val LocalSatsIcons = staticCompositionLocalOf { SatsIcons }
 
 private fun SatsColors.toMaterial2() = Colors(
     background = background.primary,
@@ -101,7 +96,7 @@ private fun SatsTypography.toMaterial2() = Material2Typography(
     h3 = normal.headline3,
     body1 = normal.basic,
     body2 = normal.small,
-    button = normal.button,
+    button = normal.buttonBasic,
     caption = normal.small,
     overline = normal.small,
     subtitle1 = normal.large,

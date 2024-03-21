@@ -8,6 +8,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import com.sats.dna.components.SatsSurface
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
 
 /**
@@ -20,12 +21,12 @@ import com.sats.dna.theme.SatsTheme
 @Composable
 fun SatsWorkoutTypeIcon(type: SatsWorkoutTypeIconType, contentDescription: String?, modifier: Modifier = Modifier) {
     val icon = when (type) {
-        SatsWorkoutTypeIconType.GroupExercise -> SatsTheme.icons.workoutGx
-        SatsWorkoutTypeIconType.GymTraining -> SatsTheme.icons.workoutGymFloor
-        SatsWorkoutTypeIconType.OnlineTraining -> SatsTheme.icons.workoutOther
-        SatsWorkoutTypeIconType.OwnTraining -> SatsTheme.icons.workoutOther
-        SatsWorkoutTypeIconType.PtAppointment -> SatsTheme.icons.workoutPt
-        SatsWorkoutTypeIconType.Unknown -> SatsTheme.icons.workoutOther
+        SatsWorkoutTypeIconType.GroupExercise -> SatsIcons.gx
+        SatsWorkoutTypeIconType.GymTraining -> SatsIcons.workoutGymFloor
+        SatsWorkoutTypeIconType.OnlineTraining -> SatsIcons.workoutOther
+        SatsWorkoutTypeIconType.OwnTraining -> SatsIcons.workoutOther
+        SatsWorkoutTypeIconType.PtAppointment -> SatsIcons.pt
+        SatsWorkoutTypeIconType.Unknown -> SatsIcons.workoutOther
     }
 
     val color = when (type) {

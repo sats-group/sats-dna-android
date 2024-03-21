@@ -23,6 +23,7 @@ import com.sats.dna.components.SatsChallengeBackground
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.components.screen.SatsScreen
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
 
 data object ChallengeBackgroundSampleScreen : SampleScreen(
@@ -60,7 +61,13 @@ private fun ChallengeBackgroundScreen(navigateUp: () -> Unit, modifier: Modifier
                         color = SatsTheme.colors2.backgrounds.fixed.primary.default.fg,
                     )
                 },
-                navigationIcon = { SatsTopAppBarIconButton(navigateUp, SatsTheme.icons.back, onClickLabel = null) },
+                navigationIcon = {
+                    SatsTopAppBarIconButton(
+                        navigateUp,
+                        SatsIcons.back,
+                        onClickLabel = null,
+                    )
+                },
             )
         },
         bottomBar = { Box(Modifier.navigationBarsPadding()) },

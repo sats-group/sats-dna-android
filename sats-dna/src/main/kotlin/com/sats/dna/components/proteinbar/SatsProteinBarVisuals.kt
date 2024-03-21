@@ -2,14 +2,15 @@ package com.sats.dna.components.proteinbar
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.ImageVector
 import com.sats.dna.components.screen.ProteinBarDuration
 import com.sats.dna.components.screen.ProteinBarVisuals
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
 
 sealed interface SatsProteinBarLeadingIcon {
     data object None : SatsProteinBarLeadingIcon
-    data class Icon(val painter: Painter) : SatsProteinBarLeadingIcon
+    data class Icon(val painter: ImageVector) : SatsProteinBarLeadingIcon
     data class Emoji(val text: String) : SatsProteinBarLeadingIcon
 }
 
@@ -109,9 +110,9 @@ object SatsProteinBarDefaults {
     @Composable
     private fun SatsProteinBarTheme.leadingIcon(): SatsProteinBarLeadingIcon = when (this) {
         SatsProteinBarTheme.Neutral -> SatsProteinBarLeadingIcon.None
-        SatsProteinBarTheme.Info -> SatsProteinBarLeadingIcon.Icon(SatsTheme.icons.info)
+        SatsProteinBarTheme.Info -> SatsProteinBarLeadingIcon.Icon(SatsIcons.info)
         SatsProteinBarTheme.Success -> SatsProteinBarLeadingIcon.Emoji("🎉")
-        SatsProteinBarTheme.Warning -> SatsProteinBarLeadingIcon.Icon(SatsTheme.icons.warningSign)
-        SatsProteinBarTheme.Error -> SatsProteinBarLeadingIcon.Icon(SatsTheme.icons.error)
+        SatsProteinBarTheme.Warning -> SatsProteinBarLeadingIcon.Icon(SatsIcons.warningSign)
+        SatsProteinBarTheme.Error -> SatsProteinBarLeadingIcon.Icon(SatsIcons.error)
     }
 }

@@ -16,6 +16,7 @@ import com.sats.dna.colors.SatsColorPrimitives
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.components.card.SatsCard
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
@@ -71,7 +72,7 @@ private fun CardHeader(title: String, action: SatsTitledCardAction?, modifier: M
                 is SatsTitledCardAction.Chevron -> {
                     SatsIconButton(
                         onClick = action.action,
-                        icon = SatsTheme.icons.arrowRight,
+                        icon = SatsIcons.arrowRight,
                         onClickLabel = action.contentDescription,
                         colors = SatsButtonColor.Action,
                     )

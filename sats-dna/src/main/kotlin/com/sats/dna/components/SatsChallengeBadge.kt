@@ -9,8 +9,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
@@ -56,7 +57,7 @@ private fun LoadingPlaceholder(modifier: Modifier = Modifier) {
 
 @Composable
 private fun ErrorFallback(contentDescription: String?, modifier: Modifier = Modifier) {
-    Image(painterResource(R.drawable.placeholder_challenges), contentDescription, modifier)
+    Image(ImageVector.vectorResource(R.drawable.placeholder_challenges), contentDescription, modifier)
 }
 
 @PreviewLightDark

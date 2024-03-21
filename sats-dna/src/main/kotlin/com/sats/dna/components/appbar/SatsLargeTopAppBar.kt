@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.button.SatsTopAppBarIconButton
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -74,12 +75,12 @@ private fun SatsLargeTopAppBarPreview() {
                 navigationIcon = {
                     SatsTopAppBarIconButton(
                         onClick = {},
-                        SatsTheme.icons.back,
+                        SatsIcons.back,
                         onClickLabel = null,
                     )
                 },
                 actions = {
-                    listOf(SatsTheme.icons.barbell, SatsTheme.icons.addPerson).forEach { icon ->
+                    listOf(SatsIcons.barbell, SatsIcons.addPerson).forEach { icon ->
                         SatsTopAppBarIconButton(onClick = {}, icon, onClickLabel = null)
                     }
                 },

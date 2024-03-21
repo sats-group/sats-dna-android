@@ -37,6 +37,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.input.nestedscroll.NestedScrollSource
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -45,7 +46,7 @@ import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalInspectionMode
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -57,6 +58,7 @@ import coil.compose.AsyncImage
 import com.sats.dna.R
 import com.sats.dna.components.appbar.SatsTopAppBarDefaults
 import com.sats.dna.components.button.SatsTopAppBarIconButton
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.internal.findActivity
 import com.sats.dna.theme.SatsTheme
 import kotlinx.coroutines.CoroutineStart
@@ -349,7 +351,7 @@ private fun HeaderImage(
         if (LocalInspectionMode.current) {
             Image(
                 modifier = Modifier.fillMaxSize(),
-                painter = painterResource(R.drawable.placeholder_gx),
+                imageVector = ImageVector.vectorResource(R.drawable.placeholder_gx),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
             )
@@ -463,7 +465,7 @@ private fun SatsFancyTopAppBarExpandedPreview() {
                 navigationIcon = {
                     SatsTopAppBarIconButton(
                         onClick = {},
-                        icon = SatsTheme.icons.back,
+                        icon = SatsIcons.back,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )
@@ -471,14 +473,14 @@ private fun SatsFancyTopAppBarExpandedPreview() {
                 actions = {
                     SatsTopAppBarIconButton(
                         onClick = {},
-                        icon = SatsTheme.icons.share,
+                        icon = SatsIcons.share,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )
 
                     SatsTopAppBarIconButton(
                         onClick = {},
-                        icon = SatsTheme.icons.moreVertical,
+                        icon = SatsIcons.moreVertical,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )
@@ -504,7 +506,7 @@ private fun SatsFancyTopAppBarCollapsedPreview() {
                 navigationIcon = {
                     SatsTopAppBarIconButton(
                         onClick = {},
-                        icon = SatsTheme.icons.back,
+                        icon = SatsIcons.back,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )
@@ -512,14 +514,14 @@ private fun SatsFancyTopAppBarCollapsedPreview() {
                 actions = {
                     SatsTopAppBarIconButton(
                         onClick = {},
-                        icon = SatsTheme.icons.share,
+                        icon = SatsIcons.share,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )
 
                     SatsTopAppBarIconButton(
                         onClick = {},
-                        icon = SatsTheme.icons.moreVertical,
+                        icon = SatsIcons.moreVertical,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )
@@ -544,7 +546,7 @@ private fun SatsFancyTopAppBarTestPreview() {
                     navigationIcon = {
                         SatsTopAppBarIconButton(
                             onClick = {},
-                            icon = SatsTheme.icons.back,
+                            icon = SatsIcons.back,
                             onClickLabel = null,
                             tint = LocalContentColor.current,
                         )
@@ -552,14 +554,14 @@ private fun SatsFancyTopAppBarTestPreview() {
                     actions = {
                         SatsTopAppBarIconButton(
                             onClick = {},
-                            icon = SatsTheme.icons.share,
+                            icon = SatsIcons.share,
                             onClickLabel = null,
                             tint = LocalContentColor.current,
                         )
 
                         SatsTopAppBarIconButton(
                             onClick = {},
-                            icon = SatsTheme.icons.moreVertical,
+                            icon = SatsIcons.moreVertical,
                             onClickLabel = null,
                             tint = LocalContentColor.current,
                         )

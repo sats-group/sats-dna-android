@@ -1,11 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:width="229dp"
-    android:height="52dp"
-    android:viewportWidth="229"
-    android:viewportHeight="52"
-    tools:ignore="VectorRaster">
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="#FF000000">
     <path
-        android:fillColor="#000000"
-        android:pathData="M24.41 10.82l-2.55 8.92h15.92l-2.97 11.04H18.68l-2.76 9.97h21.65l-3.19 11.04H0L14.64 0h34.39l-3.19 11.04H24.41v-0.22zm55.61 30.14L76.83 52H43.72L58.37 0.21H71.1L59.64 41.18h20.38v-0.22zM99.54 0h12.74L97.63 51.79H84.9L99.54 0zm44.15 26.53l8.7 25.26h-12.94l-5.31-16.35-13.8 16.35H105.7l23.56-26.96L120.56 0h12.94l5.31 15.92L152.18 0h14.64l-23.13 26.53zM174.46 0h12.74l-14.65 51.79h-12.73L174.46 0zm53.92 0v51.79h-11.25V40.96h-17.2l-5.94 10.83h-13.58L211.18 0h17.2zm-11.25 29.93V9.76l-11.25 20.17h11.25z" />
+        android:fillColor="#FF14233C"
+        android:pathData="M18.49 8.05L19.5 4.5H9.03L4.5 20.22h10.77l1-3.55h-6.7l0.79-2.7h4.77l1.01-3.54h-4.77l0.7-2.38h6.42Z"/>
 </vector>

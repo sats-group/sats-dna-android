@@ -12,6 +12,7 @@ import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.sessiondetails.SatsSessionDetailsInfoLabel
 import com.sats.dna.components.sessiondetails.SatsSessionDetailsInfoSection
 import com.sats.dna.components.sessiondetails.SessionDetailsInfoSectionPlaceholder
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
 
 data object SessionDetailsInfoLabelSampleScreen : SampleScreen(
@@ -33,32 +34,32 @@ private fun SessionDetailsInfoLabelScreen(navigateUp: () -> Unit, modifier: Modi
             SatsSessionDetailsInfoSection(
                 durationLabel = {
                     SatsSessionDetailsInfoLabel(
-                        icon = SatsTheme.icons.time,
+                        icon = SatsIcons.time,
                         text = "60 min",
                     )
                 },
                 dateLabel = {
                     SatsSessionDetailsInfoLabel(
-                        icon = SatsTheme.icons.calendar,
+                        icon = SatsIcons.calendar,
                         text = "Sat, Dec 2 2:30 PM",
                     )
                 },
                 locationLabel = {
                     SatsSessionDetailsInfoLabel(
-                        icon = SatsTheme.icons.location,
+                        icon = SatsIcons.location,
                         text = "SATS Bergen LHG",
                         onClick = {},
                     )
                 },
                 workoutTypeLabel = {
                     SatsSessionDetailsInfoLabel(
-                        icon = SatsTheme.icons.workoutGx,
+                        icon = SatsIcons.gx,
                         text = "Strength Training",
                     )
                 },
                 gxNameLabel = {
                     SatsSessionDetailsInfoLabel(
-                        icon = SatsTheme.icons.workoutPt,
+                        icon = SatsIcons.pt,
                         text = "Pure Strength",
                     )
                 },

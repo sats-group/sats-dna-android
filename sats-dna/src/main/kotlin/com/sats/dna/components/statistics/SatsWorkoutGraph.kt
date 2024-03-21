@@ -29,6 +29,7 @@ import com.sats.dna.components.SatsPlaceholderBox
 import com.sats.dna.components.SatsPlaceholderText
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.card.SatsCard
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -130,7 +131,7 @@ fun SatsEmptyWorkoutGraphCard(
         ) {
             Icon(
                 tint = SatsTheme.colors.onSurface.secondary,
-                painter = SatsTheme.icons.graph,
+                imageVector = SatsIcons.barChart,
                 contentDescription = null,
             )
 
