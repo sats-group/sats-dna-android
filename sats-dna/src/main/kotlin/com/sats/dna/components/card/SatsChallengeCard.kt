@@ -122,7 +122,12 @@ private fun ChallengeCardLayout(
     bottomContent: @Composable (() -> Unit?)? = null,
 ) {
     CompositionLocalProvider(LocalUseMaterial3 provides true) {
-        SatsChallengeBackground(isEnabled = isEnabled, modifier = modifier.height(IntrinsicSize.Min)) {
+        SatsChallengeBackground(
+            isEnabled = isEnabled,
+            modifier = modifier
+                .height(IntrinsicSize.Min)
+                .clip(SatsTheme.shapes.roundedCorners.small),
+        ) {
             Column(
                 Modifier
                     .fillMaxSize()
@@ -171,6 +176,7 @@ private fun ChallengeCardLayout(
                     )
                     subtitle?.let {
                         Text(
+                            modifier = Modifier.padding(horizontal = SatsTheme.spacing.xxs),
                             text = subtitle,
                             style = SatsTheme.typography.normal.small,
                             textAlign = TextAlign.Center,
