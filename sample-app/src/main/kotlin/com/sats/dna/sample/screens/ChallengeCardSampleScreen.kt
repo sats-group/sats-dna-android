@@ -13,8 +13,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.sats.dna.components.card.ChallengeCard
-import com.sats.dna.components.card.ChallengeCardState
+import com.sats.dna.components.card.SatsChallengeCard
+import com.sats.dna.components.card.SatsChallengeCardState
 import com.sats.dna.theme.SatsTheme
 
 data object ChallengeCardSampleScreen : SampleScreen(
@@ -35,8 +35,8 @@ private fun ChallengeCardScreen(navigateUp: () -> Unit, modifier: Modifier = Mod
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            ChallengeCard(
-                ChallengeCardState.Available(
+            SatsChallengeCard(
+                SatsChallengeCardState.Available(
                     imageUrl = null,
                     title = "STREAK WEEK",
                     subtitle = "Workout for 7 consecutive days",
@@ -50,8 +50,8 @@ private fun ChallengeCardScreen(navigateUp: () -> Unit, modifier: Modifier = Mod
                     .width(176.dp),
             )
 
-            ChallengeCard(
-                ChallengeCardState.Joined(
+            SatsChallengeCard(
+                SatsChallengeCardState.Joined(
                     imageUrl = null,
                     title = "STREAK WEEK",
                     tagText = "23 days left!",
@@ -64,8 +64,8 @@ private fun ChallengeCardScreen(navigateUp: () -> Unit, modifier: Modifier = Mod
                     .width(176.dp),
             )
 
-            ChallengeCard(
-                ChallengeCardState.Disabled(
+            SatsChallengeCard(
+                SatsChallengeCardState.Disabled(
                     imageUrl = null,
                     title = "STREAK WEEK",
                     statusText = "Not completed",

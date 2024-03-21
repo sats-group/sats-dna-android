@@ -35,9 +35,9 @@ import com.sats.dna.components.progressbar.SatsLinearProgressBar
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun ChallengeCard(state: ChallengeCardState, modifier: Modifier = Modifier) {
+fun SatsChallengeCard(state: SatsChallengeCardState, modifier: Modifier = Modifier) {
     when (state) {
-        is ChallengeCardState.Available -> {
+        is SatsChallengeCardState.Available -> {
             AvailableChallengeCard(
                 imageUrl = state.imageUrl,
                 title = state.title,
@@ -50,7 +50,7 @@ fun ChallengeCard(state: ChallengeCardState, modifier: Modifier = Modifier) {
             )
         }
 
-        is ChallengeCardState.Joined -> {
+        is SatsChallengeCardState.Joined -> {
             JoinedChallengeCard(
                 imageUrl = state.imageUrl,
                 title = state.title,
@@ -62,7 +62,7 @@ fun ChallengeCard(state: ChallengeCardState, modifier: Modifier = Modifier) {
             )
         }
 
-        is ChallengeCardState.Disabled -> {
+        is SatsChallengeCardState.Disabled -> {
             DisabledChallengeCard(
                 imageUrl = state.imageUrl,
                 title = state.title,
@@ -76,7 +76,7 @@ fun ChallengeCard(state: ChallengeCardState, modifier: Modifier = Modifier) {
     }
 }
 
-sealed interface ChallengeCardState {
+sealed interface SatsChallengeCardState {
     class Available(
         val imageUrl: String?,
         val title: String,
@@ -86,7 +86,7 @@ sealed interface ChallengeCardState {
         val onCardClick: () -> Unit,
         val onJoinClick: () -> Unit,
         val modifier: Modifier = Modifier,
-    ) : ChallengeCardState
+    ) : SatsChallengeCardState
 
     class Joined(
         val imageUrl: String?,
@@ -96,7 +96,7 @@ sealed interface ChallengeCardState {
         val statusText: String,
         val onCardClick: () -> Unit,
         val modifier: Modifier = Modifier,
-    ) : ChallengeCardState
+    ) : SatsChallengeCardState
 
     class Disabled(
         val imageUrl: String?,
@@ -106,7 +106,7 @@ sealed interface ChallengeCardState {
         val onCardClick: () -> Unit,
         val onDismissClicked: () -> Unit,
         val modifier: Modifier = Modifier,
-    ) : ChallengeCardState
+    ) : SatsChallengeCardState
 }
 
 @Composable
@@ -320,8 +320,8 @@ private fun ChallengeCardProgress(progress: Float, progressText: String, modifie
 @Composable
 private fun JoinChallengeCardPreview() {
     SatsTheme {
-        ChallengeCard(
-            ChallengeCardState.Available(
+        SatsChallengeCard(
+            SatsChallengeCardState.Available(
                 imageUrl = null,
                 title = "STREAK WEEK",
                 subtitle = "Workout for 7 consecutive days",
@@ -341,8 +341,8 @@ private fun JoinChallengeCardPreview() {
 @Composable
 private fun JoinedChallengeCardPreview() {
     SatsTheme {
-        ChallengeCard(
-            ChallengeCardState.Joined(
+        SatsChallengeCard(
+            SatsChallengeCardState.Joined(
                 imageUrl = null,
                 title = "STREAK WEEK STREAK WEEK STREAK WEEK",
                 tagText = "23 days left!",
@@ -361,8 +361,8 @@ private fun JoinedChallengeCardPreview() {
 @Composable
 private fun DisabledChallengeCardPreview() {
     SatsTheme {
-        ChallengeCard(
-            ChallengeCardState.Disabled(
+        SatsChallengeCard(
+            SatsChallengeCardState.Disabled(
                 imageUrl = null,
                 title = "STREAK WEEK",
                 statusText = "Not completed",
