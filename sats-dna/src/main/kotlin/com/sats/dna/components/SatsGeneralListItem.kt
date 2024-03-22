@@ -12,9 +12,10 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.internal.materialIconTint
@@ -29,7 +30,7 @@ fun SatsGeneralListItem(
     modifier: Modifier = Modifier,
     title: String,
     subtitle: String? = null,
-    icon: Painter? = null,
+    icon: ImageVector? = null,
     trailingContent: @Composable (() -> Unit)? = null,
     colors: SatsGeneralListItemColors = SatsGeneralListItemDefaults.generalListItemColors(),
     isEnabled: Boolean = true,
@@ -67,7 +68,7 @@ fun SatsGeneralListItem(
 object TrailingContent {
     @Composable
     fun Icon(
-        icon: Painter,
+        icon: ImageVector,
         tint: Color = materialIconTint(),
     ) {
         MaterialIcon(icon, null, tint = tint, modifier = Modifier.size(18.dp))
@@ -76,7 +77,7 @@ object TrailingContent {
     @Composable
     fun TextAndIcon(
         text: String,
-        icon: Painter,
+        icon: ImageVector,
         tint: Color = materialIconTint(),
     ) {
         Row(
@@ -129,7 +130,7 @@ private fun GeneralListItemPreview() {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsTheme.icons.questionMark,
+                icon = SatsIcons.question,
             )
         }
     }
@@ -145,7 +146,7 @@ private fun GeneralListItemWithSubtitlePreview() {
                 onClick = {},
                 title = "Title",
                 subtitle = "Subtitle",
-                icon = SatsTheme.icons.questionMark,
+                icon = SatsIcons.question,
             )
         }
     }
@@ -160,7 +161,7 @@ private fun WithTrailingContentPreview() {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsTheme.icons.questionMark,
+                icon = SatsIcons.question,
                 trailingContent = { SimpleTrailingContent() },
             )
         }
@@ -176,7 +177,7 @@ private fun WithAdvancedTrailingContentPreview() {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsTheme.icons.questionMark,
+                icon = SatsIcons.question,
                 trailingContent = { AdvancedTrailingContent() },
             )
         }
@@ -192,7 +193,7 @@ private fun WithNonDefaultColorsPreview() {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsTheme.icons.info,
+                icon = SatsIcons.info,
                 colors = SatsGeneralListItemDefaults.generalListItemColors(
                     iconColor = SatsTheme.colors2.graphicalElements.icons.attention,
                 ),
@@ -239,10 +240,10 @@ private fun SatsGeneralListItemLoadingPreview() {
 
 @Composable
 fun SimpleTrailingContent() {
-    TrailingContent.Icon(SatsTheme.icons.arrowRight)
+    TrailingContent.Icon(SatsIcons.arrowRight)
 }
 
 @Composable
 fun AdvancedTrailingContent() {
-    TrailingContent.TextAndIcon(text = "Label", icon = SatsTheme.icons.arrowRight)
+    TrailingContent.TextAndIcon(text = "Label", icon = SatsIcons.arrowRight)
 }

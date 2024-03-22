@@ -22,6 +22,7 @@ import com.sats.dna.components.SatsTitledCard
 import com.sats.dna.components.SatsTitledCardAction
 import com.sats.dna.components.button.SatsTwoOptionsInCardCardButton
 import com.sats.dna.components.card.SatsCard
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
 
 data object CardSampleScreen : SampleScreen(
@@ -96,10 +97,10 @@ private fun SatsCardScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                             .wrapContentHeight(Alignment.Bottom),
                         firstOptionOnClick = { },
                         firstOptionText = "Add workout",
-                        firstOptionIcon = SatsTheme.icons.add,
+                        firstOptionIcon = SatsIcons.add,
                         secondOptionOnClick = { },
                         secondOptionText = "Schedule",
-                        secondOptionIcon = SatsTheme.icons.calendar,
+                        secondOptionIcon = SatsIcons.calendar,
                     )
                 }
             }

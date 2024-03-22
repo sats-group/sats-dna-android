@@ -9,20 +9,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.card.SatsCard
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun SatsEmptyStateCard(
-    icon: Painter,
+    icon: ImageVector,
     title: String,
     body: String?,
     action: SatsEmptyStateAction?,
@@ -59,7 +60,7 @@ fun SatsEmptyStateCard(
  */
 @Composable
 fun SatsEmptyState(
-    icon: Painter,
+    icon: ImageVector,
     title: String,
     body: String?,
     action: SatsEmptyStateAction?,
@@ -71,7 +72,7 @@ fun SatsEmptyState(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         MaterialIcon(
-            painter = icon,
+            imageVector = icon,
             contentDescription = null,
             modifier = Modifier.size(36.dp),
             tint = SatsTheme.colors2.surfaces.primary.default.fgAlternate,
@@ -116,7 +117,7 @@ private fun SatsEmptyStateM3Preview() {
             useMaterial3 = true,
         ) {
             SatsEmptyState(
-                icon = SatsTheme.icons.barbell,
+                icon = SatsIcons.barbell,
                 title = "You don't have friends",
                 body = "If you make friends, you can follow in their working out and stuff. " +
                     "And they can follow whatever you're doing, as well!",
@@ -136,7 +137,7 @@ private fun SatsEmptyStateM2Preview() {
             useMaterial3 = false,
         ) {
             SatsEmptyState(
-                icon = SatsTheme.icons.barbell,
+                icon = SatsIcons.barbell,
                 title = "You don't have friends",
                 body = "If you make friends, you can follow in their working out and stuff. " +
                     "And they can follow whatever you're doing, as well!",
@@ -156,7 +157,7 @@ private fun SatsEmptyStateCardPreview() {
             useMaterial3 = true,
         ) {
             SatsEmptyStateCard(
-                icon = SatsTheme.icons.barbell,
+                icon = SatsIcons.barbell,
                 title = "You don't have friends",
                 body = "If you make friends, you can follow in their working out and stuff. " +
                     "And they can follow whatever you're doing, as well!",

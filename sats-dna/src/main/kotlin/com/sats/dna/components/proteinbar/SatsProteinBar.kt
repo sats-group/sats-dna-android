@@ -20,6 +20,7 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsIconButton
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -90,7 +91,7 @@ fun SatsProteinBar(
                 if (visuals.dismissAction != null) {
                     SatsIconButton(
                         onClick = visuals.dismissAction.action,
-                        icon = SatsTheme.icons.close,
+                        icon = SatsIcons.close,
                         onClickLabel = visuals.dismissAction.label,
                         modifier = Modifier.align(Alignment.Top),
                         colors = SatsButtonColor.Action,

@@ -4,7 +4,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.R
 import com.sats.dna.internal.MaterialIcon
@@ -19,10 +20,10 @@ fun SatsBrandLogo(
     isFullName: Boolean = false,
     tint: Color = materialIconTint(),
 ) {
-    val painter = if (isFullName) brand.fullNameIconPainter() else brand.letterIconPainter()
+    val imageVector = if (isFullName) brand.fullNameIconPainter() else brand.letterIconPainter()
 
     MaterialIcon(
-        painter = painter,
+        imageVector = imageVector,
         contentDescription = contentDescription,
         modifier = modifier,
         tint = tint,
@@ -36,14 +37,14 @@ enum class SatsBrandLogoBrand {
 
 @Composable
 private fun SatsBrandLogoBrand.letterIconPainter() = when (this) {
-    SatsBrandLogoBrand.Sats -> painterResource(R.drawable.ic_letter_s)
-    SatsBrandLogoBrand.Elixia -> painterResource(R.drawable.ic_letter_e)
+    SatsBrandLogoBrand.Sats -> ImageVector.vectorResource(R.drawable.ic_sats)
+    SatsBrandLogoBrand.Elixia -> ImageVector.vectorResource(R.drawable.ic_elixia)
 }
 
 @Composable
 private fun SatsBrandLogoBrand.fullNameIconPainter() = when (this) {
-    SatsBrandLogoBrand.Sats -> painterResource(R.drawable.ic_sats)
-    SatsBrandLogoBrand.Elixia -> painterResource(R.drawable.ic_elixia)
+    SatsBrandLogoBrand.Sats -> ImageVector.vectorResource(R.drawable.brand_logo_full_sats)
+    SatsBrandLogoBrand.Elixia -> ImageVector.vectorResource(R.drawable.brand_logo_full_elixia)
 }
 
 @PreviewLightDark

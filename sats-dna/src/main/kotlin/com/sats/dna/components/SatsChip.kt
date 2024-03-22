@@ -18,6 +18,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -137,7 +138,7 @@ fun SatsInputChipClearButton(
         shape = SatsTheme.shapes.circle,
     ) {
         MaterialIcon(
-            painter = SatsTheme.icons.close,
+            imageVector = SatsIcons.close,
             contentDescription = null,
             modifier = Modifier.clickable(onClickLabel = onClickLabel, role = Role.Button) { onClick() },
             tint = SatsTheme.colors2.graphicalElements.chips.selected.default.bg,

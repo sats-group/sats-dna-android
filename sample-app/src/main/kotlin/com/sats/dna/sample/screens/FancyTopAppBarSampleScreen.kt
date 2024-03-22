@@ -23,6 +23,7 @@ import com.sats.dna.components.SatsTagColor
 import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.components.rememberSatsFancyTopAppBarNestedScrollConnection
 import com.sats.dna.components.screen.SatsScreen
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
 import kotlinx.coroutines.launch
 
@@ -70,7 +71,7 @@ fun FancyTopAppBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) 
                 navigationIcon = {
                     SatsTopAppBarIconButton(
                         onClick = navigateUp,
-                        icon = SatsTheme.icons.back,
+                        icon = SatsIcons.back,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )
@@ -78,14 +79,14 @@ fun FancyTopAppBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) 
                 actions = {
                     SatsTopAppBarIconButton(
                         onClick = { coroutineScope.launch { scrollConnection.collapse() } },
-                        icon = SatsTheme.icons.arrowUp,
+                        icon = SatsIcons.arrowUp,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )
 
                     SatsTopAppBarIconButton(
                         onClick = { coroutineScope.launch { scrollConnection.expand() } },
-                        icon = SatsTheme.icons.arrowDown,
+                        icon = SatsIcons.arrowDown,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )

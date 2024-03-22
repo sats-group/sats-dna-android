@@ -20,7 +20,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.role
@@ -41,7 +41,7 @@ fun SatsButton(
     size: SatsButtonSize = SatsButtonSize.Basic,
     isEnabled: Boolean = true,
     isLoading: Boolean = false,
-    icon: Painter? = null,
+    icon: ImageVector? = null,
 ) {
     val isActuallyEnabled = isEnabled && !isLoading
 
@@ -90,7 +90,7 @@ fun SatsButton(
 
                     is SatsButtonIconContent.Icon -> {
                         Icon(
-                            painter = actualContent.painter,
+                            imageVector = actualContent.painter,
                             contentDescription = null,
                             tint = color,
                             modifier = Modifier

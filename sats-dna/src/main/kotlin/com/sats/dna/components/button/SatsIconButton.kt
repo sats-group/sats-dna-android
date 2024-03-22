@@ -14,20 +14,21 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.semantics.onClick
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun SatsIconButton(
     onClick: () -> Unit,
-    icon: Painter,
+    icon: ImageVector,
     onClickLabel: String?,
     modifier: Modifier = Modifier,
     colors: SatsButtonColor = SatsButtonColor.Primary,
@@ -72,7 +73,7 @@ fun SatsIconButton(
                 is SatsButtonIconContent.Empty -> Unit
 
                 is SatsButtonIconContent.Icon -> MaterialIcon(
-                    painter = icon,
+                    imageVector = icon,
                     contentDescription = null,
                     modifier = Modifier.size(iconContentSize),
                     tint = contentColor,
@@ -91,7 +92,7 @@ fun SatsIconButton(
 @Composable
 fun SatsTopAppBarIconButton(
     onClick: () -> Unit,
-    icon: Painter,
+    icon: ImageVector,
     onClickLabel: String?,
     modifier: Modifier = Modifier,
     isEnabled: Boolean = true,
@@ -104,7 +105,7 @@ fun SatsTopAppBarIconButton(
         isEnabled = isEnabled,
     ) {
         MaterialIcon(
-            painter = icon,
+            imageVector = icon,
             contentDescription = null,
             modifier = Modifier.size(22.dp),
             tint = tint,
@@ -132,21 +133,21 @@ fun SatsBellIconButton(
 
         if (showCherry) {
             MaterialIcon(
-                painter = SatsTheme.icons.bellCherry,
+                imageVector = SatsIcons.bellCherry,
                 contentDescription = null,
                 modifier = Modifier.size(iconContentSize),
                 tint = contentColor,
             )
 
             MaterialIcon(
-                painter = SatsTheme.icons.cherry,
+                imageVector = SatsIcons.cherry,
                 contentDescription = null,
                 modifier = Modifier.size(iconContentSize),
                 tint = SatsTheme.colors2.buttons.action.default.fg,
             )
         } else {
             MaterialIcon(
-                painter = SatsTheme.icons.notifications,
+                imageVector = SatsIcons.notifications,
                 contentDescription = null,
                 modifier = Modifier.size(iconContentSize),
                 tint = contentColor,
@@ -236,7 +237,7 @@ private fun SatsIconButtonPreview(@PreviewParameter(SatsButtonColorProvider::cla
         ) {
             SatsIconButton(
                 onClick = {},
-                icon = SatsTheme.icons.barbell,
+                icon = SatsIcons.barbell,
                 onClickLabel = null,
                 modifier = Modifier.padding(SatsTheme.spacing.s),
                 colors = color,
@@ -255,7 +256,7 @@ private fun SatsTopAppBarIconButtonPreview() {
         ) {
             SatsTopAppBarIconButton(
                 onClick = {},
-                icon = SatsTheme.icons.back,
+                icon = SatsIcons.back,
                 onClickLabel = null,
                 modifier = Modifier.padding(SatsTheme.spacing.s),
             )

@@ -8,8 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ColorMatrix
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.sats.dna.GreyScaleModifier
 import com.sats.dna.R
@@ -28,7 +29,7 @@ fun SatsChallengeBackground(modifier: Modifier = Modifier, isEnabled: Boolean = 
     ) {
         Box {
             Image(
-                painter = painterResource(R.drawable.challenge_background_top),
+                imageVector = ImageVector.vectorResource(R.drawable.challenge_background_top),
                 contentDescription = null,
                 modifier = Modifier.fillMaxWidth(),
                 contentScale = ContentScale.FillBounds,

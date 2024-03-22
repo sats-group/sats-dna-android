@@ -27,6 +27,7 @@ import com.sats.dna.components.TrailingContent.Icon
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.components.button.SatsTopAppBarIconButton
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -59,13 +60,13 @@ fun SatsSearchBar(
                     if (onUpClicked != null) {
                         SatsTopAppBarIconButton(
                             onClick = { onUpClicked() },
-                            icon = SatsTheme.icons.back,
+                            icon = SatsIcons.back,
                             onClickLabel = null,
                         )
                     } else {
                         Box(modifier = Modifier.size(40.dp), contentAlignment = Alignment.Center) {
                             Icon(
-                                icon = SatsTheme.icons.search,
+                                icon = SatsIcons.search,
                                 tint = SatsTheme.colors2.surfaces.primary.default.fg,
                             )
                         }
@@ -76,7 +77,7 @@ fun SatsSearchBar(
                         if (query.isNotBlank()) {
                             SatsIconButton(
                                 onClick = { onClearClicked() },
-                                icon = SatsTheme.icons.close,
+                                icon = SatsIcons.close,
                                 onClickLabel = null,
                                 colors = SatsButtonColor.Action,
                             )

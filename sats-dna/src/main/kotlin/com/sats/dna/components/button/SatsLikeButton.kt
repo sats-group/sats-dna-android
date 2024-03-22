@@ -8,7 +8,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.icons.fistBump
+import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.fistbump
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
 
@@ -21,7 +22,7 @@ fun SatsLikeButton(
 ) {
     IconToggleButton(isLiked, onLikedChange, modifier, isEnabled) {
         MaterialIcon(
-            SatsTheme.icons.fistBump(isLiked),
+            SatsIcons.fistbump(isLiked),
             tint = SatsTheme.colors2.buttons.action.default.fg,
             contentDescription = null,
         )

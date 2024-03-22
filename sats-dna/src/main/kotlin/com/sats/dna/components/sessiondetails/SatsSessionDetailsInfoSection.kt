@@ -12,12 +12,13 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsPlaceholderBox
 import com.sats.dna.components.SatsPlaceholderText
 import com.sats.dna.components.SatsSurface
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -80,7 +81,7 @@ fun SatsSessionDetailsInfoSection(
  * **/
 @Composable
 fun SatsSessionDetailsInfoLabel(
-    icon: Painter,
+    icon: ImageVector,
     text: String,
     modifier: Modifier = Modifier,
     onClick: (() -> Unit)? = null,
@@ -173,32 +174,32 @@ private fun SatsSessionDetailsInfoSectionPreview() {
             SatsSessionDetailsInfoSection(
                 durationLabel = {
                     SatsSessionDetailsInfoLabel(
-                        icon = SatsTheme.icons.time,
+                        icon = SatsIcons.time,
                         text = "60 min",
                     )
                 },
                 dateLabel = {
                     SatsSessionDetailsInfoLabel(
-                        icon = SatsTheme.icons.calendar,
+                        icon = SatsIcons.calendar,
                         text = "Sat, Dec 2 2:30 PM",
                     )
                 },
                 locationLabel = {
                     SatsSessionDetailsInfoLabel(
-                        icon = SatsTheme.icons.location,
+                        icon = SatsIcons.location,
                         text = "SATS Bergen LHG",
                         onClick = {},
                     )
                 },
                 workoutTypeLabel = {
                     SatsSessionDetailsInfoLabel(
-                        icon = SatsTheme.icons.workoutGx,
+                        icon = SatsIcons.gx,
                         text = "Strength Training",
                     )
                 },
                 gxNameLabel = {
                     SatsSessionDetailsInfoLabel(
-                        icon = SatsTheme.icons.workoutPt,
+                        icon = SatsIcons.pt,
                         text = "Pure Strength",
                     )
                 },

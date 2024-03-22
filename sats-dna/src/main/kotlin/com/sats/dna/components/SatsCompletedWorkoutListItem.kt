@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.components.button.SatsLikeButton
 import com.sats.dna.components.icons.SatsWorkoutTypeIcon
 import com.sats.dna.components.icons.SatsWorkoutTypeIconType
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -58,7 +59,7 @@ fun SatsCompletedWorkoutListItem(
         Column(Modifier.weight(1f), spacedBy(SatsTheme.spacing.m)) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                 WorkoutInfo(timestamp, title, location)
-                MaterialIcon(SatsTheme.icons.arrowRight, contentDescription = null)
+                MaterialIcon(SatsIcons.arrowRight, contentDescription = null)
             }
 
             SocialRow(
@@ -88,7 +89,7 @@ private fun SocialRow(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 MaterialIcon(
-                    SatsTheme.icons.fistBump,
+                    SatsIcons.fistbump,
                     contentDescription = null,
                     tint = SatsTheme.colors2.backgrounds.secondary.default.fg,
                 )
@@ -108,7 +109,7 @@ private fun SocialRow(
         Row(verticalAlignment = Alignment.CenterVertically) {
             Row(Modifier, spacedBy(SatsTheme.spacing.xs), Alignment.CenterVertically) {
                 MaterialIcon(
-                    SatsTheme.icons.comment,
+                    SatsIcons.comment,
                     contentDescription = null,
                     tint = SatsTheme.colors2.buttons.action.default.fg,
                 )

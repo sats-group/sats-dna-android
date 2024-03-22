@@ -18,6 +18,7 @@ import androidx.navigation.compose.composable
 import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.components.screen.SatsScreen
+import com.sats.dna.icons.SatsIcons
 import com.sats.dna.theme.SatsTheme
 
 sealed class SampleScreen(
@@ -64,7 +65,7 @@ internal fun ComponentScreen(
                 navigationIcon = {
                     SatsTopAppBarIconButton(
                         onClick = navigateUp,
-                        icon = SatsTheme.icons.back,
+                        icon = SatsIcons.back,
                         onClickLabel = null,
                     )
                 },
