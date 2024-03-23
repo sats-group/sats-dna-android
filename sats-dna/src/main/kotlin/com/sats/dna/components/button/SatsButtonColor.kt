@@ -1,8 +1,6 @@
 package com.sats.dna.components.button
 
 import androidx.compose.animation.animateColorAsState
-import androidx.compose.material3.ButtonColors
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import com.sats.dna.theme.SatsTheme
@@ -42,19 +40,6 @@ internal fun SatsButtonColor.animatedContentColor(enabled: Boolean): Color {
         if (enabled) contentColor else disabledContentColor,
         label = "Content color",
     ).value
-}
-
-@Composable
-internal fun SatsButtonColor.asMaterialButtonColors(isEnabled: Boolean): ButtonColors {
-    val background = if (isEnabled) backgroundColor else disabledBackgroundColor
-    val content = if (isEnabled) contentColor else disabledContentColor
-
-    return ButtonDefaults.buttonColors(
-        containerColor = animateColorAsState(background, label = "Animated background").value,
-        contentColor = animateColorAsState(content, label = "Animated content").value,
-        disabledContainerColor = animateColorAsState(background, label = "Animated disabled background").value,
-        disabledContentColor = animateColorAsState(content, label = "Animated disabled content").value,
-    )
 }
 
 private val SatsButtonColor.borderColor: Color?

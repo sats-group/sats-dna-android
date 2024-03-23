@@ -42,7 +42,6 @@ internal object SatsColorPrimitives {
     val White5 = Color(0x0DFFFFFF)
 
     val Black100 = Color(0xFF000000)
-    val Black = Black100
     val Black95 = Color(0xFF0D0D0D)
     val Black90 = Color(0xFF1A1A1A)
     val Black85 = Color(0xFF262626)

@@ -345,13 +345,13 @@ internal val SatsDarkColors2 = SatsColors2(
     backgrounds = SatsColors2.Backgrounds(
         primary = SatsColors2.Backgrounds.Primary(
             default = BackgroundColorSet(
-                bg = SatsColorPrimitives.Black,
+                bg = SatsColorPrimitives.Black100,
                 fgDefault = SatsColorPrimitives.White100,
                 fgAlternate = SatsColorPrimitives.Black20,
                 fgDisabled = SatsColorPrimitives.Black50,
             ),
             selected = BackgroundColorSet(
-                bg = SatsColorPrimitives.Black,
+                bg = SatsColorPrimitives.Black100,
                 fgDefault = SatsColorPrimitives.White100,
                 fgAlternate = SatsColorPrimitives.Black20,
                 fgDisabled = SatsColorPrimitives.Black50,
