@@ -6,7 +6,7 @@ insert_final_newline = true
 max_line_length = 120
 trim_trailing_whitespace = true
 
-[{*.kt, *.kts}]
+[{*.kt,*.kts}]
 ij_kotlin_allow_trailing_comma = true
 ij_kotlin_allow_trailing_comma_on_call_site = true
 ij_kotlin_blank_lines_after_class_header = 0
