@@ -5,17 +5,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsCompletedWorkoutListItem
 import com.sats.dna.components.SatsHorizontalDivider
-import com.sats.dna.components.icons.SatsWorkoutTypeIcon
-import com.sats.dna.components.icons.SatsWorkoutTypeIconType
+import com.sats.dna.components.upcomingworkouts.SatsWorkoutType
 import com.sats.dna.theme.SatsTheme
 
 data object CompletedWorkoutListItemSampleScreen : SampleScreen(
@@ -41,7 +38,6 @@ private fun CompletedWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Mod
                 if (it > 0) SatsHorizontalDivider()
 
                 SatsCompletedWorkoutListItem(
-                    icon = { SatsWorkoutTypeIcon(SatsWorkoutTypeIconType.OwnTraining, null, Modifier.size(34.dp)) },
                     timestamp = "Jul 18, 2023, 06:18",
                     title = "Gym training",
                     location = "at Colosseum",
@@ -51,6 +47,7 @@ private fun CompletedWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Mod
                     onSaidAwesomeClicked = {},
                     onCompletedWorkoutClicked = {},
                     isLiked = false,
+                    workoutType = SatsWorkoutType.OwnTraining,
                 )
             }
         }
@@ -59,7 +56,7 @@ private fun CompletedWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Mod
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun CompletedWorkoutListItemScreenPreview() {
     SatsTheme {
         CompletedWorkoutListItemScreen(navigateUp = {})
     }

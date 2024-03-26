@@ -1,41 +1,13 @@
 package com.sats.dna.components.upcomingworkouts
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
-
-@Composable
-internal fun SatsWorkoutTypeColorIndicator(
-    workoutType: SatsWorkoutType,
-    modifier: Modifier = Modifier,
-) {
-    val color = when (workoutType) {
-        SatsWorkoutType.Pt -> SatsTheme.colors2.graphicalElements.workouts.pt.bg
-        SatsWorkoutType.Gx -> SatsTheme.colors2.graphicalElements.workouts.gx.bg
-        SatsWorkoutType.Treatment -> SatsTheme.colors2.graphicalElements.workouts.treatments.bg
-        SatsWorkoutType.Gymfloor -> SatsTheme.colors2.graphicalElements.workouts.gymfloor.bg
-        SatsWorkoutType.OwnTraining -> SatsTheme.colors2.graphicalElements.workouts.other.bg
-    }
-
-    Box(
-        modifier
-            .fillMaxHeight()
-            .width(4.dp)
-            .clip(SatsTheme.shapes.roundedCorners.medium)
-            .background(color),
-    )
-}
 
 @Composable
 internal fun TimeAndDuration(

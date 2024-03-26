@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -15,6 +16,7 @@ import androidx.compose.ui.tooling.preview.PreviewFontScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsPlaceholderText
 import com.sats.dna.components.SatsSurface
+import com.sats.dna.components.SatsWorkoutTypeColorIndicator
 import com.sats.dna.components.button.SatsTwoOptionsInCardCardButton
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.icons.SatsIcons
@@ -135,9 +137,8 @@ private fun ScheduledWorkouts(
                     ),
                 horizontalArrangement = spacedBy(SatsTheme.spacing.s),
             ) {
-                workout.workoutType?.let {
-                    SatsWorkoutTypeColorIndicator(it)
-                }
+                workout.workoutType?.let { SatsWorkoutTypeColorIndicator(it, Modifier.fillMaxHeight()) }
+
                 TimeAndDuration(
                     time = workout.time,
                     duration = workout.duration,

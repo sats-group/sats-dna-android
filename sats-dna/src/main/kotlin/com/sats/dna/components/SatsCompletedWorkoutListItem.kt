@@ -4,20 +4,20 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewFontScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import androidx.compose.ui.unit.dp
 import com.sats.dna.components.button.SatsLikeButton
-import com.sats.dna.components.icons.SatsWorkoutTypeIcon
-import com.sats.dna.components.icons.SatsWorkoutTypeIconType
+import com.sats.dna.components.upcomingworkouts.SatsWorkoutType
 import com.sats.dna.icons.SatsIcons
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
@@ -26,17 +26,16 @@ import com.sats.dna.theme.SatsTheme
 /**
  * Displays a list item for a completed workout.
  *
- * @param icon An icon to be displayed on the left gutter of the item, typically a [SatsWorkoutTypeIcon]
  * @param timestamp A formatted date/time for when the workout started.
  * @param title The title of the workout.
- * @param location Where the workout took place, e.g. at which gym.
+ * @param location Where the workout took place, e.g. at which gym.2
  * @param numberOfComments How many comments the workout session has received, e.g. 10.
  * @param numberOfReactionsLabel How many people have reacted to the workout, e.g. “15 reactions”.
+ * @param workoutType The [SatsWorkoutType] that this workout belongs to.
  * @param modifier The modifier to apply to the list item.
  */
 @Composable
 fun SatsCompletedWorkoutListItem(
-    icon: @Composable () -> Unit,
     timestamp: String,
     title: String,
     location: String?,
@@ -45,16 +44,23 @@ fun SatsCompletedWorkoutListItem(
     onCompletedWorkoutClicked: () -> Unit,
     onSaidAwesomeClicked: (isLiked: Boolean) -> Unit,
     isLiked: Boolean,
+    workoutType: SatsWorkoutType,
     modifier: Modifier = Modifier,
 ) {
     Row(
         modifier
+            .height(IntrinsicSize.Min)
             .clickable(onClick = onCompletedWorkoutClicked)
             .padding(horizontal = SatsTheme.spacing.m)
             .padding(top = SatsTheme.spacing.m),
         spacedBy(SatsTheme.spacing.m),
     ) {
-        icon()
+        SatsWorkoutTypeColorIndicator(
+            workoutType = workoutType,
+            modifier = Modifier
+                .fillMaxHeight()
+                .padding(bottom = SatsTheme.spacing.s),
+        )
 
         Column(Modifier.weight(1f), spacedBy(SatsTheme.spacing.m)) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
@@ -157,13 +163,6 @@ private fun SatsCompletedWorkoutListItemPreview() {
             useMaterial3 = true,
         ) {
             SatsCompletedWorkoutListItem(
-                icon = {
-                    SatsWorkoutTypeIcon(
-                        SatsWorkoutTypeIconType.OwnTraining,
-                        null,
-                        Modifier.size(34.dp),
-                    )
-                },
                 timestamp = "Jul 18, 2023, 06:18",
                 title = "Gym training (M3)",
                 location = "at Colosseum",
@@ -172,6 +171,7 @@ private fun SatsCompletedWorkoutListItemPreview() {
                 onCompletedWorkoutClicked = {},
                 onSaidAwesomeClicked = {},
                 isLiked = false,
+                workoutType = SatsWorkoutType.OwnTraining,
             )
         }
     }

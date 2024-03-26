@@ -187,8 +187,6 @@ import com.sats.dna.icons.Video
 import com.sats.dna.icons.VideoFilled
 import com.sats.dna.icons.Vouchers
 import com.sats.dna.icons.WarningSign
-import com.sats.dna.icons.WorkoutGymFloor
-import com.sats.dna.icons.WorkoutOther
 import com.sats.dna.icons.WorkoutPlan
 import com.sats.dna.icons.Workplace
 import com.sats.dna.icons.Yoga
@@ -1491,20 +1489,6 @@ object SatsIcons {
     )
     val warningSign: ImageVector
         @Composable get() = WarningSign
-
-    @Deprecated(
-        "Reference SatsIcons.WorkoutGymFloor directly",
-        ReplaceWith("SatsIcons.WorkoutGymFloor", "com.sats.dna.SatsIcons"),
-    )
-    val workoutGymFloor: ImageVector
-        @Composable get() = WorkoutGymFloor
-
-    @Deprecated(
-        "Reference SatsIcons.WorkoutOther directly",
-        ReplaceWith("SatsIcons.WorkoutOther", "com.sats.dna.SatsIcons"),
-    )
-    val workoutOther: ImageVector
-        @Composable get() = WorkoutOther
 
     @Deprecated(
         "Reference SatsIcons.WorkoutPlan directly",

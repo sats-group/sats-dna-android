@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -24,6 +25,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsPlaceholderBox
 import com.sats.dna.components.SatsSurface
+import com.sats.dna.components.SatsWorkoutTypeColorIndicator
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.internal.MaterialText
@@ -91,14 +93,13 @@ fun SatsUpcomingWorkoutListItem(
 ) {
     Row(
         modifier
-            .clickable(role = Role.Button) { onClick() }
             .height(IntrinsicSize.Min)
+            .clickable(role = Role.Button) { onClick() }
             .padding(SatsTheme.spacing.m),
         horizontalArrangement = spacedBy(SatsTheme.spacing.s),
     ) {
-        workoutType?.let {
-            SatsWorkoutTypeColorIndicator(it)
-        }
+        workoutType?.let { SatsWorkoutTypeColorIndicator(it, Modifier.fillMaxHeight()) }
+
         TimeAndDuration(
             time = time,
             duration = duration,
