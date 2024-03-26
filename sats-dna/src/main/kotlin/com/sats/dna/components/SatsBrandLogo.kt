@@ -8,6 +8,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.R
+import com.sats.dna.SatsIcons
+import com.sats.dna.icons.Elixia
+import com.sats.dna.icons.Sats
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.materialIconTint
 import com.sats.dna.theme.SatsTheme
@@ -37,8 +40,8 @@ enum class SatsBrandLogoBrand {
 
 @Composable
 private fun SatsBrandLogoBrand.letterIconPainter() = when (this) {
-    SatsBrandLogoBrand.Sats -> ImageVector.vectorResource(R.drawable.ic_sats)
-    SatsBrandLogoBrand.Elixia -> ImageVector.vectorResource(R.drawable.ic_elixia)
+    SatsBrandLogoBrand.Sats -> SatsIcons.Sats
+    SatsBrandLogoBrand.Elixia -> SatsIcons.Elixia
 }
 
 @Composable
