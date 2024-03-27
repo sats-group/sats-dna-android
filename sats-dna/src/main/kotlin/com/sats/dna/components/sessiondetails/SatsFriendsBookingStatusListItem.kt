@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
@@ -53,9 +54,15 @@ fun SatsFriendsBookingStatusListItem(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         image()
-        Text(name, color = SatsTheme.colors.onSecondary.default)
 
-        Spacer(Modifier.weight(1f))
+        Text(
+            text = name,
+            modifier = Modifier.weight(1f),
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            color = SatsTheme.colors.onSecondary.default,
+        )
+
         val textColor = when (bookingState.status) {
             FriendsBookingStatus.Owner -> {
                 SatsTheme.colors.primary.default
@@ -145,7 +152,7 @@ private fun SatsFriendsBookingStatusListItemPreview(
                                 .background(SatsTheme.colors2.graphicalElements.skeleton),
                         )
                     },
-                    name = "Magnus Owe",
+                    name = "Francisco Javier Peters Oregon Longname",
                     bookingState = bookingState,
                     onClick = {},
                     contextMenu = null,
