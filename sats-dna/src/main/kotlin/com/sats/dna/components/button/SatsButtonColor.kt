@@ -13,6 +13,7 @@ enum class SatsButtonColor {
     WaitingList,
     WaitingListSecondary,
     Action,
+    Cta,
 }
 
 @Composable
@@ -65,6 +66,7 @@ private val SatsButtonColor.backgroundColor: Color
         SatsButtonColor.WaitingList -> SatsTheme.colors.buttons.waitingListFilled.default.bg
         SatsButtonColor.WaitingListSecondary -> SatsTheme.colors.buttons.waitingListOutlined.default.bg
         SatsButtonColor.Action -> SatsTheme.colors.buttons.action.default.bg
+        SatsButtonColor.Cta -> SatsTheme.colors.buttons.cta.default.bg
     }
 
 internal val SatsButtonColor.contentColor: Color
@@ -76,6 +78,7 @@ internal val SatsButtonColor.contentColor: Color
         SatsButtonColor.WaitingList -> SatsTheme.colors.buttons.waitingListFilled.default.fg
         SatsButtonColor.WaitingListSecondary -> SatsTheme.colors.buttons.waitingListOutlined.default.fg
         SatsButtonColor.Action -> SatsTheme.colors.buttons.action.default.fg
+        SatsButtonColor.Cta -> SatsTheme.colors.buttons.cta.default.fg
     }
 
 private val SatsButtonColor.disabledBackgroundColor: Color
@@ -87,6 +90,7 @@ private val SatsButtonColor.disabledBackgroundColor: Color
         SatsButtonColor.WaitingList -> SatsTheme.colors.buttons.waitingListFilled.disabled.bg
         SatsButtonColor.WaitingListSecondary -> SatsTheme.colors.buttons.waitingListOutlined.disabled.bg
         SatsButtonColor.Action -> SatsTheme.colors.buttons.action.disabled.bg
+        SatsButtonColor.Cta -> SatsTheme.colors.buttons.cta.disabled.bg
     }
 
 private val SatsButtonColor.disabledContentColor: Color
@@ -98,4 +102,5 @@ private val SatsButtonColor.disabledContentColor: Color
         SatsButtonColor.WaitingList -> SatsTheme.colors.buttons.waitingListFilled.disabled.fg
         SatsButtonColor.WaitingListSecondary -> SatsTheme.colors.buttons.waitingListOutlined.disabled.fg
         SatsButtonColor.Action -> SatsTheme.colors.buttons.action.disabled.fg
+        SatsButtonColor.Cta -> SatsTheme.colors.buttons.cta.disabled.fg
     }
