@@ -26,10 +26,6 @@ interface NormalTextStyles {
     val buttonBasic: TextStyle
     val buttonSmall: TextStyle
     val section: TextStyle
-
-    @Deprecated("Renamed to buttonBasic", ReplaceWith("buttonBasic"))
-    val button: TextStyle
-        get() = buttonBasic
 }
 
 interface MediumTextStyles {
