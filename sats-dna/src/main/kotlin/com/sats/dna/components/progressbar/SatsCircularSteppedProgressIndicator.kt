@@ -23,8 +23,9 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.inset
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.Check
 import com.sats.dna.theme.SatsTheme
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -140,7 +141,7 @@ private fun CompletedCheckMark(modifier: Modifier = Modifier) {
         contentAlignment = Alignment.Center,
     ) {
         Icon(
-            imageVector = SatsIcons.check,
+            imageVector = SatsIcons.Check,
             contentDescription = null,
             modifier = Modifier
                 .padding(1.75.dp)

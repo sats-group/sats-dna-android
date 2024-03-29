@@ -56,9 +56,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.lerp
 import coil.compose.AsyncImage
 import com.sats.dna.R
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.appbar.SatsTopAppBarDefaults
 import com.sats.dna.components.button.SatsTopAppBarIconButton
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.Back
+import com.sats.dna.icons.MoreVertical
+import com.sats.dna.icons.Share
 import com.sats.dna.internal.findActivity
 import com.sats.dna.theme.SatsTheme
 import kotlinx.coroutines.CoroutineStart
@@ -465,7 +468,7 @@ private fun SatsFancyTopAppBarExpandedPreview() {
                 navigationIcon = {
                     SatsTopAppBarIconButton(
                         onClick = {},
-                        icon = SatsIcons.back,
+                        icon = SatsIcons.Back,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )
@@ -473,14 +476,14 @@ private fun SatsFancyTopAppBarExpandedPreview() {
                 actions = {
                     SatsTopAppBarIconButton(
                         onClick = {},
-                        icon = SatsIcons.share,
+                        icon = SatsIcons.Share,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )
 
                     SatsTopAppBarIconButton(
                         onClick = {},
-                        icon = SatsIcons.moreVertical,
+                        icon = SatsIcons.MoreVertical,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )
@@ -506,7 +509,7 @@ private fun SatsFancyTopAppBarCollapsedPreview() {
                 navigationIcon = {
                     SatsTopAppBarIconButton(
                         onClick = {},
-                        icon = SatsIcons.back,
+                        icon = SatsIcons.Back,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )
@@ -514,14 +517,14 @@ private fun SatsFancyTopAppBarCollapsedPreview() {
                 actions = {
                     SatsTopAppBarIconButton(
                         onClick = {},
-                        icon = SatsIcons.share,
+                        icon = SatsIcons.Share,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )
 
                     SatsTopAppBarIconButton(
                         onClick = {},
-                        icon = SatsIcons.moreVertical,
+                        icon = SatsIcons.MoreVertical,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )
@@ -546,7 +549,7 @@ private fun SatsFancyTopAppBarTestPreview() {
                     navigationIcon = {
                         SatsTopAppBarIconButton(
                             onClick = {},
-                            icon = SatsIcons.back,
+                            icon = SatsIcons.Back,
                             onClickLabel = null,
                             tint = LocalContentColor.current,
                         )
@@ -554,14 +557,14 @@ private fun SatsFancyTopAppBarTestPreview() {
                     actions = {
                         SatsTopAppBarIconButton(
                             onClick = {},
-                            icon = SatsIcons.share,
+                            icon = SatsIcons.Share,
                             onClickLabel = null,
                             tint = LocalContentColor.current,
                         )
 
                         SatsTopAppBarIconButton(
                             onClick = {},
-                            icon = SatsIcons.moreVertical,
+                            icon = SatsIcons.MoreVertical,
                             onClickLabel = null,
                             tint = LocalContentColor.current,
                         )

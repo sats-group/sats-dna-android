@@ -25,11 +25,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsPlaceholderBox
 import com.sats.dna.components.SatsPlaceholderText
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.card.SatsCard
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.BarChart
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -131,7 +132,7 @@ fun SatsEmptyWorkoutGraphCard(
         ) {
             Icon(
                 tint = SatsTheme.colors.onSurface.secondary,
-                imageVector = SatsIcons.barChart,
+                imageVector = SatsIcons.BarChart,
                 contentDescription = null,
             )
 

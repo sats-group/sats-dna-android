@@ -14,13 +14,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.AdvancedTrailingContent
 import com.sats.dna.components.SatsGeneralListItem
 import com.sats.dna.components.SatsGeneralListItemDefaults
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SimpleTrailingContent
 import com.sats.dna.components.card.SatsCard
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.Info
 import com.sats.dna.theme.SatsTheme
 
 data object GeneralListItemSampleScreen : SampleScreen(
@@ -79,7 +80,7 @@ private fun listItems(): List<@Composable () -> Unit> {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "General List Item",
-                icon = SatsIcons.info,
+                icon = SatsIcons.Info,
             )
         },
         {
@@ -88,7 +89,7 @@ private fun listItems(): List<@Composable () -> Unit> {
                 onClick = {},
                 title = "General List Item with subtitle",
                 subtitle = "Subtitle",
-                icon = SatsIcons.info,
+                icon = SatsIcons.Info,
             )
         },
         {
@@ -96,7 +97,7 @@ private fun listItems(): List<@Composable () -> Unit> {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "General List Item with trailing content",
-                icon = SatsIcons.info,
+                icon = SatsIcons.Info,
                 trailingContent = { SimpleTrailingContent() },
             )
         },
@@ -105,7 +106,7 @@ private fun listItems(): List<@Composable () -> Unit> {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "General List Item with advanced trailing content",
-                icon = SatsIcons.info,
+                icon = SatsIcons.Info,
                 trailingContent = { AdvancedTrailingContent() },
             )
         },
@@ -114,7 +115,7 @@ private fun listItems(): List<@Composable () -> Unit> {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "General List Item with non-default colors",
-                icon = SatsIcons.info,
+                icon = SatsIcons.Info,
                 colors = SatsGeneralListItemDefaults.generalListItemColors(
                     titleColor = SatsTheme.colors2.buttons.action.default.fg,
                     subtitleColor = SatsTheme.colors2.buttons.action.default.fg,

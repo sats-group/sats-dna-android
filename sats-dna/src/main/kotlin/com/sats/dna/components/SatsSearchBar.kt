@@ -23,11 +23,14 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.TrailingContent.Icon
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.components.button.SatsTopAppBarIconButton
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.Back
+import com.sats.dna.icons.Close
+import com.sats.dna.icons.Search
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -60,13 +63,13 @@ fun SatsSearchBar(
                     if (onUpClicked != null) {
                         SatsTopAppBarIconButton(
                             onClick = { onUpClicked() },
-                            icon = SatsIcons.back,
+                            icon = SatsIcons.Back,
                             onClickLabel = null,
                         )
                     } else {
                         Box(modifier = Modifier.size(40.dp), contentAlignment = Alignment.Center) {
                             Icon(
-                                icon = SatsIcons.search,
+                                icon = SatsIcons.Search,
                                 tint = SatsTheme.colors2.surfaces.primary.default.fg,
                             )
                         }
@@ -77,7 +80,7 @@ fun SatsSearchBar(
                         if (query.isNotBlank()) {
                             SatsIconButton(
                                 onClick = { onClearClicked() },
-                                icon = SatsIcons.close,
+                                icon = SatsIcons.Close,
                                 onClickLabel = null,
                                 colors = SatsButtonColor.Action,
                             )

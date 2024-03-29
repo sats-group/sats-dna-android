@@ -14,9 +14,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.LocalUseMaterial3
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.card.SatsCard
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.Barbell
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -117,7 +118,7 @@ private fun SatsEmptyStateM3Preview() {
             useMaterial3 = true,
         ) {
             SatsEmptyState(
-                icon = SatsIcons.barbell,
+                icon = SatsIcons.Barbell,
                 title = "You don't have friends",
                 body = "If you make friends, you can follow in their working out and stuff. " +
                     "And they can follow whatever you're doing, as well!",
@@ -137,7 +138,7 @@ private fun SatsEmptyStateM2Preview() {
             useMaterial3 = false,
         ) {
             SatsEmptyState(
-                icon = SatsIcons.barbell,
+                icon = SatsIcons.Barbell,
                 title = "You don't have friends",
                 body = "If you make friends, you can follow in their working out and stuff. " +
                     "And they can follow whatever you're doing, as well!",
@@ -157,7 +158,7 @@ private fun SatsEmptyStateCardPreview() {
             useMaterial3 = true,
         ) {
             SatsEmptyStateCard(
-                icon = SatsIcons.barbell,
+                icon = SatsIcons.Barbell,
                 title = "You don't have friends",
                 body = "If you make friends, you can follow in their working out and stuff. " +
                     "And they can follow whatever you're doing, as well!",
