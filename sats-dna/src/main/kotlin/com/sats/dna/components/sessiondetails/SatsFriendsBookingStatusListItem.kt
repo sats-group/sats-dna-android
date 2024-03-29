@@ -55,39 +55,27 @@ fun SatsFriendsBookingStatusListItem(
     ) {
         image()
 
+        val colors = SatsTheme.colors2.surfaces.primary.default
+
         Text(
             text = name,
             modifier = Modifier.weight(1f),
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
-            color = SatsTheme.colors.onSecondary.default,
+            color = colors.fg,
         )
 
         val textColor = when (bookingState.status) {
-            FriendsBookingStatus.Owner -> {
-                SatsTheme.colors.primary.default
-            }
-
-            FriendsBookingStatus.Invited, FriendsBookingStatus.Booked -> {
-                SatsTheme.colors2.surfaces.primary.default.fgSuccess
-            }
-
-            FriendsBookingStatus.Pending -> {
-                SatsTheme.colors2.surfaces.primary.default.fgWarning
-            }
-
-            FriendsBookingStatus.Declined, FriendsBookingStatus.Removed -> {
-                SatsTheme.colors2.surfaces.primary.default.fgError
-            }
-
-            FriendsBookingStatus.WaitingList -> {
-                SatsTheme.colors2.surfaces.primary.default.fgWaitingList
-            }
+            FriendsBookingStatus.Owner -> colors.fgInformation
+            FriendsBookingStatus.Invited, FriendsBookingStatus.Booked -> colors.fgSuccess
+            FriendsBookingStatus.Pending -> colors.fgWarning
+            FriendsBookingStatus.Declined, FriendsBookingStatus.Removed -> colors.fgError
+            FriendsBookingStatus.WaitingList -> colors.fgWaitingList
         }
+
         Text(bookingState.statusText, color = textColor)
-        if (contextMenu != null) {
-            contextMenu()
-        }
+
+        contextMenu?.invoke()
     }
 }
 
@@ -141,7 +129,7 @@ private fun SatsFriendsBookingStatusListItemPreview(
     @PreviewParameter(FriendsBookingStatusPreviewProvider::class) bookingState: FriendsBookingState,
 ) {
     SatsTheme {
-        SatsSurface {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg) {
             Column {
                 SatsFriendsBookingStatusListItem(
                     image = {
@@ -166,7 +154,7 @@ private fun SatsFriendsBookingStatusListItemPreview(
 @Composable
 private fun SatsFriendsBookingStatusListPlaceholderPreview() {
     SatsTheme {
-        SatsSurface {
+        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg) {
             SatsFriendsBookingStatusListPlaceholder(count = 3)
         }
     }

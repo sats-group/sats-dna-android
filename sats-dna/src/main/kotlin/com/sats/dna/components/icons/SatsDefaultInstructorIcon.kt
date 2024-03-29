@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.tooling.preview.PreviewLightDark
+import androidx.compose.ui.tooling.preview.Preview
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 
@@ -31,16 +31,18 @@ fun SatsDefaultInstructorIcon(
         SatsDefaultInstructorIconType.Pt -> "PT"
     }
 
+    val colors = SatsTheme.colors2.backgrounds.fixed.primary.default
+
     Box(
         modifier = modifier
             .size(SatsTheme.spacing.l)
             .clip(CircleShape)
-            .background(SatsTheme.colors.primary.default),
+            .background(colors.bg),
     ) {
         Text(
             text = placeholderText,
             style = SatsTheme.typography.satsHeadlineEmphasis.small,
-            color = SatsTheme.colors.onPrimary.default,
+            color = colors.fg,
             modifier = Modifier.align(Alignment.Center),
         )
     }
@@ -54,7 +56,7 @@ enum class SatsDefaultInstructorIconType {
     Pt, Gx,
 }
 
-@PreviewLightDark
+@Preview
 @Composable
 private fun SatsDefaultInstructorIconGxPreview() {
     SatsTheme {
@@ -70,7 +72,7 @@ private fun SatsDefaultInstructorIconGxPreview() {
     }
 }
 
-@PreviewLightDark
+@Preview
 @Composable
 private fun SatsDefaultInstructorIconPtPreview() {
     SatsTheme {

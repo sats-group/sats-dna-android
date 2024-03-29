@@ -1,7 +1,8 @@
 package com.sats.dna.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.Colors
+import androidx.compose.material.darkColors
+import androidx.compose.material.lightColors
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
@@ -15,7 +16,6 @@ import com.sats.dna.colors.SatsLightColors
 import com.sats.dna.colors.SatsLightColors2
 import com.sats.dna.shapes.SatsShapes
 import com.sats.dna.spacing.SatsSpacing
-import com.sats.dna.typography.InterFont
 import com.sats.dna.typography.SatsTypography
 import androidx.compose.material.MaterialTheme as Material2Theme
 import androidx.compose.material.ProvideTextStyle as ProvideMaterial2TextStyle
@@ -52,6 +52,8 @@ fun SatsTheme(content: @Composable () -> Unit) {
 }
 
 object SatsTheme {
+    @Suppress("DeprecatedCallableAddReplaceWith")
+    @Deprecated("Use colors from colors2 instead")
     val colors: SatsColors
         @Composable get() = LocalSatsColors.current
 
@@ -74,90 +76,18 @@ internal val LocalSatsTypography = staticCompositionLocalOf { SatsTypography }
 internal val LocalSatsSpacing = staticCompositionLocalOf { SatsSpacing }
 internal val LocalSatsShapes = staticCompositionLocalOf { SatsShapes }
 
-private fun SatsColors.toMaterial2() = Colors(
-    background = background.primary,
-    onBackground = onBackground.primary,
-    surface = surface.primary,
-    onSurface = onSurface.primary,
-    primary = primary.default,
-    primaryVariant = primary.default,
-    onPrimary = onPrimary.default,
-    secondary = secondary.default,
-    secondaryVariant = clean.default,
-    onSecondary = onSecondary.default,
-    error = signal.error,
-    onError = onSignal,
-    isLight = isLightMode,
-)
-
-private fun SatsTypography.toMaterial2() = Material2Typography(
-    h1 = normal.headline1,
-    h2 = normal.headline2,
-    h3 = normal.headline3,
-    body1 = normal.basic,
-    body2 = normal.small,
-    button = normal.buttonBasic,
-    caption = normal.small,
-    overline = normal.small,
-    subtitle1 = normal.large,
-    subtitle2 = normal.basic,
-    defaultFontFamily = InterFont,
-)
-
-private fun SatsColors.toMaterial3() = if (isLightMode) {
-    lightColorScheme(
-        primary = primary.default,
-        onPrimary = onPrimary.default,
-        secondary = secondary.default,
-        onSecondary = onSecondary.default,
-        tertiary = secondary.default,
-        onTertiary = onSecondary.default,
-        background = background.primary,
-        onBackground = onBackground.primary,
-        surface = surface.primary,
-        onSurface = onSurface.primary,
-        surfaceTint = primary.default,
-        error = signal.error,
-        onError = onSignal,
-        errorContainer = signalBackground.error,
-        onErrorContainer = onBackground.primary,
-        outline = ui.border,
-    )
+private fun SatsColors.toMaterial2() = if (isLightMode) {
+    lightColors()
 } else {
-    darkColorScheme(
-        primary = primary.default,
-        onPrimary = onPrimary.default,
-        secondary = secondary.default,
-        onSecondary = onSecondary.default,
-        tertiary = secondary.default,
-        onTertiary = onSecondary.default,
-        background = background.primary,
-        onBackground = onBackground.primary,
-        surface = surface.primary,
-        onSurface = onSurface.primary,
-        surfaceTint = primary.default,
-        error = signal.error,
-        onError = onSignal,
-        errorContainer = signalBackground.error,
-        onErrorContainer = onBackground.primary,
-        outline = ui.border,
-    )
+    darkColors()
 }
 
-private fun SatsTypography.toMaterial3() = Material3Typography(
-    displayLarge = normal.headline1,
-    displayMedium = normal.headline1,
-    displaySmall = normal.headline1,
-    headlineLarge = normal.headline2,
-    headlineMedium = normal.headline2,
-    headlineSmall = normal.headline2,
-    titleLarge = normal.headline3,
-    titleMedium = normal.headline3,
-    titleSmall = medium.basic,
-    bodyLarge = normal.large,
-    bodyMedium = normal.basic,
-    bodySmall = normal.small,
-    labelLarge = normal.section,
-    labelMedium = normal.section,
-    labelSmall = normal.section,
-)
+private fun SatsTypography.toMaterial2() = Material2Typography()
+
+private fun SatsColors.toMaterial3() = if (isLightMode) {
+    lightColorScheme()
+} else {
+    darkColorScheme()
+}
+
+private fun SatsTypography.toMaterial3() = Material3Typography()

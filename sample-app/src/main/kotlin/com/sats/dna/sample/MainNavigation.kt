@@ -17,7 +17,6 @@ import com.sats.dna.sample.screens.ChallengeCardSampleScreen
 import com.sats.dna.sample.screens.CheckboxSampleScreen
 import com.sats.dna.sample.screens.ChipsSampleScreen
 import com.sats.dna.sample.screens.Colors2SampleScreen
-import com.sats.dna.sample.screens.ColorsSampleScreen
 import com.sats.dna.sample.screens.CompletedWorkoutListItemSampleScreen
 import com.sats.dna.sample.screens.DividersSampleScreen
 import com.sats.dna.sample.screens.EmptyStateSampleScreen
@@ -53,7 +52,6 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
     navigation(startDestination = "/", MainRoute) {
         homeScreen(navController)
 
-        ColorsSampleScreen.navScreen(navController)
         Colors2SampleScreen.navScreen(navController)
         IconsSampleScreen.navScreen(navController)
         TypographySampleScreen.navScreen(navController)
