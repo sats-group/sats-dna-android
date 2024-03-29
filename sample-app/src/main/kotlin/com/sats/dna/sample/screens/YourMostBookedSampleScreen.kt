@@ -34,7 +34,7 @@ private fun YourMostBookedSampleScreen(navigateUp: () -> Unit, modifier: Modifie
 private fun YourMostBookedSampleScreenPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             YourMostBookedSampleScreen(navigateUp = {})

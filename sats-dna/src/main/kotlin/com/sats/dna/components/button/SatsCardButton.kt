@@ -49,8 +49,8 @@ fun SatsCardButton(
                     horizontal = SatsTheme.spacing.m,
                 ),
         ) {
-            MaterialIcon(icon, null, tint = SatsTheme.colors2.buttons.action.default.fg)
-            Text(text, color = SatsTheme.colors2.buttons.action.default.fg)
+            MaterialIcon(icon, null, tint = SatsTheme.colors.buttons.action.default.fg)
+            Text(text, color = SatsTheme.colors.buttons.action.default.fg)
         }
     }
 }
@@ -72,8 +72,8 @@ fun SatsNavigationCardButton(
                     horizontal = SatsTheme.spacing.m,
                 ),
         ) {
-            Text(text, color = SatsTheme.colors2.buttons.action.default.fg)
-            MaterialIcon(SatsIcons.ArrowRight, null, tint = SatsTheme.colors2.buttons.action.default.fg)
+            Text(text, color = SatsTheme.colors.buttons.action.default.fg)
+            MaterialIcon(SatsIcons.ArrowRight, null, tint = SatsTheme.colors.buttons.action.default.fg)
         }
     }
 }

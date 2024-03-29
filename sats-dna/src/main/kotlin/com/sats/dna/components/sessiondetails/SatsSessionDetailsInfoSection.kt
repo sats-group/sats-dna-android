@@ -105,9 +105,9 @@ fun SatsSessionDetailsInfoLabel(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         val contentColor = if (onClick == null) {
-            SatsTheme.colors2.backgrounds.primary.default.fg
+            SatsTheme.colors.backgrounds.primary.default.fg
         } else {
-            SatsTheme.colors2.buttons.action.default.fg
+            SatsTheme.colors.buttons.action.default.fg
         }
 
         CompositionLocalProvider(

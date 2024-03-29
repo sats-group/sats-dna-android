@@ -66,30 +66,30 @@ enum class SatsBadgeHierarchy {
 
 private val SatsBadgeHierarchy.containerColor: Color
     @Composable get() = when (this) {
-        SatsBadgeHierarchy.Primary -> SatsTheme.colors2.graphicalElements.badge.primary.bg
-        SatsBadgeHierarchy.Secondary -> SatsTheme.colors2.graphicalElements.badge.secondary.bg
-        SatsBadgeHierarchy.Tertiary -> SatsTheme.colors2.graphicalElements.badge.tertiary.bg
+        SatsBadgeHierarchy.Primary -> SatsTheme.colors.graphicalElements.badge.primary.bg
+        SatsBadgeHierarchy.Secondary -> SatsTheme.colors.graphicalElements.badge.secondary.bg
+        SatsBadgeHierarchy.Tertiary -> SatsTheme.colors.graphicalElements.badge.tertiary.bg
     }
 
 private val SatsBadgeHierarchy.contentColor: Color
     @Composable get() = when (this) {
-        SatsBadgeHierarchy.Primary -> SatsTheme.colors2.graphicalElements.badge.primary.fg
-        SatsBadgeHierarchy.Secondary -> SatsTheme.colors2.graphicalElements.badge.secondary.fg
-        SatsBadgeHierarchy.Tertiary -> SatsTheme.colors2.graphicalElements.badge.tertiary.fg
+        SatsBadgeHierarchy.Primary -> SatsTheme.colors.graphicalElements.badge.primary.fg
+        SatsBadgeHierarchy.Secondary -> SatsTheme.colors.graphicalElements.badge.secondary.fg
+        SatsBadgeHierarchy.Tertiary -> SatsTheme.colors.graphicalElements.badge.tertiary.fg
     }
 
 private val SatsBadgeHierarchy.fixedContainerColor: Color
     @Composable get() = when (this) {
-        SatsBadgeHierarchy.Primary -> SatsTheme.colors2.graphicalElements.fixedBadge.primary.bg
-        SatsBadgeHierarchy.Secondary -> SatsTheme.colors2.graphicalElements.fixedBadge.secondary.bg
-        SatsBadgeHierarchy.Tertiary -> SatsTheme.colors2.graphicalElements.fixedBadge.tertiary.bg
+        SatsBadgeHierarchy.Primary -> SatsTheme.colors.graphicalElements.fixedBadge.primary.bg
+        SatsBadgeHierarchy.Secondary -> SatsTheme.colors.graphicalElements.fixedBadge.secondary.bg
+        SatsBadgeHierarchy.Tertiary -> SatsTheme.colors.graphicalElements.fixedBadge.tertiary.bg
     }
 
 private val SatsBadgeHierarchy.fixedContentColor: Color
     @Composable get() = when (this) {
-        SatsBadgeHierarchy.Primary -> SatsTheme.colors2.graphicalElements.fixedBadge.primary.fg
-        SatsBadgeHierarchy.Secondary -> SatsTheme.colors2.graphicalElements.fixedBadge.secondary.fg
-        SatsBadgeHierarchy.Tertiary -> SatsTheme.colors2.graphicalElements.fixedBadge.tertiary.fg
+        SatsBadgeHierarchy.Primary -> SatsTheme.colors.graphicalElements.fixedBadge.primary.fg
+        SatsBadgeHierarchy.Secondary -> SatsTheme.colors.graphicalElements.fixedBadge.secondary.fg
+        SatsBadgeHierarchy.Tertiary -> SatsTheme.colors.graphicalElements.fixedBadge.tertiary.fg
     }
 
 @PreviewLightDark
@@ -97,7 +97,7 @@ private val SatsBadgeHierarchy.fixedContentColor: Color
 private fun SatsBadgePrimaryPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBadge(
@@ -114,7 +114,7 @@ private fun SatsBadgePrimaryPreview() {
 private fun SatsBadgeSecondaryPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBadge(
@@ -131,7 +131,7 @@ private fun SatsBadgeSecondaryPreview() {
 private fun SatsBadgeTertiaryPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBadge(
@@ -147,7 +147,7 @@ private fun SatsBadgeTertiaryPreview() {
 @Composable
 private fun SatsFixedBadgePrimaryPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.fixed.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.fixed.primary.default.bg, useMaterial3 = true) {
             SatsFixedBadge("5", Modifier.padding(SatsTheme.spacing.m), hierarchy = SatsBadgeHierarchy.Primary)
         }
     }
@@ -157,7 +157,7 @@ private fun SatsFixedBadgePrimaryPreview() {
 @Composable
 private fun SatsFixedBadgeSecondaryPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.fixed.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.fixed.primary.default.bg, useMaterial3 = true) {
             SatsFixedBadge("5", Modifier.padding(SatsTheme.spacing.m), hierarchy = SatsBadgeHierarchy.Secondary)
         }
     }
@@ -167,7 +167,7 @@ private fun SatsFixedBadgeSecondaryPreview() {
 @Composable
 private fun SatsFixedBadgeTertiaryPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.fixed.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.fixed.primary.default.bg, useMaterial3 = true) {
             SatsFixedBadge("5", Modifier.padding(SatsTheme.spacing.m), hierarchy = SatsBadgeHierarchy.Tertiary)
         }
     }
@@ -178,7 +178,7 @@ private fun SatsFixedBadgeTertiaryPreview() {
 private fun SatsBadgeFontScalePreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBadge("5", Modifier.padding(SatsTheme.spacing.m))

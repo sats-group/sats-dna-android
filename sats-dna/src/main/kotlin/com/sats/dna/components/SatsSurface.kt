@@ -18,7 +18,7 @@ import androidx.compose.material3.Surface as Material3Surface
 @Composable
 fun SatsSurface(
     modifier: Modifier = Modifier,
-    color: Color = SatsTheme.colors2.surfaces.primary.default.bg,
+    color: Color = SatsTheme.colors.surfaces.primary.default.bg,
     contentColor: Color = satsContentColor2For(color),
     shape: Shape = RectangleShape,
     border: BorderStroke? = null,

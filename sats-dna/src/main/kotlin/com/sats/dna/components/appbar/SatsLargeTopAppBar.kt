@@ -51,7 +51,7 @@ fun SatsLargeTopAppBar(
 ) {
     LargeTopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = SatsTheme.colors2.backgrounds.primary.default.bg,
+            containerColor = SatsTheme.colors.backgrounds.primary.default.bg,
             scrolledContainerColor = SatsTopAppBarDefaults.containerColor,
         ),
         title = title,
@@ -69,7 +69,7 @@ fun SatsLargeTopAppBar(
 private fun SatsLargeTopAppBarPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsLargeTopAppBar(

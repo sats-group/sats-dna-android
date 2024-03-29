@@ -91,7 +91,7 @@ private fun SatsTitledSectionPreview() {
     SatsTheme {
         SatsSurface(
             modifier = Modifier.fillMaxWidth(),
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsTitledSection("Section Title") { contentPadding ->
@@ -113,7 +113,7 @@ private fun SatsTitledSectionWithChevronActionPreview() {
     SatsTheme {
         SatsSurface(
             modifier = Modifier.fillMaxWidth(),
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsTitledSection(
@@ -145,7 +145,7 @@ private fun SatsTitledSectionScrollableRowPreview() {
     SatsTheme {
         SatsSurface(
             modifier = Modifier.fillMaxWidth(),
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsTitledSection("Section Title") { contentPadding ->

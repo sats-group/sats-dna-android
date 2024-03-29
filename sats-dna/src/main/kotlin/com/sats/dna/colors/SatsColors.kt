@@ -2,7 +2,7 @@ package com.sats.dna.colors
 
 import androidx.compose.ui.graphics.Color
 
-class SatsColors2(
+class SatsColors(
     val buttons: Buttons,
     val graphicalElements: GraphicalElements,
     val backgrounds: Backgrounds,

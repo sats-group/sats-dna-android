@@ -15,7 +15,7 @@ import com.sats.dna.theme.SatsTheme
 @Composable
 fun SatsImagePlaceholderIcon(
     modifier: Modifier = Modifier,
-    tint: Color = SatsTheme.colors2.backgrounds.primary.default.fg,
+    tint: Color = SatsTheme.colors.backgrounds.primary.default.fg,
 ) {
     Icon(
         imageVector = ImageVector.vectorResource(R.drawable.image_placeholder),
@@ -29,7 +29,7 @@ fun SatsImagePlaceholderIcon(
 @Composable
 private fun SatsImagePlaceholderIconPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
             Box(modifier = Modifier.padding(SatsTheme.spacing.m)) {
                 SatsImagePlaceholderIcon()
             }

@@ -67,8 +67,8 @@ enum class SatsDividerColor {
 
 private val SatsDividerColor.composeColor: Color
     @Composable get() = when (this) {
-        SatsDividerColor.Default -> SatsTheme.colors2.graphicalElements.divider.default
-        SatsDividerColor.Alternate -> SatsTheme.colors2.graphicalElements.divider.alternate
+        SatsDividerColor.Default -> SatsTheme.colors.graphicalElements.divider.default
+        SatsDividerColor.Alternate -> SatsTheme.colors.graphicalElements.divider.alternate
     }
 
 @PreviewLightDark
@@ -77,7 +77,7 @@ private fun SatsHorizontalDividerPreview() {
     SatsTheme {
         SatsSurface(
             Modifier.size(200.dp),
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             Column(
@@ -102,7 +102,7 @@ private fun SatsVerticalDividerPreview() {
     SatsTheme {
         SatsSurface(
             Modifier.size(200.dp),
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             Row(

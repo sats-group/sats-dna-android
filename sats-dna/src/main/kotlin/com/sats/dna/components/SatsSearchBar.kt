@@ -55,7 +55,7 @@ fun SatsSearchBar(
                 innerTextField = innerTextField,
                 placeholder = {
                     if (placeholder != null) {
-                        Text(placeholder, color = SatsTheme.colors2.surfaces.primary.default.fgAlternate)
+                        Text(placeholder, color = SatsTheme.colors.surfaces.primary.default.fgAlternate)
                     }
                 },
                 modifier = Modifier,
@@ -70,7 +70,7 @@ fun SatsSearchBar(
                         Box(modifier = Modifier.size(40.dp), contentAlignment = Alignment.Center) {
                             Icon(
                                 icon = SatsIcons.Search,
-                                tint = SatsTheme.colors2.surfaces.primary.default.fg,
+                                tint = SatsTheme.colors.surfaces.primary.default.fg,
                             )
                         }
                     }
@@ -90,13 +90,13 @@ fun SatsSearchBar(
             )
         },
         singleLine = true,
-        textStyle = SatsTheme.typography.normal.basic.copy(color = SatsTheme.colors2.backgrounds.primary.default.fg),
+        textStyle = SatsTheme.typography.normal.basic.copy(color = SatsTheme.colors.backgrounds.primary.default.fg),
         keyboardOptions = KeyboardOptions(
             capitalization = KeyboardCapitalization.Sentences,
             imeAction = ImeAction.Done,
         ),
         keyboardActions = keyboardActions,
-        cursorBrush = SolidColor(SatsTheme.colors2.backgrounds.primary.default.fg),
+        cursorBrush = SolidColor(SatsTheme.colors.backgrounds.primary.default.fg),
     )
 }
 

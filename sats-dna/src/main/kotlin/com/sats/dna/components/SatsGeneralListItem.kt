@@ -107,9 +107,9 @@ interface SatsGeneralListItemColors {
 object SatsGeneralListItemDefaults {
     @Composable
     fun generalListItemColors(
-        titleColor: Color = SatsTheme.colors2.surfaces.primary.default.fg,
-        subtitleColor: Color = SatsTheme.colors2.surfaces.primary.default.fgAlternate,
-        iconColor: Color = SatsTheme.colors2.surfaces.primary.default.fg,
+        titleColor: Color = SatsTheme.colors.surfaces.primary.default.fg,
+        subtitleColor: Color = SatsTheme.colors.surfaces.primary.default.fgAlternate,
+        iconColor: Color = SatsTheme.colors.surfaces.primary.default.fg,
     ): SatsGeneralListItemColors = DefaultSatsGeneralListItem(
         titleColor = titleColor,
         subtitleColor = subtitleColor,
@@ -128,7 +128,7 @@ private class DefaultSatsGeneralListItem(
 @Composable
 private fun GeneralListItemPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -143,7 +143,7 @@ private fun GeneralListItemPreview() {
 @Composable
 private fun GeneralListItemWithSubtitlePreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -159,7 +159,7 @@ private fun GeneralListItemWithSubtitlePreview() {
 @Composable
 private fun WithTrailingContentPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -175,7 +175,7 @@ private fun WithTrailingContentPreview() {
 @Composable
 private fun WithAdvancedTrailingContentPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -191,14 +191,14 @@ private fun WithAdvancedTrailingContentPreview() {
 @Composable
 private fun WithNonDefaultColorsPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
                 icon = SatsIcons.Info,
                 colors = SatsGeneralListItemDefaults.generalListItemColors(
-                    iconColor = SatsTheme.colors2.graphicalElements.icons.attention,
+                    iconColor = SatsTheme.colors.graphicalElements.icons.attention,
                 ),
             )
         }
@@ -209,7 +209,7 @@ private fun WithNonDefaultColorsPreview() {
 @Composable
 private fun WithoutIconPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsGeneralListItem(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
@@ -225,9 +225,9 @@ private fun WithoutIconPreview() {
 @Composable
 private fun SatsGeneralListItemLoadingPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
             SatsTheme {
-                SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg) {
+                SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
                     SatsGeneralListItem(
                         modifier = Modifier.fillMaxWidth(),
                         onClick = {},

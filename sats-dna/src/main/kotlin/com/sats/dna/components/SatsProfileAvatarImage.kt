@@ -43,7 +43,7 @@ fun SatsProfileAvatarImagePlaceholder(modifier: Modifier = Modifier) {
 private fun SatsProfileAvatarImagePreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsProfileAvatarImage(
@@ -61,7 +61,7 @@ private fun SatsProfileAvatarImagePreview() {
 private fun SatsProfileAvatarImagePlaceholderPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsProfileAvatarImagePlaceholder(

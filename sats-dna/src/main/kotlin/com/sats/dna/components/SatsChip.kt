@@ -36,8 +36,8 @@ fun SatsFilterChip(
     val backgroundColor = animateColorAsState(
         targetValue = when (isSelected) {
             true -> when (isEnabled) {
-                true -> SatsTheme.colors2.graphicalElements.chips.selected.default.bg
-                false -> SatsTheme.colors2.graphicalElements.chips.selected.disabled.bg
+                true -> SatsTheme.colors.graphicalElements.chips.selected.default.bg
+                false -> SatsTheme.colors.graphicalElements.chips.selected.disabled.bg
             }
 
             false -> Color.Transparent
@@ -48,13 +48,13 @@ fun SatsFilterChip(
     val contentColor = animateColorAsState(
         targetValue = when (isSelected) {
             true -> when (isEnabled) {
-                true -> SatsTheme.colors2.graphicalElements.chips.selected.default.fg
-                false -> SatsTheme.colors2.graphicalElements.chips.selected.disabled.fg
+                true -> SatsTheme.colors.graphicalElements.chips.selected.default.fg
+                false -> SatsTheme.colors.graphicalElements.chips.selected.disabled.fg
             }
 
             false -> when (isEnabled) {
-                true -> SatsTheme.colors2.graphicalElements.chips.unselected.default.fg
-                false -> SatsTheme.colors2.graphicalElements.chips.unselected.disabled.fg
+                true -> SatsTheme.colors.graphicalElements.chips.unselected.default.fg
+                false -> SatsTheme.colors.graphicalElements.chips.unselected.disabled.fg
             }
         },
         label = "content color",
@@ -65,8 +65,8 @@ fun SatsFilterChip(
             true -> Color.Transparent
 
             false -> when (isEnabled) {
-                true -> SatsTheme.colors2.graphicalElements.chips.unselected.default.bg
-                false -> SatsTheme.colors2.graphicalElements.chips.unselected.disabled.fg
+                true -> SatsTheme.colors.graphicalElements.chips.unselected.default.bg
+                false -> SatsTheme.colors.graphicalElements.chips.unselected.disabled.fg
             }
         },
         label = "border color",
@@ -101,8 +101,8 @@ fun SatsInputChip(
     modifier: Modifier = Modifier,
 ) {
     SatsChipLayout(
-        backgroundColor = SatsTheme.colors2.graphicalElements.chips.selected.default.bg,
-        contentColor = SatsTheme.colors2.graphicalElements.chips.selected.default.fg,
+        backgroundColor = SatsTheme.colors.graphicalElements.chips.selected.default.bg,
+        contentColor = SatsTheme.colors.graphicalElements.chips.selected.default.fg,
         borderColor = null,
         modifier = modifier.width(IntrinsicSize.Max),
     ) {
@@ -135,14 +135,14 @@ fun SatsInputChipClearButton(
 ) {
     SatsSurface(
         modifier = modifier.size(16.dp),
-        color = SatsTheme.colors2.graphicalElements.chips.selected.default.fg,
+        color = SatsTheme.colors.graphicalElements.chips.selected.default.fg,
         shape = SatsTheme.shapes.circle,
     ) {
         MaterialIcon(
             imageVector = SatsIcons.Close,
             contentDescription = null,
             modifier = Modifier.clickable(onClickLabel = onClickLabel, role = Role.Button) { onClick() },
-            tint = SatsTheme.colors2.graphicalElements.chips.selected.default.bg,
+            tint = SatsTheme.colors.graphicalElements.chips.selected.default.bg,
         )
     }
 }
@@ -171,7 +171,7 @@ private fun SatsChipLayout(
 private fun SatsFilterChipPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             Column {
@@ -227,7 +227,7 @@ private fun SatsInputChipPreview() {
     SatsTheme {
         SatsSurface(
             Modifier.width(250.dp),
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             Column(

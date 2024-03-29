@@ -31,7 +31,7 @@ fun SatsDefaultInstructorIcon(
         SatsDefaultInstructorIconType.Pt -> "PT"
     }
 
-    val colors = SatsTheme.colors2.backgrounds.fixed.primary.default
+    val colors = SatsTheme.colors.backgrounds.fixed.primary.default
 
     Box(
         modifier = modifier
@@ -61,7 +61,7 @@ enum class SatsDefaultInstructorIconType {
 private fun SatsDefaultInstructorIconGxPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsDefaultInstructorIcon(
@@ -77,7 +77,7 @@ private fun SatsDefaultInstructorIconGxPreview() {
 private fun SatsDefaultInstructorIconPtPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsDefaultInstructorIcon(

@@ -55,7 +55,7 @@ private fun SatsBrandLogoBrand.fullNameIconPainter() = when (this) {
 private fun SatsBrandLogoElixiaLetterPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBrandLogo(
@@ -72,7 +72,7 @@ private fun SatsBrandLogoElixiaLetterPreview() {
 private fun SatsBrandLogoElixiaFullPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBrandLogo(
@@ -90,7 +90,7 @@ private fun SatsBrandLogoElixiaFullPreview() {
 private fun SatsBrandLogoSatsLetterPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBrandLogo(
@@ -107,7 +107,7 @@ private fun SatsBrandLogoSatsLetterPreview() {
 private fun SatsBrandLogoSatsFullPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBrandLogo(

@@ -20,7 +20,7 @@ fun SatsCircularProgressIndicator(
 ) {
     CircularProgressIndicator(
         modifier = modifier,
-        color = SatsTheme.colors2.graphicalElements.progressBar.default.fg,
+        color = SatsTheme.colors.graphicalElements.progressBar.default.fg,
         strokeWidth = strokeWidth,
         trackColor = Color.Transparent,
         strokeCap = StrokeCap.Round,
@@ -31,7 +31,7 @@ fun SatsCircularProgressIndicator(
 fun SatsCircularProgressIndicator(
     progress: Float,
     modifier: Modifier = Modifier,
-    color: Color = SatsTheme.colors2.graphicalElements.progressBar.default.fg,
+    color: Color = SatsTheme.colors.graphicalElements.progressBar.default.fg,
     strokeWidth: Dp = 4.dp,
 ) {
     CircularProgressIndicator(
@@ -48,7 +48,7 @@ fun SatsCircularProgressIndicator(
 @Composable
 private fun SatsCircularProgressIndicatorPreview(@PreviewParameter(ProgressPreviewProvider::class) progress: Float) {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
             SatsCircularProgressIndicator(progress, Modifier.padding(SatsTheme.spacing.m))
         }
     }

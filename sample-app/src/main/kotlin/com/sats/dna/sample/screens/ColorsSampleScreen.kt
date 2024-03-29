@@ -22,15 +22,15 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 
-data object Colors2SampleScreen : SampleScreen(
-    name = "Colors2",
-    route = "/colors2",
-    screen = { Colors2Screen(it::navigateUp) },
+data object ColorsSampleScreen : SampleScreen(
+    name = "Colors",
+    route = "/colors",
+    screen = { ColorsScreen(it::navigateUp) },
 )
 
 @Composable
-private fun Colors2Screen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Colors2", navigateUp, modifier) { innerPadding ->
+private fun ColorsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+    ComponentScreen("Colors", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .verticalScroll(rememberScrollState())
@@ -59,7 +59,7 @@ private fun Colors2Screen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
 private fun Buttons() {
     Section("Buttons", SectionLevel.Level1) {
         Section("Primary Button", SectionLevel.Level2, base = "buttons.primary") {
-            val base = SatsTheme.colors2.buttons.primary
+            val base = SatsTheme.colors.buttons.primary
 
             ColorSample(
                 backgroundColor = base.default.bg named "base.default.bg",
@@ -73,7 +73,7 @@ private fun Buttons() {
         }
 
         Section("Secondary Button", SectionLevel.Level2, base = "buttons.secondary") {
-            val base = SatsTheme.colors2.buttons.secondary
+            val base = SatsTheme.colors.buttons.secondary
 
             ColorSample(
                 backgroundColor = base.default.bg named "base.default.bg",
@@ -89,7 +89,7 @@ private fun Buttons() {
         }
 
         Section("Clean Buttons", SectionLevel.Level2, base = "buttons.clean") {
-            val base = SatsTheme.colors2.buttons.clean
+            val base = SatsTheme.colors.buttons.clean
 
             ColorSample(
                 backgroundColor = base.default.bg named "base.default.bg",
@@ -103,7 +103,7 @@ private fun Buttons() {
         }
 
         Section("Clean Secondary Button", SectionLevel.Level2, base = "buttons.cleanSecondary") {
-            val base = SatsTheme.colors2.buttons.cleanSecondary
+            val base = SatsTheme.colors.buttons.cleanSecondary
 
             ColorSample(
                 backgroundColor = base.default.bg named "base.default.bg",
@@ -117,7 +117,7 @@ private fun Buttons() {
         }
 
         Section("Action", SectionLevel.Level2, base = "buttons.action") {
-            val base = SatsTheme.colors2.buttons.action
+            val base = SatsTheme.colors.buttons.action
 
             ColorSample(
                 backgroundColor = base.default.bg named "base.default.bg",
@@ -131,7 +131,7 @@ private fun Buttons() {
         }
 
         Section("Waiting List Primary Button", SectionLevel.Level2, base = "buttons.waitingListFilled") {
-            val base = SatsTheme.colors2.buttons.waitingListFilled
+            val base = SatsTheme.colors.buttons.waitingListFilled
 
             ColorSample(
                 backgroundColor = base.default.bg named "base.default.bg",
@@ -145,7 +145,7 @@ private fun Buttons() {
         }
 
         Section("Waiting List Secondary Button", SectionLevel.Level2, base = "buttons.waitingListSecondary") {
-            val base = SatsTheme.colors2.buttons.waitingListOutlined
+            val base = SatsTheme.colors.buttons.waitingListOutlined
 
             ColorSample(
                 backgroundColor = base.default.bg named "base.default.bg",
@@ -161,7 +161,7 @@ private fun Buttons() {
         }
 
         Section("Destructive Button Details", SectionLevel.Level2, base = "buttons.destructive.default") {
-            val base = SatsTheme.colors2.buttons.destructive.default
+            val base = SatsTheme.colors.buttons.destructive.default
 
             ColorSample(
                 backgroundColor = base.default.bg named "base.default.bg",
@@ -175,7 +175,7 @@ private fun Buttons() {
         }
 
         Section("Destructive Button Alternate", SectionLevel.Level2, base = "buttons.destructive.alternate") {
-            val base = SatsTheme.colors2.buttons.destructive.outlined
+            val base = SatsTheme.colors.buttons.destructive.outlined
 
             ColorSample(
                 backgroundColor = base.default.bg named "base.default.bg",
@@ -196,7 +196,7 @@ private fun Buttons() {
 private fun GraphicalElements() {
     Section("Graphical Elements", SectionLevel.Level1) {
         Section("Divider", SectionLevel.Level2, base = "graphicalElements.divider") {
-            val base = SatsTheme.colors2.graphicalElements.divider
+            val base = SatsTheme.colors.graphicalElements.divider
 
             ColorSample(
                 backgroundColor = base.default named "base.default",
@@ -210,7 +210,7 @@ private fun GraphicalElements() {
         }
 
         Section("Border", SectionLevel.Level2, base = "graphicalElements.border") {
-            val base = SatsTheme.colors2.graphicalElements.border
+            val base = SatsTheme.colors.graphicalElements.border
 
             ColorSample(
                 backgroundColor = base.default named "base.default",
@@ -225,13 +225,13 @@ private fun GraphicalElements() {
 
         Section("Skeleton", SectionLevel.Level2) {
             ColorSample(
-                backgroundColor = SatsTheme.colors2.graphicalElements.skeleton named "skeleton",
+                backgroundColor = SatsTheme.colors.graphicalElements.skeleton named "skeleton",
                 contentColor = null,
             )
         }
 
         Section("Nav Bar", SectionLevel.Level2, base = "graphicalElements.navBar") {
-            val base = SatsTheme.colors2.graphicalElements.navBar
+            val base = SatsTheme.colors.graphicalElements.navBar
 
             ColorSample(
                 backgroundColor = base.notSelected named "base.notSelected",
@@ -245,7 +245,7 @@ private fun GraphicalElements() {
         }
 
         Section("Progress Bar", SectionLevel.Level2, base = "graphicalElements.progressBar") {
-            val base = SatsTheme.colors2.graphicalElements.progressBar
+            val base = SatsTheme.colors.graphicalElements.progressBar
 
             ColorSample(
                 backgroundColor = base.default.bg named "base.default.bg",
@@ -259,7 +259,7 @@ private fun GraphicalElements() {
         }
 
         Section("Fixed Progress Bar", SectionLevel.Level2, base = "graphicalElements.fixedProgressBar") {
-            val base = SatsTheme.colors2.graphicalElements.fixedProgressBar
+            val base = SatsTheme.colors.graphicalElements.fixedProgressBar
 
             ColorSample(
                 backgroundColor = base.default.bg named "base.default.bg",
@@ -273,7 +273,7 @@ private fun GraphicalElements() {
         }
 
         Section("Graphs", SectionLevel.Level2, base = "graphicalElements.graphs") {
-            val base = SatsTheme.colors2.graphicalElements.graphs
+            val base = SatsTheme.colors.graphicalElements.graphs
 
             ColorSample(
                 backgroundColor = base.bar.primary.bg named "base.bar.primary.bg",
@@ -302,7 +302,7 @@ private fun GraphicalElements() {
         }
 
         Section("Selector", SectionLevel.Level2, base = "graphicalElements.selector") {
-            val base = SatsTheme.colors2.graphicalElements.selector
+            val base = SatsTheme.colors.graphicalElements.selector
 
             ColorSample(
                 backgroundColor = base.unselected.default named "base.unselected.default",
@@ -326,7 +326,7 @@ private fun GraphicalElements() {
         }
 
         Section("Chips", SectionLevel.Level2, base = "graphicalElements.chips") {
-            val base = SatsTheme.colors2.graphicalElements.chips
+            val base = SatsTheme.colors.graphicalElements.chips
 
             ColorSample(
                 backgroundColor = base.unselected.default.bg named "base.unselected.default.bg",
@@ -350,7 +350,7 @@ private fun GraphicalElements() {
         }
 
         Section("Toggle", SectionLevel.Level2, base = "graphicalElements.toggle") {
-            val base = SatsTheme.colors2.graphicalElements.toggle
+            val base = SatsTheme.colors.graphicalElements.toggle
 
             ColorSample(
                 backgroundColor = base.unselected.default named "base.unselected.default",
@@ -379,7 +379,7 @@ private fun GraphicalElements() {
         }
 
         Section("Icons", SectionLevel.Level2, base = "graphicalElements.icons") {
-            val base = SatsTheme.colors2.graphicalElements.icons
+            val base = SatsTheme.colors.graphicalElements.icons
 
             ColorSample(
                 backgroundColor = base.primary named "base.primary",
@@ -423,7 +423,7 @@ private fun GraphicalElements() {
         }
 
         Section("Indicators", SectionLevel.Level2, base = "graphicalElements.indicators") {
-            val base = SatsTheme.colors2.graphicalElements.indicators
+            val base = SatsTheme.colors.graphicalElements.indicators
 
             ColorSample(
                 backgroundColor = base.positive.default named "base.positive.default",
@@ -467,7 +467,7 @@ private fun GraphicalElements() {
         }
 
         Section("Signal", SectionLevel.Level2, base = "graphicalElements.signal") {
-            val base = SatsTheme.colors2.graphicalElements.signal
+            val base = SatsTheme.colors.graphicalElements.signal
 
             ColorSample(
                 backgroundColor = base.success named "base.success",
@@ -496,7 +496,7 @@ private fun GraphicalElements() {
         }
 
         Section("Tags", SectionLevel.Level2, base = "graphicalElements.tags") {
-            val base = SatsTheme.colors2.graphicalElements.tags
+            val base = SatsTheme.colors.graphicalElements.tags
 
             ColorSample(
                 backgroundColor = base.primary.bg named "base.primary.bg",
@@ -515,7 +515,7 @@ private fun GraphicalElements() {
         }
 
         Section("Badge", SectionLevel.Level2, base = "graphicalElements.badge") {
-            val base = SatsTheme.colors2.graphicalElements.badge
+            val base = SatsTheme.colors.graphicalElements.badge
 
             ColorSample(
                 backgroundColor = base.primary.bg named "base.primary.bg",
@@ -534,7 +534,7 @@ private fun GraphicalElements() {
         }
 
         Section("Fixed Badge", SectionLevel.Level2, base = "graphicalElements.fixedBadge") {
-            val base = SatsTheme.colors2.graphicalElements.fixedBadge
+            val base = SatsTheme.colors.graphicalElements.fixedBadge
 
             ColorSample(
                 backgroundColor = base.primary.bg named "base.primary.bg",
@@ -553,7 +553,7 @@ private fun GraphicalElements() {
         }
 
         Section("Rewards", SectionLevel.Level2, base = "graphicalElements.rewards") {
-            val base = SatsTheme.colors2.graphicalElements.rewards
+            val base = SatsTheme.colors.graphicalElements.rewards
 
             ColorSample(
                 backgroundColor = base.blue.bg named "base.blue.bg",
@@ -577,7 +577,7 @@ private fun GraphicalElements() {
         }
 
         Section("Workouts", SectionLevel.Level2, base = "graphicalElements.workouts") {
-            val base = SatsTheme.colors2.graphicalElements.workouts
+            val base = SatsTheme.colors.graphicalElements.workouts
 
             ColorSample(
                 backgroundColor = base.pt.bg named "base.pt.bg",
@@ -610,7 +610,7 @@ private fun GraphicalElements() {
 @Composable
 private fun Backgrounds() {
     Section("Backgrounds", SectionLevel.Level1, base = "backgrounds") {
-        val base = SatsTheme.colors2.backgrounds
+        val base = SatsTheme.colors.backgrounds
 
         ColorSample(
             backgroundColor = base.primary.default.bg named "base.primary.default.bg",
@@ -657,7 +657,7 @@ private fun Backgrounds() {
 @Composable
 private fun FixedBackgrounds() {
     Section("Fixed Backgrounds", SectionLevel.Level1, base = "backgrounds.fixed") {
-        val base = SatsTheme.colors2.backgrounds.fixed
+        val base = SatsTheme.colors.backgrounds.fixed
 
         ColorSample(
             backgroundColor = base.primary.default.bg named "base.primary.default.bg",
@@ -684,7 +684,7 @@ private fun FixedBackgrounds() {
 @Composable
 private fun Surfaces() {
     Section("Surfaces", SectionLevel.Level1, base = "surfaces") {
-        val base = SatsTheme.colors2.surfaces
+        val base = SatsTheme.colors.surfaces
 
         ColorSample(
             backgroundColor = base.primary.default.bg named "base.primary.default.bg",
@@ -811,7 +811,7 @@ private fun Surfaces() {
 @Composable
 private fun FixedSurfaces() {
     Section("Fixed Surfaces", SectionLevel.Level1, base = "surfaces.fixed") {
-        val base = SatsTheme.colors2.surfaces.fixed
+        val base = SatsTheme.colors.surfaces.fixed
 
         ColorSample(
             backgroundColor = base.primary.default.bg named "base.primary.default.bg",
@@ -838,7 +838,7 @@ private fun FixedSurfaces() {
 @Composable
 private fun SignalSurfaces() {
     Section("Signal Surface", SectionLevel.Level1, base = "signalSurfaces") {
-        val base = SatsTheme.colors2.signalSurfaces
+        val base = SatsTheme.colors.signalSurfaces
 
         ColorSample(
             backgroundColor = base.success.default.bg named "base.success.default.bg",
@@ -977,7 +977,7 @@ private fun ColorNameAndHex(backgroundColor: NamedColor, modifier: Modifier = Mo
 
         Text(
             backgroundColor.toHexString(),
-            color = SatsTheme.colors2.surfaces.primary.default.fgAlternate,
+            color = SatsTheme.colors.surfaces.primary.default.fgAlternate,
         )
     }
 }
@@ -997,7 +997,7 @@ class NamedColor(val name: String, val color: Color) {
 @Composable
 private fun ColorSamplePreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
             ColorSample(
                 backgroundColor = Color.Green named "Color.Green",
                 contentColor = Color.Red named "Color.Red",
@@ -1011,8 +1011,8 @@ private infix fun Color.named(name: String) = NamedColor(name, this)
 
 @PreviewLightDark
 @Composable
-private fun Colors2ScreenPreview() {
+private fun ColorsScreenPreview() {
     SatsTheme {
-        Colors2Screen(navigateUp = {})
+        ColorsScreen(navigateUp = {})
     }
 }

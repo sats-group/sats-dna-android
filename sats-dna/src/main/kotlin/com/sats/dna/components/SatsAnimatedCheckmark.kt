@@ -37,7 +37,7 @@ fun SatsAnimatedCheckmark(modifier: Modifier = Modifier) {
         )
     }
 
-    val color = SatsTheme.colors2.graphicalElements.signal.success
+    val color = SatsTheme.colors.graphicalElements.signal.success
 
     Canvas(modifier) {
         drawCircle(color, circleSweepAngle)

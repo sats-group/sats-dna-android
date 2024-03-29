@@ -26,7 +26,7 @@ import com.sats.dna.sample.screens.ChallengeBadgeSampleScreen
 import com.sats.dna.sample.screens.ChallengeCardSampleScreen
 import com.sats.dna.sample.screens.CheckboxSampleScreen
 import com.sats.dna.sample.screens.ChipsSampleScreen
-import com.sats.dna.sample.screens.Colors2SampleScreen
+import com.sats.dna.sample.screens.ColorsSampleScreen
 import com.sats.dna.sample.screens.CompletedWorkoutListItemSampleScreen
 import com.sats.dna.sample.screens.DividersSampleScreen
 import com.sats.dna.sample.screens.EmptyStateSampleScreen
@@ -72,7 +72,7 @@ internal fun HomeScreen(navController: NavController, modifier: Modifier = Modif
                 .verticalScroll(rememberScrollState())
                 .padding(innerPadding),
         ) {
-            Colors2SampleScreen.HomeListItem(navController)
+            ColorsSampleScreen.HomeListItem(navController)
             IconsSampleScreen.HomeListItem(navController)
             TypographySampleScreen.HomeListItem(navController)
 
