@@ -21,17 +21,17 @@ import com.sats.dna.theme.SatsTheme
 @Composable
 fun SatsTrafficLight(color: TrafficLightColor, modifier: Modifier = Modifier) {
     val defaultColor = when (color) {
-        TrafficLightColor.Green -> SatsTheme.colors2.graphicalElements.indicators.positive.default
-        TrafficLightColor.Yellow -> SatsTheme.colors2.graphicalElements.indicators.attention.default
-        TrafficLightColor.Red -> SatsTheme.colors2.graphicalElements.indicators.negative.default
-        TrafficLightColor.Gray -> SatsTheme.colors2.graphicalElements.indicators.neutral.default
+        TrafficLightColor.Green -> SatsTheme.colors.graphicalElements.indicators.positive.default
+        TrafficLightColor.Yellow -> SatsTheme.colors.graphicalElements.indicators.attention.default
+        TrafficLightColor.Red -> SatsTheme.colors.graphicalElements.indicators.negative.default
+        TrafficLightColor.Gray -> SatsTheme.colors.graphicalElements.indicators.neutral.default
     }
 
     val alternateColor = when (color) {
-        TrafficLightColor.Green -> SatsTheme.colors2.graphicalElements.indicators.positive.alternate
-        TrafficLightColor.Yellow -> SatsTheme.colors2.graphicalElements.indicators.attention.alternate
-        TrafficLightColor.Red -> SatsTheme.colors2.graphicalElements.indicators.negative.alternate
-        TrafficLightColor.Gray -> SatsTheme.colors2.graphicalElements.indicators.neutral.alternate
+        TrafficLightColor.Green -> SatsTheme.colors.graphicalElements.indicators.positive.alternate
+        TrafficLightColor.Yellow -> SatsTheme.colors.graphicalElements.indicators.attention.alternate
+        TrafficLightColor.Red -> SatsTheme.colors.graphicalElements.indicators.negative.alternate
+        TrafficLightColor.Gray -> SatsTheme.colors.graphicalElements.indicators.neutral.alternate
     }
 
     Box(
@@ -61,7 +61,7 @@ enum class TrafficLightColor {
 private fun SatsTrafficLightPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             Column(

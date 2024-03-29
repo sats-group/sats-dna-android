@@ -59,7 +59,7 @@ fun SatsTopAppBar(
     val containerColor = if (scrollBehavior == null) {
         SatsTopAppBarDefaults.containerColor
     } else {
-        SatsTheme.colors2.backgrounds.primary.default.bg
+        SatsTheme.colors.backgrounds.primary.default.bg
     }
 
     TopAppBar(
@@ -87,14 +87,14 @@ fun SatsTopAppBar(
 
 object SatsTopAppBarDefaults {
     val containerColor
-        @Composable get() = if (SatsTheme.colors2.isLightMode) {
-            SatsTheme.colors2.surfaces.fixed.primary.default.bg.copy(alpha = .05f)
+        @Composable get() = if (SatsTheme.colors.isLightMode) {
+            SatsTheme.colors.surfaces.fixed.primary.default.bg.copy(alpha = .05f)
         } else {
-            SatsTheme.colors2.surfaces.primary.default.bg
-        }.compositeOver(SatsTheme.colors2.backgrounds.primary.default.bg)
+            SatsTheme.colors.surfaces.primary.default.bg
+        }.compositeOver(SatsTheme.colors.backgrounds.primary.default.bg)
 
     val contentColor
-        @Composable get() = SatsTheme.colors2.surfaces.primary.default.fg
+        @Composable get() = SatsTheme.colors.surfaces.primary.default.fg
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -103,7 +103,7 @@ object SatsTopAppBarDefaults {
 private fun SatsTopAppBarPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsTopAppBar(

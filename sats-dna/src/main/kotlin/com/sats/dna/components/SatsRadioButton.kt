@@ -19,10 +19,10 @@ fun SatsRadioButton(
 
 private val colors
     @Composable get() = RadioButtonDefaults.colors(
-        selectedColor = SatsTheme.colors2.graphicalElements.selector.selected.default,
-        unselectedColor = SatsTheme.colors2.graphicalElements.selector.unselected.default,
-        disabledSelectedColor = SatsTheme.colors2.graphicalElements.selector.selected.disabled,
-        disabledUnselectedColor = SatsTheme.colors2.graphicalElements.selector.unselected.disabled,
+        selectedColor = SatsTheme.colors.graphicalElements.selector.selected.default,
+        unselectedColor = SatsTheme.colors.graphicalElements.selector.unselected.default,
+        disabledSelectedColor = SatsTheme.colors.graphicalElements.selector.selected.disabled,
+        disabledUnselectedColor = SatsTheme.colors.graphicalElements.selector.unselected.disabled,
     )
 
 @PreviewLightDark
@@ -30,7 +30,7 @@ private val colors
 private fun EnabledSelectedPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsRadioButton(selected = true, onClick = {})
@@ -43,7 +43,7 @@ private fun EnabledSelectedPreview() {
 private fun EnabledUnselectedPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsRadioButton(selected = false, onClick = {})
@@ -56,7 +56,7 @@ private fun EnabledUnselectedPreview() {
 private fun DisabledSelectedPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsRadioButton(selected = true, onClick = {}, enabled = false)
@@ -69,7 +69,7 @@ private fun DisabledSelectedPreview() {
 private fun DisabledUnselectedPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsRadioButton(selected = false, onClick = {}, enabled = false)

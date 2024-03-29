@@ -65,10 +65,10 @@ object SatsOutlinedTextFieldDefaults {
         cursorColor: Color = Color.Unspecified,
         errorCursorColor: Color = Color.Unspecified,
         selectionColors: TextSelectionColors? = null,
-        focusedBorderColor: Color = SatsTheme.colors2.graphicalElements.border.focused,
-        unfocusedBorderColor: Color = SatsTheme.colors2.graphicalElements.border.default,
-        disabledBorderColor: Color = SatsTheme.colors2.graphicalElements.border.default,
-        errorBorderColor: Color = SatsTheme.colors2.graphicalElements.signal.error,
+        focusedBorderColor: Color = SatsTheme.colors.graphicalElements.border.focused,
+        unfocusedBorderColor: Color = SatsTheme.colors.graphicalElements.border.default,
+        disabledBorderColor: Color = SatsTheme.colors.graphicalElements.border.default,
+        errorBorderColor: Color = SatsTheme.colors.graphicalElements.signal.error,
         focusedLeadingIconColor: Color = Color.Unspecified,
         unfocusedLeadingIconColor: Color = Color.Unspecified,
         disabledLeadingIconColor: Color = Color.Unspecified,
@@ -150,7 +150,7 @@ object SatsOutlinedTextFieldDefaults {
 @Composable
 private fun SatsOutlinedTextFieldEnabledPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsOutlinedTextField(
                 value = "Text",
                 onValueChange = { },
@@ -165,7 +165,7 @@ private fun SatsOutlinedTextFieldEnabledPreview() {
 @Composable
 private fun SatsOutlinedTextFieldDisabledPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsOutlinedTextField(
                 value = "Text",
                 onValueChange = { },

@@ -119,7 +119,7 @@ class SatsWorkoutStatisticsCardItem private constructor(
 private fun WorkoutStatisticsCardPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsWorkoutStatisticsCard(
@@ -143,7 +143,7 @@ private fun WorkoutStatisticsCardPreview() {
 private fun StatisticsPlaceholderPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsWorkoutStatisticsCardPlaceholder(Modifier.padding(SatsTheme.spacing.m))

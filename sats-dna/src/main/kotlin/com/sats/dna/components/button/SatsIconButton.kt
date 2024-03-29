@@ -148,7 +148,7 @@ fun SatsBellIconButton(
                 imageVector = SatsIcons.Cherry,
                 contentDescription = null,
                 modifier = Modifier.size(iconContentSize),
-                tint = SatsTheme.colors2.buttons.action.default.fg,
+                tint = SatsTheme.colors.buttons.action.default.fg,
             )
         } else {
             MaterialIcon(
@@ -237,7 +237,7 @@ private fun SatsTopAppBarIconButton(
 private fun SatsIconButtonPreview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsIconButton(
@@ -256,7 +256,7 @@ private fun SatsIconButtonPreview(@PreviewParameter(SatsButtonColorProvider::cla
 private fun SatsTopAppBarIconButtonPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsTopAppBarIconButton(
@@ -274,7 +274,7 @@ private fun SatsTopAppBarIconButtonPreview() {
 private fun SatsBellIconButtonNoCherryPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBellIconButton(
@@ -292,7 +292,7 @@ private fun SatsBellIconButtonNoCherryPreview() {
 private fun SatsBellIconButtonWithCherryPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsBellIconButton(

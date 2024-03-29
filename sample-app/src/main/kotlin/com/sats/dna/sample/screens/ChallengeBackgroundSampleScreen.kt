@@ -59,7 +59,7 @@ private fun ChallengeBackgroundScreen(navigateUp: () -> Unit, modifier: Modifier
                     Text(
                         text = "Challenge Background",
                         style = SatsTheme.typography.normal.headline3,
-                        color = SatsTheme.colors2.backgrounds.fixed.primary.default.fg,
+                        color = SatsTheme.colors.backgrounds.fixed.primary.default.fg,
                     )
                 },
                 navigationIcon = {
@@ -82,7 +82,7 @@ private fun ChallengeBackgroundScreen(navigateUp: () -> Unit, modifier: Modifier
 @Composable
 private fun ChallengeBackgroundScreenPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
             ChallengeBackgroundScreen(navigateUp = {})
         }
     }

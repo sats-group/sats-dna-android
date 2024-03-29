@@ -127,7 +127,7 @@ fun SatsEmptyWorkoutGraphCard(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Start,
         ) {
-            val contentColor = SatsTheme.colors2.surfaces.primary.default.fgAlternate
+            val contentColor = SatsTheme.colors.surfaces.primary.default.fgAlternate
 
             Icon(
                 tint = contentColor,
@@ -151,7 +151,7 @@ private fun TrainingGraphCylinder(
     workouts: SatsWorkoutGraphCardWeek,
     cylinderHeight: Int,
 ) {
-    val colors = SatsTheme.colors2.graphicalElements.graphs.bar.primary
+    val colors = SatsTheme.colors.graphicalElements.graphs.bar.primary
 
     val segmentHeight = 19.dp
     val segmentWidth = 6.dp
@@ -189,7 +189,7 @@ data class SatsWorkoutGraphCardWeek(
 private fun SatsWorkoutGraphCardPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsWorkoutGraphCard(
@@ -251,7 +251,7 @@ private fun SatsWorkoutGraphCardPreview() {
 private fun SatsWorkoutGraphCardPlaceholderPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsWorkoutGraphCardPlaceholder(Modifier.padding(SatsTheme.spacing.m))
@@ -264,7 +264,7 @@ private fun SatsWorkoutGraphCardPlaceholderPreview() {
 private fun SatsEmptyWorkoutGraphCardPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsEmptyWorkoutGraphCard(

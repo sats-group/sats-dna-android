@@ -6,11 +6,11 @@ import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun satsContentColor2For(backgroundColor: Color): Color {
-    val buttons = SatsTheme.colors2.buttons
-    val graphicalElements = SatsTheme.colors2.graphicalElements
-    val backgrounds = SatsTheme.colors2.backgrounds
-    val surfaces = SatsTheme.colors2.surfaces
-    val signalSurfaces = SatsTheme.colors2.signalSurfaces
+    val buttons = SatsTheme.colors.buttons
+    val graphicalElements = SatsTheme.colors.graphicalElements
+    val backgrounds = SatsTheme.colors.backgrounds
+    val surfaces = SatsTheme.colors.surfaces
+    val signalSurfaces = SatsTheme.colors.signalSurfaces
 
     return when (backgroundColor) {
         buttons.primary.default.bg -> buttons.primary.default.fg

@@ -81,7 +81,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                 SatsButtonColor.Action,
             ).forEach { color ->
                 val backgroundColor = if (color == SatsButtonColor.Clean || color == SatsButtonColor.CleanSecondary) {
-                    SatsTheme.colors2.backgrounds.fixed.primary.default.bg
+                    SatsTheme.colors.backgrounds.fixed.primary.default.bg
                 } else {
                     Color.Transparent
                 }
@@ -320,7 +320,7 @@ private fun ControlPanel(state: ControlPanelState) {
 @Composable
 private fun ButtonsScreenPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
             ButtonsScreen(navigateUp = {})
         }
     }

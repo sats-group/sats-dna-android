@@ -27,7 +27,7 @@ fun SatsCard(
 ) {
     SatsSurface(
         modifier = modifier,
-        color = SatsTheme.colors2.surfaces.primary.default.bg,
+        color = SatsTheme.colors.surfaces.primary.default.bg,
         shape = SatsTheme.shapes.roundedCorners.small,
         elevation = 1.dp,
         content = content,
@@ -39,7 +39,7 @@ fun SatsCard(
 private fun Material3Preview() {
     SatsTheme {
         CompositionLocalProvider(LocalUseMaterial3 provides true) {
-            SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg) {
+            SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
                 SatsCard(Modifier.padding(SatsTheme.spacing.m)) {
                     Column {
                         Image(
@@ -73,7 +73,7 @@ private fun Material3Preview() {
 private fun Material2Preview() {
     SatsTheme {
         CompositionLocalProvider(LocalUseMaterial3 provides false) {
-            SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg) {
+            SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
                 SatsCard(Modifier.padding(SatsTheme.spacing.m)) {
                     Column {
                         Image(

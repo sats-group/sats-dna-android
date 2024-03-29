@@ -20,11 +20,11 @@ fun SatsWorkoutTypeColorIndicator(
     modifier: Modifier = Modifier,
 ) {
     val color = when (workoutType) {
-        SatsWorkoutType.Pt -> SatsTheme.colors2.graphicalElements.workouts.pt.bg
-        SatsWorkoutType.Gx -> SatsTheme.colors2.graphicalElements.workouts.gx.bg
-        SatsWorkoutType.Treatment -> SatsTheme.colors2.graphicalElements.workouts.treatments.bg
-        SatsWorkoutType.Gymfloor -> SatsTheme.colors2.graphicalElements.workouts.gymfloor.bg
-        SatsWorkoutType.OwnTraining -> SatsTheme.colors2.graphicalElements.workouts.other.bg
+        SatsWorkoutType.Pt -> SatsTheme.colors.graphicalElements.workouts.pt.bg
+        SatsWorkoutType.Gx -> SatsTheme.colors.graphicalElements.workouts.gx.bg
+        SatsWorkoutType.Treatment -> SatsTheme.colors.graphicalElements.workouts.treatments.bg
+        SatsWorkoutType.Gymfloor -> SatsTheme.colors.graphicalElements.workouts.gymfloor.bg
+        SatsWorkoutType.OwnTraining -> SatsTheme.colors.graphicalElements.workouts.other.bg
     }
 
     Box(
@@ -40,7 +40,7 @@ fun SatsWorkoutTypeColorIndicator(
 @Composable
 private fun SatsWorkoutTypeColorIndicatorPtPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
             SatsWorkoutTypeColorIndicator(
                 SatsWorkoutType.Pt,
                 Modifier
@@ -55,7 +55,7 @@ private fun SatsWorkoutTypeColorIndicatorPtPreview() {
 @Composable
 private fun SatsWorkoutTypeColorIndicatorGxPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
             SatsWorkoutTypeColorIndicator(
                 SatsWorkoutType.Gx,
                 Modifier
@@ -70,7 +70,7 @@ private fun SatsWorkoutTypeColorIndicatorGxPreview() {
 @Composable
 private fun SatsWorkoutTypeColorIndicatorTreatmentPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
             SatsWorkoutTypeColorIndicator(
                 SatsWorkoutType.Treatment,
                 Modifier
@@ -85,7 +85,7 @@ private fun SatsWorkoutTypeColorIndicatorTreatmentPreview() {
 @Composable
 private fun SatsWorkoutTypeColorIndicatorGymfloorPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
             SatsWorkoutTypeColorIndicator(
                 SatsWorkoutType.Gymfloor,
                 Modifier
@@ -100,7 +100,7 @@ private fun SatsWorkoutTypeColorIndicatorGymfloorPreview() {
 @Composable
 private fun SatsWorkoutTypeColorIndicatorOwnTrainingPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
             SatsWorkoutTypeColorIndicator(
                 SatsWorkoutType.OwnTraining,
                 Modifier

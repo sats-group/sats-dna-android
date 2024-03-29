@@ -142,13 +142,13 @@ private fun DateTimeBox(
 ) {
     SatsSurface(
         modifier = modifier,
-        color = SatsTheme.colors2.surfaces.secondary.default.bg,
+        color = SatsTheme.colors.surfaces.secondary.default.bg,
         shape = SatsTheme.shapes.roundedCorners.extraSmall,
     ) {
         val color: Color = if (isEnabled) {
-            SatsTheme.colors2.buttons.action.default.fg
+            SatsTheme.colors.buttons.action.default.fg
         } else {
-            SatsTheme.colors2.buttons.action.disabled.fg
+            SatsTheme.colors.buttons.action.disabled.fg
         }
 
         Text(
@@ -216,7 +216,7 @@ private fun LabelAndHint(label: String, hint: String?) {
             Text(
                 text = hint,
                 style = SatsTheme.typography.normal.small,
-                color = SatsTheme.colors2.surfaces.primary.default.fgAlternate,
+                color = SatsTheme.colors.surfaces.primary.default.fgAlternate,
             )
         }
     }
@@ -225,9 +225,9 @@ private fun LabelAndHint(label: String, hint: String?) {
 @Composable
 private fun valueTextStyle(isSingleLine: Boolean, isEnabled: Boolean): TextStyle {
     val color = if (isEnabled) {
-        SatsTheme.colors2.surfaces.primary.default.fgAlternate
+        SatsTheme.colors.surfaces.primary.default.fgAlternate
     } else {
-        SatsTheme.colors2.surfaces.primary.default.fgDisabled
+        SatsTheme.colors.surfaces.primary.default.fgDisabled
     }
 
     return SatsTheme.typography.normal.basic.copy(
@@ -244,7 +244,7 @@ private val MinSize = 48.dp
 private fun SatsFormTextFieldSingleLinePreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsFormTextField(
@@ -263,7 +263,7 @@ private fun SatsFormTextFieldSingleLinePreview() {
 private fun SatsFormTextFieldSingleLineDurationPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsFormTextField(
@@ -287,7 +287,7 @@ private fun SatsFormTextFieldSingleLineDurationPreview() {
 private fun SatsFormTextFieldMultiLinePreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             val text = buildString {
@@ -315,7 +315,7 @@ private fun SatsFormTextFieldMultiLinePreview() {
 private fun SatsFormInputFieldPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             var value by remember { mutableStateOf(false) }
@@ -338,7 +338,7 @@ private fun SatsFormInputFieldPreview() {
 private fun SatsFormDateTimeInputFieldPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             val selectedDateTime by remember { mutableStateOf(LocalDateTime(2020, 1, 1, 12, 0)) }

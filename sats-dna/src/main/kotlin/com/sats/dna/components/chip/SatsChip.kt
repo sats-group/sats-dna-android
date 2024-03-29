@@ -16,13 +16,13 @@ import com.sats.dna.theme.SatsTheme
 fun SatsChip(label: String, modifier: Modifier = Modifier) {
     SatsSurface(
         modifier = modifier,
-        color = SatsTheme.colors2.graphicalElements.chips.selected.default.bg,
+        color = SatsTheme.colors.graphicalElements.chips.selected.default.bg,
         shape = SatsTheme.shapes.roundedCorners.extraSmall,
     ) {
         MaterialText(
             text = label,
             modifier = Modifier.padding(SatsTheme.spacing.xs, SatsTheme.spacing.xxs),
-            color = SatsTheme.colors2.graphicalElements.chips.selected.default.fg,
+            color = SatsTheme.colors.graphicalElements.chips.selected.default.fg,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
         )
@@ -34,7 +34,7 @@ fun SatsChip(label: String, modifier: Modifier = Modifier) {
 private fun SatsChipPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsChip("Chip Text", Modifier.padding(SatsTheme.spacing.m))
@@ -47,7 +47,7 @@ private fun SatsChipPreview() {
 private fun SatsChipTruncatedPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             SatsChip(

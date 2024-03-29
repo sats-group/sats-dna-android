@@ -117,9 +117,9 @@ private fun listItems(): List<@Composable () -> Unit> {
                 title = "General List Item with non-default colors",
                 icon = SatsIcons.Info,
                 colors = SatsGeneralListItemDefaults.generalListItemColors(
-                    titleColor = SatsTheme.colors2.buttons.action.default.fg,
-                    subtitleColor = SatsTheme.colors2.buttons.action.default.fg,
-                    iconColor = SatsTheme.colors2.buttons.action.default.fg,
+                    titleColor = SatsTheme.colors.buttons.action.default.fg,
+                    subtitleColor = SatsTheme.colors.buttons.action.default.fg,
+                    iconColor = SatsTheme.colors.buttons.action.default.fg,
                 ),
             )
         },

@@ -55,7 +55,7 @@ fun SatsFriendsBookingStatusListItem(
     ) {
         image()
 
-        val colors = SatsTheme.colors2.surfaces.primary.default
+        val colors = SatsTheme.colors.surfaces.primary.default
 
         Text(
             text = name,
@@ -129,7 +129,7 @@ private fun SatsFriendsBookingStatusListItemPreview(
     @PreviewParameter(FriendsBookingStatusPreviewProvider::class) bookingState: FriendsBookingState,
 ) {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             Column {
                 SatsFriendsBookingStatusListItem(
                     image = {
@@ -137,7 +137,7 @@ private fun SatsFriendsBookingStatusListItemPreview(
                             modifier = Modifier
                                 .size(24.dp)
                                 .clip(SatsTheme.shapes.circle)
-                                .background(SatsTheme.colors2.graphicalElements.skeleton),
+                                .background(SatsTheme.colors.graphicalElements.skeleton),
                         )
                     },
                     name = "Francisco Javier Peters Oregon Longname",
@@ -154,7 +154,7 @@ private fun SatsFriendsBookingStatusListItemPreview(
 @Composable
 private fun SatsFriendsBookingStatusListPlaceholderPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors2.backgrounds.primary.default.bg) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsFriendsBookingStatusListPlaceholder(count = 3)
         }
     }

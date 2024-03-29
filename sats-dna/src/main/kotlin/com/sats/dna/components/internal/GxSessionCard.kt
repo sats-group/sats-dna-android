@@ -67,7 +67,7 @@ internal fun GxSessionCard(
 private fun GxSessionCardPreview() {
     SatsTheme {
         SatsSurface(
-            color = SatsTheme.colors2.backgrounds.primary.default.bg,
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
             GxSessionCard(
