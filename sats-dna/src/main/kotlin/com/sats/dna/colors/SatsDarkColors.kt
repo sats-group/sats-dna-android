@@ -58,6 +58,16 @@ internal val SatsDarkColors = SatsColors(
                 fg = SatsColorPrimitives.Black50,
             ),
         ),
+        cta = SatsColors.Buttons.Cta(
+            default = ColorSet(
+                bg = SatsColorPrimitives.SatsCoral100,
+                fg = SatsColorPrimitives.White100,
+            ),
+            disabled = ColorSet(
+                bg = SatsColorPrimitives.Black80,
+                fg = SatsColorPrimitives.White70,
+            ),
+        ),
         waitingListFilled = SatsColors.Buttons.WaitingListFilled(
             default = ColorSet(
                 bg = SatsColorPrimitives.EgyptianPurple80,
