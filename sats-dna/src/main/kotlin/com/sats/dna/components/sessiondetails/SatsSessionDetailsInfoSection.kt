@@ -15,10 +15,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsPlaceholderBox
 import com.sats.dna.components.SatsPlaceholderText
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.Calendar
+import com.sats.dna.icons.Gx
+import com.sats.dna.icons.Location
+import com.sats.dna.icons.Pt
+import com.sats.dna.icons.Time
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -174,32 +179,32 @@ private fun SatsSessionDetailsInfoSectionPreview() {
             SatsSessionDetailsInfoSection(
                 durationLabel = {
                     SatsSessionDetailsInfoLabel(
-                        icon = SatsIcons.time,
+                        icon = SatsIcons.Time,
                         text = "60 min",
                     )
                 },
                 dateLabel = {
                     SatsSessionDetailsInfoLabel(
-                        icon = SatsIcons.calendar,
+                        icon = SatsIcons.Calendar,
                         text = "Sat, Dec 2 2:30 PM",
                     )
                 },
                 locationLabel = {
                     SatsSessionDetailsInfoLabel(
-                        icon = SatsIcons.location,
+                        icon = SatsIcons.Location,
                         text = "SATS Bergen LHG",
                         onClick = {},
                     )
                 },
                 workoutTypeLabel = {
                     SatsSessionDetailsInfoLabel(
-                        icon = SatsIcons.gx,
+                        icon = SatsIcons.Gx,
                         text = "Strength Training",
                     )
                 },
                 gxNameLabel = {
                     SatsSessionDetailsInfoLabel(
-                        icon = SatsIcons.pt,
+                        icon = SatsIcons.Pt,
                         text = "Pure Strength",
                     )
                 },

@@ -24,9 +24,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SatsVerticalDivider
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.ArrowDown
+import com.sats.dna.icons.ArrowUp
 import com.sats.dna.theme.SatsTheme
 
 data object TypographySampleScreen : SampleScreen(
@@ -135,9 +137,9 @@ private fun TextSample(text: String, style: TextStyle) {
             IconToggleButton(checked = isExpanded, onCheckedChange = { isExpanded = it }) {
                 AnimatedContent(isExpanded, label = "expand-icon") {
                     if (it) {
-                        Icon(SatsIcons.arrowUp, contentDescription = null)
+                        Icon(SatsIcons.ArrowUp, contentDescription = null)
                     } else {
-                        Icon(SatsIcons.arrowDown, contentDescription = null)
+                        Icon(SatsIcons.ArrowDown, contentDescription = null)
                     }
                 }
             }

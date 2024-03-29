@@ -28,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsFilterChip
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.button.SatsBellIconButton
@@ -41,7 +42,10 @@ import com.sats.dna.components.button.SatsNavigationCardButton
 import com.sats.dna.components.button.SatsStandAloneCardButton
 import com.sats.dna.components.button.SatsTwoOptionsInCardCardButton
 import com.sats.dna.components.button.SatsTwoOptionsStandAloneCardButton
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.Add
+import com.sats.dna.icons.Barbell
+import com.sats.dna.icons.Calendar
+import com.sats.dna.icons.Check
 import com.sats.dna.theme.SatsTheme
 
 data object ButtonsSampleScreen : SampleScreen(
@@ -96,7 +100,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         size = controlPanelState.size,
                         isEnabled = controlPanelState.isEnabledToggled,
                         isLoading = controlPanelState.isLoadingToggled,
-                        icon = if (controlPanelState.isIconEnabled) SatsIcons.barbell else null,
+                        icon = if (controlPanelState.isIconEnabled) SatsIcons.Barbell else null,
                     )
                 }
             }
@@ -112,7 +116,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                     ).forEach { color ->
                         SatsIconButton(
                             onClick = {},
-                            icon = SatsIcons.barbell,
+                            icon = SatsIcons.Barbell,
                             onClickLabel = null,
                             colors = color,
                             isEnabled = controlPanelState.isEnabledToggled,
@@ -130,7 +134,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                     ).forEach { color ->
                         SatsIconButton(
                             onClick = {},
-                            icon = SatsIcons.barbell,
+                            icon = SatsIcons.Barbell,
                             onClickLabel = null,
                             colors = color,
                             isEnabled = controlPanelState.isEnabledToggled,
@@ -176,7 +180,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         .padding(horizontal = SatsTheme.spacing.m),
                     onClick = {},
                     text = "Schedule",
-                    icon = SatsIcons.calendar,
+                    icon = SatsIcons.Calendar,
                 )
 
                 SatsTwoOptionsStandAloneCardButton(
@@ -185,10 +189,10 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         .padding(horizontal = SatsTheme.spacing.m),
                     firstOptionOnClick = {},
                     firstOptionText = "Add workout",
-                    firstOptionIcon = SatsIcons.add,
+                    firstOptionIcon = SatsIcons.Add,
                     secondOptionOnClick = {},
                     secondOptionText = "Schedule",
-                    secondOptionIcon = SatsIcons.calendar,
+                    secondOptionIcon = SatsIcons.Calendar,
                 )
 
                 SatsInCardCardButton(
@@ -197,7 +201,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         .padding(horizontal = SatsTheme.spacing.m),
                     onClick = {},
                     text = "Schedule",
-                    icon = SatsIcons.calendar,
+                    icon = SatsIcons.Calendar,
                 )
 
                 SatsTwoOptionsInCardCardButton(
@@ -206,10 +210,10 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         .padding(horizontal = SatsTheme.spacing.m),
                     firstOptionOnClick = {},
                     firstOptionText = "Add workout",
-                    firstOptionIcon = SatsIcons.add,
+                    firstOptionIcon = SatsIcons.Add,
                     secondOptionOnClick = {},
                     secondOptionText = "Schedule",
-                    secondOptionIcon = SatsIcons.calendar,
+                    secondOptionIcon = SatsIcons.Calendar,
                 )
             }
         }
@@ -263,7 +267,7 @@ private fun ControlPanel(state: ControlPanelState) {
                     DropdownMenuItem(
                         leadingIcon = {
                             if (state.size == SatsButtonSize.Small) {
-                                Icon(imageVector = SatsIcons.check, contentDescription = null)
+                                Icon(imageVector = SatsIcons.Check, contentDescription = null)
                             }
                         },
                         text = { Text("Small") },
@@ -276,7 +280,7 @@ private fun ControlPanel(state: ControlPanelState) {
                     DropdownMenuItem(
                         leadingIcon = {
                             if (state.size == SatsButtonSize.Basic) {
-                                Icon(imageVector = SatsIcons.check, contentDescription = null)
+                                Icon(imageVector = SatsIcons.Check, contentDescription = null)
                             }
                         },
                         text = { Text("Basic") },
@@ -289,7 +293,7 @@ private fun ControlPanel(state: ControlPanelState) {
                     DropdownMenuItem(
                         leadingIcon = {
                             if (state.size == SatsButtonSize.Large) {
-                                Icon(imageVector = SatsIcons.check, contentDescription = null)
+                                Icon(imageVector = SatsIcons.Check, contentDescription = null)
                             }
                         },
                         text = { Text("Large") },

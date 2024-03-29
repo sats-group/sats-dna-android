@@ -16,6 +16,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import coil.compose.AsyncImage
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsFancyTopAppBar
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.SatsTag
@@ -23,7 +24,9 @@ import com.sats.dna.components.SatsTagColor
 import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.components.rememberSatsFancyTopAppBarNestedScrollConnection
 import com.sats.dna.components.screen.SatsScreen
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.ArrowDown
+import com.sats.dna.icons.ArrowUp
+import com.sats.dna.icons.Back
 import com.sats.dna.theme.SatsTheme
 import kotlinx.coroutines.launch
 
@@ -71,7 +74,7 @@ fun FancyTopAppBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) 
                 navigationIcon = {
                     SatsTopAppBarIconButton(
                         onClick = navigateUp,
-                        icon = SatsIcons.back,
+                        icon = SatsIcons.Back,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )
@@ -79,14 +82,14 @@ fun FancyTopAppBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) 
                 actions = {
                     SatsTopAppBarIconButton(
                         onClick = { coroutineScope.launch { scrollConnection.collapse() } },
-                        icon = SatsIcons.arrowUp,
+                        icon = SatsIcons.ArrowUp,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )
 
                     SatsTopAppBarIconButton(
                         onClick = { coroutineScope.launch { scrollConnection.expand() } },
-                        icon = SatsIcons.arrowDown,
+                        icon = SatsIcons.ArrowDown,
                         onClickLabel = null,
                         tint = LocalContentColor.current,
                     )

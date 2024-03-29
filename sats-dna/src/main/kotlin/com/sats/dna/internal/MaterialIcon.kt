@@ -7,8 +7,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.LocalUseMaterial3
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.Barbell
 import com.sats.dna.theme.SatsTheme
 import androidx.compose.material.Icon as Material2Icon
 import androidx.compose.material.LocalContentAlpha as Material2LocalContentAlpha
@@ -48,7 +49,7 @@ private fun MaterialIconM2Preview() {
             useMaterial3 = false,
         ) {
             MaterialIcon(
-                SatsIcons.barbell,
+                SatsIcons.Barbell,
                 contentDescription = null,
                 Modifier.padding(SatsTheme.spacing.m),
             )
@@ -65,7 +66,7 @@ private fun MaterialIconM3Preview() {
             useMaterial3 = true,
         ) {
             MaterialIcon(
-                SatsIcons.barbell,
+                SatsIcons.Barbell,
                 contentDescription = null,
                 Modifier.padding(SatsTheme.spacing.m),
             )

@@ -10,9 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsEmptyStateAction
 import com.sats.dna.components.SatsEmptyStateCard
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.Barbell
 import com.sats.dna.theme.SatsTheme
 
 data object EmptyStateSampleScreen : SampleScreen(
@@ -33,7 +34,7 @@ private fun EmptyStateScreen(navigateUp: () -> Unit, modifier: Modifier = Modifi
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             SatsEmptyStateCard(
-                icon = SatsIcons.barbell,
+                icon = SatsIcons.Barbell,
                 title = "You don't have friends",
                 body = "If you make friends, you can follow in their working out and stuff. " +
                     "And they can follow whatever you're doing, as well!",
@@ -42,7 +43,7 @@ private fun EmptyStateScreen(navigateUp: () -> Unit, modifier: Modifier = Modifi
             )
 
             SatsEmptyStateCard(
-                icon = SatsIcons.barbell,
+                icon = SatsIcons.Barbell,
                 title = "You don't have friends",
                 body = null,
                 action = SatsEmptyStateAction(action = {}, label = "Make friends"),
@@ -50,7 +51,7 @@ private fun EmptyStateScreen(navigateUp: () -> Unit, modifier: Modifier = Modifi
             )
 
             SatsEmptyStateCard(
-                icon = SatsIcons.barbell,
+                icon = SatsIcons.Barbell,
                 title = "You don't have friends",
                 body = "If you make friends, you can follow in their working out and stuff. " +
                     "And they can follow whatever you're doing, as well!",
@@ -59,7 +60,7 @@ private fun EmptyStateScreen(navigateUp: () -> Unit, modifier: Modifier = Modifi
             )
 
             SatsEmptyStateCard(
-                icon = SatsIcons.barbell,
+                icon = SatsIcons.Barbell,
                 title = "You don't have friends",
                 body = null,
                 action = null,

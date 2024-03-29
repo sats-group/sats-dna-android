@@ -16,10 +16,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.LocalUseMaterial3
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.appbar.SatsLargeTopAppBar
 import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.button.SatsTopAppBarIconButton
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.AddPerson
+import com.sats.dna.icons.Back
+import com.sats.dna.icons.Barbell
 import com.sats.dna.theme.SatsTheme
 
 data object TopAppBarSampleScreen : SampleScreen(
@@ -83,12 +86,12 @@ private fun Section(label: String, content: @Composable () -> Unit) {
 
 @Composable
 private fun UpIconButton() {
-    SatsTopAppBarIconButton(onClick = {}, SatsIcons.back, onClickLabel = null)
+    SatsTopAppBarIconButton(onClick = {}, SatsIcons.Back, onClickLabel = null)
 }
 
 @Composable
 private fun Actions() {
-    listOf(SatsIcons.barbell, SatsIcons.addPerson).forEach { icon ->
+    listOf(SatsIcons.Barbell, SatsIcons.AddPerson).forEach { icon ->
         SatsTopAppBarIconButton(onClick = {}, icon, onClickLabel = null)
     }
 }

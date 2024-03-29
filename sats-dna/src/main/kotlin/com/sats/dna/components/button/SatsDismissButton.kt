@@ -22,8 +22,9 @@ import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.Close
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -84,7 +85,7 @@ fun SatsDismissButton(
             when (content) {
                 is SatsDismissButtonContent.Close -> {
                     Icon(
-                        imageVector = SatsIcons.close,
+                        imageVector = SatsIcons.Close,
                         contentDescription = null,
                         modifier = Modifier
                             .padding(SatsTheme.spacing.xs)

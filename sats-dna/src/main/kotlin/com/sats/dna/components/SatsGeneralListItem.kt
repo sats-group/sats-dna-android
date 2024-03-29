@@ -15,7 +15,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.SatsIcons
+import com.sats.dna.icons.ArrowRight
+import com.sats.dna.icons.Info
+import com.sats.dna.icons.Question
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.internal.materialIconTint
@@ -130,7 +133,7 @@ private fun GeneralListItemPreview() {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsIcons.question,
+                icon = SatsIcons.Question,
             )
         }
     }
@@ -146,7 +149,7 @@ private fun GeneralListItemWithSubtitlePreview() {
                 onClick = {},
                 title = "Title",
                 subtitle = "Subtitle",
-                icon = SatsIcons.question,
+                icon = SatsIcons.Question,
             )
         }
     }
@@ -161,7 +164,7 @@ private fun WithTrailingContentPreview() {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsIcons.question,
+                icon = SatsIcons.Question,
                 trailingContent = { SimpleTrailingContent() },
             )
         }
@@ -177,7 +180,7 @@ private fun WithAdvancedTrailingContentPreview() {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsIcons.question,
+                icon = SatsIcons.Question,
                 trailingContent = { AdvancedTrailingContent() },
             )
         }
@@ -193,7 +196,7 @@ private fun WithNonDefaultColorsPreview() {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 title = "Title",
-                icon = SatsIcons.info,
+                icon = SatsIcons.Info,
                 colors = SatsGeneralListItemDefaults.generalListItemColors(
                     iconColor = SatsTheme.colors2.graphicalElements.icons.attention,
                 ),
@@ -240,10 +243,10 @@ private fun SatsGeneralListItemLoadingPreview() {
 
 @Composable
 fun SimpleTrailingContent() {
-    TrailingContent.Icon(SatsIcons.arrowRight)
+    TrailingContent.Icon(SatsIcons.ArrowRight)
 }
 
 @Composable
 fun AdvancedTrailingContent() {
-    TrailingContent.TextAndIcon(text = "Label", icon = SatsIcons.arrowRight)
+    TrailingContent.TextAndIcon(text = "Label", icon = SatsIcons.ArrowRight)
 }

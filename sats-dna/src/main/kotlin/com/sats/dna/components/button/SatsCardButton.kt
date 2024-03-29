@@ -17,11 +17,15 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.PreviewFontScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.SatsVerticalDivider
 import com.sats.dna.components.card.SatsCard
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.Add
+import com.sats.dna.icons.ArrowRight
+import com.sats.dna.icons.Calendar
+import com.sats.dna.icons.Time
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
 
@@ -69,7 +73,7 @@ fun SatsNavigationCardButton(
                 ),
         ) {
             Text(text, color = SatsTheme.colors2.buttons.action.default.fg)
-            MaterialIcon(SatsIcons.arrowRight, null, tint = SatsTheme.colors2.buttons.action.default.fg)
+            MaterialIcon(SatsIcons.ArrowRight, null, tint = SatsTheme.colors2.buttons.action.default.fg)
         }
     }
 }
@@ -212,7 +216,7 @@ private fun SatsStandAloneCardButtonPreview() {
             modifier = Modifier.fillMaxWidth(),
             onClick = {},
             text = "Schedule",
-            icon = SatsIcons.calendar,
+            icon = SatsIcons.Calendar,
         )
     }
 }
@@ -225,10 +229,10 @@ private fun SatsTwoOptionsStandAloneCardButtonPreview() {
             modifier = Modifier.fillMaxWidth(),
             firstOptionOnClick = {},
             firstOptionText = "Add workout",
-            firstOptionIcon = SatsIcons.add,
+            firstOptionIcon = SatsIcons.Add,
             secondOptionOnClick = {},
             secondOptionText = "Schedule",
-            secondOptionIcon = SatsIcons.calendar,
+            secondOptionIcon = SatsIcons.Calendar,
         )
     }
 }
@@ -241,7 +245,7 @@ private fun SatsInCardCardButtonPreview() {
             modifier = Modifier.fillMaxWidth(),
             onClick = {},
             text = "Schedule",
-            icon = SatsIcons.calendar,
+            icon = SatsIcons.Calendar,
         )
     }
 }
@@ -255,10 +259,10 @@ private fun SatsTwoOptionsInCardCardButtonPreview() {
             modifier = Modifier.fillMaxWidth(),
             firstOptionOnClick = {},
             firstOptionText = "Book",
-            firstOptionIcon = SatsIcons.time,
+            firstOptionIcon = SatsIcons.Time,
             secondOptionOnClick = {},
             secondOptionText = "Schedule",
-            secondOptionIcon = SatsIcons.calendar,
+            secondOptionIcon = SatsIcons.Calendar,
         )
     }
 }

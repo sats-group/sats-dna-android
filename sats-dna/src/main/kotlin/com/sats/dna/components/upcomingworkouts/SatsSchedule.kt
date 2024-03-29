@@ -14,12 +14,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.PreviewFontScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsPlaceholderText
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.SatsWorkoutTypeColorIndicator
 import com.sats.dna.components.button.SatsTwoOptionsInCardCardButton
 import com.sats.dna.components.card.SatsCard
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.Calendar
+import com.sats.dna.icons.Time
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
@@ -265,10 +267,10 @@ private fun SatsScheduleWithCardButtonPreview() {
                     SatsTwoOptionsInCardCardButton(
                         firstOptionOnClick = {},
                         firstOptionText = "Book",
-                        firstOptionIcon = SatsIcons.time,
+                        firstOptionIcon = SatsIcons.Time,
                         secondOptionOnClick = {},
                         secondOptionText = "Schedule",
-                        secondOptionIcon = SatsIcons.calendar,
+                        secondOptionIcon = SatsIcons.Calendar,
                     )
                 },
             )

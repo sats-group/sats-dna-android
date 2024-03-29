@@ -11,9 +11,12 @@ import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.button.SatsTopAppBarIconButton
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.AddPerson
+import com.sats.dna.icons.Back
+import com.sats.dna.icons.Barbell
 import com.sats.dna.theme.SatsTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -75,12 +78,12 @@ private fun SatsLargeTopAppBarPreview() {
                 navigationIcon = {
                     SatsTopAppBarIconButton(
                         onClick = {},
-                        SatsIcons.back,
+                        SatsIcons.Back,
                         onClickLabel = null,
                     )
                 },
                 actions = {
-                    listOf(SatsIcons.barbell, SatsIcons.addPerson).forEach { icon ->
+                    listOf(SatsIcons.Barbell, SatsIcons.AddPerson).forEach { icon ->
                         SatsTopAppBarIconButton(onClick = {}, icon, onClickLabel = null)
                     }
                 },

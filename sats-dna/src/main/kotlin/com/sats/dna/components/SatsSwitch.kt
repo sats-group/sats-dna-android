@@ -8,7 +8,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.SatsIcons
+import com.sats.dna.icons.Check
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -19,7 +20,7 @@ fun SatsSwitch(
     enabled: Boolean = true,
 ) {
     val checkIcon = @Composable {
-        Icon(SatsIcons.check, contentDescription = null, Modifier.padding(SatsTheme.spacing.xxs))
+        Icon(SatsIcons.Check, contentDescription = null, Modifier.padding(SatsTheme.spacing.xxs))
     }
 
     Switch(

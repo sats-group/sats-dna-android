@@ -16,11 +16,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewFontScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsIconButton
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.Close
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
@@ -91,7 +92,7 @@ fun SatsProteinBar(
                 if (visuals.dismissAction != null) {
                     SatsIconButton(
                         onClick = visuals.dismissAction.action,
-                        icon = SatsIcons.close,
+                        icon = SatsIcons.Close,
                         onClickLabel = visuals.dismissAction.label,
                         modifier = Modifier.align(Alignment.Top),
                         colors = SatsButtonColor.Action,

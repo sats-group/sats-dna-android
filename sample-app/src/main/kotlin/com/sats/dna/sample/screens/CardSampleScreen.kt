@@ -18,11 +18,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsTitledCard
 import com.sats.dna.components.SatsTitledCardAction
 import com.sats.dna.components.button.SatsTwoOptionsInCardCardButton
 import com.sats.dna.components.card.SatsCard
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.Add
+import com.sats.dna.icons.Calendar
 import com.sats.dna.theme.SatsTheme
 
 data object CardSampleScreen : SampleScreen(
@@ -97,10 +99,10 @@ private fun SatsCardScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                             .wrapContentHeight(Alignment.Bottom),
                         firstOptionOnClick = { },
                         firstOptionText = "Add workout",
-                        firstOptionIcon = SatsIcons.add,
+                        firstOptionIcon = SatsIcons.Add,
                         secondOptionOnClick = { },
                         secondOptionText = "Schedule",
-                        secondOptionIcon = SatsIcons.calendar,
+                        secondOptionIcon = SatsIcons.Calendar,
                     )
                 }
             }

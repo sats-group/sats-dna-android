@@ -20,8 +20,13 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.icons.SatsIcons
+import com.sats.dna.icons.Back
+import com.sats.dna.icons.Barbell
+import com.sats.dna.icons.BellCherry
+import com.sats.dna.icons.Cherry
+import com.sats.dna.icons.Notifications
 import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
 
@@ -133,21 +138,21 @@ fun SatsBellIconButton(
 
         if (showCherry) {
             MaterialIcon(
-                imageVector = SatsIcons.bellCherry,
+                imageVector = SatsIcons.BellCherry,
                 contentDescription = null,
                 modifier = Modifier.size(iconContentSize),
                 tint = contentColor,
             )
 
             MaterialIcon(
-                imageVector = SatsIcons.cherry,
+                imageVector = SatsIcons.Cherry,
                 contentDescription = null,
                 modifier = Modifier.size(iconContentSize),
                 tint = SatsTheme.colors2.buttons.action.default.fg,
             )
         } else {
             MaterialIcon(
-                imageVector = SatsIcons.notifications,
+                imageVector = SatsIcons.Notifications,
                 contentDescription = null,
                 modifier = Modifier.size(iconContentSize),
                 tint = contentColor,
@@ -237,7 +242,7 @@ private fun SatsIconButtonPreview(@PreviewParameter(SatsButtonColorProvider::cla
         ) {
             SatsIconButton(
                 onClick = {},
-                icon = SatsIcons.barbell,
+                icon = SatsIcons.Barbell,
                 onClickLabel = null,
                 modifier = Modifier.padding(SatsTheme.spacing.s),
                 colors = color,
@@ -256,7 +261,7 @@ private fun SatsTopAppBarIconButtonPreview() {
         ) {
             SatsTopAppBarIconButton(
                 onClick = {},
-                icon = SatsIcons.back,
+                icon = SatsIcons.Back,
                 onClickLabel = null,
                 modifier = Modifier.padding(SatsTheme.spacing.s),
             )
