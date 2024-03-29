@@ -253,7 +253,7 @@ private fun GraphicalElements() {
             )
 
             ColorSample(
-                backgroundColor = base.default.bg named "base.default.bg",
+                backgroundColor = base.alternate.bg named "base.alternate.bg",
                 contentColor = base.alternate.fg named "base.alternate.fg",
             )
         }

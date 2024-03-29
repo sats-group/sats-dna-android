@@ -119,10 +119,7 @@ fun SatsEmptyWorkoutGraphCard(
     description: String,
     modifier: Modifier = Modifier,
 ) {
-    SatsCard(
-        modifier = modifier
-            .fillMaxWidth(),
-    ) {
+    SatsCard(modifier.fillMaxWidth()) {
         Row(
             modifier = Modifier
                 .padding(start = SatsTheme.spacing.m, top = SatsTheme.spacing.xl, bottom = SatsTheme.spacing.xl)
@@ -130,8 +127,10 @@ fun SatsEmptyWorkoutGraphCard(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Start,
         ) {
+            val contentColor = SatsTheme.colors2.surfaces.primary.default.fgAlternate
+
             Icon(
-                tint = SatsTheme.colors.onSurface.secondary,
+                tint = contentColor,
                 imageVector = SatsIcons.BarChart,
                 contentDescription = null,
             )
@@ -139,7 +138,7 @@ fun SatsEmptyWorkoutGraphCard(
             Text(
                 modifier = Modifier
                     .padding(start = SatsTheme.spacing.s, end = SatsTheme.spacing.m),
-                color = SatsTheme.colors.onSurface.secondary,
+                color = contentColor,
                 text = description,
                 style = SatsTheme.typography.normal.small,
             )
@@ -152,8 +151,8 @@ private fun TrainingGraphCylinder(
     workouts: SatsWorkoutGraphCardWeek,
     cylinderHeight: Int,
 ) {
-    val backgroundColor = SatsTheme.colors.background.primary
-    val segmentColor = SatsTheme.colors.ui.graphicalElements5
+    val colors = SatsTheme.colors2.graphicalElements.graphs.bar.primary
+
     val segmentHeight = 19.dp
     val segmentWidth = 6.dp
     val numberOfTrainingEvents = workouts.numberOfTrainingEvents
@@ -163,7 +162,7 @@ private fun TrainingGraphCylinder(
             modifier = Modifier
                 .size(width = segmentWidth, height = cylinderHeight.dp)
                 .clip(SatsTheme.shapes.roundedCorners.small)
-                .background(backgroundColor),
+                .background(colors.bg),
             verticalArrangement = Arrangement.Bottom,
         ) {
             repeat(numberOfTrainingEvents) {
@@ -172,7 +171,7 @@ private fun TrainingGraphCylinder(
                         .size(width = segmentWidth, height = segmentHeight)
                         .padding(top = 2.dp)
                         .clip(SatsTheme.shapes.roundedCorners.small)
-                        .background(segmentColor),
+                        .background(colors.default),
                 )
             }
         }
@@ -187,7 +186,7 @@ data class SatsWorkoutGraphCardWeek(
 
 @PreviewLightDark
 @Composable
-private fun WorkoutGraphPreview() {
+private fun SatsWorkoutGraphCardPreview() {
     SatsTheme {
         SatsSurface(
             color = SatsTheme.colors2.backgrounds.primary.default.bg,
@@ -249,7 +248,7 @@ private fun WorkoutGraphPreview() {
 
 @PreviewLightDark
 @Composable
-private fun WorkoutGraphPlaceholderPreview() {
+private fun SatsWorkoutGraphCardPlaceholderPreview() {
     SatsTheme {
         SatsSurface(
             color = SatsTheme.colors2.backgrounds.primary.default.bg,
@@ -262,17 +261,16 @@ private fun WorkoutGraphPlaceholderPreview() {
 
 @PreviewLightDark
 @Composable
-private fun EmptyGraphPreview() {
+private fun SatsEmptyWorkoutGraphCardPreview() {
     SatsTheme {
         SatsSurface(
             color = SatsTheme.colors2.backgrounds.primary.default.bg,
             useMaterial3 = true,
         ) {
-            SatsCard {
-                SatsEmptyWorkoutGraphCard(
-                    description = "When you start working out, you will see your statistics here.",
-                )
-            }
+            SatsEmptyWorkoutGraphCard(
+                description = "When you start working out, you will see your statistics here.",
+                modifier = Modifier.padding(SatsTheme.spacing.m),
+            )
         }
     }
 }
