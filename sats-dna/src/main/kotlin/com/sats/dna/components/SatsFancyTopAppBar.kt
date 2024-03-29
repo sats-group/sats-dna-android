@@ -120,12 +120,8 @@ fun SatsFancyTopAppBar(
         val draggableModifier = if (scrollConnection != null) {
             Modifier.draggable(
                 orientation = Orientation.Vertical,
-                state = rememberDraggableState { delta ->
-                    scrollConnection.consumeScroll(delta)
-                },
-                onDragStopped = { velocity ->
-                    scrollConnection.settle()
-                },
+                state = rememberDraggableState(scrollConnection::consumeScroll),
+                onDragStopped = { scrollConnection.settle() },
             )
         } else {
             Modifier
