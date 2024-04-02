@@ -21,10 +21,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.inset
-import androidx.compose.ui.tooling.preview.PreviewLightDark
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sats.dna.SatsIcons
-import com.sats.dna.components.SatsSurface
+import com.sats.dna.components.SatsChallengeBackground
 import com.sats.dna.icons.Check
 import com.sats.dna.theme.SatsTheme
 
@@ -151,11 +151,11 @@ private fun CompletedCheckMark(modifier: Modifier = Modifier) {
     }
 }
 
-@PreviewLightDark
+@Preview
 @Composable
 private fun SatsCircularSteppingProgressIndicatorPreview() {
-    SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+    SatsChallengeBackground(Modifier.size(300.dp)) {
+        Box(Modifier.fillMaxSize()) {
             SatsCircularSteppedProgressIndicator(
                 progress = SteppingProgress(
                     groups = listOf(
@@ -166,7 +166,9 @@ private fun SatsCircularSteppingProgressIndicatorPreview() {
                         SteppingProgressGroup(1, 1),
                     ),
                 ),
-                modifier = Modifier.padding(SatsTheme.spacing.m),
+                modifier = Modifier
+                    .padding(SatsTheme.spacing.m)
+                    .align(Alignment.Center),
             )
         }
     }
