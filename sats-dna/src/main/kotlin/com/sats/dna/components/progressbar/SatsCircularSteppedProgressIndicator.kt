@@ -49,7 +49,7 @@ fun SatsCircularSteppedProgressIndicator(
 @Suppress("UnnecessaryParentheses") // parentheses are used to clarify the calculations
 @Composable
 private fun GroupCircle(group: SteppingProgressGroup, groupNumber: Int, modifier: Modifier = Modifier) {
-    val incompleteColor = SatsTheme.colors.graphicalElements.graphs.bar.primary.bg
+    val incompleteColor = SatsTheme.colors.graphicalElements.fixedProgressBar.default.bg
     val completeColor = SatsTheme.colors.graphicalElements.graphs.bar.primary.default
 
     Box(modifier.size(36.dp)) {
@@ -127,7 +127,7 @@ private fun GroupNumber(number: Int, modifier: Modifier = Modifier) {
         text = number.toString(),
         modifier = modifier,
         style = SatsTheme.typography.emphasis.large,
-        color = SatsTheme.colors.graphicalElements.graphs.bar.primary.bg,
+        color = SatsTheme.colors.graphicalElements.fixedProgressBar.default.bg
     )
 }
 
