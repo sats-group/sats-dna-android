@@ -21,10 +21,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.inset
-import androidx.compose.ui.tooling.preview.PreviewLightDark
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sats.dna.SatsIcons
-import com.sats.dna.components.SatsSurface
+import com.sats.dna.components.SatsChallengeBackground
 import com.sats.dna.icons.Check
 import com.sats.dna.theme.SatsTheme
 
@@ -49,8 +49,8 @@ fun SatsCircularSteppedProgressIndicator(
 @Suppress("UnnecessaryParentheses") // parentheses are used to clarify the calculations
 @Composable
 private fun GroupCircle(group: SteppingProgressGroup, groupNumber: Int, modifier: Modifier = Modifier) {
-    val incompleteColor = SatsTheme.colors.graphicalElements.graphs.bar.primary.bg
-    val completeColor = SatsTheme.colors.graphicalElements.graphs.bar.primary.default
+    val incompleteColor = SatsTheme.colors.graphicalElements.fixedProgressBar.default.bg
+    val completeColor = SatsTheme.colors.graphicalElements.fixedProgressBar.default.fg
 
     Box(modifier.size(36.dp)) {
         Canvas(Modifier.fillMaxSize()) {
@@ -127,7 +127,7 @@ private fun GroupNumber(number: Int, modifier: Modifier = Modifier) {
         text = number.toString(),
         modifier = modifier,
         style = SatsTheme.typography.emphasis.large,
-        color = SatsTheme.colors.graphicalElements.graphs.bar.primary.bg,
+        color = SatsTheme.colors.graphicalElements.fixedProgressBar.default.bg,
     )
 }
 
@@ -137,7 +137,7 @@ private fun CompletedCheckMark(modifier: Modifier = Modifier) {
         modifier
             .clip(SatsTheme.shapes.circle)
             .aspectRatio(1f)
-            .background(SatsTheme.colors.graphicalElements.progressBar.default.fg),
+            .background(SatsTheme.colors.graphicalElements.fixedProgressBar.default.fg),
         contentAlignment = Alignment.Center,
     ) {
         Icon(
@@ -151,11 +151,11 @@ private fun CompletedCheckMark(modifier: Modifier = Modifier) {
     }
 }
 
-@PreviewLightDark
+@Preview
 @Composable
 private fun SatsCircularSteppingProgressIndicatorPreview() {
-    SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+    SatsChallengeBackground(Modifier.size(300.dp)) {
+        Box(Modifier.fillMaxSize()) {
             SatsCircularSteppedProgressIndicator(
                 progress = SteppingProgress(
                     groups = listOf(
@@ -166,7 +166,9 @@ private fun SatsCircularSteppingProgressIndicatorPreview() {
                         SteppingProgressGroup(1, 1),
                     ),
                 ),
-                modifier = Modifier.padding(SatsTheme.spacing.m),
+                modifier = Modifier
+                    .padding(SatsTheme.spacing.m)
+                    .align(Alignment.Center),
             )
         }
     }
