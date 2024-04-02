@@ -127,7 +127,7 @@ private fun GroupNumber(number: Int, modifier: Modifier = Modifier) {
         text = number.toString(),
         modifier = modifier,
         style = SatsTheme.typography.emphasis.large,
-        color = SatsTheme.colors.graphicalElements.fixedProgressBar.default.bg
+        color = SatsTheme.colors.graphicalElements.fixedProgressBar.default.bg,
     )
 }
 
