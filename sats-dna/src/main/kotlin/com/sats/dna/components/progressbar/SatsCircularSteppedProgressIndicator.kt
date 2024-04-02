@@ -50,7 +50,7 @@ fun SatsCircularSteppedProgressIndicator(
 @Composable
 private fun GroupCircle(group: SteppingProgressGroup, groupNumber: Int, modifier: Modifier = Modifier) {
     val incompleteColor = SatsTheme.colors.graphicalElements.fixedProgressBar.default.bg
-    val completeColor = SatsTheme.colors.graphicalElements.graphs.bar.primary.default
+    val completeColor = SatsTheme.colors.graphicalElements.fixedProgressBar.default.fg
 
     Box(modifier.size(36.dp)) {
         Canvas(Modifier.fillMaxSize()) {
@@ -137,7 +137,7 @@ private fun CompletedCheckMark(modifier: Modifier = Modifier) {
         modifier
             .clip(SatsTheme.shapes.circle)
             .aspectRatio(1f)
-            .background(SatsTheme.colors.graphicalElements.progressBar.default.fg),
+            .background(SatsTheme.colors.graphicalElements.fixedProgressBar.default.fg),
         contentAlignment = Alignment.Center,
     ) {
         Icon(
