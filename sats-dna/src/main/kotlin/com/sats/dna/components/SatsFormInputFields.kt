@@ -11,13 +11,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.sizeIn
-import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.foundation.text2.BasicTextField2
-import androidx.compose.foundation.text2.input.InputTransformation
-import androidx.compose.foundation.text2.input.TextFieldLineLimits
-import androidx.compose.foundation.text2.input.TextFieldState
-import androidx.compose.foundation.text2.input.rememberTextFieldState
+import androidx.compose.foundation.text.input.InputTransformation
+import androidx.compose.foundation.text.input.KeyboardActionHandler
+import androidx.compose.foundation.text.input.TextFieldLineLimits
+import androidx.compose.foundation.text.input.TextFieldState
+import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -50,7 +50,7 @@ fun SatsFormTextField(
     modifier: Modifier = Modifier,
     hint: String? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
-    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    onKeyboardAction: KeyboardActionHandler? = null,
     inputTransformation: InputTransformation? = null,
     trailingText: String? = null,
     lineLimits: TextFieldLineLimits = TextFieldLineLimits.SingleLine,
@@ -59,14 +59,14 @@ fun SatsFormTextField(
     val isSingleLine = lineLimits is TextFieldLineLimits.SingleLine
     val textStyle = valueTextStyle(isSingleLine = isSingleLine, isEnabled = isEnabled)
 
-    BasicTextField2(
+    BasicTextField(
         state = textFieldState,
         modifier = modifier.sizeIn(minWidth = MinSize, minHeight = MinSize),
         textStyle = textStyle,
         cursorBrush = SolidColor(textStyle.color),
         lineLimits = lineLimits,
         keyboardOptions = keyboardOptions,
-        keyboardActions = keyboardActions,
+        onKeyboardAction = onKeyboardAction,
         inputTransformation = inputTransformation,
         enabled = isEnabled,
         decorator = { innerTextField ->
@@ -271,9 +271,9 @@ private fun SatsFormTextFieldSingleLineDurationPreview() {
                 label = "Duration",
                 trailingText = "min",
                 modifier = Modifier.fillMaxWidth(),
-                inputTransformation = { _, valueWithChanges ->
-                    if (valueWithChanges.asCharSequence().any { !it.isDigit() }) {
-                        valueWithChanges.revertAllChanges()
+                inputTransformation = {
+                    if (asCharSequence().any { !it.isDigit() }) {
+                        revertAllChanges()
                     }
                 },
             )
