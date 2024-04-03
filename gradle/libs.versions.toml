@@ -16,7 +16,7 @@ accompanist-insetsUi = { module = "com.google.accompanist:accompanist-insets-ui"
 accompanist-systemUiController = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
 android-desugarJdkLibs = "com.android.tools:desugar_jdk_libs:2.0.4"
 androidx-activity-compose = "androidx.activity:activity-compose:1.8.2"
-androidx-compose-bom = "androidx.compose:compose-bom:2024.03.00"
+androidx-compose-bom = "androidx.compose:compose-bom:2024.04.00"
 androidx-compose-foundation = { module = "androidx.compose.foundation:foundation" }
 androidx-compose-material = { module = "androidx.compose.material:material" }
 androidx-compose-material3 = { module = "androidx.compose.material3:material3" }
