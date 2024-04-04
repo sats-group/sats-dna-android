@@ -85,7 +85,6 @@ sealed interface SatsChallengeCardState {
         val buttonText: String,
         val onCardClick: () -> Unit,
         val onJoinClick: () -> Unit,
-        val modifier: Modifier = Modifier,
     ) : SatsChallengeCardState
 
     class Joined(
@@ -95,7 +94,6 @@ sealed interface SatsChallengeCardState {
         val progress: Float,
         val statusText: String,
         val onCardClick: () -> Unit,
-        val modifier: Modifier = Modifier,
     ) : SatsChallengeCardState
 
     class Disabled(
@@ -105,7 +103,6 @@ sealed interface SatsChallengeCardState {
         val dismissLabel: String,
         val onCardClick: () -> Unit,
         val onDismissClicked: () -> Unit,
-        val modifier: Modifier = Modifier,
     ) : SatsChallengeCardState
 }
 
