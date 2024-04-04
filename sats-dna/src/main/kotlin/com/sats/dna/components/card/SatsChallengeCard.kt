@@ -68,7 +68,7 @@ fun SatsChallengeCard(state: SatsChallengeCardState, modifier: Modifier = Modifi
                 title = state.title,
                 statusText = state.statusText,
                 onCardClick = state.onCardClick,
-                onDismissClicked = state.onDismissClicked,
+                onDismissClick = state.onDismissClicked,
                 dismissLabel = state.dismissLabel,
                 modifier = modifier,
             )
@@ -272,7 +272,7 @@ private fun DisabledChallengeCard(
     statusText: String,
     dismissLabel: String,
     onCardClick: () -> Unit,
-    onDismissClicked: () -> Unit,
+    onDismissClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     ChallengeCardLayout(
@@ -283,7 +283,7 @@ private fun DisabledChallengeCard(
         isEnabled = false,
         dismissButton = {
             SatsDismissButton(
-                onDismissClicked = onDismissClicked,
+                onDismissClicked = onDismissClick,
                 dismissLabel = dismissLabel,
             )
         },
