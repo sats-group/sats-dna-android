@@ -9,9 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.LocalUseMaterial3
@@ -43,7 +42,7 @@ private fun Material3Preview() {
                 SatsCard(Modifier.padding(SatsTheme.spacing.m)) {
                     Column {
                         Image(
-                            ImageVector.vectorResource(R.drawable.debug_img_placeholder),
+                            painter = painterResource(R.drawable.debug_img_placeholder),
                             contentDescription = null,
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -77,7 +76,7 @@ private fun Material2Preview() {
                 SatsCard(Modifier.padding(SatsTheme.spacing.m)) {
                     Column {
                         Image(
-                            ImageVector.vectorResource(R.drawable.debug_img_placeholder),
+                            painter = painterResource(R.drawable.debug_img_placeholder),
                             contentDescription = null,
                             modifier = Modifier
                                 .fillMaxWidth()
