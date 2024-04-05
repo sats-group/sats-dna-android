@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -31,6 +32,7 @@ import com.sats.dna.theme.SatsTheme
 fun SatsDismissButton(
     dismissLabel: String,
     onDismissClicked: () -> Unit,
+    isLoading: Boolean,
     modifier: Modifier = Modifier,
     size: SatsButtonSize = SatsButtonSize.Small,
     color: SatsButtonColor = SatsButtonColor.Clean,
@@ -69,6 +71,7 @@ fun SatsDismissButton(
             label = "Animated content",
         ) { isCloseClicked ->
             val content = when {
+                isCloseClicked && isLoading -> SatsDismissButtonContent.Loading
                 isCloseClicked -> SatsDismissButtonContent.Dismiss
                 else -> SatsDismissButtonContent.Close
             }
@@ -101,6 +104,15 @@ fun SatsDismissButton(
                         modifier = Modifier.padding(SatsTheme.spacing.xs),
                     )
                 }
+                is SatsDismissButtonContent.Loading -> {
+                    CircularProgressIndicator(
+                        modifier = Modifier
+                            .padding(SatsTheme.spacing.xs)
+                            .size(iconContentSize),
+                        color = color.contentColor,
+                        strokeWidth = 1.5.dp,
+                    )
+                }
             }
         }
     }
@@ -111,7 +123,7 @@ fun SatsDismissButton(
 private fun SatsDismissButtonPreview() {
     SatsTheme {
         SatsSurface {
-            SatsDismissButton("Dismiss", {}, Modifier.padding(SatsTheme.spacing.m))
+            SatsDismissButton("Dismiss", {}, true, Modifier.padding(SatsTheme.spacing.m))
         }
     }
 }

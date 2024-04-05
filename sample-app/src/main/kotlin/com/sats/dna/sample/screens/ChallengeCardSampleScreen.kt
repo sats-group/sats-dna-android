@@ -44,6 +44,7 @@ private fun ChallengeCardScreen(navigateUp: () -> Unit, modifier: Modifier = Mod
                     tagText = "23 days left",
                     onCardClick = {},
                     onJoinClick = {},
+                    isJoinButtonLoading = false,
                 ),
                 modifier = Modifier
                     .height(255.dp)
@@ -72,6 +73,7 @@ private fun ChallengeCardScreen(navigateUp: () -> Unit, modifier: Modifier = Mod
                     dismissLabel = "Dismiss",
                     onCardClick = {},
                     onDismissClicked = {},
+                    isDismissButtonLoading = false,
                 ),
                 modifier = Modifier
                     .height(255.dp)

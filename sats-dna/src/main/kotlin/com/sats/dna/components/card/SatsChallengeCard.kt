@@ -35,7 +35,10 @@ import com.sats.dna.components.progressbar.SatsLinearProgressBar
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun SatsChallengeCard(state: SatsChallengeCardState, modifier: Modifier = Modifier) {
+fun SatsChallengeCard(
+    state: SatsChallengeCardState,
+    modifier: Modifier = Modifier,
+) {
     when (state) {
         is SatsChallengeCardState.Available -> {
             AvailableChallengeCard(
@@ -46,6 +49,7 @@ fun SatsChallengeCard(state: SatsChallengeCardState, modifier: Modifier = Modifi
                 buttonText = state.buttonText,
                 onCardClick = state.onCardClick,
                 onJoinClick = state.onJoinClick,
+                isJoinButtonLoading = state.isJoinButtonLoading,
                 modifier = modifier,
             )
         }
@@ -70,6 +74,7 @@ fun SatsChallengeCard(state: SatsChallengeCardState, modifier: Modifier = Modifi
                 onCardClick = state.onCardClick,
                 onDismissClick = state.onDismissClicked,
                 dismissLabel = state.dismissLabel,
+                isDismissButtonLoading = state.isDismissButtonLoading,
                 modifier = modifier,
             )
         }
@@ -85,6 +90,7 @@ sealed interface SatsChallengeCardState {
         val buttonText: String,
         val onCardClick: () -> Unit,
         val onJoinClick: () -> Unit,
+        val isJoinButtonLoading: Boolean,
     ) : SatsChallengeCardState
 
     class Joined(
@@ -103,6 +109,7 @@ sealed interface SatsChallengeCardState {
         val dismissLabel: String,
         val onCardClick: () -> Unit,
         val onDismissClicked: () -> Unit,
+        val isDismissButtonLoading: Boolean,
     ) : SatsChallengeCardState
 }
 
@@ -170,6 +177,7 @@ private fun ChallengeCardLayout(
                         text = title,
                         style = SatsTheme.typography.satsHeadlineEmphasis.large,
                         textAlign = TextAlign.Center,
+                        modifier = Modifier.padding(horizontal = SatsTheme.spacing.xs),
                     )
                     subtitle?.let {
                         Text(
@@ -204,6 +212,7 @@ private fun AvailableChallengeCard(
     buttonText: String,
     onCardClick: () -> Unit,
     onJoinClick: () -> Unit,
+    isJoinButtonLoading: Boolean,
     modifier: Modifier = Modifier,
 ) {
     ChallengeCardLayout(
@@ -226,6 +235,7 @@ private fun AvailableChallengeCard(
                 modifier = Modifier.padding(bottom = SatsTheme.spacing.m),
                 colors = SatsButtonColor.Clean,
                 size = SatsButtonSize.Small,
+                isLoading = isJoinButtonLoading,
             )
         },
     )
@@ -273,6 +283,7 @@ private fun DisabledChallengeCard(
     dismissLabel: String,
     onCardClick: () -> Unit,
     onDismissClick: () -> Unit,
+    isDismissButtonLoading: Boolean,
     modifier: Modifier = Modifier,
 ) {
     ChallengeCardLayout(
@@ -285,6 +296,7 @@ private fun DisabledChallengeCard(
             SatsDismissButton(
                 onDismissClicked = onDismissClick,
                 dismissLabel = dismissLabel,
+                isLoading = isDismissButtonLoading,
             )
         },
         bottomContent = {
@@ -332,6 +344,7 @@ private fun JoinChallengeCardPreview() {
                 tagText = "23 days left",
                 onCardClick = {},
                 onJoinClick = {},
+                isJoinButtonLoading = false,
             ),
             modifier = Modifier
                 .height(255.dp)
@@ -372,6 +385,7 @@ private fun DisabledChallengeCardPreview() {
                 dismissLabel = "Dismiss",
                 onCardClick = {},
                 onDismissClicked = {},
+                isDismissButtonLoading = false,
             ),
             modifier = Modifier
                 .height(255.dp)
