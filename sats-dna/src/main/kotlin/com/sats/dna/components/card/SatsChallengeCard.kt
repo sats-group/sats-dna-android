@@ -68,7 +68,7 @@ fun SatsChallengeCard(state: SatsChallengeCardState, modifier: Modifier = Modifi
                 title = state.title,
                 statusText = state.statusText,
                 onCardClick = state.onCardClick,
-                onDismissClicked = state.onDismissClicked,
+                onDismissClick = state.onDismissClicked,
                 dismissLabel = state.dismissLabel,
                 modifier = modifier,
             )
@@ -85,7 +85,6 @@ sealed interface SatsChallengeCardState {
         val buttonText: String,
         val onCardClick: () -> Unit,
         val onJoinClick: () -> Unit,
-        val modifier: Modifier = Modifier,
     ) : SatsChallengeCardState
 
     class Joined(
@@ -95,7 +94,6 @@ sealed interface SatsChallengeCardState {
         val progress: Float,
         val statusText: String,
         val onCardClick: () -> Unit,
-        val modifier: Modifier = Modifier,
     ) : SatsChallengeCardState
 
     class Disabled(
@@ -105,7 +103,6 @@ sealed interface SatsChallengeCardState {
         val dismissLabel: String,
         val onCardClick: () -> Unit,
         val onDismissClicked: () -> Unit,
-        val modifier: Modifier = Modifier,
     ) : SatsChallengeCardState
 }
 
@@ -275,7 +272,7 @@ private fun DisabledChallengeCard(
     statusText: String,
     dismissLabel: String,
     onCardClick: () -> Unit,
-    onDismissClicked: () -> Unit,
+    onDismissClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     ChallengeCardLayout(
@@ -286,7 +283,7 @@ private fun DisabledChallengeCard(
         isEnabled = false,
         dismissButton = {
             SatsDismissButton(
-                onDismissClicked = onDismissClicked,
+                onDismissClicked = onDismissClick,
                 dismissLabel = dismissLabel,
             )
         },
