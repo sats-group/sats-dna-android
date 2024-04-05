@@ -41,6 +41,8 @@ fun SatsDismissButton(
         mutableStateOf(false)
     }
 
+    val isActuallyLoading = isCloseClicked && isLoading
+
     Surface(
         onClick = {
             if (isCloseClicked) {
@@ -61,17 +63,18 @@ fun SatsDismissButton(
                 },
             ),
         shape = SatsTheme.shapes.roundedCorners.small,
+        enabled = !isActuallyLoading,
         interactionSource = remember { MutableInteractionSource() },
-        color = color.animatedContainerColor(enabled = true),
-        contentColor = color.animatedContentColor(true),
-        border = color.animatedBorderColor(true)?.let { BorderStroke(1.dp, it) },
+        color = color.animatedContainerColor(!isActuallyLoading),
+        contentColor = color.animatedContentColor(!isActuallyLoading),
+        border = color.animatedBorderColor(!isActuallyLoading)?.let { BorderStroke(1.dp, it) },
     ) {
         AnimatedContent(
             isCloseClicked,
             label = "Animated content",
         ) { isCloseClicked ->
             val content = when {
-                isCloseClicked && isLoading -> SatsDismissButtonContent.Loading
+                isActuallyLoading -> SatsDismissButtonContent.Loading
                 isCloseClicked -> SatsDismissButtonContent.Dismiss
                 else -> SatsDismissButtonContent.Close
             }
