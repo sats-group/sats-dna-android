@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsCircularProgressIndicator
 import com.sats.dna.components.progressbar.SatsCircularSteppedProgressIndicator
 import com.sats.dna.components.progressbar.SatsLinearProgressBar
+import com.sats.dna.components.progressbar.SatsLinearProgressIndicator
 import com.sats.dna.components.progressbar.SteppingProgress
 import com.sats.dna.components.progressbar.SteppingProgressGroup
 import com.sats.dna.theme.SatsTheme
@@ -45,6 +46,10 @@ private fun ProgressBarsScreen(navigateUp: () -> Unit, modifier: Modifier = Modi
                     SatsLinearProgressBar(1.00f, Modifier.fillMaxWidth())
                     SatsLinearProgressBar(1.00f, Modifier.fillMaxWidth())
                 }
+            }
+
+            Section("Linear Progress Indicator") {
+                SatsLinearProgressIndicator(Modifier.fillMaxWidth())
             }
 
             Section("Circular Progress Indicator") {
