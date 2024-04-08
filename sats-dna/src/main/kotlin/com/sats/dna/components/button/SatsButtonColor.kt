@@ -3,6 +3,7 @@ package com.sats.dna.components.button
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import com.sats.dna.theme.SatsTheme
 
 enum class SatsButtonColor {
@@ -69,7 +70,7 @@ private val SatsButtonColor.backgroundColor: Color
         SatsButtonColor.Cta -> SatsTheme.colors.buttons.cta.default.bg
     }
 
-internal val SatsButtonColor.contentColor: Color
+private val SatsButtonColor.contentColor: Color
     @Composable get() = when (this) {
         SatsButtonColor.Primary -> SatsTheme.colors.buttons.primary.default.fg
         SatsButtonColor.Secondary -> SatsTheme.colors.buttons.secondary.default.fg
@@ -104,3 +105,7 @@ private val SatsButtonColor.disabledContentColor: Color
         SatsButtonColor.Action -> SatsTheme.colors.buttons.action.disabled.fg
         SatsButtonColor.Cta -> SatsTheme.colors.buttons.cta.disabled.fg
     }
+
+internal class SatsButtonColorProvider : PreviewParameterProvider<SatsButtonColor> {
+    override val values = SatsButtonColor.entries.asSequence()
+}

@@ -21,6 +21,8 @@ import coil.compose.AsyncImage
 import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.components.SatsTag
 import com.sats.dna.components.SatsTagColor
+import com.sats.dna.components.button.SatsButtonColor
+import com.sats.dna.components.button.SatsButtonSize
 import com.sats.dna.components.button.SatsDismissButton
 import com.sats.dna.theme.SatsTheme
 import com.sats.dna.tooling.PreviewImagePlaceholder
@@ -136,7 +138,14 @@ private fun SatsArticleCardWithTagAndDismissButtonPreview() {
                 "There is a maximum number of char...",
             onClick = {},
             tag = { SatsTag(text = "New feature", color = SatsTagColor.Featured) },
-            dismissButton = { SatsDismissButton(dismissLabel = "Dismiss", isLoading = false, onDismissClicked = { }) },
+            dismissButton = {
+                SatsDismissButton(
+                    dismissLabel = "Dismiss",
+                    onDismissClicked = { },
+                    color = SatsButtonColor.Clean,
+                    size = SatsButtonSize.Small,
+                )
+            },
         )
     }
 }
@@ -152,7 +161,14 @@ private fun SatsArticleCardWithNoTagAndDismissButtonPreview() {
                 "Try it out and schedule your first workout today. " +
                 "There is a maximum number of char...",
             onClick = {},
-            dismissButton = { SatsDismissButton(dismissLabel = "Dismiss", isLoading = false, onDismissClicked = { }) },
+            dismissButton = {
+                SatsDismissButton(
+                    dismissLabel = "Dismiss",
+                    onDismissClicked = { },
+                    color = SatsButtonColor.Clean,
+                    size = SatsButtonSize.Small,
+                )
+            },
         )
     }
 }
