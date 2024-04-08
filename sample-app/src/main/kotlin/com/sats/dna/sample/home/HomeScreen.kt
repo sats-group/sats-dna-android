@@ -79,6 +79,7 @@ import com.sats.dna.sample.screens.SearchBarSampleScreen
 import com.sats.dna.sample.screens.SessionDetailsInfoLabelSampleScreen
 import com.sats.dna.sample.screens.SurfaceSampleScreen
 import com.sats.dna.sample.screens.SwitchSampleScreen
+import com.sats.dna.sample.screens.TabRowSampleScreen
 import com.sats.dna.sample.screens.TagsSampleScreen
 import com.sats.dna.sample.screens.TextFieldSampleScreen
 import com.sats.dna.sample.screens.TitledSectionSampleScreen
@@ -301,6 +302,7 @@ private val groups: Map<String, List<SampleScreen>> = mapOf(
         SessionDetailsInfoLabelSampleScreen,
         SurfaceSampleScreen,
         SwitchSampleScreen,
+        TabRowSampleScreen,
         TagsSampleScreen,
         TextFieldSampleScreen,
         TitledSectionSampleScreen,

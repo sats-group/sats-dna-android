@@ -36,6 +36,7 @@ import com.sats.dna.sample.screens.SearchBarSampleScreen
 import com.sats.dna.sample.screens.SessionDetailsInfoLabelSampleScreen
 import com.sats.dna.sample.screens.SurfaceSampleScreen
 import com.sats.dna.sample.screens.SwitchSampleScreen
+import com.sats.dna.sample.screens.TabRowSampleScreen
 import com.sats.dna.sample.screens.TagsSampleScreen
 import com.sats.dna.sample.screens.TextFieldSampleScreen
 import com.sats.dna.sample.screens.TitledSectionSampleScreen
@@ -85,6 +86,7 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
         SessionDetailsInfoLabelSampleScreen.navScreen(navController)
         SurfaceSampleScreen.navScreen(navController)
         SwitchSampleScreen.navScreen(navController)
+        TabRowSampleScreen.navScreen(navController)
         TagsSampleScreen.navScreen(navController)
         TextFieldSampleScreen.navScreen(navController)
         TitledSectionSampleScreen.navScreen(navController)
