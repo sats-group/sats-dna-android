@@ -147,6 +147,7 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
 
                 SatsDismissButton(
                     dismissLabel = "Dismiss",
+                    isLoading = false,
                     onDismissClicked = { },
                     size = controlPanelState.size,
                 )

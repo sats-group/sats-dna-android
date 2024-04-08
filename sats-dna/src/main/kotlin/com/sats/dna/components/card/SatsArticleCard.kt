@@ -136,7 +136,7 @@ private fun SatsArticleCardWithTagAndDismissButtonPreview() {
                 "There is a maximum number of char...",
             onClick = {},
             tag = { SatsTag(text = "New feature", color = SatsTagColor.Featured) },
-            dismissButton = { SatsDismissButton(dismissLabel = "Dismiss", onDismissClicked = { }) },
+            dismissButton = { SatsDismissButton(dismissLabel = "Dismiss", isLoading = false, onDismissClicked = { }) },
         )
     }
 }
@@ -152,7 +152,7 @@ private fun SatsArticleCardWithNoTagAndDismissButtonPreview() {
                 "Try it out and schedule your first workout today. " +
                 "There is a maximum number of char...",
             onClick = {},
-            dismissButton = { SatsDismissButton(dismissLabel = "Dismiss", onDismissClicked = { }) },
+            dismissButton = { SatsDismissButton(dismissLabel = "Dismiss", isLoading = false, onDismissClicked = { }) },
         )
     }
 }

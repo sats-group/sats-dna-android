@@ -49,7 +49,13 @@ private fun ArticleCardScreen(navigateUp: () -> Unit, modifier: Modifier = Modif
                     "There is a maximum number of char...",
                 onClick = {},
                 tag = { SatsTag(text = "New feature", color = SatsTagColor.Featured) },
-                dismissButton = { SatsDismissButton(dismissLabel = "Dismiss", onDismissClicked = { }) },
+                dismissButton = {
+                    SatsDismissButton(
+                        dismissLabel = "Dismiss",
+                        isLoading = false,
+                        onDismissClicked = { },
+                    )
+                },
             )
 
             SatsArticleCard(
