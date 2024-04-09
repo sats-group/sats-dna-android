@@ -14,12 +14,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -37,6 +39,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.navigation.NavController
 import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsDividerColor
+import com.sats.dna.components.SatsEmptyState
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SatsSearchBar
 import com.sats.dna.components.appbar.SatsTopAppBar
@@ -107,55 +110,75 @@ internal fun HomeScreen(navController: NavController, modifier: Modifier = Modif
             )
         },
     ) { innerPadding ->
-        Column(
-            Modifier
+        val matchingSectionTitles = groups.filter { (_, sampleScreens) ->
+            sampleScreens.any { it.name.contains(searchBarState.query, ignoreCase = true) }
+        }.map { (sectionTitle, _) -> sectionTitle }
+
+        AnimatedContent(
+            targetState = matchingSectionTitles.any(),
+            modifier = Modifier
+                .fillMaxSize()
                 .verticalScroll(rememberScrollState())
                 .padding(innerPadding)
                 .padding(top = SatsTheme.spacing.m),
-        ) {
-            val matchingSectionTitles = groups.filter { (_, sampleScreens) ->
-                sampleScreens.any { it.name.contains(searchBarState.query, ignoreCase = true) }
-            }.map { (sectionTitle, _) -> sectionTitle }
+            transitionSpec = { fadeIn() togetherWith fadeOut() },
+            label = "Matches or empty state",
+        ) { hasAnyMatches ->
+            if (hasAnyMatches) {
+                Column {
+                    groups.keys.forEachIndexed { index, sectionTitle ->
+                        val sampleScreens = groups.getValue(sectionTitle)
 
-            groups.keys.forEachIndexed { index, sectionTitle ->
-                val sampleScreens = groups.getValue(sectionTitle)
+                        val matches = remember(searchBarState.query) {
+                            sampleScreens.filter { it.name.contains(searchBarState.query, ignoreCase = true) }
+                        }
 
-                val matches = remember(searchBarState.query) {
-                    sampleScreens.filter { it.name.contains(searchBarState.query, ignoreCase = true) }
-                }
+                        val enterTransition = fadeIn() + expandVertically()
+                        val exitTransition = fadeOut() + shrinkVertically()
 
-                val enterTransition = fadeIn() + expandVertically()
-                val exitTransition = fadeOut() + shrinkVertically()
+                        AnimatedContent(
+                            targetState = matches.any(),
+                            transitionSpec = { enterTransition.togetherWith(exitTransition) },
+                            label = "Section $sectionTitle",
+                        ) { hasMatches ->
+                            if (hasMatches) {
+                                Column {
+                                    if (matchingSectionTitles.any() && sectionTitle != matchingSectionTitles.first()) {
+                                        Spacer(Modifier.height(SatsTheme.spacing.l))
+                                    }
 
-                AnimatedContent(
-                    targetState = matches.any(),
-                    transitionSpec = { enterTransition.togetherWith(exitTransition) },
-                    label = "Section $sectionTitle",
-                ) { hasMatches ->
-                    if (hasMatches) {
-                        Column {
-                            if (sectionTitle != matchingSectionTitles.firstOrNull()) {
-                                Spacer(Modifier.height(SatsTheme.spacing.l))
-                            }
-
-                            HomeScreenSection(sectionTitle) {
-                                sampleScreens.forEach { sampleScreen ->
-                                    AnimatedVisibility(
-                                        visible = sampleScreen in matches,
-                                        enter = enterTransition,
-                                        exit = exitTransition,
-                                        label = "Screen ${sampleScreen.name}",
-                                    ) {
-                                        HomeScreenListItem(
-                                            label = sampleScreen.name,
-                                            onClick = { navController.navigate(sampleScreen.route) },
-                                        )
+                                    HomeScreenSection(sectionTitle) {
+                                        sampleScreens.forEach { sampleScreen ->
+                                            AnimatedVisibility(
+                                                visible = sampleScreen in matches,
+                                                enter = enterTransition,
+                                                exit = exitTransition,
+                                                label = "Screen ${sampleScreen.name}",
+                                            ) {
+                                                HomeScreenListItem(
+                                                    label = sampleScreen.name,
+                                                    onClick = { navController.navigate(sampleScreen.route) },
+                                                )
+                                            }
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
+            } else {
+                SatsEmptyState(
+                    icon = SatsIcons.Search,
+                    title = "Nothing to see here",
+                    body = "The search query “${searchBarState.query}” didn't match any results. " +
+                        "Try something else.",
+                    action = null,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .wrapContentSize()
+                        .padding(SatsTheme.spacing.l),
+                )
             }
         }
     }
