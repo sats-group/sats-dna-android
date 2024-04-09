@@ -1,10 +1,12 @@
 package com.sats.dna.sample.home
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -80,52 +82,209 @@ internal fun HomeScreen(navController: NavController, modifier: Modifier = Modif
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.l),
         ) {
             HomeScreenSection("Styles") {
-                ColorsSampleScreen.HomeListItem(navController)
-                TypographySampleScreen.HomeListItem(navController)
+                HomeScreenListItem(
+                    label = ColorsSampleScreen.name,
+                    onClick = { navController.navigate(ColorsSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = TypographySampleScreen.name,
+                    onClick = { navController.navigate(TypographySampleScreen.route) },
+                )
             }
 
             HomeScreenSection("Icons") {
-                IconsSampleScreen.HomeListItem(navController)
+                HomeScreenListItem(
+                    label = IconsSampleScreen.name,
+                    onClick = { navController.navigate(IconsSampleScreen.route) },
+                )
             }
 
             HomeScreenSection("Components") {
-                ArticleCardSampleScreen.HomeListItem(navController)
-                BadgeSampleScreen.HomeListItem(navController)
-                BannerSampleScreen.HomeListItem(navController)
-                BrandLogoSampleScreen.HomeListItem(navController)
-                ButtonsSampleScreen.HomeListItem(navController)
-                CardSampleScreen.HomeListItem(navController)
-                ChallengeBackgroundSampleScreen.HomeListItem(navController)
-                ChallengeBadgeSampleScreen.HomeListItem(navController)
-                ChallengeCardSampleScreen.HomeListItem(navController)
-                CheckboxSampleScreen.HomeListItem(navController)
-                ChipsSampleScreen.HomeListItem(navController)
-                CompletedWorkoutListItemSampleScreen.HomeListItem(navController)
-                DividersSampleScreen.HomeListItem(navController)
-                EmptyStateSampleScreen.HomeListItem(navController)
-                FancyTopAppBarSampleScreen.HomeListItem(navController)
-                FormInputFieldsSampleScreen.HomeListItem(navController)
-                FriendsBookingStatusSampleScreen.HomeListItem(navController)
-                GeneralListItemSampleScreen.HomeListItem(navController)
-                JoinYourFriendsSampleScreen.HomeListItem(navController)
-                PlaceholdersSampleScreen.HomeListItem(navController)
-                ProgressBarsSampleScreen.HomeListItem(navController)
-                ProteinBarSampleScreen.HomeListItem(navController)
-                RadioButtonsSampleScreen.HomeListItem(navController)
-                ScaleBarSampleScreen.HomeListItem(navController)
-                ScheduleSampleScreen.HomeListItem(navController)
-                SearchBarSampleScreen.HomeListItem(navController)
-                SessionDetailsInfoLabelSampleScreen.HomeListItem(navController)
-                SurfaceSampleScreen.HomeListItem(navController)
-                SwitchSampleScreen.HomeListItem(navController)
-                TagsSampleScreen.HomeListItem(navController)
-                TextFieldSampleScreen.HomeListItem(navController)
-                TitledSectionSampleScreen.HomeListItem(navController)
-                TopAppBarSampleScreen.HomeListItem(navController)
-                TrafficLightsSampleScreen.HomeListItem(navController)
-                UpcomingWorkoutListItemSampleScreen.HomeListItem(navController)
-                WorkoutStatisticsSampleScreen.HomeListItem(navController)
-                YourMostBookedSampleScreen.HomeListItem(navController)
+                HomeScreenListItem(
+                    label = ArticleCardSampleScreen.name,
+                    onClick = { navController.navigate(ArticleCardSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = BadgeSampleScreen.name,
+                    onClick = { navController.navigate(BadgeSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = BannerSampleScreen.name,
+                    onClick = { navController.navigate(BannerSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = BrandLogoSampleScreen.name,
+                    onClick = { navController.navigate(BrandLogoSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = ButtonsSampleScreen.name,
+                    onClick = { navController.navigate(ButtonsSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = CardSampleScreen.name,
+                    onClick = { navController.navigate(CardSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = ChallengeBackgroundSampleScreen.name,
+                    onClick = { navController.navigate(ChallengeBackgroundSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = ChallengeBadgeSampleScreen.name,
+                    onClick = { navController.navigate(ChallengeBadgeSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = ChallengeCardSampleScreen.name,
+                    onClick = { navController.navigate(ChallengeCardSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = CheckboxSampleScreen.name,
+                    onClick = { navController.navigate(CheckboxSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = ChipsSampleScreen.name,
+                    onClick = { navController.navigate(ChipsSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = CompletedWorkoutListItemSampleScreen.name,
+                    onClick = { navController.navigate(CompletedWorkoutListItemSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = DividersSampleScreen.name,
+                    onClick = { navController.navigate(DividersSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = EmptyStateSampleScreen.name,
+                    onClick = { navController.navigate(EmptyStateSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = FancyTopAppBarSampleScreen.name,
+                    onClick = { navController.navigate(FancyTopAppBarSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = FormInputFieldsSampleScreen.name,
+                    onClick = { navController.navigate(FormInputFieldsSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = FriendsBookingStatusSampleScreen.name,
+                    onClick = { navController.navigate(FriendsBookingStatusSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = GeneralListItemSampleScreen.name,
+                    onClick = { navController.navigate(GeneralListItemSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = JoinYourFriendsSampleScreen.name,
+                    onClick = { navController.navigate(JoinYourFriendsSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = PlaceholdersSampleScreen.name,
+                    onClick = { navController.navigate(PlaceholdersSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = ProgressBarsSampleScreen.name,
+                    onClick = { navController.navigate(ProgressBarsSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = ProteinBarSampleScreen.name,
+                    onClick = { navController.navigate(ProteinBarSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = RadioButtonsSampleScreen.name,
+                    onClick = { navController.navigate(RadioButtonsSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = ScaleBarSampleScreen.name,
+                    onClick = { navController.navigate(ScaleBarSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = ScheduleSampleScreen.name,
+                    onClick = { navController.navigate(ScheduleSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = SearchBarSampleScreen.name,
+                    onClick = { navController.navigate(SearchBarSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = SessionDetailsInfoLabelSampleScreen.name,
+                    onClick = { navController.navigate(SessionDetailsInfoLabelSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = SurfaceSampleScreen.name,
+                    onClick = { navController.navigate(SurfaceSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = SwitchSampleScreen.name,
+                    onClick = { navController.navigate(SwitchSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = TagsSampleScreen.name,
+                    onClick = { navController.navigate(TagsSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = TextFieldSampleScreen.name,
+                    onClick = { navController.navigate(TextFieldSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = TitledSectionSampleScreen.name,
+                    onClick = { navController.navigate(TitledSectionSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = TopAppBarSampleScreen.name,
+                    onClick = { navController.navigate(TopAppBarSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = TrafficLightsSampleScreen.name,
+                    onClick = { navController.navigate(TrafficLightsSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = UpcomingWorkoutListItemSampleScreen.name,
+                    onClick = { navController.navigate(UpcomingWorkoutListItemSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = WorkoutStatisticsSampleScreen.name,
+                    onClick = { navController.navigate(WorkoutStatisticsSampleScreen.route) },
+                )
+
+                HomeScreenListItem(
+                    label = YourMostBookedSampleScreen.name,
+                    onClick = { navController.navigate(YourMostBookedSampleScreen.route) },
+                )
             }
         }
     }
@@ -154,4 +313,20 @@ private fun HomeScreenSection(
             content()
         }
     }
+}
+
+@Composable
+private fun HomeScreenListItem(
+    label: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Text(
+        text = label,
+        modifier = modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick)
+            .padding(SatsTheme.spacing.m),
+        style = SatsTheme.typography.normal.large,
+    )
 }

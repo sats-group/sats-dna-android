@@ -1,13 +1,9 @@
 package com.sats.dna.sample.screens
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ListItem
-import androidx.compose.material3.ListItemDefaults
-import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -20,11 +16,10 @@ import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.icons.Back
-import com.sats.dna.theme.SatsTheme
 
 sealed class SampleScreen(
-    private val name: String,
-    private val route: String,
+    val name: String,
+    val route: String,
     private val screen: @Composable (navController: NavController) -> Unit,
 ) {
     context(NavGraphBuilder)
@@ -32,19 +27,6 @@ sealed class SampleScreen(
         composable(this@SampleScreen.route) {
             screen(navController)
         }
-    }
-
-    private fun navigate(navController: NavController) {
-        navController.navigate(route)
-    }
-
-    @Composable
-    fun HomeListItem(navController: NavController) {
-        ListItem(
-            headlineContent = { Text(name) },
-            colors = ListItemDefaults.colors(containerColor = SatsTheme.colors.backgrounds.primary.default.bg),
-            modifier = Modifier.clickable { navigate(navController) },
-        )
     }
 }
 
