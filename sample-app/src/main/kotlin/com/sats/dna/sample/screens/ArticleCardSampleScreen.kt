@@ -11,6 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsTag
 import com.sats.dna.components.SatsTagColor
+import com.sats.dna.components.button.SatsButtonColor
+import com.sats.dna.components.button.SatsButtonSize
 import com.sats.dna.components.button.SatsDismissButton
 import com.sats.dna.components.card.SatsArticleCard
 import com.sats.dna.theme.SatsTheme
@@ -52,8 +54,9 @@ private fun ArticleCardScreen(navigateUp: () -> Unit, modifier: Modifier = Modif
                 dismissButton = {
                     SatsDismissButton(
                         dismissLabel = "Dismiss",
-                        isLoading = false,
                         onDismissClicked = { },
+                        color = SatsButtonColor.Clean,
+                        size = SatsButtonSize.Small,
                     )
                 },
             )

@@ -1,119 +1,77 @@
 package com.sats.dna.components.button
 
 import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.semantics.role
-import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsSurface
+import com.sats.dna.components.button.internal.SatsBaseButtonLayout
+import com.sats.dna.components.button.internal.SatsIconButtonContent
+import com.sats.dna.components.button.internal.SatsTextButtonContent
+import com.sats.dna.components.button.internal.previewBackgroundColorFor
 import com.sats.dna.icons.Close
 import com.sats.dna.theme.SatsTheme
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancelChildren
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @Composable
 fun SatsDismissButton(
     dismissLabel: String,
     onDismissClicked: () -> Unit,
-    isLoading: Boolean,
     modifier: Modifier = Modifier,
-    size: SatsButtonSize = SatsButtonSize.Small,
-    color: SatsButtonColor = SatsButtonColor.Clean,
+    state: SatsDismissButtonState = rememberSatsDismissButtonState(),
+    size: SatsButtonSize = SatsButtonSize.Basic,
+    color: SatsButtonColor = SatsButtonColor.Primary,
+    isEnabled: Boolean = true,
 ) {
-    var isCloseClicked by remember {
-        mutableStateOf(false)
-    }
+    val isLoading = state.state is SatsDismissButtonContent.Loading
 
-    val isActuallyLoading = isCloseClicked && isLoading
-
-    Surface(
-        onClick = {
-            if (isCloseClicked) {
-                onDismissClicked()
-            } else {
-                isCloseClicked = true
-            }
-        },
-        modifier = modifier
-            .semantics { role = Role.Button }
-            .heightIn(min = minContentHeight(size))
-            .wrapContentWidth()
-            .padding(
-                horizontal = if (isCloseClicked) {
-                    SatsTheme.spacing.s
-                } else {
-                    0.dp
-                },
-            ),
-        shape = SatsTheme.shapes.roundedCorners.small,
-        enabled = !isActuallyLoading,
-        interactionSource = remember { MutableInteractionSource() },
-        color = color.animatedContainerColor(!isActuallyLoading),
-        contentColor = color.animatedContentColor(!isActuallyLoading),
-        border = color.animatedBorderColor(!isActuallyLoading)?.let { BorderStroke(1.dp, it) },
+    SatsBaseButtonLayout(
+        onClick = { state.onClick(dismissAction = onDismissClicked) },
+        modifier = modifier,
+        isEnabled = isEnabled,
+        isLoading = isLoading,
+        onClickLabel = dismissLabel,
+        color = color,
     ) {
-        AnimatedContent(
-            isCloseClicked,
-            label = "Animated content",
-        ) { isCloseClicked ->
-            val content = when {
-                isActuallyLoading -> SatsDismissButtonContent.Loading
-                isCloseClicked -> SatsDismissButtonContent.Dismiss
-                else -> SatsDismissButtonContent.Close
-            }
-
-            val iconContentSize = animateDpAsState(
-                when (size) {
-                    SatsButtonSize.Small -> 16.dp
-                    SatsButtonSize.Basic -> 18.dp
-                    SatsButtonSize.Large -> 24.dp
-                },
-                label = "Icon content size",
-            ).value
-
+        AnimatedContent(state.state, label = "Button Content") { content ->
             when (content) {
-                is SatsDismissButtonContent.Close -> {
-                    Icon(
-                        imageVector = SatsIcons.Close,
-                        contentDescription = null,
-                        modifier = Modifier
-                            .padding(SatsTheme.spacing.xs)
-                            .size(iconContentSize),
+                is SatsDismissButtonContent.Initial -> {
+                    SatsIconButtonContent(
+                        icon = SatsIcons.Close,
+                        size = size,
+                        isLoading = false,
                     )
                 }
 
-                is SatsDismissButtonContent.Dismiss -> {
-                    Text(
-                        text = dismissLabel,
-                        style = textStyle(size),
-                        maxLines = 1,
-                        modifier = Modifier.padding(SatsTheme.spacing.xs),
+                is SatsDismissButtonContent.Confirming -> {
+                    SatsTextButtonContent(
+                        label = dismissLabel,
+                        size = size,
+                        isLoading = false,
+                        icon = SatsIcons.Close,
                     )
                 }
+
                 is SatsDismissButtonContent.Loading -> {
-                    CircularProgressIndicator(
-                        modifier = Modifier
-                            .padding(SatsTheme.spacing.xs)
-                            .size(iconContentSize),
-                        color = color.contentColor,
-                        strokeWidth = 1.5.dp,
+                    SatsTextButtonContent(
+                        label = dismissLabel,
+                        size = size,
+                        isLoading = true,
+                        icon = null,
                     )
                 }
             }
@@ -121,12 +79,101 @@ fun SatsDismissButton(
     }
 }
 
+@Stable
+class SatsDismissButtonState internal constructor(
+    private val coroutineScope: CoroutineScope,
+) {
+    internal var state: SatsDismissButtonContent by mutableStateOf(SatsDismissButtonContent.Initial)
+
+    private val isConfirmingResetJob = Job()
+
+    internal fun onClick(dismissAction: () -> Unit) {
+        when (state) {
+            is SatsDismissButtonContent.Initial -> {
+                showAsConfirming()
+            }
+
+            is SatsDismissButtonContent.Confirming -> {
+                dismissAction()
+            }
+
+            is SatsDismissButtonContent.Loading -> {
+                // no-op, since you can't click on loading buttons
+            }
+        }
+    }
+
+    fun reset() {
+        isConfirmingResetJob.cancelChildren()
+
+        state = SatsDismissButtonContent.Initial
+    }
+
+    fun showAsLoading() {
+        isConfirmingResetJob.cancelChildren()
+
+        state = SatsDismissButtonContent.Loading
+    }
+
+    private fun showAsConfirming() {
+        isConfirmingResetJob.cancelChildren()
+
+        state = SatsDismissButtonContent.Confirming
+
+        coroutineScope.launch(isConfirmingResetJob) {
+            delay(ResetDurationMillis)
+
+            state = SatsDismissButtonContent.Initial
+        }
+    }
+
+    companion object {
+        private const val ResetDurationMillis = 5000L
+    }
+}
+
+@Composable
+fun rememberSatsDismissButtonState(): SatsDismissButtonState {
+    val coroutineScope = rememberCoroutineScope()
+
+    return remember(coroutineScope) {
+        SatsDismissButtonState(coroutineScope)
+    }
+}
+
+internal sealed interface SatsDismissButtonContent {
+    data object Initial : SatsDismissButtonContent
+    data object Confirming : SatsDismissButtonContent
+    data object Loading : SatsDismissButtonContent
+}
+
 @PreviewLightDark
 @Composable
-private fun SatsDismissButtonPreview() {
+private fun SatsDismissButtonColorPreview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
     SatsTheme {
-        SatsSurface {
-            SatsDismissButton("Dismiss", {}, true, Modifier.padding(SatsTheme.spacing.m))
+        SatsSurface(color = previewBackgroundColorFor(color), useMaterial3 = true) {
+            SatsDismissButton(
+                dismissLabel = "Dismiss",
+                onDismissClicked = {},
+                modifier = Modifier.padding(SatsTheme.spacing.m),
+                size = SatsButtonSize.Basic,
+                color = color,
+            )
+        }
+    }
+}
+
+@Preview("Sizes")
+@Composable
+private fun SatsDismissButtonSizePreview(@PreviewParameter(SatsButtonSizeProvider::class) size: SatsButtonSize) {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+            SatsDismissButton(
+                modifier = Modifier.padding(SatsTheme.spacing.m),
+                dismissLabel = "Dismiss",
+                onDismissClicked = {},
+                size = size,
+            )
         }
     }
 }

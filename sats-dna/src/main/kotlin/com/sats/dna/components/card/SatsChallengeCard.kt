@@ -14,14 +14,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.components.SatsChallengeBackground
 import com.sats.dna.components.SatsChallengeBadge
 import com.sats.dna.components.SatsTag
@@ -31,6 +30,7 @@ import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsButtonSize
 import com.sats.dna.components.button.SatsDismissButton
+import com.sats.dna.components.button.rememberSatsDismissButtonState
 import com.sats.dna.components.progressbar.SatsLinearProgressBar
 import com.sats.dna.theme.SatsTheme
 
@@ -125,78 +125,76 @@ private fun ChallengeCardLayout(
     dismissButton: @Composable (() -> Unit?)? = null,
     bottomContent: @Composable (() -> Unit?)? = null,
 ) {
-    CompositionLocalProvider(LocalUseMaterial3 provides true) {
-        SatsChallengeBackground(
-            isEnabled = isEnabled,
-            modifier = modifier
-                .height(IntrinsicSize.Min)
-                .clip(SatsTheme.shapes.roundedCorners.small),
+    SatsChallengeBackground(
+        isEnabled = isEnabled,
+        modifier = modifier
+            .height(IntrinsicSize.Min)
+            .clip(SatsTheme.shapes.roundedCorners.small),
+    ) {
+        Column(
+            Modifier
+                .fillMaxSize()
+                .clickable(onClick = onCardClick),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceBetween,
         ) {
-            Column(
-                Modifier
-                    .fillMaxSize()
-                    .clickable(onClick = onCardClick),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.SpaceBetween,
-            ) {
-                tag?.let {
-                    Box(
-                        Modifier
-                            .fillMaxWidth()
-                            .padding(top = SatsTheme.spacing.xs),
-                        contentAlignment = Alignment.TopStart,
-                    ) {
-                        tag()
-                    }
-                }
-
-                dismissButton?.let {
-                    Box(
-                        Modifier
-                            .fillMaxWidth(),
-                        contentAlignment = Alignment.TopEnd,
-                    ) {
-                        dismissButton()
-                    }
-                }
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs, Alignment.CenterVertically),
+            tag?.let {
+                Box(
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(top = SatsTheme.spacing.xs),
+                    contentAlignment = Alignment.TopStart,
                 ) {
-                    SatsChallengeBadge(
-                        modifier = Modifier
-                            .padding(top = SatsTheme.spacing.m, bottom = SatsTheme.spacing.xxs)
-                            .size(75.dp)
-                            .aspectRatio(1f)
-                            .clip(SatsTheme.shapes.circle),
-                        imageUrl = imageUrl,
-                        contentDescription = null,
-                    )
-
-                    Text(
-                        text = title,
-                        style = SatsTheme.typography.satsHeadlineEmphasis.large,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.padding(horizontal = SatsTheme.spacing.xs),
-                    )
-                    subtitle?.let {
-                        Text(
-                            modifier = Modifier.padding(horizontal = SatsTheme.spacing.xxs),
-                            text = subtitle,
-                            style = SatsTheme.typography.normal.small,
-                            textAlign = TextAlign.Center,
-                        )
-                    }
+                    tag()
                 }
-                bottomContent?.let {
-                    Box(
-                        Modifier
-                            .fillMaxWidth()
-                            .padding(top = SatsTheme.spacing.xs),
-                        contentAlignment = Alignment.BottomCenter,
-                    ) {
-                        bottomContent()
-                    }
+            }
+
+            dismissButton?.let {
+                Box(
+                    Modifier
+                        .fillMaxWidth(),
+                    contentAlignment = Alignment.TopEnd,
+                ) {
+                    dismissButton()
+                }
+            }
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs, Alignment.CenterVertically),
+            ) {
+                SatsChallengeBadge(
+                    modifier = Modifier
+                        .padding(top = SatsTheme.spacing.m, bottom = SatsTheme.spacing.xxs)
+                        .size(75.dp)
+                        .aspectRatio(1f)
+                        .clip(SatsTheme.shapes.circle),
+                    imageUrl = imageUrl,
+                    contentDescription = null,
+                )
+
+                Text(
+                    text = title,
+                    style = SatsTheme.typography.satsHeadlineEmphasis.large,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(horizontal = SatsTheme.spacing.xs),
+                )
+                subtitle?.let {
+                    Text(
+                        modifier = Modifier.padding(horizontal = SatsTheme.spacing.xxs),
+                        text = subtitle,
+                        style = SatsTheme.typography.normal.small,
+                        textAlign = TextAlign.Center,
+                    )
+                }
+            }
+            bottomContent?.let {
+                Box(
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(top = SatsTheme.spacing.xs),
+                    contentAlignment = Alignment.BottomCenter,
+                ) {
+                    bottomContent()
                 }
             }
         }
@@ -286,6 +284,16 @@ private fun DisabledChallengeCard(
     isDismissButtonLoading: Boolean,
     modifier: Modifier = Modifier,
 ) {
+    val dismissButtonState = rememberSatsDismissButtonState()
+
+    LaunchedEffect(isDismissButtonLoading) {
+        if (isDismissButtonLoading) {
+            dismissButtonState.showAsLoading()
+        } else {
+            dismissButtonState.reset()
+        }
+    }
+
     ChallengeCardLayout(
         modifier = modifier,
         imageUrl = imageUrl,
@@ -294,9 +302,11 @@ private fun DisabledChallengeCard(
         isEnabled = false,
         dismissButton = {
             SatsDismissButton(
+                state = dismissButtonState,
                 onDismissClicked = onDismissClick,
                 dismissLabel = dismissLabel,
-                isLoading = isDismissButtonLoading,
+                color = SatsButtonColor.Clean,
+                size = SatsButtonSize.Small,
             )
         },
         bottomContent = {
@@ -378,7 +388,7 @@ private fun JoinedChallengeCardPreview() {
 private fun DisabledChallengeCardPreview() {
     SatsTheme {
         SatsChallengeCard(
-            SatsChallengeCardState.Disabled(
+            state = SatsChallengeCardState.Disabled(
                 imageUrl = null,
                 title = "STREAK WEEK",
                 statusText = "Not completed",

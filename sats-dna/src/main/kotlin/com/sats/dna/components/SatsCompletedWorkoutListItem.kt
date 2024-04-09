@@ -122,10 +122,15 @@ private fun SocialRow(
                     contentDescription = null,
                     tint = SatsTheme.colors.buttons.action.default.fg,
                 )
+
                 MaterialText(normalizedNumberOfComments, color = SatsTheme.colors.backgrounds.secondary.default.fg)
             }
 
-            SatsLikeButton(isLiked = isLiked, onSaidAwesomeClicked)
+            SatsLikeButton(
+                isLiked = isLiked,
+                onLikedChange = onSaidAwesomeClicked,
+                onClickLabel = null,
+            )
         }
     }
 }

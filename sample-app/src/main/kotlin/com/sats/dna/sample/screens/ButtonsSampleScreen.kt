@@ -5,6 +5,8 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,6 +19,7 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,6 +33,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsFilterChip
+import com.sats.dna.components.SatsPlaceholderParagraph
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.button.SatsBellIconButton
 import com.sats.dna.components.button.SatsButton
@@ -42,6 +46,8 @@ import com.sats.dna.components.button.SatsNavigationCardButton
 import com.sats.dna.components.button.SatsStandAloneCardButton
 import com.sats.dna.components.button.SatsTwoOptionsInCardCardButton
 import com.sats.dna.components.button.SatsTwoOptionsStandAloneCardButton
+import com.sats.dna.components.button.rememberSatsDismissButtonState
+import com.sats.dna.components.card.SatsCard
 import com.sats.dna.icons.Add
 import com.sats.dna.icons.Barbell
 import com.sats.dna.icons.Calendar
@@ -54,6 +60,7 @@ data object ButtonsSampleScreen : SampleScreen(
     screen = { ButtonsScreen(it::navigateUp) },
 )
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     val controlPanelState = remember { ControlPanelState() }
@@ -69,89 +76,97 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
                 .padding(innerPadding)
-                .padding(vertical = SatsTheme.spacing.m),
+                .padding(SatsTheme.spacing.m),
+            verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.l),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            listOf(
-                SatsButtonColor.Primary,
-                SatsButtonColor.Secondary,
-                SatsButtonColor.Clean,
-                SatsButtonColor.CleanSecondary,
-                SatsButtonColor.WaitingList,
-                SatsButtonColor.Action,
-                SatsButtonColor.Cta,
-            ).forEach { color ->
-                val backgroundColor = if (color == SatsButtonColor.Clean || color == SatsButtonColor.CleanSecondary) {
-                    SatsTheme.colors.backgrounds.fixed.primary.default.bg
-                } else {
-                    Color.Transparent
-                }
-
-                Box(
-                    Modifier
-                        .fillMaxWidth()
-                        .background(backgroundColor)
-                        .padding(SatsTheme.spacing.m),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    SatsButton(
-                        onClick = {},
-                        label = color.name,
-                        colors = color,
-                        size = controlPanelState.size,
-                        isEnabled = controlPanelState.isEnabledToggled,
-                        isLoading = controlPanelState.isLoadingToggled,
-                        icon = if (controlPanelState.isIconEnabled) SatsIcons.Barbell else null,
-                    )
+            Section("Text buttons") {
+                SatsButtonColor.entries.forEach { color ->
+                    Box(
+                        Modifier
+                            .fillMaxWidth()
+                            .background(previewBackgroundColorFor(color))
+                            .padding(SatsTheme.spacing.xxs),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        SatsButton(
+                            onClick = {},
+                            label = color.name,
+                            colors = color,
+                            size = controlPanelState.size,
+                            isEnabled = controlPanelState.isEnabledToggled,
+                            isLoading = controlPanelState.isLoadingToggled,
+                            icon = if (controlPanelState.isIconEnabled) SatsIcons.Barbell else null,
+                        )
+                    }
                 }
             }
 
-            Column(
-                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                Row(horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
-                    listOf(
-                        SatsButtonColor.Primary,
-                        SatsButtonColor.Secondary,
-                    ).forEach { color ->
-                        SatsIconButton(
-                            onClick = {},
-                            icon = SatsIcons.Barbell,
-                            onClickLabel = null,
-                            colors = color,
-                            isEnabled = controlPanelState.isEnabledToggled,
-                            isLoading = controlPanelState.isLoadingToggled,
-                            size = controlPanelState.size,
-                        )
+            Section("Icon buttons") {
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    FlowRow(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
+                        horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s, Alignment.CenterHorizontally),
+                    ) {
+                        SatsButtonColor.entries.forEach { color ->
+                            Box(
+                                Modifier
+                                    .background(previewBackgroundColorFor(color))
+                                    .padding(SatsTheme.spacing.xxs),
+                                contentAlignment = Alignment.Center,
+                            ) {
+                                SatsIconButton(
+                                    onClick = {},
+                                    icon = SatsIcons.Barbell,
+                                    onClickLabel = null,
+                                    colors = color,
+                                    isEnabled = controlPanelState.isEnabledToggled,
+                                    isLoading = controlPanelState.isLoadingToggled,
+                                    size = controlPanelState.size,
+                                )
+                            }
+                        }
                     }
                 }
+            }
 
-                Row(horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
-                    listOf(
-                        SatsButtonColor.Clean,
-                        SatsButtonColor.WaitingList,
-                        SatsButtonColor.Action,
-                    ).forEach { color ->
-                        SatsIconButton(
-                            onClick = {},
-                            icon = SatsIcons.Barbell,
-                            onClickLabel = null,
-                            colors = color,
-                            isEnabled = controlPanelState.isEnabledToggled,
-                            isLoading = controlPanelState.isLoadingToggled,
-                            size = controlPanelState.size,
-                        )
+            Section("Dismiss Button", Modifier.fillMaxWidth()) {
+                FlowRow(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
+                    horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s, Alignment.CenterHorizontally),
+                ) {
+                    SatsButtonColor.entries.forEach { color ->
+                        val state = rememberSatsDismissButtonState()
+
+                        LaunchedEffect(controlPanelState.isLoadingToggled) {
+                            if (controlPanelState.isLoadingToggled) state.showAsLoading() else state.reset()
+                        }
+
+                        Box(
+                            Modifier
+                                .background(previewBackgroundColorFor(color))
+                                .padding(SatsTheme.spacing.xxs),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            SatsDismissButton(
+                                state = state,
+                                dismissLabel = "Dismiss",
+                                isEnabled = controlPanelState.isEnabledToggled,
+                                onDismissClicked = { state.reset() },
+                                size = controlPanelState.size,
+                                color = color,
+                            )
+                        }
                     }
                 }
+            }
 
-                SatsDismissButton(
-                    dismissLabel = "Dismiss",
-                    isLoading = false,
-                    onDismissClicked = { },
-                    size = controlPanelState.size,
-                )
-
+            Section("Notification Bell Icon Button", Modifier.fillMaxWidth()) {
                 Row(horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
                     SatsBellIconButton(
                         onClick = {},
@@ -167,57 +182,90 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                         isEnabled = controlPanelState.isEnabledToggled,
                     )
                 }
-
-                SatsNavigationCardButton(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = SatsTheme.spacing.m),
-                    onClick = {},
-                    text = "Give us feedback on the app",
-                )
-
-                SatsStandAloneCardButton(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = SatsTheme.spacing.m),
-                    onClick = {},
-                    text = "Schedule",
-                    icon = SatsIcons.Calendar,
-                )
-
-                SatsTwoOptionsStandAloneCardButton(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = SatsTheme.spacing.m),
-                    firstOptionOnClick = {},
-                    firstOptionText = "Add workout",
-                    firstOptionIcon = SatsIcons.Add,
-                    secondOptionOnClick = {},
-                    secondOptionText = "Schedule",
-                    secondOptionIcon = SatsIcons.Calendar,
-                )
-
-                SatsInCardCardButton(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = SatsTheme.spacing.m),
-                    onClick = {},
-                    text = "Schedule",
-                    icon = SatsIcons.Calendar,
-                )
-
-                SatsTwoOptionsInCardCardButton(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = SatsTheme.spacing.m),
-                    firstOptionOnClick = {},
-                    firstOptionText = "Add workout",
-                    firstOptionIcon = SatsIcons.Add,
-                    secondOptionOnClick = {},
-                    secondOptionText = "Schedule",
-                    secondOptionIcon = SatsIcons.Calendar,
-                )
             }
+
+            Section("Standalone Card Buttons", Modifier.fillMaxWidth()) {
+                Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs)) {
+                    SatsNavigationCardButton(
+                        modifier = Modifier.fillMaxWidth(),
+                        onClick = {},
+                        text = "Give us feedback on the app",
+                    )
+
+                    SatsStandAloneCardButton(
+                        modifier = Modifier.fillMaxWidth(),
+                        onClick = {},
+                        text = "Schedule",
+                        icon = SatsIcons.Calendar,
+                    )
+
+                    SatsTwoOptionsStandAloneCardButton(
+                        modifier = Modifier.fillMaxWidth(),
+                        firstOptionOnClick = {},
+                        firstOptionText = "Add workout",
+                        firstOptionIcon = SatsIcons.Add,
+                        secondOptionOnClick = {},
+                        secondOptionText = "Schedule",
+                        secondOptionIcon = SatsIcons.Calendar,
+                    )
+                }
+            }
+
+            Section("In-Card Buttons", Modifier.fillMaxWidth()) {
+                Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m)) {
+                    SatsCard {
+                        Column {
+                            SatsPlaceholderParagraph(Modifier.padding(SatsTheme.spacing.m))
+
+                            SatsInCardCardButton(
+                                modifier = Modifier.fillMaxWidth(),
+                                onClick = {},
+                                text = "Schedule",
+                                icon = SatsIcons.Calendar,
+                            )
+                        }
+                    }
+
+                    SatsCard {
+                        Column {
+                            SatsPlaceholderParagraph(Modifier.padding(SatsTheme.spacing.m))
+
+                            SatsTwoOptionsInCardCardButton(
+                                modifier = Modifier.fillMaxWidth(),
+                                firstOptionOnClick = {},
+                                firstOptionText = "Add workout",
+                                firstOptionIcon = SatsIcons.Add,
+                                secondOptionOnClick = {},
+                                secondOptionText = "Schedule",
+                                secondOptionIcon = SatsIcons.Calendar,
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun previewBackgroundColorFor(color: SatsButtonColor) =
+    if (color == SatsButtonColor.Clean || color == SatsButtonColor.CleanSecondary) {
+        SatsTheme.colors.backgrounds.fixed.primary.default.bg
+    } else {
+        Color.Transparent
+    }
+
+@Composable
+private fun Section(label: String, modifier: Modifier = Modifier, content: @Composable () -> Unit) {
+    Column(
+        modifier,
+        verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Text(label, style = SatsTheme.typography.satsHeadlineEmphasis.large)
+
+        Column {
+            content()
         }
     }
 }
