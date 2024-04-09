@@ -1,28 +1,49 @@
 package com.sats.dna.sample.home
 
+import androidx.activity.compose.BackHandler
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.navigation.NavController
+import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsDividerColor
 import com.sats.dna.components.SatsHorizontalDivider
+import com.sats.dna.components.SatsSearchBar
 import com.sats.dna.components.appbar.SatsTopAppBar
+import com.sats.dna.components.button.SatsButtonSize
+import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.components.screen.SatsScreen
+import com.sats.dna.icons.Search
 import com.sats.dna.sample.screens.ArticleCardSampleScreen
 import com.sats.dna.sample.screens.BadgeSampleScreen
 import com.sats.dna.sample.screens.BannerSampleScreen
@@ -69,26 +90,70 @@ import com.sats.dna.theme.SatsTheme
 @Composable
 internal fun HomeScreen(navController: NavController, modifier: Modifier = Modifier) {
     val topAppBarScrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
+    val searchBarState = remember { HomeScreenSearchBarState() }
 
     SatsScreen(
         modifier = modifier.nestedScroll(topAppBarScrollBehavior.nestedScrollConnection),
         topBar = { SatsTopAppBar("SATS DNA Sample App", scrollBehavior = topAppBarScrollBehavior) },
-        bottomBar = { Box(Modifier.navigationBarsPadding()) },
+        bottomBar = {
+            HomeScreenSearchBar(
+                Modifier
+                    .fillMaxWidth()
+                    .wrapContentWidth(Alignment.End)
+                    .navigationBarsPadding()
+                    .imePadding()
+                    .padding(SatsTheme.spacing.m),
+                searchBarState,
+            )
+        },
     ) { innerPadding ->
         Column(
             Modifier
                 .verticalScroll(rememberScrollState())
                 .padding(innerPadding)
-                .padding(vertical = SatsTheme.spacing.m),
-            verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.l),
+                .padding(top = SatsTheme.spacing.m),
         ) {
-            groups.forEach { (sectionTitle, sampleScreens) ->
-                HomeScreenSection(sectionTitle) {
-                    sampleScreens.forEach { sampleScreen ->
-                        HomeScreenListItem(
-                            label = sampleScreen.name,
-                            onClick = { navController.navigate(sampleScreen.route) },
-                        )
+            val matchingSectionTitles = groups.filter { (_, sampleScreens) ->
+                sampleScreens.any { it.name.contains(searchBarState.query, ignoreCase = true) }
+            }.map { (sectionTitle, _) -> sectionTitle }
+
+            groups.keys.forEachIndexed { index, sectionTitle ->
+                val sampleScreens = groups.getValue(sectionTitle)
+
+                val matches = remember(searchBarState.query) {
+                    sampleScreens.filter { it.name.contains(searchBarState.query, ignoreCase = true) }
+                }
+
+                val enterTransition = fadeIn() + expandVertically()
+                val exitTransition = fadeOut() + shrinkVertically()
+
+                AnimatedContent(
+                    targetState = matches.any(),
+                    transitionSpec = { enterTransition.togetherWith(exitTransition) },
+                    label = "Section $sectionTitle",
+                ) { hasMatches ->
+                    if (hasMatches) {
+                        Column {
+                            if (sectionTitle != matchingSectionTitles.firstOrNull()) {
+                                Spacer(Modifier.height(SatsTheme.spacing.l))
+                            }
+
+                            HomeScreenSection(sectionTitle) {
+                                sampleScreens.forEach { sampleScreen ->
+                                    AnimatedVisibility(
+                                        visible = sampleScreen in matches,
+                                        enter = enterTransition,
+                                        exit = exitTransition,
+                                        label = "Screen ${sampleScreen.name}",
+                                    ) {
+                                        HomeScreenListItem(
+                                            label = sampleScreen.name,
+                                            onClick = { navController.navigate(sampleScreen.route) },
+                                        )
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -135,6 +200,44 @@ private fun HomeScreenListItem(
             .padding(SatsTheme.spacing.m),
         style = SatsTheme.typography.normal.large,
     )
+}
+
+@Composable
+private fun HomeScreenSearchBar(
+    modifier: Modifier = Modifier,
+    state: HomeScreenSearchBarState = remember { HomeScreenSearchBarState() },
+) {
+    BackHandler(enabled = state.isExpanded) {
+        state.clear()
+        state.isExpanded = false
+    }
+
+    AnimatedContent(
+        targetState = state.isExpanded,
+        modifier = modifier,
+        label = "Expanded/collapsed content",
+    ) { isExpanded ->
+        if (isExpanded) {
+            SatsSearchBar(state.query, onQueryChange = { state.query = it }, onClearClicked = { state.clear() })
+        } else {
+            SatsIconButton(
+                onClick = { state.isExpanded = true },
+                icon = SatsIcons.Search,
+                onClickLabel = null,
+                size = SatsButtonSize.Large,
+            )
+        }
+    }
+}
+
+@Stable
+internal class HomeScreenSearchBarState {
+    var isExpanded: Boolean by mutableStateOf(false)
+    var query: String by mutableStateOf("")
+
+    fun clear() {
+        query = ""
+    }
 }
 
 private val groups: Map<String, List<SampleScreen>> = mapOf(
