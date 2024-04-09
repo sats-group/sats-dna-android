@@ -1,17 +1,23 @@
 package com.sats.dna.sample.home
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.navigation.NavController
+import com.sats.dna.components.SatsDividerColor
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.screen.SatsScreen
@@ -57,7 +63,6 @@ import com.sats.dna.sample.screens.WorkoutStatisticsSampleScreen
 import com.sats.dna.sample.screens.YourMostBookedSampleScreen
 import com.sats.dna.theme.SatsTheme
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun HomeScreen(navController: NavController, modifier: Modifier = Modifier) {
     val topAppBarScrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
@@ -70,51 +75,83 @@ internal fun HomeScreen(navController: NavController, modifier: Modifier = Modif
         Column(
             Modifier
                 .verticalScroll(rememberScrollState())
-                .padding(innerPadding),
+                .padding(innerPadding)
+                .padding(vertical = SatsTheme.spacing.m),
+            verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.l),
         ) {
-            ColorsSampleScreen.HomeListItem(navController)
-            IconsSampleScreen.HomeListItem(navController)
-            TypographySampleScreen.HomeListItem(navController)
+            HomeScreenSection("Styles") {
+                ColorsSampleScreen.HomeListItem(navController)
+                TypographySampleScreen.HomeListItem(navController)
+            }
 
-            SatsHorizontalDivider(Modifier.padding(vertical = SatsTheme.spacing.s))
+            HomeScreenSection("Icons") {
+                IconsSampleScreen.HomeListItem(navController)
+            }
 
-            ArticleCardSampleScreen.HomeListItem(navController)
-            BadgeSampleScreen.HomeListItem(navController)
-            BannerSampleScreen.HomeListItem(navController)
-            BrandLogoSampleScreen.HomeListItem(navController)
-            ButtonsSampleScreen.HomeListItem(navController)
-            CardSampleScreen.HomeListItem(navController)
-            ChallengeBackgroundSampleScreen.HomeListItem(navController)
-            ChallengeBadgeSampleScreen.HomeListItem(navController)
-            ChallengeCardSampleScreen.HomeListItem(navController)
-            CheckboxSampleScreen.HomeListItem(navController)
-            ChipsSampleScreen.HomeListItem(navController)
-            CompletedWorkoutListItemSampleScreen.HomeListItem(navController)
-            DividersSampleScreen.HomeListItem(navController)
-            EmptyStateSampleScreen.HomeListItem(navController)
-            FancyTopAppBarSampleScreen.HomeListItem(navController)
-            FormInputFieldsSampleScreen.HomeListItem(navController)
-            FriendsBookingStatusSampleScreen.HomeListItem(navController)
-            GeneralListItemSampleScreen.HomeListItem(navController)
-            JoinYourFriendsSampleScreen.HomeListItem(navController)
-            PlaceholdersSampleScreen.HomeListItem(navController)
-            ProgressBarsSampleScreen.HomeListItem(navController)
-            ProteinBarSampleScreen.HomeListItem(navController)
-            RadioButtonsSampleScreen.HomeListItem(navController)
-            ScaleBarSampleScreen.HomeListItem(navController)
-            ScheduleSampleScreen.HomeListItem(navController)
-            SearchBarSampleScreen.HomeListItem(navController)
-            SessionDetailsInfoLabelSampleScreen.HomeListItem(navController)
-            SurfaceSampleScreen.HomeListItem(navController)
-            SwitchSampleScreen.HomeListItem(navController)
-            TagsSampleScreen.HomeListItem(navController)
-            TextFieldSampleScreen.HomeListItem(navController)
-            TitledSectionSampleScreen.HomeListItem(navController)
-            TopAppBarSampleScreen.HomeListItem(navController)
-            TrafficLightsSampleScreen.HomeListItem(navController)
-            UpcomingWorkoutListItemSampleScreen.HomeListItem(navController)
-            WorkoutStatisticsSampleScreen.HomeListItem(navController)
-            YourMostBookedSampleScreen.HomeListItem(navController)
+            HomeScreenSection("Components") {
+                ArticleCardSampleScreen.HomeListItem(navController)
+                BadgeSampleScreen.HomeListItem(navController)
+                BannerSampleScreen.HomeListItem(navController)
+                BrandLogoSampleScreen.HomeListItem(navController)
+                ButtonsSampleScreen.HomeListItem(navController)
+                CardSampleScreen.HomeListItem(navController)
+                ChallengeBackgroundSampleScreen.HomeListItem(navController)
+                ChallengeBadgeSampleScreen.HomeListItem(navController)
+                ChallengeCardSampleScreen.HomeListItem(navController)
+                CheckboxSampleScreen.HomeListItem(navController)
+                ChipsSampleScreen.HomeListItem(navController)
+                CompletedWorkoutListItemSampleScreen.HomeListItem(navController)
+                DividersSampleScreen.HomeListItem(navController)
+                EmptyStateSampleScreen.HomeListItem(navController)
+                FancyTopAppBarSampleScreen.HomeListItem(navController)
+                FormInputFieldsSampleScreen.HomeListItem(navController)
+                FriendsBookingStatusSampleScreen.HomeListItem(navController)
+                GeneralListItemSampleScreen.HomeListItem(navController)
+                JoinYourFriendsSampleScreen.HomeListItem(navController)
+                PlaceholdersSampleScreen.HomeListItem(navController)
+                ProgressBarsSampleScreen.HomeListItem(navController)
+                ProteinBarSampleScreen.HomeListItem(navController)
+                RadioButtonsSampleScreen.HomeListItem(navController)
+                ScaleBarSampleScreen.HomeListItem(navController)
+                ScheduleSampleScreen.HomeListItem(navController)
+                SearchBarSampleScreen.HomeListItem(navController)
+                SessionDetailsInfoLabelSampleScreen.HomeListItem(navController)
+                SurfaceSampleScreen.HomeListItem(navController)
+                SwitchSampleScreen.HomeListItem(navController)
+                TagsSampleScreen.HomeListItem(navController)
+                TextFieldSampleScreen.HomeListItem(navController)
+                TitledSectionSampleScreen.HomeListItem(navController)
+                TopAppBarSampleScreen.HomeListItem(navController)
+                TrafficLightsSampleScreen.HomeListItem(navController)
+                UpcomingWorkoutListItemSampleScreen.HomeListItem(navController)
+                WorkoutStatisticsSampleScreen.HomeListItem(navController)
+                YourMostBookedSampleScreen.HomeListItem(navController)
+            }
+        }
+    }
+}
+
+@Composable
+private fun HomeScreenSection(
+    label: String,
+    modifier: Modifier = Modifier,
+    content: @Composable ColumnScope.() -> Unit,
+) {
+    Column(modifier, verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
+        Row(
+            modifier = Modifier.padding(horizontal = SatsTheme.spacing.m),
+            horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            SatsHorizontalDivider(Modifier.width(SatsTheme.spacing.l), color = SatsDividerColor.Alternate)
+
+            Text(label, style = SatsTheme.typography.satsHeadlineEmphasis.headline3)
+
+            SatsHorizontalDivider(Modifier.weight(1f), color = SatsDividerColor.Alternate)
+        }
+
+        Column {
+            content()
         }
     }
 }

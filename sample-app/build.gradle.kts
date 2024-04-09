@@ -68,7 +68,10 @@ tasks.withType<KotlinCompile>().configureEach {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_11)
 
-        freeCompilerArgs.add("-Xcontext-receivers")
+        freeCompilerArgs.addAll(
+            "-Xcontext-receivers",
+            "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+        )
     }
 }
 
