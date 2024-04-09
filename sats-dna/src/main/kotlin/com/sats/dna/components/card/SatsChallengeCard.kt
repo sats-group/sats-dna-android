@@ -289,6 +289,8 @@ private fun DisabledChallengeCard(
     LaunchedEffect(isDismissButtonLoading) {
         if (isDismissButtonLoading) {
             dismissButtonState.showAsLoading()
+        } else {
+            dismissButtonState.reset()
         }
     }
 
