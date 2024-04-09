@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.foundation.text2.input.TextFieldLineLimits
-import androidx.compose.foundation.text2.input.rememberTextFieldState
+import androidx.compose.foundation.text.input.TextFieldLineLimits
+import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -116,9 +116,9 @@ internal fun FormInputFieldsScreen(navigateUp: () -> Unit, modifier: Modifier = 
                         trailingText = "min",
                         modifier = Modifier.fillMaxWidth(),
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                        inputTransformation = { _, valueWithChanges ->
-                            if (valueWithChanges.asCharSequence().any { !it.isDigit() }) {
-                                valueWithChanges.revertAllChanges()
+                        inputTransformation = {
+                            if (asCharSequence().any { !it.isDigit() }) {
+                                revertAllChanges()
                             }
                         },
                         isEnabled = isFormEnabled,
