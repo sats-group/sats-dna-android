@@ -37,6 +37,7 @@ fun satsContentColor2For(backgroundColor: Color): Color {
         graphicalElements.tags.primary.bg -> graphicalElements.tags.primary.fg
         graphicalElements.tags.secondary.bg -> graphicalElements.tags.secondary.fg
         graphicalElements.tags.featured.bg -> graphicalElements.tags.featured.fg
+        graphicalElements.tags.new.bg -> graphicalElements.tags.new.fg
 
         graphicalElements.rewards.blue.bg -> graphicalElements.rewards.blue.bg
         graphicalElements.rewards.silver.bg -> graphicalElements.rewards.silver.bg

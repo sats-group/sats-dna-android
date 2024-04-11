@@ -27,12 +27,14 @@ fun SatsTag(
         SatsTagColor.Primary -> SatsTheme.colors.graphicalElements.tags.primary.bg
         SatsTagColor.Secondary -> SatsTheme.colors.graphicalElements.tags.secondary.bg
         SatsTagColor.Featured -> SatsTheme.colors.graphicalElements.tags.featured.bg
+        SatsTagColor.New -> SatsTheme.colors.graphicalElements.tags.new.bg
     }
 
     val contentColor = when (color) {
         SatsTagColor.Primary -> SatsTheme.colors.graphicalElements.tags.primary.fg
         SatsTagColor.Secondary -> SatsTheme.colors.graphicalElements.tags.secondary.fg
         SatsTagColor.Featured -> SatsTheme.colors.graphicalElements.tags.featured.fg
+        SatsTagColor.New -> SatsTheme.colors.graphicalElements.tags.new.fg
     }
 
     val paddingValues = when (size) {
@@ -64,7 +66,7 @@ fun SatsTag(
 }
 
 enum class SatsTagColor {
-    Primary, Secondary, Featured,
+    Primary, Secondary, Featured, New
 }
 
 enum class SatsTagSize {

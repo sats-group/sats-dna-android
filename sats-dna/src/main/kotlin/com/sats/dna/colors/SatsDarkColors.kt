@@ -326,6 +326,10 @@ internal val SatsDarkColors = SatsColors(
                 default = SatsColorPrimitives.White100 on SatsColorPrimitives.BrightBlue100,
                 alternate = SatsColorPrimitives.BrightBlue20 on SatsColorPrimitives.BrightBlue160,
             ),
+            new = ColorSet(
+                bg = SatsColorPrimitives.SpringGreen80,
+                fg = SatsColorPrimitives.White100,
+            ),
         ),
         badge = SatsColors.GraphicalElements.Badge(
             primary = ColorSet(
