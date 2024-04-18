@@ -1,26 +1,44 @@
 package com.sats.dna.sample.screens
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import com.sats.dna.SatsIcons
+import com.sats.dna.colors.BackgroundColorSet
 import com.sats.dna.colors.ColorSet
+import com.sats.dna.colors.OutlinedColorSet
+import com.sats.dna.colors.SurfaceColorSet
 import com.sats.dna.components.SatsSurface
+import com.sats.dna.components.button.SatsButtonColor
+import com.sats.dna.components.button.SatsButtonSize
+import com.sats.dna.components.button.SatsIconButton
+import com.sats.dna.icons.ArrowDown
+import com.sats.dna.icons.ArrowUp
 import com.sats.dna.theme.SatsTheme
 
 data object ColorsSampleScreen : SampleScreen(
@@ -39,1115 +57,755 @@ private fun ColorsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) 
                 .padding(SatsTheme.spacing.m),
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.l),
         ) {
-            Buttons()
+            Section("Buttons") {
+                ButtonsPrimarySamples()
+                ButtonsSecondarySamples()
+                ButtonsCleanSamples()
+                ButtonsCleanSecondarySamples()
+                ButtonsActionSamples()
+                ButtonsCtaSamples()
+                ButtonsWaitingListFilledSamples()
+                ButtonsWaitingListOutlinedSamples()
+                ButtonsDestructiveSamples()
+            }
 
-            GraphicalElements()
+            Section("Graphical Elements") {
+                GraphicalElementsDividerSamples()
+                GraphicalElementsBorderSamples()
+                GraphicalElementsSignalBorderSamples()
+                GraphicalElementsSkeletonSamples()
+                GraphicalElementsNavBarSamples()
+                GraphicalElementsProgressBarSamples()
+                GraphicalElementsFixedProgressBarSamples()
+                GraphicalElementsGraphsSamples()
+                GraphicalElementsSelectorSamples()
+                GraphicalElementsSelectorFixedSamples()
+                GraphicalElementsChipsSamples()
+                GraphicalElementsToggleSamples()
+                GraphicalElementsIconsSamples()
+                GraphicalElementsIndicatorsSamples()
+                GraphicalElementsSignalSamples()
+                GraphicalElementsTagsSamples()
+                GraphicalElementsIndicatorTagSamples()
+                GraphicalElementsBadgeSamples()
+                GraphicalElementsFixedBadgeSamples()
+                GraphicalElementsRewardsSamples()
+                GraphicalElementsWorkoutsSamples()
+            }
 
-            Backgrounds()
+            Section("Backgrounds") {
+                BackgroundPrimarySamples()
+                BackgroundSecondarySamples()
+                BackgroundFixedSamples()
+            }
 
-            FixedBackgrounds()
+            Section("Surfaces") {
+                SurfacePrimarySamples()
+                SurfaceSecondarySamples()
+                SurfaceFixedSamples()
+            }
 
-            Surfaces()
-
-            FixedSurfaces()
-
-            SignalSurfaces()
+            Section("Signal Surfaces") {
+                SignalSurfaceSuccessSamples()
+                SignalSurfaceWarningSamples()
+                SignalSurfaceErrorSamples()
+                SignalSurfaceWaitingListSamples()
+                SignalSurfaceNeutralSamples()
+                SignalSurfaceInformationSamples()
+                SignalSurfaceFeaturedSamples()
+            }
         }
     }
 }
 
 @Composable
-private fun Buttons() {
-    Section("Buttons", SectionLevel.Level1) {
-        Section("Primary Button", SectionLevel.Level2, base = "buttons.primary") {
-            val base = SatsTheme.colors.buttons.primary
+private fun ButtonsPrimarySamples(modifier: Modifier = Modifier) {
+    Subsection("Primary", modifier) {
+        val primary = SatsTheme.colors.buttons.primary
 
-            ColorSample(
-                backgroundColor = base.default.bg named "base.default.bg",
-                contentColor = base.default.fg named "base.default.fg",
-            )
+        ColorSample(primary.default, "default")
+        ColorSample(primary.disabled, "disabled")
+    }
+}
 
-            ColorSample(
-                backgroundColor = base.disabled.bg named "base.disabled.bg",
-                contentColor = base.disabled.fg named "base.disabled.fg",
+@Composable
+private fun ButtonsSecondarySamples(modifier: Modifier = Modifier) {
+    Subsection("Secondary", modifier) {
+        val secondary = SatsTheme.colors.buttons.secondary
+
+        ColorSample(secondary.default, "default")
+        ColorSample(secondary.disabled, "disabled")
+    }
+}
+
+@Composable
+private fun ButtonsCleanSamples(modifier: Modifier = Modifier) {
+    Subsection("Clean", modifier, isFixed = true) {
+        val clean = SatsTheme.colors.buttons.clean
+
+        ColorSample(clean.default, "default")
+        ColorSample(clean.disabled, "disabled")
+    }
+}
+
+@Composable
+private fun ButtonsCleanSecondarySamples(modifier: Modifier = Modifier) {
+    Subsection("Clean Secondary", modifier, isFixed = true) {
+        val cleanSecondary = SatsTheme.colors.buttons.cleanSecondary
+
+        ColorSample(cleanSecondary.default, "default")
+        ColorSample(cleanSecondary.disabled, "disabled")
+    }
+}
+
+@Composable
+private fun ButtonsActionSamples(modifier: Modifier = Modifier) {
+    Subsection("Action", modifier) {
+        val action = SatsTheme.colors.buttons.action
+
+        ColorSample(action.default, "default")
+        ColorSample(action.disabled, "disabled")
+    }
+}
+
+@Composable
+private fun ButtonsCtaSamples(modifier: Modifier = Modifier) {
+    Subsection("CTA", modifier) {
+        val cta = SatsTheme.colors.buttons.cta
+
+        ColorSample(cta.default, "default")
+        ColorSample(cta.disabled, "disabled")
+    }
+}
+
+@Composable
+private fun ButtonsWaitingListFilledSamples(modifier: Modifier = Modifier) {
+    Subsection("Waiting List Filled", modifier) {
+        val waitingListFilled = SatsTheme.colors.buttons.waitingListFilled
+
+        ColorSample(waitingListFilled.default, "default")
+        ColorSample(waitingListFilled.disabled, "disabled")
+    }
+}
+
+@Composable
+private fun ButtonsWaitingListOutlinedSamples(modifier: Modifier = Modifier) {
+    Subsection("Waiting List Outlined", modifier) {
+        val waitingListOutlined = SatsTheme.colors.buttons.waitingListOutlined
+
+        ColorSample(waitingListOutlined.default, "default")
+        ColorSample(waitingListOutlined.disabled, "disabled")
+    }
+}
+
+@Composable
+private fun ButtonsDestructiveSamples(modifier: Modifier = Modifier) {
+    Subsection("Destructive", modifier) {
+        val destructive = SatsTheme.colors.buttons.destructive
+
+        ColorSample(destructive.default.default, "default.default")
+        ColorSample(destructive.default.disabled, "default.disabled")
+        ColorSample(destructive.outlined.default, "outlined.default")
+        ColorSample(destructive.outlined.disabled, "outlined.disabled")
+    }
+}
+
+@Composable
+private fun GraphicalElementsDividerSamples(modifier: Modifier = Modifier) {
+    Subsection("Divider", modifier) {
+        val divider = SatsTheme.colors.graphicalElements.divider
+
+        ColorSample(divider.default, "default")
+        ColorSample(divider.alternate, "alternate")
+    }
+}
+
+@Composable
+private fun GraphicalElementsBorderSamples(modifier: Modifier = Modifier) {
+    Subsection("Border", modifier) {
+        val border = SatsTheme.colors.graphicalElements.border
+
+        ColorSample(border.default, "default")
+        ColorSample(border.focused, "focused")
+    }
+}
+
+@Composable
+private fun GraphicalElementsSignalBorderSamples(modifier: Modifier = Modifier) {
+    Subsection("Signal Border", modifier) {
+        val signalBorder = SatsTheme.colors.graphicalElements.signalBorder
+
+        ColorSample(signalBorder.success, "success")
+        ColorSample(signalBorder.warning, "warning")
+        ColorSample(signalBorder.error, "error")
+        ColorSample(signalBorder.waitingList, "waitingList")
+        ColorSample(signalBorder.neutral, "neutral")
+        ColorSample(signalBorder.information, "information")
+        ColorSample(signalBorder.featured, "featured")
+    }
+}
+
+@Composable
+private fun GraphicalElementsSkeletonSamples(modifier: Modifier = Modifier) {
+    Subsection("Skeleton", modifier) {
+        val skeleton = SatsTheme.colors.graphicalElements.skeleton
+
+        ColorSample(skeleton, "skeleton")
+    }
+}
+
+@Composable
+private fun GraphicalElementsNavBarSamples(modifier: Modifier = Modifier) {
+    Subsection("Nav Bar", modifier) {
+        val navBar = SatsTheme.colors.graphicalElements.navBar
+
+        ColorSample(navBar.selected, "selected")
+        ColorSample(navBar.notSelected, "notSelected")
+    }
+}
+
+@Composable
+private fun GraphicalElementsProgressBarSamples(modifier: Modifier = Modifier) {
+    Subsection("Progress Bar", modifier) {
+        val progressBar = SatsTheme.colors.graphicalElements.progressBar
+
+        ColorSample(progressBar.default, "default")
+        ColorSample(progressBar.alternate, "alternate")
+    }
+}
+
+@Composable
+private fun GraphicalElementsFixedProgressBarSamples(modifier: Modifier = Modifier) {
+    Subsection("Fixed Progress Bar", modifier, isFixed = true) {
+        val fixedProgressBar = SatsTheme.colors.graphicalElements.fixedProgressBar
+
+        ColorSample(fixedProgressBar.default, "default")
+        ColorSample(fixedProgressBar.alternate, "alternate")
+    }
+}
+
+@Composable
+private fun GraphicalElementsGraphsSamples(modifier: Modifier = Modifier) {
+    Subsection("Graphs", modifier) {
+        val graphs = SatsTheme.colors.graphicalElements.graphs
+
+        ColorSample(graphs.bar.primary.default, "bar.primary.default")
+        ColorSample(graphs.bar.primary.bg, "bar.primary.bg")
+        ColorSample(graphs.bar.secondary.default, "bar.secondary.default")
+        ColorSample(graphs.bar.secondary.bg, "bar.secondary.bg")
+        ColorSample(graphs.trend.upwards, "trend.upwards")
+        ColorSample(graphs.trend.neutral, "trend.neutral")
+        ColorSample(graphs.trend.downwards, "trend.downwards")
+    }
+}
+
+@Composable
+private fun GraphicalElementsSelectorSamples(modifier: Modifier = Modifier) {
+    Subsection("Selector", modifier) {
+        val selector = SatsTheme.colors.graphicalElements.selector
+
+        ColorSample(selector.primary.selected.default, "primary.selected.default")
+        ColorSample(selector.primary.selected.disabled, "primary.selected.disabled")
+        ColorSample(selector.primary.unselected.default, "primary.unselected.default")
+        ColorSample(selector.primary.unselected.disabled, "primary.unselected.disabled")
+        ColorSample(selector.primary.selectedSurface.default, "primary.selectedSurface.default")
+        ColorSample(selector.primary.selectedSurface.disabled, "primary.selectedSurface.disabled")
+        ColorSample(selector.primary.unselectedSurface.default, "primary.unselectedSurface.default")
+        ColorSample(selector.primary.unselectedSurface.disabled, "primary.unselectedSurface.disabled")
+
+        ColorSample(selector.secondary.selected.default, "secondary.selected.default")
+        ColorSample(selector.secondary.selected.disabled, "secondary.selected.disabled")
+        ColorSample(selector.secondary.unselected.default, "secondary.unselected.default")
+        ColorSample(selector.secondary.unselected.disabled, "secondary.unselected.disabled")
+        ColorSample(selector.secondary.selectedSurface.default, "secondary.selectedSurface.default")
+        ColorSample(selector.secondary.selectedSurface.disabled, "secondary.selectedSurface.disabled")
+        ColorSample(selector.secondary.unselectedSurface.default, "secondary.unselectedSurface.default")
+        ColorSample(selector.secondary.unselectedSurface.disabled, "secondary.unselectedSurface.disabled")
+    }
+}
+
+@Composable
+private fun GraphicalElementsSelectorFixedSamples(modifier: Modifier = Modifier) {
+    Subsection("Fixed Selector", modifier, isFixed = true) {
+        val selectorFixed = SatsTheme.colors.graphicalElements.selectorFixed
+
+        ColorSample(selectorFixed.selected.default, "selected.default")
+        ColorSample(selectorFixed.selected.disabled, "selected.disabled")
+        ColorSample(selectorFixed.unselected.default, "unselected.default")
+        ColorSample(selectorFixed.unselected.disabled, "unselected.disabled")
+        ColorSample(selectorFixed.selectedBackground.default, "selectedBackground.default")
+        ColorSample(selectorFixed.selectedBackground.disabled, "selectedBackground.disabled")
+    }
+}
+
+@Composable
+private fun GraphicalElementsChipsSamples(modifier: Modifier = Modifier) {
+    Subsection("Chips", modifier) {
+        val chips = SatsTheme.colors.graphicalElements.chips
+
+        ColorSample(chips.unselected.default, "unselected.default")
+        ColorSample(chips.unselected.disabled, "unselected.disabled")
+        ColorSample(chips.selected.default, "selected.default")
+        ColorSample(chips.selected.disabled, "selected.disabled")
+    }
+}
+
+@Composable
+private fun GraphicalElementsToggleSamples(modifier: Modifier = Modifier) {
+    Subsection("Toggle", modifier) {
+        val toggle = SatsTheme.colors.graphicalElements.toggle
+
+        ColorSample(toggle.unselected.default, "unselected.default")
+        ColorSample(toggle.unselected.disabled, "unselected.disabled")
+        ColorSample(toggle.selected.default, "selected.default")
+        ColorSample(toggle.selected.disabled, "selected.disabled")
+    }
+}
+
+@Composable
+private fun GraphicalElementsIconsSamples(modifier: Modifier = Modifier) {
+    Subsection("Icons", modifier) {
+        val icons = SatsTheme.colors.graphicalElements.icons
+
+        ColorSample(icons.primary, "primary")
+        ColorSample(icons.secondary, "secondary")
+        ColorSample(icons.fixed, "fixed")
+        ColorSample(icons.positive, "positive")
+        ColorSample(icons.attention, "attention")
+        ColorSample(icons.negative, "negative")
+        ColorSample(icons.waitingList, "waitingList")
+        ColorSample(icons.delete, "delete")
+    }
+}
+
+@Composable
+private fun GraphicalElementsIndicatorsSamples(modifier: Modifier = Modifier) {
+    Subsection("Indicators", modifier) {
+        val indicators = SatsTheme.colors.graphicalElements.indicators
+
+        ColorSample(indicators.positive.default, "positive.default")
+        ColorSample(indicators.positive.alternate, "positive.alternate")
+        ColorSample(indicators.attention.default, "attention.default")
+        ColorSample(indicators.attention.alternate, "attention.alternate")
+        ColorSample(indicators.negative.default, "negative.default")
+        ColorSample(indicators.negative.alternate, "negative.alternate")
+        ColorSample(indicators.neutral.default, "neutral.default")
+        ColorSample(indicators.neutral.alternate, "neutral.alternate")
+    }
+}
+
+@Composable
+private fun GraphicalElementsSignalSamples(modifier: Modifier = Modifier) {
+    Subsection("Signal", modifier) {
+        val signal = SatsTheme.colors.graphicalElements.signal
+
+        ColorSample(signal.success, "success")
+        ColorSample(signal.warning, "warning")
+        ColorSample(signal.error, "error")
+        ColorSample(signal.neutral, "neutral")
+        ColorSample(signal.waitingList, "waitingList")
+    }
+}
+
+@Composable
+private fun GraphicalElementsTagsSamples(modifier: Modifier = Modifier) {
+    Subsection("Tags", modifier) {
+        val tags = SatsTheme.colors.graphicalElements.tags
+
+        ColorSample(tags.primary, "primary")
+        ColorSample(tags.secondary, "secondary")
+        ColorSample(tags.featured, "featured")
+    }
+}
+
+@Composable
+private fun GraphicalElementsIndicatorTagSamples(modifier: Modifier = Modifier) {
+    val indicatorTag = SatsTheme.colors.graphicalElements.indicatorTag
+
+    Subsection("Indicator Tag", modifier) {
+        ColorSample(indicatorTag.positive.default, "positive.default")
+        ColorSample(indicatorTag.positive.alternate, "positive.alternate")
+        ColorSample(indicatorTag.attention.default, "attention.default")
+        ColorSample(indicatorTag.attention.alternate, "attention.alternate")
+        ColorSample(indicatorTag.negative.default, "negative.default")
+        ColorSample(indicatorTag.negative.alternate, "negative.alternate")
+        ColorSample(indicatorTag.featured.default, "featured.default")
+        ColorSample(indicatorTag.featured.alternate, "featured.alternate")
+        ColorSample(indicatorTag.neutral.default, "neutral.default")
+        ColorSample(indicatorTag.neutral.alternate, "neutral.alternate")
+        ColorSample(indicatorTag.information.default, "information.default")
+        ColorSample(indicatorTag.information.alternate, "information.alternate")
+    }
+}
+
+@Composable
+private fun GraphicalElementsBadgeSamples(modifier: Modifier = Modifier) {
+    val badge = SatsTheme.colors.graphicalElements.badge
+
+    Subsection("Badge", modifier) {
+        ColorSample(badge.primary, "primary")
+        ColorSample(badge.secondary, "secondary")
+        ColorSample(badge.tertiary, "tertiary")
+    }
+}
+
+@Composable
+private fun GraphicalElementsFixedBadgeSamples(modifier: Modifier = Modifier) {
+    val fixedBadge = SatsTheme.colors.graphicalElements.fixedBadge
+
+    Subsection("Fixed Badge", modifier) {
+        ColorSample(fixedBadge.primary, "primary")
+        ColorSample(fixedBadge.secondary, "secondary")
+        ColorSample(fixedBadge.tertiary, "tertiary")
+    }
+}
+
+@Composable
+private fun GraphicalElementsRewardsSamples(modifier: Modifier = Modifier) {
+    val rewards = SatsTheme.colors.graphicalElements.rewards
+
+    Subsection("Rewards", modifier) {
+        ColorSample(rewards.blue, "blue")
+        ColorSample(rewards.silver, "silver")
+        ColorSample(rewards.gold, "gold")
+        ColorSample(rewards.platinum, "platinum")
+    }
+}
+
+@Composable
+private fun GraphicalElementsWorkoutsSamples(modifier: Modifier = Modifier) {
+    val workouts = SatsTheme.colors.graphicalElements.workouts
+
+    Subsection("Workouts", modifier) {
+        ColorSample(workouts.pt, "pt")
+        ColorSample(workouts.gx, "gx")
+        ColorSample(workouts.treatments, "treatments")
+        ColorSample(workouts.gymfloor, "gymfloor")
+        ColorSample(workouts.other, "other")
+        ColorSample(workouts.bootcamp, "bootcamp")
+    }
+}
+
+@Composable
+private fun BackgroundPrimarySamples(modifier: Modifier = Modifier) {
+    Subsection("Primary", modifier) {
+        val primary = SatsTheme.colors.backgrounds.primary
+
+        BackgroundColorSamples(primary.default, "default")
+        BackgroundColorSamples(primary.selected, "selected")
+    }
+}
+
+@Composable
+private fun BackgroundSecondarySamples(modifier: Modifier = Modifier) {
+    Subsection("Secondary", modifier) {
+        val secondary = SatsTheme.colors.backgrounds.secondary
+
+        BackgroundColorSamples(secondary.default, "default")
+        BackgroundColorSamples(secondary.selected, "selected")
+    }
+}
+
+@Composable
+private fun BackgroundFixedSamples(modifier: Modifier = Modifier) {
+    Subsection("Fixed", modifier) {
+        val fixed = SatsTheme.colors.backgrounds.fixed
+
+        BackgroundColorSamples(fixed.primary.default, "default")
+        BackgroundColorSamples(fixed.primary.selected, "selected")
+        BackgroundColorSamples(fixed.secondary.default, "default")
+        BackgroundColorSamples(fixed.secondary.selected, "selected")
+    }
+}
+
+@Composable
+private fun SurfacePrimarySamples(modifier: Modifier = Modifier) {
+    Subsection("Primary", modifier) {
+        val primary = SatsTheme.colors.surfaces.primary
+
+        SurfaceColorSamples(primary.default, "default")
+        SurfaceColorSamples(primary.selected, "selected")
+        SurfaceColorSamples(primary.disabled, "disabled")
+    }
+}
+
+@Composable
+private fun SurfaceSecondarySamples(modifier: Modifier = Modifier) {
+    Subsection("Secondary", modifier) {
+        val secondary = SatsTheme.colors.surfaces.secondary
+
+        SurfaceColorSamples(secondary.default, "default")
+        SurfaceColorSamples(secondary.selected, "selected")
+    }
+}
+
+@Composable
+private fun SurfaceFixedSamples(modifier: Modifier = Modifier) {
+    Subsection("Fixed", modifier) {
+        val fixed = SatsTheme.colors.surfaces.fixed
+
+        SurfaceColorSamples(fixed.primary.default, "primary.default")
+        SurfaceColorSamples(fixed.primary.selected, "primary.selected")
+        SurfaceColorSamples(fixed.primary.default, "secondary.default")
+        SurfaceColorSamples(fixed.primary.selected, "secondary.selected")
+    }
+}
+
+@Composable
+private fun SignalSurfaceSuccessSamples(modifier: Modifier = Modifier) {
+    Subsection("Success", modifier) {
+        val success = SatsTheme.colors.signalSurfaces.success
+
+        ColorSample(success.default, "default")
+        ColorSample(success.alternate, "alternate")
+    }
+}
+
+@Composable
+private fun SignalSurfaceWarningSamples(modifier: Modifier = Modifier) {
+    Subsection("Warning", modifier) {
+        val warning = SatsTheme.colors.signalSurfaces.warning
+
+        ColorSample(warning.default, "default")
+        ColorSample(warning.alternate, "alternate")
+    }
+}
+
+@Composable
+private fun SignalSurfaceErrorSamples(modifier: Modifier = Modifier) {
+    Subsection("Error", modifier) {
+        val error = SatsTheme.colors.signalSurfaces.error
+
+        ColorSample(error.default, "default")
+        ColorSample(error.alternate, "alternate")
+    }
+}
+
+@Composable
+private fun SignalSurfaceWaitingListSamples(modifier: Modifier = Modifier) {
+    Subsection("WaitingList", modifier) {
+        val waitingList = SatsTheme.colors.signalSurfaces.waitingList
+
+        ColorSample(waitingList.default, "default")
+        ColorSample(waitingList.alternate, "alternate")
+    }
+}
+
+@Composable
+private fun SignalSurfaceNeutralSamples(modifier: Modifier = Modifier) {
+    Subsection("Neutral", modifier) {
+        val neutral = SatsTheme.colors.signalSurfaces.neutral
+
+        ColorSample(neutral.default, "default")
+        ColorSample(neutral.alternate, "alternate")
+    }
+}
+
+@Composable
+private fun SignalSurfaceInformationSamples(modifier: Modifier = Modifier) {
+    Subsection("Information", modifier) {
+        val information = SatsTheme.colors.signalSurfaces.information
+
+        ColorSample(information.default, "default")
+        ColorSample(information.alternate, "alternate")
+    }
+}
+
+@Composable
+private fun SignalSurfaceFeaturedSamples(modifier: Modifier = Modifier) {
+    Subsection("Featured", modifier) {
+        val featured = SatsTheme.colors.signalSurfaces.featured
+
+        ColorSample(featured.default, "default")
+        ColorSample(featured.alternate, "alternate")
+    }
+}
+
+@Composable
+private fun Section(title: String, modifier: Modifier = Modifier, content: @Composable () -> Unit) {
+    Column(modifier, verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
+        var isExpanded by rememberSaveable { mutableStateOf(false) }
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(title, style = SatsTheme.typography.satsHeadlineEmphasis.headline3)
+
+            SatsIconButton(
+                onClick = { isExpanded = !isExpanded },
+                icon = if (isExpanded) SatsIcons.ArrowUp else SatsIcons.ArrowDown,
+                onClickLabel = if (isExpanded) "Collapse" else "Expand",
+                colors = SatsButtonColor.Action,
+                size = SatsButtonSize.Small,
             )
         }
 
-        Section("Secondary Button", SectionLevel.Level2, base = "buttons.secondary") {
-            val base = SatsTheme.colors.buttons.secondary
-
-            ColorSample(
-                backgroundColor = base.default.bg named "base.default.bg",
-                borderColor = base.default.outline,
-                contentColor = base.default.fg named "base.default.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.disabled.bg named "base.disabled.bg",
-                borderColor = base.disabled.outline,
-                contentColor = base.disabled.fg named "base.disabled.fg",
-            )
-        }
-
-        Section("Clean Buttons", SectionLevel.Level2, base = "buttons.clean") {
-            val base = SatsTheme.colors.buttons.clean
-
-            ColorSample(
-                backgroundColor = base.default.bg named "base.default.bg",
-                contentColor = base.default.fg named "base.default.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.disabled.bg named "base.disabled.bg",
-                contentColor = base.disabled.fg named "base.disabled.fg",
-            )
-        }
-
-        Section("Clean Secondary Button", SectionLevel.Level2, base = "buttons.cleanSecondary") {
-            val base = SatsTheme.colors.buttons.cleanSecondary
-
-            ColorSample(
-                backgroundColor = base.default.bg named "base.default.bg",
-                contentColor = base.default.fg named "base.default.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.disabled.bg named "base.disabled.bg",
-                contentColor = base.disabled.fg named "base.disabled.fg",
-            )
-        }
-
-        Section("Action", SectionLevel.Level2, base = "buttons.action") {
-            val base = SatsTheme.colors.buttons.action
-
-            ColorSample(
-                backgroundColor = base.default.bg named "base.default.bg",
-                contentColor = base.default.fg named "base.default.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.disabled.bg named "base.disabled.bg",
-                contentColor = base.disabled.fg named "base.disabled.fg",
-            )
-        }
-
-        Section("Waiting List Primary Button", SectionLevel.Level2, base = "buttons.waitingListFilled") {
-            val base = SatsTheme.colors.buttons.waitingListFilled
-
-            ColorSample(
-                backgroundColor = base.default.bg named "base.default.bg",
-                contentColor = base.default.fg named "base.default.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.disabled.bg named "base.disabled.bg",
-                contentColor = base.disabled.fg named "base.disabled.fg",
-            )
-        }
-
-        Section("Waiting List Secondary Button", SectionLevel.Level2, base = "buttons.waitingListSecondary") {
-            val base = SatsTheme.colors.buttons.waitingListOutlined
-
-            ColorSample(
-                backgroundColor = base.default.bg named "base.default.bg",
-                borderColor = base.default.outline,
-                contentColor = base.default.fg named "base.default.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.disabled.bg named "base.disabled.bg",
-                borderColor = base.disabled.outline,
-                contentColor = base.disabled.fg named "base.disabled.fg",
-            )
-        }
-
-        Section("Destructive Button Details", SectionLevel.Level2, base = "buttons.destructive.default") {
-            val base = SatsTheme.colors.buttons.destructive.default
-
-            ColorSample(
-                backgroundColor = base.default.bg named "base.default.bg",
-                contentColor = base.default.fg named "base.default.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.disabled.bg named "base.disabled.bg",
-                contentColor = base.disabled.fg named "base.disabled.fg",
-            )
-        }
-
-        Section("Destructive Button Alternate", SectionLevel.Level2, base = "buttons.destructive.alternate") {
-            val base = SatsTheme.colors.buttons.destructive.outlined
-
-            ColorSample(
-                backgroundColor = base.default.bg named "base.default.bg",
-                borderColor = base.default.outline,
-                contentColor = base.default.fg named "base.default.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.disabled.bg named "base.disabled.bg",
-                borderColor = base.disabled.outline,
-                contentColor = base.disabled.fg named "base.disabled.fg",
-            )
+        AnimatedVisibility(visible = isExpanded) {
+            Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.l)) {
+                content()
+            }
         }
     }
 }
 
 @Composable
-private fun GraphicalElements() {
-    Section("Graphical Elements", SectionLevel.Level1) {
-        Section("Divider", SectionLevel.Level2, base = "graphicalElements.divider") {
-            val base = SatsTheme.colors.graphicalElements.divider
-
-            ColorSample(
-                backgroundColor = base.default named "base.default",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.alternate named "base.alternate",
-                contentColor = null,
-            )
-        }
-
-        Section("Border", SectionLevel.Level2, base = "graphicalElements.border") {
-            val base = SatsTheme.colors.graphicalElements.border
-
-            ColorSample(
-                backgroundColor = base.default named "base.default",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.focused named "base.focused",
-                contentColor = null,
-            )
-        }
-
-        Section("Skeleton", SectionLevel.Level2) {
-            ColorSample(
-                backgroundColor = SatsTheme.colors.graphicalElements.skeleton named "skeleton",
-                contentColor = null,
-            )
-        }
-
-        Section("Nav Bar", SectionLevel.Level2, base = "graphicalElements.navBar") {
-            val base = SatsTheme.colors.graphicalElements.navBar
-
-            ColorSample(
-                backgroundColor = base.notSelected named "base.notSelected",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.selected named "base.selected",
-                contentColor = null,
-            )
-        }
-
-        Section("Progress Bar", SectionLevel.Level2, base = "graphicalElements.progressBar") {
-            val base = SatsTheme.colors.graphicalElements.progressBar
-
-            ColorSample(
-                backgroundColor = base.default.bg named "base.default.bg",
-                contentColor = base.default.fg named "base.default.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.alternate.bg named "base.alternate.bg",
-                contentColor = base.alternate.fg named "base.alternate.fg",
-            )
-        }
-
-        Section("Fixed Progress Bar", SectionLevel.Level2, base = "graphicalElements.fixedProgressBar") {
-            val base = SatsTheme.colors.graphicalElements.fixedProgressBar
-
-            ColorSample(
-                backgroundColor = base.default.bg named "base.default.bg",
-                contentColor = base.default.fg named "base.default.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.default.bg named "base.default.bg",
-                contentColor = base.alternate.fg named "base.alternate.fg",
-            )
-        }
-
-        Section("Graphs", SectionLevel.Level2, base = "graphicalElements.graphs") {
-            val base = SatsTheme.colors.graphicalElements.graphs
-
-            ColorSample(
-                backgroundColor = base.bar.primary.bg named "base.bar.primary.bg",
-                contentColor = base.bar.primary.default named "base.bar.primary.default",
-            )
-
-            ColorSample(
-                backgroundColor = base.bar.secondary.bg named "base.bar.secondary.bg",
-                contentColor = base.bar.secondary.default named "base.bar.secondary.default",
-            )
-
-            ColorSample(
-                backgroundColor = base.trend.upwards named "base.trend.upwards",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.trend.neutral named "base.trend.neutral",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.trend.downwards named "base.trend.downwards",
-                contentColor = null,
-            )
-        }
-
-        Section("Selector", SectionLevel.Level2, base = "graphicalElements.selector") {
-            val base = SatsTheme.colors.graphicalElements.selector
-
-            ColorSample(
-                base.primary.unselected.default,
-                "base.primary.unselected.default",
-            )
-
-            ColorSample(
-                base.primary.unselected.disabled,
-                "base.primary.unselected.disabled",
-            )
-
-            ColorSample(
-                base.primary.selected.default,
-                "base.primary.selected.default",
-            )
-
-            ColorSample(
-                base.primary.selected.disabled,
-                "base.primary.selected.disabled",
-            )
-
-            ColorSample(
-                base.primary.unselectedSurface.default named "base.primary.unselectedSurface.default",
-                contentColor = null,
-            )
-
-            ColorSample(
-                base.primary.unselectedSurface.disabled named "base.primary.unselectedSurface.disabled",
-                contentColor = null,
-            )
-
-            ColorSample(
-                base.primary.selectedSurface.default named "base.primary.selectedSurface.default",
-                contentColor = null,
-            )
-
-            ColorSample(
-                base.primary.selectedSurface.disabled named "base.primary.selectedSurface.disabled",
-                contentColor = null,
-            )
-
-            ColorSample(
-                base.secondary.unselected.default,
-                "base.secondary.unselected.default",
-            )
-
-            ColorSample(
-                base.secondary.unselected.disabled,
-                "base.secondary.unselected.disabled",
-            )
-            ColorSample(
-                base.secondary.selected.default,
-                "base.secondary.selected.default",
-            )
-
-            ColorSample(
-                base.secondary.selected.disabled,
-                "base.secondary.selected.disabled",
-            )
-
-            ColorSample(
-                base.secondary.unselectedSurface.default named "base.secondary.unselectedSurface.default",
-                contentColor = null,
-            )
-
-            ColorSample(
-                base.secondary.unselectedSurface.disabled named "base.secondary.unselectedSurface.disabled",
-                contentColor = null,
-            )
-
-            ColorSample(
-                base.secondary.selectedSurface.default named "base.secondary.selectedSurface.default",
-                contentColor = null,
-            )
-
-            ColorSample(
-                base.secondary.selectedSurface.disabled named "base.secondary.selectedSurface.disabled",
-                contentColor = null,
-            )
-        }
-
-        Section("Fixed Selector", SectionLevel.Level2, base = "graphicalElements.selectorFixed") {
-            val base = SatsTheme.colors.graphicalElements.selectorFixed
-
-            ColorSample(
-                base.unselected.default,
-                "base.unselected.default",
-            )
-
-            ColorSample(
-                base.unselected.disabled,
-                "base.unselected.disabled",
-            )
-
-            ColorSample(
-                base.selected.default,
-                "base.selected.default",
-            )
-
-            ColorSample(
-                base.selected.disabled,
-                "base.selected.disabled",
-            )
-
-            ColorSample(
-                backgroundColor = base.selectedBackground.default named "base.selectedBackground.default",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.selectedBackground.disabled named "base.selectedBackground.disabled",
-                contentColor = null,
-            )
-        }
-
-        Section("Chips", SectionLevel.Level2, base = "graphicalElements.chips") {
-            val base = SatsTheme.colors.graphicalElements.chips
-
-            ColorSample(
-                backgroundColor = base.unselected.default.bg named "base.unselected.default.bg",
-                contentColor = base.unselected.default.fg named "base.unselected.default.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.unselected.disabled.bg named "base.unselected.disabled.bg",
-                contentColor = base.unselected.disabled.fg named "base.unselected.disabled.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.selected.default.bg named "base.selected.default.bg",
-                contentColor = base.selected.default.fg named "base.selected.default.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.selected.disabled.bg named "base.selected.disabled.bg",
-                contentColor = base.selected.disabled.fg named "base.selected.disabled.fg",
-            )
-        }
-
-        Section("Toggle", SectionLevel.Level2, base = "graphicalElements.toggle") {
-            val base = SatsTheme.colors.graphicalElements.toggle
-
-            ColorSample(
-                backgroundColor = base.unselected.default named "base.unselected.default",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.unselected.disabled named "base.unselected.disabled",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.handle named "base.handle",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.selected.default named "base.selected.default",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.selected.disabled named "base.selected.disabled",
-                contentColor = null,
-            )
-        }
-
-        Section("Icons", SectionLevel.Level2, base = "graphicalElements.icons") {
-            val base = SatsTheme.colors.graphicalElements.icons
-
-            ColorSample(
-                backgroundColor = base.primary named "base.primary",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.secondary named "base.secondary",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.fixed named "base.fixed",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.positive named "base.positive",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.attention named "base.attention",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.negative named "base.negative",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.waitingList named "base.waitingList",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.delete named "base.delete",
-                contentColor = null,
-            )
-        }
-
-        Section("Indicators", SectionLevel.Level2, base = "graphicalElements.indicators") {
-            val base = SatsTheme.colors.graphicalElements.indicators
-
-            ColorSample(
-                backgroundColor = base.positive.default named "base.positive.default",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.positive.alternate named "base.positive.alternate",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.attention.default named "base.attention.default",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.attention.alternate named "base.attention.alternate",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.negative.default named "base.negative.default",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.negative.alternate named "base.negative.alternate",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.neutral.default named "base.neutral.default",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.neutral.alternate named "base.neutral.alternate",
-                contentColor = null,
-            )
-        }
-
-        Section("Signal", SectionLevel.Level2, base = "graphicalElements.signal") {
-            val base = SatsTheme.colors.graphicalElements.signal
-
-            ColorSample(
-                backgroundColor = base.success named "base.success",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.warning named "base.warning",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.error named "base.error",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.neutral named "base.neutral",
-                contentColor = null,
-            )
-
-            ColorSample(
-                backgroundColor = base.waitingList named "base.waitingList",
-                contentColor = null,
-            )
-        }
-
-        Section("Tags", SectionLevel.Level2, base = "graphicalElements.tags") {
-            val base = SatsTheme.colors.graphicalElements.tags
-
-            ColorSample(
-                backgroundColor = base.primary.bg named "base.primary.bg",
-                contentColor = base.primary.fg named "base.primary.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.secondary.bg named "base.secondary.bg",
-                contentColor = base.secondary.fg named "base.secondary.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.featured.bg named "base.featured.bg",
-                contentColor = base.featured.fg named "base.featured.fg",
-            )
-        }
-
-        Section("Indicator Tag", SectionLevel.Level2, base = "graphicalElements.indicatorTag") {
-            val base = SatsTheme.colors.graphicalElements.indicatorTag
-
-            ColorSample(base.positive.default, "base.positive.default")
-
-            ColorSample(base.positive.alternate, "base.positive.alternate")
-
-            ColorSample(base.attention.default, "base.attention.default")
-
-            ColorSample(base.attention.alternate, "base.attention.alternate")
-
-            ColorSample(base.negative.default, "base.negative.default")
-
-            ColorSample(base.negative.alternate, "base.negative.alternate")
-
-            ColorSample(base.featured.default, "base.featured.default")
-
-            ColorSample(base.featured.alternate, "base.featured.alternate")
-
-            ColorSample(base.neutral.default, "base.neutral.default")
-
-            ColorSample(base.neutral.alternate, "base.neutral.alternate")
-
-            ColorSample(base.information.default, "base.information.default")
-
-            ColorSample(base.information.alternate, "base.information.alternate")
-        }
-
-        Section("Badge", SectionLevel.Level2, base = "graphicalElements.badge") {
-            val base = SatsTheme.colors.graphicalElements.badge
-
-            ColorSample(
-                backgroundColor = base.primary.bg named "base.primary.bg",
-                contentColor = base.primary.fg named "base.primary.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.secondary.bg named "base.secondary.bg",
-                contentColor = base.secondary.fg named "base.secondary.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.tertiary.bg named "base.tertiary.bg",
-                contentColor = base.tertiary.fg named "base.tertiary.fg",
-            )
-        }
-
-        Section("Fixed Badge", SectionLevel.Level2, base = "graphicalElements.fixedBadge") {
-            val base = SatsTheme.colors.graphicalElements.fixedBadge
-
-            ColorSample(
-                backgroundColor = base.primary.bg named "base.primary.bg",
-                contentColor = base.primary.fg named "base.primary.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.secondary.bg named "base.secondary.bg",
-                contentColor = base.secondary.fg named "base.secondary.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.tertiary.bg named "base.tertiary.bg",
-                contentColor = base.tertiary.fg named "base.tertiary.fg",
-            )
-        }
-
-        Section("Rewards", SectionLevel.Level2, base = "graphicalElements.rewards") {
-            val base = SatsTheme.colors.graphicalElements.rewards
-
-            ColorSample(
-                backgroundColor = base.blue.bg named "base.blue.bg",
-                contentColor = base.blue.fg named "base.blue.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.silver.bg named "base.silver.bg",
-                contentColor = base.silver.fg named "base.silver.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.gold.bg named "base.gold.bg",
-                contentColor = base.gold.fg named "base.gold.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.platinum.bg named "base.platinum.bg",
-                contentColor = base.platinum.fg named "base.platinum.fg",
-            )
-        }
-
-        Section("Workouts", SectionLevel.Level2, base = "graphicalElements.workouts") {
-            val base = SatsTheme.colors.graphicalElements.workouts
-
-            ColorSample(
-                backgroundColor = base.pt.bg named "base.pt.bg",
-                contentColor = base.pt.fg named "base.pt.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.gx.bg named "base.gx.bg",
-                contentColor = base.gx.fg named "base.gx.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.treatments.bg named "base.treatments.bg",
-                contentColor = base.treatments.fg named "base.treatments.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.gymfloor.bg named "base.gymfloor.bg",
-                contentColor = base.gymfloor.fg named "base.gymfloor.fg",
-            )
-
-            ColorSample(
-                backgroundColor = base.other.bg named "base.other.bg",
-                contentColor = base.other.fg named "base.other.fg",
-            )
-        }
-    }
-}
-
-@Composable
-private fun Backgrounds() {
-    Section("Backgrounds", SectionLevel.Level1, base = "backgrounds") {
-        val base = SatsTheme.colors.backgrounds
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fg named "base.primary.default.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fgAlternate named "base.primary.default.fgAlternate",
-        )
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fgDisabled named "base.primary.default.fgDisabled",
-        )
-
-        ColorSample(
-            backgroundColor = base.primary.selected.bg named "base.primary.selected.bg",
-            contentColor = base.primary.default.fg named "base.primary.default.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fg named "base.secondary.default.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fgAlternate named "base.secondary.default.fgAlternate",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fgDisabled named "base.secondary.default.fgDisabled",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.selected.bg named "base.secondary.selected.bg",
-            contentColor = base.secondary.default.fg named "base.secondary.default.fg",
-        )
-    }
-}
-
-@Composable
-private fun FixedBackgrounds() {
-    Section("Fixed Backgrounds", SectionLevel.Level1, base = "backgrounds.fixed") {
-        val base = SatsTheme.colors.backgrounds.fixed
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fg named "base.primary.default.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fgAlternate named "base.primary.default.fgAlternate",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fg named "base.secondary.default.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fgAlternate named "base.secondary.default.fgAlternate",
-        )
-    }
-}
-
-@Composable
-private fun Surfaces() {
-    Section("Surfaces", SectionLevel.Level1, base = "surfaces") {
-        val base = SatsTheme.colors.surfaces
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fg named "base.primary.default.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fgAlternate named "base.primary.default.fgAlternate",
-        )
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fgDisabled named "base.primary.default.fgDisabled",
-        )
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fgDisabled named "base.primary.default.fgDisabled",
-        )
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fgSuccess named "base.primary.default.fgSuccess",
-        )
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fgWarning named "base.primary.default.fgWarning",
-        )
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fgError named "base.primary.default.fgError",
-        )
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fgWaitingList named "base.primary.default.fgWaitingList",
-        )
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fgNeutral named "base.primary.default.fgNeutral",
-        )
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fgInformation named "base.primary.default.fgInformation",
-        )
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fgFeatured named "base.primary.default.fgFeatured",
-        )
-
-        ColorSample(
-            backgroundColor = base.primary.selected.bg named "base.primary.selected.bg",
-            contentColor = base.primary.default.fg named "base.primary.default.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fg named "base.secondary.default.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fgAlternate named "base.secondary.default.fgAlternate",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fgDisabled named "base.secondary.default.fgDisabled",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fgDisabled named "base.secondary.default.fgDisabled",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fgSuccess named "base.secondary.default.fgSuccess",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fgWarning named "base.secondary.default.fgWarning",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fgError named "base.secondary.default.fgError",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fgWaitingList named "base.secondary.default.fgWaitingList",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fgNeutral named "base.secondary.default.fgNeutral",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fgInformation named "base.secondary.default.fgInformation",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fgFeatured named "base.secondary.default.fgFeatured",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.selected.bg named "base.secondary.selected.bg",
-            contentColor = base.secondary.default.fg named "base.secondary.default.fg",
-        )
-    }
-}
-
-@Composable
-private fun FixedSurfaces() {
-    Section("Fixed Surfaces", SectionLevel.Level1, base = "surfaces.fixed") {
-        val base = SatsTheme.colors.surfaces.fixed
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fg named "base.primary.default.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.primary.default.bg named "base.primary.default.bg",
-            contentColor = base.primary.default.fgAlternate named "base.primary.default.fgAlternate",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fg named "base.secondary.default.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.secondary.default.bg named "base.secondary.default.bg",
-            contentColor = base.secondary.default.fgAlternate named "base.secondary.default.fgAlternate",
-        )
-    }
-}
-
-@Composable
-private fun SignalSurfaces() {
-    Section("Signal Surface", SectionLevel.Level1, base = "signalSurfaces") {
-        val base = SatsTheme.colors.signalSurfaces
-
-        ColorSample(
-            backgroundColor = base.success.default.bg named "base.success.default.bg",
-            contentColor = base.success.default.fg named "base.success.default.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.warning.default.bg named "base.warning.default.bg",
-            contentColor = base.warning.default.fg named "base.warning.default.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.warning.default.bg named "base.warning.default.bg",
-            contentColor = base.warning.alternate.fg named "base.warning.alternate.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.error.default.bg named "base.error.default.bg",
-            contentColor = base.error.default.fg named "base.error.default.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.error.default.bg named "base.error.default.bg",
-            contentColor = base.error.alternate.fg named "base.error.alternate.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.waitingList.default.bg named "base.waitingList.default.bg",
-            contentColor = base.waitingList.default.fg named "base.waitingList.default.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.waitingList.default.bg named "base.waitingList.default.bg",
-            contentColor = base.waitingList.alternate.fg named "base.waitingList.alternate.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.neutral.default.bg named "base.neutral.default.bg",
-            contentColor = base.neutral.default.fg named "base.neutral.default.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.neutral.default.bg named "base.neutral.default.bg",
-            contentColor = base.neutral.alternate.fg named "base.neutral.alternate.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.information.default.bg named "base.information.default.bg",
-            contentColor = base.information.default.fg named "base.information.default.fg",
-        )
-
-        ColorSample(
-            backgroundColor = base.information.default.bg named "base.information.default.bg",
-            contentColor = base.information.alternate.fg named "base.information.alternate.fg",
-        )
-    }
-}
-
-@Composable
-private fun Section(
+private fun Subsection(
     title: String,
-    level: SectionLevel,
     modifier: Modifier = Modifier,
-    base: String? = null,
-    content: @Composable ColumnScope.() -> Unit,
+    isFixed: Boolean = false,
+    content: @Composable () -> Unit,
 ) {
-    val headingStyle = when (level) {
-        SectionLevel.Level1 -> SatsTheme.typography.emphasis.headline1
-        SectionLevel.Level2 -> SatsTheme.typography.medium.headline2
-    }
+    Column(
+        modifier.padding(start = SatsTheme.spacing.m),
+        verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
+    ) {
+        var isExpanded by rememberSaveable { mutableStateOf(false) }
 
-    Column(modifier, verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m)) {
-        Text(title, style = headingStyle)
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(title, style = SatsTheme.typography.satsHeadlineNormal.large)
 
-        if (base != null) {
-            Text("base = $base", style = SatsTheme.typography.emphasis.basic)
+            SatsIconButton(
+                onClick = { isExpanded = !isExpanded },
+                icon = if (isExpanded) SatsIcons.ArrowUp else SatsIcons.ArrowDown,
+                onClickLabel = if (isExpanded) "Collapse" else "Expand",
+                colors = SatsButtonColor.Action,
+                size = SatsButtonSize.Small,
+            )
         }
 
-        val contentSpacing = when (level) {
-            SectionLevel.Level1 -> SatsTheme.spacing.l
-            SectionLevel.Level2 -> SatsTheme.spacing.m
+        val colorSet = if (isFixed) {
+            SatsTheme.colors.backgrounds.fixed.primary.default
+        } else {
+            SatsTheme.colors.backgrounds.primary.default
         }
 
-        Column(verticalArrangement = Arrangement.spacedBy(contentSpacing)) {
-            content()
+        AnimatedVisibility(visible = isExpanded) {
+            Column(
+                modifier = Modifier
+                    .clip(SatsTheme.shapes.roundedCorners.small)
+                    .background(colorSet.bg),
+                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
+            ) {
+                CompositionLocalProvider(LocalContentColor provides colorSet.fg) {
+                    content()
+                }
+            }
         }
     }
 }
 
-enum class SectionLevel { Level1, Level2 }
-
 @Composable
-private fun ColorSample(
-    colorSet: ColorSet,
-    baseName: String,
-    modifier: Modifier = Modifier,
-) {
-    ColorSample(
-        backgroundColor = colorSet.bg named "$baseName.bg",
-        contentColor = colorSet.fg named "$baseName.fg",
+private fun ColorSample(color: Color, name: String, modifier: Modifier = Modifier) {
+    ColorSampleLayout(
+        sample = {
+            Box(
+                Modifier
+                    .padding(SatsTheme.spacing.m)
+                    .size(24.dp)
+                    .clip(SatsTheme.shapes.circle)
+                    .background(color),
+            )
+        },
+        name = name,
         modifier = modifier,
     )
 }
 
 @Composable
-private fun ColorSample(
-    backgroundColor: NamedColor,
-    contentColor: NamedColor?,
-    modifier: Modifier = Modifier,
-    borderColor: Color = Color.Unspecified,
-) {
-    Row(
-        modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Box(
-            Modifier
-                .size(56.dp)
-                .clip(SatsTheme.shapes.roundedCorners.small)
-                .border(2.dp, borderColor, SatsTheme.shapes.roundedCorners.small)
-                .background(backgroundColor.color),
-        ) {
-            if (contentColor != null) {
+private fun ColorSample(colorSet: ColorSet, name: String, modifier: Modifier = Modifier) {
+    ColorSampleLayout(
+        sample = {
+            Box(
+                Modifier
+                    .clip(SatsTheme.shapes.roundedCorners.small)
+                    .background(colorSet.bg)
+                    .padding(SatsTheme.spacing.m),
+            ) {
                 Box(
                     Modifier
-                        .align(Alignment.Center)
                         .size(24.dp)
                         .clip(SatsTheme.shapes.circle)
-                        .background(contentColor.color),
+                        .background(colorSet.fg),
                 )
             }
-        }
+        },
+        name = name,
+        modifier = modifier,
+    )
+}
 
-        Column {
-            ColorNameAndHex(backgroundColor)
-
-            if (contentColor != null) {
-                ColorNameAndHex(contentColor)
+@Composable
+private fun ColorSample(outlinedColorSet: OutlinedColorSet, name: String, modifier: Modifier = Modifier) {
+    ColorSampleLayout(
+        sample = {
+            Box(
+                modifier
+                    .clip(SatsTheme.shapes.roundedCorners.small)
+                    .border(1.dp, outlinedColorSet.outline, SatsTheme.shapes.roundedCorners.small)
+                    .background(outlinedColorSet.bg)
+                    .padding(SatsTheme.spacing.m),
+            ) {
+                Box(
+                    Modifier
+                        .size(24.dp)
+                        .clip(SatsTheme.shapes.circle)
+                        .background(outlinedColorSet.fg),
+                )
             }
-        }
+        },
+        name = name,
+        modifier = modifier,
+    )
+}
+
+@Composable
+private fun ColorSampleLayout(sample: @Composable () -> Unit, name: String, modifier: Modifier = Modifier) {
+    Row(
+        modifier
+            .height(IntrinsicSize.Min)
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        sample()
+
+        Text(name, style = SatsTheme.typography.emphasis.small)
     }
 }
 
 @Composable
-private fun ColorNameAndHex(backgroundColor: NamedColor, modifier: Modifier = Modifier) {
-    Row(modifier, horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s)) {
-        Text(backgroundColor.name, style = SatsTheme.typography.medium.basic)
-
-        Text(
-            backgroundColor.toHexString(),
-            color = SatsTheme.colors.surfaces.primary.default.fgAlternate,
-        )
-    }
+private fun BackgroundColorSamples(colorSet: BackgroundColorSet, name: String) {
+    ColorSample(ColorSet(colorSet.bg, colorSet.fg), name)
+    ColorSample(ColorSet(colorSet.bg, colorSet.fgAlternate), "$name (alternate)")
+    ColorSample(ColorSet(colorSet.bg, colorSet.fgDisabled), "$name (disabled)")
 }
 
-private class NamedColor(val name: String, val color: Color) {
-    fun toHexString(): String {
-        val red = Integer.toHexString((color.red * 255).toInt()).let { if (it.count() < 2) "0$it" else it }
-        val green = Integer.toHexString((color.green * 255).toInt()).let { if (it.count() < 2) "0$it" else it }
-        val blue = Integer.toHexString((color.blue * 255).toInt()).let { if (it.count() < 2) "0$it" else it }
-        val alpha = Integer.toHexString((color.alpha * 255).toInt()).let { if (it.count() < 2) "0$it" else it }
-
-        return "#$alpha$red$green$blue".uppercase()
-    }
-}
-
-@PreviewLightDark
 @Composable
-private fun ColorSamplePreview() {
-    SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
-            ColorSample(
-                backgroundColor = Color.Green named "Color.Green",
-                contentColor = Color.Red named "Color.Red",
-                modifier = Modifier.padding(SatsTheme.spacing.m),
-            )
-        }
-    }
+private fun SurfaceColorSamples(colorSet: SurfaceColorSet, name: String) {
+    ColorSample(ColorSet(colorSet.bg, colorSet.fg), name)
+    ColorSample(ColorSet(colorSet.bg, colorSet.fgAlternate), "$name (alternate)")
+    ColorSample(ColorSet(colorSet.bg, colorSet.fgDisabled), "$name (disabled)")
+    ColorSample(ColorSet(colorSet.bg, colorSet.fgSuccess), "$name (success)")
+    ColorSample(ColorSet(colorSet.bg, colorSet.fgWarning), "$name (warning)")
+    ColorSample(ColorSet(colorSet.bg, colorSet.fgError), "$name (error)")
+    ColorSample(ColorSet(colorSet.bg, colorSet.fgWaitingList), "$name (waiting list)")
+    ColorSample(ColorSet(colorSet.bg, colorSet.fgNeutral), "$name (neutral)")
+    ColorSample(ColorSet(colorSet.bg, colorSet.fgInformation), "$name (information)")
+    ColorSample(ColorSet(colorSet.bg, colorSet.fgFeatured), "$name (featured)")
 }
-
-private infix fun Color.named(name: String) = NamedColor(name, this)
 
 @PreviewLightDark
 @Composable
 private fun ColorsScreenPreview() {
     SatsTheme {
-        ColorsScreen(navigateUp = {})
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+            ColorsScreen(navigateUp = {})
+        }
     }
 }

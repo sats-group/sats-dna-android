@@ -172,8 +172,8 @@ class SatsColors(
                 val selectedSurface: SelectedSurface,
             ) {
                 class Unselected(
-                    val default: ColorSet,
-                    val disabled: ColorSet,
+                    val default: OutlinedColorSet,
+                    val disabled: OutlinedColorSet,
                 )
 
                 class Selected(
@@ -199,8 +199,8 @@ class SatsColors(
                 val selectedSurface: SelectedSurface,
             ) {
                 class Unselected(
-                    val default: ColorSet,
-                    val disabled: ColorSet,
+                    val default: OutlinedColorSet,
+                    val disabled: OutlinedColorSet,
                 )
 
                 class Selected(
@@ -226,8 +226,8 @@ class SatsColors(
             val selectedBackground: SelectedBackground,
         ) {
             class Unselected(
-                val default: ColorSet,
-                val disabled: ColorSet,
+                val default: OutlinedColorSet,
+                val disabled: OutlinedColorSet,
             )
 
             class Selected(
@@ -246,8 +246,8 @@ class SatsColors(
             val selected: Selected,
         ) {
             class Unselected(
-                val default: ColorSet,
-                val disabled: ColorSet,
+                val default: OutlinedColorSet,
+                val disabled: OutlinedColorSet,
             )
 
             class Selected(

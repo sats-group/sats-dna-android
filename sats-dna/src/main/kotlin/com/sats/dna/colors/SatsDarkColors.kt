@@ -200,8 +200,8 @@ internal val SatsDarkColors = SatsColors(
         selector = SatsColors.GraphicalElements.Selector(
             primary = SatsColors.GraphicalElements.Selector.Primary(
                 unselected = SatsColors.GraphicalElements.Selector.Primary.Unselected(
-                    default = White100 on White100,
-                    disabled = White20 on White10,
+                    default = OutlinedColorSet(outline = White100, bg = White0, fg = White100),
+                    disabled = OutlinedColorSet(outline = White10, bg = White0, fg = White20),
                 ),
                 selected = SatsColors.GraphicalElements.Selector.Primary.Selected(
                     default = SatsBlue100 on SatsCoral90,
@@ -218,8 +218,8 @@ internal val SatsDarkColors = SatsColors(
             ),
             secondary = SatsColors.GraphicalElements.Selector.Secondary(
                 unselected = SatsColors.GraphicalElements.Selector.Secondary.Unselected(
-                    default = White100 on White100,
-                    disabled = White20 on White10,
+                    default = OutlinedColorSet(outline = White100, bg = White0, fg = White100),
+                    disabled = OutlinedColorSet(outline = White10, bg = White0, fg = White20),
                 ),
                 selected = SatsColors.GraphicalElements.Selector.Secondary.Selected(
                     default = SatsBlue100 on White100,
@@ -237,8 +237,8 @@ internal val SatsDarkColors = SatsColors(
         ),
         selectorFixed = SatsColors.GraphicalElements.SelectorFixed(
             unselected = SatsColors.GraphicalElements.SelectorFixed.Unselected(
-                default = White100 on White100,
-                disabled = White50 on White50,
+                default = OutlinedColorSet(outline = White100, bg = White0, fg = White100),
+                disabled = OutlinedColorSet(outline = White50, bg = White0, fg = White50),
             ),
             selected = SatsColors.GraphicalElements.SelectorFixed.Selected(
                 default = SatsBlue100 on SatsCoral90,
@@ -251,8 +251,8 @@ internal val SatsDarkColors = SatsColors(
         ),
         chips = SatsColors.GraphicalElements.Chips(
             unselected = SatsColors.GraphicalElements.Chips.Unselected(
-                default = White100 on White85,
-                disabled = White20 on White10,
+                default = OutlinedColorSet(outline = White85, bg = White0, fg = White100),
+                disabled = OutlinedColorSet(outline = White10, bg = White0, fg = White20),
             ),
             selected = SatsColors.GraphicalElements.Chips.Selected(
                 default = SatsBlue100 on White100,
