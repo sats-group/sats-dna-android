@@ -15,7 +15,7 @@ kotlinter = { id = "org.jmailen.kotlinter", version = "3.16.0" }
 accompanist-insetsUi = { module = "com.google.accompanist:accompanist-insets-ui", version.ref = "accompanist" }
 accompanist-systemUiController = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
 android-desugarJdkLibs = "com.android.tools:desugar_jdk_libs:2.0.4"
-androidx-activity-compose = "androidx.activity:activity-compose:1.8.2"
+androidx-activity-compose = "androidx.activity:activity-compose:1.9.0"
 androidx-compose-bom = "dev.chrisbanes.compose:compose-bom:2024.04.00-alpha02"
 androidx-compose-foundation = { module = "androidx.compose.foundation:foundation" }
 androidx-compose-material = { module = "androidx.compose.material:material" }
