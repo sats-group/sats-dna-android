@@ -94,6 +94,7 @@ class SatsColors(
         val indicators: Indicators,
         val signal: Signal,
         val tags: Tags,
+        val indicatorTag: IndicatorTag,
         val badge: Badge,
         val fixedBadge: FixedBadge,
         val rewards: Rewards,
@@ -161,32 +162,80 @@ class SatsColors(
         }
 
         class Selector(
-            val unselected: Unselected,
-            val selected: Selected,
-            val indicator: Color,
+            val primary: Primary,
+            val secondary: Secondary,
         ) {
-            class Unselected(
-                val default: Color,
-                val disabled: Color,
-            )
+            class Primary(
+                val unselected: Unselected,
+                val selected: Selected,
+                val unselectedSurface: UnselectedSurface,
+                val selectedSurface: SelectedSurface,
+            ) {
+                class Unselected(
+                    val default: ColorSet,
+                    val disabled: ColorSet,
+                )
 
-            class Selected(
-                val default: Color,
-                val disabled: Color,
-            )
+                class Selected(
+                    val default: ColorSet,
+                    val disabled: ColorSet,
+                )
+
+                class UnselectedSurface(
+                    val default: Color,
+                    val disabled: Color,
+                )
+
+                class SelectedSurface(
+                    val default: Color,
+                    val disabled: Color,
+                )
+            }
+
+            class Secondary(
+                val unselected: Unselected,
+                val selected: Selected,
+                val unselectedSurface: UnselectedSurface,
+                val selectedSurface: SelectedSurface,
+            ) {
+                class Unselected(
+                    val default: ColorSet,
+                    val disabled: ColorSet,
+                )
+
+                class Selected(
+                    val default: ColorSet,
+                    val disabled: ColorSet,
+                )
+
+                class UnselectedSurface(
+                    val default: Color,
+                    val disabled: Color,
+                )
+
+                class SelectedSurface(
+                    val default: Color,
+                    val disabled: Color,
+                )
+            }
         }
 
         class SelectorFixed(
             val unselected: Unselected,
             val selected: Selected,
-            val indicator: Color,
+            val selectedBackground: SelectedBackground,
         ) {
             class Unselected(
-                val default: Color,
-                val disabled: Color,
+                val default: ColorSet,
+                val disabled: ColorSet,
             )
 
             class Selected(
+                val default: ColorSet,
+                val disabled: ColorSet,
+            )
+
+            class SelectedBackground(
                 val default: Color,
                 val disabled: Color,
             )
@@ -274,6 +323,45 @@ class SatsColors(
             val secondary: ColorSet,
             val featured: ColorSet,
         )
+
+        class IndicatorTag(
+            val positive: Positive,
+            val attention: Attention,
+            val negative: Negative,
+            val featured: Featured,
+            val neutral: Neutral,
+            val information: Information,
+        ) {
+            class Positive(
+                val default: ColorSet,
+                val alternate: ColorSet,
+            )
+
+            class Attention(
+                val default: ColorSet,
+                val alternate: ColorSet,
+            )
+
+            class Negative(
+                val default: ColorSet,
+                val alternate: ColorSet,
+            )
+
+            class Featured(
+                val default: ColorSet,
+                val alternate: ColorSet,
+            )
+
+            class Neutral(
+                val default: ColorSet,
+                val alternate: ColorSet,
+            )
+
+            class Information(
+                val default: ColorSet,
+                val alternate: ColorSet,
+            )
+        }
 
         class Badge(
             val primary: ColorSet,
@@ -426,6 +514,10 @@ internal fun ColorSet(
         override val bg = bg
         override val fg = fg
     }
+}
+
+internal infix fun Color.on(bg: Color): ColorSet {
+    return ColorSet(fg = this, bg = bg)
 }
 
 interface OutlinedColorSet : ColorSet {

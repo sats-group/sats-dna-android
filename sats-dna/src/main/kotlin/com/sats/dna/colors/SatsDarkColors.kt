@@ -1,7 +1,5 @@
 package com.sats.dna.colors
 
-import androidx.compose.ui.graphics.Color
-
 internal val SatsDarkColors = SatsColors(
     buttons = SatsColors.Buttons(
         primary = SatsColors.Buttons.Primary(
@@ -16,12 +14,12 @@ internal val SatsDarkColors = SatsColors(
         ),
         secondary = SatsColors.Buttons.Secondary(
             default = OutlinedColorSet(
-                bg = Color.Transparent,
+                bg = SatsColorPrimitives.White0,
                 outline = SatsColorPrimitives.White100,
                 fg = SatsColorPrimitives.White100,
             ),
             disabled = OutlinedColorSet(
-                bg = Color.Transparent,
+                bg = SatsColorPrimitives.White0,
                 outline = SatsColorPrimitives.Black80,
                 fg = SatsColorPrimitives.Black50,
             ),
@@ -49,14 +47,8 @@ internal val SatsDarkColors = SatsColors(
             ),
         ),
         action = SatsColors.Buttons.Action(
-            default = ColorSet(
-                bg = Color.Transparent,
-                fg = SatsColorPrimitives.SatsCoral100,
-            ),
-            disabled = ColorSet(
-                bg = Color.Transparent,
-                fg = SatsColorPrimitives.Black50,
-            ),
+            default = SatsColorPrimitives.SatsCoral100 on SatsColorPrimitives.White0,
+            disabled = SatsColorPrimitives.Black50 on SatsColorPrimitives.White0,
         ),
         cta = SatsColors.Buttons.Cta(
             default = ColorSet(
@@ -80,12 +72,12 @@ internal val SatsDarkColors = SatsColors(
         ),
         waitingListOutlined = SatsColors.Buttons.WaitingListOutlined(
             default = OutlinedColorSet(
-                bg = Color.Transparent,
+                bg = SatsColorPrimitives.White0,
                 outline = SatsColorPrimitives.EgyptianPurple80,
                 fg = SatsColorPrimitives.EgyptianPurple80,
             ),
             disabled = OutlinedColorSet(
-                bg = Color.Transparent,
+                bg = SatsColorPrimitives.White0,
                 outline = SatsColorPrimitives.Black50,
                 fg = SatsColorPrimitives.Black50,
             ),
@@ -103,12 +95,12 @@ internal val SatsDarkColors = SatsColors(
             ),
             outlined = SatsColors.Buttons.Destructive.Outlined(
                 default = OutlinedColorSet(
-                    bg = Color.Transparent,
+                    bg = SatsColorPrimitives.White0,
                     outline = SatsColorPrimitives.ChiliRed80,
                     fg = SatsColorPrimitives.ChiliRed80,
                 ),
                 disabled = OutlinedColorSet(
-                    bg = Color.Transparent,
+                    bg = SatsColorPrimitives.White0,
                     outline = SatsColorPrimitives.Black50,
                     fg = SatsColorPrimitives.Black50,
                 ),
@@ -176,26 +168,56 @@ internal val SatsDarkColors = SatsColors(
             ),
         ),
         selector = SatsColors.GraphicalElements.Selector(
-            unselected = SatsColors.GraphicalElements.Selector.Unselected(
-                default = SatsColorPrimitives.White100,
-                disabled = SatsColorPrimitives.White10,
+            primary = SatsColors.GraphicalElements.Selector.Primary(
+                unselected = SatsColors.GraphicalElements.Selector.Primary.Unselected(
+                    default = SatsColorPrimitives.White100 on SatsColorPrimitives.White100,
+                    disabled = SatsColorPrimitives.White20 on SatsColorPrimitives.White10,
+                ),
+                selected = SatsColors.GraphicalElements.Selector.Primary.Selected(
+                    default = SatsColorPrimitives.SatsBlue100 on SatsColorPrimitives.SatsCoral90,
+                    disabled = SatsColorPrimitives.White60 on SatsColorPrimitives.SatsCoral130,
+                ),
+                unselectedSurface = SatsColors.GraphicalElements.Selector.Primary.UnselectedSurface(
+                    default = SatsColorPrimitives.White0,
+                    disabled = SatsColorPrimitives.White0,
+                ),
+                selectedSurface = SatsColors.GraphicalElements.Selector.Primary.SelectedSurface(
+                    default = SatsColorPrimitives.SatsCoral170,
+                    disabled = SatsColorPrimitives.SatsCoral190,
+                ),
             ),
-            selected = SatsColors.GraphicalElements.Selector.Selected(
-                default = SatsColorPrimitives.SatsCoral90,
-                disabled = SatsColorPrimitives.SatsCoral130,
+            secondary = SatsColors.GraphicalElements.Selector.Secondary(
+                unselected = SatsColors.GraphicalElements.Selector.Secondary.Unselected(
+                    default = SatsColorPrimitives.White100 on SatsColorPrimitives.White100,
+                    disabled = SatsColorPrimitives.White20 on SatsColorPrimitives.White10,
+                ),
+                selected = SatsColors.GraphicalElements.Selector.Secondary.Selected(
+                    default = SatsColorPrimitives.SatsBlue100 on SatsColorPrimitives.White100,
+                    disabled = SatsColorPrimitives.White60 on SatsColorPrimitives.White20,
+                ),
+                unselectedSurface = SatsColors.GraphicalElements.Selector.Secondary.UnselectedSurface(
+                    default = SatsColorPrimitives.White0,
+                    disabled = SatsColorPrimitives.White0,
+                ),
+                selectedSurface = SatsColors.GraphicalElements.Selector.Secondary.SelectedSurface(
+                    default = SatsColorPrimitives.BrightBlue160,
+                    disabled = SatsColorPrimitives.BrightBlue170,
+                ),
             ),
-            indicator = SatsColorPrimitives.Black90,
         ),
         selectorFixed = SatsColors.GraphicalElements.SelectorFixed(
             unselected = SatsColors.GraphicalElements.SelectorFixed.Unselected(
-                default = SatsColorPrimitives.White100,
-                disabled = SatsColorPrimitives.White50,
+                default = SatsColorPrimitives.White100 on SatsColorPrimitives.White100,
+                disabled = SatsColorPrimitives.White50 on SatsColorPrimitives.White50,
             ),
             selected = SatsColors.GraphicalElements.SelectorFixed.Selected(
-                default = SatsColorPrimitives.SatsCoral90,
-                disabled = SatsColorPrimitives.SatsCoral130,
+                default = SatsColorPrimitives.SatsBlue100 on SatsColorPrimitives.SatsCoral90,
+                disabled = SatsColorPrimitives.SatsCoral170 on SatsColorPrimitives.SatsCoral130,
             ),
-            indicator = SatsColorPrimitives.SatsBlue100,
+            selectedBackground = SatsColors.GraphicalElements.SelectorFixed.SelectedBackground(
+                default = SatsColorPrimitives.SatsCoral170,
+                disabled = SatsColorPrimitives.SatsCoral190,
+            ),
         ),
         chips = SatsColors.GraphicalElements.Chips(
             unselected = SatsColors.GraphicalElements.Chips.Unselected(
@@ -276,7 +298,33 @@ internal val SatsDarkColors = SatsColors(
             ),
             featured = ColorSet(
                 bg = SatsColorPrimitives.SatsCoral90,
-                fg = SatsColorPrimitives.SatsBlue100,
+                fg = SatsColorPrimitives.SatsCoral170,
+            ),
+        ),
+        indicatorTag = SatsColors.GraphicalElements.IndicatorTag(
+            positive = SatsColors.GraphicalElements.IndicatorTag.Positive(
+                default = SatsColorPrimitives.White100 on SatsColorPrimitives.SpringGreen100,
+                alternate = SatsColorPrimitives.SpringGreen30 on SatsColorPrimitives.SpringGreen170,
+            ),
+            attention = SatsColors.GraphicalElements.IndicatorTag.Attention(
+                default = SatsColorPrimitives.Gold170 on SatsColorPrimitives.Gold80,
+                alternate = SatsColorPrimitives.Gold30 on SatsColorPrimitives.Gold170,
+            ),
+            negative = SatsColors.GraphicalElements.IndicatorTag.Negative(
+                default = SatsColorPrimitives.White100 on SatsColorPrimitives.Cardinal100,
+                alternate = SatsColorPrimitives.Cardinal30 on SatsColorPrimitives.Cardinal170,
+            ),
+            featured = SatsColors.GraphicalElements.IndicatorTag.Featured(
+                default = SatsColorPrimitives.SatsCoral170 on SatsColorPrimitives.SatsCoral90,
+                alternate = SatsColorPrimitives.SatsCoral40 on SatsColorPrimitives.SatsCoral170,
+            ),
+            neutral = SatsColors.GraphicalElements.IndicatorTag.Neutral(
+                default = SatsColorPrimitives.White100 on SatsColorPrimitives.Black60,
+                alternate = SatsColorPrimitives.Black20 on SatsColorPrimitives.Black90,
+            ),
+            information = SatsColors.GraphicalElements.IndicatorTag.Information(
+                default = SatsColorPrimitives.White100 on SatsColorPrimitives.BrightBlue100,
+                alternate = SatsColorPrimitives.BrightBlue20 on SatsColorPrimitives.BrightBlue160,
             ),
         ),
         badge = SatsColors.GraphicalElements.Badge(
