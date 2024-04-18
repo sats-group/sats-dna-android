@@ -38,20 +38,28 @@ private fun CheckboxScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
                 .fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
         ) {
-            Section("Regular checkbox") {
-                RegularRow()
+            Section("Regular checkbox, primary") {
+                RegularRow(colors = SatsCheckboxColors.Primary)
             }
 
-            Section("Tri-state checkbox") {
-                TriStateRow()
+            Section("Tri-state checkbox, primary") {
+                TriStateRow(colors = SatsCheckboxColors.Primary)
+            }
+
+            Section("Regular checkbox, secondary") {
+                RegularRow(colors = SatsCheckboxColors.Secondary)
+            }
+
+            Section("Tri-state checkbox, secondary") {
+                TriStateRow(colors = SatsCheckboxColors.Secondary)
             }
 
             Section("Regular checkbox, fixed", isFixedBackground = true) {
-                RegularRow(isFixedBackground = true)
+                RegularRow(colors = SatsCheckboxColors.Fixed)
             }
 
             Section("Tri-state checkbox, fixed", isFixedBackground = true) {
-                TriStateRow(isFixedBackground = true)
+                TriStateRow(colors = SatsCheckboxColors.Fixed)
             }
         }
     }
@@ -78,9 +86,7 @@ private fun Section(label: String, isFixedBackground: Boolean = false, content: 
 }
 
 @Composable
-private fun RegularRow(isFixedBackground: Boolean = false) {
-    val colors = if (isFixedBackground) SatsCheckboxColors.Fixed else SatsCheckboxColors.Default
-
+private fun RegularRow(colors: SatsCheckboxColors) {
     Row(
         horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
         verticalAlignment = Alignment.CenterVertically,
@@ -94,9 +100,7 @@ private fun RegularRow(isFixedBackground: Boolean = false) {
 }
 
 @Composable
-private fun TriStateRow(isFixedBackground: Boolean = false) {
-    val colors = if (isFixedBackground) SatsCheckboxColors.Fixed else SatsCheckboxColors.Default
-
+private fun TriStateRow(colors: SatsCheckboxColors) {
     Row(
         horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
         verticalAlignment = Alignment.CenterVertically,

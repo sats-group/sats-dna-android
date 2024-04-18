@@ -176,26 +176,56 @@ internal val SatsDarkColors = SatsColors(
             ),
         ),
         selector = SatsColors.GraphicalElements.Selector(
-            unselected = SatsColors.GraphicalElements.Selector.Unselected(
-                default = SatsColorPrimitives.White100,
-                disabled = SatsColorPrimitives.White10,
+            primary = SatsColors.GraphicalElements.Selector.Primary(
+                unselected = SatsColors.GraphicalElements.Selector.Primary.Unselected(
+                    default = SatsColorPrimitives.White100 on SatsColorPrimitives.White100,
+                    disabled = SatsColorPrimitives.White20 on SatsColorPrimitives.White10,
+                ),
+                selected = SatsColors.GraphicalElements.Selector.Primary.Selected(
+                    default = SatsColorPrimitives.SatsBlue100 on SatsColorPrimitives.SatsCoral90,
+                    disabled = SatsColorPrimitives.White60 on SatsColorPrimitives.SatsCoral130,
+                ),
+                unselectedSurface = SatsColors.GraphicalElements.Selector.Primary.UnselectedSurface(
+                    default = SatsColorPrimitives.White0,
+                    disabled = SatsColorPrimitives.White0,
+                ),
+                selectedSurface = SatsColors.GraphicalElements.Selector.Primary.SelectedSurface(
+                    default = SatsColorPrimitives.SatsCoral170,
+                    disabled = SatsColorPrimitives.SatsCoral190,
+                ),
             ),
-            selected = SatsColors.GraphicalElements.Selector.Selected(
-                default = SatsColorPrimitives.SatsCoral90,
-                disabled = SatsColorPrimitives.SatsCoral130,
+            secondary = SatsColors.GraphicalElements.Selector.Secondary(
+                unselected = SatsColors.GraphicalElements.Selector.Secondary.Unselected(
+                    default = SatsColorPrimitives.White100 on SatsColorPrimitives.White100,
+                    disabled = SatsColorPrimitives.White20 on SatsColorPrimitives.White10,
+                ),
+                selected = SatsColors.GraphicalElements.Selector.Secondary.Selected(
+                    default = SatsColorPrimitives.SatsBlue100 on SatsColorPrimitives.White100,
+                    disabled = SatsColorPrimitives.White60 on SatsColorPrimitives.White20,
+                ),
+                unselectedSurface = SatsColors.GraphicalElements.Selector.Secondary.UnselectedSurface(
+                    default = SatsColorPrimitives.White0,
+                    disabled = SatsColorPrimitives.White0,
+                ),
+                selectedSurface = SatsColors.GraphicalElements.Selector.Secondary.SelectedSurface(
+                    default = SatsColorPrimitives.BrightBlue160,
+                    disabled = SatsColorPrimitives.BrightBlue170,
+                ),
             ),
-            indicator = SatsColorPrimitives.Black90,
         ),
         selectorFixed = SatsColors.GraphicalElements.SelectorFixed(
             unselected = SatsColors.GraphicalElements.SelectorFixed.Unselected(
-                default = SatsColorPrimitives.White100,
-                disabled = SatsColorPrimitives.White50,
+                default = SatsColorPrimitives.White100 on SatsColorPrimitives.White100,
+                disabled = SatsColorPrimitives.White50 on SatsColorPrimitives.White50,
             ),
             selected = SatsColors.GraphicalElements.SelectorFixed.Selected(
-                default = SatsColorPrimitives.SatsCoral90,
-                disabled = SatsColorPrimitives.SatsCoral130,
+                default = SatsColorPrimitives.SatsBlue100 on SatsColorPrimitives.SatsCoral90,
+                disabled = SatsColorPrimitives.SatsCoral170 on SatsColorPrimitives.SatsCoral130,
             ),
-            indicator = SatsColorPrimitives.SatsBlue100,
+            selectedBackground = SatsColors.GraphicalElements.SelectorFixed.SelectedBackground(
+                default = SatsColorPrimitives.SatsCoral170,
+                disabled = SatsColorPrimitives.SatsCoral190,
+            ),
         ),
         chips = SatsColors.GraphicalElements.Chips(
             unselected = SatsColors.GraphicalElements.Chips.Unselected(

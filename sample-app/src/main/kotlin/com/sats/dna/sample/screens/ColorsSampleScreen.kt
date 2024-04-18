@@ -19,6 +19,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import com.sats.dna.colors.ColorSet
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 
@@ -305,23 +306,116 @@ private fun GraphicalElements() {
             val base = SatsTheme.colors.graphicalElements.selector
 
             ColorSample(
-                backgroundColor = base.unselected.default named "base.unselected.default",
+                base.primary.unselected.default,
+                "base.primary.unselected.default",
+            )
+
+            ColorSample(
+                base.primary.unselected.disabled,
+                "base.primary.unselected.disabled",
+            )
+
+            ColorSample(
+                base.primary.selected.default,
+                "base.primary.selected.default",
+            )
+
+            ColorSample(
+                base.primary.selected.disabled,
+                "base.primary.selected.disabled",
+            )
+
+            ColorSample(
+                base.primary.unselectedSurface.default named "base.primary.unselectedSurface.default",
                 contentColor = null,
             )
 
             ColorSample(
-                backgroundColor = base.unselected.disabled named "base.unselected.disabled",
+                base.primary.unselectedSurface.disabled named "base.primary.unselectedSurface.disabled",
                 contentColor = null,
             )
 
             ColorSample(
-                backgroundColor = base.selected.default named "base.selected.default",
-                contentColor = base.indicator named "base.indicator",
+                base.primary.selectedSurface.default named "base.primary.selectedSurface.default",
+                contentColor = null,
             )
 
             ColorSample(
-                backgroundColor = base.selected.disabled named "base.selected.disabled",
-                contentColor = base.indicator named "base.indicator",
+                base.primary.selectedSurface.disabled named "base.primary.selectedSurface.disabled",
+                contentColor = null,
+            )
+
+            ColorSample(
+                base.secondary.unselected.default,
+                "base.secondary.unselected.default",
+            )
+
+            ColorSample(
+                base.secondary.unselected.disabled,
+                "base.secondary.unselected.disabled",
+            )
+            ColorSample(
+                base.secondary.selected.default,
+                "base.secondary.selected.default",
+            )
+
+            ColorSample(
+                base.secondary.selected.disabled,
+                "base.secondary.selected.disabled",
+            )
+
+            ColorSample(
+                base.secondary.unselectedSurface.default named "base.secondary.unselectedSurface.default",
+                contentColor = null,
+            )
+
+            ColorSample(
+                base.secondary.unselectedSurface.disabled named "base.secondary.unselectedSurface.disabled",
+                contentColor = null,
+            )
+
+            ColorSample(
+                base.secondary.selectedSurface.default named "base.secondary.selectedSurface.default",
+                contentColor = null,
+            )
+
+            ColorSample(
+                base.secondary.selectedSurface.disabled named "base.secondary.selectedSurface.disabled",
+                contentColor = null,
+            )
+        }
+
+        Section("Fixed Selector", SectionLevel.Level2, base = "graphicalElements.selectorFixed") {
+            val base = SatsTheme.colors.graphicalElements.selectorFixed
+
+            ColorSample(
+                base.unselected.default,
+                "base.unselected.default",
+            )
+
+            ColorSample(
+                base.unselected.disabled,
+                "base.unselected.disabled",
+            )
+
+            ColorSample(
+                base.selected.default,
+                "base.selected.default",
+            )
+
+            ColorSample(
+                base.selected.disabled,
+                "base.selected.disabled",
+            )
+
+            ColorSample(
+                backgroundColor = base.selectedBackground.default named "base.selectedBackground.default",
+                contentColor = null,
+            )
+
+            ColorSample(
+                backgroundColor = base.selectedBackground.disabled named "base.selectedBackground.disabled",
+                contentColor = null,
             )
         }
 
@@ -932,6 +1026,19 @@ enum class SectionLevel { Level1, Level2 }
 
 @Composable
 private fun ColorSample(
+    colorSet: ColorSet,
+    baseName: String,
+    modifier: Modifier = Modifier,
+) {
+    ColorSample(
+        backgroundColor = colorSet.bg named "$baseName.bg",
+        contentColor = colorSet.fg named "$baseName.fg",
+        modifier = modifier,
+    )
+}
+
+@Composable
+private fun ColorSample(
     backgroundColor: NamedColor,
     contentColor: NamedColor?,
     modifier: Modifier = Modifier,
@@ -982,7 +1089,7 @@ private fun ColorNameAndHex(backgroundColor: NamedColor, modifier: Modifier = Mo
     }
 }
 
-class NamedColor(val name: String, val color: Color) {
+private class NamedColor(val name: String, val color: Color) {
     fun toHexString(): String {
         val red = Integer.toHexString((color.red * 255).toInt()).let { if (it.count() < 2) "0$it" else it }
         val green = Integer.toHexString((color.green * 255).toInt()).let { if (it.count() < 2) "0$it" else it }
