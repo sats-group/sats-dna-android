@@ -298,7 +298,7 @@ internal val SatsDarkColors = SatsColors(
             ),
             featured = ColorSet(
                 bg = SatsColorPrimitives.SatsCoral90,
-                fg = SatsColorPrimitives.SatsBlue100,
+                fg = SatsColorPrimitives.SatsCoral170,
             ),
         ),
         indicatorTag = SatsColors.GraphicalElements.IndicatorTag(
