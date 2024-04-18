@@ -501,102 +501,38 @@ class SatsColors(
     }
 }
 
-interface ColorSet {
-    val bg: Color
-    val fg: Color
-}
-
-internal fun ColorSet(
-    bg: Color,
-    fg: Color,
-): ColorSet {
-    return object : ColorSet {
-        override val bg = bg
-        override val fg = fg
-    }
-}
+class ColorSet(
+    val bg: Color,
+    val fg: Color,
+)
 
 internal infix fun Color.on(bg: Color): ColorSet {
-    return ColorSet(fg = this, bg = bg)
+    return ColorSet(bg = bg, fg = this)
 }
 
-interface OutlinedColorSet : ColorSet {
-    override val bg: Color
-    override val fg: Color
-    val outline: Color
-}
+class OutlinedColorSet(
+    val bg: Color,
+    val fg: Color,
+    val outline: Color,
+)
 
-internal fun OutlinedColorSet(
-    bg: Color,
-    fg: Color,
-    outline: Color,
-): OutlinedColorSet {
-    return object : OutlinedColorSet {
-        override val bg = bg
-        override val fg = fg
-        override val outline = outline
-    }
-}
+class BackgroundColorSet(
+    val bg: Color,
+    val fg: Color,
+    val fgAlternate: Color,
+    val fgDisabled: Color,
+)
 
-interface BackgroundColorSet : ColorSet {
-    override val bg: Color
-    override val fg: Color
-    val fgAlternate: Color
-    val fgDisabled: Color
-}
-
-internal fun BackgroundColorSet(
-    bg: Color,
-    fgDefault: Color,
-    fgAlternate: Color,
-    fgDisabled: Color,
-): BackgroundColorSet {
-    return object : BackgroundColorSet {
-        override val bg = bg
-        override val fg = fgDefault
-        override val fgAlternate = fgAlternate
-        override val fgDisabled = fgDisabled
-    }
-}
-
-interface SurfaceColorSet : ColorSet {
-    override val bg: Color
-    override val fg: Color
-    val fgAlternate: Color
-    val fgDisabled: Color
-    val fgSuccess: Color
-    val fgWarning: Color
-    val fgError: Color
-    val fgWaitingList: Color
-    val fgNeutral: Color
-    val fgInformation: Color
-    val fgFeatured: Color
-}
-
-internal fun SurfaceColorSet(
-    bg: Color,
-    fgDefault: Color,
-    fgAlternate: Color,
-    fgDisabled: Color,
-    fgSuccess: Color,
-    fgWarning: Color,
-    fgError: Color,
-    fgWaitingList: Color,
-    fgNeutral: Color,
-    fgInformation: Color,
-    fgFeatured: Color,
-): SurfaceColorSet {
-    return object : SurfaceColorSet {
-        override val bg = bg
-        override val fg = fgDefault
-        override val fgAlternate = fgAlternate
-        override val fgDisabled = fgDisabled
-        override val fgSuccess = fgSuccess
-        override val fgWarning = fgWarning
-        override val fgError = fgError
-        override val fgWaitingList = fgWaitingList
-        override val fgNeutral = fgNeutral
-        override val fgInformation = fgInformation
-        override val fgFeatured = fgFeatured
-    }
-}
+class SurfaceColorSet(
+    val bg: Color,
+    val fg: Color,
+    val fgAlternate: Color,
+    val fgDisabled: Color,
+    val fgSuccess: Color,
+    val fgWarning: Color,
+    val fgError: Color,
+    val fgWaitingList: Color,
+    val fgNeutral: Color,
+    val fgInformation: Color,
+    val fgFeatured: Color,
+)
