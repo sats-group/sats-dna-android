@@ -63,6 +63,7 @@ private fun ColorsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) 
                 ButtonsCleanSamples()
                 ButtonsCleanSecondarySamples()
                 ButtonsActionSamples()
+                ButtonsFixedActionSamples()
                 ButtonsCtaSamples()
                 ButtonsWaitingListFilledSamples()
                 ButtonsWaitingListOutlinedSamples()
@@ -162,6 +163,16 @@ private fun ButtonsCleanSecondarySamples(modifier: Modifier = Modifier) {
 private fun ButtonsActionSamples(modifier: Modifier = Modifier) {
     Subsection("Action", modifier) {
         val action = SatsTheme.colors.buttons.action
+
+        ColorSample(action.default, "default")
+        ColorSample(action.disabled, "disabled")
+    }
+}
+
+@Composable
+private fun ButtonsFixedActionSamples(modifier: Modifier = Modifier) {
+    Subsection("Action", modifier) {
+        val action = SatsTheme.colors.buttons.fixedAction
 
         ColorSample(action.default, "default")
         ColorSample(action.disabled, "disabled")
