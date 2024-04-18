@@ -322,7 +322,7 @@ class SatsColors(
             val primary: ColorSet,
             val secondary: ColorSet,
             val featured: ColorSet,
-            val new: ColorSet,
+            val positive: ColorSet,
         )
 
         class IndicatorTag(
