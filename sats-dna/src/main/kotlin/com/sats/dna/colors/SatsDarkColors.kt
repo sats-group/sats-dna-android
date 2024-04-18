@@ -1,7 +1,5 @@
 package com.sats.dna.colors
 
-import androidx.compose.ui.graphics.Color
-
 internal val SatsDarkColors = SatsColors(
     buttons = SatsColors.Buttons(
         primary = SatsColors.Buttons.Primary(
@@ -16,12 +14,12 @@ internal val SatsDarkColors = SatsColors(
         ),
         secondary = SatsColors.Buttons.Secondary(
             default = OutlinedColorSet(
-                bg = Color.Transparent,
+                bg = SatsColorPrimitives.White0,
                 outline = SatsColorPrimitives.White100,
                 fg = SatsColorPrimitives.White100,
             ),
             disabled = OutlinedColorSet(
-                bg = Color.Transparent,
+                bg = SatsColorPrimitives.White0,
                 outline = SatsColorPrimitives.Black80,
                 fg = SatsColorPrimitives.Black50,
             ),
@@ -49,14 +47,8 @@ internal val SatsDarkColors = SatsColors(
             ),
         ),
         action = SatsColors.Buttons.Action(
-            default = ColorSet(
-                bg = Color.Transparent,
-                fg = SatsColorPrimitives.SatsCoral100,
-            ),
-            disabled = ColorSet(
-                bg = Color.Transparent,
-                fg = SatsColorPrimitives.Black50,
-            ),
+            default = SatsColorPrimitives.SatsCoral100 on SatsColorPrimitives.White0,
+            disabled = SatsColorPrimitives.Black50 on SatsColorPrimitives.White0,
         ),
         cta = SatsColors.Buttons.Cta(
             default = ColorSet(
@@ -80,12 +72,12 @@ internal val SatsDarkColors = SatsColors(
         ),
         waitingListOutlined = SatsColors.Buttons.WaitingListOutlined(
             default = OutlinedColorSet(
-                bg = Color.Transparent,
+                bg = SatsColorPrimitives.White0,
                 outline = SatsColorPrimitives.EgyptianPurple80,
                 fg = SatsColorPrimitives.EgyptianPurple80,
             ),
             disabled = OutlinedColorSet(
-                bg = Color.Transparent,
+                bg = SatsColorPrimitives.White0,
                 outline = SatsColorPrimitives.Black50,
                 fg = SatsColorPrimitives.Black50,
             ),
@@ -103,12 +95,12 @@ internal val SatsDarkColors = SatsColors(
             ),
             outlined = SatsColors.Buttons.Destructive.Outlined(
                 default = OutlinedColorSet(
-                    bg = Color.Transparent,
+                    bg = SatsColorPrimitives.White0,
                     outline = SatsColorPrimitives.ChiliRed80,
                     fg = SatsColorPrimitives.ChiliRed80,
                 ),
                 disabled = OutlinedColorSet(
-                    bg = Color.Transparent,
+                    bg = SatsColorPrimitives.White0,
                     outline = SatsColorPrimitives.Black50,
                     fg = SatsColorPrimitives.Black50,
                 ),
