@@ -608,6 +608,34 @@ private fun GraphicalElements() {
             )
         }
 
+        Section("Indicator Tag", SectionLevel.Level2, base = "graphicalElements.indicatorTag") {
+            val base = SatsTheme.colors.graphicalElements.indicatorTag
+
+            ColorSample(base.positive.default, "base.positive.default")
+
+            ColorSample(base.positive.alternate, "base.positive.alternate")
+
+            ColorSample(base.attention.default, "base.attention.default")
+
+            ColorSample(base.attention.alternate, "base.attention.alternate")
+
+            ColorSample(base.negative.default, "base.negative.default")
+
+            ColorSample(base.negative.alternate, "base.negative.alternate")
+
+            ColorSample(base.featured.default, "base.featured.default")
+
+            ColorSample(base.featured.alternate, "base.featured.alternate")
+
+            ColorSample(base.neutral.default, "base.neutral.default")
+
+            ColorSample(base.neutral.alternate, "base.neutral.alternate")
+
+            ColorSample(base.information.default, "base.information.default")
+
+            ColorSample(base.information.alternate, "base.information.alternate")
+        }
+
         Section("Badge", SectionLevel.Level2, base = "graphicalElements.badge") {
             val base = SatsTheme.colors.graphicalElements.badge
 

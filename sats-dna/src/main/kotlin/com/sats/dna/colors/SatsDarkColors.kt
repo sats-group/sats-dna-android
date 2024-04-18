@@ -301,6 +301,32 @@ internal val SatsDarkColors = SatsColors(
                 fg = SatsColorPrimitives.SatsBlue100,
             ),
         ),
+        indicatorTag = SatsColors.GraphicalElements.IndicatorTag(
+            positive = SatsColors.GraphicalElements.IndicatorTag.Positive(
+                default = SatsColorPrimitives.White100 on SatsColorPrimitives.SpringGreen100,
+                alternate = SatsColorPrimitives.SpringGreen30 on SatsColorPrimitives.SpringGreen170,
+            ),
+            attention = SatsColors.GraphicalElements.IndicatorTag.Attention(
+                default = SatsColorPrimitives.Gold170 on SatsColorPrimitives.Gold80,
+                alternate = SatsColorPrimitives.Gold30 on SatsColorPrimitives.Gold170,
+            ),
+            negative = SatsColors.GraphicalElements.IndicatorTag.Negative(
+                default = SatsColorPrimitives.White100 on SatsColorPrimitives.Cardinal100,
+                alternate = SatsColorPrimitives.Cardinal30 on SatsColorPrimitives.Cardinal170,
+            ),
+            featured = SatsColors.GraphicalElements.IndicatorTag.Featured(
+                default = SatsColorPrimitives.SatsCoral170 on SatsColorPrimitives.SatsCoral90,
+                alternate = SatsColorPrimitives.SatsCoral40 on SatsColorPrimitives.SatsCoral170,
+            ),
+            neutral = SatsColors.GraphicalElements.IndicatorTag.Neutral(
+                default = SatsColorPrimitives.White100 on SatsColorPrimitives.Black60,
+                alternate = SatsColorPrimitives.Black20 on SatsColorPrimitives.Black90,
+            ),
+            information = SatsColors.GraphicalElements.IndicatorTag.Information(
+                default = SatsColorPrimitives.White100 on SatsColorPrimitives.BrightBlue100,
+                alternate = SatsColorPrimitives.BrightBlue20 on SatsColorPrimitives.BrightBlue160,
+            ),
+        ),
         badge = SatsColors.GraphicalElements.Badge(
             primary = ColorSet(
                 bg = SatsColorPrimitives.SatsCoral90,

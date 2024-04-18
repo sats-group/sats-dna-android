@@ -94,6 +94,7 @@ class SatsColors(
         val indicators: Indicators,
         val signal: Signal,
         val tags: Tags,
+        val indicatorTag: IndicatorTag,
         val badge: Badge,
         val fixedBadge: FixedBadge,
         val rewards: Rewards,
@@ -322,6 +323,45 @@ class SatsColors(
             val secondary: ColorSet,
             val featured: ColorSet,
         )
+
+        class IndicatorTag(
+            val positive: Positive,
+            val attention: Attention,
+            val negative: Negative,
+            val featured: Featured,
+            val neutral: Neutral,
+            val information: Information,
+        ) {
+            class Positive(
+                val default: ColorSet,
+                val alternate: ColorSet,
+            )
+
+            class Attention(
+                val default: ColorSet,
+                val alternate: ColorSet,
+            )
+
+            class Negative(
+                val default: ColorSet,
+                val alternate: ColorSet,
+            )
+
+            class Featured(
+                val default: ColorSet,
+                val alternate: ColorSet,
+            )
+
+            class Neutral(
+                val default: ColorSet,
+                val alternate: ColorSet,
+            )
+
+            class Information(
+                val default: ColorSet,
+                val alternate: ColorSet,
+            )
+        }
 
         class Badge(
             val primary: ColorSet,
