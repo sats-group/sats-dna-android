@@ -23,18 +23,11 @@ fun SatsTag(
     size: SatsTagSize = SatsTagSize.Small,
     shape: SatsTagShape = SatsTagShape.Default,
 ) {
-    val backgroundColor = when (color) {
-        SatsTagColor.Primary -> SatsTheme.colors.graphicalElements.tags.primary.bg
-        SatsTagColor.Secondary -> SatsTheme.colors.graphicalElements.tags.secondary.bg
-        SatsTagColor.Featured -> SatsTheme.colors.graphicalElements.tags.featured.bg
-        SatsTagColor.Positive -> SatsTheme.colors.graphicalElements.tags.positive.bg
-    }
-
-    val contentColor = when (color) {
-        SatsTagColor.Primary -> SatsTheme.colors.graphicalElements.tags.primary.fg
-        SatsTagColor.Secondary -> SatsTheme.colors.graphicalElements.tags.secondary.fg
-        SatsTagColor.Featured -> SatsTheme.colors.graphicalElements.tags.featured.fg
-        SatsTagColor.Positive -> SatsTheme.colors.graphicalElements.tags.positive.fg
+    val colorSet = when (color) {
+        SatsTagColor.Primary -> SatsTheme.colors.graphicalElements.tags.primary
+        SatsTagColor.Secondary -> SatsTheme.colors.graphicalElements.tags.secondary
+        SatsTagColor.Featured -> SatsTheme.colors.graphicalElements.tags.featured
+        SatsTagColor.Positive -> SatsTheme.colors.graphicalElements.indicatorTag.positive.default
     }
 
     val paddingValues = when (size) {
@@ -56,9 +49,9 @@ fun SatsTag(
     }
 
     SatsTagLayout(
-        text,
-        backgroundColor = backgroundColor,
-        contentColor = contentColor,
+        text = text,
+        backgroundColor = colorSet.bg,
+        contentColor = colorSet.fg,
         cornerShape = cornerShape,
         paddingValues = paddingValues,
         modifier = modifier,

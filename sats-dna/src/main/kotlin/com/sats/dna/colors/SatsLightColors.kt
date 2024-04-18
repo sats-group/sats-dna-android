@@ -300,10 +300,6 @@ internal val SatsLightColors = SatsColors(
                 bg = SatsColorPrimitives.SatsCoral120,
                 fg = SatsColorPrimitives.White100,
             ),
-            positive = ColorSet(
-                bg = SatsColorPrimitives.SpringGreen100,
-                fg = SatsColorPrimitives.White100,
-            ),
         ),
         indicatorTag = SatsColors.GraphicalElements.IndicatorTag(
             positive = SatsColors.GraphicalElements.IndicatorTag.Positive(
