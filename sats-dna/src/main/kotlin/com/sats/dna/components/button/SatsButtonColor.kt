@@ -14,6 +14,7 @@ enum class SatsButtonColor {
     WaitingList,
     WaitingListSecondary,
     Action,
+    FixedAction,
     Cta,
 }
 
@@ -67,6 +68,7 @@ private val SatsButtonColor.backgroundColor: Color
         SatsButtonColor.WaitingList -> SatsTheme.colors.buttons.waitingListFilled.default.bg
         SatsButtonColor.WaitingListSecondary -> SatsTheme.colors.buttons.waitingListOutlined.default.bg
         SatsButtonColor.Action -> SatsTheme.colors.buttons.action.default.bg
+        SatsButtonColor.FixedAction -> SatsTheme.colors.buttons.fixedAction.default.bg
         SatsButtonColor.Cta -> SatsTheme.colors.buttons.cta.default.bg
     }
 
@@ -79,6 +81,7 @@ private val SatsButtonColor.contentColor: Color
         SatsButtonColor.WaitingList -> SatsTheme.colors.buttons.waitingListFilled.default.fg
         SatsButtonColor.WaitingListSecondary -> SatsTheme.colors.buttons.waitingListOutlined.default.fg
         SatsButtonColor.Action -> SatsTheme.colors.buttons.action.default.fg
+        SatsButtonColor.FixedAction -> SatsTheme.colors.buttons.fixedAction.default.fg
         SatsButtonColor.Cta -> SatsTheme.colors.buttons.cta.default.fg
     }
 
@@ -91,6 +94,7 @@ private val SatsButtonColor.disabledBackgroundColor: Color
         SatsButtonColor.WaitingList -> SatsTheme.colors.buttons.waitingListFilled.disabled.bg
         SatsButtonColor.WaitingListSecondary -> SatsTheme.colors.buttons.waitingListOutlined.disabled.bg
         SatsButtonColor.Action -> SatsTheme.colors.buttons.action.disabled.bg
+        SatsButtonColor.FixedAction -> SatsTheme.colors.buttons.fixedAction.disabled.bg
         SatsButtonColor.Cta -> SatsTheme.colors.buttons.cta.disabled.bg
     }
 
@@ -103,6 +107,7 @@ private val SatsButtonColor.disabledContentColor: Color
         SatsButtonColor.WaitingList -> SatsTheme.colors.buttons.waitingListFilled.disabled.fg
         SatsButtonColor.WaitingListSecondary -> SatsTheme.colors.buttons.waitingListOutlined.disabled.fg
         SatsButtonColor.Action -> SatsTheme.colors.buttons.action.disabled.fg
+        SatsButtonColor.FixedAction -> SatsTheme.colors.buttons.fixedAction.disabled.fg
         SatsButtonColor.Cta -> SatsTheme.colors.buttons.cta.disabled.fg
     }
 

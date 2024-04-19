@@ -248,12 +248,17 @@ private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
 }
 
 @Composable
-private fun previewBackgroundColorFor(color: SatsButtonColor) =
-    if (color == SatsButtonColor.Clean || color == SatsButtonColor.CleanSecondary) {
+private fun previewBackgroundColorFor(color: SatsButtonColor): Color {
+    val isOnFixedBackground = color == SatsButtonColor.Clean ||
+        color == SatsButtonColor.CleanSecondary ||
+        color == SatsButtonColor.FixedAction
+
+    return if (isOnFixedBackground) {
         SatsTheme.colors.backgrounds.fixed.primary.default.bg
     } else {
         Color.Transparent
     }
+}
 
 @Composable
 private fun Section(label: String, modifier: Modifier = Modifier, content: @Composable () -> Unit) {

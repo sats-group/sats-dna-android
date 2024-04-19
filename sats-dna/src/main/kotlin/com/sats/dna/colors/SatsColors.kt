@@ -16,6 +16,7 @@ class SatsColors(
         val clean: Clean,
         val cleanSecondary: CleanSecondary,
         val action: Action,
+        val fixedAction: FixedAction,
         val cta: Cta,
         val waitingListFilled: WaitingListFilled,
         val waitingListOutlined: WaitingListOutlined,
@@ -42,6 +43,11 @@ class SatsColors(
         )
 
         class Action(
+            val default: ColorSet,
+            val disabled: ColorSet,
+        )
+
+        class FixedAction(
             val default: ColorSet,
             val disabled: ColorSet,
         )

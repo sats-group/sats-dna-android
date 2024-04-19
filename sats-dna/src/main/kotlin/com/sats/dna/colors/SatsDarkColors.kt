@@ -110,6 +110,10 @@ internal val SatsDarkColors = SatsColors(
             default = SatsCoral100 on White0,
             disabled = Black50 on White0,
         ),
+        fixedAction = SatsColors.Buttons.FixedAction(
+            default = SatsCoral100 on White0,
+            disabled = Black50 on White0,
+        ),
         cta = SatsColors.Buttons.Cta(
             default = White100 on SatsCoral100,
             disabled = White70 on Black80,
