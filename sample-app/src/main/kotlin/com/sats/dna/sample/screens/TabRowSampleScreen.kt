@@ -6,11 +6,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.components.SatsTab
 import com.sats.dna.components.SatsTabRow
 
@@ -24,42 +26,46 @@ data object TabRowSampleScreen : SampleScreen(
 private fun TabRowScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen(title = "TabRow", navigateUp = navigateUp, modifier) { innerPadding ->
 
-        var selectedTab by remember { mutableStateOf(SampleTabs.SampleTab1) }
+        CompositionLocalProvider(
+            LocalUseMaterial3 provides true,
+        ) {
+            var selectedTab by remember { mutableStateOf(SampleTabs.SampleTab1) }
 
-        Column(modifier = Modifier.padding(innerPadding)) {
-            SatsTabRow(selectedTabIndex = selectedTab.ordinal) {
-                SatsTab(
-                    selected = selectedTab == SampleTabs.SampleTab1,
-                    text = {
-                        Text("Tab 1")
-                    },
-                    onClick = { selectedTab = SampleTabs.SampleTab1 },
-                )
-                SatsTab(
-                    selected = selectedTab == SampleTabs.SampleTab2,
-                    text = {
-                        Text("Tab 2")
-                    },
-                    onClick = { selectedTab = SampleTabs.SampleTab2 },
-                )
-            }
-            when (selectedTab) {
-                SampleTabs.SampleTab1 -> {
-                    Text(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .wrapContentSize(),
-                        text = "This is the content of the first tab 🎉",
+            Column(modifier = Modifier.padding(innerPadding)) {
+                SatsTabRow(selectedTabIndex = selectedTab.ordinal) {
+                    SatsTab(
+                        selected = selectedTab == SampleTabs.SampleTab1,
+                        text = {
+                            Text("Tab 1")
+                        },
+                        onClick = { selectedTab = SampleTabs.SampleTab1 },
+                    )
+                    SatsTab(
+                        selected = selectedTab == SampleTabs.SampleTab2,
+                        text = {
+                            Text("Tab 2")
+                        },
+                        onClick = { selectedTab = SampleTabs.SampleTab2 },
                     )
                 }
+                when (selectedTab) {
+                    SampleTabs.SampleTab1 -> {
+                        Text(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .wrapContentSize(),
+                            text = "This is the content of the first tab 🎉",
+                        )
+                    }
 
-                SampleTabs.SampleTab2 -> {
-                    Text(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .wrapContentSize(),
-                        text = "This is the content of the second tab 😎",
-                    )
+                    SampleTabs.SampleTab2 -> {
+                        Text(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .wrapContentSize(),
+                            text = "This is the content of the second tab 😎",
+                        )
+                    }
                 }
             }
         }

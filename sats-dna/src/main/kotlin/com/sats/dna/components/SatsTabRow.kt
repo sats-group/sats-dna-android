@@ -1,7 +1,7 @@
 package com.sats.dna.components
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.TabRowDefaults
@@ -13,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import androidx.compose.ui.unit.dp
 import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.theme.SatsTheme
 
@@ -26,14 +27,20 @@ fun SatsTabRow(
         TabRow(
             selectedTabIndex = selectedTabIndex,
             containerColor = Color.Transparent,
-            contentColor = LocalContentColor.current,
             indicator = { tabPositions ->
                 if (selectedTabIndex < tabPositions.size) {
                     TabRowDefaults.SecondaryIndicator(
                         modifier = Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex]),
-                        color = SatsTheme.colors.graphicalElements.indicators.neutral.default,
+                        height = 4.dp,
+                        color = SatsTheme.colors.graphicalElements.selector.secondary.selected.default.bg,
                     )
                 }
+            },
+            divider = {
+                HorizontalDivider(
+                    color = SatsTheme.colors.graphicalElements.selector.secondary.unselected.default.outline,
+                    thickness = 2.dp,
+                )
             },
             modifier = modifier,
         ) {
@@ -50,8 +57,6 @@ fun SatsTab(
     enabled: Boolean = true,
     text: @Composable (() -> Unit)? = null,
     icon: @Composable (() -> Unit)? = null,
-    selectedContentColor: Color = LocalContentColor.current,
-    unselectedContentColor: Color = selectedContentColor,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     Tab(
@@ -61,8 +66,8 @@ fun SatsTab(
         enabled = enabled,
         text = text,
         icon = icon,
-        selectedContentColor = selectedContentColor,
-        unselectedContentColor = unselectedContentColor,
+        selectedContentColor = SatsTheme.colors.backgrounds.primary.default.fg,
+        unselectedContentColor = SatsTheme.colors.backgrounds.primary.default.fgAlternate,
         interactionSource = interactionSource,
     )
 }
