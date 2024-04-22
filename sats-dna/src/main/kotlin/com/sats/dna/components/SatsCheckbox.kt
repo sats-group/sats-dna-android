@@ -66,10 +66,10 @@ private val primaryColors: CheckboxColors
 
         return CheckboxDefaults.colors(
             checkedColor = primary.selected.default.bg,
-            uncheckedColor = primary.unselected.default.bg,
+            uncheckedColor = primary.unselected.default.outline,
             disabledCheckedColor = primary.selected.disabled.bg,
             disabledIndeterminateColor = primary.selected.disabled.bg,
-            disabledUncheckedColor = primary.unselected.disabled.bg,
+            disabledUncheckedColor = primary.unselected.disabled.outline,
             checkmarkColor = primary.selected.default.fg,
         )
     }
@@ -80,10 +80,10 @@ private val secondaryColors: CheckboxColors
 
         return CheckboxDefaults.colors(
             checkedColor = secondary.selected.default.bg,
-            uncheckedColor = secondary.unselected.default.bg,
+            uncheckedColor = secondary.unselected.default.outline,
             disabledCheckedColor = secondary.selected.disabled.bg,
             disabledIndeterminateColor = secondary.selected.disabled.bg,
-            disabledUncheckedColor = secondary.unselected.disabled.bg,
+            disabledUncheckedColor = secondary.unselected.disabled.outline,
             checkmarkColor = secondary.selected.default.fg,
         )
     }
@@ -94,10 +94,10 @@ private val fixedColors: CheckboxColors
 
         return CheckboxDefaults.colors(
             checkedColor = selectorFixed.selected.default.bg,
-            uncheckedColor = selectorFixed.unselected.default.bg,
+            uncheckedColor = selectorFixed.unselected.default.outline,
             disabledCheckedColor = selectorFixed.selected.disabled.bg,
             disabledIndeterminateColor = selectorFixed.selected.disabled.bg,
-            disabledUncheckedColor = selectorFixed.unselected.disabled.bg,
+            disabledUncheckedColor = selectorFixed.unselected.disabled.outline,
             checkmarkColor = selectorFixed.selected.default.fg,
         )
     }

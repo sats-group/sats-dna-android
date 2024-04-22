@@ -24,9 +24,9 @@ private val colors: RadioButtonColors
 
         return RadioButtonDefaults.colors(
             selectedColor = primary.selected.default.bg,
-            unselectedColor = primary.unselected.default.bg,
+            unselectedColor = primary.unselected.default.outline,
             disabledSelectedColor = primary.selected.disabled.bg,
-            disabledUnselectedColor = primary.unselected.disabled.bg,
+            disabledUnselectedColor = primary.unselected.disabled.outline,
         )
     }
 
