@@ -1,7 +1,7 @@
 package com.sats.dna.icons
 
-import androidx.compose.material.Icon
 import androidx.compose.material.icons.materialIcon
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
