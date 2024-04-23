@@ -4,6 +4,7 @@ import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -11,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.button.SatsButtonSize
-import com.sats.dna.internal.MaterialIcon
 
 @Composable
 internal fun SatsIconButtonContent(
@@ -40,7 +40,7 @@ internal fun SatsIconButtonContent(
 
         when (actualContent) {
             is SatsIconButtonContent.Icon -> {
-                MaterialIcon(
+                Icon(
                     imageVector = icon,
                     contentDescription = null,
                     modifier = Modifier.size(contentSize),

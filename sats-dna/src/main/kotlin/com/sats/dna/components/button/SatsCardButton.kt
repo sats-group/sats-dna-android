@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,7 +27,6 @@ import com.sats.dna.icons.Add
 import com.sats.dna.icons.ArrowRight
 import com.sats.dna.icons.Calendar
 import com.sats.dna.icons.Time
-import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -49,7 +49,7 @@ fun SatsCardButton(
                     horizontal = SatsTheme.spacing.m,
                 ),
         ) {
-            MaterialIcon(icon, null, tint = SatsTheme.colors.buttons.action.default.fg)
+            Icon(icon, null, tint = SatsTheme.colors.buttons.action.default.fg)
             Text(text, color = SatsTheme.colors.buttons.action.default.fg)
         }
     }
@@ -73,7 +73,7 @@ fun SatsNavigationCardButton(
                 ),
         ) {
             Text(text, color = SatsTheme.colors.buttons.action.default.fg)
-            MaterialIcon(SatsIcons.ArrowRight, null, tint = SatsTheme.colors.buttons.action.default.fg)
+            Icon(SatsIcons.ArrowRight, null, tint = SatsTheme.colors.buttons.action.default.fg)
         }
     }
 }

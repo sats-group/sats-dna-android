@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -19,7 +20,6 @@ import com.sats.dna.SatsIcons
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.icons.Barbell
-import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -72,7 +72,7 @@ fun SatsEmptyState(
         verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        MaterialIcon(
+        Icon(
             imageVector = icon,
             contentDescription = null,
             modifier = Modifier.size(36.dp),

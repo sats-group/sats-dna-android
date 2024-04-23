@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,7 +24,6 @@ import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.icons.Close
-import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
 
 /**
@@ -123,7 +123,7 @@ private fun LeadingIcon(leadingIcon: SatsProteinBarLeadingIcon, modifier: Modifi
             }
 
             is SatsProteinBarLeadingIcon.Icon -> {
-                MaterialIcon(leadingIcon.painter, contentDescription = null, Modifier.size(18.dp))
+                Icon(leadingIcon.painter, contentDescription = null, Modifier.size(18.dp))
             }
         }
     }
