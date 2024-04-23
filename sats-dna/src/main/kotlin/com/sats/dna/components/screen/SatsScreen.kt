@@ -13,12 +13,10 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.SnackbarVisuals
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.dp
-import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.components.proteinbar.SatsProteinBar
 import com.sats.dna.components.proteinbar.SatsProteinBarAction
 import com.sats.dna.components.proteinbar.SatsProteinBarVisuals
@@ -40,32 +38,30 @@ fun SatsScreen(
     contentPadding: PaddingValues = PaddingValues(0.dp),
     content: @Composable (contentPadding: PaddingValues) -> Unit,
 ) {
-    CompositionLocalProvider(LocalUseMaterial3 provides true) {
-        Scaffold(
-            modifier = modifier,
-            topBar = topBar,
-            bottomBar = bottomBar,
-            containerColor = SatsTheme.colors.backgrounds.primary.default.bg,
-            contentColor = SatsTheme.colors.backgrounds.primary.default.fg,
-            snackbarHost = {
-                SatsProteinBarHost(
-                    proteinBarHostState,
-                    Modifier.padding(proteinBarPadding),
-                )
-            },
-            floatingActionButton = floatingActionButton,
-        ) { scaffoldContentPadding ->
-            val screenContentPadding = PaddingValues(
-                start = scaffoldContentPadding.calculateStartPadding(LocalLayoutDirection.current) +
-                    contentPadding.calculateStartPadding(LocalLayoutDirection.current),
-                top = scaffoldContentPadding.calculateTopPadding() + contentPadding.calculateTopPadding(),
-                end = scaffoldContentPadding.calculateEndPadding(LocalLayoutDirection.current) +
-                    contentPadding.calculateEndPadding(LocalLayoutDirection.current),
-                bottom = scaffoldContentPadding.calculateBottomPadding() + contentPadding.calculateBottomPadding(),
+    Scaffold(
+        modifier = modifier,
+        topBar = topBar,
+        bottomBar = bottomBar,
+        containerColor = SatsTheme.colors.backgrounds.primary.default.bg,
+        contentColor = SatsTheme.colors.backgrounds.primary.default.fg,
+        snackbarHost = {
+            SatsProteinBarHost(
+                proteinBarHostState,
+                Modifier.padding(proteinBarPadding),
             )
+        },
+        floatingActionButton = floatingActionButton,
+    ) { scaffoldContentPadding ->
+        val screenContentPadding = PaddingValues(
+            start = scaffoldContentPadding.calculateStartPadding(LocalLayoutDirection.current) +
+                contentPadding.calculateStartPadding(LocalLayoutDirection.current),
+            top = scaffoldContentPadding.calculateTopPadding() + contentPadding.calculateTopPadding(),
+            end = scaffoldContentPadding.calculateEndPadding(LocalLayoutDirection.current) +
+                contentPadding.calculateEndPadding(LocalLayoutDirection.current),
+            bottom = scaffoldContentPadding.calculateBottomPadding() + contentPadding.calculateBottomPadding(),
+        )
 
-            content(screenContentPadding)
-        }
+        content(screenContentPadding)
     }
 }
 

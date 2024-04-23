@@ -8,14 +8,12 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.SatsIcons
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.card.SatsCard
@@ -30,18 +28,16 @@ fun SatsEmptyStateCard(
     action: SatsEmptyStateAction?,
     modifier: Modifier = Modifier,
 ) {
-    CompositionLocalProvider(LocalUseMaterial3 provides true) {
-        SatsCard(modifier) {
-            SatsEmptyState(
-                icon = icon,
-                title = title,
-                body = body,
-                action = action,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(SatsTheme.spacing.m),
-            )
-        }
+    SatsCard(modifier) {
+        SatsEmptyState(
+            icon = icon,
+            title = title,
+            body = body,
+            action = action,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(SatsTheme.spacing.m),
+        )
     }
 }
 

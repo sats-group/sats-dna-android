@@ -8,13 +8,11 @@ import androidx.compose.material3.TabRowDefaults
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -23,29 +21,27 @@ fun SatsTabRow(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit,
 ) {
-    CompositionLocalProvider(LocalUseMaterial3 provides true) {
-        TabRow(
-            selectedTabIndex = selectedTabIndex,
-            containerColor = Color.Transparent,
-            indicator = { tabPositions ->
-                if (selectedTabIndex < tabPositions.size) {
-                    TabRowDefaults.SecondaryIndicator(
-                        modifier = Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex]),
-                        height = 4.dp,
-                        color = SatsTheme.colors.graphicalElements.selector.secondary.selected.default.bg,
-                    )
-                }
-            },
-            divider = {
-                HorizontalDivider(
-                    color = SatsTheme.colors.graphicalElements.selector.secondary.unselected.default.outline,
-                    thickness = 2.dp,
+    TabRow(
+        selectedTabIndex = selectedTabIndex,
+        containerColor = Color.Transparent,
+        indicator = { tabPositions ->
+            if (selectedTabIndex < tabPositions.size) {
+                TabRowDefaults.SecondaryIndicator(
+                    modifier = Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex]),
+                    height = 4.dp,
+                    color = SatsTheme.colors.graphicalElements.selector.secondary.selected.default.bg,
                 )
-            },
-            modifier = modifier,
-        ) {
-            content()
-        }
+            }
+        },
+        divider = {
+            HorizontalDivider(
+                color = SatsTheme.colors.graphicalElements.selector.secondary.unselected.default.outline,
+                thickness = 2.dp,
+            )
+        },
+        modifier = modifier,
+    ) {
+        content()
     }
 }
 

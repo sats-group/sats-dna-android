@@ -11,11 +11,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.SatsIcons
 import com.sats.dna.components.appbar.SatsLargeTopAppBar
 import com.sats.dna.components.appbar.SatsTopAppBar
@@ -43,16 +41,6 @@ private fun TopAppBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifie
                 .padding(SatsTheme.spacing.m),
             verticalArrangement = Arrangement.Absolute.spacedBy(SatsTheme.spacing.l),
         ) {
-            Section("Material 2") {
-                CompositionLocalProvider(LocalUseMaterial3 provides false) {
-                    SatsTopAppBar(
-                        title = { Text("M2 Top App Bar") },
-                        navigationIcon = { UpIconButton() },
-                        actions = { Actions() },
-                    )
-                }
-            }
-
             Section("Material 3 Regular") {
                 SatsTopAppBar(
                     title = "M3 Top App Bar",
