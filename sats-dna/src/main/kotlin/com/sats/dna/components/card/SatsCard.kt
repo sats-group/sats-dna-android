@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
@@ -16,7 +17,6 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.R
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -51,12 +51,12 @@ private fun Material3Preview() {
                         )
 
                         Column(Modifier.padding(SatsTheme.spacing.m), Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
-                            MaterialText(
+                            Text(
                                 text = "Material 3",
                                 style = SatsTheme.typography.medium.large,
                             )
 
-                            MaterialText(
+                            Text(
                                 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                             )
                         }
@@ -85,12 +85,12 @@ private fun Material2Preview() {
                         )
 
                         Column(Modifier.padding(SatsTheme.spacing.m), Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
-                            MaterialText(
+                            Text(
                                 text = "Material 2",
                                 style = SatsTheme.typography.medium.large,
                             )
 
-                            MaterialText(
+                            Text(
                                 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                             )
                         }

@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -22,7 +23,6 @@ import com.sats.dna.components.button.SatsTwoOptionsInCardCardButton
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.icons.Calendar
 import com.sats.dna.icons.Time
-import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -104,7 +104,7 @@ private fun ScheduledDays(
     ) {
         days.keys.forEach { dayName ->
             Column(verticalArrangement = spacedBy(SatsTheme.spacing.s - clickableVerticalPadding)) {
-                MaterialText(
+                Text(
                     text = dayName,
                     modifier = Modifier.padding(horizontal = cardInnerPadding),
                     color = SatsTheme.colors.surfaces.primary.default.fgAlternate,

@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,7 +22,6 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.SatsIcons
 import com.sats.dna.icons.Close
 import com.sats.dna.internal.MaterialIcon
-import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -78,7 +78,7 @@ fun SatsFilterChip(
         borderColor = borderColor.value,
         modifier = modifier,
     ) {
-        MaterialText(
+        Text(
             text = text,
             modifier = Modifier
                 .clickable(
@@ -111,7 +111,7 @@ fun SatsInputChip(
             horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            MaterialText(
+            Text(
                 text = text,
                 modifier = Modifier.weight(1f),
                 maxLines = 1,

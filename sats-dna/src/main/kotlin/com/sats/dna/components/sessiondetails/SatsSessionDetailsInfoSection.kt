@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
@@ -26,7 +27,6 @@ import com.sats.dna.icons.Location
 import com.sats.dna.icons.Pt
 import com.sats.dna.icons.Time
 import com.sats.dna.internal.MaterialIcon
-import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 /**
@@ -111,7 +111,7 @@ fun SatsSessionDetailsInfoLabel(
 
         CompositionLocalProvider(LocalContentColor provides contentColor) {
             MaterialIcon(icon, contentDescription = null, Modifier.size(20.dp))
-            MaterialText(text)
+            Text(text)
         }
     }
 }

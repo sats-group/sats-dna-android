@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -28,7 +29,6 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.SatsWorkoutTypeColorIndicator
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
-import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 /**
@@ -46,7 +46,7 @@ fun SatsUpcomingWorkoutDaySection(
 ) {
     Column(modifier) {
         SatsSurface(Modifier.fillMaxWidth(), elevation = 1.dp) {
-            MaterialText(
+            Text(
                 text = day,
                 modifier = Modifier.padding(
                     vertical = SatsTheme.spacing.s,
@@ -154,7 +154,7 @@ fun SatsUpcomingWorkoutAttendingFriendsLabel(
             memberImages()
         }
 
-        MaterialText(friendsAttendingLabel)
+        Text(friendsAttendingLabel)
     }
 }
 
