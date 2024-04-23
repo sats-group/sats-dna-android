@@ -65,8 +65,8 @@ fun SatsFilterChip(
             true -> Color.Transparent
 
             false -> when (isEnabled) {
-                true -> SatsTheme.colors.graphicalElements.chips.unselected.default.bg
-                false -> SatsTheme.colors.graphicalElements.chips.unselected.disabled.fg
+                true -> SatsTheme.colors.graphicalElements.chips.unselected.default.outline
+                false -> SatsTheme.colors.graphicalElements.chips.unselected.disabled.outline
             }
         },
         label = "border color",
