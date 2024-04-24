@@ -11,14 +11,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import coil.compose.AsyncImage
-import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.components.SatsTag
 import com.sats.dna.components.SatsTagColor
 import com.sats.dna.components.button.SatsButtonColor
@@ -37,38 +35,36 @@ fun SatsArticleCard(
     tag: @Composable (() -> Unit?)? = null,
     dismissButton: @Composable (() -> Unit?)? = null,
 ) {
-    CompositionLocalProvider(LocalUseMaterial3 provides true) {
-        SatsCard(modifier) {
-            Column(Modifier.clickable { onClick() }) {
-                Box {
-                    HeroImage(imageUrl)
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        tag?.let {
-                            Box(Modifier.padding(SatsTheme.spacing.s)) {
-                                tag()
-                            }
+    SatsCard(modifier) {
+        Column(Modifier.clickable { onClick() }) {
+            Box {
+                HeroImage(imageUrl)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    tag?.let {
+                        Box(Modifier.padding(SatsTheme.spacing.s)) {
+                            tag()
                         }
+                    }
 
-                        Spacer(Modifier.weight(1f))
+                    Spacer(Modifier.weight(1f))
 
-                        dismissButton?.let {
-                            dismissButton()
-                        }
+                    dismissButton?.let {
+                        dismissButton()
                     }
                 }
+            }
 
-                Column(
-                    Modifier.padding(horizontal = SatsTheme.spacing.m, vertical = SatsTheme.spacing.s),
-                    verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs),
-                ) {
-                    Text(title, style = SatsTheme.typography.satsHeadlineEmphasis.large)
+            Column(
+                Modifier.padding(horizontal = SatsTheme.spacing.m, vertical = SatsTheme.spacing.s),
+                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs),
+            ) {
+                Text(title, style = SatsTheme.typography.satsHeadlineEmphasis.large)
 
-                    if (subtitle != null) {
-                        Text(subtitle, style = SatsTheme.typography.normal.basic)
-                    }
+                if (subtitle != null) {
+                    Text(subtitle, style = SatsTheme.typography.normal.basic)
                 }
             }
         }

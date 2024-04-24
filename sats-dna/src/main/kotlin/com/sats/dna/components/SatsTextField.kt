@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.ZeroCornerSize
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
@@ -11,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -57,7 +57,7 @@ private fun SatsTextFieldEnabledPreview() {
             SatsTextField(
                 value = "Text",
                 onValueChange = { },
-                supportingText = { MaterialText("This is a hint text for the user.") },
+                supportingText = { Text("This is a hint text for the user.") },
                 modifier = Modifier.padding(SatsTheme.spacing.m),
             )
         }
@@ -72,7 +72,7 @@ private fun SatsTextFieldDisabledPreview() {
             SatsTextField(
                 value = "Text",
                 onValueChange = { },
-                supportingText = { MaterialText("This is a hint text for the user.") },
+                supportingText = { Text("This is a hint text for the user.") },
                 enabled = false,
                 modifier = Modifier.padding(SatsTheme.spacing.m),
             )

@@ -6,13 +6,13 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -154,7 +154,7 @@ private fun SatsOutlinedTextFieldEnabledPreview() {
             SatsOutlinedTextField(
                 value = "Text",
                 onValueChange = { },
-                supportingText = { MaterialText("This is a hint text for the user.") },
+                supportingText = { Text("This is a hint text for the user.") },
                 modifier = Modifier.padding(SatsTheme.spacing.m),
             )
         }
@@ -169,7 +169,7 @@ private fun SatsOutlinedTextFieldDisabledPreview() {
             SatsOutlinedTextField(
                 value = "Text",
                 onValueChange = { },
-                supportingText = { MaterialText("This is a hint text for the user.") },
+                supportingText = { Text("This is a hint text for the user.") },
                 enabled = false,
                 modifier = Modifier.padding(SatsTheme.spacing.m),
             )

@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,8 +24,6 @@ import com.sats.dna.components.upcomingworkouts.SatsWorkoutType
 import com.sats.dna.icons.ArrowRight
 import com.sats.dna.icons.Comment
 import com.sats.dna.icons.Fistbump
-import com.sats.dna.internal.MaterialIcon
-import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 /**
@@ -68,7 +68,7 @@ fun SatsCompletedWorkoutListItem(
         Column(Modifier.weight(1f), spacedBy(SatsTheme.spacing.m)) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                 WorkoutInfo(timestamp, title, location)
-                MaterialIcon(SatsIcons.ArrowRight, contentDescription = null)
+                Icon(SatsIcons.ArrowRight, contentDescription = null)
             }
 
             SocialRow(
@@ -97,13 +97,13 @@ private fun SocialRow(
                 horizontalArrangement = spacedBy(SatsTheme.spacing.xs),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                MaterialIcon(
+                Icon(
                     SatsIcons.Fistbump,
                     contentDescription = null,
                     tint = SatsTheme.colors.backgrounds.secondary.default.fg,
                 )
 
-                MaterialText(numberOfReactionsLabel, color = SatsTheme.colors.backgrounds.secondary.default.fg)
+                Text(numberOfReactionsLabel, color = SatsTheme.colors.backgrounds.secondary.default.fg)
             }
         }
 
@@ -117,13 +117,13 @@ private fun SocialRow(
 
         Row(verticalAlignment = Alignment.CenterVertically) {
             Row(Modifier, spacedBy(SatsTheme.spacing.xs), Alignment.CenterVertically) {
-                MaterialIcon(
+                Icon(
                     SatsIcons.Comment,
                     contentDescription = null,
                     tint = SatsTheme.colors.buttons.action.default.fg,
                 )
 
-                MaterialText(normalizedNumberOfComments, color = SatsTheme.colors.backgrounds.secondary.default.fg)
+                Text(normalizedNumberOfComments, color = SatsTheme.colors.backgrounds.secondary.default.fg)
             }
 
             SatsLikeButton(
@@ -143,16 +143,16 @@ private fun WorkoutInfo(
     modifier: Modifier = Modifier,
 ) {
     Column(modifier) {
-        MaterialText(
+        Text(
             timestamp,
             color = SatsTheme.colors.backgrounds.secondary.default.fg,
             style = SatsTheme.typography.normal.small,
         )
 
-        MaterialText(title)
+        Text(title)
 
         if (subtitle != null) {
-            MaterialText(
+            Text(
                 subtitle,
                 color = SatsTheme.colors.backgrounds.secondary.default.fg,
                 style = SatsTheme.typography.normal.small,

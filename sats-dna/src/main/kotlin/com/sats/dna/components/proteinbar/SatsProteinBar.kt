@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,8 +24,6 @@ import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.icons.Close
-import com.sats.dna.internal.MaterialIcon
-import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 /**
@@ -119,11 +119,11 @@ private fun LeadingIcon(leadingIcon: SatsProteinBarLeadingIcon, modifier: Modifi
             is SatsProteinBarLeadingIcon.None -> Unit
 
             is SatsProteinBarLeadingIcon.Emoji -> {
-                MaterialText(leadingIcon.text, Modifier.clearAndSetSemantics { })
+                Text(leadingIcon.text, Modifier.clearAndSetSemantics { })
             }
 
             is SatsProteinBarLeadingIcon.Icon -> {
-                MaterialIcon(leadingIcon.painter, contentDescription = null, Modifier.size(18.dp))
+                Icon(leadingIcon.painter, contentDescription = null, Modifier.size(18.dp))
             }
         }
     }
@@ -133,14 +133,14 @@ private fun LeadingIcon(leadingIcon: SatsProteinBarLeadingIcon, modifier: Modifi
 private fun TitleAndMessage(visuals: SatsProteinBarVisuals, modifier: Modifier = Modifier) {
     Column(modifier, verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
         if (visuals.title != null) {
-            MaterialText(
+            Text(
                 text = visuals.title,
                 style = SatsTheme.typography.emphasis.basic,
                 color = visuals.colors.titleColor,
             )
         }
 
-        MaterialText(
+        Text(
             text = visuals.message,
             maxLines = 3,
             overflow = TextOverflow.Ellipsis,

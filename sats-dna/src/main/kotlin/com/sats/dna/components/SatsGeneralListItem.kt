@@ -7,6 +7,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Alignment
@@ -19,9 +22,6 @@ import com.sats.dna.SatsIcons
 import com.sats.dna.icons.ArrowRight
 import com.sats.dna.icons.Info
 import com.sats.dna.icons.Question
-import com.sats.dna.internal.MaterialIcon
-import com.sats.dna.internal.MaterialText
-import com.sats.dna.internal.materialIconTint
 import com.sats.dna.theme.SatsTheme
 
 /**
@@ -49,7 +49,7 @@ fun SatsGeneralListItem(
             ),
     ) {
         icon?.let {
-            MaterialIcon(
+            Icon(
                 it,
                 null,
                 tint = colors.iconColor,
@@ -57,9 +57,9 @@ fun SatsGeneralListItem(
             )
         }
         Column(Modifier.weight(1f)) {
-            MaterialText(title, color = colors.titleColor)
+            Text(title, color = colors.titleColor)
             subtitle?.let {
-                MaterialText(it, color = colors.subtitleColor)
+                Text(it, color = colors.subtitleColor)
             }
         }
         trailingContent?.let {
@@ -72,23 +72,23 @@ object TrailingContent {
     @Composable
     fun Icon(
         icon: ImageVector,
-        tint: Color = materialIconTint(),
+        tint: Color = LocalContentColor.current,
     ) {
-        MaterialIcon(icon, null, tint = tint, modifier = Modifier.size(18.dp))
+        Icon(icon, null, tint = tint, modifier = Modifier.size(18.dp))
     }
 
     @Composable
     fun TextAndIcon(
         text: String,
         icon: ImageVector,
-        tint: Color = materialIconTint(),
+        tint: Color = LocalContentColor.current,
     ) {
         Row(
             horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            MaterialText(text, color = tint)
-            MaterialIcon(icon, null, tint = tint, modifier = Modifier.size(18.dp))
+            Text(text, color = tint)
+            Icon(icon, null, tint = tint, modifier = Modifier.size(18.dp))
         }
     }
 

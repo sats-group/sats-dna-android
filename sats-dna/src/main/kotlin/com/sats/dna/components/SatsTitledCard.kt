@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,7 +19,6 @@ import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.icons.ArrowRight
-import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -62,7 +62,7 @@ private fun CardHeader(title: String, action: SatsTitledCardAction?, modifier: M
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        MaterialText(
+        Text(
             text = title,
             style = SatsTheme.typography.satsHeadlineEmphasis.large,
             color = SatsColorPrimitives.SatsCoral100,

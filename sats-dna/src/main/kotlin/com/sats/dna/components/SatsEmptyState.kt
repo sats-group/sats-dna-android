@@ -5,21 +5,19 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.sats.dna.LocalUseMaterial3
 import com.sats.dna.SatsIcons
 import com.sats.dna.components.button.SatsButton
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.icons.Barbell
-import com.sats.dna.internal.MaterialIcon
-import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -30,18 +28,16 @@ fun SatsEmptyStateCard(
     action: SatsEmptyStateAction?,
     modifier: Modifier = Modifier,
 ) {
-    CompositionLocalProvider(LocalUseMaterial3 provides true) {
-        SatsCard(modifier) {
-            SatsEmptyState(
-                icon = icon,
-                title = title,
-                body = body,
-                action = action,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(SatsTheme.spacing.m),
-            )
-        }
+    SatsCard(modifier) {
+        SatsEmptyState(
+            icon = icon,
+            title = title,
+            body = body,
+            action = action,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(SatsTheme.spacing.m),
+        )
     }
 }
 
@@ -72,7 +68,7 @@ fun SatsEmptyState(
         verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        MaterialIcon(
+        Icon(
             imageVector = icon,
             contentDescription = null,
             modifier = Modifier.size(36.dp),
@@ -83,10 +79,10 @@ fun SatsEmptyState(
             verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xs),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            MaterialText(title, textAlign = TextAlign.Center)
+            Text(title, textAlign = TextAlign.Center)
 
             if (body != null) {
-                MaterialText(
+                Text(
                     text = body,
                     color = SatsTheme.colors.surfaces.primary.default.fgAlternate,
                     textAlign = TextAlign.Center,

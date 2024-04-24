@@ -2,11 +2,11 @@ package com.sats.dna.components.upcomingworkouts
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -16,12 +16,12 @@ internal fun TimeAndDuration(
     modifier: Modifier = Modifier,
 ) {
     Column(modifier) {
-        MaterialText(
+        Text(
             text = time,
             style = SatsTheme.typography.medium.basic,
         )
 
-        MaterialText(
+        Text(
             text = duration,
             style = SatsTheme.typography.normal.small,
             color = SatsTheme.colors.backgrounds.primary.default.fgAlternate,
@@ -39,13 +39,13 @@ internal fun WorkoutInfo(
     waitingListStatus: SatsWaitingListStatus? = null,
 ) {
     Column(modifier) {
-        MaterialText(
+        Text(
             text = name,
             style = SatsTheme.typography.medium.basic,
         )
 
         location?.let { location ->
-            MaterialText(
+            Text(
                 text = location,
                 style = SatsTheme.typography.normal.small,
                 color = SatsTheme.colors.backgrounds.primary.default.fgAlternate,
@@ -53,7 +53,7 @@ internal fun WorkoutInfo(
         }
 
         instructor?.let { instructor ->
-            MaterialText(
+            Text(
                 text = instructor,
                 style = SatsTheme.typography.normal.small,
                 color = SatsTheme.colors.backgrounds.primary.default.fgAlternate,
@@ -61,7 +61,7 @@ internal fun WorkoutInfo(
         }
 
         workoutType?.let { workoutType ->
-            MaterialText(
+            Text(
                 text = workoutType,
                 style = SatsTheme.typography.normal.small,
                 color = SatsTheme.colors.backgrounds.primary.default.fgAlternate,
@@ -81,7 +81,7 @@ private fun WaitingListStatus(status: SatsWaitingListStatus) {
         is SatsWaitingListStatus.SpotSecured -> SatsTheme.colors.surfaces.primary.default.fgSuccess
     }
 
-    MaterialText(
+    Text(
         text = status.text,
         color = color,
         style = SatsTheme.typography.normal.small,
@@ -89,7 +89,7 @@ private fun WaitingListStatus(status: SatsWaitingListStatus) {
 
     if (status is SatsWaitingListStatus.SpotSecured) {
         status.waitingListText?.let {
-            MaterialText(
+            Text(
                 text = status.waitingListText,
                 color = SatsTheme.colors.surfaces.primary.default.fgWaitingList,
                 style = SatsTheme.typography.normal.small,

@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Alignment
@@ -26,7 +27,6 @@ import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.icons.ArrowRight
-import com.sats.dna.internal.MaterialText
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -66,7 +66,7 @@ private fun SectionHeader(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        MaterialText(title, style = SatsTheme.typography.medium.large)
+        Text(title, style = SatsTheme.typography.medium.large)
 
         when (action) {
             is SatsTitledSectionAction.Chevron -> ChevronAction(action)

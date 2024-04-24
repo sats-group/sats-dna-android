@@ -1,6 +1,8 @@
 package com.sats.dna.components
 
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -11,8 +13,6 @@ import com.sats.dna.R
 import com.sats.dna.SatsIcons
 import com.sats.dna.icons.Elixia
 import com.sats.dna.icons.Sats
-import com.sats.dna.internal.MaterialIcon
-import com.sats.dna.internal.materialIconTint
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -21,11 +21,11 @@ fun SatsBrandLogo(
     contentDescription: String?,
     modifier: Modifier = Modifier,
     isFullName: Boolean = false,
-    tint: Color = materialIconTint(),
+    tint: Color = LocalContentColor.current,
 ) {
     val imageVector = if (isFullName) brand.fullNameIconPainter() else brand.letterIconPainter()
 
-    MaterialIcon(
+    Icon(
         imageVector = imageVector,
         contentDescription = contentDescription,
         modifier = modifier,

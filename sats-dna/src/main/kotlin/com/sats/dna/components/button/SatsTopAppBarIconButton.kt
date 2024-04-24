@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,7 +22,6 @@ import com.sats.dna.icons.Back
 import com.sats.dna.icons.BellCherry
 import com.sats.dna.icons.Cherry
 import com.sats.dna.icons.Notifications
-import com.sats.dna.internal.MaterialIcon
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -39,7 +39,7 @@ fun SatsTopAppBarIconButton(
         modifier = modifier,
         isEnabled = isEnabled,
     ) {
-        MaterialIcon(
+        Icon(
             imageVector = icon,
             contentDescription = null,
             modifier = Modifier.size(22.dp),
@@ -66,21 +66,21 @@ fun SatsBellIconButton(
         val iconContentSize = iconButtonContentSize(SatsButtonSize.Basic)
 
         if (showCherry) {
-            MaterialIcon(
+            Icon(
                 imageVector = SatsIcons.BellCherry,
                 contentDescription = null,
                 modifier = Modifier.size(iconContentSize),
                 tint = contentColor,
             )
 
-            MaterialIcon(
+            Icon(
                 imageVector = SatsIcons.Cherry,
                 contentDescription = null,
                 modifier = Modifier.size(iconContentSize),
                 tint = SatsTheme.colors.buttons.action.default.fg,
             )
         } else {
-            MaterialIcon(
+            Icon(
                 imageVector = SatsIcons.Notifications,
                 contentDescription = null,
                 modifier = Modifier.size(iconContentSize),
