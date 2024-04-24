@@ -451,7 +451,7 @@ private const val AppBarExpandedAspectRatio = 1920f / 1080
 @Composable
 private fun SatsFancyTopAppBarExpandedPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             val coroutineScope = rememberCoroutineScope()
             val scrollConnection = rememberSatsFancyTopAppBarNestedScrollConnection()
                 .also { coroutineScope.launch { it.expand(animate = false) } }
@@ -492,7 +492,7 @@ private fun SatsFancyTopAppBarExpandedPreview() {
 @Composable
 private fun SatsFancyTopAppBarCollapsedPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             val coroutineScope = rememberCoroutineScope()
             val scrollConnection = rememberSatsFancyTopAppBarNestedScrollConnection()
                 .also { coroutineScope.launch(start = CoroutineStart.UNDISPATCHED) { it.collapse(animate = false) } }
@@ -533,7 +533,7 @@ private fun SatsFancyTopAppBarCollapsedPreview() {
 @Composable
 private fun SatsFancyTopAppBarTestPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             val scrollConnection = rememberSatsFancyTopAppBarNestedScrollConnection()
 
             Column(Modifier.nestedScroll(scrollConnection)) {

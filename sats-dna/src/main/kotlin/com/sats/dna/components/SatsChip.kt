@@ -170,10 +170,7 @@ private fun SatsChipLayout(
 @Composable
 private fun SatsFilterChipPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             Column {
                 Row(
                     Modifier.padding(SatsTheme.spacing.m),
@@ -228,7 +225,6 @@ private fun SatsInputChipPreview() {
         SatsSurface(
             Modifier.width(250.dp),
             color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
         ) {
             Column(
                 Modifier.padding(SatsTheme.spacing.m),

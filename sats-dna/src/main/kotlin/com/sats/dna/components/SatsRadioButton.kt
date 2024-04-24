@@ -34,10 +34,7 @@ private val colors: RadioButtonColors
 @Composable
 private fun EnabledSelectedPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsRadioButton(selected = true, onClick = {})
         }
     }
@@ -47,10 +44,7 @@ private fun EnabledSelectedPreview() {
 @Composable
 private fun EnabledUnselectedPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsRadioButton(selected = false, onClick = {})
         }
     }
@@ -60,10 +54,7 @@ private fun EnabledUnselectedPreview() {
 @Composable
 private fun DisabledSelectedPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsRadioButton(selected = true, onClick = {}, enabled = false)
         }
     }
@@ -73,10 +64,7 @@ private fun DisabledSelectedPreview() {
 @Composable
 private fun DisabledUnselectedPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsRadioButton(selected = false, onClick = {}, enabled = false)
         }
     }

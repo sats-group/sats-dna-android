@@ -95,7 +95,7 @@ private const val strokeWidth = 2.73f
 @Composable
 private fun SatsAnimatedCheckIconPreview() {
     SatsTheme {
-        SatsSurface(useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsAnimatedCheckmark(
                 modifier = Modifier
                     .size(80.dp)

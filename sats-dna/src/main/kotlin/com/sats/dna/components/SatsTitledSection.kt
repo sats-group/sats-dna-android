@@ -89,11 +89,7 @@ private fun ChevronAction(action: SatsTitledSectionAction.Chevron) {
 @Composable
 private fun SatsTitledSectionPreview() {
     SatsTheme {
-        SatsSurface(
-            modifier = Modifier.fillMaxWidth(),
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(Modifier.fillMaxWidth(), color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsTitledSection("Section Title") { contentPadding ->
                 SatsCard(
                     Modifier
@@ -111,11 +107,7 @@ private fun SatsTitledSectionPreview() {
 @Composable
 private fun SatsTitledSectionWithChevronActionPreview() {
     SatsTheme {
-        SatsSurface(
-            modifier = Modifier.fillMaxWidth(),
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(Modifier.fillMaxWidth(), color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsTitledSection(
                 title = "Section Title",
                 action = SatsTitledSectionAction.Chevron(onClick = {}, onClickLabel = null),
@@ -143,11 +135,7 @@ private fun SatsTitledSectionWithChevronActionPreview() {
 @Composable
 private fun SatsTitledSectionScrollableRowPreview() {
     SatsTheme {
-        SatsSurface(
-            modifier = Modifier.fillMaxWidth(),
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(Modifier.fillMaxWidth(), color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsTitledSection("Section Title") { contentPadding ->
                 Row(
                     Modifier

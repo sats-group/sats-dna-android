@@ -102,10 +102,7 @@ private fun WaitingListStatus(status: SatsWaitingListStatus) {
 @Composable
 private fun TimeAndDurationPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             TimeAndDuration(
                 time = "9:00 PM",
                 duration = "45 min",
@@ -119,10 +116,7 @@ private fun TimeAndDurationPreview() {
 @Composable
 private fun WorkoutInfoPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             WorkoutInfo(
                 name = "Yoga Flow",
                 location = "SATS Nydalen",
@@ -139,10 +133,7 @@ private fun WorkoutInfoPreview() {
 @Composable
 private fun WorkoutInfoOnWaitingListPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             WorkoutInfo(
                 name = "Yoga Flow",
                 location = "SATS Nydalen",

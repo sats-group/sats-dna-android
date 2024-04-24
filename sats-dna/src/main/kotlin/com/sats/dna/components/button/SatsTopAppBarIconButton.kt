@@ -127,10 +127,7 @@ private fun SatsTopAppBarIconButtonLayout(
 @Composable
 private fun SatsTopAppBarIconButtonPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsTopAppBarIconButton(
                 onClick = {},
                 icon = SatsIcons.Back,
@@ -145,10 +142,7 @@ private fun SatsTopAppBarIconButtonPreview() {
 @Composable
 private fun SatsBellIconButtonNoCherryPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsBellIconButton(
                 onClick = {},
                 onClickLabel = null,
@@ -163,10 +157,7 @@ private fun SatsBellIconButtonNoCherryPreview() {
 @Composable
 private fun SatsBellIconButtonWithCherryPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsBellIconButton(
                 onClick = {},
                 onClickLabel = null,

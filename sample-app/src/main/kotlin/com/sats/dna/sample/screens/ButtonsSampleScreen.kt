@@ -375,7 +375,7 @@ private fun ControlPanel(state: ControlPanelState) {
 @Composable
 private fun ButtonsScreenPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             ButtonsScreen(navigateUp = {})
         }
     }

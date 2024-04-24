@@ -65,10 +65,7 @@ private val SatsBannerAction.composable: @Composable () -> Unit
 @Composable
 private fun SatsBannerPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsBanner(
                 modifier = Modifier.fillMaxWidth(),
                 title = "Will the real Slim Shady please stand up?",
@@ -81,10 +78,7 @@ private fun SatsBannerPreview() {
 @Composable
 private fun SatsBannerWithActionPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsBanner(
                 modifier = Modifier.fillMaxWidth(),
                 title = "Will the real Slim Shady please stand up?",

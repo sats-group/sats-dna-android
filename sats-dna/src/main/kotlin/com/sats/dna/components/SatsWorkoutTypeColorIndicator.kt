@@ -40,7 +40,7 @@ fun SatsWorkoutTypeColorIndicator(
 @Composable
 private fun SatsWorkoutTypeColorIndicatorPtPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsWorkoutTypeColorIndicator(
                 SatsWorkoutType.Pt,
                 Modifier
@@ -55,7 +55,7 @@ private fun SatsWorkoutTypeColorIndicatorPtPreview() {
 @Composable
 private fun SatsWorkoutTypeColorIndicatorGxPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsWorkoutTypeColorIndicator(
                 SatsWorkoutType.Gx,
                 Modifier
@@ -70,7 +70,7 @@ private fun SatsWorkoutTypeColorIndicatorGxPreview() {
 @Composable
 private fun SatsWorkoutTypeColorIndicatorTreatmentPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsWorkoutTypeColorIndicator(
                 SatsWorkoutType.Treatment,
                 Modifier
@@ -85,7 +85,7 @@ private fun SatsWorkoutTypeColorIndicatorTreatmentPreview() {
 @Composable
 private fun SatsWorkoutTypeColorIndicatorGymfloorPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsWorkoutTypeColorIndicator(
                 SatsWorkoutType.Gymfloor,
                 Modifier
@@ -100,7 +100,7 @@ private fun SatsWorkoutTypeColorIndicatorGymfloorPreview() {
 @Composable
 private fun SatsWorkoutTypeColorIndicatorOwnTrainingPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsWorkoutTypeColorIndicator(
                 SatsWorkoutType.OwnTraining,
                 Modifier

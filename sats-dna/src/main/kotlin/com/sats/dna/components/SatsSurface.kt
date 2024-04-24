@@ -20,7 +20,6 @@ fun SatsSurface(
     shape: Shape = RectangleShape,
     border: BorderStroke? = null,
     elevation: Dp = 0.dp,
-    useMaterial3: Boolean = true,
     content: @Composable () -> Unit,
 ) {
     Surface(

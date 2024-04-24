@@ -188,10 +188,7 @@ data class SatsWorkoutGraphCardWeek(
 @Composable
 private fun SatsWorkoutGraphCardPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsWorkoutGraphCard(
                 workoutWeeks = listOf(
                     SatsWorkoutGraphCardWeek(
@@ -250,10 +247,7 @@ private fun SatsWorkoutGraphCardPreview() {
 @Composable
 private fun SatsWorkoutGraphCardPlaceholderPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsWorkoutGraphCardPlaceholder(Modifier.padding(SatsTheme.spacing.m))
         }
     }
@@ -263,10 +257,7 @@ private fun SatsWorkoutGraphCardPlaceholderPreview() {
 @Composable
 private fun SatsEmptyWorkoutGraphCardPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsEmptyWorkoutGraphCard(
                 description = "When you start working out, you will see your statistics here.",
                 modifier = Modifier.padding(SatsTheme.spacing.m),

@@ -89,10 +89,7 @@ private val CardHeaderHeight = 48.dp
 @Composable
 private fun SatsTitledCardWithoutActionPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsTitledCard(
                 title = "Lorem ipsum",
                 modifier = Modifier.padding(SatsTheme.spacing.m),
@@ -110,10 +107,7 @@ private fun SatsTitledCardWithoutActionPreview() {
 @Composable
 private fun SatsTitledCardWithChevronActionPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsTitledCard(
                 title = "Lorem ipsum",
                 action = SatsTitledCardAction.Chevron(action = {}, contentDescription = null),

@@ -106,7 +106,7 @@ private val fixedColors: CheckboxColors
 @Composable
 private fun BooleanEnabledCheckedPrimaryPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsCheckbox(
                 checked = true,
                 onCheckedChange = null,
@@ -120,7 +120,7 @@ private fun BooleanEnabledCheckedPrimaryPreview() {
 @Composable
 private fun BooleanEnabledUncheckedPrimaryPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsCheckbox(
                 checked = false,
                 onCheckedChange = null,
@@ -134,7 +134,7 @@ private fun BooleanEnabledUncheckedPrimaryPreview() {
 @Composable
 private fun BooleanDisabledCheckedPrimaryPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsCheckbox(
                 checked = true,
                 onCheckedChange = null,
@@ -149,7 +149,7 @@ private fun BooleanDisabledCheckedPrimaryPreview() {
 @Composable
 private fun BooleanDisabledUncheckedPrimaryPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsCheckbox(
                 checked = false,
                 onCheckedChange = null,
@@ -164,7 +164,7 @@ private fun BooleanDisabledUncheckedPrimaryPreview() {
 @Composable
 private fun BooleanEnabledCheckedSecondaryPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsCheckbox(
                 colors = SatsCheckboxColors.Secondary,
                 checked = true,
@@ -179,7 +179,7 @@ private fun BooleanEnabledCheckedSecondaryPreview() {
 @Composable
 private fun BooleanEnabledUncheckedSecondaryPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsCheckbox(
                 colors = SatsCheckboxColors.Secondary,
                 checked = false,
@@ -194,7 +194,7 @@ private fun BooleanEnabledUncheckedSecondaryPreview() {
 @Composable
 private fun BooleanDisabledCheckedSecondaryPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsCheckbox(
                 colors = SatsCheckboxColors.Secondary,
                 checked = true,
@@ -210,7 +210,7 @@ private fun BooleanDisabledCheckedSecondaryPreview() {
 @Composable
 private fun BooleanDisabledUncheckedSecondaryPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsCheckbox(
                 colors = SatsCheckboxColors.Secondary,
                 checked = false,
@@ -226,10 +226,7 @@ private fun BooleanDisabledUncheckedSecondaryPreview() {
 @Composable
 private fun BooleanEnabledCheckedFixedColorsPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.fixed.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.fixed.primary.default.bg) {
             SatsCheckbox(
                 checked = true,
                 onCheckedChange = null,
@@ -244,10 +241,7 @@ private fun BooleanEnabledCheckedFixedColorsPreview() {
 @Composable
 private fun BooleanEnabledUncheckedFixedColorsPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.fixed.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.fixed.primary.default.bg) {
             SatsCheckbox(
                 checked = false,
                 onCheckedChange = null,
@@ -262,10 +256,7 @@ private fun BooleanEnabledUncheckedFixedColorsPreview() {
 @Composable
 private fun BooleanDisabledCheckedFixedColorsPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.fixed.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.fixed.primary.default.bg) {
             SatsCheckbox(
                 checked = true,
                 onCheckedChange = null,
@@ -281,10 +272,7 @@ private fun BooleanDisabledCheckedFixedColorsPreview() {
 @Composable
 private fun BooleanDisabledUncheckedFixedColorsPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.fixed.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.fixed.primary.default.bg) {
             SatsCheckbox(
                 checked = false,
                 onCheckedChange = null,
@@ -302,7 +290,7 @@ private fun TriStateEnabledDefaultPreview(
     @PreviewParameter(ToggleableStatePreviewProvider::class) state: ToggleableState,
 ) {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsTriStateCheckbox(
                 state = state,
                 onClick = null,
@@ -319,7 +307,7 @@ private fun TriStateDisabledDefaultPreview(
     @PreviewParameter(ToggleableStatePreviewProvider::class) state: ToggleableState,
 ) {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsTriStateCheckbox(
                 state = state,
                 onClick = null,
@@ -336,7 +324,7 @@ private fun TriStateEnabledDefaultSecondaryPreview(
     @PreviewParameter(ToggleableStatePreviewProvider::class) state: ToggleableState,
 ) {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsTriStateCheckbox(
                 state = state,
                 onClick = null,
@@ -353,7 +341,7 @@ private fun TriStateDisabledDefaultSecondaryPreview(
     @PreviewParameter(ToggleableStatePreviewProvider::class) state: ToggleableState,
 ) {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsTriStateCheckbox(
                 colors = SatsCheckboxColors.Secondary,
                 state = state,
@@ -371,10 +359,7 @@ private fun TriStateEnabledFixedColorPreview(
     @PreviewParameter(ToggleableStatePreviewProvider::class) state: ToggleableState,
 ) {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.fixed.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.fixed.primary.default.bg) {
             SatsTriStateCheckbox(
                 state = state,
                 onClick = null,
@@ -392,10 +377,7 @@ private fun TriStateDisabledFixedColorPreview(
     @PreviewParameter(ToggleableStatePreviewProvider::class) state: ToggleableState,
 ) {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.fixed.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.fixed.primary.default.bg) {
             SatsTriStateCheckbox(
                 state = state,
                 onClick = null,

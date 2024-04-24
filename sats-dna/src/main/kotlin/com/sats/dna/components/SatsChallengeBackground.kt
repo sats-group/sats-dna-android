@@ -21,7 +21,6 @@ fun SatsChallengeBackground(modifier: Modifier = Modifier, isEnabled: Boolean = 
             modifier
         },
         color = SatsTheme.colors.backgrounds.fixed.primary.default.bg,
-        useMaterial3 = true,
     ) {
         Box(
             Modifier.paint(

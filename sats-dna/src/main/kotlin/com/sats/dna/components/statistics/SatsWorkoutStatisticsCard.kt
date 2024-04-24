@@ -118,10 +118,7 @@ class SatsWorkoutStatisticsCardItem private constructor(
 @Composable
 private fun WorkoutStatisticsCardPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsWorkoutStatisticsCard(
                 leftItem = SatsWorkoutStatisticsCardItem(
                     label = "Last 12 months",
@@ -142,10 +139,7 @@ private fun WorkoutStatisticsCardPreview() {
 @Composable
 private fun StatisticsPlaceholderPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsWorkoutStatisticsCardPlaceholder(Modifier.padding(SatsTheme.spacing.m))
         }
     }

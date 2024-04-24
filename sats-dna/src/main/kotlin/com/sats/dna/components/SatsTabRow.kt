@@ -72,7 +72,7 @@ fun SatsTab(
 @Composable
 private fun SatsTabRowPreview() {
     SatsTheme {
-        SatsSurface(useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsTabRow(selectedTabIndex = 1) {
                 SatsTab(
                     selected = false,

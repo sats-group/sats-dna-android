@@ -151,7 +151,7 @@ internal sealed interface SatsDismissButtonContent {
 @Composable
 private fun SatsDismissButtonColorPreview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
     SatsTheme {
-        SatsSurface(color = previewBackgroundColorFor(color), useMaterial3 = true) {
+        SatsSurface(color = previewBackgroundColorFor(color)) {
             SatsDismissButton(
                 dismissLabel = "Dismiss",
                 onDismissClicked = {},
@@ -167,7 +167,7 @@ private fun SatsDismissButtonColorPreview(@PreviewParameter(SatsButtonColorProvi
 @Composable
 private fun SatsDismissButtonSizePreview(@PreviewParameter(SatsButtonSizeProvider::class) size: SatsButtonSize) {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsDismissButton(
                 modifier = Modifier.padding(SatsTheme.spacing.m),
                 dismissLabel = "Dismiss",

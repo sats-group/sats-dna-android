@@ -166,10 +166,7 @@ private fun WorkoutInfo(
 @Composable
 private fun SatsCompletedWorkoutListItemPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsCompletedWorkoutListItem(
                 timestamp = "Jul 18, 2023, 06:18",
                 title = "Gym training (M3)",
