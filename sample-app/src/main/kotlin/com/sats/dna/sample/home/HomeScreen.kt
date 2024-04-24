@@ -36,17 +36,21 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsDividerColor
 import com.sats.dna.components.SatsEmptyState
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SatsSearchBar
+import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.button.SatsButtonSize
 import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.icons.Search
+import com.sats.dna.sample.internal.trySharedBounds
 import com.sats.dna.sample.screens.ArticleCardSampleScreen
 import com.sats.dna.sample.screens.BadgeSampleScreen
 import com.sats.dna.sample.screens.BannerSampleScreen
@@ -98,7 +102,13 @@ internal fun HomeScreen(navController: NavController, modifier: Modifier = Modif
 
     SatsScreen(
         modifier = modifier.nestedScroll(topAppBarScrollBehavior.nestedScrollConnection),
-        topBar = { SatsTopAppBar("SATS DNA Sample App", scrollBehavior = topAppBarScrollBehavior) },
+        topBar = {
+            SatsTopAppBar(
+                title = "SATS DNA Sample App",
+                scrollBehavior = topAppBarScrollBehavior,
+                modifier = Modifier.trySharedBounds("top-bar"),
+            )
+        },
         bottomBar = {
             HomeScreenSearchBar(
                 Modifier
@@ -313,3 +323,13 @@ private val groups: Map<String, List<SampleScreen>> = mapOf(
         YourMostBookedSampleScreen,
     ),
 )
+
+@PreviewLightDark
+@Composable
+private fun HomeScreenPreview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
+            HomeScreen(rememberNavController())
+        }
+    }
+}
