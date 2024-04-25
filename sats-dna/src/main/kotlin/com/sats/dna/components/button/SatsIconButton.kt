@@ -48,10 +48,7 @@ fun SatsIconButton(
 @Composable
 private fun SatsIconButtonColorPreview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
     SatsTheme {
-        SatsSurface(
-            color = previewBackgroundColorFor(color),
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = previewBackgroundColorFor(color)) {
             Row {
                 SatsIconButton(
                     onClick = {},
@@ -78,7 +75,7 @@ private fun SatsIconButtonColorPreview(@PreviewParameter(SatsButtonColorProvider
 @Composable
 private fun SatsIconButtonSizePreview(@PreviewParameter(SatsButtonSizeProvider::class) size: SatsButtonSize) {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsIconButton(
                 onClick = {},
                 icon = SatsIcons.Barbell,

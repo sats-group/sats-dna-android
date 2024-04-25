@@ -75,11 +75,7 @@ private val SatsDividerColor.composeColor: Color
 @Composable
 private fun SatsHorizontalDividerPreview() {
     SatsTheme {
-        SatsSurface(
-            Modifier.size(200.dp),
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(Modifier.size(200.dp), color = SatsTheme.colors.backgrounds.primary.default.bg) {
             Column(
                 modifier = Modifier.padding(vertical = SatsTheme.spacing.m),
                 verticalArrangement = Arrangement.spacedBy(
@@ -100,11 +96,7 @@ private fun SatsHorizontalDividerPreview() {
 @Composable
 private fun SatsVerticalDividerPreview() {
     SatsTheme {
-        SatsSurface(
-            Modifier.size(200.dp),
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(Modifier.size(200.dp), color = SatsTheme.colors.backgrounds.primary.default.bg) {
             Row(
                 modifier = Modifier.padding(horizontal = SatsTheme.spacing.m),
                 horizontalArrangement = Arrangement.spacedBy(

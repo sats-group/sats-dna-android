@@ -25,7 +25,6 @@ fun SatsPill(
         modifier = modifier,
         color = SatsTheme.colors.surfaces.primary.default.bg,
         shape = SatsTheme.shapes.circle,
-        useMaterial3 = true,
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Box(
@@ -55,10 +54,7 @@ fun SatsPill(
 @Composable
 private fun SatsPillPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsPill(
                 label = "Susanne",
                 image = { SatsProfileAvatarImage(imageUrl = null) },

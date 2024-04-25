@@ -815,7 +815,7 @@ private fun SurfaceColorSamples(colorSet: SurfaceColorSet, name: String) {
 @Composable
 private fun ColorsScreenPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             ColorsScreen(navigateUp = {})
         }
     }

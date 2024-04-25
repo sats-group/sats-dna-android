@@ -45,7 +45,6 @@ private fun SurfaceScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                     .height(256.dp),
                 shape = SatsTheme.shapes.roundedCorners.medium,
                 elevation = elevation.dp,
-                useMaterial3 = true,
             ) {
                 Column(
                     Modifier

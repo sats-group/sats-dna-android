@@ -52,7 +52,7 @@ fun SatsButton(
 @Composable
 private fun SatsButtonColorPreview(@PreviewParameter(SatsButtonColorProvider::class) color: SatsButtonColor) {
     SatsTheme {
-        SatsSurface(color = previewBackgroundColorFor(color), useMaterial3 = true) {
+        SatsSurface(color = previewBackgroundColorFor(color)) {
             Column(
                 Modifier
                     .width(IntrinsicSize.Max)
@@ -82,7 +82,7 @@ private fun SatsButtonColorPreview(@PreviewParameter(SatsButtonColorProvider::cl
 @Composable
 private fun SatsButtonFontScalePreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsButton(
                 onClick = {},
                 label = "Font scale: ${LocalConfiguration.current.fontScale}x",
@@ -96,10 +96,7 @@ private fun SatsButtonFontScalePreview() {
 @Composable
 private fun SatsButtonSizePreview(@PreviewParameter(SatsButtonSizeProvider::class) size: SatsButtonSize) {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsButton(
                 onClick = {},
                 label = "Button Size: $size",

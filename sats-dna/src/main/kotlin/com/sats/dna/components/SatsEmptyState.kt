@@ -109,10 +109,7 @@ data class SatsEmptyStateAction(val action: () -> Unit, val label: String)
 @Composable
 private fun SatsEmptyStateM3Preview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsEmptyState(
                 icon = SatsIcons.Barbell,
                 title = "You don't have friends",
@@ -129,10 +126,7 @@ private fun SatsEmptyStateM3Preview() {
 @Composable
 private fun SatsEmptyStateM2Preview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = false,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsEmptyState(
                 icon = SatsIcons.Barbell,
                 title = "You don't have friends",
@@ -149,10 +143,7 @@ private fun SatsEmptyStateM2Preview() {
 @Composable
 private fun SatsEmptyStateCardPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsEmptyStateCard(
                 icon = SatsIcons.Barbell,
                 title = "You don't have friends",

@@ -62,10 +62,7 @@ object SatsShapes {
 @Composable
 private fun Preview(@PreviewParameter(SatsShapePreviewProvider::class) shape: Shape) {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             Box(
                 Modifier
                     .size(256.dp)

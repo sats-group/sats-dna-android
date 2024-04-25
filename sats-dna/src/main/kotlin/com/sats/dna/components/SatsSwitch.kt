@@ -57,10 +57,7 @@ private val colors
 @Composable
 private fun EnabledSelectedPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsSwitch(checked = true, onCheckedChange = {}, Modifier.padding(SatsTheme.spacing.m))
         }
     }
@@ -70,10 +67,7 @@ private fun EnabledSelectedPreview() {
 @Composable
 private fun EnabledUnselectedPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsSwitch(checked = false, onCheckedChange = {}, Modifier.padding(SatsTheme.spacing.m))
         }
     }
@@ -83,10 +77,7 @@ private fun EnabledUnselectedPreview() {
 @Composable
 private fun DisabledSelectedPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsSwitch(
                 checked = true,
                 onCheckedChange = {},
@@ -101,10 +92,7 @@ private fun DisabledSelectedPreview() {
 @Composable
 private fun DisabledUnselectedPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsSwitch(
                 checked = false,
                 onCheckedChange = {},

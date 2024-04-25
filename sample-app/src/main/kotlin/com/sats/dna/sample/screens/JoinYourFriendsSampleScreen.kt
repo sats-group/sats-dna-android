@@ -36,10 +36,7 @@ private fun JoinYourFriendsSampleScreen(navigateUp: () -> Unit, modifier: Modifi
 @Composable
 private fun JoinYourFriendsSampleScreenPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             JoinYourFriendsSampleScreen(navigateUp = {})
         }
     }

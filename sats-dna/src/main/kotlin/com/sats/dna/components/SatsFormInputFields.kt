@@ -243,10 +243,7 @@ private val MinSize = 48.dp
 @Composable
 private fun SatsFormTextFieldSingleLinePreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsFormTextField(
                 textFieldState = rememberTextFieldState("Lorem ipsum"),
                 label = "Sample Text",
@@ -262,10 +259,7 @@ private fun SatsFormTextFieldSingleLinePreview() {
 @Composable
 private fun SatsFormTextFieldSingleLineDurationPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsFormTextField(
                 textFieldState = rememberTextFieldState("45"),
                 label = "Duration",
@@ -286,10 +280,7 @@ private fun SatsFormTextFieldSingleLineDurationPreview() {
 @Composable
 private fun SatsFormTextFieldMultiLinePreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             val text = buildString {
                 repeat(10) {
                     append("Lorem ipsum dolor sit amet. ")
@@ -314,10 +305,7 @@ private fun SatsFormTextFieldMultiLinePreview() {
 @Composable
 private fun SatsFormInputFieldPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             var value by remember { mutableStateOf(false) }
 
             SatsFormInputField(
@@ -337,10 +325,7 @@ private fun SatsFormInputFieldPreview() {
 @Composable
 private fun SatsFormDateTimeInputFieldPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             val selectedDateTime by remember { mutableStateOf(LocalDateTime(2020, 1, 1, 12, 0)) }
 
             SatsFormDateTimeInputField(

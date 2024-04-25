@@ -102,10 +102,7 @@ object SatsTopAppBarDefaults {
 @Composable
 private fun SatsTopAppBarPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsTopAppBar(
                 modifier = Modifier.padding(SatsTheme.spacing.m),
                 navigationIcon = {

@@ -62,10 +62,7 @@ internal fun GxSessionCard(
 @Composable
 private fun GxSessionCardPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             GxSessionCard(
                 imageUrl = null,
                 title = "Indoor Running",

@@ -60,10 +60,7 @@ enum class TrafficLightColor {
 @Composable
 private fun SatsTrafficLightPreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             Column(
                 Modifier.padding(SatsTheme.spacing.m),
                 Arrangement.spacedBy(SatsTheme.spacing.m),

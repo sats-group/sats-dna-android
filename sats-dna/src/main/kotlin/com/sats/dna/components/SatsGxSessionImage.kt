@@ -30,10 +30,7 @@ fun SatsGxSessionImage(
 @Composable
 private fun SatsGxSessionImagePreview() {
     SatsTheme {
-        SatsSurface(
-            color = SatsTheme.colors.backgrounds.primary.default.bg,
-            useMaterial3 = true,
-        ) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsGxSessionImage(imageUrl = null, Modifier.padding(SatsTheme.spacing.m))
         }
     }

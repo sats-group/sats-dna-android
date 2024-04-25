@@ -50,7 +50,7 @@ private fun SatsProfileAvatarImageFallback(modifier: Modifier = Modifier) {
 @Composable
 private fun ProfileAvatarImagePlaceholderPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsProfileAvatarImagePlaceholder(Modifier.size(96.dp))
         }
     }
@@ -60,7 +60,7 @@ private fun ProfileAvatarImagePlaceholderPreview() {
 @Composable
 private fun ProfileAvatarImageFallbackPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg, useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             SatsProfileAvatarImageFallback(Modifier.size(96.dp))
         }
     }

@@ -163,7 +163,7 @@ fun SatsUpcomingWorkoutAttendingFriendsLabel(
 @Composable
 private fun SatsUpcomingWorkoutsListPreview() {
     SatsTheme {
-        SatsSurface(useMaterial3 = true) {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
             Column {
                 SatsUpcomingWorkoutDaySection(day = "Thu, Jul 27 2023") {
                     SatsUpcomingWorkoutListItem(
