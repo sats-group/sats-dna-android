@@ -41,16 +41,27 @@ fun SatsCircularSteppedProgressIndicator(
         verticalArrangement = arrangement,
     ) {
         progress.groups.forEachIndexed { index, group ->
-            GroupCircle(group, index + 1)
+            GroupCircle(group, index + 1, progress.isFailed)
         }
     }
 }
 
 @Suppress("UnnecessaryParentheses") // parentheses are used to clarify the calculations
 @Composable
-private fun GroupCircle(group: SteppingProgressGroup, groupNumber: Int, modifier: Modifier = Modifier) {
-    val incompleteColor = SatsTheme.colors.graphicalElements.fixedProgressBar.default.bg
-    val completeColor = SatsTheme.colors.graphicalElements.fixedProgressBar.default.fg
+private fun GroupCircle(
+    group: SteppingProgressGroup,
+    groupNumber: Int,
+    isFailed: Boolean,
+    modifier: Modifier = Modifier,
+) {
+    val incompleteColor =
+        SatsTheme.colors.graphicalElements.fixedProgressBar.default.bg
+
+    val completeColor = if (isFailed) {
+        SatsTheme.colors.graphicalElements.fixedProgressBar.alternate.fg
+    } else {
+        SatsTheme.colors.graphicalElements.fixedProgressBar.default.fg
+    }
 
     Box(modifier.size(36.dp)) {
         Canvas(Modifier.fillMaxSize()) {
@@ -94,7 +105,9 @@ private fun GroupCircle(group: SteppingProgressGroup, groupNumber: Int, modifier
             val padding = if (group.isSingle) 0.dp else 7.dp
 
             CompletedCheckMark(
-                Modifier
+                backgroundColor = completeColor,
+                contentColor = if (isFailed) Color.Unspecified else Color.White,
+                modifier = Modifier
                     .padding(padding)
                     .align(Alignment.Center),
             )
@@ -107,6 +120,7 @@ private fun GroupCircle(group: SteppingProgressGroup, groupNumber: Int, modifier
 @Immutable
 data class SteppingProgress(
     val groups: List<SteppingProgressGroup>,
+    val isFailed: Boolean,
 )
 
 @Immutable
@@ -132,12 +146,16 @@ private fun GroupNumber(number: Int, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun CompletedCheckMark(modifier: Modifier = Modifier) {
+private fun CompletedCheckMark(
+    backgroundColor: Color,
+    contentColor: Color,
+    modifier: Modifier = Modifier
+) {
     Box(
         modifier
             .clip(SatsTheme.shapes.circle)
             .aspectRatio(1f)
-            .background(SatsTheme.colors.graphicalElements.fixedProgressBar.default.fg),
+            .background(backgroundColor),
         contentAlignment = Alignment.Center,
     ) {
         Icon(
@@ -146,7 +164,7 @@ private fun CompletedCheckMark(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .padding(1.75.dp)
                 .fillMaxSize(),
-            tint = Color.White,
+            tint = contentColor,
         )
     }
 }
@@ -165,6 +183,7 @@ private fun SatsCircularSteppingProgressIndicatorPreview() {
                         SteppingProgressGroup(0, 4),
                         SteppingProgressGroup(1, 1),
                     ),
+                    isFailed = false,
                 ),
                 modifier = Modifier
                     .padding(SatsTheme.spacing.m)
@@ -173,3 +192,28 @@ private fun SatsCircularSteppingProgressIndicatorPreview() {
         }
     }
 }
+
+@Preview
+@Composable
+private fun SatsCircularFailedSteppingProgressIndicatorPreview() {
+    SatsChallengeBackground(Modifier.size(300.dp)) {
+        Box(Modifier.fillMaxSize()) {
+            SatsCircularSteppedProgressIndicator(
+                progress = SteppingProgress(
+                    groups = listOf(
+                        SteppingProgressGroup(4, 4),
+                        SteppingProgressGroup(2, 4),
+                        SteppingProgressGroup(0, 4),
+                        SteppingProgressGroup(0, 4),
+                        SteppingProgressGroup(1, 1),
+                    ),
+                    isFailed = true,
+                ),
+                modifier = Modifier
+                    .padding(SatsTheme.spacing.m)
+                    .align(Alignment.Center),
+            )
+        }
+    }
+}
+
