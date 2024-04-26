@@ -67,6 +67,7 @@ private fun ProgressBarsScreen(navigateUp: () -> Unit, modifier: Modifier = Modi
                                 SteppingProgressGroup(0, 4),
                                 SteppingProgressGroup(0, 4),
                             ),
+                            isFailed = false,
                         ),
                         modifier = Modifier.fillMaxWidth(),
                         arrangement = Arrangement.SpaceBetween,
@@ -80,6 +81,40 @@ private fun ProgressBarsScreen(navigateUp: () -> Unit, modifier: Modifier = Modi
                                 SteppingProgressGroup(0, 1),
                                 SteppingProgressGroup(0, 1),
                             ),
+                            isFailed = false,
+                        ),
+                        modifier = Modifier.fillMaxWidth(),
+                        arrangement = Arrangement.SpaceBetween,
+                    )
+                }
+            }
+
+            Section("Failed Circular Stepped Progress Indicator") {
+                Column(verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.l)) {
+                    SatsCircularSteppedProgressIndicator(
+                        progress = SteppingProgress(
+                            groups = listOf(
+                                SteppingProgressGroup(4, 4),
+                                SteppingProgressGroup(4, 4),
+                                SteppingProgressGroup(3, 4),
+                                SteppingProgressGroup(0, 4),
+                                SteppingProgressGroup(0, 4),
+                            ),
+                            isFailed = true,
+                        ),
+                        modifier = Modifier.fillMaxWidth(),
+                        arrangement = Arrangement.SpaceBetween,
+                    )
+
+                    SatsCircularSteppedProgressIndicator(
+                        progress = SteppingProgress(
+                            groups = listOf(
+                                SteppingProgressGroup(1, 1),
+                                SteppingProgressGroup(0, 1),
+                                SteppingProgressGroup(0, 1),
+                                SteppingProgressGroup(0, 1),
+                            ),
+                            isFailed = true,
                         ),
                         modifier = Modifier.fillMaxWidth(),
                         arrangement = Arrangement.SpaceBetween,

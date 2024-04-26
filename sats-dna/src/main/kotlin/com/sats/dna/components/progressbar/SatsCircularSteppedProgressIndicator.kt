@@ -149,7 +149,7 @@ private fun GroupNumber(number: Int, modifier: Modifier = Modifier) {
 private fun CompletedCheckMark(
     backgroundColor: Color,
     contentColor: Color,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier
@@ -216,4 +216,3 @@ private fun SatsCircularFailedSteppingProgressIndicatorPreview() {
         }
     }
 }
-
