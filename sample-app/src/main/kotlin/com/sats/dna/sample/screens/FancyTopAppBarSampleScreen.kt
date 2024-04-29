@@ -63,7 +63,7 @@ fun FancyTopAppBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) 
                                 .align(Alignment.BottomStart)
                                 .padding(SatsTheme.spacing.m)
                                 .graphicsLayer {
-                                    alpha = scrollConnection.expandPercent
+                                    alpha = scrollConnection.expandFraction
                                 },
                             color = SatsTagColor.Featured,
                         )

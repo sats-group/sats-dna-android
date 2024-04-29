@@ -78,10 +78,10 @@ fun SatsFancyTopAppBar(
     actions: @Composable RowScope.() -> Unit = {},
     scrollConnection: SatsFancyTopAppBarNestedScrollConnection? = null,
 ) {
-    val expandPercent = scrollConnection?.expandPercent ?: 1f
+    val expandFraction = scrollConnection?.expandFraction ?: 1f
 
     SatsFancyTopAppBar(
-        image = { HeaderImage(imageUrl, expandPercent) },
+        image = { HeaderImage(imageUrl, expandFraction) },
         title = title,
         modifier = modifier,
         navigationIcon = navigationIcon,
@@ -99,15 +99,15 @@ fun SatsFancyTopAppBar(
     actions: @Composable RowScope.() -> Unit = {},
     scrollConnection: SatsFancyTopAppBarNestedScrollConnection? = null,
 ) {
-    val expandPercent = scrollConnection?.expandPercent ?: 1f
+    val expandFraction = scrollConnection?.expandFraction ?: 1f
 
     val contentColor = lerp(
         start = SatsTheme.colors.surfaces.primary.default.fg,
         stop = SatsTheme.colors.backgrounds.fixed.primary.default.fg,
-        fraction = expandPercent,
+        fraction = expandFraction,
     )
 
-    EnsureStatusBarContrast(expandPercent)
+    EnsureStatusBarContrast(expandFraction)
 
     CompositionLocalProvider(LocalContentColor provides contentColor) {
         val topBarPadding = WindowInsets.statusBars.getTop(LocalDensity.current)
@@ -129,11 +129,11 @@ fun SatsFancyTopAppBar(
         Layout(
             modifier = modifier then draggableModifier,
             contents = listOf(
-                { Header(expandPercent) { image(it) } },
+                { Header(expandFraction) { image(it) } },
                 { Box { navigationIcon() } },
                 { Row(content = actions) },
-                { ExpandedHeaderText(title, expandPercent, Modifier.padding(horizontal = SatsTheme.spacing.xxl)) },
-                { CollapsedHeaderText(title, expandPercent) },
+                { ExpandedHeaderText(title, expandFraction, Modifier.padding(horizontal = SatsTheme.spacing.xxl)) },
+                { CollapsedHeaderText(title, expandFraction) },
             ),
         ) { measurables, constraints: Constraints ->
             val imageMeasurable = measurables[0].first()
@@ -146,7 +146,7 @@ fun SatsFancyTopAppBar(
             val actualWidth = constraints.maxWidth
             val expandedHeight = actualWidth / AppBarExpandedAspectRatio + topBarPadding
             val collapsedHeight = (AppBarCollapsedHeight + topBarPadding.toDp()).toPx()
-            val actualHeight = lerp(collapsedHeight, expandedHeight, expandPercent).roundToInt()
+            val actualHeight = lerp(collapsedHeight, expandedHeight, expandFraction).roundToInt()
 
             // Ensure the scroll connection knows the correct min and max sizes
             if (!isStateInitializedWithSize) {
@@ -220,8 +220,9 @@ class SatsFancyTopAppBarNestedScrollConnection internal constructor() : NestedSc
 
     internal var currentHeightPx: Float by mutableFloatStateOf(expandedHeightPx)
 
-    val expandPercent by derivedStateOf {
-        (currentHeightPx - collapsedHeightPx) / (expandedHeightPx - collapsedHeightPx)
+    val expandFraction by derivedStateOf {
+        ((currentHeightPx - collapsedHeightPx) / (expandedHeightPx - collapsedHeightPx))
+            .coerceIn(minimumValue = 0f, maximumValue = 1f)
     }
 
     private constructor(collapsedHeightPx: Float, expandedHeightPx: Float, currentHeightPx: Float) : this() {
@@ -279,7 +280,7 @@ class SatsFancyTopAppBarNestedScrollConnection internal constructor() : NestedSc
     }
 
     internal suspend fun settle(animate: Boolean = true) {
-        val percent = expandPercent
+        val percent = expandFraction
 
         if (percent > .5f) {
             expand(animate)
@@ -342,10 +343,10 @@ fun rememberSatsFancyTopAppBarNestedScrollConnection(): SatsFancyTopAppBarNested
 @Composable
 private fun HeaderImage(
     imageUrl: String,
-    expandPercent: Float,
+    expandFraction: Float,
     modifier: Modifier = Modifier,
 ) {
-    Header(expandPercent, modifier) { shade ->
+    Header(expandFraction, modifier) { shade ->
         if (LocalInspectionMode.current) {
             Image(
                 modifier = Modifier.fillMaxSize(),
@@ -368,22 +369,22 @@ private fun HeaderImage(
 
 @Composable
 private fun Header(
-    expandPercent: Float,
+    expandFraction: Float,
     modifier: Modifier = Modifier,
     content: @Composable (shade: @Composable () -> Unit) -> Unit,
 ) {
     Box(modifier) {
         content {
-            HeaderImageShade(expandPercent, Modifier.fillMaxSize())
+            HeaderImageShade(expandFraction, Modifier.fillMaxSize())
         }
     }
 }
 
 @Composable
-private fun HeaderImageShade(expandPercent: Float, modifier: Modifier = Modifier) {
+private fun HeaderImageShade(expandFraction: Float, modifier: Modifier = Modifier) {
     val expandedColor = Color.Black.copy(alpha = .6f)
     val collapsedColor = SatsTopAppBarDefaults.containerColor
-    val color = lerp(collapsedColor, expandedColor, expandPercent)
+    val color = lerp(collapsedColor, expandedColor, expandFraction)
 
     Box(modifier.background(color))
 }
@@ -391,10 +392,10 @@ private fun HeaderImageShade(expandPercent: Float, modifier: Modifier = Modifier
 @Composable
 private fun ExpandedHeaderText(
     text: String,
-    expandPercent: Float,
+    expandFraction: Float,
     modifier: Modifier = Modifier,
 ) {
-    val alpha = animateFloatAsState(expandPercent, label = "expanded header text alpha").value
+    val alpha = animateFloatAsState(expandFraction, label = "expanded header text alpha").value
 
     Text(
         text = text,
@@ -410,10 +411,10 @@ private fun ExpandedHeaderText(
 @Composable
 private fun CollapsedHeaderText(
     text: String,
-    expandPercent: Float,
+    expandFraction: Float,
     modifier: Modifier = Modifier,
 ) {
-    val alpha = animateFloatAsState(1 - expandPercent, label = "collapsed header text alpha").value
+    val alpha = animateFloatAsState(1 - expandFraction, label = "collapsed header text alpha").value
 
     Text(
         text = text,
@@ -426,12 +427,12 @@ private fun CollapsedHeaderText(
 }
 
 @Composable
-private fun EnsureStatusBarContrast(expandPercent: Float) {
+private fun EnsureStatusBarContrast(expandFraction: Float) {
     val activity = LocalContext.current.findActivity()
 
-    DisposableEffect(activity, expandPercent) {
+    DisposableEffect(activity, expandFraction) {
         activity?.enableEdgeToEdge(
-            statusBarStyle = if (expandPercent > .25f) {
+            statusBarStyle = if (expandFraction > .25f) {
                 SystemBarStyle.dark(android.graphics.Color.TRANSPARENT)
             } else {
                 SystemBarStyle.auto(android.graphics.Color.TRANSPARENT, android.graphics.Color.TRANSPARENT)
