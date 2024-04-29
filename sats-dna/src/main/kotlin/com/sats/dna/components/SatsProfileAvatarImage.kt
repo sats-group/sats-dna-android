@@ -43,7 +43,12 @@ fun SatsProfileAvatarImagePlaceholder(modifier: Modifier = Modifier) {
 
 @Composable
 private fun SatsProfileAvatarImageFallback(modifier: Modifier = Modifier) {
-    Icon(SatsIcons.Profilefilled, contentDescription = null, modifier)
+    Icon(
+        imageVector = SatsIcons.Profilefilled,
+        contentDescription = null,
+        tint = SatsTheme.colors.graphicalElements.icons.secondary,
+        modifier = modifier,
+    )
 }
 
 @PreviewLightDark
