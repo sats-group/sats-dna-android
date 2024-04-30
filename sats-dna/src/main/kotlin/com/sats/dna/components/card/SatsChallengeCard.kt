@@ -378,7 +378,7 @@ private fun JoinedChallengeCardPreview() {
         SatsChallengeCard(
             SatsChallengeCardState.Joined(
                 imageUrl = null,
-                title = "STREAK WEEK STREAK WEEK STREAK WEEK",
+                title = "STREAK WEEK",
                 tagText = "23 days left!",
                 progress = 0.14f,
                 statusText = "1 out of 7 workouts",
