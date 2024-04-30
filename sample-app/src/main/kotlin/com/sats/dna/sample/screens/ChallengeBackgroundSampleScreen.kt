@@ -22,6 +22,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsChallengeBackground
 import com.sats.dna.components.SatsSurface
+import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.icons.Back
@@ -51,7 +52,7 @@ private fun ChallengeBackgroundScreen(navigateUp: () -> Unit, modifier: Modifier
     SatsScreen(
         modifier = modifier,
         topBar = {
-            TopAppBar(
+            SatsTopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color.Transparent,
                 ),
