@@ -9,6 +9,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
@@ -32,6 +33,7 @@ fun SatsTopAppBar(
     navigationIcon: @Composable () -> Unit = {},
     actions: @Composable RowScope.() -> Unit = {},
     scrollBehavior: TopAppBarScrollBehavior? = null,
+    colors: TopAppBarColors? = null,
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
 ) {
     SatsTopAppBar(
@@ -40,6 +42,7 @@ fun SatsTopAppBar(
         navigationIcon = navigationIcon,
         actions = actions,
         scrollBehavior = scrollBehavior,
+        colors = colors,
         windowInsets = windowInsets,
     )
 }
@@ -52,21 +55,21 @@ fun SatsTopAppBar(
     navigationIcon: @Composable () -> Unit = {},
     actions: @Composable RowScope.() -> Unit = {},
     scrollBehavior: TopAppBarScrollBehavior? = null,
+    colors: TopAppBarColors? = null,
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
 ) {
-    // If we don't have a scroll behaviour, then we need to always separate the top app bar from the following
-    // content, and using the same color as we would when the content was scrolled makes sense here.
-    val containerColor = if (scrollBehavior == null) {
-        SatsTopAppBarDefaults.containerColor
-    } else {
-        SatsTheme.colors.backgrounds.primary.default.bg
-    }
+    val topAppBarColors = colors
+        ?: if (scrollBehavior == null) {
+            // If we don't have a scroll behaviour, then we need to always separate the top app bar from the following
+            // content, and using the same color as we would when the content was scrolled makes sense here.
+
+            TopAppBarDefaults.topAppBarColors(containerColor = SatsTopAppBarDefaults.containerColor)
+        } else {
+            TopAppBarDefaults.topAppBarColors(containerColor = SatsTheme.colors.backgrounds.primary.default.bg)
+        }
 
     TopAppBar(
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = containerColor,
-            scrolledContainerColor = SatsTopAppBarDefaults.containerColor,
-        ),
+        colors = topAppBarColors,
         title = {
             ProvideTextStyle(
                 value = SatsTheme.typography.normal.headline3.copy(baselineShift = BaselineShift.None),
