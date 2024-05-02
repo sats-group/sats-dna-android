@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -22,6 +21,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsChallengeBackground
 import com.sats.dna.components.SatsSurface
+import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.icons.Back
@@ -51,7 +51,7 @@ private fun ChallengeBackgroundScreen(navigateUp: () -> Unit, modifier: Modifier
     SatsScreen(
         modifier = modifier,
         topBar = {
-            TopAppBar(
+            SatsTopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color.Transparent,
                 ),
