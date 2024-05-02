@@ -47,6 +47,7 @@ fun SatsChallengeCard(
                 subtitle = state.subtitle,
                 tagText = state.tagText,
                 buttonText = state.buttonText,
+                isNew = state.isNew,
                 onCardClick = state.onCardClick,
                 onJoinClick = state.onJoinClick,
                 isJoinButtonLoading = state.isJoinButtonLoading,
@@ -88,6 +89,7 @@ sealed interface SatsChallengeCardState {
         val subtitle: String,
         val tagText: String,
         val buttonText: String,
+        val isNew: Boolean,
         val onCardClick: () -> Unit,
         val onJoinClick: () -> Unit,
         val isJoinButtonLoading: Boolean,
@@ -208,6 +210,7 @@ private fun AvailableChallengeCard(
     subtitle: String,
     tagText: String,
     buttonText: String,
+    isNew: Boolean,
     onCardClick: () -> Unit,
     onJoinClick: () -> Unit,
     isJoinButtonLoading: Boolean,
@@ -222,7 +225,11 @@ private fun AvailableChallengeCard(
         tag = {
             SatsTag(
                 text = tagText,
-                color = SatsTagColor.Featured,
+                color = if (isNew) {
+                    SatsTagColor.Positive
+                } else {
+                    SatsTagColor.Featured
+                },
                 shape = SatsTagShape.Left,
             )
         },
@@ -351,7 +358,8 @@ private fun JoinChallengeCardPreview() {
                 title = "STREAK WEEK",
                 subtitle = "Workout for 7 consecutive days",
                 buttonText = "Join",
-                tagText = "23 days left",
+                tagText = "NEW",
+                isNew = true,
                 onCardClick = {},
                 onJoinClick = {},
                 isJoinButtonLoading = false,
@@ -370,7 +378,7 @@ private fun JoinedChallengeCardPreview() {
         SatsChallengeCard(
             SatsChallengeCardState.Joined(
                 imageUrl = null,
-                title = "STREAK WEEK STREAK WEEK STREAK WEEK",
+                title = "STREAK WEEK",
                 tagText = "23 days left!",
                 progress = 0.14f,
                 statusText = "1 out of 7 workouts",
