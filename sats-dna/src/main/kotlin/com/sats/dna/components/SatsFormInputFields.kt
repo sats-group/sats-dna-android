@@ -87,6 +87,48 @@ fun SatsFormTextField(
     )
 }
 
+@ExperimentalFoundationApi
+@Composable
+fun SatsFormTextFieldSingleLinePlaceholder(
+    label: String,
+    value: String,
+    modifier: Modifier = Modifier,
+    hint: String? = null,
+) {
+    SatsSurface(modifier.sizeIn(minWidth = MinSize, minHeight = MinSize)) {
+        InputFieldContainer(
+            isSingleLine = true,
+            label = label,
+            hint = hint,
+        ) {
+            SatsPlaceholderText(value)
+        }
+    }
+}
+
+@ExperimentalFoundationApi
+@Composable
+fun SatsFormTextFieldMultiLinePlaceholder(
+    label: String,
+    placeholderLines: Int,
+    minHeightInLines: Int,
+    modifier: Modifier = Modifier,
+    hint: String? = null,
+) {
+    SatsSurface(modifier.sizeIn(minWidth = MinSize, minHeight = MinSize)) {
+        InputFieldContainer(
+            isSingleLine = false,
+            label = label,
+            hint = hint,
+        ) {
+            Box {
+                SatsPlaceholderText("\n".repeat((minHeightInLines - 1).coerceAtLeast(0)))
+                SatsPlaceholderParagraph(lines = placeholderLines)
+            }
+        }
+    }
+}
+
 @Composable
 fun SatsFormInputField(
     label: String,
@@ -134,6 +176,28 @@ fun SatsFormDateTimeInputField(
 }
 
 @Composable
+fun SatsFormDateTimeInputFieldPlaceholder(
+    label: String,
+    formatDate: (LocalDate) -> String,
+    formatTime: (LocalTime) -> String,
+    modifier: Modifier = Modifier,
+    hint: String? = null,
+) {
+    InputFieldContainer(
+        modifier = modifier.sizeIn(minWidth = MinSize, minHeight = MinSize),
+        isSingleLine = true,
+        label = label,
+        hint = hint,
+    ) {
+        Row(horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.xxs)) {
+            val value = LocalDateTime(2000, 1, 10, 10, 10, 10)
+            DateTimeBoxPlaceholder(formatDate(value.date))
+            DateTimeBoxPlaceholder(formatTime(value.time))
+        }
+    }
+}
+
+@Composable
 private fun DateTimeBox(
     label: String,
     onClick: () -> Unit,
@@ -160,6 +224,26 @@ private fun DateTimeBox(
                     vertical = SatsTheme.spacing.xxs,
                 ),
             color = color,
+        )
+    }
+}
+
+@Composable
+private fun DateTimeBoxPlaceholder(
+    label: String,
+    modifier: Modifier = Modifier,
+) {
+    SatsPlaceholderBox(
+        modifier = modifier,
+        shape = SatsTheme.shapes.roundedCorners.extraSmall,
+    ) {
+        SatsPlaceholderText(
+            text = label,
+            modifier = Modifier
+                .padding(
+                    horizontal = SatsTheme.spacing.xs,
+                    vertical = SatsTheme.spacing.xxs,
+                ),
         )
     }
 }
@@ -257,6 +341,24 @@ private fun SatsFormTextFieldSingleLinePreview() {
 @OptIn(ExperimentalFoundationApi::class)
 @PreviewLightDark
 @Composable
+private fun SatsFormTextFieldPlaceholderSingleLinePreview() {
+    SatsTheme {
+        SatsSurface(
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
+        ) {
+            SatsFormTextFieldSingleLinePlaceholder(
+                label = "Sample Text",
+                value = "Sample text",
+                modifier = Modifier.fillMaxWidth(),
+                hint = "(optional)",
+            )
+        }
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@PreviewLightDark
+@Composable
 private fun SatsFormTextFieldSingleLineDurationPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
@@ -301,6 +403,25 @@ private fun SatsFormTextFieldMultiLinePreview() {
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
+@PreviewLightDark
+@Composable
+private fun SatsFormTextFieldPlaceholderMultiLinePreview() {
+    SatsTheme {
+        SatsSurface(
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
+        ) {
+            SatsFormTextFieldMultiLinePlaceholder(
+                label = "Sample Text",
+                placeholderLines = 2,
+                minHeightInLines = 6,
+                modifier = Modifier.fillMaxWidth(),
+                hint = "(optional)",
+            )
+        }
+    }
+}
+
 @PreviewLightDark
 @Composable
 private fun SatsFormInputFieldPreview() {
@@ -333,6 +454,30 @@ private fun SatsFormDateTimeInputFieldPreview() {
                 value = selectedDateTime,
                 onDateClicked = { },
                 onTimeClicked = { },
+                formatDate = {
+                    DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
+                        .format(it.toJavaLocalDate())
+                },
+                formatTime = {
+                    DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)
+                        .format(it.toJavaLocalTime())
+                },
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
+    }
+}
+
+@RequiresApi(Build.VERSION_CODES.O)
+@PreviewLightDark
+@Composable
+private fun SatsFormDateTimeInputFieldPlaceholderPreview() {
+    SatsTheme {
+        SatsSurface(
+            color = SatsTheme.colors.backgrounds.primary.default.bg,
+        ) {
+            SatsFormDateTimeInputFieldPlaceholder(
+                label = "Date and time",
                 formatDate = {
                     DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
                         .format(it.toJavaLocalDate())
