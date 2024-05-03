@@ -37,8 +37,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsDividerColor
 import com.sats.dna.components.SatsEmptyState
@@ -96,7 +94,7 @@ import com.sats.dna.sample.routes.styles.TypographySampleScreenRoute
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-internal fun HomeScreen(navController: NavController, modifier: Modifier = Modifier) {
+internal fun HomeScreen(openSampleScreen: (SampleScreenRoute) -> Unit, modifier: Modifier = Modifier) {
     val topAppBarScrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
     val searchBarState = remember { HomeScreenSearchBarState() }
 
@@ -137,7 +135,7 @@ internal fun HomeScreen(navController: NavController, modifier: Modifier = Modif
         ) { hasAnyMatches ->
             if (hasAnyMatches) {
                 Column {
-                    groups.keys.forEachIndexed { index, sectionTitle ->
+                    groups.keys.forEach { sectionTitle ->
                         val sampleScreens = groups.getValue(sectionTitle)
 
                         val matches = remember(searchBarState.query) {
@@ -168,7 +166,7 @@ internal fun HomeScreen(navController: NavController, modifier: Modifier = Modif
                                             ) {
                                                 HomeScreenListItem(
                                                     label = sampleScreen.name,
-                                                    onClick = { navController.navigate(sampleScreen) },
+                                                    onClick = { openSampleScreen(sampleScreen) },
                                                 )
                                             }
                                         }
@@ -329,7 +327,7 @@ private val groups: Map<String, List<SampleScreenRoute>> = mapOf(
 private fun HomeScreenPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
-            HomeScreen(rememberNavController())
+            HomeScreen(openSampleScreen = {})
         }
     }
 }

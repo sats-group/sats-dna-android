@@ -90,7 +90,7 @@ import com.sats.dna.sample.screens.styles.TypographySampleScreen
 
 internal fun NavGraphBuilder.mainGraph(navController: NavController) {
     sampleAppComposable<HomeRoute> {
-        HomeScreen(navController)
+        HomeScreen(openSampleScreen = navController::navigate)
     }
 
     sampleAppComposable<ColorsSampleScreenRoute> {
