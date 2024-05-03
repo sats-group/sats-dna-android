@@ -14,6 +14,7 @@ import com.sats.dna.components.proteinbar.SatsProteinBar
 import com.sats.dna.components.proteinbar.SatsProteinBarAction
 import com.sats.dna.components.proteinbar.SatsProteinBarDefaults
 import com.sats.dna.components.proteinbar.SatsProteinBarTheme
+import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable

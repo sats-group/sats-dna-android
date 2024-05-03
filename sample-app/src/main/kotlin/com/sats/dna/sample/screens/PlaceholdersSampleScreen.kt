@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsPlaceholderBox
 import com.sats.dna.components.SatsPlaceholderParagraph
 import com.sats.dna.components.SatsPlaceholderText
+import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable

@@ -18,6 +18,7 @@ import com.sats.dna.components.statistics.SatsWorkoutGraphCardWeek
 import com.sats.dna.components.statistics.SatsWorkoutStatisticsCard
 import com.sats.dna.components.statistics.SatsWorkoutStatisticsCardItem
 import com.sats.dna.components.statistics.SatsWorkoutStatisticsCardPlaceholder
+import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable

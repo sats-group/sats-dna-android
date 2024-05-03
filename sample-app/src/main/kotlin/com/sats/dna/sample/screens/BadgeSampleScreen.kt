@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsBadge
 import com.sats.dna.components.SatsBadgeHierarchy
 import com.sats.dna.components.SatsFixedBadge
+import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable

@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.SatsVerticalDivider
+import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable

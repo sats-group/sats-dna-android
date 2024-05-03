@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.SatsTab
 import com.sats.dna.components.SatsTabRow
+import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable

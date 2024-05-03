@@ -20,6 +20,7 @@ import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.icons.AddPerson
 import com.sats.dna.icons.Back
 import com.sats.dna.icons.Barbell
+import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable

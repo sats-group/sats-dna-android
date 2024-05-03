@@ -29,6 +29,7 @@ import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SatsVerticalDivider
 import com.sats.dna.icons.ArrowDown
 import com.sats.dna.icons.ArrowUp
+import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable

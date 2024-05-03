@@ -12,6 +12,7 @@ import com.sats.dna.components.upcomingworkouts.SatsSchedulePlaceholder
 import com.sats.dna.components.upcomingworkouts.SatsUpcomingWorkout
 import com.sats.dna.components.upcomingworkouts.SatsWaitingListStatus
 import com.sats.dna.components.upcomingworkouts.SatsWorkoutType
+import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable

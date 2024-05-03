@@ -14,6 +14,7 @@ import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsEmptyStateAction
 import com.sats.dna.components.SatsEmptyStateCard
 import com.sats.dna.icons.Barbell
+import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable

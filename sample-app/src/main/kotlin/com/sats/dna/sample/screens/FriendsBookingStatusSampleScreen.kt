@@ -14,6 +14,7 @@ import com.sats.dna.components.SatsProfileAvatarImage
 import com.sats.dna.components.sessiondetails.FriendsBookingState
 import com.sats.dna.components.sessiondetails.FriendsBookingStatus
 import com.sats.dna.components.sessiondetails.SatsFriendsBookingStatusListItem
+import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable

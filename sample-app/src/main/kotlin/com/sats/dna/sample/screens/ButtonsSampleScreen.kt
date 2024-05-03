@@ -52,6 +52,7 @@ import com.sats.dna.icons.Add
 import com.sats.dna.icons.Barbell
 import com.sats.dna.icons.Calendar
 import com.sats.dna.icons.Check
+import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @OptIn(ExperimentalLayoutApi::class)

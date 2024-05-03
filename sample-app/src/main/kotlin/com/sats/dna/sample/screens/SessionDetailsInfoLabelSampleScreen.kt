@@ -18,6 +18,7 @@ import com.sats.dna.icons.Gx
 import com.sats.dna.icons.Location
 import com.sats.dna.icons.Pt
 import com.sats.dna.icons.Time
+import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable

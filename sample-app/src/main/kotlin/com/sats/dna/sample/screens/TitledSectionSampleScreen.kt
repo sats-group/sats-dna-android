@@ -23,6 +23,7 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.SatsTitledSection
 import com.sats.dna.components.SatsTitledSectionAction
 import com.sats.dna.components.card.SatsCard
+import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable

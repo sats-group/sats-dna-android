@@ -16,6 +16,7 @@ import com.sats.dna.components.upcomingworkouts.SatsUpcomingWorkoutDaySection
 import com.sats.dna.components.upcomingworkouts.SatsUpcomingWorkoutListItem
 import com.sats.dna.components.upcomingworkouts.SatsWaitingListStatus
 import com.sats.dna.components.upcomingworkouts.SatsWorkoutType
+import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable

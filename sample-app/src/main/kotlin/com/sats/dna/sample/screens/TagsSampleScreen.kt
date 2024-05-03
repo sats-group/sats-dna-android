@@ -21,6 +21,7 @@ import com.sats.dna.components.SatsTagShape
 import com.sats.dna.components.SatsTagSize
 import com.sats.dna.components.SatsWorkoutTag
 import com.sats.dna.components.SatsWorkoutTagColor
+import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable

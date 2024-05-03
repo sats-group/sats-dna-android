@@ -1,4 +1,4 @@
-package com.sats.dna.sample.screens
+package com.sats.dna.sample.internal
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,7 +13,6 @@ import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.icons.Back
-import com.sats.dna.sample.internal.trySharedBounds
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
