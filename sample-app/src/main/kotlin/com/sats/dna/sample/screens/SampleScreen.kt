@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.navigation.NavController
@@ -16,6 +17,8 @@ import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.icons.Back
+import com.sats.dna.sample.internal.LocalAnimatedContentScope
+import com.sats.dna.sample.internal.trySharedBounds
 
 sealed class SampleScreen(
     val name: String,
@@ -25,7 +28,9 @@ sealed class SampleScreen(
     context(NavGraphBuilder)
     fun navScreen(navController: NavController) {
         composable(this@SampleScreen.route) {
-            screen(navController)
+            CompositionLocalProvider(LocalAnimatedContentScope provides this) {
+                screen(navController)
+            }
         }
     }
 }
@@ -54,6 +59,7 @@ internal fun ComponentScreen(
                 },
                 title = title,
                 scrollBehavior = topAppBarScrollBehavior,
+                modifier = Modifier.trySharedBounds("top-bar"),
             )
         },
         bottomBar = bottomBar,

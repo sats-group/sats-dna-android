@@ -4,12 +4,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.AnimatedContentTransitionScope.SlideDirection
+import androidx.compose.animation.ExperimentalSharedTransitionApi
+import androidx.compose.animation.SharedTransitionScope
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.sats.dna.sample.internal.LocalSharedTransitionScope
 import com.sats.dna.theme.SatsTheme
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalSharedTransitionApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -19,15 +24,20 @@ class MainActivity : ComponentActivity() {
             SatsTheme {
                 val navController = rememberNavController()
 
-                NavHost(
-                    navController = navController,
-                    startDestination = MainRoute,
-                    enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Left) },
-                    exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Left) },
-                    popEnterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Right) },
-                    popExitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Right) },
-                ) {
-                    mainGraph(navController)
+                SharedTransitionScope { sharedTransitionScopeModifier ->
+                    CompositionLocalProvider(LocalSharedTransitionScope provides this) {
+                        NavHost(
+                            modifier = sharedTransitionScopeModifier,
+                            navController = navController,
+                            startDestination = MainRoute,
+                            enterTransition = { slideIntoContainer(SlideDirection.Left) },
+                            exitTransition = { slideOutOfContainer(SlideDirection.Left) },
+                            popEnterTransition = { slideIntoContainer(SlideDirection.Right) },
+                            popExitTransition = { slideOutOfContainer(SlideDirection.Right) },
+                        ) {
+                            mainGraph(navController)
+                        }
+                    }
                 }
             }
         }

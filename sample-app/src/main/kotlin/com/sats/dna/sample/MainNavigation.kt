@@ -1,10 +1,12 @@
 package com.sats.dna.sample
 
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import com.sats.dna.sample.home.HomeScreen
+import com.sats.dna.sample.internal.LocalAnimatedContentScope
 import com.sats.dna.sample.screens.ArticleCardSampleScreen
 import com.sats.dna.sample.screens.BadgeSampleScreen
 import com.sats.dna.sample.screens.BannerSampleScreen
@@ -100,6 +102,8 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
 
 private fun NavGraphBuilder.homeScreen(navController: NavController) {
     composable("/") {
-        HomeScreen(navController)
+        CompositionLocalProvider(LocalAnimatedContentScope provides this) {
+            HomeScreen(navController)
+        }
     }
 }
