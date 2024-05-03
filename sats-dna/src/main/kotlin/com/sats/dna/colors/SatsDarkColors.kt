@@ -76,7 +76,7 @@ internal val SatsDarkColors = SatsColors(
     buttons = SatsColors.Buttons(
         primary = SatsColors.Buttons.Primary(
             default = SatsBlue100 on White100,
-            disabled = SatsBlue100 on White10,
+            disabled = Black50 on White10,
         ),
         secondary = SatsColors.Buttons.Secondary(
             default = OutlinedColorSet(
