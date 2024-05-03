@@ -211,12 +211,8 @@ import com.sats.dna.icons.Youtube
 import com.sats.dna.icons.Zendesk
 import com.sats.dna.theme.SatsTheme
 
-data object IconsSampleScreen : SampleScreen(
-    screen = { IconsScreen(it::navigateUp) },
-)
-
 @Composable
-private fun IconsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun IconsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Icons", navigateUp, modifier) { innerPadding ->
         val icons = allIcons
             .distinctBy { it.name }
@@ -441,8 +437,8 @@ private val allIcons: List<ImageVector>
 
 @PreviewLightDark
 @Composable
-private fun IconsScreenPreview() {
+private fun IconsSampleScreenPreview() {
     SatsTheme {
-        IconsScreen(navigateUp = {})
+        IconsSampleScreen(navigateUp = {})
     }
 }

@@ -19,12 +19,8 @@ import com.sats.dna.components.progressbar.SteppingProgress
 import com.sats.dna.components.progressbar.SteppingProgressGroup
 import com.sats.dna.theme.SatsTheme
 
-data object ProgressBarsSampleScreen : SampleScreen(
-    screen = { ProgressBarsScreen(it::navigateUp) },
-)
-
 @Composable
-private fun ProgressBarsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ProgressBarsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Progress Bars", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -134,8 +130,8 @@ private fun Section(title: String, content: @Composable () -> Unit) {
 
 @PreviewLightDark
 @Composable
-private fun ProgressBarsScreenPreview() {
+private fun ProgressBarsSampleScreenPreview() {
     SatsTheme {
-        ProgressBarsScreen(navigateUp = {})
+        ProgressBarsSampleScreen(navigateUp = {})
     }
 }

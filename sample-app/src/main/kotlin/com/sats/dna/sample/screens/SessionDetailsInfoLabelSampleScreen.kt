@@ -20,12 +20,8 @@ import com.sats.dna.icons.Pt
 import com.sats.dna.icons.Time
 import com.sats.dna.theme.SatsTheme
 
-data object SessionDetailsInfoLabelSampleScreen : SampleScreen(
-    screen = { SessionDetailsInfoLabelScreen(it::navigateUp) },
-)
-
 @Composable
-private fun SessionDetailsInfoLabelScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun SessionDetailsInfoLabelSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Session Details Info Label", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -77,8 +73,8 @@ private fun SessionDetailsInfoLabelScreen(navigateUp: () -> Unit, modifier: Modi
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun SessionDetailsInfoLabelSampleScreenPreview() {
     SatsTheme {
-        SessionDetailsInfoLabelScreen(navigateUp = {})
+        SessionDetailsInfoLabelSampleScreen(navigateUp = {})
     }
 }

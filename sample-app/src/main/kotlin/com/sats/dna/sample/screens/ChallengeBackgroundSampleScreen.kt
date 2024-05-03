@@ -9,7 +9,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -20,20 +19,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsChallengeBackground
-import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.icons.Back
 import com.sats.dna.theme.SatsTheme
 
-data object ChallengeBackgroundSampleScreen : SampleScreen(
-    screen = { ChallengeBackgroundScreen(it::navigateUp) },
-)
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun ChallengeBackgroundScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ChallengeBackgroundSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     val activity = LocalContext.current.findActivity() as? ComponentActivity
 
     DisposableEffect(activity) {
@@ -78,11 +71,9 @@ private fun ChallengeBackgroundScreen(navigateUp: () -> Unit, modifier: Modifier
 
 @PreviewLightDark
 @Composable
-private fun ChallengeBackgroundScreenPreview() {
+private fun ChallengeBackgroundSampleScreenPreview() {
     SatsTheme {
-        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
-            ChallengeBackgroundScreen(navigateUp = {})
-        }
+        ChallengeBackgroundSampleScreen(navigateUp = {})
     }
 }
 

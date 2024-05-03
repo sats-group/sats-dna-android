@@ -18,12 +18,8 @@ import com.sats.dna.components.upcomingworkouts.SatsWaitingListStatus
 import com.sats.dna.components.upcomingworkouts.SatsWorkoutType
 import com.sats.dna.theme.SatsTheme
 
-data object UpcomingWorkoutListItemSampleScreen : SampleScreen(
-    screen = { UpcomingWorkoutListItemScreen(it::navigateUp) },
-)
-
 @Composable
-private fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun UpcomingWorkoutListItemSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen(
         title = "Upcoming Workout List",
         navigateUp = navigateUp,
@@ -91,8 +87,8 @@ private fun UpcomingWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Modi
 
 @PreviewLightDark
 @Composable
-private fun UpcomingWorkoutListItemScreenPreview() {
+private fun TypographySampleScreenPreview() {
     SatsTheme {
-        UpcomingWorkoutListItemScreen(navigateUp = {})
+        UpcomingWorkoutListItemSampleScreen(navigateUp = {})
     }
 }

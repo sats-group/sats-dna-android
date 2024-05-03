@@ -1,11 +1,9 @@
 package com.sats.dna.sample
 
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
 import com.sats.dna.sample.home.HomeScreen
-import com.sats.dna.sample.internal.LocalAnimatedContentScope
+import com.sats.dna.sample.internal.sampleAppComposable
 import com.sats.dna.sample.routes.ArticleCardSampleScreenRoute
 import com.sats.dna.sample.routes.BadgeSampleScreenRoute
 import com.sats.dna.sample.routes.BannerSampleScreenRoute
@@ -91,177 +89,171 @@ import com.sats.dna.sample.screens.WorkoutStatisticsSampleScreen
 import com.sats.dna.sample.screens.YourMostBookedSampleScreen
 
 internal fun NavGraphBuilder.mainGraph(navController: NavController) {
-    homeScreen(navController)
-
-    composable<ColorsSampleScreenRoute> {
-        ColorsSampleScreen.Content(navController)
+    sampleAppComposable<HomeRoute> {
+        HomeScreen(navController)
     }
 
-    composable<IconsSampleScreenRoute> {
-        IconsSampleScreen.Content(navController)
+    sampleAppComposable<ColorsSampleScreenRoute> {
+        ColorsSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<TypographySampleScreenRoute> {
-        TypographySampleScreen.Content(navController)
+    sampleAppComposable<IconsSampleScreenRoute> {
+        IconsSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<BadgeSampleScreenRoute> {
-        BadgeSampleScreen.Content(navController)
+    sampleAppComposable<TypographySampleScreenRoute> {
+        TypographySampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<BannerSampleScreenRoute> {
-        BannerSampleScreen.Content(navController)
+    sampleAppComposable<BadgeSampleScreenRoute> {
+        BadgeSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<BrandLogoSampleScreenRoute> {
-        BrandLogoSampleScreen.Content(navController)
+    sampleAppComposable<BannerSampleScreenRoute> {
+        BannerSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<ButtonsSampleScreenRoute> {
-        ButtonsSampleScreen.Content(navController)
+    sampleAppComposable<BrandLogoSampleScreenRoute> {
+        BrandLogoSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<ArticleCardSampleScreenRoute> {
-        ArticleCardSampleScreen.Content(navController)
+    sampleAppComposable<ButtonsSampleScreenRoute> {
+        ButtonsSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<CardSampleScreenRoute> {
-        CardSampleScreen.Content(navController)
+    sampleAppComposable<ArticleCardSampleScreenRoute> {
+        ArticleCardSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<ChallengeBackgroundSampleScreenRoute> {
-        ChallengeBackgroundSampleScreen.Content(navController)
+    sampleAppComposable<CardSampleScreenRoute> {
+        CardSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<ChallengeBadgeSampleScreenRoute> {
-        ChallengeBadgeSampleScreen.Content(navController)
+    sampleAppComposable<ChallengeBackgroundSampleScreenRoute> {
+        ChallengeBackgroundSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<ChallengeCardSampleScreenRoute> {
-        ChallengeCardSampleScreen.Content(navController)
+    sampleAppComposable<ChallengeBadgeSampleScreenRoute> {
+        ChallengeBadgeSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<CheckboxSampleScreenRoute> {
-        CheckboxSampleScreen.Content(navController)
+    sampleAppComposable<ChallengeCardSampleScreenRoute> {
+        ChallengeCardSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<ChipsSampleScreenRoute> {
-        ChipsSampleScreen.Content(navController)
+    sampleAppComposable<CheckboxSampleScreenRoute> {
+        CheckboxSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<CompletedWorkoutListItemSampleScreenRoute> {
-        CompletedWorkoutListItemSampleScreen.Content(navController)
+    sampleAppComposable<ChipsSampleScreenRoute> {
+        ChipsSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<DividersSampleScreenRoute> {
-        DividersSampleScreen.Content(navController)
+    sampleAppComposable<CompletedWorkoutListItemSampleScreenRoute> {
+        CompletedWorkoutListItemSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<EmptyStateSampleScreenRoute> {
-        EmptyStateSampleScreen.Content(navController)
+    sampleAppComposable<DividersSampleScreenRoute> {
+        DividersSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<FancyTopAppBarSampleScreenRoute> {
-        FancyTopAppBarSampleScreen.Content(navController)
+    sampleAppComposable<EmptyStateSampleScreenRoute> {
+        EmptyStateSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<FormInputFieldsSampleScreenRoute> {
-        FormInputFieldsSampleScreen.Content(navController)
+    sampleAppComposable<FancyTopAppBarSampleScreenRoute> {
+        FancyTopAppBarSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<FriendsBookingStatusSampleScreenRoute> {
-        FriendsBookingStatusSampleScreen.Content(navController)
+    sampleAppComposable<FormInputFieldsSampleScreenRoute> {
+        FormInputFieldsSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<GeneralListItemSampleScreenRoute> {
-        GeneralListItemSampleScreen.Content(navController)
+    sampleAppComposable<FriendsBookingStatusSampleScreenRoute> {
+        FriendsBookingStatusSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<JoinYourFriendsSampleScreenRoute> {
-        JoinYourFriendsSampleScreen.Content(navController)
+    sampleAppComposable<GeneralListItemSampleScreenRoute> {
+        GeneralListItemSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<PlaceholdersSampleScreenRoute> {
-        PlaceholdersSampleScreen.Content(navController)
+    sampleAppComposable<JoinYourFriendsSampleScreenRoute> {
+        JoinYourFriendsSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<ProgressBarsSampleScreenRoute> {
-        ProgressBarsSampleScreen.Content(navController)
+    sampleAppComposable<PlaceholdersSampleScreenRoute> {
+        PlaceholdersSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<ProteinBarSampleScreenRoute> {
-        ProteinBarSampleScreen.Content(navController)
+    sampleAppComposable<ProgressBarsSampleScreenRoute> {
+        ProgressBarsSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<RadioButtonsSampleScreenRoute> {
-        RadioButtonsSampleScreen.Content(navController)
+    sampleAppComposable<ProteinBarSampleScreenRoute> {
+        ProteinBarSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<ScaleBarSampleScreenRoute> {
-        ScaleBarSampleScreen.Content(navController)
+    sampleAppComposable<RadioButtonsSampleScreenRoute> {
+        RadioButtonsSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<ScheduleSampleScreenRoute> {
-        ScheduleSampleScreen.Content(navController)
+    sampleAppComposable<ScaleBarSampleScreenRoute> {
+        ScaleBarSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<SearchBarSampleScreenRoute> {
-        SearchBarSampleScreen.Content(navController)
+    sampleAppComposable<ScheduleSampleScreenRoute> {
+        ScheduleSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<SessionDetailsInfoLabelSampleScreenRoute> {
-        SessionDetailsInfoLabelSampleScreen.Content(navController)
+    sampleAppComposable<SearchBarSampleScreenRoute> {
+        SearchBarSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<SurfaceSampleScreenRoute> {
-        SurfaceSampleScreen.Content(navController)
+    sampleAppComposable<SessionDetailsInfoLabelSampleScreenRoute> {
+        SessionDetailsInfoLabelSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<SwitchSampleScreenRoute> {
-        SwitchSampleScreen.Content(navController)
+    sampleAppComposable<SurfaceSampleScreenRoute> {
+        SurfaceSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<TabRowSampleScreenRoute> {
-        TabRowSampleScreen.Content(navController)
+    sampleAppComposable<SwitchSampleScreenRoute> {
+        SwitchSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<TagsSampleScreenRoute> {
-        TagsSampleScreen.Content(navController)
+    sampleAppComposable<TabRowSampleScreenRoute> {
+        TabRowSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<TextFieldSampleScreenRoute> {
-        TextFieldSampleScreen.Content(navController)
+    sampleAppComposable<TagsSampleScreenRoute> {
+        TagsSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<TitledSectionSampleScreenRoute> {
-        TitledSectionSampleScreen.Content(navController)
+    sampleAppComposable<TextFieldSampleScreenRoute> {
+        TextFieldSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<TopAppBarSampleScreenRoute> {
-        TopAppBarSampleScreen.Content(navController)
+    sampleAppComposable<TitledSectionSampleScreenRoute> {
+        TitledSectionSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<TrafficLightsSampleScreenRoute> {
-        TrafficLightsSampleScreen.Content(navController)
+    sampleAppComposable<TopAppBarSampleScreenRoute> {
+        TopAppBarSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<UpcomingWorkoutListItemSampleScreenRoute> {
-        UpcomingWorkoutListItemSampleScreen.Content(navController)
+    sampleAppComposable<TrafficLightsSampleScreenRoute> {
+        TrafficLightsSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<WorkoutStatisticsSampleScreenRoute> {
-        WorkoutStatisticsSampleScreen.Content(navController)
+    sampleAppComposable<UpcomingWorkoutListItemSampleScreenRoute> {
+        UpcomingWorkoutListItemSampleScreen(navigateUp = navController::navigateUp)
     }
 
-    composable<YourMostBookedSampleScreenRoute> {
-        YourMostBookedSampleScreen.Content(navController)
+    sampleAppComposable<WorkoutStatisticsSampleScreenRoute> {
+        WorkoutStatisticsSampleScreen(navigateUp = navController::navigateUp)
     }
-}
 
-private fun NavGraphBuilder.homeScreen(navController: NavController) {
-    composable<HomeRoute> {
-        CompositionLocalProvider(LocalAnimatedContentScope provides this) {
-            HomeScreen(navController)
-        }
+    sampleAppComposable<YourMostBookedSampleScreenRoute> {
+        YourMostBookedSampleScreen(navigateUp = navController::navigateUp)
     }
 }

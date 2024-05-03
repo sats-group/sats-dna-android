@@ -25,12 +25,8 @@ import com.sats.dna.components.SatsTitledSectionAction
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.theme.SatsTheme
 
-data object TitledSectionSampleScreen : SampleScreen(
-    screen = { TitledSectionScreen(it::navigateUp) },
-)
-
 @Composable
-fun TitledSectionScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun TitledSectionSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Titled Section", navigateUp, modifier) { innerPadding ->
         Column(
             modifier = Modifier
@@ -108,10 +104,10 @@ fun TitledSectionScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
 
 @PreviewLightDark
 @Composable
-private fun TitledSectionScreenPreview() {
+private fun TitledSectionSampleScreenPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
-            TitledSectionScreen(navigateUp = {})
+            TitledSectionSampleScreen(navigateUp = {})
         }
     }
 }

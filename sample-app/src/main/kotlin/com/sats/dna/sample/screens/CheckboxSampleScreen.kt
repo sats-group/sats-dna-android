@@ -22,12 +22,8 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.SatsTriStateCheckbox
 import com.sats.dna.theme.SatsTheme
 
-data object CheckboxSampleScreen : SampleScreen(
-    screen = { CheckboxScreen(it::navigateUp) },
-)
-
 @Composable
-private fun CheckboxScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun CheckboxSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Checkbox", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -119,8 +115,8 @@ private fun ToggleableState.next() = when (this) {
 
 @PreviewLightDark
 @Composable
-private fun CheckboxScreenPreview() {
+private fun CheckboxSampleScreenPreview() {
     SatsTheme {
-        CheckboxScreen(navigateUp = {})
+        CheckboxSampleScreen(navigateUp = {})
     }
 }

@@ -20,12 +20,8 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 import kotlin.math.roundToInt
 
-data object SurfaceSampleScreen : SampleScreen(
-    screen = { SurfaceScreen(it::navigateUp) },
-)
-
 @Composable
-private fun SurfaceScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun SurfaceSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Surface", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -62,8 +58,8 @@ private fun SurfaceScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun SurfaceSampleScreenPreview() {
     SatsTheme {
-        SurfaceScreen(navigateUp = {})
+        SurfaceSampleScreen(navigateUp = {})
     }
 }

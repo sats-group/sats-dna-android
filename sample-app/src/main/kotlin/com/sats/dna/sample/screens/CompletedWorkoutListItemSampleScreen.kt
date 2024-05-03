@@ -15,12 +15,8 @@ import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.upcomingworkouts.SatsWorkoutType
 import com.sats.dna.theme.SatsTheme
 
-data object CompletedWorkoutListItemSampleScreen : SampleScreen(
-    screen = { CompletedWorkoutListItemScreen(it::navigateUp) },
-)
-
 @Composable
-private fun CompletedWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun CompletedWorkoutListItemSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen(
         title = "Completed Workout List",
         navigateUp = navigateUp,
@@ -54,8 +50,8 @@ private fun CompletedWorkoutListItemScreen(navigateUp: () -> Unit, modifier: Mod
 
 @PreviewLightDark
 @Composable
-private fun CompletedWorkoutListItemScreenPreview() {
+private fun CompletedWorkoutListItemSampleScreenPreview() {
     SatsTheme {
-        CompletedWorkoutListItemScreen(navigateUp = {})
+        CompletedWorkoutListItemSampleScreen(navigateUp = {})
     }
 }

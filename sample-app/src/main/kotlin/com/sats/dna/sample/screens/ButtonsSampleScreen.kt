@@ -54,13 +54,9 @@ import com.sats.dna.icons.Calendar
 import com.sats.dna.icons.Check
 import com.sats.dna.theme.SatsTheme
 
-data object ButtonsSampleScreen : SampleScreen(
-    screen = { ButtonsScreen(it::navigateUp) },
-)
-
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun ButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ButtonsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     val controlPanelState = remember { ControlPanelState() }
 
     ComponentScreen(
@@ -371,10 +367,10 @@ private fun ControlPanel(state: ControlPanelState) {
 
 @PreviewLightDark
 @Composable
-private fun ButtonsScreenPreview() {
+private fun ButtonsSampleScreenPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
-            ButtonsScreen(navigateUp = {})
+            ButtonsSampleScreen(navigateUp = {})
         }
     }
 }

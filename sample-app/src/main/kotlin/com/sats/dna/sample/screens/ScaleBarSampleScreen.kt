@@ -12,12 +12,8 @@ import com.sats.dna.components.SatsScaleBar
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 
-data object ScaleBarSampleScreen : SampleScreen(
-    screen = { ScaleBarScreen(it::navigateUp) },
-)
-
 @Composable
-private fun ScaleBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ScaleBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Scale Bar", navigateUp, modifier) { contentPadding ->
         Column(
             modifier = Modifier
@@ -40,10 +36,10 @@ private fun ScaleBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
 
 @PreviewLightDark
 @Composable
-private fun ScaleBarScreenPreview() {
+private fun ScaleBarSampleScreenPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
-            ScaleBarScreen(navigateUp = {})
+            ScaleBarSampleScreen(navigateUp = {})
         }
     }
 }

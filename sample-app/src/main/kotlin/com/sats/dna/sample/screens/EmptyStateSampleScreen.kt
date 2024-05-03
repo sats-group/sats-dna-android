@@ -16,12 +16,8 @@ import com.sats.dna.components.SatsEmptyStateCard
 import com.sats.dna.icons.Barbell
 import com.sats.dna.theme.SatsTheme
 
-data object EmptyStateSampleScreen : SampleScreen(
-    screen = { EmptyStateScreen(it::navigateUp) },
-)
-
 @Composable
-private fun EmptyStateScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun EmptyStateSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Empty State", navigateUp, modifier) { innerPadding ->
         Column(
             modifier = Modifier
@@ -70,8 +66,8 @@ private fun EmptyStateScreen(navigateUp: () -> Unit, modifier: Modifier = Modifi
 
 @PreviewLightDark
 @Composable
-private fun EmptyStateScreenPreview() {
+private fun EmptyStateSampleScreenPreview() {
     SatsTheme {
-        EmptyStateScreen(navigateUp = {})
+        EmptyStateSampleScreen(navigateUp = {})
     }
 }

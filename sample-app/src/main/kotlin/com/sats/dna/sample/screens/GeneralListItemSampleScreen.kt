@@ -24,12 +24,8 @@ import com.sats.dna.components.card.SatsCard
 import com.sats.dna.icons.Info
 import com.sats.dna.theme.SatsTheme
 
-data object GeneralListItemSampleScreen : SampleScreen(
-    screen = { GeneralListItemScreen(it::navigateUp) },
-)
-
 @Composable
-private fun GeneralListItemScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun GeneralListItemSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("General List Item", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -135,8 +131,8 @@ private fun listItems(): List<@Composable () -> Unit> {
 
 @PreviewLightDark
 @Composable
-private fun GeneralListItemScreenPreview() {
+private fun GeneralListItemSampleScreenPreview() {
     SatsTheme {
-        GeneralListItemScreen(navigateUp = {})
+        GeneralListItemSampleScreen(navigateUp = {})
     }
 }

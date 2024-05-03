@@ -42,7 +42,6 @@ import kotlinx.datetime.toJavaLocalTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
-@ExperimentalFoundationApi
 @Composable
 fun SatsFormTextField(
     label: String,
@@ -87,7 +86,6 @@ fun SatsFormTextField(
     )
 }
 
-@ExperimentalFoundationApi
 @Composable
 fun SatsFormTextFieldSingleLinePlaceholder(
     label: String,
@@ -106,7 +104,6 @@ fun SatsFormTextFieldSingleLinePlaceholder(
     }
 }
 
-@ExperimentalFoundationApi
 @Composable
 fun SatsFormTextFieldMultiLinePlaceholder(
     label: String,

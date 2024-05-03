@@ -31,12 +31,8 @@ import com.sats.dna.icons.ArrowDown
 import com.sats.dna.icons.ArrowUp
 import com.sats.dna.theme.SatsTheme
 
-data object TypographySampleScreen : SampleScreen(
-    screen = { TypographyScreen(it::navigateUp) },
-)
-
 @Composable
-private fun TypographyScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun TypographySampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen(
         title = "Typography",
         navigateUp = navigateUp,
@@ -169,8 +165,8 @@ private fun ParagraphSample(style: TextStyle, modifier: Modifier = Modifier) {
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun TypographySampleScreenPreview() {
     SatsTheme {
-        TypographyScreen(navigateUp = {})
+        TypographySampleScreen(navigateUp = {})
     }
 }

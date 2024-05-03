@@ -23,12 +23,8 @@ import com.sats.dna.components.SatsInputChipClearAction
 import com.sats.dna.components.chip.SatsChip
 import com.sats.dna.theme.SatsTheme
 
-data object ChipsSampleScreen : SampleScreen(
-    screen = { ChipsScreen(it::navigateUp) },
-)
-
 @Composable
-private fun ChipsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ChipsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Chips", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -99,8 +95,8 @@ private fun Section(title: String, content: @Composable ColumnScope.() -> Unit) 
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun ChipsSampleScreenPreview() {
     SatsTheme {
-        ChipsScreen(navigateUp = {})
+        ChipsSampleScreen(navigateUp = {})
     }
 }

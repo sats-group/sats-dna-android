@@ -1,6 +1,5 @@
 package com.sats.dna.sample.screens
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -40,13 +39,8 @@ import kotlinx.datetime.toJavaLocalTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
-data object FormInputFieldsSampleScreen : SampleScreen(
-    screen = { FormInputFieldsScreen(it::navigateUp) },
-)
-
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
-internal fun FormInputFieldsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun FormInputFieldsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Form Input Fields", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -158,14 +152,6 @@ internal fun FormInputFieldsScreen(navigateUp: () -> Unit, modifier: Modifier = 
     }
 }
 
-@PreviewLightDark
-@Composable
-private fun FormTextFieldScreenPreview() {
-    SatsTheme {
-        FormInputFieldsScreen(navigateUp = {})
-    }
-}
-
 private enum class WorkoutType(val label: String) {
     Strength("🏋 Strength"),
     Cardio("🏃 Cardio"),
@@ -182,10 +168,9 @@ private class LocalDateTimeState {
     val dateTime: LocalDateTime by derivedStateOf {
         currentDate.value.atTime(currentTime.value)
     }
-
     private var currentDate: Date by mutableStateOf(Date.Initial)
-    private var currentTime: Time by mutableStateOf(Time.Initial)
 
+    private var currentTime: Time by mutableStateOf(Time.Initial)
     fun changeDate() {
         currentDate = currentDate.toggle()
     }
@@ -214,5 +199,13 @@ private class LocalDateTimeState {
             Initial -> Alternate
             Alternate -> Initial
         }
+    }
+}
+
+@PreviewLightDark
+@Composable
+private fun FormInputFieldsSampleScreenPreview() {
+    SatsTheme {
+        FormInputFieldsSampleScreen(navigateUp = {})
     }
 }

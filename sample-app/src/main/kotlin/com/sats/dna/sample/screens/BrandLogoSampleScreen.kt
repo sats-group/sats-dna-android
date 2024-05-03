@@ -13,12 +13,8 @@ import com.sats.dna.components.SatsBrandLogoBrand
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.theme.SatsTheme
 
-data object BrandLogoSampleScreen : SampleScreen(
-    screen = { BrandLogoScreen(it::navigateUp) },
-)
-
 @Composable
-private fun BrandLogoScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun BrandLogoSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Brand Logo", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -57,8 +53,8 @@ private fun BrandLogoScreen(navigateUp: () -> Unit, modifier: Modifier = Modifie
 
 @PreviewLightDark
 @Composable
-private fun BrandLogoScreenPreview() {
+private fun BrandLogoSampleScreenPreview() {
     SatsTheme {
-        BrandLogoScreen(navigateUp = {})
+        BrandLogoSampleScreen(navigateUp = {})
     }
 }

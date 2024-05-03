@@ -18,12 +18,8 @@ import com.sats.dna.components.SatsBadgeHierarchy
 import com.sats.dna.components.SatsFixedBadge
 import com.sats.dna.theme.SatsTheme
 
-data object BadgeSampleScreen : SampleScreen(
-    screen = { BadgeScreen(it::navigateUp) },
-)
-
 @Composable
-private fun BadgeScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun BadgeSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Badge", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -84,8 +80,8 @@ private fun Section(title: String, content: @Composable ColumnScope.() -> Unit) 
 
 @PreviewLightDark
 @Composable
-private fun BadgeScreenPreview() {
+private fun BadgeSampleScreenPreview() {
     SatsTheme {
-        BadgeScreen(navigateUp = {})
+        BadgeSampleScreen(navigateUp = {})
     }
 }

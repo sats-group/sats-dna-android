@@ -20,12 +20,8 @@ import com.sats.dna.components.statistics.SatsWorkoutStatisticsCardItem
 import com.sats.dna.components.statistics.SatsWorkoutStatisticsCardPlaceholder
 import com.sats.dna.theme.SatsTheme
 
-data object WorkoutStatisticsSampleScreen : SampleScreen(
-    screen = { WorkoutStatisticsScreen(it::navigateUp) },
-)
-
 @Composable
-private fun WorkoutStatisticsScreen(
+fun WorkoutStatisticsSampleScreen(
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -138,8 +134,8 @@ private fun WorkoutStatisticsScreen(
 
 @PreviewLightDark
 @Composable
-private fun WorkoutStatisticsScreenPreview() {
+private fun WorkoutStatisticsSampleScreenPreview() {
     SatsTheme {
-        WorkoutStatisticsScreen(navigateUp = {})
+        WorkoutStatisticsSampleScreen(navigateUp = {})
     }
 }

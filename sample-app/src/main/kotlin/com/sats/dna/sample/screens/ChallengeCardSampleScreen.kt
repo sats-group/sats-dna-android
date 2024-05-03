@@ -17,12 +17,8 @@ import com.sats.dna.components.card.SatsChallengeCard
 import com.sats.dna.components.card.SatsChallengeCardState
 import com.sats.dna.theme.SatsTheme
 
-data object ChallengeCardSampleScreen : SampleScreen(
-    screen = { ChallengeCardScreen(it::navigateUp) },
-)
-
 @Composable
-private fun ChallengeCardScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ChallengeCardSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Challenge Card Screen", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -86,6 +82,6 @@ private fun ChallengeCardScreen(navigateUp: () -> Unit, modifier: Modifier = Mod
 @Composable
 private fun ChallengeCardSampleScreenPreview() {
     SatsTheme {
-        ChallengeCardScreen(navigateUp = {})
+        ChallengeCardSampleScreen(navigateUp = {})
     }
 }

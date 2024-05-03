@@ -18,12 +18,8 @@ import com.sats.dna.components.SatsPlaceholderParagraph
 import com.sats.dna.components.SatsPlaceholderText
 import com.sats.dna.theme.SatsTheme
 
-data object PlaceholdersSampleScreen : SampleScreen(
-    screen = { PlaceholderScreen(it::navigateUp) },
-)
-
 @Composable
-private fun PlaceholderScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun PlaceholdersSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Placeholders", navigateUp, modifier) { innerPadding ->
         Column(Modifier.padding(innerPadding)) {
             SatsPlaceholderBox(
@@ -57,8 +53,8 @@ private fun PlaceholderScreen(navigateUp: () -> Unit, modifier: Modifier = Modif
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun PlaceholdersSampleScreenPreview() {
     SatsTheme {
-        PlaceholderScreen(navigateUp = {})
+        PlaceholdersSampleScreen(navigateUp = {})
     }
 }

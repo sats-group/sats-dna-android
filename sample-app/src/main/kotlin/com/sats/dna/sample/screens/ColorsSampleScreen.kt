@@ -41,12 +41,8 @@ import com.sats.dna.icons.ArrowDown
 import com.sats.dna.icons.ArrowUp
 import com.sats.dna.theme.SatsTheme
 
-data object ColorsSampleScreen : SampleScreen(
-    screen = { ColorsScreen(it::navigateUp) },
-)
-
 @Composable
-private fun ColorsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ColorsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Colors", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -811,10 +807,10 @@ private fun SurfaceColorSamples(colorSet: SurfaceColorSet, name: String) {
 
 @PreviewLightDark
 @Composable
-private fun ColorsScreenPreview() {
+private fun ColorsSampleScreenPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
-            ColorsScreen(navigateUp = {})
+            ColorsSampleScreen(navigateUp = {})
         }
     }
 }

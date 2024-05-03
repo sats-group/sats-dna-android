@@ -18,12 +18,8 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsChallengeBadge
 import com.sats.dna.theme.SatsTheme
 
-data object ChallengeBadgeSampleScreen : SampleScreen(
-    screen = { ChallengeBadgeScreen(it::navigateUp) },
-)
-
 @Composable
-private fun ChallengeBadgeScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ChallengeBadgeSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen(
         title = "Challenge Badge",
         navigateUp = navigateUp,
@@ -67,8 +63,8 @@ private fun BadgeSample(imageUrl: String?, progress: Float? = null, label: Strin
 
 @PreviewLightDark
 @Composable
-private fun ChallengeBadgeScreenPreview() {
+private fun ChallengeBadgeSampleScreenPeview() {
     SatsTheme {
-        ChallengeBadgeScreen(navigateUp = {})
+        ChallengeBadgeSampleScreen(navigateUp = {})
     }
 }

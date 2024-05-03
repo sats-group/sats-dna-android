@@ -23,12 +23,8 @@ import com.sats.dna.components.SatsWorkoutTag
 import com.sats.dna.components.SatsWorkoutTagColor
 import com.sats.dna.theme.SatsTheme
 
-data object TagsSampleScreen : SampleScreen(
-    screen = { TagsScreen(it::navigateUp) },
-)
-
 @Composable
-private fun TagsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun TagsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Tags", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -88,8 +84,8 @@ private fun Section(title: String, content: @Composable ColumnScope.() -> Unit) 
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun TagsSampleScreenPreview() {
     SatsTheme {
-        TagsScreen(navigateUp = {})
+        TagsSampleScreen(navigateUp = {})
     }
 }

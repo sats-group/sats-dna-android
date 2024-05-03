@@ -19,12 +19,8 @@ import com.sats.dna.components.SatsTrafficLight
 import com.sats.dna.components.TrafficLightColor
 import com.sats.dna.theme.SatsTheme
 
-data object TrafficLightsSampleScreen : SampleScreen(
-    screen = { TrafficLightsScreen(it::navigateUp) },
-)
-
 @Composable
-private fun TrafficLightsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun TrafficLightsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen(
         title = "Traffic Lights",
         navigateUp = navigateUp,
@@ -53,8 +49,8 @@ private fun TrafficLightsScreen(navigateUp: () -> Unit, modifier: Modifier = Mod
 
 @PreviewLightDark
 @Composable
-private fun TrafficLightsScreenPreview() {
+private fun TrafficLightsSampleScreenPreview() {
     SatsTheme {
-        TrafficLightsScreen(navigateUp = {})
+        TrafficLightsSampleScreen(navigateUp = {})
     }
 }

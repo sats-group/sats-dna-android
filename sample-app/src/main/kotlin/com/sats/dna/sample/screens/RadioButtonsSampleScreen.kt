@@ -14,12 +14,8 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsRadioButton
 import com.sats.dna.theme.SatsTheme
 
-data object RadioButtonsSampleScreen : SampleScreen(
-    screen = { RadioButtonsScreen(it::navigateUp) },
-)
-
 @Composable
-private fun RadioButtonsScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun RadioButtonsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Radio Buttons", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -51,8 +47,8 @@ private fun LabeledRadioButton(label: String, enabled: Boolean, selected: Boolea
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun RadioButtonsSampleScreenPreview() {
     SatsTheme {
-        RadioButtonsScreen(navigateUp = {})
+        RadioButtonsSampleScreen(navigateUp = {})
     }
 }

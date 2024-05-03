@@ -13,12 +13,8 @@ import com.sats.dna.components.SatsBanner
 import com.sats.dna.components.SatsBannerAction
 import com.sats.dna.theme.SatsTheme
 
-data object BannerSampleScreen : SampleScreen(
-    screen = { BannerScreen(it::navigateUp) },
-)
-
 @Composable
-private fun BannerScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun BannerSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Banner", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -44,8 +40,8 @@ private fun BannerScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) 
 
 @PreviewLightDark
 @Composable
-private fun BannerScreenPreview() {
+private fun BannerSampleScreenPreview() {
     SatsTheme {
-        BannerScreen(navigateUp = {})
+        BannerSampleScreen(navigateUp = {})
     }
 }

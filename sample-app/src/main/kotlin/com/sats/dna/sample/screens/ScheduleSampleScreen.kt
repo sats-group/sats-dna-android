@@ -14,12 +14,8 @@ import com.sats.dna.components.upcomingworkouts.SatsWaitingListStatus
 import com.sats.dna.components.upcomingworkouts.SatsWorkoutType
 import com.sats.dna.theme.SatsTheme
 
-data object ScheduleSampleScreen : SampleScreen(
-    screen = { ScheduleScreen(it::navigateUp) },
-)
-
 @Composable
-private fun ScheduleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ScheduleSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Schedule", navigateUp, modifier) { innerPadding ->
         val schedule = listOf(
             SatsUpcomingWorkout(
@@ -77,8 +73,8 @@ private fun ScheduleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun ScheduleSampleScreenPreview() {
     SatsTheme {
-        ScheduleScreen(navigateUp = {})
+        ScheduleSampleScreen(navigateUp = {})
     }
 }

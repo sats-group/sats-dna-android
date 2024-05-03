@@ -18,12 +18,8 @@ import com.sats.dna.components.SatsSearchBar
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 
-data object SearchBarSampleScreen : SampleScreen(
-    screen = { SearchBarSampleScreen(it::navigateUp) },
-)
-
 @Composable
-private fun SearchBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun SearchBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     var emptyQuery by remember { mutableStateOf("") }
     var query by remember { mutableStateOf("SATS Carl Berner") }
 

@@ -27,12 +27,8 @@ import com.sats.dna.icons.Add
 import com.sats.dna.icons.Calendar
 import com.sats.dna.theme.SatsTheme
 
-data object CardSampleScreen : SampleScreen(
-    screen = { SatsCardScreen(it::navigateUp) },
-)
-
 @Composable
-private fun SatsCardScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun CardSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Cards", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -110,8 +106,8 @@ private fun SatsCardScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier
 
 @PreviewLightDark
 @Composable
-private fun SatsCardScreenPreview() {
+private fun CardSampleScreenPreview() {
     SatsTheme {
-        SatsCardScreen(navigateUp = {})
+        CardSampleScreen(navigateUp = {})
     }
 }

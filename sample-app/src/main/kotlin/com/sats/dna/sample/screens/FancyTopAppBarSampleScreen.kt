@@ -30,12 +30,8 @@ import com.sats.dna.icons.Back
 import com.sats.dna.theme.SatsTheme
 import kotlinx.coroutines.launch
 
-data object FancyTopAppBarSampleScreen : SampleScreen(
-    screen = { FancyTopAppBarScreen(it::navigateUp) },
-)
-
 @Composable
-fun FancyTopAppBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun FancyTopAppBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     val scrollConnection = rememberSatsFancyTopAppBarNestedScrollConnection()
 
     SatsScreen(
@@ -105,10 +101,10 @@ fun FancyTopAppBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) 
 
 @PreviewLightDark
 @Composable
-private fun FancyTopAppBarScreenPreview() {
+private fun FancyTopAppBarSampleScreenPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
-            FancyTopAppBarScreen(navigateUp = {})
+            FancyTopAppBarSampleScreen(navigateUp = {})
         }
     }
 }

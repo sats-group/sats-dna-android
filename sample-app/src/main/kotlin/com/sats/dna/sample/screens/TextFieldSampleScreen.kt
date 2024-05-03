@@ -17,12 +17,8 @@ import com.sats.dna.components.SatsOutlinedTextField
 import com.sats.dna.components.SatsTextField
 import com.sats.dna.theme.SatsTheme
 
-data object TextFieldSampleScreen : SampleScreen(
-    screen = { TextFieldScreen(it::navigateUp) },
-)
-
 @Composable
-internal fun TextFieldScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+internal fun TextFieldSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     val (inputValue, setValue) = remember { mutableStateOf("") }
     val (outlinedInputValue, outlinedSetValue) = remember { mutableStateOf("") }
 
@@ -99,8 +95,8 @@ private fun LabeledOutlinedTextField(
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun TextFieldSampleScreenPreview() {
     SatsTheme {
-        TextFieldScreen(navigateUp = {})
+        TextFieldSampleScreen(navigateUp = {})
     }
 }

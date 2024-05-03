@@ -19,12 +19,8 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.SatsVerticalDivider
 import com.sats.dna.theme.SatsTheme
 
-data object DividersSampleScreen : SampleScreen(
-    screen = { DividersScreen(it::navigateUp) },
-)
-
 @Composable
-private fun DividersScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun DividersSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Dividers", navigateUp, modifier) { contentPadding ->
         Column(
             Modifier
@@ -74,10 +70,10 @@ private fun Section(label: String, modifier: Modifier = Modifier, content: @Comp
 
 @PreviewLightDark
 @Composable
-private fun DividersScreenPreview() {
+private fun DividersSampleScreenPreview() {
     SatsTheme {
         SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
-            DividersScreen(navigateUp = {})
+            DividersSampleScreen(navigateUp = {})
         }
     }
 }

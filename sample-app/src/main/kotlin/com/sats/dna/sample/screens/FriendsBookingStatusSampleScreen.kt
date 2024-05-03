@@ -16,12 +16,8 @@ import com.sats.dna.components.sessiondetails.FriendsBookingStatus
 import com.sats.dna.components.sessiondetails.SatsFriendsBookingStatusListItem
 import com.sats.dna.theme.SatsTheme
 
-data object FriendsBookingStatusSampleScreen : SampleScreen(
-    screen = { FriendsBookingStatusScreen(it::navigateUp) },
-)
-
 @Composable
-private fun FriendsBookingStatusScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun FriendsBookingStatusSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen(
         title = "Friends Booking Status",
         navigateUp = navigateUp,
@@ -79,8 +75,8 @@ private val friendsBookingStates = listOf(
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun FriendsBookingStatusSampleScreenPreview() {
     SatsTheme {
-        FriendsBookingStatusScreen(navigateUp = {})
+        FriendsBookingStatusSampleScreen(navigateUp = {})
     }
 }

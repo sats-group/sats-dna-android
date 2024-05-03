@@ -17,12 +17,8 @@ import com.sats.dna.components.button.SatsDismissButton
 import com.sats.dna.components.card.SatsArticleCard
 import com.sats.dna.theme.SatsTheme
 
-data object ArticleCardSampleScreen : SampleScreen(
-    screen = { ArticleCardScreen(it::navigateUp) },
-)
-
 @Composable
-private fun ArticleCardScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ArticleCardSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Article Card", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -81,8 +77,8 @@ private fun ArticleCardScreen(navigateUp: () -> Unit, modifier: Modifier = Modif
 
 @PreviewLightDark
 @Composable
-private fun ArticleCardScreenPreview() {
+private fun ArticleCardSampleScreenPreview() {
     SatsTheme {
-        ArticleCardScreen(navigateUp = {})
+        ArticleCardSampleScreen(navigateUp = {})
     }
 }

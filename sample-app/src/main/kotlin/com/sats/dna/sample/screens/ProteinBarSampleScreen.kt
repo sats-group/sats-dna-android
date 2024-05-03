@@ -16,12 +16,8 @@ import com.sats.dna.components.proteinbar.SatsProteinBarDefaults
 import com.sats.dna.components.proteinbar.SatsProteinBarTheme
 import com.sats.dna.theme.SatsTheme
 
-data object ProteinBarSampleScreen : SampleScreen(
-    screen = { ProteinBarScreen(it::navigateUp) },
-)
-
 @Composable
-private fun ProteinBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ProteinBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Protein Bar", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -94,8 +90,8 @@ private fun ProteinBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifi
 
 @PreviewLightDark
 @Composable
-private fun ProteinBarScreenPreview() {
+private fun ProteinBarSampleScreenPreview() {
     SatsTheme {
-        ProteinBarScreen(navigateUp = {})
+        ProteinBarSampleScreen(navigateUp = {})
     }
 }

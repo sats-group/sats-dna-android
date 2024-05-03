@@ -17,12 +17,8 @@ import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SatsSwitch
 import com.sats.dna.theme.SatsTheme
 
-data object SwitchSampleScreen : SampleScreen(
-    screen = { SwitchScreen(it::navigateUp) },
-)
-
 @Composable
-private fun SwitchScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun SwitchSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Switch", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -70,8 +66,8 @@ private fun LabeledSwitch(
 
 @PreviewLightDark
 @Composable
-private fun Preview() {
+private fun SwitchSampleScreenPreview() {
     SatsTheme {
-        SwitchScreen(navigateUp = {})
+        SwitchSampleScreen(navigateUp = {})
     }
 }

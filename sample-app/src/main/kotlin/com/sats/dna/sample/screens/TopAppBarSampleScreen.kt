@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -23,13 +22,8 @@ import com.sats.dna.icons.Back
 import com.sats.dna.icons.Barbell
 import com.sats.dna.theme.SatsTheme
 
-data object TopAppBarSampleScreen : SampleScreen(
-    screen = { TopAppBarScreen(it::navigateUp) },
-)
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun TopAppBarScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun TopAppBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     ComponentScreen("Top App Bar", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
@@ -84,8 +78,8 @@ private fun Actions() {
 
 @PreviewLightDark
 @Composable
-private fun TopAppBarScreenPreview() {
+private fun TopAppBarSampleScreenPreview() {
     SatsTheme {
-        TopAppBarScreen(navigateUp = {})
+        TopAppBarSampleScreen(navigateUp = {})
     }
 }
