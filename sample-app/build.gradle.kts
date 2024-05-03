@@ -6,6 +6,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlinter)
 }
 
@@ -90,6 +91,7 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.google.material)
     implementation(libs.kotlin.reflect)
+    implementation(libs.kotlinx.serialization.core)
     implementation(platform(libs.androidx.compose.bom))
     implementation(project(":sats-dna"))
 }
