@@ -58,15 +58,22 @@ fun SatsTopAppBar(
     colors: TopAppBarColors? = null,
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
 ) {
-    val topAppBarColors = colors
-        ?: if (scrollBehavior == null) {
+    val topAppBarColors = when {
+        colors != null -> colors
+
+        scrollBehavior == null -> {
             // If we don't have a scroll behaviour, then we need to always separate the top app bar from the following
             // content, and using the same color as we would when the content was scrolled makes sense here.
-
             TopAppBarDefaults.topAppBarColors(containerColor = SatsTopAppBarDefaults.containerColor)
-        } else {
-            TopAppBarDefaults.topAppBarColors(containerColor = SatsTheme.colors.backgrounds.primary.default.bg)
         }
+
+        else -> {
+            TopAppBarDefaults.topAppBarColors(
+                containerColor = SatsTheme.colors.backgrounds.primary.default.bg,
+                scrolledContainerColor = SatsTopAppBarDefaults.containerColor,
+            )
+        }
+    }
 
     TopAppBar(
         colors = topAppBarColors,
