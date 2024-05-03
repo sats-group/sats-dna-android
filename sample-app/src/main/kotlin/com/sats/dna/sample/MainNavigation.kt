@@ -2,7 +2,6 @@ package com.sats.dna.sample
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
-import com.sats.dna.sample.home.HomeScreen
 import com.sats.dna.sample.internal.sampleAppComposable
 import com.sats.dna.sample.routes.HomeRoute
 import com.sats.dna.sample.routes.components.ArticleCardSampleScreenRoute
@@ -46,6 +45,7 @@ import com.sats.dna.sample.routes.components.YourMostBookedSampleScreenRoute
 import com.sats.dna.sample.routes.icons.IconsSampleScreenRoute
 import com.sats.dna.sample.routes.styles.ColorsSampleScreenRoute
 import com.sats.dna.sample.routes.styles.TypographySampleScreenRoute
+import com.sats.dna.sample.screens.HomeScreen
 import com.sats.dna.sample.screens.components.ArticleCardSampleScreen
 import com.sats.dna.sample.screens.components.BadgeSampleScreen
 import com.sats.dna.sample.screens.components.BannerSampleScreen

@@ -1,4 +1,4 @@
-package com.sats.dna.sample.home
+package com.sats.dna.sample.screens
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedContent
