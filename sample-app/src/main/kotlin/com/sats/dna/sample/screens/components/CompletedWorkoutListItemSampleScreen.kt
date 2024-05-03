@@ -13,12 +13,12 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsCompletedWorkoutListItem
 import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.upcomingworkouts.SatsWorkoutType
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun CompletedWorkoutListItemSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen(
+    SampleScreen(
         title = "Completed Workout List",
         navigateUp = navigateUp,
         modifier = modifier,

@@ -21,12 +21,12 @@ import com.sats.dna.components.SatsFilterChip
 import com.sats.dna.components.SatsInputChip
 import com.sats.dna.components.SatsInputChipClearAction
 import com.sats.dna.components.chip.SatsChip
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun ChipsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Chips", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Chips", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .fillMaxSize()

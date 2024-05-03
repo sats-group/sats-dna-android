@@ -22,12 +22,12 @@ import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SimpleTrailingContent
 import com.sats.dna.components.card.SatsCard
 import com.sats.dna.icons.Info
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun GeneralListItemSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("General List Item", navigateUp, modifier) { innerPadding ->
+    SampleScreen("General List Item", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .padding(innerPadding)

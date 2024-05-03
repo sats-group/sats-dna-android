@@ -16,12 +16,12 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsBadge
 import com.sats.dna.components.SatsBadgeHierarchy
 import com.sats.dna.components.SatsFixedBadge
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun BadgeSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Badge", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Badge", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .fillMaxSize()

@@ -16,12 +16,12 @@ import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsPlaceholderBox
 import com.sats.dna.components.SatsPlaceholderParagraph
 import com.sats.dna.components.SatsPlaceholderText
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun PlaceholdersSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Placeholders", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Placeholders", navigateUp, modifier) { innerPadding ->
         Column(Modifier.padding(innerPadding)) {
             SatsPlaceholderBox(
                 Modifier

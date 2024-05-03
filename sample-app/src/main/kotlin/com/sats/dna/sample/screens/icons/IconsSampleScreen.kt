@@ -209,12 +209,12 @@ import com.sats.dna.icons.Workplace
 import com.sats.dna.icons.Yoga
 import com.sats.dna.icons.Youtube
 import com.sats.dna.icons.Zendesk
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun IconsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Icons", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Icons", navigateUp, modifier) { innerPadding ->
         val icons = allIcons
             .distinctBy { it.name }
             .sortedBy { it.name }

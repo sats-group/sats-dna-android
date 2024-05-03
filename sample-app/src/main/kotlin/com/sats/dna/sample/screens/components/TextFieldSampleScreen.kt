@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsOutlinedTextField
 import com.sats.dna.components.SatsTextField
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -23,7 +23,7 @@ internal fun TextFieldSampleScreen(navigateUp: () -> Unit, modifier: Modifier = 
     val (inputValue, setValue) = remember { mutableStateOf("") }
     val (outlinedInputValue, outlinedSetValue) = remember { mutableStateOf("") }
 
-    ComponentScreen("Text Field", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Text Field", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .verticalScroll(rememberScrollState())

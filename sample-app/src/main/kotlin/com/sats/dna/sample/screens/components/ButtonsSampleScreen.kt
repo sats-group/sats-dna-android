@@ -52,7 +52,7 @@ import com.sats.dna.icons.Add
 import com.sats.dna.icons.Barbell
 import com.sats.dna.icons.Calendar
 import com.sats.dna.icons.Check
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -60,7 +60,7 @@ import com.sats.dna.theme.SatsTheme
 fun ButtonsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
     val controlPanelState = remember { ControlPanelState() }
 
-    ComponentScreen(
+    SampleScreen(
         title = "Buttons",
         navigateUp = navigateUp,
         modifier = modifier,

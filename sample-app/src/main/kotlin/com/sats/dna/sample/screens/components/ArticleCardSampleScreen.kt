@@ -15,12 +15,12 @@ import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsButtonSize
 import com.sats.dna.components.button.SatsDismissButton
 import com.sats.dna.components.card.SatsArticleCard
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun ArticleCardSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Article Card", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Article Card", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .fillMaxSize()

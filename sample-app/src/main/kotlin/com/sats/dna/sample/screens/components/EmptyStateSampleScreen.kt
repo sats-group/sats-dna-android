@@ -14,12 +14,12 @@ import com.sats.dna.SatsIcons
 import com.sats.dna.components.SatsEmptyStateAction
 import com.sats.dna.components.SatsEmptyStateCard
 import com.sats.dna.icons.Barbell
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun EmptyStateSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Empty State", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Empty State", navigateUp, modifier) { innerPadding ->
         Column(
             modifier = Modifier
                 .verticalScroll(rememberScrollState())

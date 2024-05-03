@@ -15,12 +15,12 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.card.SatsChallengeCard
 import com.sats.dna.components.card.SatsChallengeCardState
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun ChallengeCardSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Challenge Card Screen", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Challenge Card Screen", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .fillMaxSize()

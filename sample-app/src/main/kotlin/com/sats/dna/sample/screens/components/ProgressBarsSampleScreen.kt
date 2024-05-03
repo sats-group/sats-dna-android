@@ -17,12 +17,12 @@ import com.sats.dna.components.progressbar.SatsCircularSteppedProgressIndicator
 import com.sats.dna.components.progressbar.SatsLinearProgressBar
 import com.sats.dna.components.progressbar.SteppingProgress
 import com.sats.dna.components.progressbar.SteppingProgressGroup
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun ProgressBarsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Progress Bars", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Progress Bars", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .fillMaxSize()

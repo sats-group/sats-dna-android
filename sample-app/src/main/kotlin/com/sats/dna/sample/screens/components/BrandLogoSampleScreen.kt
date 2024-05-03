@@ -11,12 +11,12 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsBrandLogo
 import com.sats.dna.components.SatsBrandLogoBrand
 import com.sats.dna.components.SatsHorizontalDivider
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun BrandLogoSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Brand Logo", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Brand Logo", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .fillMaxSize()

@@ -29,12 +29,12 @@ import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SatsVerticalDivider
 import com.sats.dna.icons.ArrowDown
 import com.sats.dna.icons.ArrowUp
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun TypographySampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen(
+    SampleScreen(
         title = "Typography",
         navigateUp = navigateUp,
         modifier = modifier,

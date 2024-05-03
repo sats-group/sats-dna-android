@@ -7,13 +7,13 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsJoinYourFriendsCard
 import com.sats.dna.components.SatsPill
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.sample.internal.ComponentScreen
 import com.sats.dna.sample.internal.SampleProfilePicture
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun JoinYourFriendsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Join Your Friends", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Join Your Friends", navigateUp, modifier) { innerPadding ->
         SatsJoinYourFriendsCard(
             pill = { SatsPill(label = "Susanne", image = { SampleProfilePicture() }) },
             imageUrl = null,

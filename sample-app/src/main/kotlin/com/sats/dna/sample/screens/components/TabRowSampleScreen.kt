@@ -15,12 +15,12 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.SatsTab
 import com.sats.dna.components.SatsTabRow
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun TabRowSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen(title = "TabRow", navigateUp = navigateUp, modifier) { innerPadding ->
+    SampleScreen(title = "TabRow", navigateUp = navigateUp, modifier) { innerPadding ->
         var selectedTab by remember { mutableStateOf(SampleTabs.SampleTab1) }
 
         Column(modifier = Modifier.padding(innerPadding)) {

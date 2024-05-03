@@ -14,12 +14,12 @@ import com.sats.dna.components.proteinbar.SatsProteinBar
 import com.sats.dna.components.proteinbar.SatsProteinBarAction
 import com.sats.dna.components.proteinbar.SatsProteinBarDefaults
 import com.sats.dna.components.proteinbar.SatsProteinBarTheme
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun ProteinBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Protein Bar", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Protein Bar", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .verticalScroll(rememberScrollState())

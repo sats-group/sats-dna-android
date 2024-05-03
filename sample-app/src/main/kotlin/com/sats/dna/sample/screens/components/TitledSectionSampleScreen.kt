@@ -23,12 +23,12 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.SatsTitledSection
 import com.sats.dna.components.SatsTitledSectionAction
 import com.sats.dna.components.card.SatsCard
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun TitledSectionSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Titled Section", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Titled Section", navigateUp, modifier) { innerPadding ->
         Column(
             modifier = Modifier
                 .verticalScroll(rememberScrollState())

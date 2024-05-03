@@ -17,12 +17,12 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsTrafficLight
 import com.sats.dna.components.TrafficLightColor
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun TrafficLightsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen(
+    SampleScreen(
         title = "Traffic Lights",
         navigateUp = navigateUp,
         modifier = modifier,

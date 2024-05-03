@@ -39,12 +39,12 @@ import com.sats.dna.components.button.SatsButtonSize
 import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.icons.ArrowDown
 import com.sats.dna.icons.ArrowUp
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun ColorsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Colors", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Colors", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .verticalScroll(rememberScrollState())

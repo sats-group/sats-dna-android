@@ -17,13 +17,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 import kotlin.math.roundToInt
 
 @Composable
 fun SurfaceSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Surface", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Surface", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .padding(innerPadding)

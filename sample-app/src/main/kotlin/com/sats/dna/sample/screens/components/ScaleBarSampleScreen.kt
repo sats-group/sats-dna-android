@@ -10,12 +10,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsScaleBar
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun ScaleBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Scale Bar", navigateUp, modifier) { contentPadding ->
+    SampleScreen("Scale Bar", navigateUp, modifier) { contentPadding ->
         Column(
             modifier = Modifier
                 .verticalScroll(rememberScrollState())

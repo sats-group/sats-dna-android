@@ -11,12 +11,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsBanner
 import com.sats.dna.components.SatsBannerAction
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun BannerSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Banner", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Banner", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .padding(innerPadding)

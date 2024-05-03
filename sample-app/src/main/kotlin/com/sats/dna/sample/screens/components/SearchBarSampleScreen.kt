@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.sats.dna.components.SatsSearchBar
 import com.sats.dna.components.SatsSurface
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -24,7 +24,7 @@ fun SearchBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
     var emptyQuery by remember { mutableStateOf("") }
     var query by remember { mutableStateOf("SATS Carl Berner") }
 
-    ComponentScreen("Search Bar", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Search Bar", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .verticalScroll(rememberScrollState())

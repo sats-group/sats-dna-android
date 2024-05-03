@@ -20,12 +20,12 @@ import com.sats.dna.components.SatsCheckbox
 import com.sats.dna.components.SatsCheckboxColors
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.SatsTriStateCheckbox
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun CheckboxSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Checkbox", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Checkbox", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .padding(innerPadding)

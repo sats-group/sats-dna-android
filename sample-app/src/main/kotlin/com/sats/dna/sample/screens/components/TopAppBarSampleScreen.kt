@@ -20,12 +20,12 @@ import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.icons.AddPerson
 import com.sats.dna.icons.Back
 import com.sats.dna.icons.Barbell
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun TopAppBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-    ComponentScreen("Top App Bar", navigateUp, modifier) { innerPadding ->
+    SampleScreen("Top App Bar", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier
                 .fillMaxSize()

@@ -18,7 +18,7 @@ import com.sats.dna.components.statistics.SatsWorkoutGraphCardWeek
 import com.sats.dna.components.statistics.SatsWorkoutStatisticsCard
 import com.sats.dna.components.statistics.SatsWorkoutStatisticsCardItem
 import com.sats.dna.components.statistics.SatsWorkoutStatisticsCardPlaceholder
-import com.sats.dna.sample.internal.ComponentScreen
+import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -26,7 +26,7 @@ fun WorkoutStatisticsSampleScreen(
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    ComponentScreen(
+    SampleScreen(
         title = "Workout Statistics",
         navigateUp = navigateUp,
         modifier = modifier,
