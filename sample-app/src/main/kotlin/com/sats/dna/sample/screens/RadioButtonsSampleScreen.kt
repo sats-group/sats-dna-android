@@ -15,8 +15,6 @@ import com.sats.dna.components.SatsRadioButton
 import com.sats.dna.theme.SatsTheme
 
 data object RadioButtonsSampleScreen : SampleScreen(
-    name = "Radio Buttons",
-    route = "/components/radio-buttons",
     screen = { RadioButtonsScreen(it::navigateUp) },
 )
 

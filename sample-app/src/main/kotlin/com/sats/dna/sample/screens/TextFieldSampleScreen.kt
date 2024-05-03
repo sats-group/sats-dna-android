@@ -18,8 +18,6 @@ import com.sats.dna.components.SatsTextField
 import com.sats.dna.theme.SatsTheme
 
 data object TextFieldSampleScreen : SampleScreen(
-    name = "Text Field",
-    route = "/components/text-field",
     screen = { TextFieldScreen(it::navigateUp) },
 )
 

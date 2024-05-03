@@ -28,8 +28,6 @@ import com.sats.dna.icons.Calendar
 import com.sats.dna.theme.SatsTheme
 
 data object CardSampleScreen : SampleScreen(
-    name = "Card",
-    route = "/components/card",
     screen = { SatsCardScreen(it::navigateUp) },
 )
 

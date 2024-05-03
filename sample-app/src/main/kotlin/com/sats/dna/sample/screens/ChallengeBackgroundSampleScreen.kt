@@ -28,8 +28,6 @@ import com.sats.dna.icons.Back
 import com.sats.dna.theme.SatsTheme
 
 data object ChallengeBackgroundSampleScreen : SampleScreen(
-    name = "Challenge Background",
-    route = "/components/challenge-background",
     screen = { ChallengeBackgroundScreen(it::navigateUp) },
 )
 

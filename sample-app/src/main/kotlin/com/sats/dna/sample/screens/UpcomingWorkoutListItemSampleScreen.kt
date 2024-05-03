@@ -19,8 +19,6 @@ import com.sats.dna.components.upcomingworkouts.SatsWorkoutType
 import com.sats.dna.theme.SatsTheme
 
 data object UpcomingWorkoutListItemSampleScreen : SampleScreen(
-    name = "Upcoming Workout List Item",
-    route = "/components/upcoming-workout-list-item",
     screen = { UpcomingWorkoutListItemScreen(it::navigateUp) },
 )
 

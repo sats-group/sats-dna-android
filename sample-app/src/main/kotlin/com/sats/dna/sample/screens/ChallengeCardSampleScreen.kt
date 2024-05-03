@@ -18,8 +18,6 @@ import com.sats.dna.components.card.SatsChallengeCardState
 import com.sats.dna.theme.SatsTheme
 
 data object ChallengeCardSampleScreen : SampleScreen(
-    name = "Challenge Card",
-    route = "/components/challenge-card",
     screen = { ChallengeCardScreen(it::navigateUp) },
 )
 

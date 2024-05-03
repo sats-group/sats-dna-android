@@ -41,8 +41,6 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
 data object FormInputFieldsSampleScreen : SampleScreen(
-    name = "Form Input Fields",
-    route = "/components/form-input-fields",
     screen = { FormInputFieldsScreen(it::navigateUp) },
 )
 

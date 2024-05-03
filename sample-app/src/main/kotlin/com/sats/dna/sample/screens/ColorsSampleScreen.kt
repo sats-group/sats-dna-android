@@ -42,8 +42,6 @@ import com.sats.dna.icons.ArrowUp
 import com.sats.dna.theme.SatsTheme
 
 data object ColorsSampleScreen : SampleScreen(
-    name = "Colors",
-    route = "/colors",
     screen = { ColorsScreen(it::navigateUp) },
 )
 

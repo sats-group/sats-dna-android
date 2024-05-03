@@ -23,8 +23,6 @@ import com.sats.dna.components.SatsTriStateCheckbox
 import com.sats.dna.theme.SatsTheme
 
 data object CheckboxSampleScreen : SampleScreen(
-    name = "Checkbox",
-    route = "/components/checkbox",
     screen = { CheckboxScreen(it::navigateUp) },
 )
 

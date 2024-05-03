@@ -11,6 +11,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.sats.dna.sample.internal.LocalSharedTransitionScope
+import com.sats.dna.sample.routes.HomeRoute
 import com.sats.dna.theme.SatsTheme
 
 class MainActivity : ComponentActivity() {
@@ -29,7 +30,7 @@ class MainActivity : ComponentActivity() {
                         NavHost(
                             modifier = sharedTransitionScopeModifier,
                             navController = navController,
-                            startDestination = MainRoute,
+                            startDestination = HomeRoute,
                             enterTransition = { slideIntoContainer(SlideDirection.Left) },
                             exitTransition = { slideOutOfContainer(SlideDirection.Left) },
                             popEnterTransition = { slideIntoContainer(SlideDirection.Right) },

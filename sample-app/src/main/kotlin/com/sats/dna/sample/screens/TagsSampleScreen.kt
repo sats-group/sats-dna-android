@@ -24,8 +24,6 @@ import com.sats.dna.components.SatsWorkoutTagColor
 import com.sats.dna.theme.SatsTheme
 
 data object TagsSampleScreen : SampleScreen(
-    name = "Tags",
-    route = "/components/tags",
     screen = { TagsScreen(it::navigateUp) },
 )
 

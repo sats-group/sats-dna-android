@@ -21,8 +21,6 @@ import com.sats.dna.theme.SatsTheme
 import kotlin.math.roundToInt
 
 data object SurfaceSampleScreen : SampleScreen(
-    name = "Surface",
-    route = "/components/surface",
     screen = { SurfaceScreen(it::navigateUp) },
 )
 

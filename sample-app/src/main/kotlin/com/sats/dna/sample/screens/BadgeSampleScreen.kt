@@ -19,8 +19,6 @@ import com.sats.dna.components.SatsFixedBadge
 import com.sats.dna.theme.SatsTheme
 
 data object BadgeSampleScreen : SampleScreen(
-    name = "Badge",
-    route = "/components/badge",
     screen = { BadgeScreen(it::navigateUp) },
 )
 

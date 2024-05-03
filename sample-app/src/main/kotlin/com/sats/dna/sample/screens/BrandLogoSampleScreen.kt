@@ -14,8 +14,6 @@ import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.theme.SatsTheme
 
 data object BrandLogoSampleScreen : SampleScreen(
-    name = "Brand Logo",
-    route = "/components/brand-logo",
     screen = { BrandLogoScreen(it::navigateUp) },
 )
 

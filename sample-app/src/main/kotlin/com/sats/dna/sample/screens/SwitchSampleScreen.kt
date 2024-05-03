@@ -18,8 +18,6 @@ import com.sats.dna.components.SatsSwitch
 import com.sats.dna.theme.SatsTheme
 
 data object SwitchSampleScreen : SampleScreen(
-    name = "Switch",
-    route = "/components/switch",
     screen = { SwitchScreen(it::navigateUp) },
 )
 

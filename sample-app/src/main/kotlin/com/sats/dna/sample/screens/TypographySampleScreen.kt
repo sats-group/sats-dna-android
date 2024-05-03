@@ -32,8 +32,6 @@ import com.sats.dna.icons.ArrowUp
 import com.sats.dna.theme.SatsTheme
 
 data object TypographySampleScreen : SampleScreen(
-    name = "Typography",
-    route = "/typography",
     screen = { TypographyScreen(it::navigateUp) },
 )
 

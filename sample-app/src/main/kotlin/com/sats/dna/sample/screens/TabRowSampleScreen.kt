@@ -15,8 +15,6 @@ import com.sats.dna.components.SatsTab
 import com.sats.dna.components.SatsTabRow
 
 data object TabRowSampleScreen : SampleScreen(
-    name = "TabRow",
-    route = "/components/tab-row",
     screen = { TabRowScreen(it::navigateUp) },
 )
 

@@ -55,8 +55,6 @@ import com.sats.dna.icons.Check
 import com.sats.dna.theme.SatsTheme
 
 data object ButtonsSampleScreen : SampleScreen(
-    name = "Buttons",
-    route = "/components/buttons",
     screen = { ButtonsScreen(it::navigateUp) },
 )
 

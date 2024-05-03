@@ -11,8 +11,6 @@ import com.sats.dna.sample.internal.SampleProfilePicture
 import com.sats.dna.theme.SatsTheme
 
 data object JoinYourFriendsSampleScreen : SampleScreen(
-    name = "Join Your Friends",
-    route = "/join-your-friends",
     screen = { JoinYourFriendsSampleScreen(it::navigateUp) },
 )
 

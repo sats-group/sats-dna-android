@@ -15,8 +15,6 @@ import com.sats.dna.components.upcomingworkouts.SatsWorkoutType
 import com.sats.dna.theme.SatsTheme
 
 data object ScheduleSampleScreen : SampleScreen(
-    name = "Schedule",
-    route = "/components/schedule",
     screen = { ScheduleScreen(it::navigateUp) },
 )
 

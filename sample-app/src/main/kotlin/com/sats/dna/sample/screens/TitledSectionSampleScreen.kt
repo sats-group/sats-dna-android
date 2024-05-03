@@ -26,8 +26,6 @@ import com.sats.dna.components.card.SatsCard
 import com.sats.dna.theme.SatsTheme
 
 data object TitledSectionSampleScreen : SampleScreen(
-    name = "Titled Section",
-    route = "/components/titled-section",
     screen = { TitledSectionScreen(it::navigateUp) },
 )
 

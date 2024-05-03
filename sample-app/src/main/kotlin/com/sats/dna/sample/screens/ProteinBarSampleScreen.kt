@@ -17,8 +17,6 @@ import com.sats.dna.components.proteinbar.SatsProteinBarTheme
 import com.sats.dna.theme.SatsTheme
 
 data object ProteinBarSampleScreen : SampleScreen(
-    name = "Protein Bar",
-    route = "/components/protein-bar",
     screen = { ProteinBarScreen(it::navigateUp) },
 )
 

@@ -21,8 +21,6 @@ import com.sats.dna.icons.Time
 import com.sats.dna.theme.SatsTheme
 
 data object SessionDetailsInfoLabelSampleScreen : SampleScreen(
-    name = "Session Details Info Label",
-    route = "/components/session-details-info-label",
     screen = { SessionDetailsInfoLabelScreen(it::navigateUp) },
 )
 

@@ -18,8 +18,6 @@ import com.sats.dna.components.card.SatsArticleCard
 import com.sats.dna.theme.SatsTheme
 
 data object ArticleCardSampleScreen : SampleScreen(
-    name = "Article Card",
-    route = "/components/article-card",
     screen = { ArticleCardScreen(it::navigateUp) },
 )
 

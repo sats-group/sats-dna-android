@@ -13,8 +13,6 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 
 data object ScaleBarSampleScreen : SampleScreen(
-    name = "Scale Bar",
-    route = "/components/scale-bar",
     screen = { ScaleBarScreen(it::navigateUp) },
 )
 

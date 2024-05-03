@@ -24,8 +24,6 @@ import com.sats.dna.icons.Barbell
 import com.sats.dna.theme.SatsTheme
 
 data object TopAppBarSampleScreen : SampleScreen(
-    name = "Top App Bar",
-    route = "/components/top-app-bar",
     screen = { TopAppBarScreen(it::navigateUp) },
 )
 

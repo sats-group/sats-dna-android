@@ -20,8 +20,6 @@ import com.sats.dna.components.progressbar.SteppingProgressGroup
 import com.sats.dna.theme.SatsTheme
 
 data object ProgressBarsSampleScreen : SampleScreen(
-    name = "Progress Bars",
-    route = "/components/progress-bars",
     screen = { ProgressBarsScreen(it::navigateUp) },
 )
 

@@ -20,8 +20,6 @@ import com.sats.dna.components.SatsVerticalDivider
 import com.sats.dna.theme.SatsTheme
 
 data object DividersSampleScreen : SampleScreen(
-    name = "Dividers",
-    route = "/components/dividers",
     screen = { DividersScreen(it::navigateUp) },
 )
 

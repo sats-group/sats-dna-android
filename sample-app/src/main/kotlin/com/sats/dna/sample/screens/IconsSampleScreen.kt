@@ -212,8 +212,6 @@ import com.sats.dna.icons.Zendesk
 import com.sats.dna.theme.SatsTheme
 
 data object IconsSampleScreen : SampleScreen(
-    name = "Icons",
-    route = "/icons",
     screen = { IconsScreen(it::navigateUp) },
 )
 

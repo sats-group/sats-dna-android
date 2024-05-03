@@ -9,8 +9,6 @@ import com.sats.dna.components.SatsYourMostBookedCard
 import com.sats.dna.theme.SatsTheme
 
 data object YourMostBookedSampleScreen : SampleScreen(
-    name = "Your Most Booked",
-    route = "/your-most-booked",
     screen = { YourMostBookedSampleScreen(it::navigateUp) },
 )
 

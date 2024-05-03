@@ -24,8 +24,6 @@ import com.sats.dna.components.chip.SatsChip
 import com.sats.dna.theme.SatsTheme
 
 data object ChipsSampleScreen : SampleScreen(
-    name = "Chips",
-    route = "/components/chips",
     screen = { ChipsScreen(it::navigateUp) },
 )
 

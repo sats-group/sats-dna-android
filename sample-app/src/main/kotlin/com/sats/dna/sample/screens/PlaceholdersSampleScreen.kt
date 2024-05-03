@@ -19,8 +19,6 @@ import com.sats.dna.components.SatsPlaceholderText
 import com.sats.dna.theme.SatsTheme
 
 data object PlaceholdersSampleScreen : SampleScreen(
-    name = "Placeholders",
-    route = "/components/placeholders",
     screen = { PlaceholderScreen(it::navigateUp) },
 )
 

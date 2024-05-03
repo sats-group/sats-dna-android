@@ -17,8 +17,6 @@ import com.sats.dna.icons.Barbell
 import com.sats.dna.theme.SatsTheme
 
 data object EmptyStateSampleScreen : SampleScreen(
-    name = "Empty State",
-    route = "/components/empty-state",
     screen = { EmptyStateScreen(it::navigateUp) },
 )
 

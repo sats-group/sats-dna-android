@@ -19,8 +19,6 @@ import com.sats.dna.components.SatsChallengeBadge
 import com.sats.dna.theme.SatsTheme
 
 data object ChallengeBadgeSampleScreen : SampleScreen(
-    name = "Challenge Badges",
-    route = "/components/challenge-badges",
     screen = { ChallengeBadgeScreen(it::navigateUp) },
 )
 

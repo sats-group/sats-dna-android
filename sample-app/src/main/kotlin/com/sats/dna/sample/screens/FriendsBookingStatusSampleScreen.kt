@@ -17,8 +17,6 @@ import com.sats.dna.components.sessiondetails.SatsFriendsBookingStatusListItem
 import com.sats.dna.theme.SatsTheme
 
 data object FriendsBookingStatusSampleScreen : SampleScreen(
-    name = "Friends Booking Status List Item",
-    route = "/components/friends-booking-status",
     screen = { FriendsBookingStatusScreen(it::navigateUp) },
 )
 

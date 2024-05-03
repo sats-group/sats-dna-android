@@ -25,8 +25,6 @@ import com.sats.dna.icons.Info
 import com.sats.dna.theme.SatsTheme
 
 data object GeneralListItemSampleScreen : SampleScreen(
-    name = "General List Item",
-    route = "/components/general-list-item",
     screen = { GeneralListItemScreen(it::navigateUp) },
 )
 

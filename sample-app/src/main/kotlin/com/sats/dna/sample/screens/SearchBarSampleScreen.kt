@@ -19,8 +19,6 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.theme.SatsTheme
 
 data object SearchBarSampleScreen : SampleScreen(
-    name = "Search Bar",
-    route = "/search-bar",
     screen = { SearchBarSampleScreen(it::navigateUp) },
 )
 

@@ -4,11 +4,13 @@ agp = "8.4.0"
 androidx-navigation = "2.8.0-alpha08"
 compose-compiler = "1.5.11"
 kotlin = "1.9.23"
+kotlinx-serialization = "1.6.3"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version = "3.16.0" }
 
 [libraries]
@@ -33,5 +35,6 @@ google-material = "com.google.android.material:material:1.12.0"
 junit4 = "junit:junit:4.13.2"
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 kotlinx-datetime = "org.jetbrains.kotlinx:kotlinx-datetime:0.5.0"
-kotlinx-serialization-json = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3"
+kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 sats-fonts-headline = "com.sats.fonts:sats-headline-font:1.0.1"

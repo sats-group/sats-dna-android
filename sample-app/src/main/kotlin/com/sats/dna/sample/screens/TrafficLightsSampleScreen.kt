@@ -20,8 +20,6 @@ import com.sats.dna.components.TrafficLightColor
 import com.sats.dna.theme.SatsTheme
 
 data object TrafficLightsSampleScreen : SampleScreen(
-    name = "Traffic Lights",
-    route = "/components/traffic-lights",
     screen = { TrafficLightsScreen(it::navigateUp) },
 )
 

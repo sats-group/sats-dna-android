@@ -21,8 +21,6 @@ import com.sats.dna.components.statistics.SatsWorkoutStatisticsCardPlaceholder
 import com.sats.dna.theme.SatsTheme
 
 data object WorkoutStatisticsSampleScreen : SampleScreen(
-    name = "Workout Statistics",
-    route = "/components/statistics",
     screen = { WorkoutStatisticsScreen(it::navigateUp) },
 )
 

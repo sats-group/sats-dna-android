@@ -14,8 +14,6 @@ import com.sats.dna.components.SatsBannerAction
 import com.sats.dna.theme.SatsTheme
 
 data object BannerSampleScreen : SampleScreen(
-    name = "Banner",
-    route = "/components/banner",
     screen = { BannerScreen(it::navigateUp) },
 )
 

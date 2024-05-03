@@ -51,48 +51,48 @@ import com.sats.dna.components.button.SatsIconButton
 import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.icons.Search
 import com.sats.dna.sample.internal.trySharedBounds
-import com.sats.dna.sample.screens.ArticleCardSampleScreen
-import com.sats.dna.sample.screens.BadgeSampleScreen
-import com.sats.dna.sample.screens.BannerSampleScreen
-import com.sats.dna.sample.screens.BrandLogoSampleScreen
-import com.sats.dna.sample.screens.ButtonsSampleScreen
-import com.sats.dna.sample.screens.CardSampleScreen
-import com.sats.dna.sample.screens.ChallengeBackgroundSampleScreen
-import com.sats.dna.sample.screens.ChallengeBadgeSampleScreen
-import com.sats.dna.sample.screens.ChallengeCardSampleScreen
-import com.sats.dna.sample.screens.CheckboxSampleScreen
-import com.sats.dna.sample.screens.ChipsSampleScreen
-import com.sats.dna.sample.screens.ColorsSampleScreen
-import com.sats.dna.sample.screens.CompletedWorkoutListItemSampleScreen
-import com.sats.dna.sample.screens.DividersSampleScreen
-import com.sats.dna.sample.screens.EmptyStateSampleScreen
-import com.sats.dna.sample.screens.FancyTopAppBarSampleScreen
-import com.sats.dna.sample.screens.FormInputFieldsSampleScreen
-import com.sats.dna.sample.screens.FriendsBookingStatusSampleScreen
-import com.sats.dna.sample.screens.GeneralListItemSampleScreen
-import com.sats.dna.sample.screens.IconsSampleScreen
-import com.sats.dna.sample.screens.JoinYourFriendsSampleScreen
-import com.sats.dna.sample.screens.PlaceholdersSampleScreen
-import com.sats.dna.sample.screens.ProgressBarsSampleScreen
-import com.sats.dna.sample.screens.ProteinBarSampleScreen
-import com.sats.dna.sample.screens.RadioButtonsSampleScreen
-import com.sats.dna.sample.screens.SampleScreen
-import com.sats.dna.sample.screens.ScaleBarSampleScreen
-import com.sats.dna.sample.screens.ScheduleSampleScreen
-import com.sats.dna.sample.screens.SearchBarSampleScreen
-import com.sats.dna.sample.screens.SessionDetailsInfoLabelSampleScreen
-import com.sats.dna.sample.screens.SurfaceSampleScreen
-import com.sats.dna.sample.screens.SwitchSampleScreen
-import com.sats.dna.sample.screens.TabRowSampleScreen
-import com.sats.dna.sample.screens.TagsSampleScreen
-import com.sats.dna.sample.screens.TextFieldSampleScreen
-import com.sats.dna.sample.screens.TitledSectionSampleScreen
-import com.sats.dna.sample.screens.TopAppBarSampleScreen
-import com.sats.dna.sample.screens.TrafficLightsSampleScreen
-import com.sats.dna.sample.screens.TypographySampleScreen
-import com.sats.dna.sample.screens.UpcomingWorkoutListItemSampleScreen
-import com.sats.dna.sample.screens.WorkoutStatisticsSampleScreen
-import com.sats.dna.sample.screens.YourMostBookedSampleScreen
+import com.sats.dna.sample.routes.ArticleCardSampleScreenRoute
+import com.sats.dna.sample.routes.BadgeSampleScreenRoute
+import com.sats.dna.sample.routes.BannerSampleScreenRoute
+import com.sats.dna.sample.routes.BrandLogoSampleScreenRoute
+import com.sats.dna.sample.routes.ButtonsSampleScreenRoute
+import com.sats.dna.sample.routes.CardSampleScreenRoute
+import com.sats.dna.sample.routes.ChallengeBackgroundSampleScreenRoute
+import com.sats.dna.sample.routes.ChallengeBadgeSampleScreenRoute
+import com.sats.dna.sample.routes.ChallengeCardSampleScreenRoute
+import com.sats.dna.sample.routes.CheckboxSampleScreenRoute
+import com.sats.dna.sample.routes.ChipsSampleScreenRoute
+import com.sats.dna.sample.routes.ColorsSampleScreenRoute
+import com.sats.dna.sample.routes.CompletedWorkoutListItemSampleScreenRoute
+import com.sats.dna.sample.routes.DividersSampleScreenRoute
+import com.sats.dna.sample.routes.EmptyStateSampleScreenRoute
+import com.sats.dna.sample.routes.FancyTopAppBarSampleScreenRoute
+import com.sats.dna.sample.routes.FormInputFieldsSampleScreenRoute
+import com.sats.dna.sample.routes.FriendsBookingStatusSampleScreenRoute
+import com.sats.dna.sample.routes.GeneralListItemSampleScreenRoute
+import com.sats.dna.sample.routes.IconsSampleScreenRoute
+import com.sats.dna.sample.routes.JoinYourFriendsSampleScreenRoute
+import com.sats.dna.sample.routes.PlaceholdersSampleScreenRoute
+import com.sats.dna.sample.routes.ProgressBarsSampleScreenRoute
+import com.sats.dna.sample.routes.ProteinBarSampleScreenRoute
+import com.sats.dna.sample.routes.RadioButtonsSampleScreenRoute
+import com.sats.dna.sample.routes.SampleScreenRoute
+import com.sats.dna.sample.routes.ScaleBarSampleScreenRoute
+import com.sats.dna.sample.routes.ScheduleSampleScreenRoute
+import com.sats.dna.sample.routes.SearchBarSampleScreenRoute
+import com.sats.dna.sample.routes.SessionDetailsInfoLabelSampleScreenRoute
+import com.sats.dna.sample.routes.SurfaceSampleScreenRoute
+import com.sats.dna.sample.routes.SwitchSampleScreenRoute
+import com.sats.dna.sample.routes.TabRowSampleScreenRoute
+import com.sats.dna.sample.routes.TagsSampleScreenRoute
+import com.sats.dna.sample.routes.TextFieldSampleScreenRoute
+import com.sats.dna.sample.routes.TitledSectionSampleScreenRoute
+import com.sats.dna.sample.routes.TopAppBarSampleScreenRoute
+import com.sats.dna.sample.routes.TrafficLightsSampleScreenRoute
+import com.sats.dna.sample.routes.TypographySampleScreenRoute
+import com.sats.dna.sample.routes.UpcomingWorkoutListItemSampleScreenRoute
+import com.sats.dna.sample.routes.WorkoutStatisticsSampleScreenRoute
+import com.sats.dna.sample.routes.YourMostBookedSampleScreenRoute
 import com.sats.dna.theme.SatsTheme
 
 @Composable
@@ -168,7 +168,7 @@ internal fun HomeScreen(navController: NavController, modifier: Modifier = Modif
                                             ) {
                                                 HomeScreenListItem(
                                                     label = sampleScreen.name,
-                                                    onClick = { navController.navigate(sampleScreen.route) },
+                                                    onClick = { navController.navigate(sampleScreen) },
                                                 )
                                             }
                                         }
@@ -274,53 +274,53 @@ internal class HomeScreenSearchBarState {
     }
 }
 
-private val groups: Map<String, List<SampleScreen>> = mapOf(
+private val groups: Map<String, List<SampleScreenRoute>> = mapOf(
     "Styles" to listOf(
-        ColorsSampleScreen,
-        TypographySampleScreen,
+        ColorsSampleScreenRoute,
+        TypographySampleScreenRoute,
     ),
     "Icons" to listOf(
-        IconsSampleScreen,
+        IconsSampleScreenRoute,
     ),
     "Components" to listOf(
-        ArticleCardSampleScreen,
-        BadgeSampleScreen,
-        BannerSampleScreen,
-        BrandLogoSampleScreen,
-        ButtonsSampleScreen,
-        CardSampleScreen,
-        ChallengeBackgroundSampleScreen,
-        ChallengeBadgeSampleScreen,
-        ChallengeCardSampleScreen,
-        CheckboxSampleScreen,
-        ChipsSampleScreen,
-        CompletedWorkoutListItemSampleScreen,
-        DividersSampleScreen,
-        EmptyStateSampleScreen,
-        FancyTopAppBarSampleScreen,
-        FormInputFieldsSampleScreen,
-        FriendsBookingStatusSampleScreen,
-        GeneralListItemSampleScreen,
-        JoinYourFriendsSampleScreen,
-        PlaceholdersSampleScreen,
-        ProgressBarsSampleScreen,
-        ProteinBarSampleScreen,
-        RadioButtonsSampleScreen,
-        ScaleBarSampleScreen,
-        ScheduleSampleScreen,
-        SearchBarSampleScreen,
-        SessionDetailsInfoLabelSampleScreen,
-        SurfaceSampleScreen,
-        SwitchSampleScreen,
-        TabRowSampleScreen,
-        TagsSampleScreen,
-        TextFieldSampleScreen,
-        TitledSectionSampleScreen,
-        TopAppBarSampleScreen,
-        TrafficLightsSampleScreen,
-        UpcomingWorkoutListItemSampleScreen,
-        WorkoutStatisticsSampleScreen,
-        YourMostBookedSampleScreen,
+        ArticleCardSampleScreenRoute,
+        BadgeSampleScreenRoute,
+        BannerSampleScreenRoute,
+        BrandLogoSampleScreenRoute,
+        ButtonsSampleScreenRoute,
+        CardSampleScreenRoute,
+        ChallengeBackgroundSampleScreenRoute,
+        ChallengeBadgeSampleScreenRoute,
+        ChallengeCardSampleScreenRoute,
+        CheckboxSampleScreenRoute,
+        ChipsSampleScreenRoute,
+        CompletedWorkoutListItemSampleScreenRoute,
+        DividersSampleScreenRoute,
+        EmptyStateSampleScreenRoute,
+        FancyTopAppBarSampleScreenRoute,
+        FormInputFieldsSampleScreenRoute,
+        FriendsBookingStatusSampleScreenRoute,
+        GeneralListItemSampleScreenRoute,
+        JoinYourFriendsSampleScreenRoute,
+        PlaceholdersSampleScreenRoute,
+        ProgressBarsSampleScreenRoute,
+        ProteinBarSampleScreenRoute,
+        RadioButtonsSampleScreenRoute,
+        ScaleBarSampleScreenRoute,
+        ScheduleSampleScreenRoute,
+        SearchBarSampleScreenRoute,
+        SessionDetailsInfoLabelSampleScreenRoute,
+        SurfaceSampleScreenRoute,
+        SwitchSampleScreenRoute,
+        TabRowSampleScreenRoute,
+        TagsSampleScreenRoute,
+        TextFieldSampleScreenRoute,
+        TitledSectionSampleScreenRoute,
+        TopAppBarSampleScreenRoute,
+        TrafficLightsSampleScreenRoute,
+        UpcomingWorkoutListItemSampleScreenRoute,
+        WorkoutStatisticsSampleScreenRoute,
+        YourMostBookedSampleScreenRoute,
     ),
 )
 

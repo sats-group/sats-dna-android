@@ -31,8 +31,6 @@ import com.sats.dna.theme.SatsTheme
 import kotlinx.coroutines.launch
 
 data object FancyTopAppBarSampleScreen : SampleScreen(
-    name = "Fancy Top App Bar",
-    route = "/components/fancy-top-app-bar",
     screen = { FancyTopAppBarScreen(it::navigateUp) },
 )
 
