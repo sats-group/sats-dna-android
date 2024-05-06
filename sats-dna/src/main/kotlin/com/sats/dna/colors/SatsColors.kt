@@ -463,14 +463,14 @@ class SatsColors(
                     bg = SatsBlue105,
                     fg = White100,
                     fgAlternate = White60,
-                    fgDisabled = White40,
+                    fgDisabled = White50,
                 )
 
                 val selected: BackgroundColorSet = BackgroundColorSet(
                     bg = SatsBlue90,
                     fg = White100,
                     fgAlternate = White60,
-                    fgDisabled = White40,
+                    fgDisabled = White50,
                 )
             }
 
@@ -479,14 +479,14 @@ class SatsColors(
                     bg = SatsBlue100,
                     fg = White100,
                     fgAlternate = White60,
-                    fgDisabled = White40,
+                    fgDisabled = White50,
                 )
 
                 val selected: BackgroundColorSet = BackgroundColorSet(
                     bg = SatsBlueGrey80,
                     fg = White100,
                     fgAlternate = White60,
-                    fgDisabled = White40,
+                    fgDisabled = White50,
                 )
             }
         }
@@ -518,7 +518,7 @@ class SatsColors(
                     bg = SatsBlue100,
                     fg = White100,
                     fgAlternate = White65,
-                    fgDisabled = White40,
+                    fgDisabled = White50,
                     fgSuccess = SpringGreen60,
                     fgWarning = Gold60,
                     fgError = Cardinal60,
@@ -532,7 +532,7 @@ class SatsColors(
                     bg = SatsBlueGrey80,
                     fg = White100,
                     fgAlternate = White65,
-                    fgDisabled = White40,
+                    fgDisabled = White50,
                     fgSuccess = SpringGreen60,
                     fgWarning = Gold60,
                     fgError = Cardinal60,
