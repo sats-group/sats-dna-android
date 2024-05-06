@@ -166,7 +166,7 @@ private fun ButtonsActionSamples(modifier: Modifier = Modifier) {
 
 @Composable
 private fun ButtonsFixedActionSamples(modifier: Modifier = Modifier) {
-    Subsection("Action", modifier) {
+    Subsection("Fixed Action", modifier, isFixed = true) {
         val action = SatsTheme.colors.buttons.fixedAction
 
         ColorSample(action.default, "default")
@@ -459,7 +459,7 @@ private fun GraphicalElementsBadgeSamples(modifier: Modifier = Modifier) {
 private fun GraphicalElementsFixedBadgeSamples(modifier: Modifier = Modifier) {
     val fixedBadge = SatsTheme.colors.graphicalElements.fixedBadge
 
-    Subsection("Fixed Badge", modifier) {
+    Subsection("Fixed Badge", modifier, isFixed = true) {
         ColorSample(fixedBadge.primary, "primary")
         ColorSample(fixedBadge.secondary, "secondary")
         ColorSample(fixedBadge.tertiary, "tertiary")
