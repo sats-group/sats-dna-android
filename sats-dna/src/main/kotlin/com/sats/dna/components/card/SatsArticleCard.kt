@@ -78,14 +78,14 @@ fun SatsArticleCard(
                 }
             }
 
-            val (backgroundColor, textColor) = if (isFixed) {
-                SatsTheme.colors.surfaces.fixed.primary.default.bg to SatsTheme.colors.surfaces.fixed.primary.default.fg
+            val colors = if (isFixed) {
+                SatsTheme.colors.surfaces.fixed.primary.default
             } else {
-                SatsTheme.colors.surfaces.primary.default.bg to SatsTheme.colors.surfaces.primary.default.fg
+                SatsTheme.colors.surfaces.primary.default
             }
             Column(
                 Modifier
-                    .background(backgroundColor)
+                    .background(colors.bg)
                     .fillMaxWidth()
                     .align(Alignment.BottomStart)
                     .padding(horizontal = SatsTheme.spacing.m, vertical = SatsTheme.spacing.s),
@@ -94,7 +94,7 @@ fun SatsArticleCard(
                 if (title != null) {
                     Text(
                         title,
-                        color = textColor,
+                        color = colors.fg,
                         overflow = TextOverflow.Ellipsis,
                         maxLines = 2,
                         style = SatsTheme.typography.satsHeadlineEmphasis.large,
@@ -104,7 +104,7 @@ fun SatsArticleCard(
                 if (subtitle != null) {
                     Text(
                         subtitle,
-                        color = textColor,
+                        color = colors.fg,
                         overflow = TextOverflow.Ellipsis,
                         maxLines = 3,
                         style = SatsTheme.typography.normal.basic,
