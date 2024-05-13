@@ -1,6 +1,34 @@
 package com.sats.dna.colors
 
 import androidx.compose.ui.graphics.Color
+import com.sats.dna.colors.SatsColorPrimitives.BrightBlue10
+import com.sats.dna.colors.SatsColorPrimitives.BrightBlue60
+import com.sats.dna.colors.SatsColorPrimitives.Cardinal60
+import com.sats.dna.colors.SatsColorPrimitives.EgyptianPurple40
+import com.sats.dna.colors.SatsColorPrimitives.Gold60
+import com.sats.dna.colors.SatsColorPrimitives.SatsBlue10
+import com.sats.dna.colors.SatsColorPrimitives.SatsBlue100
+import com.sats.dna.colors.SatsColorPrimitives.SatsBlue105
+import com.sats.dna.colors.SatsColorPrimitives.SatsBlue90
+import com.sats.dna.colors.SatsColorPrimitives.SatsBlueGrey80
+import com.sats.dna.colors.SatsColorPrimitives.SatsCoral100
+import com.sats.dna.colors.SatsColorPrimitives.SatsCoral120
+import com.sats.dna.colors.SatsColorPrimitives.SatsCoral130
+import com.sats.dna.colors.SatsColorPrimitives.SatsCoral170
+import com.sats.dna.colors.SatsColorPrimitives.SatsCoral190
+import com.sats.dna.colors.SatsColorPrimitives.SatsCoral60
+import com.sats.dna.colors.SatsColorPrimitives.SatsCoral90
+import com.sats.dna.colors.SatsColorPrimitives.SpringGreen60
+import com.sats.dna.colors.SatsColorPrimitives.White0
+import com.sats.dna.colors.SatsColorPrimitives.White10
+import com.sats.dna.colors.SatsColorPrimitives.White100
+import com.sats.dna.colors.SatsColorPrimitives.White15
+import com.sats.dna.colors.SatsColorPrimitives.White40
+import com.sats.dna.colors.SatsColorPrimitives.White5
+import com.sats.dna.colors.SatsColorPrimitives.White50
+import com.sats.dna.colors.SatsColorPrimitives.White60
+import com.sats.dna.colors.SatsColorPrimitives.White65
+import com.sats.dna.colors.SatsColorPrimitives.White70
 
 class SatsColors(
     val buttons: Buttons,
@@ -13,15 +41,16 @@ class SatsColors(
     class Buttons(
         val primary: Primary,
         val secondary: Secondary,
-        val clean: Clean,
-        val cleanSecondary: CleanSecondary,
         val action: Action,
-        val fixedAction: FixedAction,
         val cta: Cta,
         val waitingListFilled: WaitingListFilled,
         val waitingListOutlined: WaitingListOutlined,
         val destructive: Destructive,
     ) {
+        val clean: Clean = Clean()
+        val cleanSecondary: CleanSecondary = CleanSecondary()
+        val fixedAction: FixedAction = FixedAction()
+
         class Primary(
             val default: ColorSet,
             val disabled: ColorSet,
@@ -32,25 +61,34 @@ class SatsColors(
             val disabled: OutlinedColorSet,
         )
 
-        class Clean(
-            val default: ColorSet,
-            val disabled: ColorSet,
-        )
+        class Clean {
+            val default: ColorSet = SatsBlue100 on White100
+            val disabled: ColorSet = White50 on White10
+        }
 
-        class CleanSecondary(
-            val default: OutlinedColorSet,
-            val disabled: OutlinedColorSet,
-        )
+        class CleanSecondary {
+            val default: OutlinedColorSet = OutlinedColorSet(
+                bg = White15,
+                outline = White100,
+                fg = White100,
+            )
+
+            val disabled: OutlinedColorSet = OutlinedColorSet(
+                bg = White5,
+                outline = White40,
+                fg = White70,
+            )
+        }
 
         class Action(
             val default: ColorSet,
             val disabled: ColorSet,
         )
 
-        class FixedAction(
-            val default: ColorSet,
-            val disabled: ColorSet,
-        )
+        class FixedAction {
+            val default = SatsCoral100 on White0
+            val disabled = White50 on White0
+        }
 
         class Cta(
             val default: ColorSet,
@@ -90,10 +128,8 @@ class SatsColors(
         val skeleton: Color,
         val navBar: NavBar,
         val progressBar: ProgressBar,
-        val fixedProgressBar: FixedProgressBar,
         val graphs: Graphs,
         val selector: Selector,
-        val selectorFixed: SelectorFixed,
         val chips: Chips,
         val toggle: Toggle,
         val icons: Icons,
@@ -102,10 +138,13 @@ class SatsColors(
         val tags: Tags,
         val indicatorTag: IndicatorTag,
         val badge: Badge,
-        val fixedBadge: FixedBadge,
         val rewards: Rewards,
         val workouts: Workouts,
     ) {
+        val fixedProgressBar: FixedProgressBar = FixedProgressBar()
+        val selectorFixed: SelectorFixed = SelectorFixed()
+        val fixedBadge: FixedBadge = FixedBadge()
+
         class Divider(
             val default: Color,
             val alternate: Color,
@@ -136,10 +175,10 @@ class SatsColors(
             val alternate: ColorSet,
         )
 
-        class FixedProgressBar(
-            val default: ColorSet,
-            val alternate: ColorSet,
-        )
+        class FixedProgressBar {
+            val default: ColorSet = SatsCoral90 on White40
+            val alternate: ColorSet = SatsBlue10 on White40
+        }
 
         class Graphs(
             val bar: Bar,
@@ -226,25 +265,25 @@ class SatsColors(
             }
         }
 
-        class SelectorFixed(
-            val unselected: Unselected,
-            val selected: Selected,
-            val selectedBackground: SelectedBackground,
-        ) {
-            class Unselected(
-                val default: OutlinedColorSet,
-                val disabled: OutlinedColorSet,
-            )
+        class SelectorFixed {
+            val unselected: Unselected = Unselected()
+            val selected: Selected = Selected()
+            val selectedBackground: SelectedBackground = SelectedBackground()
 
-            class Selected(
-                val default: ColorSet,
-                val disabled: ColorSet,
-            )
+            class Unselected {
+                val default = OutlinedColorSet(outline = White100, bg = White0, fg = White100)
+                val disabled = OutlinedColorSet(outline = White50, bg = White0, fg = White50)
+            }
 
-            class SelectedBackground(
-                val default: Color,
-                val disabled: Color,
-            )
+            class Selected {
+                val default: ColorSet = SatsBlue100 on SatsCoral90
+                val disabled: ColorSet = SatsCoral170 on SatsCoral130
+            }
+
+            class SelectedBackground {
+                val default: Color = SatsCoral170
+                val disabled: Color = SatsCoral190
+            }
         }
 
         class Chips(
@@ -281,13 +320,14 @@ class SatsColors(
         class Icons(
             val primary: Color,
             val secondary: Color,
-            val fixed: Color,
             val positive: Color,
             val attention: Color,
             val negative: Color,
             val waitingList: Color,
             val delete: Color,
-        )
+        ) {
+            val fixed: Color = White100
+        }
 
         class Indicators(
             val positive: Positive,
@@ -375,11 +415,11 @@ class SatsColors(
             val tertiary: ColorSet,
         )
 
-        class FixedBadge(
-            val primary: ColorSet,
-            val secondary: ColorSet,
-            val tertiary: ColorSet,
-        )
+        class FixedBadge {
+            val primary: ColorSet = White100 on SatsCoral120
+            val secondary: ColorSet = SatsBlue100 on BrightBlue10
+            val tertiary: ColorSet = White100 on SatsBlueGrey80
+        }
 
         class Rewards(
             val blue: ColorSet,
@@ -401,8 +441,9 @@ class SatsColors(
     class Backgrounds(
         val primary: Primary,
         val secondary: Secondary,
-        val fixed: Fixed,
     ) {
+        val fixed: Fixed = Fixed()
+
         class Primary(
             val default: BackgroundColorSet,
             val selected: BackgroundColorSet,
@@ -413,27 +454,50 @@ class SatsColors(
             val selected: BackgroundColorSet,
         )
 
-        class Fixed(
-            val primary: Primary,
-            val secondary: Secondary,
-        ) {
-            class Primary(
-                val default: BackgroundColorSet,
-                val selected: BackgroundColorSet,
-            )
+        class Fixed {
+            val primary: Primary = Primary()
+            val secondary: Secondary = Secondary()
 
-            class Secondary(
-                val default: BackgroundColorSet,
-                val selected: BackgroundColorSet,
-            )
+            class Primary {
+                val default: BackgroundColorSet = BackgroundColorSet(
+                    bg = SatsBlue105,
+                    fg = White100,
+                    fgAlternate = White60,
+                    fgDisabled = White50,
+                )
+
+                val selected: BackgroundColorSet = BackgroundColorSet(
+                    bg = SatsBlue90,
+                    fg = White100,
+                    fgAlternate = White60,
+                    fgDisabled = White50,
+                )
+            }
+
+            class Secondary {
+                val default: BackgroundColorSet = BackgroundColorSet(
+                    bg = SatsBlue100,
+                    fg = White100,
+                    fgAlternate = White60,
+                    fgDisabled = White50,
+                )
+
+                val selected: BackgroundColorSet = BackgroundColorSet(
+                    bg = SatsBlueGrey80,
+                    fg = White100,
+                    fgAlternate = White60,
+                    fgDisabled = White50,
+                )
+            }
         }
     }
 
     class Surfaces(
         val primary: Primary,
         val secondary: Secondary,
-        val fixed: Fixed,
     ) {
+        val fixed: Fixed = Fixed()
+
         class Primary(
             val default: SurfaceColorSet,
             val selected: SurfaceColorSet,
@@ -445,19 +509,69 @@ class SatsColors(
             val selected: SurfaceColorSet,
         )
 
-        class Fixed(
-            val primary: Primary,
-            val secondary: Secondary,
-        ) {
-            class Primary(
-                val default: SurfaceColorSet,
-                val selected: SurfaceColorSet,
-            )
+        class Fixed {
+            val primary: Primary = Primary()
+            val secondary: Secondary = Secondary()
 
-            class Secondary(
-                val default: SurfaceColorSet,
-                val selected: SurfaceColorSet,
-            )
+            class Primary {
+                val default: SurfaceColorSet = SurfaceColorSet(
+                    bg = SatsBlue100,
+                    fg = White100,
+                    fgAlternate = White65,
+                    fgDisabled = White50,
+                    fgSuccess = SpringGreen60,
+                    fgWarning = Gold60,
+                    fgError = Cardinal60,
+                    fgWaitingList = EgyptianPurple40,
+                    fgNeutral = White60,
+                    fgInformation = BrightBlue60,
+                    fgFeatured = SatsCoral60,
+                )
+
+                val selected: SurfaceColorSet = SurfaceColorSet(
+                    bg = SatsBlueGrey80,
+                    fg = White100,
+                    fgAlternate = White65,
+                    fgDisabled = White50,
+                    fgSuccess = SpringGreen60,
+                    fgWarning = Gold60,
+                    fgError = Cardinal60,
+                    fgWaitingList = EgyptianPurple40,
+                    fgNeutral = White60,
+                    fgInformation = BrightBlue60,
+                    fgFeatured = SatsCoral60,
+                )
+            }
+
+            class Secondary {
+                val default: SurfaceColorSet = SurfaceColorSet(
+                    bg = SatsBlueGrey80,
+                    fg = White100,
+                    fgAlternate = White65,
+                    fgDisabled = White40,
+                    fgSuccess = SpringGreen60,
+                    fgWarning = Gold60,
+                    fgError = Cardinal60,
+                    fgWaitingList = EgyptianPurple40,
+                    fgNeutral = White60,
+                    fgInformation = BrightBlue60,
+                    fgFeatured = SatsCoral60,
+                )
+
+                val selected: SurfaceColorSet = SurfaceColorSet(
+                    bg = SatsBlueGrey80,
+                    fg = White100,
+                    fgAlternate = White65,
+                    fgDisabled = White40,
+                    fgSuccess = SpringGreen60,
+                    fgWarning = Gold60,
+                    fgError = Cardinal60,
+                    fgWaitingList = EgyptianPurple40,
+                    fgNeutral = White60,
+                    fgInformation = BrightBlue60,
+                    fgFeatured = SatsCoral60,
+                )
+            }
         }
     }
 
