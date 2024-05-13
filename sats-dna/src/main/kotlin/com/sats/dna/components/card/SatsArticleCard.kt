@@ -152,8 +152,7 @@ private fun SatsArticleCardWithTagPreview() {
             imageUrl = "https://picsum.photos/1920/1080",
             title = "Plan your workout",
             subtitle = "Now you can plan workouts ahead of time. " +
-                "Try it out and schedule your first workout today. " +
-                "There is a maximum number of char...",
+                "Try it out and schedule your first workout today.",
             onClick = {},
             tag = { SatsTag(text = "New feature", color = SatsTagColor.Featured) },
         )
@@ -168,8 +167,7 @@ private fun SatsArticleCardWithTagAndDismissButtonPreview() {
             imageUrl = "https://picsum.photos/1920/1080",
             title = "Plan your workout",
             subtitle = "Now you can plan workouts ahead of time. " +
-                "Try it out and schedule your first workout today. " +
-                "There is a maximum number of char...",
+                "Try it out and schedule your first workout today.",
             onClick = {},
             tag = { SatsTag(text = "New feature", color = SatsTagColor.Featured) },
             dismissButton = {
@@ -192,8 +190,7 @@ private fun SatsArticleCardWithNoTagAndDismissButtonPreview() {
             imageUrl = "https://picsum.photos/1920/1080",
             title = "Plan your workout",
             subtitle = "Now you can plan workouts ahead of time. " +
-                "Try it out and schedule your first workout today. " +
-                "There is a maximum number of char...",
+                "Try it out and schedule your first workout today.",
             onClick = {},
             dismissButton = {
                 SatsDismissButton(
@@ -215,8 +212,7 @@ private fun SatsArticleCardFixedPreview() {
             imageUrl = "https://picsum.photos/1920/1080",
             title = "Plan your workout",
             subtitle = "Now you can plan workouts ahead of time. " +
-                "Try it out and schedule your first workout today. " +
-                "There is a maximum number of char...",
+                "Try it out and schedule your first workout today.",
             onClick = {},
             isFixed = true,
         )
@@ -231,8 +227,7 @@ private fun SatsArticleCardNoTitlePreview() {
             imageUrl = "https://picsum.photos/1920/1080",
             title = null,
             subtitle = "Now you can plan workouts ahead of time. " +
-                "Try it out and schedule your first workout today. " +
-                "There is a maximum number of char...",
+                "Try it out and schedule your first workout today.",
             onClick = {},
             dismissButton = {
                 SatsDismissButton(
