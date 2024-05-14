@@ -39,7 +39,6 @@ fun SatsIconButton(
             size = size,
             isLoading = isLoading,
             icon = icon,
-            modifier = modifier,
         )
     }
 }
