@@ -23,10 +23,10 @@ import com.sats.dna.components.SatsTag
 import com.sats.dna.components.SatsTagColor
 import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.components.rememberSatsFancyTopAppBarNestedScrollConnection
-import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.icons.ArrowDown
 import com.sats.dna.icons.ArrowUp
 import com.sats.dna.icons.Back
+import com.sats.dna.sample.internal.SatsScreen
 import com.sats.dna.theme.SatsTheme
 import kotlinx.coroutines.launch
 
