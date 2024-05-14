@@ -46,8 +46,8 @@ import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.button.SatsButtonSize
 import com.sats.dna.components.button.SatsIconButton
-import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.icons.Search
+import com.sats.dna.sample.internal.SatsScreen
 import com.sats.dna.sample.internal.trySharedBounds
 import com.sats.dna.sample.routes.SampleScreenRoute
 import com.sats.dna.sample.routes.components.ArticleCardSampleScreenRoute

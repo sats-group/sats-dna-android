@@ -11,8 +11,8 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import com.sats.dna.SatsIcons
 import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.button.SatsTopAppBarIconButton
-import com.sats.dna.components.screen.SatsScreen
 import com.sats.dna.icons.Back
+import com.sats.dna.sample.internal.SatsScreen
 import com.sats.dna.sample.internal.trySharedBounds
 
 @OptIn(ExperimentalMaterial3Api::class)
