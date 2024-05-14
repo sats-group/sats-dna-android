@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+    alias(libs.plugins.android.compose.screenshot)
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlinter)
@@ -14,6 +15,8 @@ plugins {
 android {
     namespace = "com.sats.dna"
     compileSdk = 34
+
+    experimentalProperties["android.experimental.enableScreenshotTest"] = true
 
     buildFeatures {
         compose = true
@@ -98,6 +101,7 @@ dependencies {
     implementation(libs.kotlinx.serialization.json) // required for kotlinx.datetime R8 rules
     implementation(libs.sats.fonts.headline)
     implementation(platform(libs.androidx.compose.bom))
+    screenshotTestImplementation(libs.androidx.compose.ui.tooling)
 }
 
 publishing {
