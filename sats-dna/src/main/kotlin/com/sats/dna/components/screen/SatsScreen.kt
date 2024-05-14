@@ -7,25 +7,18 @@ import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.SnackbarResult
-import androidx.compose.material3.SnackbarVisuals
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.dp
+import com.sats.dna.components.proteinbar.ProteinBarHostState
 import com.sats.dna.components.proteinbar.SatsProteinBar
 import com.sats.dna.components.proteinbar.SatsProteinBarAction
 import com.sats.dna.components.proteinbar.SatsProteinBarVisuals
 import com.sats.dna.theme.SatsTheme
-
-typealias ProteinBarDuration = SnackbarDuration
-typealias ProteinBarHostState = SnackbarHostState
-typealias ProteinBarResult = SnackbarResult
-typealias ProteinBarVisuals = SnackbarVisuals
 
 @Composable
 fun SatsScreen(
@@ -52,18 +45,28 @@ fun SatsScreen(
         },
         floatingActionButton = floatingActionButton,
     ) { scaffoldContentPadding ->
+        val layoutDirection = LocalLayoutDirection.current
+
         val screenContentPadding = PaddingValues(
-            start = scaffoldContentPadding.calculateStartPadding(LocalLayoutDirection.current) +
-                contentPadding.calculateStartPadding(LocalLayoutDirection.current),
-            top = scaffoldContentPadding.calculateTopPadding() + contentPadding.calculateTopPadding(),
-            end = scaffoldContentPadding.calculateEndPadding(LocalLayoutDirection.current) +
-                contentPadding.calculateEndPadding(LocalLayoutDirection.current),
-            bottom = scaffoldContentPadding.calculateBottomPadding() + contentPadding.calculateBottomPadding(),
+            start = scaffoldContentPadding.calculateStartPadding(layoutDirection) +
+                contentPadding.calculateStartPadding(layoutDirection) +
+                LocalSatsScreenContentPadding.current.calculateStartPadding(layoutDirection),
+            top = scaffoldContentPadding.calculateTopPadding() +
+                contentPadding.calculateTopPadding() +
+                LocalSatsScreenContentPadding.current.calculateTopPadding(),
+            end = scaffoldContentPadding.calculateEndPadding(layoutDirection) +
+                contentPadding.calculateEndPadding(layoutDirection) +
+                LocalSatsScreenContentPadding.current.calculateEndPadding(layoutDirection),
+            bottom = scaffoldContentPadding.calculateBottomPadding() +
+                contentPadding.calculateBottomPadding() +
+                LocalSatsScreenContentPadding.current.calculateBottomPadding(),
         )
 
         content(screenContentPadding)
     }
 }
+
+val LocalSatsScreenContentPadding = compositionLocalOf { PaddingValues(0.dp) }
 
 @Composable
 private fun SatsProteinBarHost(proteinBarHostState: ProteinBarHostState, modifier: Modifier = Modifier) {

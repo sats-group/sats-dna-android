@@ -8,6 +8,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
+import androidx.compose.material3.SnackbarVisuals
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -111,6 +115,11 @@ fun SatsProteinBar(
         }
     }
 }
+
+typealias ProteinBarDuration = SnackbarDuration
+typealias ProteinBarHostState = SnackbarHostState
+typealias ProteinBarResult = SnackbarResult
+typealias ProteinBarVisuals = SnackbarVisuals
 
 @Composable
 private fun LeadingIcon(leadingIcon: SatsProteinBarLeadingIcon, modifier: Modifier = Modifier) {

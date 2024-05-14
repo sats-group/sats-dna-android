@@ -4,8 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.sats.dna.SatsIcons
-import com.sats.dna.components.screen.ProteinBarDuration
-import com.sats.dna.components.screen.ProteinBarVisuals
 import com.sats.dna.icons.Error
 import com.sats.dna.icons.Info
 import com.sats.dna.icons.WarningSign
