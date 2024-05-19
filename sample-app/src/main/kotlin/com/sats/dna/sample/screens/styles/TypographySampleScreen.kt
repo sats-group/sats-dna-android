@@ -33,7 +33,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun TypographySampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun TypographySampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen(
         title = "Typography",
         navigateUp = navigateUp,

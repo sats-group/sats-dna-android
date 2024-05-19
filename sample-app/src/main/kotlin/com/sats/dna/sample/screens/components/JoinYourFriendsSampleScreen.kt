@@ -12,7 +12,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun JoinYourFriendsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun JoinYourFriendsSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Join Your Friends", navigateUp, modifier) { innerPadding ->
         SatsJoinYourFriendsCard(
             pill = { SatsPill(label = "Susanne", image = { SampleProfilePicture() }) },

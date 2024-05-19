@@ -41,7 +41,7 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
 @Composable
-fun FormInputFieldsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun FormInputFieldsSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Form Input Fields", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier

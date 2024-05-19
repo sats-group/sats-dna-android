@@ -18,7 +18,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun ProteinBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ProteinBarSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Protein Bar", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier

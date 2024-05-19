@@ -20,7 +20,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun PlaceholdersSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun PlaceholdersSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Placeholders", navigateUp, modifier) { innerPadding ->
         Column(Modifier.padding(innerPadding)) {
             SatsPlaceholderBox(

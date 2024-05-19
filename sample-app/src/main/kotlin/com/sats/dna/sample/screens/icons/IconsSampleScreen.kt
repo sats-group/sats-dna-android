@@ -213,7 +213,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun IconsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun IconsSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Icons", navigateUp, modifier) { innerPadding ->
         val icons = allIcons
             .distinctBy { it.name }

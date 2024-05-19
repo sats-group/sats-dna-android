@@ -24,7 +24,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun TopAppBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun TopAppBarSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Top App Bar", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier

@@ -20,7 +20,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun SearchBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun SearchBarSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     var emptyQuery by remember { mutableStateOf("") }
     var query by remember { mutableStateOf("SATS Carl Berner") }
 

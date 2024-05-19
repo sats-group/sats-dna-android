@@ -27,7 +27,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun TitledSectionSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun TitledSectionSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Titled Section", navigateUp, modifier) { innerPadding ->
         Column(
             modifier = Modifier

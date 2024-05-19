@@ -10,7 +10,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun YourMostBookedSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun YourMostBookedSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Your Most Booked", navigateUp, modifier) { innerPadding ->
         SatsYourMostBookedCard(
             imageUrl = null,

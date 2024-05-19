@@ -26,7 +26,7 @@ import com.sats.dna.sample.internal.SatsScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun ChallengeBackgroundSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ChallengeBackgroundSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     val activity = LocalContext.current.findActivity() as? ComponentActivity
 
     DisposableEffect(activity) {
@@ -54,11 +54,13 @@ fun ChallengeBackgroundSampleScreen(navigateUp: () -> Unit, modifier: Modifier =
                     )
                 },
                 navigationIcon = {
-                    SatsTopAppBarIconButton(
-                        navigateUp,
-                        SatsIcons.Back,
-                        onClickLabel = null,
-                    )
+                    if (navigateUp != null) {
+                        SatsTopAppBarIconButton(
+                            navigateUp,
+                            SatsIcons.Back,
+                            onClickLabel = null,
+                        )
+                    }
                 },
             )
         },

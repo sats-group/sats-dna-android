@@ -19,7 +19,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun TabRowSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun TabRowSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen(title = "TabRow", navigateUp = navigateUp, modifier) { innerPadding ->
         var selectedTab by remember { mutableStateOf(SampleTabs.SampleTab1) }
 

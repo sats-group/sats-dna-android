@@ -14,7 +14,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun ScaleBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ScaleBarSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Scale Bar", navigateUp, modifier) { contentPadding ->
         Column(
             modifier = Modifier

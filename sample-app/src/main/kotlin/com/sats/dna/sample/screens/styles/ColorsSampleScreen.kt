@@ -43,7 +43,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun ColorsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ColorsSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Colors", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier

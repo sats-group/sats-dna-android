@@ -19,7 +19,7 @@ import com.sats.dna.sample.internal.trySharedBounds
 @Composable
 internal fun SampleScreen(
     title: String,
-    navigateUp: () -> Unit,
+    navigateUp: (() -> Unit)?,
     modifier: Modifier = Modifier,
     bottomBar: @Composable () -> Unit = { Box(Modifier.navigationBarsPadding()) },
     content: @Composable (innerPadding: PaddingValues) -> Unit,
@@ -31,11 +31,13 @@ internal fun SampleScreen(
         topBar = {
             SatsTopAppBar(
                 navigationIcon = {
-                    SatsTopAppBarIconButton(
-                        onClick = navigateUp,
-                        icon = SatsIcons.Back,
-                        onClickLabel = null,
-                    )
+                    if (navigateUp != null) {
+                        SatsTopAppBarIconButton(
+                            onClick = navigateUp,
+                            icon = SatsIcons.Back,
+                            onClickLabel = null,
+                        )
+                    }
                 },
                 title = title,
                 scrollBehavior = topAppBarScrollBehavior,

@@ -16,7 +16,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun RadioButtonsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun RadioButtonsSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Radio Buttons", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier

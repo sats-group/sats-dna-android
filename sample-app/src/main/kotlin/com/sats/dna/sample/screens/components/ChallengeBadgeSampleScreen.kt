@@ -20,7 +20,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun ChallengeBadgeSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ChallengeBadgeSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen(
         title = "Challenge Badge",
         navigateUp = navigateUp,

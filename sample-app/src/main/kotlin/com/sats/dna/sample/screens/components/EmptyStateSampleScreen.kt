@@ -18,7 +18,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun EmptyStateSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun EmptyStateSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Empty State", navigateUp, modifier) { innerPadding ->
         Column(
             modifier = Modifier

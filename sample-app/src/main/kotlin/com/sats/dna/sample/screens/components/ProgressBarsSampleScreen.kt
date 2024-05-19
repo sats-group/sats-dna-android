@@ -21,7 +21,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun ProgressBarsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ProgressBarsSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Progress Bars", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier

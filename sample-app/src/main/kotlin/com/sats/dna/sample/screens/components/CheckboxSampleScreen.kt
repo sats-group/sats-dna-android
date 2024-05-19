@@ -24,7 +24,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun CheckboxSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun CheckboxSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Checkbox", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier

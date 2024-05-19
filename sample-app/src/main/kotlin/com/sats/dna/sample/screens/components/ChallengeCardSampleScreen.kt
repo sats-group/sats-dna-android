@@ -19,7 +19,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun ChallengeCardSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ChallengeCardSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Challenge Card Screen", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier

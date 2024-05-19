@@ -19,7 +19,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun SwitchSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun SwitchSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Switch", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier

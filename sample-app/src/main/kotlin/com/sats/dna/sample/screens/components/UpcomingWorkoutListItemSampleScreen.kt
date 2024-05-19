@@ -20,7 +20,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun UpcomingWorkoutListItemSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun UpcomingWorkoutListItemSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen(
         title = "Upcoming Workout List",
         navigateUp = navigateUp,

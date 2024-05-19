@@ -19,7 +19,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun ArticleCardSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ArticleCardSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Article Card", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier

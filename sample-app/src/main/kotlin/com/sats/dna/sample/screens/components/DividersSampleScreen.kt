@@ -21,7 +21,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun DividersSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun DividersSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Dividers", navigateUp, modifier) { contentPadding ->
         Column(
             Modifier

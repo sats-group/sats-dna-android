@@ -31,7 +31,7 @@ import com.sats.dna.theme.SatsTheme
 import kotlinx.coroutines.launch
 
 @Composable
-fun FancyTopAppBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun FancyTopAppBarSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     val scrollConnection = rememberSatsFancyTopAppBarNestedScrollConnection()
 
     SatsScreen(
@@ -66,12 +66,14 @@ fun FancyTopAppBarSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modi
                 title = "GX Class That Has a Very Long Name",
                 scrollConnection = scrollConnection,
                 navigationIcon = {
-                    SatsTopAppBarIconButton(
-                        onClick = navigateUp,
-                        icon = SatsIcons.Back,
-                        onClickLabel = null,
-                        tint = LocalContentColor.current,
-                    )
+                    if (navigateUp != null) {
+                        SatsTopAppBarIconButton(
+                            onClick = navigateUp,
+                            icon = SatsIcons.Back,
+                            onClickLabel = null,
+                            tint = LocalContentColor.current,
+                        )
+                    }
                 },
                 actions = {
                     SatsTopAppBarIconButton(

@@ -57,7 +57,7 @@ import com.sats.dna.theme.SatsTheme
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun ButtonsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ButtonsSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     val controlPanelState = remember { ControlPanelState() }
 
     SampleScreen(

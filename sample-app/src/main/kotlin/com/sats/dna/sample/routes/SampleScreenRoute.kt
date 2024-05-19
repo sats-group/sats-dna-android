@@ -1,5 +1,7 @@
 package com.sats.dna.sample.routes
 
-interface SampleScreenRoute {
+import android.os.Parcelable
+
+interface SampleScreenRoute : Parcelable {
     val name: String
 }

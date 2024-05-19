@@ -22,7 +22,7 @@ import com.sats.dna.theme.SatsTheme
 import kotlin.math.roundToInt
 
 @Composable
-fun SurfaceSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun SurfaceSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Surface", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier

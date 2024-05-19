@@ -26,7 +26,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun GeneralListItemSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun GeneralListItemSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("General List Item", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier

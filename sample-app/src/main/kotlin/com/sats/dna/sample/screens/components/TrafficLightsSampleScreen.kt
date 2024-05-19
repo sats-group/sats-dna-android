@@ -21,7 +21,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun TrafficLightsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun TrafficLightsSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen(
         title = "Traffic Lights",
         navigateUp = navigateUp,

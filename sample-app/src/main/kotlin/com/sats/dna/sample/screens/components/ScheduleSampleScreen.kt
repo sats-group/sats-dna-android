@@ -16,7 +16,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun ScheduleSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun ScheduleSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Schedule", navigateUp, modifier) { innerPadding ->
         val schedule = listOf(
             SatsUpcomingWorkout(

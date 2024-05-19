@@ -22,7 +22,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-fun SessionDetailsInfoLabelSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+fun SessionDetailsInfoLabelSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     SampleScreen("Session Details Info Label", navigateUp, modifier) { innerPadding ->
         Column(
             Modifier

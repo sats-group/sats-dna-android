@@ -19,7 +19,7 @@ import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
 @Composable
-internal fun TextFieldSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
+internal fun TextFieldSampleScreen(navigateUp: (() -> Unit)?, modifier: Modifier = Modifier) {
     val (inputValue, setValue) = remember { mutableStateOf("") }
     val (outlinedInputValue, outlinedSetValue) = remember { mutableStateOf("") }
 
