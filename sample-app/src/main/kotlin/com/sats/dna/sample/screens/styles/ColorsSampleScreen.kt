@@ -223,6 +223,10 @@ private fun GraphicalElementsDividerSamples(modifier: Modifier = Modifier) {
 
         ColorSample(divider.default, "default")
         ColorSample(divider.alternate, "alternate")
+
+        SatsSurface(color = SatsTheme.colors.backgrounds.fixed.primary.default.bg) {
+            ColorSample(divider.fixed, "fixed")
+        }
     }
 }
 
