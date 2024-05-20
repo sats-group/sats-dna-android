@@ -525,7 +525,7 @@ class SatsColors(
                     fgWaitingList = EgyptianPurple40,
                     fgNeutral = White60,
                     fgInformation = BrightBlue60,
-                    fgFeatured = SatsCoral60,
+                    fgFeatured = SatsCoral90,
                 )
 
                 val selected: SurfaceColorSet = SurfaceColorSet(
@@ -539,7 +539,7 @@ class SatsColors(
                     fgWaitingList = EgyptianPurple40,
                     fgNeutral = White60,
                     fgInformation = BrightBlue60,
-                    fgFeatured = SatsCoral60,
+                    fgFeatured = SatsCoral90,
                 )
             }
 
@@ -555,7 +555,7 @@ class SatsColors(
                     fgWaitingList = EgyptianPurple40,
                     fgNeutral = White60,
                     fgInformation = BrightBlue60,
-                    fgFeatured = SatsCoral60,
+                    fgFeatured = SatsCoral90,
                 )
 
                 val selected: SurfaceColorSet = SurfaceColorSet(
@@ -569,7 +569,7 @@ class SatsColors(
                     fgWaitingList = EgyptianPurple40,
                     fgNeutral = White60,
                     fgInformation = BrightBlue60,
-                    fgFeatured = SatsCoral60,
+                    fgFeatured = SatsCoral90,
                 )
             }
         }
