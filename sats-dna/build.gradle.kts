@@ -3,6 +3,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose.compiler)
     alias(libs.plugins.kotlinter)
 
     id("maven-publish")
@@ -11,10 +12,6 @@ plugins {
 android {
     namespace = "com.sats.dna"
     compileSdk = 35
-
-    buildFeatures {
-        compose = true
-    }
 
     defaultConfig {
         minSdk = 24
@@ -49,15 +46,8 @@ android {
         }
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
-    }
-
-    kotlinOptions {
-        freeCompilerArgs += listOf(
-            "-P",
-            "plugin:androidx.compose.compiler.plugins.kotlin:strongSkipping=true",
-        )
+    composeCompiler {
+        enableStrongSkippingMode = true
     }
 
     publishing {
