@@ -6,6 +6,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose.compiler)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlinter)
 }
@@ -13,10 +14,6 @@ plugins {
 android {
     namespace = "com.sats.dna.sample"
     compileSdk = 34
-
-    buildFeatures {
-        compose = true
-    }
 
     defaultConfig {
         minSdk = 24
@@ -58,10 +55,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
 
         isCoreLibraryDesugaringEnabled = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 }
 
