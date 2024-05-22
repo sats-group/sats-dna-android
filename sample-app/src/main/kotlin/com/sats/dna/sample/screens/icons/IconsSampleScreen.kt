@@ -36,6 +36,7 @@ import com.sats.dna.icons.ArrowDown
 import com.sats.dna.icons.ArrowLeft
 import com.sats.dna.icons.ArrowRight
 import com.sats.dna.icons.ArrowUp
+import com.sats.dna.icons.Attachment
 import com.sats.dna.icons.AudioClass
 import com.sats.dna.icons.Award
 import com.sats.dna.icons.Back
@@ -52,6 +53,7 @@ import com.sats.dna.icons.Chat
 import com.sats.dna.icons.Check
 import com.sats.dna.icons.Cherry
 import com.sats.dna.icons.Class
+import com.sats.dna.icons.ClassFilled
 import com.sats.dna.icons.ClassStroke
 import com.sats.dna.icons.ClockFilled
 import com.sats.dna.icons.Close
@@ -76,6 +78,7 @@ import com.sats.dna.icons.Edit
 import com.sats.dna.icons.Elixia
 import com.sats.dna.icons.EnergyDrink
 import com.sats.dna.icons.Error
+import com.sats.dna.icons.Exorlive
 import com.sats.dna.icons.Facebook
 import com.sats.dna.icons.FacebookPadding
 import com.sats.dna.icons.Filter
@@ -167,6 +170,7 @@ import com.sats.dna.icons.Satsonline
 import com.sats.dna.icons.Save
 import com.sats.dna.icons.Scale
 import com.sats.dna.icons.Search
+import com.sats.dna.icons.SearchCrossed
 import com.sats.dna.icons.SearchOutlined
 import com.sats.dna.icons.SearchPerson
 import com.sats.dna.icons.Send
@@ -193,8 +197,10 @@ import com.sats.dna.icons.StudiosMarkerElixia
 import com.sats.dna.icons.StudiosMarkerSats
 import com.sats.dna.icons.Sync
 import com.sats.dna.icons.Themes
+import com.sats.dna.icons.ThumbsDown
 import com.sats.dna.icons.ThumbsUp
 import com.sats.dna.icons.Ticket
+import com.sats.dna.icons.TiktokPadding
 import com.sats.dna.icons.Time
 import com.sats.dna.icons.TimeFilled
 import com.sats.dna.icons.Treatments
@@ -261,6 +267,7 @@ private val allIcons: List<ImageVector>
         SatsIcons.ArrowLeft,
         SatsIcons.ArrowRight,
         SatsIcons.ArrowUp,
+        SatsIcons.Attachment,
         SatsIcons.AudioClass,
         SatsIcons.Award,
         SatsIcons.Back,
@@ -277,6 +284,7 @@ private val allIcons: List<ImageVector>
         SatsIcons.Check,
         SatsIcons.Cherry,
         SatsIcons.Class,
+        SatsIcons.ClassFilled,
         SatsIcons.ClassStroke,
         SatsIcons.ClockFilled,
         SatsIcons.Close,
@@ -301,6 +309,7 @@ private val allIcons: List<ImageVector>
         SatsIcons.Elixia,
         SatsIcons.EnergyDrink,
         SatsIcons.Error,
+        SatsIcons.Exorlive,
         SatsIcons.Facebook,
         SatsIcons.FacebookPadding,
         SatsIcons.Filter,
@@ -392,6 +401,7 @@ private val allIcons: List<ImageVector>
         SatsIcons.Save,
         SatsIcons.Scale,
         SatsIcons.Search,
+        SatsIcons.SearchCrossed,
         SatsIcons.SearchOutlined,
         SatsIcons.SearchPerson,
         SatsIcons.Send,
@@ -418,8 +428,10 @@ private val allIcons: List<ImageVector>
         SatsIcons.StudiosMarkerSats,
         SatsIcons.Sync,
         SatsIcons.Themes,
+        SatsIcons.ThumbsDown,
         SatsIcons.ThumbsUp,
         SatsIcons.Ticket,
+        SatsIcons.TiktokPadding,
         SatsIcons.Time,
         SatsIcons.TimeFilled,
         SatsIcons.Treatments,
