@@ -49,6 +49,7 @@ internal object SatsColorPrimitives {
     val Black80 = Color(0xFF333333)
     val Black70 = Color(0xFF4C4C4C)
     val Black60 = Color(0xFF666666)
+    val Black55 = Color(0xFF808080)
     val Black50 = Color(0xFF808080)
     val Black40 = Color(0xFF999999)
     val Black20 = Color(0xFFCCCCCC)
