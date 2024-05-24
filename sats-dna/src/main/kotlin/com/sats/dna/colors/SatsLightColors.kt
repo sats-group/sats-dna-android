@@ -4,6 +4,7 @@ import com.sats.dna.colors.SatsColorPrimitives.Black10
 import com.sats.dna.colors.SatsColorPrimitives.Black40
 import com.sats.dna.colors.SatsColorPrimitives.Black5
 import com.sats.dna.colors.SatsColorPrimitives.Black50
+import com.sats.dna.colors.SatsColorPrimitives.Black55
 import com.sats.dna.colors.SatsColorPrimitives.Black60
 import com.sats.dna.colors.SatsColorPrimitives.Black80
 import com.sats.dna.colors.SatsColorPrimitives.BlackO20
@@ -312,13 +313,13 @@ internal val SatsLightColors = SatsColors(
                 bg = SatsBlue5,
                 fg = SatsBlue100,
                 fgAlternate = SatsBlue70,
-                fgDisabled = Black60,
+                fgDisabled = Black55,
             ),
             selected = BackgroundColorSet(
                 bg = SatsBlue5,
                 fg = SatsBlue100,
                 fgAlternate = SatsBlue70,
-                fgDisabled = Black60,
+                fgDisabled = Black55,
             ),
         ),
         secondary = SatsColors.Backgrounds.Secondary(
@@ -326,13 +327,13 @@ internal val SatsLightColors = SatsColors(
                 bg = White100,
                 fg = SatsBlue100,
                 fgAlternate = SatsBlue70,
-                fgDisabled = Black60,
+                fgDisabled = Black55,
             ),
             selected = BackgroundColorSet(
                 bg = White100,
                 fg = SatsBlue100,
                 fgAlternate = SatsBlue70,
-                fgDisabled = Black60,
+                fgDisabled = Black55,
             ),
         ),
     ),
@@ -342,7 +343,7 @@ internal val SatsLightColors = SatsColors(
                 bg = White100,
                 fg = SatsBlue100,
                 fgAlternate = SatsBlue70,
-                fgDisabled = Black60,
+                fgDisabled = Black55,
                 fgSuccess = SpringGreen120,
                 fgWarning = Gold140,
                 fgError = Cardinal120,
@@ -355,7 +356,7 @@ internal val SatsLightColors = SatsColors(
                 bg = BrightBlue20,
                 fg = SatsBlue100,
                 fgAlternate = SatsBlue70,
-                fgDisabled = Black60,
+                fgDisabled = Black55,
                 fgSuccess = SpringGreen120,
                 fgWarning = Gold140,
                 fgError = Cardinal120,
@@ -368,7 +369,7 @@ internal val SatsLightColors = SatsColors(
                 bg = SatsBlue10,
                 fg = SatsBlue100,
                 fgAlternate = SatsBlue70,
-                fgDisabled = Black60,
+                fgDisabled = Black55,
                 fgSuccess = SpringGreen120,
                 fgWarning = Gold140,
                 fgError = Cardinal120,
