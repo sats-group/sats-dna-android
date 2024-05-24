@@ -16,7 +16,6 @@ import com.sats.dna.colors.SatsColorPrimitives.SatsCoral120
 import com.sats.dna.colors.SatsColorPrimitives.SatsCoral130
 import com.sats.dna.colors.SatsColorPrimitives.SatsCoral170
 import com.sats.dna.colors.SatsColorPrimitives.SatsCoral190
-import com.sats.dna.colors.SatsColorPrimitives.SatsCoral60
 import com.sats.dna.colors.SatsColorPrimitives.SatsCoral90
 import com.sats.dna.colors.SatsColorPrimitives.SpringGreen60
 import com.sats.dna.colors.SatsColorPrimitives.White0
@@ -148,7 +147,9 @@ class SatsColors(
         class Divider(
             val default: Color,
             val alternate: Color,
-        )
+        ) {
+            val fixed: Color = SatsColorPrimitives.White20
+        }
 
         class Border(
             val default: Color,
@@ -525,7 +526,7 @@ class SatsColors(
                     fgWaitingList = EgyptianPurple40,
                     fgNeutral = White60,
                     fgInformation = BrightBlue60,
-                    fgFeatured = SatsCoral60,
+                    fgFeatured = SatsCoral90,
                 )
 
                 val selected: SurfaceColorSet = SurfaceColorSet(
@@ -539,7 +540,7 @@ class SatsColors(
                     fgWaitingList = EgyptianPurple40,
                     fgNeutral = White60,
                     fgInformation = BrightBlue60,
-                    fgFeatured = SatsCoral60,
+                    fgFeatured = SatsCoral90,
                 )
             }
 
@@ -555,7 +556,7 @@ class SatsColors(
                     fgWaitingList = EgyptianPurple40,
                     fgNeutral = White60,
                     fgInformation = BrightBlue60,
-                    fgFeatured = SatsCoral60,
+                    fgFeatured = SatsCoral90,
                 )
 
                 val selected: SurfaceColorSet = SurfaceColorSet(
@@ -569,7 +570,7 @@ class SatsColors(
                     fgWaitingList = EgyptianPurple40,
                     fgNeutral = White60,
                     fgInformation = BrightBlue60,
-                    fgFeatured = SatsCoral60,
+                    fgFeatured = SatsCoral90,
                 )
             }
         }
