@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.sats.dna.components.SatsPlaceholderBox
 import com.sats.dna.components.SatsTag
 import com.sats.dna.components.SatsTagColor
 import com.sats.dna.components.button.SatsButtonColor
@@ -113,6 +114,15 @@ fun SatsArticleCard(
             }
         }
     }
+}
+
+@Composable
+fun SatsArticleCardPlaceholder(modifier: Modifier = Modifier) {
+    SatsPlaceholderBox(
+        modifier
+            .height(234.dp)
+            .fillMaxWidth(),
+    )
 }
 
 @Composable
@@ -281,5 +291,13 @@ private fun SatsArticleCardEllipsizePreview() {
                 )
             },
         )
+    }
+}
+
+@PreviewLightDark
+@Composable
+private fun SatsArticleCardPlaceholderPreview() {
+    SatsTheme {
+        SatsArticleCardPlaceholder()
     }
 }
