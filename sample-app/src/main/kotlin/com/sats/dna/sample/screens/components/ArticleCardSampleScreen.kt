@@ -15,6 +15,7 @@ import com.sats.dna.components.button.SatsButtonColor
 import com.sats.dna.components.button.SatsButtonSize
 import com.sats.dna.components.button.SatsDismissButton
 import com.sats.dna.components.card.SatsArticleCard
+import com.sats.dna.components.card.SatsArticleCardPlaceholder
 import com.sats.dna.sample.screens.SampleScreen
 import com.sats.dna.theme.SatsTheme
 
@@ -37,6 +38,8 @@ fun ArticleCardSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifie
                     "It's a day to invest in yourself and your future.",
                 onClick = {},
             )
+
+            SatsArticleCardPlaceholder()
 
             SatsArticleCard(
                 imageUrl = "https://picsum.photos/1920/1080",
