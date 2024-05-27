@@ -50,6 +50,10 @@ android {
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
     }
+
+    composeCompiler {
+        enableStrongSkippingMode = true
+    }
 }
 
 kotlin {

@@ -50,6 +50,10 @@ android {
         enableStrongSkippingMode = true
     }
 
+    composeCompiler {
+        enableStrongSkippingMode = true
+    }
+
     publishing {
         singleVariant("release") {
             withSourcesJar()
