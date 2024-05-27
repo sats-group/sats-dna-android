@@ -56,6 +56,10 @@ android {
 
         isCoreLibraryDesugaringEnabled = true
     }
+
+    composeCompiler {
+        enableStrongSkippingMode = true
+    }
 }
 
 tasks.withType<KotlinCompile>().configureEach {

@@ -54,6 +54,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
+    composeCompiler {
+        enableStrongSkippingMode = true
+    }
+
     publishing {
         singleVariant("release") {
             withSourcesJar()
