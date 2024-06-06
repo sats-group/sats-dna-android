@@ -27,7 +27,6 @@ fun SatsChoiceBox(
     style: SatsChoiceBoxStyle = SatsChoiceBoxStyle(),
     isEnabled: Boolean = true,
 ) {
-
     val colors = style.color.getSatsChoiceBoxColors(
         isEnabled = isEnabled,
         isSelected = isSelected,
@@ -41,12 +40,14 @@ fun SatsChoiceBox(
                 shape = SatsTheme.shapes.roundedCorners.small,
             )
             .clip(SatsTheme.shapes.roundedCorners.small)
-            .clickable(
-                onClick = { onClick(!isSelected) },
-                role = when (style.choiceType) {
-                    SatsChoiceBoxType.Radio -> Role.RadioButton
-                    SatsChoiceBoxType.Checkbox -> Role.Checkbox
-                },
+            .then(
+                if (isEnabled) Modifier.clickable(
+                    onClick = { onClick(!isSelected) },
+                    role = when (style.choiceType) {
+                        SatsChoiceBoxType.Radio -> Role.RadioButton
+                        SatsChoiceBoxType.Checkbox -> Role.Checkbox
+                    },
+                ) else Modifier,
             ),
         color = colors.backgroundColor,
     ) {
@@ -71,15 +72,20 @@ fun SatsChoiceBox(
                     SatsRadioButton(
                         selected = isSelected,
                         enabled = isEnabled,
-                        onClick = {},
+                        onClick = { onClick(!isSelected) },
                     )
                 } else {
                     SatsCheckbox(
-                        modifier = Modifier.padding(SatsTheme.spacing.s),
                         checked = isSelected,
                         enabled = isEnabled,
-                        colors = if (style.color == SatsChoiceBoxColor.Fixed) SatsCheckboxColors.Fixed else SatsCheckboxColors.Primary,
-                        onCheckedChange = null,
+                        colors = if (style.color == SatsChoiceBoxColor.Fixed) {
+                            SatsCheckboxColors.Fixed
+                        } else {
+                            SatsCheckboxColors.Primary
+                        },
+                        onCheckedChange = {
+                            onClick(!isSelected)
+                        },
                     )
                 }
             }
@@ -101,7 +107,7 @@ private data class SatsChoiceBoxColors(
 
 data class SatsChoiceBoxStyle(
     val choiceType: SatsChoiceBoxType = SatsChoiceBoxType.Radio,
-    val color: SatsChoiceBoxColor = SatsChoiceBoxColor.Default,
+    val color: SatsChoiceBoxColor = SatsChoiceBoxColor.Default, // Add colors directly here? 🤔
 )
 
 enum class SatsChoiceBoxType {
