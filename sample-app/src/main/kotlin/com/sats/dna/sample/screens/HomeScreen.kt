@@ -61,6 +61,7 @@ import com.sats.dna.sample.routes.components.ChallengeBadgeSampleScreenRoute
 import com.sats.dna.sample.routes.components.ChallengeCardSampleScreenRoute
 import com.sats.dna.sample.routes.components.CheckboxSampleScreenRoute
 import com.sats.dna.sample.routes.components.ChipsSampleScreenRoute
+import com.sats.dna.sample.routes.components.ChoiceBoxSampleScreenRoute
 import com.sats.dna.sample.routes.components.CompletedWorkoutListItemSampleScreenRoute
 import com.sats.dna.sample.routes.components.DividersSampleScreenRoute
 import com.sats.dna.sample.routes.components.EmptyStateSampleScreenRoute
@@ -292,6 +293,7 @@ private val groups: Map<String, List<SampleScreenRoute>> = mapOf(
         ChallengeCardSampleScreenRoute,
         CheckboxSampleScreenRoute,
         ChipsSampleScreenRoute,
+        ChoiceBoxSampleScreenRoute,
         CompletedWorkoutListItemSampleScreenRoute,
         DividersSampleScreenRoute,
         EmptyStateSampleScreenRoute,
