@@ -5,10 +5,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -23,7 +25,6 @@ import com.sats.dna.components.SatsChoiceBox
 import com.sats.dna.components.SatsChoiceBoxColor
 import com.sats.dna.components.SatsChoiceBoxStyle
 import com.sats.dna.components.SatsChoiceBoxType
-import com.sats.dna.components.SatsHorizontalDivider
 import com.sats.dna.components.SatsRadioButton
 import com.sats.dna.components.SatsSurface
 import com.sats.dna.components.SatsVerticalDivider
@@ -32,7 +33,6 @@ import com.sats.dna.theme.SatsTheme
 
 @Composable
 fun ChoiceBoxSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
-
     var style by remember { mutableStateOf(SatsChoiceBoxStyle()) }
 
     SampleScreen("ChoiceBox", navigateUp, modifier) { innerPadding ->
@@ -43,145 +43,152 @@ fun ChoiceBoxSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier)
                 SatsTheme.colors.backgrounds.primary.default.bg
             },
         ) {
-            Column(
-                Modifier
-                    .fillMaxSize()
-                    .padding(innerPadding)
-                    .padding(SatsTheme.spacing.m),
-                verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-
-                SatsHorizontalDivider()
-                Section("Unselected enabled") {
-                    var isSelected by rememberSaveable { mutableStateOf(false) }
-
-                    SatsChoiceBox(
-                        title = "Accept",
-                        description = "Description of whatever the user is accepting",
-                        isSelected = isSelected,
-                        isEnabled = true,
-                        style = style,
-                        onClick = {
-                            isSelected = !isSelected
-                        },
-                    )
-                }
-                Section("Selected enabled") {
-
-                    var isSelected by rememberSaveable { mutableStateOf(true) }
-
-                    SatsChoiceBox(
-                        title = "Accept",
-                        description = "Description of whatever the user is accepting",
-                        isSelected = isSelected,
-                        isEnabled = true,
-                        style = style,
-                        onClick = {
-                            isSelected = !isSelected
-                        },
-                    )
-                }
-
-                Section("Unselected disabled") {
-
-                    var isSelected by rememberSaveable { mutableStateOf(false) }
-
-                    SatsChoiceBox(
-                        title = "Accept",
-                        description = "Description of whatever the user is accepting",
-                        isSelected = isSelected,
-                        isEnabled = false,
-                        style = style,
-                        onClick = {
-                            isSelected = !isSelected
-                        },
-                    )
-                }
-                Section("Selected disabled") {
-                    var isSelected by rememberSaveable { mutableStateOf(true) }
-
-                    SatsChoiceBox(
-                        title = "Accept",
-                        description = "Description of whatever the user is accepting",
-                        isSelected = isSelected,
-                        isEnabled = false,
-                        style = style,
-                        onClick = {
-                            isSelected = !isSelected
-                        },
-                    )
-                }
-                Row(
-                    Modifier.height(IntrinsicSize.Min)
+            Column {
+                Column(
+                    Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())
+                        .padding(innerPadding)
+                        .padding(SatsTheme.spacing.m),
+                    verticalArrangement = Arrangement.spacedBy(SatsTheme.spacing.m),
+                    horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
-                    Column(
-                        Modifier.weight(1f),
-                    ) {
-                        Row(
-                            Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Text(
-                                text = "Radio",
-                            )
-                            SatsRadioButton(
-                                onClick = {
-                                    style = style.copy(choiceType = SatsChoiceBoxType.Radio)
-                                },
-                                selected = style.choiceType == SatsChoiceBoxType.Radio,
-                            )
-                        }
-                        Row(
-                            Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Text(
-                                text = "Check box",
-                            )
-                            SatsRadioButton(
-                                onClick = {
-                                    style = style.copy(choiceType = SatsChoiceBoxType.Checkbox)
-                                },
-                                selected = style.choiceType == SatsChoiceBoxType.Checkbox,
-                            )
-                        }
+                    Section("Unselected enabled") {
+                        var isSelected by rememberSaveable { mutableStateOf(false) }
+
+                        SatsChoiceBox(
+                            title = "Accept",
+                            description = "Description of whatever the user is accepting",
+                            isSelected = isSelected,
+                            isEnabled = true,
+                            style = style,
+                            onClick = {
+                                isSelected = !isSelected
+                            },
+                        )
                     }
-                    SatsVerticalDivider(Modifier.padding(SatsTheme.spacing.xs))
-                    Column(
-                        Modifier.weight(1f).padding(start = SatsTheme.spacing.s),
+                    Section("Selected enabled") {
+                        var isSelected by rememberSaveable { mutableStateOf(true) }
+
+                        SatsChoiceBox(
+                            title = "Accept",
+                            description = "Description of whatever the user is accepting",
+                            isSelected = isSelected,
+                            isEnabled = true,
+                            style = style,
+                            onClick = {
+                                isSelected = !isSelected
+                            },
+                        )
+                    }
+
+                    Section("Unselected disabled") {
+                        var isSelected by rememberSaveable { mutableStateOf(false) }
+
+                        SatsChoiceBox(
+                            title = "Accept",
+                            description = "Description of whatever the user is accepting",
+                            isSelected = isSelected,
+                            isEnabled = false,
+                            style = style,
+                            onClick = {
+                                isSelected = !isSelected
+                            },
+                        )
+                    }
+                    Section("Selected disabled") {
+                        var isSelected by rememberSaveable { mutableStateOf(true) }
+
+                        SatsChoiceBox(
+                            title = "Accept",
+                            description = "Description of whatever the user is accepting",
+                            isSelected = isSelected,
+                            isEnabled = false,
+                            style = style,
+                            onClick = {
+                                isSelected = !isSelected
+                            },
+                        )
+                    }
+                    Spacer(Modifier.weight(1f))
+                }
+                SatsSurface {
+                    Row(
+                        Modifier
+                            .height(IntrinsicSize.Min)
+                            .padding(bottom = innerPadding.calculateBottomPadding())
+                            .padding(SatsTheme.spacing.m),
                     ) {
-                        Row(
-                            Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically,
+                        Column(
+                            Modifier.weight(1f),
                         ) {
-                            Text(
-                                text = "Default colors",
-                            )
-                            SatsRadioButton(
-                                onClick = {
-                                    style = style.copy(color = SatsChoiceBoxColor.Default)
-                                },
-                                selected = style.color == SatsChoiceBoxColor.Default,
-                            )
+                            Row(
+                                Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Text(
+                                    text = "Radio",
+                                )
+                                SatsRadioButton(
+                                    onClick = {
+                                        style = style.copy(choiceType = SatsChoiceBoxType.Radio)
+                                    },
+                                    selected = style.choiceType == SatsChoiceBoxType.Radio,
+                                )
+                            }
+                            Row(
+                                Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Text(
+                                    text = "Check box",
+                                )
+                                SatsRadioButton(
+                                    onClick = {
+                                        style = style.copy(choiceType = SatsChoiceBoxType.Checkbox)
+                                    },
+                                    selected = style.choiceType == SatsChoiceBoxType.Checkbox,
+                                )
+                            }
                         }
-                        Row(
-                            Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically,
+                        SatsVerticalDivider(Modifier.padding(SatsTheme.spacing.xs))
+                        Column(
+                            Modifier
+                                .weight(1f)
+                                .padding(start = SatsTheme.spacing.s),
                         ) {
-                            Text(
-                                text = "Fixed Colors",
-                            )
-                            SatsRadioButton(
-                                onClick = {
-                                    style = style.copy(color = SatsChoiceBoxColor.Fixed)
-                                },
-                                selected = style.color == SatsChoiceBoxColor.Fixed,
-                            )
+                            Row(
+                                Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Text(
+                                    text = "Default colors",
+                                )
+                                SatsRadioButton(
+                                    onClick = {
+                                        style = style.copy(color = SatsChoiceBoxColor.Default)
+                                    },
+                                    selected = style.color == SatsChoiceBoxColor.Default,
+                                )
+                            }
+                            Row(
+                                Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Text(
+                                    text = "Fixed Colors",
+                                )
+                                SatsRadioButton(
+                                    onClick = {
+                                        style = style.copy(color = SatsChoiceBoxColor.Fixed)
+                                    },
+                                    selected = style.color == SatsChoiceBoxColor.Fixed,
+                                )
+                            }
                         }
                     }
                 }

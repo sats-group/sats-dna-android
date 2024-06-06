@@ -41,13 +41,17 @@ fun SatsChoiceBox(
             )
             .clip(SatsTheme.shapes.roundedCorners.small)
             .then(
-                if (isEnabled) Modifier.clickable(
-                    onClick = { onClick(!isSelected) },
-                    role = when (style.choiceType) {
-                        SatsChoiceBoxType.Radio -> Role.RadioButton
-                        SatsChoiceBoxType.Checkbox -> Role.Checkbox
-                    },
-                ) else Modifier,
+                if (isEnabled) {
+                    Modifier.clickable(
+                        onClick = { onClick(!isSelected) },
+                        role = when (style.choiceType) {
+                            SatsChoiceBoxType.Radio -> Role.RadioButton
+                            SatsChoiceBoxType.Checkbox -> Role.Checkbox
+                        },
+                    )
+                } else {
+                    Modifier
+                },
             ),
         color = colors.backgroundColor,
     ) {
@@ -107,17 +111,17 @@ private data class SatsChoiceBoxColors(
 
 data class SatsChoiceBoxStyle(
     val choiceType: SatsChoiceBoxType = SatsChoiceBoxType.Radio,
-    val color: SatsChoiceBoxColor = SatsChoiceBoxColor.Default, // Add colors directly here? 🤔
+    val color: SatsChoiceBoxColor = SatsChoiceBoxColor.Default,
 )
 
 enum class SatsChoiceBoxType {
     Radio,
-    Checkbox
+    Checkbox,
 }
 
 enum class SatsChoiceBoxColor {
     Fixed,
-    Default
+    Default,
 }
 
 @Composable
