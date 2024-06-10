@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.tooling.preview.PreviewFontScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.theme.SatsTheme
@@ -447,6 +448,22 @@ private fun SatsChoiceBoxFixedSelectedPreview() {
                     ),
                 )
             }
+        }
+    }
+}
+
+@PreviewFontScale
+@Composable
+private fun SatsChoiceBoxFontScalePreview() {
+    SatsTheme {
+        SatsSurface(color = SatsTheme.colors.backgrounds.primary.default.bg) {
+            SatsChoiceBox(
+                title = "Accept",
+                description = "This is a description of the choice to be taken",
+                isSelected = true,
+                onClick = {},
+                modifier = Modifier.padding(SatsTheme.spacing.m),
+            )
         }
     }
 }
