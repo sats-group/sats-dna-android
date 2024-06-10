@@ -76,6 +76,11 @@ fun SatsChoiceBox(
                     SatsRadioButton(
                         selected = isSelected,
                         enabled = isEnabled,
+                        color = if (style.color == SatsChoiceBoxColor.Fixed) {
+                            SatsRadioButtonColors.Fixed
+                        } else {
+                            SatsRadioButtonColors.Primary
+                        },
                         onClick = { onClick(!isSelected) },
                     )
                 } else {
