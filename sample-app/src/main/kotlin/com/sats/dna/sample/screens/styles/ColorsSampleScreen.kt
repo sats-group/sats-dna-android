@@ -381,7 +381,7 @@ private fun GraphicalElementsFixedChipsSamples(modifier: Modifier = Modifier) {
         ColorSample(fixedChips.unselected.default, "unselected.default")
         ColorSample(fixedChips.unselected.disabled, "unselected.disabled")
         ColorSample(fixedChips.selected.default, "selected.default")
-        ColorSample(fixedChips.selected.disabled, "selected.default")
+        ColorSample(fixedChips.selected.disabled, "selected.disabled")
     }
 }
 

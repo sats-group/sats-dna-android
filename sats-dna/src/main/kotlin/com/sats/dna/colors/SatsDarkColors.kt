@@ -19,12 +19,11 @@ import com.sats.dna.colors.SatsColorPrimitives.Cardinal100
 import com.sats.dna.colors.SatsColorPrimitives.Cardinal170
 import com.sats.dna.colors.SatsColorPrimitives.Cardinal30
 import com.sats.dna.colors.SatsColorPrimitives.Cardinal60
-import com.sats.dna.colors.SatsColorPrimitives.CaribbeanCurrent10
 import com.sats.dna.colors.SatsColorPrimitives.CaribbeanCurrent180
 import com.sats.dna.colors.SatsColorPrimitives.CaribbeanCurrent60
-import com.sats.dna.colors.SatsColorPrimitives.Celadon10
 import com.sats.dna.colors.SatsColorPrimitives.Celadon100
 import com.sats.dna.colors.SatsColorPrimitives.Celadon160
+import com.sats.dna.colors.SatsColorPrimitives.Celadon180
 import com.sats.dna.colors.SatsColorPrimitives.Celadon60
 import com.sats.dna.colors.SatsColorPrimitives.ChiliRed80
 import com.sats.dna.colors.SatsColorPrimitives.EgyptianPurple160
@@ -35,7 +34,6 @@ import com.sats.dna.colors.SatsColorPrimitives.Gold110
 import com.sats.dna.colors.SatsColorPrimitives.Gold170
 import com.sats.dna.colors.SatsColorPrimitives.Gold30
 import com.sats.dna.colors.SatsColorPrimitives.Gold80
-import com.sats.dna.colors.SatsColorPrimitives.SalmonPink10
 import com.sats.dna.colors.SatsColorPrimitives.SalmonPink100
 import com.sats.dna.colors.SatsColorPrimitives.SalmonPink180
 import com.sats.dna.colors.SatsColorPrimitives.SalmonPink60
@@ -53,17 +51,17 @@ import com.sats.dna.colors.SatsColorPrimitives.SpringGreen100
 import com.sats.dna.colors.SatsColorPrimitives.SpringGreen170
 import com.sats.dna.colors.SatsColorPrimitives.SpringGreen30
 import com.sats.dna.colors.SatsColorPrimitives.SpringGreen80
-import com.sats.dna.colors.SatsColorPrimitives.Tangerine10
 import com.sats.dna.colors.SatsColorPrimitives.Tangerine100
 import com.sats.dna.colors.SatsColorPrimitives.Tangerine160
+import com.sats.dna.colors.SatsColorPrimitives.Tangerine180
 import com.sats.dna.colors.SatsColorPrimitives.Tangerine60
-import com.sats.dna.colors.SatsColorPrimitives.TropicalIndigo10
 import com.sats.dna.colors.SatsColorPrimitives.TropicalIndigo100
 import com.sats.dna.colors.SatsColorPrimitives.TropicalIndigo160
+import com.sats.dna.colors.SatsColorPrimitives.TropicalIndigo180
 import com.sats.dna.colors.SatsColorPrimitives.TropicalIndigo60
-import com.sats.dna.colors.SatsColorPrimitives.UranianBlue10
 import com.sats.dna.colors.SatsColorPrimitives.UranianBlue100
 import com.sats.dna.colors.SatsColorPrimitives.UranianBlue160
+import com.sats.dna.colors.SatsColorPrimitives.UranianBlue180
 import com.sats.dna.colors.SatsColorPrimitives.UranianBlue60
 import com.sats.dna.colors.SatsColorPrimitives.White0
 import com.sats.dna.colors.SatsColorPrimitives.White10
@@ -470,28 +468,28 @@ internal val SatsDarkColors = SatsColors(
     ),
     workoutSurfaces = SatsColors.WorkoutSurfaces(
         gx = SatsColors.WorkoutSurfaces.GX(
-            default = White100 on SalmonPink10,
-            alternate = SalmonPink100 on SalmonPink10,
+            default = White100 on SalmonPink180,
+            alternate = SalmonPink100 on SalmonPink180,
         ),
         pt = SatsColors.WorkoutSurfaces.PT(
-            default = White100 on UranianBlue10,
-            alternate = UranianBlue100 on UranianBlue10,
+            default = White100 on UranianBlue180,
+            alternate = UranianBlue100 on UranianBlue180,
         ),
         gymfloor = SatsColors.WorkoutSurfaces.Gymfloor(
-            default = White100 on Tangerine10,
-            alternate = Tangerine100 on Tangerine10,
+            default = White100 on Tangerine180,
+            alternate = Tangerine100 on Tangerine180,
         ),
         treatments = SatsColors.WorkoutSurfaces.Treatments(
-            default = White100 on CaribbeanCurrent10,
-            alternate = CaribbeanCurrent60 on CaribbeanCurrent10,
+            default = White100 on CaribbeanCurrent180,
+            alternate = CaribbeanCurrent60 on CaribbeanCurrent180,
         ),
         bootcamp = SatsColors.WorkoutSurfaces.Bootcamp(
-            default = White100 on TropicalIndigo10,
-            alternate = TropicalIndigo100 on TropicalIndigo10,
+            default = White100 on TropicalIndigo180,
+            alternate = TropicalIndigo100 on TropicalIndigo180,
         ),
         other = SatsColors.WorkoutSurfaces.Other(
-            default = White100 on Celadon10,
-            alternate = Celadon100 on Celadon10,
+            default = White100 on Celadon180,
+            alternate = Celadon100 on Celadon180,
         ),
     ),
     isLightMode = false,
