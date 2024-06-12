@@ -77,6 +77,7 @@ fun ColorsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
                 GraphicalElementsSelectorSamples()
                 GraphicalElementsSelectorFixedSamples()
                 GraphicalElementsChipsSamples()
+                GraphicalElementsFixedChipsSamples()
                 GraphicalElementsToggleSamples()
                 GraphicalElementsIconsSamples()
                 GraphicalElementsIndicatorsSamples()
@@ -109,6 +110,15 @@ fun ColorsSampleScreen(navigateUp: () -> Unit, modifier: Modifier = Modifier) {
                 SignalSurfaceNeutralSamples()
                 SignalSurfaceInformationSamples()
                 SignalSurfaceFeaturedSamples()
+            }
+
+            Section("Workout Surfaces") {
+                WorkoutSurfaceGxSamples()
+                WorkoutSurfacePtSamples()
+                WorkoutSurfaceGymfloorSamples()
+                WorkoutSurfaceTreatmentsSamples()
+                WorkoutSurfaceBootcampSamples()
+                WorkoutSurfaceOtherSamples()
             }
         }
     }
@@ -226,6 +236,7 @@ private fun GraphicalElementsDividerSamples(modifier: Modifier = Modifier) {
 
         SatsSurface(color = SatsTheme.colors.backgrounds.fixed.primary.default.bg) {
             ColorSample(divider.fixed, "fixed")
+            ColorSample(divider.fixedAlternate, "fixedAlternate")
         }
     }
 }
@@ -279,8 +290,9 @@ private fun GraphicalElementsProgressBarSamples(modifier: Modifier = Modifier) {
     Subsection("Progress Bar", modifier) {
         val progressBar = SatsTheme.colors.graphicalElements.progressBar
 
-        ColorSample(progressBar.default, "default")
-        ColorSample(progressBar.alternate, "alternate")
+        ColorSample(progressBar.indicatorDefault, "default")
+        ColorSample(progressBar.indicatorAlternate, "alternate")
+        ColorSample(progressBar.indicatorDisabled, "disabled")
     }
 }
 
@@ -289,8 +301,9 @@ private fun GraphicalElementsFixedProgressBarSamples(modifier: Modifier = Modifi
     Subsection("Fixed Progress Bar", modifier, isFixed = true) {
         val fixedProgressBar = SatsTheme.colors.graphicalElements.fixedProgressBar
 
-        ColorSample(fixedProgressBar.default, "default")
-        ColorSample(fixedProgressBar.alternate, "alternate")
+        ColorSample(fixedProgressBar.indicatorDefault, "default")
+        ColorSample(fixedProgressBar.indicatorAlternate, "alternate")
+        ColorSample(fixedProgressBar.indicatorDisabled, "disabled")
     }
 }
 
@@ -357,6 +370,18 @@ private fun GraphicalElementsChipsSamples(modifier: Modifier = Modifier) {
         ColorSample(chips.unselected.disabled, "unselected.disabled")
         ColorSample(chips.selected.default, "selected.default")
         ColorSample(chips.selected.disabled, "selected.disabled")
+    }
+}
+
+@Composable
+private fun GraphicalElementsFixedChipsSamples(modifier: Modifier = Modifier) {
+    Subsection("Fixed Chips", modifier) {
+        val fixedChips = SatsTheme.colors.graphicalElements.fixedChips
+
+        ColorSample(fixedChips.unselected.default, "unselected.default")
+        ColorSample(fixedChips.unselected.disabled, "unselected.disabled")
+        ColorSample(fixedChips.selected.default, "selected.default")
+        ColorSample(fixedChips.selected.disabled, "selected.default")
     }
 }
 
@@ -546,6 +571,7 @@ private fun SurfaceSecondarySamples(modifier: Modifier = Modifier) {
 
         SurfaceColorSamples(secondary.default, "default")
         SurfaceColorSamples(secondary.selected, "selected")
+        SurfaceColorSamples(secondary.disabled, "disabled")
     }
 }
 
@@ -628,6 +654,66 @@ private fun SignalSurfaceFeaturedSamples(modifier: Modifier = Modifier) {
 
         ColorSample(featured.default, "default")
         ColorSample(featured.alternate, "alternate")
+    }
+}
+
+@Composable
+private fun WorkoutSurfaceGxSamples(modifier: Modifier = Modifier) {
+    Subsection("GX", modifier) {
+        val gx = SatsTheme.colors.workoutSurfaces.gx
+
+        ColorSample(gx.default, "default")
+        ColorSample(gx.alternate, "alternate")
+    }
+}
+
+@Composable
+private fun WorkoutSurfacePtSamples(modifier: Modifier = Modifier) {
+    Subsection("PT", modifier) {
+        val pt = SatsTheme.colors.workoutSurfaces.pt
+
+        ColorSample(pt.default, "default")
+        ColorSample(pt.alternate, "alternate")
+    }
+}
+
+@Composable
+private fun WorkoutSurfaceTreatmentsSamples(modifier: Modifier = Modifier) {
+    Subsection("Treatments", modifier) {
+        val treatments = SatsTheme.colors.workoutSurfaces.treatments
+
+        ColorSample(treatments.default, "default")
+        ColorSample(treatments.alternate, "alternate")
+    }
+}
+
+@Composable
+private fun WorkoutSurfaceGymfloorSamples(modifier: Modifier = Modifier) {
+    Subsection("Gymfloor", modifier) {
+        val gymfloor = SatsTheme.colors.workoutSurfaces.gymfloor
+
+        ColorSample(gymfloor.default, "default")
+        ColorSample(gymfloor.alternate, "alternate")
+    }
+}
+
+@Composable
+private fun WorkoutSurfaceBootcampSamples(modifier: Modifier = Modifier) {
+    Subsection("Bootcamp", modifier) {
+        val bootcamp = SatsTheme.colors.workoutSurfaces.bootcamp
+
+        ColorSample(bootcamp.default, "default")
+        ColorSample(bootcamp.alternate, "alternate")
+    }
+}
+
+@Composable
+private fun WorkoutSurfaceOtherSamples(modifier: Modifier = Modifier) {
+    Subsection("Other", modifier) {
+        val other = SatsTheme.colors.workoutSurfaces.other
+
+        ColorSample(other.default, "default")
+        ColorSample(other.alternate, "alternate")
     }
 }
 

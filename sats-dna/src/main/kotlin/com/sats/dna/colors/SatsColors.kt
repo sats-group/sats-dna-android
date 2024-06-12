@@ -9,6 +9,8 @@ import com.sats.dna.colors.SatsColorPrimitives.Gold60
 import com.sats.dna.colors.SatsColorPrimitives.SatsBlue10
 import com.sats.dna.colors.SatsColorPrimitives.SatsBlue100
 import com.sats.dna.colors.SatsColorPrimitives.SatsBlue105
+import com.sats.dna.colors.SatsColorPrimitives.SatsBlue40
+import com.sats.dna.colors.SatsColorPrimitives.SatsBlue70
 import com.sats.dna.colors.SatsColorPrimitives.SatsBlue90
 import com.sats.dna.colors.SatsColorPrimitives.SatsBlueGrey80
 import com.sats.dna.colors.SatsColorPrimitives.SatsCoral100
@@ -35,6 +37,7 @@ class SatsColors(
     val backgrounds: Backgrounds,
     val surfaces: Surfaces,
     val signalSurfaces: SignalSurfaces,
+    val workoutSurfaces: WorkoutSurfaces,
     val isLightMode: Boolean,
 ) {
     class Buttons(
@@ -143,12 +146,14 @@ class SatsColors(
         val fixedProgressBar: FixedProgressBar = FixedProgressBar()
         val selectorFixed: SelectorFixed = SelectorFixed()
         val fixedBadge: FixedBadge = FixedBadge()
+        val fixedChips: FixedChips = FixedChips()
 
         class Divider(
             val default: Color,
             val alternate: Color,
         ) {
             val fixed: Color = SatsColorPrimitives.White20
+            val fixedAlternate: Color = White40
         }
 
         class Border(
@@ -172,13 +177,15 @@ class SatsColors(
         )
 
         class ProgressBar(
-            val default: ColorSet,
-            val alternate: ColorSet,
+            val indicatorDefault: ColorSet,
+            val indicatorAlternate: ColorSet,
+            val indicatorDisabled: ColorSet,
         )
 
         class FixedProgressBar {
-            val default: ColorSet = SatsCoral90 on White40
-            val alternate: ColorSet = SatsBlue10 on White40
+            val indicatorDefault: ColorSet = SatsCoral90 on White40
+            val indicatorAlternate: ColorSet = SatsBlue10 on White40
+            val indicatorDisabled: ColorSet = White40 on White40
         }
 
         class Graphs(
@@ -300,6 +307,21 @@ class SatsColors(
                 val default: ColorSet,
                 val disabled: ColorSet,
             )
+        }
+
+        class FixedChips {
+            val unselected: Unselected = Unselected()
+            val selected: Selected = Selected()
+
+            class Unselected {
+                val default = OutlinedColorSet(outline = White100, bg = White0, fg = White100)
+                val disabled = OutlinedColorSet(outline = White50, bg = White0, fg = White50)
+            }
+
+            class Selected {
+                val default = ColorSet(bg = SatsCoral120, fg = White100)
+                val disabled = ColorSet(bg = SatsBlue70, fg = SatsBlue40)
+            }
         }
 
         class Toggle(
@@ -508,6 +530,7 @@ class SatsColors(
         class Secondary(
             val default: SurfaceColorSet,
             val selected: SurfaceColorSet,
+            val disabled: SurfaceColorSet,
         )
 
         class Fixed {
@@ -616,6 +639,45 @@ class SatsColors(
         )
 
         class Featured(
+            val default: ColorSet,
+            val alternate: ColorSet,
+        )
+    }
+
+    class WorkoutSurfaces(
+        val gx: GX,
+        val pt: PT,
+        val gymfloor: Gymfloor,
+        val treatments: Treatments,
+        val bootcamp: Bootcamp,
+        val other: Other,
+    ) {
+        class GX(
+            val default: ColorSet,
+            val alternate: ColorSet,
+        )
+
+        class PT(
+            val default: ColorSet,
+            val alternate: ColorSet,
+        )
+
+        class Gymfloor(
+            val default: ColorSet,
+            val alternate: ColorSet,
+        )
+
+        class Treatments(
+            val default: ColorSet,
+            val alternate: ColorSet,
+        )
+
+        class Bootcamp(
+            val default: ColorSet,
+            val alternate: ColorSet,
+        )
+
+        class Other(
             val default: ColorSet,
             val alternate: ColorSet,
         )

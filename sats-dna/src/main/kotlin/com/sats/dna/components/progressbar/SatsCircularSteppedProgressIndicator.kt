@@ -55,12 +55,12 @@ private fun GroupCircle(
     modifier: Modifier = Modifier,
 ) {
     val incompleteColor =
-        SatsTheme.colors.graphicalElements.fixedProgressBar.default.bg
+        SatsTheme.colors.graphicalElements.fixedProgressBar.indicatorDefault.bg
 
     val completeColor = if (isFailed) {
-        SatsTheme.colors.graphicalElements.fixedProgressBar.alternate.fg
+        SatsTheme.colors.graphicalElements.fixedProgressBar.indicatorAlternate.fg
     } else {
-        SatsTheme.colors.graphicalElements.fixedProgressBar.default.fg
+        SatsTheme.colors.graphicalElements.fixedProgressBar.indicatorDefault.fg
     }
 
     Box(modifier.size(36.dp)) {
@@ -141,7 +141,7 @@ private fun GroupNumber(number: Int, modifier: Modifier = Modifier) {
         text = number.toString(),
         modifier = modifier,
         style = SatsTheme.typography.emphasis.large,
-        color = SatsTheme.colors.graphicalElements.fixedProgressBar.default.bg,
+        color = SatsTheme.colors.graphicalElements.fixedProgressBar.indicatorDefault.bg,
     )
 }
 

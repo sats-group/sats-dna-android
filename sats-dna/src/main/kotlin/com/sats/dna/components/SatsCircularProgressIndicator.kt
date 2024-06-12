@@ -20,7 +20,7 @@ fun SatsCircularProgressIndicator(
 ) {
     CircularProgressIndicator(
         modifier = modifier,
-        color = SatsTheme.colors.graphicalElements.progressBar.default.fg,
+        color = SatsTheme.colors.graphicalElements.progressBar.indicatorDefault.fg,
         strokeWidth = strokeWidth,
         trackColor = Color.Transparent,
         strokeCap = StrokeCap.Round,
@@ -31,7 +31,7 @@ fun SatsCircularProgressIndicator(
 fun SatsCircularProgressIndicator(
     progress: Float,
     modifier: Modifier = Modifier,
-    color: Color = SatsTheme.colors.graphicalElements.progressBar.default.fg,
+    color: Color = SatsTheme.colors.graphicalElements.progressBar.indicatorDefault.fg,
     strokeWidth: Dp = 4.dp,
 ) {
     CircularProgressIndicator(
