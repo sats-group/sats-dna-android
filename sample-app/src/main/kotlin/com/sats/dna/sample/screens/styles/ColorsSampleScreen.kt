@@ -375,7 +375,7 @@ private fun GraphicalElementsChipsSamples(modifier: Modifier = Modifier) {
 
 @Composable
 private fun GraphicalElementsFixedChipsSamples(modifier: Modifier = Modifier) {
-    Subsection("Fixed Chips", modifier) {
+    Subsection("Fixed Chips", modifier, isFixed = true) {
         val fixedChips = SatsTheme.colors.graphicalElements.fixedChips
 
         ColorSample(fixedChips.unselected.default, "unselected.default")
