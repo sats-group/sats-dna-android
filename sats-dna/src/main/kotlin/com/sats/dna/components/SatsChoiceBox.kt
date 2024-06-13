@@ -148,15 +148,15 @@ private val SatsChoiceBoxColor.unselected: SatsChoiceBoxColors
         SatsChoiceBoxColor.Default -> SatsChoiceBoxColors(
             backgroundColor = Color.Transparent,
             borderColor = SatsTheme.colors.graphicalElements.selector.primary.unselected.default.outline,
-            descriptionColor = SatsTheme.colors.backgrounds.primary.default.fgAlternate,
             titleColor = SatsTheme.colors.backgrounds.primary.default.fg,
+            descriptionColor = SatsTheme.colors.backgrounds.primary.default.fgAlternate,
         )
 
         SatsChoiceBoxColor.Fixed -> SatsChoiceBoxColors(
             backgroundColor = Color.Transparent,
             borderColor = SatsTheme.colors.graphicalElements.selectorFixed.unselected.default.outline,
-            descriptionColor = SatsTheme.colors.backgrounds.fixed.primary.default.fg,
             titleColor = SatsTheme.colors.backgrounds.fixed.primary.default.fg,
+            descriptionColor = SatsTheme.colors.backgrounds.fixed.primary.default.fgAlternate,
         )
     }
 
@@ -182,15 +182,15 @@ private val SatsChoiceBoxColor.unselectedDisabled: SatsChoiceBoxColors
         SatsChoiceBoxColor.Default -> SatsChoiceBoxColors(
             backgroundColor = Color.Transparent,
             borderColor = SatsTheme.colors.graphicalElements.selector.primary.unselected.disabled.outline,
-            descriptionColor = SatsTheme.colors.backgrounds.primary.default.fgDisabled,
             titleColor = SatsTheme.colors.backgrounds.primary.default.fgDisabled,
+            descriptionColor = SatsTheme.colors.backgrounds.primary.default.fgDisabled,
         )
 
         SatsChoiceBoxColor.Fixed -> SatsChoiceBoxColors(
             backgroundColor = Color.Transparent,
             borderColor = SatsTheme.colors.graphicalElements.selectorFixed.unselected.disabled.outline,
-            descriptionColor = SatsTheme.colors.backgrounds.fixed.primary.default.fgDisabled,
             titleColor = SatsTheme.colors.backgrounds.fixed.primary.default.fgDisabled,
+            descriptionColor = SatsTheme.colors.backgrounds.fixed.primary.default.fgDisabled,
         )
     }
 
