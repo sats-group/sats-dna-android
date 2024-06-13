@@ -54,7 +54,7 @@ val SatsIcons.Chat: ImageVector
                 moveTo(19.03f, 9.78f)
                 curveToRelative(0.31f, -0.22f, 0.74f, -0.14f, 0.96f, 0.17f)
                 curveToRelative(0.64f, 0.92f, 1.01f, 2f, 1.01f, 3.16f)
-                curveToRelative(0f, 1.22f, -0.41f, 2.34f, -1.1f, 3.3f)
+                curveToRelative(0f, 1.22f, -0.41f, 2.35f, -1.1f, 3.3f)
                 verticalLineToRelative(3.9f)
                 curveToRelative(0f, 0.25f, -0.15f, 0.49f, -0.37f, 0.6f)
                 curveToRelative(-0.23f, 0.13f, -0.5f, 0.12f, -0.71f, -0.03f)

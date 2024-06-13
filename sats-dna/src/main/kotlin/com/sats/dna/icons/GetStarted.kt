@@ -36,7 +36,7 @@ val SatsIcons.GetStarted: ImageVector
                 lineToRelative(-2.02f, -1.03f)
                 moveToRelative(-5.24f, 4.6f)
                 lineToRelative(3.3f, -2.8f)
-                curveToRelative(0.16f, -0.15f, 0.37f, -0.23f, 0.58f, -0.26f)
+                curveToRelative(0.16f, -0.14f, 0.37f, -0.23f, 0.58f, -0.26f)
                 curveToRelative(0.22f, -0.02f, 0.44f, 0.02f, 0.63f, 0.12f)
                 lineToRelative(4.5f, 2.3f)
                 curveToRelative(0.14f, 0.06f, 0.25f, 0.15f, 0.35f, 0.27f)

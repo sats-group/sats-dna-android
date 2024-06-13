@@ -37,7 +37,7 @@ val SatsIcons.FolderEmpty: ImageVector
                 curveToRelative(-0.36f, 0f, -0.64f, -0.29f, -0.64f, -0.64f)
                 curveToRelative(0f, -0.35f, 0.28f, -0.64f, 0.64f, -0.64f)
                 horizontalLineToRelative(1.7f)
-                curveToRelative(0.28f, 0f, 0.55f, -0.1f, 0.75f, -0.3f)
+                curveToRelative(0.28f, 0f, 0.55f, -0.11f, 0.75f, -0.3f)
                 curveToRelative(0.2f, -0.2f, 0.31f, -0.48f, 0.31f, -0.76f)
                 verticalLineTo(7.53f)
                 horizontalLineTo(12f)
@@ -62,7 +62,7 @@ val SatsIcons.FolderEmpty: ImageVector
                 pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(15.46f, 12.8f)
-                curveToRelative(0.25f, 0.25f, 0.25f, 0.65f, 0f, 0.9f)
+                curveToRelative(0.25f, 0.24f, 0.25f, 0.65f, 0f, 0.9f)
                 lineToRelative(-6.02f, 6.02f)
                 curveToRelative(-0.25f, 0.25f, -0.65f, 0.25f, -0.9f, 0f)
                 reflectiveCurveToRelative(-0.25f, -0.66f, 0f, -0.9f)
@@ -76,13 +76,13 @@ val SatsIcons.FolderEmpty: ImageVector
                 pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(12f, 12.64f)
-                curveToRelative(-2f, 0f, -3.62f, 1.62f, -3.62f, 3.61f)
-                curveToRelative(0f, 2f, 1.62f, 3.62f, 3.62f, 3.62f)
-                reflectiveCurveToRelative(3.62f, -1.62f, 3.62f, -3.62f)
-                reflectiveCurveTo(14f, 12.64f, 12f, 12.64f)
+                curveToRelative(-2f, 0f, -3.62f, 1.62f, -3.62f, 3.62f)
+                reflectiveCurveTo(10f, 19.87f, 12f, 19.87f)
+                reflectiveCurveToRelative(3.62f, -1.62f, 3.62f, -3.61f)
+                curveToRelative(0f, -2f, -1.62f, -3.62f, -3.62f, -3.62f)
                 close()
-                moveToRelative(-4.9f, 3.61f)
-                curveToRelative(0f, -2.7f, 2.2f, -4.89f, 4.9f, -4.89f)
+                moveToRelative(-4.9f, 3.62f)
+                curveToRelative(0f, -2.7f, 2.2f, -4.9f, 4.9f, -4.9f)
                 reflectiveCurveToRelative(4.9f, 2.2f, 4.9f, 4.9f)
                 reflectiveCurveToRelative(-2.2f, 4.89f, -4.9f, 4.89f)
                 reflectiveCurveToRelative(-4.9f, -2.2f, -4.9f, -4.9f)

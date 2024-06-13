@@ -28,8 +28,8 @@ val SatsIcons.Privacy: ImageVector
                 curveToRelative(-0.3f, -0.34f, -0.65f, -0.49f, -1.08f, -0.49f)
                 curveToRelative(-0.37f, 0f, -0.61f, 0.13f, -0.97f, 0.49f)
                 curveToRelative(-0.3f, 0.34f, -0.46f, 0.8f, -0.46f, 1.27f)
-                verticalLineToRelative(9.17f)
-                reflectiveCurveToRelative(-1.9f, -3.5f, -2.2f, -3.88f)
+                verticalLineTo(15f)
+                reflectiveCurveToRelative(-1.9f, -3.51f, -2.2f, -3.89f)
                 curveToRelative(-0.32f, -0.38f, -0.76f, -0.41f, -1.07f, -0.38f)
                 curveToRelative(-0.24f, 0.06f, -0.47f, 0.2f, -0.65f, 0.4f)
                 curveToRelative(-0.23f, 0.25f, -0.4f, 0.52f, -0.4f, 0.88f)
@@ -43,10 +43,10 @@ val SatsIcons.Privacy: ImageVector
                 curveToRelative(0.6f, -0.68f, 1.09f, -1.49f, 1.41f, -2.38f)
                 curveToRelative(0.33f, -0.9f, 0.5f, -1.85f, 0.5f, -2.82f)
                 verticalLineTo(6.96f)
-                curveToRelative(0f, -0.32f, -0.1f, -0.64f, -0.26f, -0.89f)
+                curveToRelative(0f, -0.32f, -0.09f, -0.64f, -0.26f, -0.89f)
                 curveToRelative(-0.17f, -0.21f, -0.5f, -0.6f, -1.12f, -0.6f)
                 curveToRelative(-0.55f, 0f, -0.84f, 0.27f, -1.05f, 0.56f)
-                curveToRelative(-0.23f, 0.3f, -0.26f, 0.6f, -0.26f, 0.93f)
+                curveToRelative(-0.23f, 0.3f, -0.25f, 0.6f, -0.25f, 0.93f)
                 verticalLineToRelative(1.2f)
             }
 
@@ -59,8 +59,8 @@ val SatsIcons.Privacy: ImageVector
                 curveToRelative(0f, -0.47f, 0.16f, -0.93f, 0.45f, -1.27f)
                 curveToRelative(0.28f, -0.33f, 0.66f, -0.52f, 1.06f, -0.52f)
                 reflectiveCurveToRelative(0.77f, 0.19f, 1.06f, 0.52f)
-                curveToRelative(0.28f, 0.34f, 0.43f, 0.8f, 0.43f, 1.28f)
-                verticalLineToRelative(6.67f)
+                curveToRelative(0.28f, 0.34f, 0.43f, 0.8f, 0.43f, 1.27f)
+                verticalLineToRelative(6.68f)
             }
 
             path(
@@ -69,10 +69,10 @@ val SatsIcons.Privacy: ImageVector
             ) {
                 moveTo(11.3f, 11.4f)
                 verticalLineTo(3.6f)
-                curveToRelative(0f, -0.47f, 0.17f, -0.93f, 0.45f, -1.26f)
-                curveTo(12.03f, 2f, 12.4f, 1.8f, 12.8f, 1.8f)
-                reflectiveCurveTo(13.59f, 2f, 13.87f, 2.34f)
-                curveToRelative(0.28f, 0.33f, 0.44f, 0.79f, 0.44f, 1.27f)
+                curveToRelative(0f, -0.47f, 0.17f, -0.93f, 0.45f, -1.27f)
+                curveTo(12.03f, 2f, 12.4f, 1.81f, 12.8f, 1.81f)
+                reflectiveCurveTo(13.59f, 2f, 13.87f, 2.33f)
+                curveToRelative(0.28f, 0.34f, 0.44f, 0.8f, 0.44f, 1.28f)
                 verticalLineToRelative(7.79f)
             }
         }

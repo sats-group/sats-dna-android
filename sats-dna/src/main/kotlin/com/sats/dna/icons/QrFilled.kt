@@ -63,14 +63,14 @@ val SatsIcons.QrFilled: ImageVector
                 stroke = SolidColor(Color.Black),
                 strokeLineWidth = 1.2f,
             ) {
-                moveTo(10.38f, 9.53f)
-                curveToRelative(0f, 0.41f, -0.33f, 0.74f, -0.74f, 0.74f)
+                moveTo(10.39f, 9.53f)
+                curveToRelative(0f, 0.41f, -0.34f, 0.75f, -0.75f, 0.75f)
                 horizontalLineTo(7.03f)
-                curveToRelative(-0.42f, 0f, -0.75f, -0.33f, -0.75f, -0.74f)
+                curveToRelative(-0.42f, 0f, -0.75f, -0.34f, -0.75f, -0.75f)
                 verticalLineTo(6.87f)
                 curveToRelative(0f, -0.41f, 0.33f, -0.75f, 0.75f, -0.75f)
                 horizontalLineToRelative(2.6f)
-                curveToRelative(0.42f, 0f, 0.75f, 0.34f, 0.75f, 0.75f)
+                curveToRelative(0.42f, 0f, 0.76f, 0.34f, 0.76f, 0.75f)
                 verticalLineToRelative(2.66f)
                 close()
             }
@@ -81,13 +81,13 @@ val SatsIcons.QrFilled: ImageVector
                 strokeLineWidth = 1.2f,
             ) {
                 moveTo(17.9f, 9.53f)
-                curveToRelative(0f, 0.41f, -0.33f, 0.74f, -0.75f, 0.74f)
-                horizontalLineToRelative(-2.6f)
-                curveToRelative(-0.42f, 0f, -0.76f, -0.33f, -0.76f, -0.74f)
+                curveToRelative(0f, 0.41f, -0.33f, 0.75f, -0.74f, 0.75f)
+                horizontalLineToRelative(-2.62f)
+                curveToRelative(-0.4f, 0f, -0.74f, -0.34f, -0.74f, -0.75f)
                 verticalLineTo(6.87f)
-                curveToRelative(0f, -0.41f, 0.34f, -0.75f, 0.75f, -0.75f)
-                horizontalLineToRelative(2.61f)
-                curveToRelative(0.42f, 0f, 0.75f, 0.34f, 0.75f, 0.75f)
+                curveToRelative(0f, -0.41f, 0.33f, -0.75f, 0.74f, -0.75f)
+                horizontalLineToRelative(2.62f)
+                curveToRelative(0.4f, 0f, 0.74f, 0.34f, 0.74f, 0.75f)
                 verticalLineToRelative(2.66f)
                 close()
             }
@@ -97,14 +97,14 @@ val SatsIcons.QrFilled: ImageVector
                 stroke = SolidColor(Color.Black),
                 strokeLineWidth = 1.2f,
             ) {
-                moveTo(10.38f, 17.13f)
-                curveToRelative(0f, 0.41f, -0.33f, 0.74f, -0.74f, 0.74f)
+                moveTo(10.39f, 17.13f)
+                curveToRelative(0f, 0.41f, -0.34f, 0.75f, -0.75f, 0.75f)
                 horizontalLineTo(7.03f)
-                curveToRelative(-0.42f, 0f, -0.75f, -0.33f, -0.75f, -0.74f)
+                curveToRelative(-0.42f, 0f, -0.75f, -0.34f, -0.75f, -0.75f)
                 verticalLineToRelative(-2.66f)
                 curveToRelative(0f, -0.41f, 0.33f, -0.75f, 0.75f, -0.75f)
                 horizontalLineToRelative(2.6f)
-                curveToRelative(0.42f, 0f, 0.75f, 0.34f, 0.75f, 0.75f)
+                curveToRelative(0.42f, 0f, 0.76f, 0.34f, 0.76f, 0.75f)
                 verticalLineToRelative(2.66f)
                 close()
             }
@@ -115,13 +115,13 @@ val SatsIcons.QrFilled: ImageVector
                 strokeLineWidth = 1.2f,
             ) {
                 moveTo(17.9f, 17.13f)
-                curveToRelative(0f, 0.41f, -0.33f, 0.74f, -0.75f, 0.74f)
-                horizontalLineToRelative(-2.6f)
-                curveToRelative(-0.42f, 0f, -0.76f, -0.33f, -0.76f, -0.74f)
+                curveToRelative(0f, 0.41f, -0.33f, 0.75f, -0.74f, 0.75f)
+                horizontalLineToRelative(-2.62f)
+                curveToRelative(-0.4f, 0f, -0.74f, -0.34f, -0.74f, -0.75f)
                 verticalLineToRelative(-2.66f)
-                curveToRelative(0f, -0.41f, 0.34f, -0.75f, 0.75f, -0.75f)
-                horizontalLineToRelative(2.61f)
-                curveToRelative(0.42f, 0f, 0.75f, 0.34f, 0.75f, 0.75f)
+                curveToRelative(0f, -0.41f, 0.33f, -0.75f, 0.74f, -0.75f)
+                horizontalLineToRelative(2.62f)
+                curveToRelative(0.4f, 0f, 0.74f, 0.34f, 0.74f, 0.75f)
                 verticalLineToRelative(2.66f)
                 close()
             }

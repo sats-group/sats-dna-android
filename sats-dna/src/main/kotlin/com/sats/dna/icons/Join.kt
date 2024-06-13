@@ -33,7 +33,7 @@ val SatsIcons.Join: ImageVector
                 curveToRelative(0.02f, -1.03f, -0.37f, -2.03f, -1.07f, -2.79f)
                 curveTo(10.87f, 4.7f, 9.9f, 4.25f, 8.86f, 4.2f)
                 curveTo(8.34f, 4.17f, 7.82f, 4.26f, 7.33f, 4.45f)
-                curveTo(6.85f, 4.65f, 6.4f, 4.93f, 6.03f, 5.3f)
+                reflectiveCurveTo(6.4f, 4.93f, 6.03f, 5.3f)
                 curveToRelative(-0.38f, 0.36f, -0.68f, 0.8f, -0.88f, 1.28f)
                 curveToRelative(-0.2f, 0.48f, -0.31f, 1f, -0.31f, 1.53f)
                 verticalLineToRelative(1.95f)

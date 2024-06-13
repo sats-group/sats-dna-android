@@ -47,9 +47,9 @@ val SatsIcons.Loading: ImageVector
                 curveTo(20.95f, 6.8f, 22f, 9.35f, 22f, 12f)
                 curveToRelative(0f, 0.46f, -0.37f, 0.83f, -0.83f, 0.83f)
                 curveToRelative(-0.46f, 0f, -0.84f, -0.37f, -0.84f, -0.83f)
-                curveToRelative(0f, -2.21f, -0.87f, -4.33f, -2.44f, -5.9f)
-                curveToRelative(-1.56f, -1.56f, -3.68f, -2.43f, -5.89f, -2.43f)
-                curveToRelative(-0.46f, 0f, -0.83f, -0.38f, -0.83f, -0.84f)
+                curveToRelative(0f, -2.21f, -0.88f, -4.33f, -2.44f, -5.9f)
+                curveToRelative(-1.56f, -1.56f, -3.68f, -2.43f, -5.9f, -2.43f)
+                curveToRelative(-0.45f, 0f, -0.82f, -0.38f, -0.82f, -0.84f)
                 close()
             }
         }

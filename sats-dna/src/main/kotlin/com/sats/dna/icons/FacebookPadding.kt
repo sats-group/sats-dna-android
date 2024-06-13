@@ -37,7 +37,7 @@ val SatsIcons.FacebookPadding: ImageVector
                 verticalLineToRelative(5.22f)
                 horizontalLineToRelative(2.36f)
                 verticalLineToRelative(-5.22f)
-                horizontalLineToRelative(1.76f)
+                horizontalLineToRelative(1.75f)
                 close()
             }
         }

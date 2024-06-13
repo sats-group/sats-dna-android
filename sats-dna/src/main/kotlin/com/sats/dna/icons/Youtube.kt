@@ -39,8 +39,8 @@ val SatsIcons.Youtube: ImageVector
                 close()
                 moveToRelative(-3.13f, 4.48f)
                 lineToRelative(-3.53f, 2.05f)
-                verticalLineToRelative(-4.09f)
-                lineToRelative(3.53f, 2.04f)
+                verticalLineToRelative(-4.1f)
+                lineToRelative(3.53f, 2.05f)
                 close()
             }
         }

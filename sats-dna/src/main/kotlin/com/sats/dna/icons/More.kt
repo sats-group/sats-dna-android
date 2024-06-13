@@ -23,13 +23,13 @@ val SatsIcons.More: ImageVector
                 fill = SolidColor(Color.Black),
                 pathFillType = PathFillType.EvenOdd,
             ) {
-                moveTo(0.43f, 12f)
-                curveToRelative(0f, -0.47f, 0.39f, -0.85f, 0.85f, -0.85f)
-                horizontalLineToRelative(21.86f)
+                moveTo(0.44f, 12f)
+                curveToRelative(0f, -0.47f, 0.38f, -0.85f, 0.85f, -0.85f)
+                horizontalLineToRelative(21.85f)
                 curveToRelative(0.47f, 0f, 0.85f, 0.38f, 0.85f, 0.85f)
                 reflectiveCurveToRelative(-0.38f, 0.85f, -0.85f, 0.85f)
-                horizontalLineTo(1.28f)
-                curveToRelative(-0.46f, 0f, -0.85f, -0.38f, -0.85f, -0.85f)
+                horizontalLineTo(1.3f)
+                curveToRelative(-0.47f, 0f, -0.85f, -0.38f, -0.85f, -0.85f)
                 close()
             }
 
@@ -37,13 +37,13 @@ val SatsIcons.More: ImageVector
                 fill = SolidColor(Color.Black),
                 pathFillType = PathFillType.EvenOdd,
             ) {
-                moveTo(0.43f, 5.63f)
-                curveToRelative(0f, -0.47f, 0.39f, -0.85f, 0.85f, -0.85f)
-                horizontalLineToRelative(21.86f)
+                moveTo(0.44f, 5.63f)
+                curveToRelative(0f, -0.47f, 0.38f, -0.85f, 0.85f, -0.85f)
+                horizontalLineToRelative(21.85f)
                 curveToRelative(0.47f, 0f, 0.85f, 0.38f, 0.85f, 0.85f)
                 curveToRelative(0f, 0.46f, -0.38f, 0.85f, -0.85f, 0.85f)
-                horizontalLineTo(1.28f)
-                curveToRelative(-0.46f, 0f, -0.85f, -0.39f, -0.85f, -0.85f)
+                horizontalLineTo(1.3f)
+                curveToRelative(-0.47f, 0f, -0.85f, -0.39f, -0.85f, -0.85f)
                 close()
             }
 
@@ -52,12 +52,12 @@ val SatsIcons.More: ImageVector
                 pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(7.48f, 18.38f)
-                curveToRelative(0f, -0.47f, 0.38f, -0.85f, 0.85f, -0.85f)
+                curveToRelative(0f, -0.47f, 0.38f, -0.86f, 0.85f, -0.86f)
                 horizontalLineToRelative(14.81f)
-                curveToRelative(0.47f, 0f, 0.85f, 0.38f, 0.85f, 0.85f)
+                curveToRelative(0.47f, 0f, 0.85f, 0.39f, 0.85f, 0.86f)
                 curveToRelative(0f, 0.46f, -0.38f, 0.85f, -0.85f, 0.85f)
-                horizontalLineTo(8.34f)
-                curveToRelative(-0.48f, 0f, -0.86f, -0.39f, -0.86f, -0.85f)
+                horizontalLineTo(8.33f)
+                curveToRelative(-0.47f, 0f, -0.85f, -0.39f, -0.85f, -0.86f)
                 close()
             }
         }

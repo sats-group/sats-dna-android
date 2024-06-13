@@ -36,7 +36,7 @@ val SatsIcons.Time: ImageVector
             path(
                 fill = SolidColor(Color.Black),
             ) {
-                moveTo(11.97f, 6.97f)
+                moveTo(11.96f, 6.97f)
                 curveToRelative(0f, -0.41f, 0.34f, -0.75f, 0.75f, -0.75f)
                 horizontalLineToRelative(0f)
                 curveToRelative(0.41f, 0f, 0.75f, 0.34f, 0.75f, 0.75f)
@@ -53,9 +53,9 @@ val SatsIcons.Time: ImageVector
                 moveTo(8.2f, 12.42f)
                 curveToRelative(-0.41f, 0f, -0.75f, 0.33f, -0.75f, 0.74f)
                 curveToRelative(0f, 0.42f, 0.34f, 0.75f, 0.75f, 0.75f)
-                horizontalLineToRelative(4.51f)
-                curveToRelative(0.42f, 0f, 0.75f, -0.33f, 0.75f, -0.75f)
-                curveToRelative(0f, -0.4f, -0.33f, -0.74f, -0.75f, -0.74f)
+                horizontalLineToRelative(4.52f)
+                curveToRelative(0.41f, 0f, 0.75f, -0.33f, 0.75f, -0.75f)
+                curveToRelative(0f, -0.4f, -0.34f, -0.74f, -0.75f, -0.74f)
                 horizontalLineTo(8.2f)
                 close()
             }

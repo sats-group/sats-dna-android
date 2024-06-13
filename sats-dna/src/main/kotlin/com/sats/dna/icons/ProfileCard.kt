@@ -48,7 +48,7 @@ val SatsIcons.ProfileCard: ImageVector
                 strokeLineWidth = 1.2f,
             ) {
                 moveTo(15.3f, 10.52f)
-                horizontalLineToRelative(4.44f)
+                horizontalLineToRelative(4.43f)
             }
 
             path(
@@ -56,7 +56,7 @@ val SatsIcons.ProfileCard: ImageVector
                 strokeLineWidth = 1.2f,
             ) {
                 moveTo(15.3f, 14.4f)
-                horizontalLineToRelative(4.44f)
+                horizontalLineToRelative(4.43f)
             }
 
             path(
@@ -65,13 +65,13 @@ val SatsIcons.ProfileCard: ImageVector
             ) {
                 moveTo(2.38f, 3.7f)
                 curveToRelative(-0.4f, 0f, -0.77f, 0.15f, -1.05f, 0.43f)
-                reflectiveCurveTo(0.9f, 4.78f, 0.9f, 5.18f)
-                verticalLineToRelative(13.64f)
-                curveToRelative(0f, 0.4f, 0.15f, 0.77f, 0.43f, 1.05f)
+                reflectiveCurveTo(0.89f, 4.78f, 0.89f, 5.18f)
+                verticalLineToRelative(13.65f)
+                curveToRelative(0f, 0.39f, 0.16f, 0.76f, 0.44f, 1.04f)
                 reflectiveCurveToRelative(0.65f, 0.44f, 1.05f, 0.44f)
                 horizontalLineToRelative(19.24f)
                 curveToRelative(0.4f, 0f, 0.77f, -0.16f, 1.05f, -0.44f)
-                reflectiveCurveToRelative(0.43f, -0.65f, 0.43f, -1.05f)
+                reflectiveCurveToRelative(0.43f, -0.65f, 0.43f, -1.04f)
                 verticalLineTo(5.18f)
                 curveToRelative(0f, -0.4f, -0.15f, -0.77f, -0.43f, -1.05f)
                 reflectiveCurveTo(22.02f, 3.7f, 21.62f, 3.7f)

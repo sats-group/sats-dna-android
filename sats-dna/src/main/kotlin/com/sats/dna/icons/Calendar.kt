@@ -19,42 +19,44 @@ val SatsIcons.Calendar: ImageVector
 
         _calendar = materialIcon(name = "Calendar") {
             path(
-                stroke = SolidColor(Color.Black),
-                strokeLineWidth = 1.5f,
+                fill = SolidColor(Color.Black),
             ) {
-                moveTo(21.2f, 8.95f)
-                horizontalLineTo(2.44f)
-            }
-
-            path(
-                stroke = SolidColor(Color.Black),
-                strokeLineWidth = 1.5f,
-            ) {
-                moveTo(2.74f, 6.62f)
-                curveToRelative(0f, -1.52f, 1.23f, -2.75f, 2.75f, -2.75f)
-                horizontalLineToRelative(13.02f)
-                curveToRelative(1.52f, 0f, 2.75f, 1.23f, 2.75f, 2.75f)
-                verticalLineToRelative(11.26f)
-                curveToRelative(0f, 1.52f, -1.23f, 2.75f, -2.75f, 2.75f)
-                horizontalLineToRelative(-13.02f)
-                curveToRelative(-1.52f, 0f, -2.75f, -1.23f, -2.75f, -2.75f)
+                moveTo(17.83f, 3.67f)
+                horizontalLineTo(17f)
+                verticalLineTo(2.83f)
+                curveTo(17f, 2.37f, 16.63f, 2f, 16.17f, 2f)
+                curveToRelative(-0.46f, 0f, -0.84f, 0.37f, -0.84f, 0.83f)
+                verticalLineToRelative(0.84f)
+                horizontalLineTo(8.67f)
+                verticalLineTo(2.83f)
+                curveTo(8.67f, 2.37f, 8.29f, 2f, 7.83f, 2f)
+                curveTo(7.37f, 2f, 7f, 2.37f, 7f, 2.83f)
+                verticalLineToRelative(0.84f)
+                horizontalLineTo(6.17f)
+                curveTo(3.87f, 3.67f, 2f, 5.54f, 2f, 7.83f)
+                verticalLineToRelative(10f)
+                curveTo(2f, 20.13f, 3.87f, 22f, 6.17f, 22f)
+                horizontalLineToRelative(11.66f)
+                curveToRelative(2.3f, 0f, 4.17f, -1.87f, 4.17f, -4.17f)
+                verticalLineToRelative(-10f)
+                curveToRelative(0f, -2.3f, -1.87f, -4.16f, -4.17f, -4.16f)
                 close()
-            }
-
-            path(
-                stroke = SolidColor(Color.Black),
-                strokeLineWidth = 1.3f,
-            ) {
-                moveTo(16.74f, 2.62f)
-                verticalLineToRelative(2.45f)
-            }
-
-            path(
-                stroke = SolidColor(Color.Black),
-                strokeLineWidth = 1.3f,
-            ) {
-                moveTo(7.23f, 2.62f)
-                verticalLineToRelative(2.45f)
+                moveTo(6.17f, 5.33f)
+                horizontalLineToRelative(11.66f)
+                curveToRelative(1.38f, 0f, 2.5f, 1.13f, 2.5f, 2.5f)
+                verticalLineToRelative(0.84f)
+                horizontalLineTo(3.67f)
+                verticalLineTo(7.83f)
+                curveToRelative(0f, -1.38f, 1.12f, -2.5f, 2.5f, -2.5f)
+                close()
+                moveToRelative(11.66f, 15f)
+                horizontalLineTo(6.17f)
+                curveToRelative(-1.38f, 0f, -2.5f, -1.12f, -2.5f, -2.5f)
+                verticalLineToRelative(-7.5f)
+                horizontalLineToRelative(16.66f)
+                verticalLineToRelative(7.5f)
+                curveToRelative(0f, 1.38f, -1.12f, 2.5f, -2.5f, 2.5f)
+                close()
             }
         }
 

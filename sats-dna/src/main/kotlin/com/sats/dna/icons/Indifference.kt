@@ -63,11 +63,11 @@ val SatsIcons.Indifference: ImageVector
                 fill = SolidColor(Color.Black),
                 pathFillType = PathFillType.EvenOdd,
             ) {
-                moveTo(8.25f, 15.13f)
-                curveToRelative(0f, -0.35f, 0.28f, -0.63f, 0.63f, -0.63f)
+                moveTo(8.25f, 15.12f)
+                curveToRelative(0f, -0.34f, 0.28f, -0.62f, 0.63f, -0.62f)
                 horizontalLineToRelative(6.24f)
-                curveToRelative(0.35f, 0f, 0.63f, 0.28f, 0.63f, 0.63f)
-                curveToRelative(0f, 0.34f, -0.28f, 0.62f, -0.63f, 0.62f)
+                curveToRelative(0.35f, 0f, 0.63f, 0.28f, 0.63f, 0.62f)
+                curveToRelative(0f, 0.35f, -0.28f, 0.63f, -0.63f, 0.63f)
                 horizontalLineTo(8.88f)
                 curveToRelative(-0.35f, 0f, -0.63f, -0.28f, -0.63f, -0.63f)
                 close()

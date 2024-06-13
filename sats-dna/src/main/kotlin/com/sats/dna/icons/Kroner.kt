@@ -56,10 +56,10 @@ val SatsIcons.Kroner: ImageVector
             path(
                 fill = SolidColor(Color.Black),
             ) {
-                moveTo(12.67f, 16f)
+                moveTo(12.66f, 16f)
                 verticalLineTo(8f)
                 horizontalLineToRelative(3f)
-                curveToRelative(0.61f, 0f, 1.13f, 0.1f, 1.54f, 0.32f)
+                curveToRelative(0.62f, 0f, 1.14f, 0.1f, 1.55f, 0.32f)
                 curveToRelative(0.42f, 0.21f, 0.74f, 0.51f, 0.95f, 0.9f)
                 curveToRelative(0.22f, 0.38f, 0.33f, 0.83f, 0.33f, 1.34f)
                 curveToRelative(0f, 0.51f, -0.11f, 0.96f, -0.33f, 1.33f)
@@ -76,9 +76,9 @@ val SatsIcons.Kroner: ImageVector
                 curveToRelative(-0.23f, -0.1f, -0.53f, -0.16f, -0.89f, -0.16f)
                 horizontalLineToRelative(-1.33f)
                 verticalLineTo(16f)
-                horizontalLineToRelative(-1.44f)
+                horizontalLineToRelative(-1.45f)
                 close()
-                moveToRelative(4.13f, -3.63f)
+                moveToRelative(4.14f, -3.63f)
                 lineTo(18.78f, 16f)
                 horizontalLineToRelative(-1.62f)
                 lineToRelative(-1.94f, -3.63f)

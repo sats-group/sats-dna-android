@@ -57,7 +57,7 @@ val SatsIcons.Sound: ImageVector
                 moveTo(18.8f, 6.95f)
                 curveToRelative(-0.29f, -0.3f, -0.76f, -0.3f, -1.05f, 0f)
                 curveToRelative(-0.3f, 0.29f, -0.3f, 0.77f, 0f, 1.06f)
-                curveToRelative(2.34f, 2.34f, 2.34f, 6.15f, 0f, 8.49f)
+                curveToRelative(2.33f, 2.34f, 2.33f, 6.15f, 0f, 8.49f)
                 curveToRelative(-0.3f, 0.29f, -0.3f, 0.76f, 0f, 1.06f)
                 curveToRelative(0.29f, 0.29f, 0.76f, 0.29f, 1.06f, 0f)
                 curveToRelative(2.92f, -2.93f, 2.92f, -7.69f, 0f, -10.61f)
