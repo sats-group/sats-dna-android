@@ -15,6 +15,7 @@ import com.sats.dna.sample.routes.components.ChallengeBadgeSampleScreenRoute
 import com.sats.dna.sample.routes.components.ChallengeCardSampleScreenRoute
 import com.sats.dna.sample.routes.components.CheckboxSampleScreenRoute
 import com.sats.dna.sample.routes.components.ChipsSampleScreenRoute
+import com.sats.dna.sample.routes.components.ChoiceBoxSampleScreenRoute
 import com.sats.dna.sample.routes.components.CompletedWorkoutListItemSampleScreenRoute
 import com.sats.dna.sample.routes.components.DividersSampleScreenRoute
 import com.sats.dna.sample.routes.components.EmptyStateSampleScreenRoute
@@ -57,6 +58,7 @@ import com.sats.dna.sample.screens.components.ChallengeBadgeSampleScreen
 import com.sats.dna.sample.screens.components.ChallengeCardSampleScreen
 import com.sats.dna.sample.screens.components.CheckboxSampleScreen
 import com.sats.dna.sample.screens.components.ChipsSampleScreen
+import com.sats.dna.sample.screens.components.ChoiceBoxSampleScreen
 import com.sats.dna.sample.screens.components.CompletedWorkoutListItemSampleScreen
 import com.sats.dna.sample.screens.components.DividersSampleScreen
 import com.sats.dna.sample.screens.components.EmptyStateSampleScreen
@@ -147,6 +149,10 @@ internal fun NavGraphBuilder.mainGraph(navController: NavController) {
 
     sampleAppComposable<ChipsSampleScreenRoute> {
         ChipsSampleScreen(navigateUp = navController::navigateUp)
+    }
+
+    sampleAppComposable<ChoiceBoxSampleScreenRoute> {
+        ChoiceBoxSampleScreen(navigateUp = navController::navigateUp)
     }
 
     sampleAppComposable<CompletedWorkoutListItemSampleScreenRoute> {
