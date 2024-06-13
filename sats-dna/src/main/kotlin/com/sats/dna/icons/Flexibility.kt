@@ -43,8 +43,8 @@ val SatsIcons.Flexibility: ImageVector
                 curveToRelative(0.1f, -0.1f, 0.16f, -0.2f, 0.2f, -0.33f)
                 curveToRelative(0.04f, -0.12f, 0.06f, -0.25f, 0.05f, -0.38f)
                 curveToRelative(0f, -0.13f, -0.04f, -0.26f, -0.1f, -0.38f)
-                lineToRelative(-2.26f, -5.63f)
-                lineToRelative(-0.08f, -0.14f)
+                lineToRelative(-2.27f, -5.63f)
+                lineToRelative(-0.07f, -0.14f)
                 lineToRelative(-2.63f, -4.22f)
                 curveToRelative(-0.06f, -0.1f, -0.13f, -0.18f, -0.21f, -0.25f)
                 lineTo(7.94f, 2.58f)
@@ -70,8 +70,8 @@ val SatsIcons.Flexibility: ImageVector
                 moveToRelative(12.56f, -6.86f)
                 curveToRelative(0f, 1.27f, -1f, 2.3f, -2.25f, 2.3f)
                 curveToRelative(-1.24f, 0f, -2.25f, -1.03f, -2.25f, -2.3f)
-                curveToRelative(0f, -1.27f, 1f, -2.3f, 2.25f, -2.3f)
-                curveToRelative(1.24f, 0f, 2.25f, 1.03f, 2.25f, 2.3f)
+                curveToRelative(0f, -1.26f, 1f, -2.3f, 2.25f, -2.3f)
+                curveToRelative(1.24f, 0f, 2.25f, 1.04f, 2.25f, 2.3f)
                 close()
             }
         }

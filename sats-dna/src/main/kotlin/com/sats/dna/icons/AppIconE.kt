@@ -32,7 +32,7 @@ val SatsIcons.AppIconE: ImageVector
                 horizontalLineTo(6.87f)
                 lineToRelative(3f, -10.08f)
                 horizontalLineToRelative(7.08f)
-                lineTo(16.31f, 9.1f)
+                lineToRelative(-0.64f, 2.13f)
                 horizontalLineToRelative(-4.45f)
                 close()
             }

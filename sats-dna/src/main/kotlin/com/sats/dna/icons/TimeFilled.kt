@@ -25,7 +25,7 @@ val SatsIcons.TimeFilled: ImageVector
             ) {
                 moveTo(0.67f, 12f)
                 curveTo(0.67f, 5.74f, 5.74f, 0.67f, 12f, 0.67f)
-                reflectiveCurveTo(23.33f, 5.74f, 23.33f, 12f)
+                reflectiveCurveTo(23.34f, 5.74f, 23.34f, 12f)
                 reflectiveCurveTo(18.26f, 23.33f, 12f, 23.33f)
                 reflectiveCurveTo(0.67f, 18.26f, 0.67f, 12f)
                 close()
@@ -36,10 +36,10 @@ val SatsIcons.TimeFilled: ImageVector
                 verticalLineToRelative(0.09f)
                 verticalLineToRelative(0.09f)
                 curveToRelative(0f, 0.41f, -0.34f, 0.74f, -0.75f, 0.74f)
-                horizontalLineTo(8.85f)
-                curveToRelative(-0.4f, 0f, -0.74f, -0.33f, -0.74f, -0.74f)
-                reflectiveCurveToRelative(0.33f, -0.74f, 0.74f, -0.74f)
-                horizontalLineToRelative(3.75f)
+                horizontalLineTo(8.86f)
+                curveToRelative(-0.41f, 0f, -0.75f, -0.33f, -0.75f, -0.74f)
+                reflectiveCurveToRelative(0.34f, -0.74f, 0.75f, -0.74f)
+                horizontalLineToRelative(3.74f)
                 verticalLineTo(7.03f)
                 close()
             }

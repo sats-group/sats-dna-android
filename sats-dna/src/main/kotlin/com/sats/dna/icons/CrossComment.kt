@@ -38,7 +38,7 @@ val SatsIcons.CrossComment: ImageVector
                 curveToRelative(0.36f, 0f, 0.65f, 0.3f, 0.65f, 0.65f)
                 verticalLineToRelative(7.33f)
                 lineToRelative(4.16f, -3.47f)
-                curveToRelative(0.12f, -0.1f, 0.26f, -0.15f, 0.42f, -0.15f)
+                curveTo(9.7f, 15.64f, 9.86f, 15.6f, 10f, 15.6f)
                 horizontalLineToRelative(9.6f)
                 curveToRelative(0.6f, 0f, 1.08f, -0.49f, 1.08f, -1.1f)
                 verticalLineTo(7.53f)

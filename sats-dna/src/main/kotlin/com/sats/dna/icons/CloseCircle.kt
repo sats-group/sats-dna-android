@@ -23,14 +23,14 @@ val SatsIcons.CloseCircle: ImageVector
                 strokeLineWidth = 1.5f,
             ) {
                 moveTo(16.48f, 7.52f)
-                lineToRelative(-8.96f, 8.96f)
+                lineToRelative(-8.96f, 8.95f)
             }
 
             path(
                 stroke = SolidColor(Color.Black),
                 strokeLineWidth = 1.5f,
             ) {
-                moveTo(16.48f, 16.48f)
+                moveTo(16.48f, 16.47f)
                 lineTo(7.52f, 7.52f)
             }
 

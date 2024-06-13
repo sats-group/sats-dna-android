@@ -22,12 +22,12 @@ val SatsIcons.Strikes: ImageVector
                 fill = SolidColor(Color.Black),
             ) {
                 moveTo(10.94f, 7.08f)
-                verticalLineToRelative(5.85f)
-                curveToRelative(0f, 0.52f, 0.43f, 0.95f, 0.96f, 0.95f)
-                curveToRelative(0.52f, 0f, 0.95f, -0.43f, 0.95f, -0.95f)
+                verticalLineToRelative(5.84f)
+                curveToRelative(0f, 0.53f, 0.43f, 0.96f, 0.95f, 0.96f)
+                curveToRelative(0.53f, 0f, 0.96f, -0.43f, 0.96f, -0.96f)
                 verticalLineTo(7.08f)
-                curveToRelative(0f, -0.52f, -0.43f, -0.95f, -0.95f, -0.95f)
-                curveToRelative(-0.53f, 0f, -0.96f, 0.43f, -0.96f, 0.95f)
+                curveToRelative(0f, -0.53f, -0.43f, -0.95f, -0.96f, -0.95f)
+                curveToRelative(-0.52f, 0f, -0.95f, 0.42f, -0.95f, 0.95f)
                 close()
             }
 

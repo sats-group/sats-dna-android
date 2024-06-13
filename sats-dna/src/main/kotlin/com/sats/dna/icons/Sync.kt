@@ -43,10 +43,10 @@ val SatsIcons.Sync: ImageVector
                 strokeLineWidth = 1.5f,
             ) {
                 moveTo(20.85f, 13.64f)
-                curveToRelative(-0.37f, 2f, -1.4f, 3.8f, -2.92f, 5.15f)
+                curveToRelative(-0.37f, 2f, -1.4f, 3.81f, -2.92f, 5.15f)
                 curveToRelative(-1.53f, 1.33f, -3.46f, 2.11f, -5.49f, 2.21f)
                 curveToRelative(-2.02f, 0.1f, -4.02f, -0.49f, -5.67f, -1.66f)
-                curveToRelative(-1.65f, -1.18f, -2.86f, -2.89f, -3.42f, -4.84f)
+                curveToRelative(-1.65f, -1.18f, -2.86f, -2.89f, -3.42f, -4.83f)
             }
 
             path(

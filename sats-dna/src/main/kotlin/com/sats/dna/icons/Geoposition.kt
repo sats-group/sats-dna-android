@@ -56,12 +56,12 @@ val SatsIcons.Geoposition: ImageVector
                 pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(17.85f, 12f)
-                curveToRelative(0f, -0.39f, 0.32f, -0.7f, 0.7f, -0.7f)
+                curveToRelative(0f, -0.39f, 0.31f, -0.7f, 0.7f, -0.7f)
                 horizontalLineToRelative(3.75f)
                 curveToRelative(0.39f, 0f, 0.7f, 0.31f, 0.7f, 0.7f)
                 curveToRelative(0f, 0.39f, -0.31f, 0.7f, -0.7f, 0.7f)
                 horizontalLineToRelative(-3.75f)
-                curveToRelative(-0.38f, 0f, -0.7f, -0.31f, -0.7f, -0.7f)
+                curveToRelative(-0.39f, 0f, -0.7f, -0.31f, -0.7f, -0.7f)
                 close()
             }
 
@@ -104,7 +104,7 @@ val SatsIcons.Geoposition: ImageVector
                 reflectiveCurveToRelative(-0.1f, -0.23f, -0.23f, -0.23f)
                 close()
                 moveTo(10.36f, 12f)
-                curveToRelative(0f, -0.9f, 0.74f, -1.64f, 1.64f, -1.64f)
+                curveToRelative(0f, -0.9f, 0.73f, -1.64f, 1.64f, -1.64f)
                 curveToRelative(0.9f, 0f, 1.64f, 0.74f, 1.64f, 1.64f)
                 curveToRelative(0f, 0.9f, -0.74f, 1.64f, -1.64f, 1.64f)
                 curveToRelative(-0.9f, 0f, -1.64f, -0.74f, -1.64f, -1.64f)

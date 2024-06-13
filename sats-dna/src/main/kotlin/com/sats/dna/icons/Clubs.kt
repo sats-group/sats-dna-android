@@ -49,7 +49,7 @@ val SatsIcons.Clubs: ImageVector
                 curveToRelative(0.08f, 0.08f, 0.16f, 0.23f, 0.16f, 0.56f)
                 lineToRelative(0.01f, 17.76f)
                 lineTo(2.4f, 21.34f)
-                curveToRelative(-0.25f, 0f, -0.36f, -0.07f, -0.42f, -0.13f)
+                curveToRelative(-0.26f, 0f, -0.36f, -0.07f, -0.42f, -0.13f)
                 curveToRelative(-0.06f, -0.07f, -0.15f, -0.23f, -0.15f, -0.57f)
                 verticalLineTo(3.56f)
                 curveToRelative(0f, -0.33f, 0.09f, -0.48f, 0.15f, -0.56f)

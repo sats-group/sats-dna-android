@@ -24,7 +24,7 @@ val SatsIcons.Satsonline: ImageVector
                 pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(22.15f, 4.46f)
-                curveTo(21.91f, 4.23f, 21.56f, 4.07f, 21f, 4.07f)
+                curveTo(21.9f, 4.23f, 21.56f, 4.07f, 21f, 4.07f)
                 horizontalLineTo(5.38f)
                 curveToRelative(-0.56f, 0f, -0.91f, 0.16f, -1.15f, 0.4f)
                 curveTo(3.98f, 4.69f, 3.82f, 5f, 3.82f, 5.5f)
@@ -32,7 +32,7 @@ val SatsIcons.Satsonline: ImageVector
                 curveToRelative(0f, 0.52f, 0.16f, 0.84f, 0.4f, 1.06f)
                 curveToRelative(0.23f, 0.23f, 0.58f, 0.38f, 1.15f, 0.38f)
                 horizontalLineTo(21f)
-                curveToRelative(0.57f, 0f, 0.92f, -0.15f, 1.15f, -0.38f)
+                curveToRelative(0.57f, 0f, 0.91f, -0.15f, 1.15f, -0.38f)
                 curveToRelative(0.24f, -0.22f, 0.39f, -0.54f, 0.39f, -1.06f)
                 verticalLineTo(5.51f)
                 curveToRelative(0f, -0.5f, -0.15f, -0.82f, -0.39f, -1.04f)
@@ -45,11 +45,11 @@ val SatsIcons.Satsonline: ImageVector
                 curveToRelative(0f, -0.73f, -0.23f, -1.31f, -0.69f, -1.75f)
                 curveToRelative(-0.46f, -0.44f, -1.07f, -0.67f, -1.83f, -0.67f)
                 horizontalLineTo(5.38f)
-                curveTo(4.62f, 3.1f, 4f, 3.32f, 3.55f, 3.76f)
+                curveTo(4.6f, 3.1f, 4f, 3.32f, 3.55f, 3.76f)
                 curveToRelative(-0.46f, 0.44f, -0.7f, 1.02f, -0.7f, 1.75f)
                 verticalLineToRelative(11.17f)
                 curveToRelative(0f, 0.74f, 0.24f, 1.33f, 0.7f, 1.77f)
-                curveTo(4f, 18.89f, 4.62f, 19.1f, 5.38f, 19.1f)
+                curveTo(4f, 18.89f, 4.6f, 19.1f, 5.38f, 19.1f)
                 close()
             }
 
@@ -58,7 +58,7 @@ val SatsIcons.Satsonline: ImageVector
                 pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(1.35f, 6.95f)
-                curveToRelative(0.51f, -0.5f, 1.19f, -0.73f, 1.96f, -0.73f)
+                curveToRelative(0.51f, -0.5f, 1.18f, -0.73f, 1.96f, -0.73f)
                 horizontalLineToRelative(0.16f)
                 lineTo(3.45f, 7.2f)
                 horizontalLineTo(3.31f)
@@ -73,7 +73,7 @@ val SatsIcons.Satsonline: ImageVector
                 verticalLineToRelative(-0.2f)
                 horizontalLineToRelative(0.98f)
                 verticalLineToRelative(0.2f)
-                curveToRelative(0f, 0.75f, -0.24f, 1.41f, -0.76f, 1.9f)
+                curveToRelative(0f, 0.75f, -0.25f, 1.41f, -0.76f, 1.9f)
                 curveToRelative(-0.52f, 0.5f, -1.2f, 0.73f, -1.97f, 0.73f)
                 horizontalLineTo(3.31f)
                 curveToRelative(-0.77f, 0f, -1.45f, -0.23f, -1.96f, -0.72f)

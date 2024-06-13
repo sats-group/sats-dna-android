@@ -26,7 +26,7 @@ val SatsIcons.Fire: ImageVector
                 moveTo(11.07f, 2.07f)
                 curveToRelative(0.2f, -0.1f, 0.43f, -0.1f, 0.62f, 0.03f)
                 curveToRelative(2f, 1.25f, 2.73f, 3.3f, 2.97f, 4.96f)
-                curveToRelative(0.13f, 0.83f, 0.13f, 1.59f, 0.1f, 2.13f)
+                curveToRelative(0.12f, 0.83f, 0.13f, 1.59f, 0.1f, 2.13f)
                 curveToRelative(-0.01f, 0.28f, -0.04f, 0.5f, -0.05f, 0.66f)
                 lineToRelative(-0.03f, 0.18f)
                 verticalLineToRelative(0.05f)

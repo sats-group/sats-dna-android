@@ -47,6 +47,9 @@ import com.sats.dna.icons.Body
 import com.sats.dna.icons.Book
 import com.sats.dna.icons.Booked
 import com.sats.dna.icons.Calendar
+import com.sats.dna.icons.CalendarCheck
+import com.sats.dna.icons.CalendarClock
+import com.sats.dna.icons.CalendarFilled
 import com.sats.dna.icons.Cardio
 import com.sats.dna.icons.Cast
 import com.sats.dna.icons.Chat
@@ -55,6 +58,8 @@ import com.sats.dna.icons.Cherry
 import com.sats.dna.icons.Class
 import com.sats.dna.icons.ClassFilled
 import com.sats.dna.icons.ClassStroke
+import com.sats.dna.icons.Clients
+import com.sats.dna.icons.ClientsFilled
 import com.sats.dna.icons.ClockFilled
 import com.sats.dna.icons.Close
 import com.sats.dna.icons.CloseCircle
@@ -75,6 +80,8 @@ import com.sats.dna.icons.Delete
 import com.sats.dna.icons.Distance
 import com.sats.dna.icons.Download
 import com.sats.dna.icons.Edit
+import com.sats.dna.icons.EditProfile
+import com.sats.dna.icons.EditProfileFilled
 import com.sats.dna.icons.Elixia
 import com.sats.dna.icons.EnergyDrink
 import com.sats.dna.icons.Error
@@ -95,6 +102,7 @@ import com.sats.dna.icons.Geoposition
 import com.sats.dna.icons.GetStarted
 import com.sats.dna.icons.Gift
 import com.sats.dna.icons.Gx
+import com.sats.dna.icons.GxFilled
 import com.sats.dna.icons.Gym
 import com.sats.dna.icons.HamburgerMenu
 import com.sats.dna.icons.Headset
@@ -152,6 +160,7 @@ import com.sats.dna.icons.Pt
 import com.sats.dna.icons.PtLabel
 import com.sats.dna.icons.Qr
 import com.sats.dna.icons.QrFilled
+import com.sats.dna.icons.QrScan
 import com.sats.dna.icons.Question
 import com.sats.dna.icons.Quinyx
 import com.sats.dna.icons.Recipe
@@ -159,6 +168,7 @@ import com.sats.dna.icons.RecruitFriends
 import com.sats.dna.icons.Refresh
 import com.sats.dna.icons.Remove
 import com.sats.dna.icons.RemoveFromCalendar
+import com.sats.dna.icons.Repeat
 import com.sats.dna.icons.Rewards
 import com.sats.dna.icons.RewardsElixia
 import com.sats.dna.icons.RewardsElixiaFilled
@@ -174,8 +184,10 @@ import com.sats.dna.icons.SearchCrossed
 import com.sats.dna.icons.SearchOutlined
 import com.sats.dna.icons.SearchPerson
 import com.sats.dna.icons.Send
+import com.sats.dna.icons.SendFilled
 import com.sats.dna.icons.Settings
 import com.sats.dna.icons.Share
+import com.sats.dna.icons.Shine
 import com.sats.dna.icons.Showing
 import com.sats.dna.icons.Skip
 import com.sats.dna.icons.Smallgroup
@@ -190,6 +202,7 @@ import com.sats.dna.icons.StarBorder
 import com.sats.dna.icons.StarSticker
 import com.sats.dna.icons.StarStickerCheck
 import com.sats.dna.icons.Statistics
+import com.sats.dna.icons.StatisticsFilled
 import com.sats.dna.icons.Strength
 import com.sats.dna.icons.Strikes
 import com.sats.dna.icons.StudiosMarkerBg
@@ -278,6 +291,9 @@ private val allIcons: List<ImageVector>
         SatsIcons.Book,
         SatsIcons.Booked,
         SatsIcons.Calendar,
+        SatsIcons.CalendarCheck,
+        SatsIcons.CalendarClock,
+        SatsIcons.CalendarFilled,
         SatsIcons.Cardio,
         SatsIcons.Cast,
         SatsIcons.Chat,
@@ -286,6 +302,8 @@ private val allIcons: List<ImageVector>
         SatsIcons.Class,
         SatsIcons.ClassFilled,
         SatsIcons.ClassStroke,
+        SatsIcons.Clients,
+        SatsIcons.ClientsFilled,
         SatsIcons.ClockFilled,
         SatsIcons.Close,
         SatsIcons.CloseCircle,
@@ -306,6 +324,8 @@ private val allIcons: List<ImageVector>
         SatsIcons.Distance,
         SatsIcons.Download,
         SatsIcons.Edit,
+        SatsIcons.EditProfile,
+        SatsIcons.EditProfileFilled,
         SatsIcons.Elixia,
         SatsIcons.EnergyDrink,
         SatsIcons.Error,
@@ -326,6 +346,7 @@ private val allIcons: List<ImageVector>
         SatsIcons.GetStarted,
         SatsIcons.Gift,
         SatsIcons.Gx,
+        SatsIcons.GxFilled,
         SatsIcons.Gym,
         SatsIcons.HamburgerMenu,
         SatsIcons.Headset,
@@ -383,6 +404,7 @@ private val allIcons: List<ImageVector>
         SatsIcons.PtLabel,
         SatsIcons.Qr,
         SatsIcons.QrFilled,
+        SatsIcons.QrScan,
         SatsIcons.Question,
         SatsIcons.Quinyx,
         SatsIcons.Recipe,
@@ -390,6 +412,7 @@ private val allIcons: List<ImageVector>
         SatsIcons.Refresh,
         SatsIcons.Remove,
         SatsIcons.RemoveFromCalendar,
+        SatsIcons.Repeat,
         SatsIcons.Rewards,
         SatsIcons.RewardsElixia,
         SatsIcons.RewardsElixiaFilled,
@@ -405,8 +428,10 @@ private val allIcons: List<ImageVector>
         SatsIcons.SearchOutlined,
         SatsIcons.SearchPerson,
         SatsIcons.Send,
+        SatsIcons.SendFilled,
         SatsIcons.Settings,
         SatsIcons.Share,
+        SatsIcons.Shine,
         SatsIcons.Showing,
         SatsIcons.Skip,
         SatsIcons.Smallgroup,
@@ -421,6 +446,7 @@ private val allIcons: List<ImageVector>
         SatsIcons.StarSticker,
         SatsIcons.StarStickerCheck,
         SatsIcons.Statistics,
+        SatsIcons.StatisticsFilled,
         SatsIcons.Strength,
         SatsIcons.Strikes,
         SatsIcons.StudiosMarkerBg,
