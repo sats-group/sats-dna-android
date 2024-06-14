@@ -37,7 +37,7 @@ fun SatsScaleBar(
                 Box(
                     Modifier
                         .weight(1f)
-                        .background(SatsTheme.colors.graphicalElements.progressBar.default.fg)
+                        .background(SatsTheme.colors.graphicalElements.progressBar.indicatorDefault.fg)
                         .fillMaxHeight(),
                 )
             }
@@ -46,7 +46,7 @@ fun SatsScaleBar(
                 Box(
                     Modifier
                         .weight(1f)
-                        .background(SatsTheme.colors.graphicalElements.progressBar.default.bg)
+                        .background(SatsTheme.colors.graphicalElements.progressBar.indicatorDefault.bg)
                         .fillMaxHeight(),
                 )
             }

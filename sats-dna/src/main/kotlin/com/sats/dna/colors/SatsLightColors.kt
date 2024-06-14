@@ -1,29 +1,31 @@
 package com.sats.dna.colors
 
 import com.sats.dna.colors.SatsColorPrimitives.Black10
+import com.sats.dna.colors.SatsColorPrimitives.Black3
 import com.sats.dna.colors.SatsColorPrimitives.Black40
 import com.sats.dna.colors.SatsColorPrimitives.Black5
 import com.sats.dna.colors.SatsColorPrimitives.Black50
 import com.sats.dna.colors.SatsColorPrimitives.Black55
 import com.sats.dna.colors.SatsColorPrimitives.Black60
+import com.sats.dna.colors.SatsColorPrimitives.Black70
 import com.sats.dna.colors.SatsColorPrimitives.Black80
 import com.sats.dna.colors.SatsColorPrimitives.BlackO20
 import com.sats.dna.colors.SatsColorPrimitives.BrightBlue10
 import com.sats.dna.colors.SatsColorPrimitives.BrightBlue100
 import com.sats.dna.colors.SatsColorPrimitives.BrightBlue110
-import com.sats.dna.colors.SatsColorPrimitives.BrightBlue160
 import com.sats.dna.colors.SatsColorPrimitives.BrightBlue20
 import com.sats.dna.colors.SatsColorPrimitives.Cardinal10
 import com.sats.dna.colors.SatsColorPrimitives.Cardinal100
 import com.sats.dna.colors.SatsColorPrimitives.Cardinal120
 import com.sats.dna.colors.SatsColorPrimitives.Cardinal30
+import com.sats.dna.colors.SatsColorPrimitives.CaribbeanCurrent10
 import com.sats.dna.colors.SatsColorPrimitives.CaribbeanCurrent100
+import com.sats.dna.colors.SatsColorPrimitives.Celadon10
 import com.sats.dna.colors.SatsColorPrimitives.Celadon100
+import com.sats.dna.colors.SatsColorPrimitives.Celadon160
 import com.sats.dna.colors.SatsColorPrimitives.ChiliRed100
-import com.sats.dna.colors.SatsColorPrimitives.ChiliRed170
 import com.sats.dna.colors.SatsColorPrimitives.EgyptianPurple10
 import com.sats.dna.colors.SatsColorPrimitives.EgyptianPurple100
-import com.sats.dna.colors.SatsColorPrimitives.EgyptianPurple160
 import com.sats.dna.colors.SatsColorPrimitives.EgyptianPurple80
 import com.sats.dna.colors.SatsColorPrimitives.Gold10
 import com.sats.dna.colors.SatsColorPrimitives.Gold100
@@ -32,7 +34,10 @@ import com.sats.dna.colors.SatsColorPrimitives.Gold140
 import com.sats.dna.colors.SatsColorPrimitives.Gold170
 import com.sats.dna.colors.SatsColorPrimitives.Gold30
 import com.sats.dna.colors.SatsColorPrimitives.Gold80
+import com.sats.dna.colors.SatsColorPrimitives.SalmonPink10
 import com.sats.dna.colors.SatsColorPrimitives.SalmonPink100
+import com.sats.dna.colors.SatsColorPrimitives.SalmonPink140
+import com.sats.dna.colors.SatsColorPrimitives.SalmonPink180
 import com.sats.dna.colors.SatsColorPrimitives.SatsBlue10
 import com.sats.dna.colors.SatsColorPrimitives.SatsBlue100
 import com.sats.dna.colors.SatsColorPrimitives.SatsBlue20
@@ -49,12 +54,20 @@ import com.sats.dna.colors.SatsColorPrimitives.SatsLightGrey15
 import com.sats.dna.colors.SatsColorPrimitives.SpringGreen10
 import com.sats.dna.colors.SatsColorPrimitives.SpringGreen100
 import com.sats.dna.colors.SatsColorPrimitives.SpringGreen120
-import com.sats.dna.colors.SatsColorPrimitives.SpringGreen170
 import com.sats.dna.colors.SatsColorPrimitives.SpringGreen30
 import com.sats.dna.colors.SatsColorPrimitives.SpringGreen80
+import com.sats.dna.colors.SatsColorPrimitives.Tangerine10
 import com.sats.dna.colors.SatsColorPrimitives.Tangerine100
+import com.sats.dna.colors.SatsColorPrimitives.Tangerine140
+import com.sats.dna.colors.SatsColorPrimitives.Tangerine180
+import com.sats.dna.colors.SatsColorPrimitives.TropicalIndigo10
 import com.sats.dna.colors.SatsColorPrimitives.TropicalIndigo100
+import com.sats.dna.colors.SatsColorPrimitives.TropicalIndigo140
+import com.sats.dna.colors.SatsColorPrimitives.TropicalIndigo180
+import com.sats.dna.colors.SatsColorPrimitives.UranianBlue10
 import com.sats.dna.colors.SatsColorPrimitives.UranianBlue100
+import com.sats.dna.colors.SatsColorPrimitives.UranianBlue140
+import com.sats.dna.colors.SatsColorPrimitives.UranianBlue160
 import com.sats.dna.colors.SatsColorPrimitives.White0
 import com.sats.dna.colors.SatsColorPrimitives.White100
 
@@ -143,8 +156,9 @@ internal val SatsLightColors = SatsColors(
             notSelected = SatsBlue100,
         ),
         progressBar = SatsColors.GraphicalElements.ProgressBar(
-            default = SatsCoral100 on SatsLightGrey15,
-            alternate = SatsBlue100 on SatsLightGrey15,
+            indicatorDefault = SatsCoral100 on SatsLightGrey15,
+            indicatorAlternate = SatsBlue100 on SatsLightGrey15,
+            indicatorDisabled = Black40 on Black70,
         ),
         graphs = SatsColors.GraphicalElements.Graphs(
             bar = SatsColors.GraphicalElements.Graphs.Bar(
@@ -299,12 +313,12 @@ internal val SatsLightColors = SatsColors(
             platinum = White100 on SatsBlueGrey80,
         ),
         workouts = SatsColors.GraphicalElements.Workouts(
-            pt = BrightBlue160 on UranianBlue100,
-            gx = ChiliRed170 on SalmonPink100,
-            treatments = SpringGreen10 on CaribbeanCurrent100,
-            gymfloor = Gold170 on Tangerine100,
-            other = SpringGreen170 on Celadon100,
-            bootcamp = EgyptianPurple160 on TropicalIndigo100,
+            pt = UranianBlue160 on UranianBlue100,
+            gx = SalmonPink180 on SalmonPink100,
+            treatments = CaribbeanCurrent10 on CaribbeanCurrent100,
+            gymfloor = Tangerine180 on Tangerine100,
+            other = Celadon160 on Celadon100,
+            bootcamp = TropicalIndigo180 on TropicalIndigo100,
         ),
     ),
     backgrounds = SatsColors.Backgrounds(
@@ -381,7 +395,7 @@ internal val SatsLightColors = SatsColors(
         ),
         secondary = SatsColors.Surfaces.Secondary(
             default = SurfaceColorSet(
-                bg = Black5,
+                bg = Black3,
                 fg = SatsBlue100,
                 fgAlternate = SatsBlue70,
                 fgDisabled = Black60,
@@ -396,6 +410,19 @@ internal val SatsLightColors = SatsColors(
             selected = SurfaceColorSet(
                 bg = Black5,
                 fg = SatsBlue100,
+                fgAlternate = SatsBlue70,
+                fgDisabled = Black60,
+                fgSuccess = SpringGreen120,
+                fgWarning = Gold140,
+                fgError = Cardinal120,
+                fgWaitingList = EgyptianPurple100,
+                fgNeutral = Black60,
+                fgInformation = BrightBlue110,
+                fgFeatured = SatsCoral120,
+            ),
+            disabled = SurfaceColorSet(
+                bg = Black10,
+                fg = Black60,
                 fgAlternate = SatsBlue70,
                 fgDisabled = Black60,
                 fgSuccess = SpringGreen120,
@@ -438,6 +465,31 @@ internal val SatsLightColors = SatsColors(
             alternate = SatsCoral100 on SatsCoral5,
         ),
     ),
-
+    workoutSurfaces = SatsColors.WorkoutSurfaces(
+        gx = SatsColors.WorkoutSurfaces.GX(
+            default = SatsBlue100 on SalmonPink10,
+            alternate = SalmonPink140 on SalmonPink10,
+        ),
+        pt = SatsColors.WorkoutSurfaces.PT(
+            default = SatsBlue100 on UranianBlue10,
+            alternate = UranianBlue140 on UranianBlue10,
+        ),
+        gymfloor = SatsColors.WorkoutSurfaces.Gymfloor(
+            default = SatsBlue100 on Tangerine10,
+            alternate = Tangerine140 on Tangerine10,
+        ),
+        treatments = SatsColors.WorkoutSurfaces.Treatments(
+            default = SatsBlue100 on CaribbeanCurrent10,
+            alternate = CaribbeanCurrent100 on CaribbeanCurrent10,
+        ),
+        bootcamp = SatsColors.WorkoutSurfaces.Bootcamp(
+            default = SatsBlue100 on TropicalIndigo10,
+            alternate = TropicalIndigo140 on TropicalIndigo10,
+        ),
+        other = SatsColors.WorkoutSurfaces.Other(
+            default = SatsBlue100 on Celadon10,
+            alternate = Celadon160 on Celadon10,
+        ),
+    ),
     isLightMode = true,
 )

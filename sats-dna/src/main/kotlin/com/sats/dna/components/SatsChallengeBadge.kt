@@ -31,7 +31,7 @@ fun SatsChallengeBadge(
                 modifier = Modifier.fillMaxSize(),
                 progress = progress,
                 strokeWidth = 2.dp,
-                color = SatsTheme.colors.graphicalElements.progressBar.default.fg,
+                color = SatsTheme.colors.graphicalElements.progressBar.indicatorDefault.fg,
             )
         }
 
