@@ -9,6 +9,7 @@ data class SatsUpcomingWorkout(
     val workoutTypeLabel: String?,
     val location: String?,
     val instructor: String?,
+    val clipCardId: String?,
     val waitingListStatus: SatsWaitingListStatus?,
     val workoutType: SatsWorkoutType? = null,
 )
