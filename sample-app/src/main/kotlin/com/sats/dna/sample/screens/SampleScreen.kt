@@ -8,6 +8,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.unit.dp
 import com.sats.dna.SatsIcons
 import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.button.SatsTopAppBarIconButton
@@ -22,6 +23,7 @@ internal fun SampleScreen(
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier,
     bottomBar: @Composable () -> Unit = { Box(Modifier.navigationBarsPadding()) },
+    contentPadding: PaddingValues = PaddingValues(0.dp),
     content: @Composable (innerPadding: PaddingValues) -> Unit,
 ) {
     val topAppBarScrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
@@ -43,6 +45,7 @@ internal fun SampleScreen(
             )
         },
         bottomBar = bottomBar,
+        contentPadding = contentPadding,
         content = content,
     )
 }

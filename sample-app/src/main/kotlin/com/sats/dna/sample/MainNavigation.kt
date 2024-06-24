@@ -44,6 +44,7 @@ import com.sats.dna.sample.routes.components.UpcomingWorkoutListItemSampleScreen
 import com.sats.dna.sample.routes.components.WorkoutStatisticsSampleScreenRoute
 import com.sats.dna.sample.routes.components.YourMostBookedSampleScreenRoute
 import com.sats.dna.sample.routes.icons.IconsSampleScreenRoute
+import com.sats.dna.sample.routes.styles.ColorPrimitivesSampleScreenRoute
 import com.sats.dna.sample.routes.styles.ColorsSampleScreenRoute
 import com.sats.dna.sample.routes.styles.TypographySampleScreenRoute
 import com.sats.dna.sample.screens.HomeScreen
@@ -87,12 +88,17 @@ import com.sats.dna.sample.screens.components.UpcomingWorkoutListItemSampleScree
 import com.sats.dna.sample.screens.components.WorkoutStatisticsSampleScreen
 import com.sats.dna.sample.screens.components.YourMostBookedSampleScreen
 import com.sats.dna.sample.screens.icons.IconsSampleScreen
+import com.sats.dna.sample.screens.styles.ColorPrimitivesSampleScreen
 import com.sats.dna.sample.screens.styles.ColorsSampleScreen
 import com.sats.dna.sample.screens.styles.TypographySampleScreen
 
 internal fun NavGraphBuilder.mainGraph(navController: NavController) {
     sampleAppComposable<HomeRoute> {
         HomeScreen(openSampleScreen = navController::navigate)
+    }
+
+    sampleAppComposable<ColorPrimitivesSampleScreenRoute> {
+        ColorPrimitivesSampleScreen(navigateUp = navController::navigateUp)
     }
 
     sampleAppComposable<ColorsSampleScreenRoute> {
