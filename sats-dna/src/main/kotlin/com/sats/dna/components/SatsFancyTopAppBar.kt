@@ -10,6 +10,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,11 +18,14 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
@@ -33,7 +37,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.mapSaver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
@@ -56,6 +62,7 @@ import androidx.compose.ui.util.lerp
 import coil.compose.AsyncImage
 import com.sats.dna.R
 import com.sats.dna.SatsIcons
+import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.appbar.SatsTopAppBarDefaults
 import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.icons.Back
@@ -63,11 +70,11 @@ import com.sats.dna.icons.MoreVertical
 import com.sats.dna.icons.Share
 import com.sats.dna.internal.findActivity
 import com.sats.dna.theme.SatsTheme
+import kotlin.math.roundToInt
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kotlin.math.roundToInt
 
 @Composable
 fun SatsFancyTopAppBar(
@@ -88,6 +95,98 @@ fun SatsFancyTopAppBar(
         actions = actions,
         scrollConnection = scrollConnection,
     )
+}
+
+// Create an api that's more customizable than the current one?
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SatsFancyTopAppBar(
+    title: String,
+    navigationIcon: @Composable () -> Unit = {},
+    actions: @Composable RowScope.() -> Unit = {},
+    expandedContent: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    scrollConnection: SatsFancyTopAppBarNestedScrollConnection? = null,
+) {
+    val expandFraction = scrollConnection?.expandFraction ?: 1f
+
+    // TODO: Might wanna make these colors dynamic
+    val contentColor = lerp(
+        start = SatsTheme.colors.surfaces.primary.default.fg,
+        stop = SatsTheme.colors.backgrounds.fixed.primary.default.fg,
+        fraction = expandFraction,
+    )
+
+    EnsureStatusBarContrast(expandFraction)
+
+    CompositionLocalProvider(
+        LocalContentColor provides contentColor,
+    ) {
+        var isStateInitializedWithSize by rememberSaveable { mutableStateOf(false) }
+
+        val draggableModifier = if (scrollConnection != null) {
+            Modifier.draggable(
+                orientation = Orientation.Vertical,
+                state = rememberDraggableState(scrollConnection::consumeScroll),
+                onDragStopped = { scrollConnection.settle() },
+            )
+        } else {
+            Modifier
+        }
+
+        Layout(
+            modifier = modifier then draggableModifier,
+            contents = listOf(
+                {
+                    SatsTopAppBar(
+                        title = { AppearingAppbarText(title, expandFraction) },
+                        navigationIcon = navigationIcon,
+                        actions = actions,
+                        colors = TopAppBarDefaults.topAppBarColors().copy(containerColor = Color.Transparent),
+                    )
+                },
+                { DisappearingHeader(expandFraction = expandFraction) { expandedContent() } },
+            ),
+        ) { measurables, constraints: Constraints ->
+
+            val collapsedContentMeasurable = measurables[0].first()
+            val expandedContentMeasurable = measurables[1].first()
+
+            val collapsedContentPlaceable = collapsedContentMeasurable.measure(constraints)
+            // Measure expanded composable
+            val expandedHeaderPlaceable = expandedContentMeasurable.measure(constraints)
+            // Calculate actual width and height
+            val actualWidth = constraints.maxWidth
+            val collapsedHeight = collapsedContentPlaceable.height.toFloat()
+
+            // Height of the app bar in total when expanded, we need this to make sure expanded.height >= collapsed.height
+            // Which it might not be in case the passed expanded composable has zero or smaller content
+            val expandedAppBarHeight = expandedHeaderPlaceable.height + collapsedHeight
+
+            val actualHeight = lerp(collapsedHeight, expandedAppBarHeight, expandFraction).roundToInt()
+
+            // Ensure the scroll connection knows the correct min and max sizes
+            if (!isStateInitializedWithSize) {
+                scrollConnection?.initialize(
+                    collapsedHeight,
+                    expandedAppBarHeight,
+                )
+                isStateInitializedWithSize = true
+            }
+
+            layout(actualWidth, actualHeight) {
+                collapsedContentPlaceable.place(
+                    x = 0,
+                    y = 0,
+                )
+
+                expandedHeaderPlaceable.place(
+                    x = 0,
+                    y = actualHeight - expandedHeaderPlaceable.height,
+                )
+            }
+        }
+    }
 }
 
 @Composable
@@ -381,6 +480,32 @@ private fun Header(
 }
 
 @Composable
+private fun DisappearingHeader(
+    expandFraction: Float,
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit,
+) {
+    val alpha = animateFloatAsState(expandFraction, label = "expanded header text alpha").value
+
+    Box(modifier.alpha(alpha)) {
+        content()
+    }
+}
+
+@Composable
+private fun AppearingAppbarText(
+    text: String,
+    expandFraction: Float,
+    modifier: Modifier = Modifier,
+) {
+    val alpha = animateFloatAsState(1 - expandFraction, label = "expanded header text alpha").value
+
+    Box(modifier.alpha(alpha)) {
+        Text(text)
+    }
+}
+
+@Composable
 private fun HeaderImageShade(expandFraction: Float, modifier: Modifier = Modifier) {
     val expandedColor = Color.Black.copy(alpha = .6f)
     val collapsedColor = SatsTopAppBarDefaults.containerColor
@@ -573,6 +698,54 @@ private fun SatsFancyTopAppBarTestPreview() {
                     }
                 }
             }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Preview(showSystemUi = true)
+@Composable
+private fun SatsCustomFancyAppBarPreview() {
+
+    SatsTheme {
+        SatsSurface(
+            color = SatsTheme.colors.backgrounds.fixed.primary.default.bg,
+        ) {
+            val scrollConnection = rememberSatsFancyTopAppBarNestedScrollConnection()
+
+            SatsFancyTopAppBar(
+                title = "Challenges",
+                navigationIcon = {
+                    SatsTopAppBarIconButton(
+                        onClick = {},
+                        icon = SatsIcons.Back,
+                        onClickLabel = null,
+                        tint = LocalContentColor.current,
+                    )
+                },
+                actions = {
+                    SatsTopAppBarIconButton(
+                        onClick = {},
+                        icon = SatsIcons.Share,
+                        onClickLabel = null,
+                        tint = LocalContentColor.current,
+                    )
+                },
+                expandedContent = {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
+                    ) {
+                        SatsChallengeBadge(
+                            imageUrl = "",
+                            contentDescription = null,
+                            modifier = Modifier.size(64.dp),
+                        )
+                        Text(text = "Sats Training day", style = SatsTheme.typography.satsHeadlineEmphasis.headline3)
+                    }
+                },
+                scrollConnection = scrollConnection,
+            )
         }
     }
 }
