@@ -159,7 +159,8 @@ fun SatsFancyTopAppBar(
             val actualWidth = constraints.maxWidth
             val collapsedHeight = collapsedContentPlaceable.height.toFloat()
 
-            // Height of the app bar in total when expanded, we need this to make sure expanded.height >= collapsed.height
+            // Height of the app bar in total when expanded,
+            // We need this to make sure expanded.height >= collapsed.height
             // Which it might not be in case the passed expanded composable has zero or smaller content
             val expandedAppBarHeight = expandedHeaderPlaceable.height + collapsedHeight
 
@@ -320,6 +321,8 @@ class SatsFancyTopAppBarNestedScrollConnection internal constructor() : NestedSc
     internal var currentHeightPx: Float by mutableFloatStateOf(expandedHeightPx)
 
     val expandFraction by derivedStateOf {
+        if (expandedHeightPx - collapsedHeightPx == 0f) return@derivedStateOf 0f
+
         ((currentHeightPx - collapsedHeightPx) / (expandedHeightPx - collapsedHeightPx))
             .coerceIn(minimumValue = 0f, maximumValue = 1f)
     }
