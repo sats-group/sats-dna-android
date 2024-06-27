@@ -25,7 +25,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.TopAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
@@ -102,90 +102,100 @@ fun SatsFancyTopAppBar(
 @Composable
 fun SatsFancyTopAppBar(
     title: String,
+    modifier: Modifier = Modifier,
     navigationIcon: @Composable () -> Unit = {},
     actions: @Composable RowScope.() -> Unit = {},
-    expandedContent: @Composable () -> Unit,
-    modifier: Modifier = Modifier,
+    expandedContent: @Composable () -> Unit = {},
+    colors: TopAppBarColors? = null,
     scrollConnection: SatsFancyTopAppBarNestedScrollConnection? = null,
 ) {
     val expandFraction = scrollConnection?.expandFraction ?: 1f
 
-    // TODO: Might wanna make these colors dynamic
-    val contentColor = lerp(
-        start = SatsTheme.colors.surfaces.primary.default.fg,
-        stop = SatsTheme.colors.backgrounds.fixed.primary.default.fg,
-        fraction = expandFraction,
-    )
-
     EnsureStatusBarContrast(expandFraction)
 
-    CompositionLocalProvider(
-        LocalContentColor provides contentColor,
-    ) {
-        var isStateInitializedWithSize by rememberSaveable { mutableStateOf(false) }
+    var isStateInitializedWithSize by rememberSaveable { mutableStateOf(false) }
 
-        val draggableModifier = if (scrollConnection != null) {
-            Modifier.draggable(
-                orientation = Orientation.Vertical,
-                state = rememberDraggableState(scrollConnection::consumeScroll),
-                onDragStopped = { scrollConnection.settle() },
+    val draggableModifier = if (scrollConnection != null) {
+        Modifier.draggable(
+            orientation = Orientation.Vertical,
+            state = rememberDraggableState(scrollConnection::consumeScroll),
+            onDragStopped = { scrollConnection.settle() },
+        )
+    } else {
+        Modifier
+    }
+
+    val alpha = animateFloatAsState(expandFraction, label = "Disappearing alpha").value
+
+    val appearingAlpha = 1 - alpha
+
+    Layout(
+        modifier = modifier then draggableModifier,
+        contents = listOf(
+            {
+                SatsTopAppBar(
+                    title = {
+                        Text(
+                            text = title,
+                            // Make the text appear as the expandFraction decreases
+                            modifier = Modifier.alpha(appearingAlpha),
+                        )
+                    },
+                    navigationIcon = navigationIcon,
+                    actions = actions,
+                    colors = colors?.copy(
+                        containerColor = lerp(
+                            start = colors.containerColor,
+                            stop = colors.scrolledContainerColor,
+                            fraction = appearingAlpha,
+                        ),
+                    ),
+                )
+            },
+            {
+                Box(Modifier.alpha(alpha)) {
+                    expandedContent()
+                }
+            },
+        ),
+    ) { measurables, constraints: Constraints ->
+
+        val collapsedContentMeasurable = measurables[0].first()
+        val expandedContentMeasurable = measurables[1].first()
+
+        val collapsedContentPlaceable = collapsedContentMeasurable.measure(constraints)
+        // Measure expanded composable
+        val expandedHeaderPlaceable = expandedContentMeasurable.measure(constraints)
+        // Calculate actual width and height
+        val actualWidth = constraints.maxWidth
+        val collapsedHeight = collapsedContentPlaceable.height.toFloat()
+
+        // Height of the app bar in total when expanded,
+        // We need this to make sure expanded.height >= collapsed.height
+        // Which it might not be in case the passed expanded composable has zero or smaller content
+        val expandedAppBarHeight = expandedHeaderPlaceable.height + collapsedHeight
+
+        val actualHeight = lerp(collapsedHeight, expandedAppBarHeight, expandFraction).roundToInt()
+
+        // Ensure the scroll connection knows the correct min and max sizes
+        if (!isStateInitializedWithSize) {
+            scrollConnection?.initialize(
+                collapsedHeight,
+                expandedAppBarHeight,
             )
-        } else {
-            Modifier
+            isStateInitializedWithSize = true
         }
 
-        Layout(
-            modifier = modifier then draggableModifier,
-            contents = listOf(
-                {
-                    SatsTopAppBar(
-                        title = { AppearingAppbarText(title, expandFraction) },
-                        navigationIcon = navigationIcon,
-                        actions = actions,
-                        colors = TopAppBarDefaults.topAppBarColors().copy(containerColor = Color.Transparent),
-                    )
-                },
-                { DisappearingHeader(expandFraction = expandFraction) { expandedContent() } },
-            ),
-        ) { measurables, constraints: Constraints ->
+        layout(actualWidth, actualHeight) {
+            collapsedContentPlaceable.place(
+                x = 0,
+                y = 0,
+            )
 
-            val collapsedContentMeasurable = measurables[0].first()
-            val expandedContentMeasurable = measurables[1].first()
-
-            val collapsedContentPlaceable = collapsedContentMeasurable.measure(constraints)
-            // Measure expanded composable
-            val expandedHeaderPlaceable = expandedContentMeasurable.measure(constraints)
-            // Calculate actual width and height
-            val actualWidth = constraints.maxWidth
-            val collapsedHeight = collapsedContentPlaceable.height.toFloat()
-
-            // Height of the app bar in total when expanded,
-            // We need this to make sure expanded.height >= collapsed.height
-            // Which it might not be in case the passed expanded composable has zero or smaller content
-            val expandedAppBarHeight = expandedHeaderPlaceable.height + collapsedHeight
-
-            val actualHeight = lerp(collapsedHeight, expandedAppBarHeight, expandFraction).roundToInt()
-
-            // Ensure the scroll connection knows the correct min and max sizes
-            if (!isStateInitializedWithSize) {
-                scrollConnection?.initialize(
-                    collapsedHeight,
-                    expandedAppBarHeight,
-                )
-                isStateInitializedWithSize = true
-            }
-
-            layout(actualWidth, actualHeight) {
-                collapsedContentPlaceable.place(
-                    x = 0,
-                    y = 0,
-                )
-
-                expandedHeaderPlaceable.place(
-                    x = 0,
-                    y = actualHeight - expandedHeaderPlaceable.height,
-                )
-            }
+            expandedHeaderPlaceable.place(
+                x = 0,
+                y = actualHeight - expandedHeaderPlaceable.height,
+            )
         }
     }
 }
@@ -479,32 +489,6 @@ private fun Header(
         content {
             HeaderImageShade(expandFraction, Modifier.fillMaxSize())
         }
-    }
-}
-
-@Composable
-private fun DisappearingHeader(
-    expandFraction: Float,
-    modifier: Modifier = Modifier,
-    content: @Composable () -> Unit,
-) {
-    val alpha = animateFloatAsState(expandFraction, label = "expanded header text alpha").value
-
-    Box(modifier.alpha(alpha)) {
-        content()
-    }
-}
-
-@Composable
-private fun AppearingAppbarText(
-    text: String,
-    expandFraction: Float,
-    modifier: Modifier = Modifier,
-) {
-    val alpha = animateFloatAsState(1 - expandFraction, label = "expanded header text alpha").value
-
-    Box(modifier.alpha(alpha)) {
-        Text(text)
     }
 }
 
