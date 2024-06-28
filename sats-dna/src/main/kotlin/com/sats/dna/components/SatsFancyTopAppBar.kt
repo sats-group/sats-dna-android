@@ -145,8 +145,6 @@ fun SatsFancyTopAppBar(
 ) {
     val expandFraction = scrollConnection?.expandFraction ?: 1f
 
-    EnsureStatusBarContrast(expandFraction)
-
     var isStateInitializedWithSize by rememberSaveable { mutableStateOf(false) }
 
     val draggableModifier = if (scrollConnection != null) {
