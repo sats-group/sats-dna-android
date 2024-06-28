@@ -61,13 +61,12 @@ fun SatsChoiceBox(
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
             ) {
                 Text(
                     modifier = Modifier.padding(
                         top = SatsTheme.spacing.m,
                         end = SatsTheme.spacing.s,
-                    ),
+                    ).weight(1f),
                     text = title,
                     style = SatsTheme.typography.emphasis.large,
                     color = colors.titleColor,
