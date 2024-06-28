@@ -97,7 +97,6 @@ fun SatsFancyTopAppBar(
     )
 }
 
-// Create an api that's more customizable than the current one?
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SatsFancyTopAppBar(
@@ -107,6 +106,41 @@ fun SatsFancyTopAppBar(
     actions: @Composable RowScope.() -> Unit = {},
     expandedContent: @Composable () -> Unit = {},
     colors: TopAppBarColors? = null,
+    scrollConnection: SatsFancyTopAppBarNestedScrollConnection? = null,
+) {
+    SatsFancyTopAppBar(
+        modifier = modifier,
+        collapsedContent = { expandFraction ->
+            val alpha = 1 - expandFraction
+
+            SatsTopAppBar(
+                title = {
+                    Text(
+                        text = title,
+                        modifier = Modifier.alpha(alpha),
+                    )
+                },
+                navigationIcon = navigationIcon,
+                colors = colors?.copy(
+                    containerColor = lerp(
+                        start = colors.containerColor,
+                        stop = colors.scrolledContainerColor,
+                        fraction = alpha,
+                    ),
+                ),
+                actions = actions,
+            )
+        },
+        expandedContent = expandedContent,
+        scrollConnection = scrollConnection,
+    )
+}
+
+@Composable
+fun SatsFancyTopAppBar(
+    collapsedContent: @Composable (expandFraction: Float) -> Unit,
+    modifier: Modifier = Modifier,
+    expandedContent: @Composable () -> Unit = {},
     scrollConnection: SatsFancyTopAppBarNestedScrollConnection? = null,
 ) {
     val expandFraction = scrollConnection?.expandFraction ?: 1f
@@ -127,31 +161,10 @@ fun SatsFancyTopAppBar(
 
     val alpha = animateFloatAsState(expandFraction, label = "Disappearing alpha").value
 
-    val appearingAlpha = 1 - alpha
-
     Layout(
         modifier = modifier then draggableModifier,
         contents = listOf(
-            {
-                SatsTopAppBar(
-                    title = {
-                        Text(
-                            text = title,
-                            // Make the text appear as the expandFraction decreases
-                            modifier = Modifier.alpha(appearingAlpha),
-                        )
-                    },
-                    navigationIcon = navigationIcon,
-                    actions = actions,
-                    colors = colors?.copy(
-                        containerColor = lerp(
-                            start = colors.containerColor,
-                            stop = colors.scrolledContainerColor,
-                            fraction = appearingAlpha,
-                        ),
-                    ),
-                )
-            },
+            { collapsedContent(expandFraction) },
             {
                 Box(Modifier.alpha(alpha)) {
                     expandedContent()
@@ -690,10 +703,9 @@ private fun SatsFancyTopAppBarTestPreview() {
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(showSystemUi = true)
+@Preview
 @Composable
 private fun SatsCustomFancyAppBarPreview() {
-
     SatsTheme {
         SatsSurface(
             color = SatsTheme.colors.backgrounds.fixed.primary.default.bg,
