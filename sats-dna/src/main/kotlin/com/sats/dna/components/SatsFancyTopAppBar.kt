@@ -70,11 +70,11 @@ import com.sats.dna.icons.MoreVertical
 import com.sats.dna.icons.Share
 import com.sats.dna.internal.findActivity
 import com.sats.dna.theme.SatsTheme
-import kotlin.math.roundToInt
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlin.math.roundToInt
 
 @Composable
 fun SatsFancyTopAppBar(
