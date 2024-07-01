@@ -28,7 +28,6 @@ androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling
 androidx-compose-ui-util = { module = "androidx.compose.ui:ui-util" }
 androidx-core = "androidx.core:core-ktx:1.13.1"
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
-androidx-test-espresso = "androidx.test.espresso:espresso-core:3.5.1"
 androidx-test-junit = "androidx.test.ext:junit:1.2.1"
 coil-compose = "io.coil-kt:coil-compose:2.6.0"
 google-material = "com.google.android.material:material:1.12.0"
