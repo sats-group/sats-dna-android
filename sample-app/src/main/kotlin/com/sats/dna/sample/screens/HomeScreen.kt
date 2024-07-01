@@ -90,6 +90,7 @@ import com.sats.dna.sample.routes.components.UpcomingWorkoutListItemSampleScreen
 import com.sats.dna.sample.routes.components.WorkoutStatisticsSampleScreenRoute
 import com.sats.dna.sample.routes.components.YourMostBookedSampleScreenRoute
 import com.sats.dna.sample.routes.icons.IconsSampleScreenRoute
+import com.sats.dna.sample.routes.styles.ColorPrimitivesSampleScreenRoute
 import com.sats.dna.sample.routes.styles.ColorsSampleScreenRoute
 import com.sats.dna.sample.routes.styles.TypographySampleScreenRoute
 import com.sats.dna.theme.SatsTheme
@@ -275,6 +276,7 @@ internal class HomeScreenSearchBarState {
 
 private val groups: Map<String, List<SampleScreenRoute>> = mapOf(
     "Styles" to listOf(
+        ColorPrimitivesSampleScreenRoute,
         ColorsSampleScreenRoute,
         TypographySampleScreenRoute,
     ),

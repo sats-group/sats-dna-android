@@ -2,7 +2,7 @@ package com.sats.dna.colors
 
 import androidx.compose.ui.graphics.Color
 
-internal object SatsColorPrimitives {
+object SatsColorPrimitives {
     val SatsBlue110 = Color(0xFF06101A)
     val SatsBlue105 = Color(0xFF0A1826)
     val SatsBlue100 = Color(0xFF0D2134)
