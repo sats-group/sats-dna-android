@@ -10,6 +10,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,11 +18,14 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
@@ -33,7 +37,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.mapSaver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
@@ -56,6 +62,7 @@ import androidx.compose.ui.util.lerp
 import coil.compose.AsyncImage
 import com.sats.dna.R
 import com.sats.dna.SatsIcons
+import com.sats.dna.components.appbar.SatsTopAppBar
 import com.sats.dna.components.appbar.SatsTopAppBarDefaults
 import com.sats.dna.components.button.SatsTopAppBarIconButton
 import com.sats.dna.icons.Back
@@ -88,6 +95,120 @@ fun SatsFancyTopAppBar(
         actions = actions,
         scrollConnection = scrollConnection,
     )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SatsFancyTopAppBar(
+    title: String,
+    modifier: Modifier = Modifier,
+    navigationIcon: @Composable () -> Unit = {},
+    actions: @Composable RowScope.() -> Unit = {},
+    expandedContent: @Composable () -> Unit = {},
+    colors: TopAppBarColors? = null,
+    scrollConnection: SatsFancyTopAppBarNestedScrollConnection? = null,
+) {
+    SatsFancyTopAppBar(
+        modifier = modifier,
+        collapsedContent = { expandFraction ->
+            val alpha = 1 - expandFraction
+
+            SatsTopAppBar(
+                title = {
+                    Text(
+                        text = title,
+                        modifier = Modifier.alpha(alpha),
+                    )
+                },
+                navigationIcon = navigationIcon,
+                colors = colors?.copy(
+                    containerColor = lerp(
+                        start = colors.containerColor,
+                        stop = colors.scrolledContainerColor,
+                        fraction = alpha,
+                    ),
+                ),
+                actions = actions,
+            )
+        },
+        expandedContent = expandedContent,
+        scrollConnection = scrollConnection,
+    )
+}
+
+@Composable
+fun SatsFancyTopAppBar(
+    collapsedContent: @Composable (expandFraction: Float) -> Unit,
+    modifier: Modifier = Modifier,
+    expandedContent: @Composable () -> Unit = {},
+    scrollConnection: SatsFancyTopAppBarNestedScrollConnection? = null,
+) {
+    val expandFraction = scrollConnection?.expandFraction ?: 1f
+
+    var isStateInitializedWithSize by rememberSaveable { mutableStateOf(false) }
+
+    val draggableModifier = if (scrollConnection != null) {
+        Modifier.draggable(
+            orientation = Orientation.Vertical,
+            state = rememberDraggableState(scrollConnection::consumeScroll),
+            onDragStopped = { scrollConnection.settle() },
+        )
+    } else {
+        Modifier
+    }
+
+    val alpha = animateFloatAsState(expandFraction, label = "Disappearing alpha").value
+
+    Layout(
+        modifier = modifier then draggableModifier,
+        contents = listOf(
+            { collapsedContent(expandFraction) },
+            {
+                Box(Modifier.alpha(alpha)) {
+                    expandedContent()
+                }
+            },
+        ),
+    ) { measurables, constraints: Constraints ->
+
+        val collapsedContentMeasurable = measurables[0].first()
+        val expandedContentMeasurable = measurables[1].first()
+
+        val collapsedContentPlaceable = collapsedContentMeasurable.measure(constraints)
+        // Measure expanded composable
+        val expandedHeaderPlaceable = expandedContentMeasurable.measure(constraints)
+        // Calculate actual width and height
+        val actualWidth = constraints.maxWidth
+        val collapsedHeight = collapsedContentPlaceable.height.toFloat()
+
+        // Height of the app bar in total when expanded,
+        // We need this to make sure expanded.height >= collapsed.height
+        // Which it might not be in case the passed expanded composable has zero or smaller content
+        val expandedAppBarHeight = expandedHeaderPlaceable.height + collapsedHeight
+
+        val actualHeight = lerp(collapsedHeight, expandedAppBarHeight, expandFraction).roundToInt()
+
+        // Ensure the scroll connection knows the correct min and max sizes
+        if (!isStateInitializedWithSize) {
+            scrollConnection?.initialize(
+                collapsedHeight,
+                expandedAppBarHeight,
+            )
+            isStateInitializedWithSize = true
+        }
+
+        layout(actualWidth, actualHeight) {
+            collapsedContentPlaceable.place(
+                x = 0,
+                y = 0,
+            )
+
+            expandedHeaderPlaceable.place(
+                x = 0,
+                y = actualHeight - expandedHeaderPlaceable.height,
+            )
+        }
+    }
 }
 
 @Composable
@@ -221,6 +342,8 @@ class SatsFancyTopAppBarNestedScrollConnection internal constructor() : NestedSc
     internal var currentHeightPx: Float by mutableFloatStateOf(expandedHeightPx)
 
     val expandFraction by derivedStateOf {
+        if (expandedHeightPx - collapsedHeightPx == 0f) return@derivedStateOf 0f
+
         ((currentHeightPx - collapsedHeightPx) / (expandedHeightPx - collapsedHeightPx))
             .coerceIn(minimumValue = 0f, maximumValue = 1f)
     }
@@ -573,6 +696,53 @@ private fun SatsFancyTopAppBarTestPreview() {
                     }
                 }
             }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Preview
+@Composable
+private fun SatsCustomFancyAppBarPreview() {
+    SatsTheme {
+        SatsSurface(
+            color = SatsTheme.colors.backgrounds.fixed.primary.default.bg,
+        ) {
+            val scrollConnection = rememberSatsFancyTopAppBarNestedScrollConnection()
+
+            SatsFancyTopAppBar(
+                title = "Challenges",
+                navigationIcon = {
+                    SatsTopAppBarIconButton(
+                        onClick = {},
+                        icon = SatsIcons.Back,
+                        onClickLabel = null,
+                        tint = LocalContentColor.current,
+                    )
+                },
+                actions = {
+                    SatsTopAppBarIconButton(
+                        onClick = {},
+                        icon = SatsIcons.Share,
+                        onClickLabel = null,
+                        tint = LocalContentColor.current,
+                    )
+                },
+                expandedContent = {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(SatsTheme.spacing.s),
+                    ) {
+                        SatsChallengeBadge(
+                            imageUrl = "",
+                            contentDescription = null,
+                            modifier = Modifier.size(64.dp),
+                        )
+                        Text(text = "Sats Training day", style = SatsTheme.typography.satsHeadlineEmphasis.headline3)
+                    }
+                },
+                scrollConnection = scrollConnection,
+            )
         }
     }
 }
