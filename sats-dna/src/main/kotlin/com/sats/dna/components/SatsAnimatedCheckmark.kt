@@ -17,22 +17,30 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.clipRect
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.sats.dna.theme.SatsTheme
 
+private val fl = 1f
+
 @Composable
 fun SatsAnimatedCheckmark(modifier: Modifier = Modifier) {
-    val circleSweepAngle = remember { Animatable(0f) }
-    val tickProgress = remember { Animatable(0f) }
+    val isInPreview = LocalInspectionMode.current
+
+    val targetCircleSweepAngle = -360f
+    val targetTickProgress = 1f
+
+    val circleSweepAngle = remember { Animatable(if (isInPreview) targetCircleSweepAngle else 0f) }
+    val tickProgress = remember { Animatable(if (isInPreview) targetTickProgress else 0f) }
 
     LaunchedEffect(null) {
         circleSweepAngle.animateTo(
-            targetValue = -360f,
+            targetValue = targetCircleSweepAngle,
             animationSpec = tween(delayMillis = 200, durationMillis = 500, easing = LinearEasing),
         )
         tickProgress.animateTo(
-            targetValue = 1f,
+            targetValue = targetTickProgress,
             animationSpec = tween(delayMillis = 100, durationMillis = 500, easing = LinearEasing),
         )
     }
