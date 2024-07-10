@@ -13,7 +13,7 @@ plugins {
 
 android {
     namespace = "com.sats.dna"
-    compileSdk = 34
+    compileSdk = 35
 
     buildFeatures {
         compose = true
