@@ -71,7 +71,7 @@ android {
 
 kotlin {
     jvmToolchain {
-        languageVersion = JavaLanguageVersion.of(11)
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
