@@ -1,8 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -54,9 +51,6 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-
         isCoreLibraryDesugaringEnabled = true
     }
 
@@ -65,14 +59,16 @@ android {
     }
 }
 
-tasks.withType<KotlinCompile>().configureEach {
+kotlin {
     compilerOptions {
-        jvmTarget.set(JvmTarget.JVM_11)
-
         freeCompilerArgs.addAll(
             "-Xcontext-receivers",
             "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
         )
+    }
+
+    jvmToolchain {
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
