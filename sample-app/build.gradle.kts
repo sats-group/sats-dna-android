@@ -3,6 +3,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose.compiler)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlinter)
 }
@@ -10,10 +11,6 @@ plugins {
 android {
     namespace = "com.sats.dna.sample"
     compileSdk = 34
-
-    buildFeatures {
-        compose = true
-    }
 
     defaultConfig {
         minSdk = 24
@@ -54,8 +51,8 @@ android {
         isCoreLibraryDesugaringEnabled = true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    composeCompiler {
+        enableStrongSkippingMode = true
     }
 }
 
